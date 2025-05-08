@@ -1,5 +1,10 @@
-site_name: DevOps Tutorials
-theme: material
+site_name: DevopsPilot
+site_url: https://devopspilot1.github.io/
+theme:
+  name: material
+  palette:
+    scheme: default
+    primary: green
 
 nav:
   - Home: index.md
