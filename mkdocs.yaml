@@ -1,0 +1,45 @@
+site_name: DevOps Tutorials
+theme: material
+
+nav:
+  - Home: index.md
+  - Git:
+    - Introduction: git/01-what-is-git.md
+  # - Linux:
+  #   - Basics: linux/basics.md
+  #   - Essential Commands: linux/commands.md
+  # - Docker:
+  #   - Getting Started: docker/introduction.md
+  #   - Dockerfile Commands: docker/commands.md
+  # - Kubernetes:
+  #   - Overview: kubernetes/overview.md
+  #   - Core Concepts: kubernetes/concepts.md
+  # - Jenkins:
+  #   - Installation and Setup: jenkins/setup.md
+  #   - Basic Pipelines: jenkins/pipelines.md
+  # - Terraform:
+  #   - Introduction to IaC: terraform/introduction.md
+  #   - Core Concepts: terraform/basics.md
+
+# markdown_extensions:
+#   - admonition
+#   - codehilite:
+#       guess_lang: false
+#   - footnotes
+#   # - pymdownx.arithmatex:
+#   #     generic: true
+#   - pymdownx.critic
+#   - pymdownx.details
+#   - pymdownx.emoji:
+#       emoji_generator: !!python/name:pymdownx.emoji.to_svg
+#   - pymdownx.inlinehilite
+#   - pymdownx.mark
+#   - pymdownx.smartsymbols
+#   - pymdownx.tabbed:
+#       alternate_style: true
+#   - pymdownx.tasklist:
+#       custom_checkbox: true
+#   - pymdownx.tilde
+
+plugins:
+  - search

@@ -1,0 +1,40 @@
+# MkDocs and Material for MkDocs
+mkdocs==1.5.3
+mkdocs-material==9.5.14
+
+# Markdown extensions (as specified in the mkdocs.yaml)
+# pymdownx==10.6
+
+#Pymdown Extensions
+# pymdownx.arithmatex==10.6
+# pymdownx.caret==10.6
+# pymdownx.critic==10.6
+# pymdownx.details==10.6
+# pymdownx.emoji==10.6
+# pymdownx.inlinehilite==10.6
+# pymdownx.mark==10.6
+# pymdownx.smartsymbols==10.6
+# pymdownx.tabbed==10.6
+# pymdownx.tasklist==10.6
+# pymdownx.tilde==10.6
+
+
+# Other extensions (included in mkdocs.yaml)
+# These are often bundled with pymdownx, but if you encounter
+# "ModuleNotFoundError" for any of these, uncomment them.
+# pymdownx.superfences==10.6
+
+# Explanation:
+# While 'mkdocs' and 'mkdocs-material' are the core dependencies, the other packages listed here are
+# essential for the functionality you've configured in your mkdocs.yaml file.
+#
+# - pymdownx.*: These are Markdown extensions that add extra features like mathematical expressions,
+#   tables, and other formatting options.  If these are not installed, your MkDocs build might
+#   fail or not render correctly if your Markdown files use these features.
+#
+# So, to ensure your MkDocs site builds correctly with all the features you've specified,
+# it's important to include all the packages from the Canvas in your requirements.txt.
+#
+# You *could* have a minimal requirements.txt with just 'mkdocs' and 'mkdocs-material' and then
+# install the other packages separately, but including them all in requirements.txt ensures
+# a consistent and reproducible setup.
