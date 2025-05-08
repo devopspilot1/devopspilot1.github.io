@@ -24,12 +24,18 @@ nav:
     - Part 3: shellscript/part-3.md
     - Part 4: shellscript/part-4.md
   - Git:
-    - How to create github account: how-to-create-github-account.md
-    - How to install git in linux: how-to-install-git-in-linux.md
-    - How to create public repository in github: how-to-create-public-repository-in-github.md
-    - How to clone the github public repository: how-to-clone-the-public-repository.md
-    - How to create private repository: how-to-create-private-repository.md
-    - How to push the changes to github repository: how-to-push-the-changes-to-github-repository.md
+    - How to create github account: git/how-to-create-github-account.md
+    - How to install git in linux: git/how-to-install-git-in-linux.md
+    - How to create public repository in github: git/how-to-create-public-repository-in-github.md
+    - How to clone the github public repository: git/how-to-clone-the-public-repository.md
+    - How to create private repository: git/how-to-create-private-repository.md
+    - How to push the changes to github repository: git/how-to-push-the-changes-to-github-repository.md
+  - Maven:
+    - How to install Java and compile a single Java file:
+    - How to install Maven in Linux:
+    - What is Maven?: maven/install-maven.md
+    - Generate a sample java application using maven:
+    - How to create a GitHub repository and push a Hello World Java 21 Maven Project:
 
 # markdown_extensions:
 #   - admonition
