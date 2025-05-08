@@ -9,23 +9,8 @@ theme:
 
 nav:
   - Home: index.md
-  - Git:
-    - Introduction: git/01-what-is-git.md
-  # - Linux:
-  #   - Basics: linux/basics.md
-  #   - Essential Commands: linux/commands.md
-  # - Docker:
-  #   - Getting Started: docker/introduction.md
-  #   - Dockerfile Commands: docker/commands.md
-  # - Kubernetes:
-  #   - Overview: kubernetes/overview.md
-  #   - Core Concepts: kubernetes/concepts.md
-  # - Jenkins:
-  #   - Installation and Setup: jenkins/setup.md
-  #   - Basic Pipelines: jenkins/pipelines.md
-  # - Terraform:
-  #   - Introduction to IaC: terraform/introduction.md
-  #   - Core Concepts: terraform/basics.md
+  - Linux Commands:
+    - Part 1: git/01-what-is-git.md
 
 # markdown_extensions:
 #   - admonition
