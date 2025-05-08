@@ -31,11 +31,11 @@ nav:
     - How to create private repository: git/how-to-create-private-repository.md
     - How to push the changes to github repository: git/how-to-push-the-changes-to-github-repository.md
   - Maven:
-    - How to install Java and compile a single Java file:
-    - How to install Maven in Linux:
-    - What is Maven?: maven/install-maven.md
-    - Generate a sample java application using maven:
-    - How to create a GitHub repository and push a Hello World Java 21 Maven Project:
+    - How to install Java and compile a single Java file: maven/install-java-compile.md
+    - How to install Maven in Linux: maven/install-maven.md
+    - What is Maven?: maven/what-is-maven.md
+    - Generate a sample java application using maven: maven/generate-a-sample-java-application-using-maven.md
+    - How to create a GitHub repository and push a Hello World Java 21 Maven Project: maven/how-to-create-a-github-repository-and-push-a-sample-java-maven-project.md
 
 # markdown_extensions:
 #   - admonition
