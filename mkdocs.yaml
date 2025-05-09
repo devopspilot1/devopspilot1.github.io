@@ -3,6 +3,7 @@ site_url: https://devopspilot1.github.io/
 theme:
   name: material
   logo: assets/logo.png
+  favicon: assets/favicon.ico
   palette:
     scheme: default
     primary: green
