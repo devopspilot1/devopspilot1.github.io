@@ -4,6 +4,8 @@ theme:
   name: material
   logo: assets/logo.png
   favicon: assets/favicon.ico
+  extra_css:
+    - stylesheets/extra.css
   palette:
     scheme: default
     primary: green

@@ -68,7 +68,4 @@ It prints `Hello World!`
 ![Maven](../images/maven-target-execution.png)
 
 ### Reference
-
-- [How to install Maven](/index.php/maven/20-install-maven)
-
 - [Official Documentation](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)
