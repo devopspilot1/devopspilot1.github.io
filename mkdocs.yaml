@@ -41,12 +41,103 @@ nav:
     - How to clone the github public repository: git/how-to-clone-the-public-repository.md
     - How to create private repository: git/how-to-create-private-repository.md
     - How to push the changes to github repository: git/how-to-push-the-changes-to-github-repository.md
-  - Maven:
-    - How to install Java and compile a single Java file: maven/install-java-compile.md
-    - How to install Maven in Linux: maven/install-maven.md
-    - What is Maven?: maven/what-is-maven.md
-    - Generate a sample java application using maven: maven/generate-a-sample-java-application-using-maven.md
-    - How to create a GitHub repository and push a Hello World Java 21 Maven Project: maven/how-to-create-a-github-repository-and-push-a-sample-java-maven-project.md
+  - Build Tools:
+    - Maven:
+      - How to install Java and compile a single Java file: maven/install-java-compile.md
+      - How to install Maven in Linux: maven/install-maven.md
+      - What is Maven?: maven/what-is-maven.md
+      - Generate a sample java application using maven: maven/generate-a-sample-java-application-using-maven.md
+      - How to create a GitHub repository and push a Hello World Java 21 Maven Project: maven/how-to-create-a-github-repository-and-push-a-sample-java-maven-project.md
+  - Web Server:
+    - Nginx:
+      - How to install nginx in Linux: 
+    - Tomcat:
+      - How to install Tomcat:
+      - How to manually deploy the java application to Tomcat 9 webserver:
+      - How to deploy the java application to Tomcat 9 webserver using Maven:
+  - Jenkins:
+    - Tutorials:
+      - How to install Jenkins with Java 21 on Ubuntu 24.04:
+      - How to complete the initial setup after installing Jenkins:
+      - How to create a Freestyle project in Jenkins to build a Maven Java project:
+      - How to install the Maven plugin in Jenkins:
+      - How to install Maven using Jenkins Tools:
+      - How to create a Maven project in Jenkins to build a Maven Java project:
+      - How to store a Github Token safely in Jenkins Credentials:
+      - How to create a Maven project in Jenkins with Private Github Repository:
+      - How to create a Pipeline in Jenkins using Pipeline Script:
+      - How to write a Jenkinsfile:
+      - How to create a Pipeline in Jenkins using Jenkinsfile:
+      - Jenkinsfile to build a Java Maven Project:
+      - How to use the tools block in Jenkinsfile to refer to Maven:
+      - How to enable GitHub Webhook to trigger the Jenkins pipeline:
+      - Jenkinsfile to trigger the Jenkins Pipeline using Poll SCM:
+      - Jenkinsfile to trigger the Jenkins Pipeline using Cron:
+      - Jenkinsfile to trigger the Pipeline from the Upstream Pipeline:
+      - Jenkinsfile to trigger other Jenkins Pipeline from the stage:
+      - Generate the code for Jenkinsfile using Declarative Directive Generator:
+      - How to Replay the Jenkins Pipeline:
+      - How to use Options in Jenkinsfile:
+    - Configuration:
+      - How to install plugins in Jenkins: jenkins/configuration/how-to-install-plugins.md
+      - Global Tool Configurations: jenkins/configuration/global-tool-configurations.md
+      - How to store credentials in Jenkins: jenkins/configuration/how-to-store-credentials-in-jenkins.md
+      - How to restore deleted job in Jenkins: jenkins/configuration/how-to-restore-deleted-job.md
+    - Pipelines:
+      - How to create pipeline job in Jenkins:
+      - How to write a Jenkinsfile to build a Maven project:
+      - How to write a Jenkinsfile to build a Maven project and deploy to Apache Tomcat webserver:
+      - How to write a Jenkinsfile to build a Maven project, build and push docker image to Dockerhub and deploy the container to same server:
+      - How to write a Jenkinsfile to build a Maven project, build and push docker image to Jfrog artifactory and deploy the container to same server:
+    - Other Topics:
+      - How to create a Job automatically using Seed Jenkins plugin and Job DSL script: other-topics/how-to-create-a-job-automatically-using-jobdsl.md
+  - Docker:
+    - Tutorials:
+      - What is Docker: tutorials/what-is-docker.md
+      - How to install docker: tutorials/how-to-install-docker.md
+      - Docker Images vs Docker Containers: tutorials/docker-images-vs-containers.md
+      - Create docker image for nginx and html file: tutorials/create-docker-image-nginx-html.md
+      - Pull nginx docker image from dockerhub, tag and push to your public repo in dockerhub account: tutorials/pull-push-docker-image-to-public-repository.md
+      - Pull nginx docker image from dockerhub, tag and push to your private repository in dockerhub account: tutorials/pull-push-docker-image-to-private-repository.md
+    - Dockerfile:
+      - How to write Dockerfile for installing packages: dockerfiles/create-dockerfile-to-install-packages.md
+      - How to write a dockerfile for installing openjdk15: dockerfiles/create-a-dockerfile-for-installing-openjdk15.md
+      - How to create a multi stage Dockerfile: dockerfiles/create-multi-stage-dockerfile.md
+      - How to write a dockerfile for running a java application (*.war) in Apache tomcat webserver: dockerfiles/how-to-write-a-dockerfile-for-running-war-file-in-tomcat.md
+  - Sonarqube:
+    - How to integrate Sonarqube Quality Gate in Jenkins Pipeline:
+  - Artifactory:
+    - How to create free account in Jfrog artifactory cloud:
+  - K8s:
+    - How to install/uninstall cert-manager in kubernetes:
+    - How to install Nginx Ingress controller in kubernetes:
+  - Helm:
+    - Helm Chart Basics:
+    - Helm commands:
+  - Terraform:
+    - AWS:
+      - Terraform script to create AWS Codebuild project:
+      - Terraform script to create AWS Codedeploy:
+      - Terraform script to create AWS Codepipeline:
+  - SSL:
+    - How to configure free Let’s Encrypt SSL/TLS Certificates with NGINX and auto renew certificates:
+    - How to configure free single Let’s Encrypt SSL/TLS Certificate with NGINX for multiple subdomains and auto renew certificate:
+    - How to configure free single Let’s Encrypt SSL/TLS wildcard Certificate with Nginx:
+    - How to generate self signed certificate using openssl:
+  - Helm:
+    - Basics: helm/basics.md
+    - Commands: helm/commands.md
+  - Interview Questions:
+    - Linux commands Interview Questions: interview-questions/linux-commands.md
+    - Git Interview Questions: interview-questions/git.md
+    - Maven Interview Questions: interview-questions/
+    - Jenkins Interview Questions: interview-questions/
+    - Docker Interview Questions: interview-questions/docker.md
+    - Kubernetes Interview Question: interview-questions/
+    - Helm Interview Questions: interview-questions/helm.md
+    - Ansible Interview Questions: interview-questions/ansible.md
+    - AWS Interview Questions: interview-questions/
+    - Terraform Interview Questions: interview-questions/
 
 # markdown_extensions:
 #   - admonition
