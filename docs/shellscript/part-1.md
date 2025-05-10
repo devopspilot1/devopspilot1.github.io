@@ -5,7 +5,7 @@ date: 2024-07-01
 
 ### Youtube
 
-[![Shellscript part-1](images/part-1-1.png)](https://www.youtube.com/watch?v=Ou9wESB2gDg)
+[![Shellscript part-1](../images/shellscript-part-1.png)](https://www.youtube.com/watch?v=Ou9wESB2gDg)
 
 In simple term, shell script is putting the linux commands in a file and executing the file. The commands will be executed in sequential order.
 

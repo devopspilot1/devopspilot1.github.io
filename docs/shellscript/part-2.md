@@ -5,7 +5,7 @@ date: 2024-07-01
 
 ### Youtube
 
-[![Shellscript part-2](images/part-2-1.png)](https://www.youtube.com/watch?v=GIk1wW7Y-uo)
+[![Shellscript part-2](../images/shellscript-part-2.png)](https://www.youtube.com/watch?v=GIk1wW7Y-uo)
 
 ### What is for loop ?
 

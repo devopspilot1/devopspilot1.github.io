@@ -5,7 +5,7 @@ date: 2024-07-01
 
 ### Youtube
 
-[![Shellscript part-3](images/part-3.png)](https://www.youtube.com/watch?v=DipqrRNJX1c)
+[![Shellscript part-3](../images/shellscript-part-3.png)](https://www.youtube.com/watch?v=DipqrRNJX1c)
 
 ### What is while loop ?
 

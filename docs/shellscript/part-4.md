@@ -5,7 +5,7 @@ date: 2024-07-01
 
 ### Youtube
 
-[![Shellscript part-4](images/part-4.png)](https://www.youtube.com/watch?v=NAm9xUOTubU)
+[![Shellscript part-4](../images/shellscript-part-4.png)](https://www.youtube.com/watch?v=NAm9xUOTubU)
 
 ### What is function ?
 

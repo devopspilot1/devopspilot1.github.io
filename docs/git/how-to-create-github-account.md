@@ -9,7 +9,7 @@ GIT stands for Global Information Tracker
 
 It is a powerful and widely-used version control system commonly used for software development and other collaborative projects
 
-![Git](images/central-repository.png)
+![Git](../images/central-repository.png)
 
 The model here is pull and push
 
@@ -31,18 +31,18 @@ Go to [https://github.com](https://github.com)
 
 Click on `Signup`
 
-![git](images/git-github-com-1.png)
+![git](../images/git-github-com-1.png)
 
 Enter the `email id`, `password`, `username` verify the puzzle and click on `Create account` then you will recieve verification mail with link in your inbox.
 
-![git](images/git-github-signup1.png)
+![git](../images/git-github-signup1.png)
 
-![git](images/git-github-signup2.png)
+![git](../images/git-github-signup2.png)
 
-![git](images/git-github-signup3.png)
+![git](../images/git-github-signup3.png)
 
 Click on the link received on your mail for complete the email verification. Once the email verification is completed, login to [https://github.com](https://github.com)
 
 ### Youtube
 
-[![Git part-1](images/part-1.png)](https://www.youtube.com/watch?v=kvqHSStbgfU)
+[![Git part-1](../images/part-1.png)](https://www.youtube.com/watch?v=kvqHSStbgfU)
