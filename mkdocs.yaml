@@ -4,7 +4,6 @@ theme:
   name: material
   logo: assets/logo.png
   favicon: assets/favicon.ico
-  copyright: DevopsPilot
   palette:
     scheme: default
     primary: green
@@ -14,10 +13,14 @@ theme:
     - navigation.tabs.sticky
     - navigation.path
     - navigation.top
-extra:
-  generator: false
+    - navigation.footer
+copyright: DevopsPilot
 extra_css:
   - stylesheets/extra.css
+extra:
+  social:
+    - icon: fontawesome/brands/mastodon 
+      link: https://fosstodon.org/@squidfunk
 
 nav:
   - Linux Commands:
