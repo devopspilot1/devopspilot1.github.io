@@ -14,10 +14,13 @@ theme:
     - navigation.tabs.sticky
     - navigation.path
     - navigation.top
+    - navigation.footer
 extra:
   generator: false
 extra_css:
   - stylesheets/extra.css
+footer:
+  - '© 2021 - 2025 DevopsPilot'
 
 nav:
   - Linux Commands:
