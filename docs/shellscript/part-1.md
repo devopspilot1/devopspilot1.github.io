@@ -139,7 +139,6 @@ ORACLE_SUPPORT_PRODUCT_VERSION=7.9
 ```
 
 ### What is shebang
-
 Shebang (#!) is a special line at the beginning of a script that tells the operating system which interpreter to use when executing the script
 
 ```
