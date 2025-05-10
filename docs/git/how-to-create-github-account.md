@@ -45,4 +45,4 @@ Click on the link received on your mail for complete the email verification. Onc
 
 ### Youtube
 
-[![Git part-1](../images/part-1.png)](https://www.youtube.com/watch?v=kvqHSStbgfU)
+[![Git part-1](../images/git-part-1.png)](https://www.youtube.com/watch?v=kvqHSStbgfU)

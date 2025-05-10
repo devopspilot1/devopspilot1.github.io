@@ -37,4 +37,4 @@ Lets generate the token
 
 ### Youtube
 
-[![Git part-2](../images/part-2.png)](https://www.youtube.com/watch?v=LvlXQA5V1n0)
+[![Git part-2](../images/git-part-2.png)](https://www.youtube.com/watch?v=LvlXQA5V1n0)

@@ -218,4 +218,4 @@ After clicking on one commit, you can see the changes made in the commit
 
 ### Youtube
 
-[![Git part-1](../images/part-1.png)](https://www.youtube.com/watch?v=kvqHSStbgfU)
+[![Git part-1](../images/git-part-1.png)](https://www.youtube.com/watch?v=kvqHSStbgfU)

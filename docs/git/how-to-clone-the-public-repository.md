@@ -17,4 +17,4 @@ Now you have successfully cloned the repository to your local computer.
 
 ### Youtube
 
-[![Git part-1](../images/part-1.png)](https://www.youtube.com/watch?v=kvqHSStbgfU)
+[![Git part-1](../images/git-part-1.png)](https://www.youtube.com/watch?v=kvqHSStbgfU)
