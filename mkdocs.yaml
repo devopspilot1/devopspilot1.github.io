@@ -4,7 +4,7 @@ theme:
   name: material
   logo: assets/logo.png
   favicon: assets/favicon.ico
-  copyright: © DevopsPilot 2021-2025
+  copyright: &copy; 2021-2025 DevopsPilot
   palette:
     scheme: default
     primary: green
@@ -14,6 +14,7 @@ theme:
     - navigation.tabs.sticky
     - navigation.path
     - navigation.top
+    - navigation.footer
 extra_css:
   - stylesheets/extra.css
 
