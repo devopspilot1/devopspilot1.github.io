@@ -1,15 +1,15 @@
 /* Base styles (apply to all screen sizes unless overridden) */
 .md-content {
   /* Keep or adjust the default padding or set your preferred base padding */
-  padding-left: 2rem !important;
-  padding-right: 2rem !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
 }
 
 .md-grid {
   /* Adjust max-width if needed for the overall content width */
   max-width: 1200px !important; /* Example max width */
-  padding-left: 2rem !important;
-  padding-right: 2rem !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
   margin: 0 auto !important; /* Center the content if you have a max-width */
 }
 
@@ -40,11 +40,11 @@
 /* Styles for larger screens (if you want to adjust beyond the base) */
 @media screen and (min-width: 1201px) {
   .md-content {
-    padding-left: 3rem !important;
-    padding-right: 3rem !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
   }
   .md-grid {
-    padding-left: 3rem !important;
-    padding-right: 3rem !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
   }
 }
