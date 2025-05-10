@@ -14,13 +14,9 @@ theme:
     - navigation.path
     - navigation.top
     - navigation.footer
-copyright: DevopsPilot
+copyright:  &copy; 2021 - 2025 DevopsPilot
 extra_css:
   - stylesheets/extra.css
-extra:
-  social:
-    - icon: fontawesome/brands/mastodon 
-      link: https://fosstodon.org/@squidfunk
 
 nav:
   - Linux Commands:
