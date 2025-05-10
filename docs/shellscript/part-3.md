@@ -13,7 +13,7 @@ While loop is a control flow statement that allows code or commands to be execut
 
 The while loop continues to run till the condition is true, once the condition becomes false, it comes out of the loop
 
-![While loop](images/while.png)
+![While loop](../images/while.png)
 
 ### Conditions symbol/syntax
 
@@ -300,7 +300,7 @@ total 12
 
 when we set/hardcode the condition to true, the while loop continuously runs and it will not stop
 
-![While loop](images/while-infinite-loop.png)
+![While loop](../images/while-infinite-loop.png)
 
 To come out of the while loop, you have to run `break` command inside the while loop based on requirement to break the loop
 
@@ -353,7 +353,7 @@ done
            └─22421 /usr/sbin/httpd -DFOREGROUND
 ```
 
-![While loop](images/breaking-while-loop.png)
+![While loop](../images/breaking-while-loop.png)
 
 Here i have opened 2 terminals, in the first terminal, I execute the script.
 

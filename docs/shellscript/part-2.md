@@ -11,7 +11,7 @@ date: 2024-07-01
 
 for loop is used to repeat the task until the limit is reached or iterate through the items
 
-![For loop](images/for.png)
+![For loop](../images/for.png)
 
 In the above diagram `{1..5}` changes to `1,2,3,4,5` which means the for loop is going to repeat the command execution 5 times.
 
@@ -145,7 +145,7 @@ When we `cat` the first file, it has the timestamp, which we have written to the
 
 Array is a collection of items
 
-![array](images/array.png)
+![array](../images/array.png)
 
 ### Check the size of multiple directory using for loop
 
@@ -312,7 +312,7 @@ We had only one "\*.gz" file, which is also more than 1KB, so it got deleted
 
 ### for loop inside another for loop
 
-![For loop inside for loop](images/for-for-1.png)
+![For loop inside for loop](../images/for-for-1.png)
 
 ### How to delete files in multiple folders having multiple file extensions
 
