@@ -13,7 +13,7 @@ After installation if we directly try to access the web application manager, it 
 
 Access the manger application by [http://your-ip-address:8080/manager](http://your-ip-address:8080/manager) in browser
 
-![tomcat](../images/tomcat-manger-login.png)
+![tomcat](../../images/tomcat-manger-login.png)
 
 To create users in Tomcat, open the file **/var/lib/tomcat9/conf/tomcat-users.xml**
 
@@ -31,7 +31,7 @@ Here we have defined two roles **admin-gui** **manager-gui** and created user **
   <user username="admin" password="admin" roles="admin-gui,manager-gui"/>
 ```
 
-![tomcat](../images/tomcat-users-xml.png)
+![tomcat](../../images/tomcat-users-xml.png)
 
 Then restart the tomcat9
 
@@ -41,7 +41,7 @@ sudo systemctl restart tomcat9
 
 Now go to you browser and type [http://your-ip-address:8080/manager](http://your-ip-address:8080/manager) enter username and password, you will see the tomcat manager GUI
 
-![tomcat](../images/tomcat-manager-gui.png)
+![tomcat](../../images/tomcat-manager-gui.png)
 
 Now to deploy the java web application to tomcat, we have to compile the Java code and package it to .war file extension type.
 
@@ -55,7 +55,7 @@ If you are using **Ubuntu** machine, you can easily install git and maven using 
 sudo apt install -y git maven
 ```
 
-![tomcat](../images/tomcat-install-git-maven.png)
+![tomcat](../../images/tomcat-install-git-maven.png)
 
 Now we can clone the **hello-world** project from Github
 
@@ -63,7 +63,7 @@ Now we can clone the **hello-world** project from Github
 git clone https://github.com/vigneshsweekaran/hello-world.git
 ```
 
-![tomcat](../images/tomcat-manually-git-clone.png)
+![tomcat](../../images/tomcat-manually-git-clone.png)
 
 Go inside hello-world folder
 
@@ -77,11 +77,11 @@ Now we can run the maven commands to compile the Java code and package it to .wa
 mvn clean package
 ```
 
-![tomcat](../images/tomcat-mvn-clean-package.png)
+![tomcat](../../images/tomcat-mvn-clean-package.png)
 
 After compilation, the **hello-world.war** file is generated in **target** folder
 
-![tomcat](../images/tomcat-target-folder.png)
+![tomcat](../../images/tomcat-target-folder.png)
 
 Now we have our artifact **hello-world.war** in **/home/ubuntu/hello-world/target** folder
 
@@ -93,15 +93,15 @@ Since we have our **hello-world.war** file in the same server. We will use this 
 
 Enter **/hello-world** in the **Context Path:** feild and war file absolute path /home/ubuntu/hello-world/target/hello-world.war in **WAR or Directory path:** feild
 
-![tomcat](../images/tomcat-deploy-war-gui.png)
+![tomcat](../../images/tomcat-deploy-war-gui.png)
 
 Now we can verify the deployment by checking the list in **Applications** section.
 
-![tomcat](../images/tomcat-deployed-gui.png)
+![tomcat](../../images/tomcat-deployed-gui.png)
 
 Now we can access the deployed application from browser by [http://your-ip-address:8080/hello-world](http://your-ip-address:8080/hello-world)
 
-![tomcat](../images/tomcat-hello-world-context.png)
+![tomcat](../../images/tomcat-hello-world-context.png)
 
 Hurray!! we have succesfully deployed the java web application manually to Tomcat 9 using Manager GUI
 

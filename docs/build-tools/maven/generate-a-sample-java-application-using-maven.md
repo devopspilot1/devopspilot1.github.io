@@ -11,7 +11,7 @@ Run the following command to generate the sample java application
 mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
 ```
 
-![Maven](../images/maven-generate-command.png)
+![Maven](../../images/maven-generate-command.png)
 
 After executing the above command it will generate some java files in my-app folder
 
@@ -23,7 +23,7 @@ While executing the tree command if you get error like `tree command not found`,
 sudo apt install tree -y
 ```
 
-![Maven](../images/maven-generated-files.png)
+![Maven](../../images/maven-generated-files.png)
 
 It has generated one pom.xml file and some java files in `src folder`. Inside `src` folder it has two important folders `main` and `test`.
 
@@ -37,7 +37,7 @@ The pom.xml file is the core of a project's configuration in Maven. It is a sing
 
 In the `pom.xml` file developers will define the necessary `dependencies` and `plugins` which has to be downloaded from maven remote repository. And the final artifact name, version and packaging type.
 
-![Maven](../images/maven-pom-dependencies.png)
+![Maven](../../images/maven-pom-dependencies.png)
 
 To build, test and package the java application, run the below command.
 
@@ -45,7 +45,7 @@ To build, test and package the java application, run the below command.
 mvn package
 ```
 
-![Maven](../images/maven-package.png)
+![Maven](../../images/maven-package.png)
 
 After executing the `mvn package` command it will download the defined dependencies from maven remote repository, then compile the code, test the code and package the compiled code to `jar` package type.
 
@@ -65,7 +65,7 @@ java -cp my-app-1.0-SNAPSHOT.jar com.mycompany.app.App
 
 It prints `Hello World!`
 
-![Maven](../images/maven-target-execution.png)
+![Maven](../../images/maven-target-execution.png)
 
 ### Reference
 - [Official Documentation](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)

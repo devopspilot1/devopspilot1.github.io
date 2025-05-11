@@ -37,19 +37,19 @@ Create a Jenkins Pipeline named **06-hello-world-trigger-cron** referring to y
 
 Click on **Configure**
 
-![](../images/jenkins-hw-j-configure.png)
+![](../../images/jenkins-hw-j-configure.png)
 
 Under **Build Triggers** enable the **Build periodically**, under the **Schedule** section enter your required cron expression and click on **Save**
 
 I have entered **55 12 \* \* \*** which will trigger the Jenkins pipeline at **12 55 PM daily**
 
-![](../images/jenkins-hw-j-06-cron-1024x432.png)
+![](../../images/jenkins-hw-j-06-cron-1024x432.png)
 
 Wait for the scheduled time and the pipeline will be triggered automatically
 
 Check the Console output logs, it printed **Started by timer**
 
-![](../images/jenkins-hw-j-06-cron-triggered-1024x252.png)
+![](../../images/jenkins-hw-j-06-cron-triggered-1024x252.png)
 
 ### Enabling Cron from Jenkinsfile
 
@@ -57,7 +57,7 @@ Previously you have enabled the **Build periodically** from **Jenkins Pipelin
 
 Uncheck the option **Build periodically** from Pipeline and click on Save
 
-![](../images/jenkins-hw-06-cron-uncheck.png)
+![](../../images/jenkins-hw-06-cron-uncheck.png)
 
 Let’s enable it from Jenkinfile
 
@@ -111,7 +111,7 @@ index 0e3fd6f..24c5856 100644
 
 **Build** the pipeline, and check the pipeline configuration now **Build periodically** option should be enabled
 
-![](../images/jenkins-hw-j-06-cron-enabled-1024x435.png)
+![](../../images/jenkins-hw-j-06-cron-enabled-1024x435.png)
 
 ### Reference:
 

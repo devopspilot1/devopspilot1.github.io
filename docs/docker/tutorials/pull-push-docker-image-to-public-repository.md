@@ -75,7 +75,7 @@ latest: digest: sha256:73e957703f1266530db0aeac1fd6a3f87c1e59943f4c13eb340bb8521
 
 Now vigneshsweekaran/nginx:latest docker image is pushed to your dockerhub account public repository
 
-![Server-detail](../images/acc-nginx-public.png)
+![Server-detail](../../images/acc-nginx-public.png)
 
 ### Delete all the images locally
 

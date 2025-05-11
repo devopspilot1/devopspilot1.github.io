@@ -7,13 +7,13 @@ date: 2024-07-08
 
 Goto Jenkins dashboard, click on **New Item**
 
-![](../images/jenkins-dashboard-new-item-1024x584.png)
+![](../../images/jenkins-dashboard-new-item-1024x584.png)
 
 Enter the Maven project name **hello-world-maven-project**, select **Maven project,** and then click **OK**
 
 Install the Maven Integration plugin to see the Maven project option.
 
-![](../images/jenkins-maven-project-create-1024x586.png)
+![](../../images/jenkins-maven-project-create-1024x586.png)
 
 Select **Source Code Management** -> **Git** Enter your Public GitHub repository https URL where you have the Maven Java Project
 
@@ -21,13 +21,13 @@ If you do not have a sample Java code, follow these steps to create one
 
 [How to create a GitHub repository and push a sample Java 21 Maven Project](https://devopspilot.com/maven/how-to-create-a-github-repository-and-push-a-sample-java-maven-project/)
 
-![](../images/jenkins-maven-project-scm-1024x586.png)
+![](../../images/jenkins-maven-project-scm-1024x586.png)
 
 Click on **Build**, under **Goals and options** enter **`clean package`** command and then click on **Save**
 
 Since this is a Maven project, there is no need to put **`mvn`** command, only maven goal **`clean package`** is sufficient
 
-![](../images/jenkins-maven-project-goal.png)
+![](../../images/jenkins-maven-project-goal.png)
 
 Now click on **Build Now** to build the Maven project  
 Goto **Console Output**
@@ -36,7 +36,7 @@ Here you can see, that it's downloading the Apache maven zip file **apache-maven
 
 All the Tools defined are downloaded on the first build and stored in a path **/var/lib/jenkins/tools**
 
-![](../images/jenkins-maven-project-co-begin-1024x585.png)
+![](../../images/jenkins-maven-project-co-begin-1024x585.png)
 
 You can verify the Maven files downloaded in the Jenkins server
 
@@ -70,8 +70,8 @@ root@jenkins-test:/var/lib/jenkins/tools/hudson.tasks.Maven_MavenInstallation/ma
 
 Then it executes the maven goal you passed **`clean package`**
 
-![](../images/jenkins-maven-project-build-1024x429.png)
+![](../../images/jenkins-maven-project-build-1024x429.png)
 
 Once the build is completed, the war file is created in Maven project Workspace **/var/lib/jenkins/workspace/hello-world-maven-project/target/hello-world-1.0-SNAPSHOT.war**
 
-![](../images/jenkins-maven-project-build-success-1024x503.png)
+![](../../images/jenkins-maven-project-build-success-1024x503.png)

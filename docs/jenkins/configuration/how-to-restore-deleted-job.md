@@ -15,24 +15,24 @@ date: 2024-07-01
 
 Lets delete a job first
 
-![Jenkins](../images/jenkins-delete-job.png)
+![Jenkins](../../images/jenkins-delete-job.png)
 
 Go to Jenkins Homepage/Dashboard --> click on `Job Config History`
 
-![Jenkins](../images/jenkins-dashboard-job-config-history.png)
+![Jenkins](../../images/jenkins-dashboard-job-config-history.png)
 
 Click on `Show deleted jobs only` and click on restore icon next to the Job name
 
-![Jenkins](../images/jenkins-job-config-history.png)
+![Jenkins](../../images/jenkins-job-config-history.png)
 
-![Jenkins](../images/jenkins-restore-project.png)
+![Jenkins](../../images/jenkins-restore-project.png)
 
 Now Job is restored but not enabled to run the pipeline
 
 Click on `Enbale` to enable the restored job
 
-![Jenkins](../images/jenkins-enable-job.png)
+![Jenkins](../../images/jenkins-enable-job.png)
 
 Now pipeline is fully enabled and we can run the pipeline now.
 
-![Jenkins](../images/jenkins-job-enabled.png)
+![Jenkins](../../images/jenkins-job-enabled.png)

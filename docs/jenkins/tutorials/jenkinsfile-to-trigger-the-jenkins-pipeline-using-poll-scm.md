@@ -45,7 +45,7 @@ Create a Jenkins Pipeline named **05-hello-world-trigger-pollscm** referring t
 
 Click on **Configure**
 
-![](../images/jenkins-hw-j-configure.png)
+![](../../images/jenkins-hw-j-configure.png)
 
 Under **Build Triggers** enable the **Poll SCM**, under **Schedule** enter **`* * * * *`** and click on **Save**
 
@@ -53,21 +53,21 @@ Under **Build Triggers** enable the **Poll SCM**, under **Schedule** enter **
 
 H/2 \* \* \* \* -> Every 2 Minute
 
-![](../images/jenkins-hw-j-05-enable-poll-1024x804.png)
+![](../../images/jenkins-hw-j-05-enable-poll-1024x804.png)
 
 Make a change in ****05-hello-world-trigger-pollscm**** or any File, and **commit the changes**, so that Jenkins can detect the changes and trigger the pipeline
 
 Change the stage name to **Build Maven** and commit the changes
 
-![](../images/jenkins-hw-j-05-commit-change-1024x755.png)
+![](../../images/jenkins-hw-j-05-commit-change-1024x755.png)
 
 Wait for a minute, the pipeline should be triggered automatically
 
-![](../images/jenkins-hw-j-logs-1024x233.png)
+![](../../images/jenkins-hw-j-logs-1024x233.png)
 
 You can check the **Polling logs** from here
 
-![](../images/jenkins-hw-j-05-polling-log-1024x520.png)
+![](../../images/jenkins-hw-j-05-polling-log-1024x520.png)
 
 #### Enabling Poll SCM from Jenkinsfile
 
@@ -77,7 +77,7 @@ Previously you have enabled the **Poll SCM** from **Jenkins Pipeline GUI**. Y
 
 Uncheck the option **Poll SCM** from Pipeline and click on Save
 
-![](../images/jenkins-hw-j-pollscm-uncheck.png)
+![](../../images/jenkins-hw-j-pollscm-uncheck.png)
 
 Let's enable it from Jenkinfile
 
@@ -131,4 +131,4 @@ Push the changes to your GitHub repository
 
 Manually **Build** the pipeline once and check the pipeline configuration now **Poll SCM** should be enabled with Schedule details
 
-![](../images/jenkins-hw-j-05-pollscm-enabled-1024x568.png)
+![](../../images/jenkins-hw-j-05-pollscm-enabled-1024x568.png)

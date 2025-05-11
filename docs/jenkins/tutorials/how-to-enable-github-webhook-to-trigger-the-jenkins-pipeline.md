@@ -42,60 +42,60 @@ Create a Jenkins Pipeline named **04-hello-world-trigger-webhook** referring t
 
 Click on **Configure**
 
-![](../images/jenkins-hw-j-configure.png)
+![](../../images/jenkins-hw-j-configure.png)
 
 Under **Build Triggers** enable the **GitHub hook trigger for GITScm polling** and click on **Save**
 
-![](../images/jenkins-hw-j-04-enable-hook-1024x468.png)
+![](../../images/jenkins-hw-j-04-enable-hook-1024x468.png)
 
 ### Enable Webhook in GitHub repository
 
 Go to your GitHub repository, click on **Settings**
 
-![](../images/github-hw-j-settings-1024x324.png)
+![](../../images/github-hw-j-settings-1024x324.png)
 
 Click on **Webhooks**
 
-![](../images/github-hw-j-webhook-1024x701.png)
+![](../../images/github-hw-j-webhook-1024x701.png)
 
 Click on **Add webhook**
 
-![](../images/github-hw-j-add-webhook-1024x408.png)
+![](../../images/github-hw-j-add-webhook-1024x408.png)
 
 Enter your **JENKINS\_URL/github-webhook/** in Payload URL  
 E.g. **http://20.197.20.110:8080/github-webhook/**
 
 Under **Content type** choose **application/json**
 
-![](../images/github-hw-j-webhook-url-1024x480.png)
+![](../../images/github-hw-j-webhook-url-1024x480.png)
 
 Click **Disable (not recommended)** and click on **Add webhook**
 
 If your Jenkins URL starts with **https**, you should click **Enable SSL verification**
 
-![](../images/github-hw-j-webhook-active-1024x526.png)
+![](../../images/github-hw-j-webhook-active-1024x526.png)
 
 Wait for a couple of seconds, refresh the page, and you should see a **green tick**
 
-![](../images/github-hw-j-webhook-verified-1024x253.png)
+![](../../images/github-hw-j-webhook-verified-1024x253.png)
 
 Make a change in **04-hello-world-trigger-webhook** or any File, and **commit the changes** to **trigger** the Pipeline **automatically**
 
 Change the stage name to **Build Maven** and commit the changes
 
-![](../images/github-hw-j-commit-change-1024x337.png)
+![](../../images/github-hw-j-commit-change-1024x337.png)
 
 **Commit** the changes
 
-![](../images/github-hw-j-commited-1012x1024.png)
+![](../../images/github-hw-j-commited-1012x1024.png)
 
 The pipeline is **triggered automatically**, once the change is committed
 
-![](../images/jenkins-hw-j-webhook-triggered-984x1024.png)
+![](../../images/jenkins-hw-j-webhook-triggered-984x1024.png)
 
 You can verify, who triggered this pipeline by verifying the logs
 
-![](../images/jenkins-hw-j-04-webhook-logs-1024x263.png)
+![](../../images/jenkins-hw-j-04-webhook-logs-1024x263.png)
 
 ### Enable GitHub Webhook from Jenkinsfile
 
@@ -103,12 +103,12 @@ You have enabled the **GitHub hook trigger for GITScm polling** from **Jenkins P
 
 Previously you have enabled the **GitHub hook trigger for GITScm polling** from **Jenkins Pipeline GUI**. You can also enable the **GitHub hook trigger for GITScm polling** option and trigger the Jenkins Pipeline using **githubPush** under the triggers block from **Jenkinsfile**
 
-![](../images/jenkins-hw-j-04-enable-hook-1024x468.png)
+![](../../images/jenkins-hw-j-04-enable-hook-1024x468.png)
 
 Uncheck the option **GitHub hook trigger for GITScm polling** from Pipeline and click on **Save**  
 Let's enable it from Jenkinfile
 
-![](../images/jenkins-hw-j-04-webhook-uncheck.png)
+![](../../images/jenkins-hw-j-04-webhook-uncheck.png)
 
 Add **triggers block** in Jenkinsfile **04-hello-world-trigger-webhook**
 
@@ -160,7 +160,7 @@ Push the changes to your GitHub repository
 
 **Build** the pipeline, and check the pipeline configuration now **GitHub hook trigger for GITScm polling** should be enabled
 
-![](../images/jenkins-hw-j-04-enable-hook-1024x468.png)
+![](../../images/jenkins-hw-j-04-enable-hook-1024x468.png)
 
 ### Reference:
 

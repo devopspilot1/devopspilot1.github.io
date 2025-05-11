@@ -13,16 +13,16 @@ Using the **tools** block in Jenkinsfile, you can refer to the tools (maven, gra
 
 Goto Jenkins dashboard, click on **Manage Jenkins**
 
-![](../images/jenkins-dashboard-manage-jenkins-e1721224291112-1024x520.png)
+![](../../images/jenkins-dashboard-manage-jenkins-e1721224291112-1024x520.png)
 
 Click on **Tools**
 
-![](../images/jenkins-mj-tools-1024x491.png)
+![](../../images/jenkins-mj-tools-1024x491.png)
 
 Scroll down, under **Maven installations** click on **Add Maven**  
 Enter the name **maven-**3.6.3**** and under version choose ****3.6.3**** and click on **Save**
 
-![](../images/jenkins-mj-maven-3.6.3-1024x524.png)
+![](../../images/jenkins-mj-maven-3.6.3-1024x524.png)
 
 The Jenkins will automatically install Maven 3.6.3 during the first build.
 
@@ -65,7 +65,7 @@ Create the Pipeline named **03-hello-world-maven-tools** referring to your Git
 
 **Build** the pipeline and check the **Console Output**
 
-![](../images/jenkins-hw-j-03-tools-build-1024x561.png)
+![](../../images/jenkins-hw-j-03-tools-build-1024x561.png)
 
 In the logs, you can see that Jenkins downloads and configures the Maven 3.6.3 zip in the /var/lib/jenkins/tools folder during the first build.  
 Then **`mvn --version`** command is executed to print the Maven version **3.6.3**
@@ -152,7 +152,7 @@ OS name: "linux", version: "6.8.0-1010-azure", arch: "amd64", family: "unix"
 
 Enter the name **maven-**3.9.8**** and under version choose ****3.9.8**** and click on **Save**
 
-![](../images/jenkins-mj-maven-3.9.8-1024x524.png)
+![](../../images/jenkins-mj-maven-3.9.8-1024x524.png)
 
 Update **maven-3.9.8** in Jenkinsfile **03-Jenkinsfile-maven-build-tools**
 
@@ -194,7 +194,7 @@ index 89d75ab..d5506af 100644
 
 **Build** the pipeline and check the **Console Output**
 
-![](../images/jenkins-hw-j-03-tools-build-3.9.8-1024x532.png)
+![](../../images/jenkins-hw-j-03-tools-build-3.9.8-1024x532.png)
 
 Jenkins downloads the **Maven 3.9.8 zip** in the **/var/lib/jenkins/tools** folder and then executes the `mvn --version` command to print the Maven version **3.9.8**.
 

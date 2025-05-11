@@ -11,27 +11,27 @@ By configuring **Global Tool configuration**, we can have multiple version of ma
 
 From Jenkins dashboard, click on **Manage Jenkins**
 
-![Jenkins](../images/jenkins-manage-jenkins.png)
+![Jenkins](../../images/jenkins-manage-jenkins.png)
 
 Click on **Global Tool Configurations**
 
-![Jenkins](../images/jenkins-global-tool-configuration.png)
+![Jenkins](../../images/jenkins-global-tool-configuration.png)
 
 Click on **Maven installations..**
 
-![Jenkins](../images/jenkins-click-maven-installation.png)
+![Jenkins](../../images/jenkins-click-maven-installation.png)
 
 Scroll down and click on **Add Maven** and give unique name in **Name** feild and select the maven version 3.6.3 from the dropdown
 
-![Jenkins](../images/jenkins-add-maven.png)
+![Jenkins](../../images/jenkins-add-maven.png)
 
 Now click on **Add Maven** once again
 
-![Jenkins](../images/jenkins-additional-add-maven.png)
+![Jenkins](../../images/jenkins-additional-add-maven.png)
 
 Add the name and select the version 3.8.1 and click on save
 
-![Jenkins](../images/jenkins-maven-3.8.1.png)
+![Jenkins](../../images/jenkins-maven-3.8.1.png)
 
 #### How to define maven in Jenkinsfile
 
@@ -47,23 +47,23 @@ When we use maven for first time by referring to this name and run the job, jenk
 
 From the next build it will use the maven from that folder, it won't download everytime
 
-![Jenkins](../images/jenkins-maven-installation.png)
+![Jenkins](../../images/jenkins-maven-installation.png)
 
-![Jenkins](../images/jenkins-maven-installation-path.png)
+![Jenkins](../../images/jenkins-maven-installation-path.png)
 
 #### How to configure multiple versions of nodejs
 
 In **Global Tool Configuration** scroll down click on **NodeJS installations..**
 
-![Jenkins](../images/jenkins-click-nodejs-installation.png)
+![Jenkins](../../images/jenkins-click-nodejs-installation.png)
 
 Click on **Add NodeJs** add the name and selcet the version 10.0.0(As per your requirements)
 
-![Jenkins](../images/jenkins-add-nodejs.png)
+![Jenkins](../../images/jenkins-add-nodejs.png)
 
 Now click on **Add NodeJs** once again, give the name and select the required version and click on save
 
-![Jenkins](../images/jenkins-add-nodejs-additional.png)
+![Jenkins](../../images/jenkins-add-nodejs-additional.png)
 
 #### How to use nodejs in Jenkinsfile
 
@@ -79,6 +79,6 @@ When we use nodejs for first time by referring to this name and run the job, jen
 
 From the next build it will use the nodejs from that folder, it won't download everytime
 
-![Jenkins](../images/jenkins-nodejs-installation.png)
+![Jenkins](../../images/jenkins-nodejs-installation.png)
 
-![Jenkins](../images/jenkins-nodejs-installation-path.png)
+![Jenkins](../../images/jenkins-nodejs-installation-path.png)

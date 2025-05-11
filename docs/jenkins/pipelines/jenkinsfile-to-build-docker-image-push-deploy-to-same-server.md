@@ -144,7 +144,7 @@ sh "docker rm hello-world | true"
 - If you are getting error like `Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post`  
       
       
-    ![jenkins](../images/docker-error.png)  
+    ![jenkins](../../images/docker-error.png)  
       
     
       

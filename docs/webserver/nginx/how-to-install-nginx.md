@@ -23,7 +23,7 @@ sudo systemctl status nginx
 sudo systemctl enable nginx
 ```
 
-![git](../images/nginx-status.png)
+![git](../../images/nginx-status.png)
 
 By default nginx webserver start on port 80. Now we can access the nginx webserver application by `http://ip-address:80` in browser.
 
@@ -31,10 +31,10 @@ You can also access the application directly by ip-address without mentioning po
 
 This is because, if we are not specifying the port, by default it uses port 80 for http request and port 443 for https request.
 
-![git](../images/nginx-homepage.png)
+![git](../../images/nginx-homepage.png)
 
 This default homepage is served from /usr/share/nginx/html/index.html
 
-![git](../images/nginx-html-path.png)
+![git](../../images/nginx-html-path.png)
 
 Default nginx configuration is located in /etc/nginx/nginx.conf file

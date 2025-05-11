@@ -11,25 +11,25 @@ By the end of this tutorial, you'll have a foundational understanding of how to 
 
 Goto [**https://github.com**](https://github.com/) -> Click on **+** Icon -> Click on New repository
 
-![](../images/github-repo-maven-new-1024x194.png)
+![](../../images/github-repo-maven-new-1024x194.png)
 
 Enter repository name **hello-world-java**, Description as **Hello World Java Maven project**
 
 Choose **Public**
 
-![](../images/github-repo-maven-create-1-1024x586.png)
+![](../../images/github-repo-maven-create-1-1024x586.png)
 
 Check **Add a README** file -> Click on **Create repository**
 
-![](../images/github-repo-maven-create-2-1024x555.png)
+![](../../images/github-repo-maven-create-2-1024x555.png)
 
 Repository created
 
-![](../images/github-repo-maven-created-1024x555.png)
+![](../../images/github-repo-maven-created-1024x555.png)
 
 Clone the repository
 
-![](../images/github-repo-maven-clone-1024x555.png)
+![](../../images/github-repo-maven-clone-1024x555.png)
 
 ```bash
 git clone https://github.com/devopspilot1/hello-world-java.git
@@ -75,11 +75,11 @@ Goto Github repository [https://github.com/vigneshsweekaran/hello-world](https:/
 
 Click on **Releases**
 
-![](../images/github-repo-release-hello-world-1024x551.png)
+![](../../images/github-repo-release-hello-world-1024x551.png)
 
 Under **Java 21 Maven Project** -> Download the zip file [**Source code**](https://github.com/vigneshsweekaran/hello-world/archive/refs/tags/clean-maven-java-21.zip)
 
-![](../images/github-repo-hello-world-dowload-zip-1024x495.png)
+![](../../images/github-repo-hello-world-dowload-zip-1024x495.png)
 
 In **Linux** download [**Source code**](https://github.com/vigneshsweekaran/hello-world/archive/refs/tags/clean-maven-java-21.zip) zip files using the **wget** command
 
@@ -329,4 +329,4 @@ To https://github.com/devopspilot1/hello-world-java.git
 
 Check files are pushed to the GitHub repository
 
-![](../images/github-repo-maven-pushed-1024x391.png)
+![](../../images/github-repo-maven-pushed-1024x391.png)

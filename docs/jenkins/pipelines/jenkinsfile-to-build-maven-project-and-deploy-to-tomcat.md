@@ -48,7 +48,7 @@ In the `Build` stage we are executing `mvn clean package` command to compile and
 
 It will compile the java code and generate the package in **targets** folder.
 
-![jenkins](../images/jenkins-maven-job.png)
+![jenkins](../../images/jenkins-maven-job.png)
 
 In the `Deploy` stage we are using the `Deploy to container` plugin to deploy the hello-world.war file to tomcat webserver.
 
@@ -76,7 +76,7 @@ Parameters passed to `Deploy to container` plugin definition.
     
       
       
-    ![jenkins](../images/jenkins-tomcat-users-xml.png)  
+    ![jenkins](../../images/jenkins-tomcat-users-xml.png)  
       
     
       
@@ -102,7 +102,7 @@ Parameters passed to `Deploy to container` plugin definition.
 
 - war: 'target/\*.war' --> Your war file name
 
-![tomcat](../images/jenkins-output.png)
+![tomcat](../../images/jenkins-output.png)
 
 #### References
 
