@@ -1,3 +1,8 @@
+/* Setting additional colors*/
+[data-md-color-scheme="devopspilot"] {
+  --md-primary-fg-color: #0f790e;
+}
+
 /* Base styles (apply to all screen sizes unless overridden) */
 .md-grid {
   max-width: none !important; /* Allow it to take full width */
