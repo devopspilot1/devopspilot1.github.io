@@ -17,6 +17,10 @@ theme:
 copyright:  Copyright &copy; 2021 - 2025 DevopsPilot
 extra_css:
   - stylesheets/extra.css
+extra:
+  analytics:
+    provider: google
+    property: 'G-EKDQC3L9T7'
 
 nav:
   - Linux Commands:
