@@ -56,7 +56,7 @@ nav:
     - Tomcat:
       - How to install Tomcat: webserver/tomcat/installation.md
       - How to manually deploy the java application to Tomcat 9 webserver: webserver/tomcat/how-to-manually-deploy-java-application-to-tomcat.md
-      - How to deploy the java application to Tomcat 9 webserver using Maven: how-to-deploy-java-application-to-tomcat-using-maven.md
+      - How to deploy the java application to Tomcat 9 webserver using Maven: webserver/tomcat/how-to-deploy-java-application-to-tomcat-using-maven.md
   - Jenkins:
     - Tutorials:
       - How to install Jenkins with Java 21 on Ubuntu 24.04: jenkins/tutorials/how-to-install-jenkins-with-java-21-on-ubuntu.md
