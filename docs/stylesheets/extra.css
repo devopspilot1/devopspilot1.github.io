@@ -2,6 +2,8 @@
 [data-md-color-scheme="devopspilot"] {
   --md-primary-fg-color: #0f790e;
   --md-accent-fg-color: #0f790e;
+  --md-nav-link--active: #0f790e; /* Set active link color to your green */
+  --md-nav-link--active-color: #ffffff; /* Optional: Set active link text color (e.g., white for contrast) */
 }
 
 /* Base styles (apply to all screen sizes unless overridden) */
