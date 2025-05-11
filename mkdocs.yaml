@@ -158,16 +158,6 @@ nav:
 #   - pymdownx.tasklist:
 #       custom_checkbox: true
 #   - pymdownx.tilde
-markdown_extensions:
-  - admonitions
-  - pymdownx.details
-  - pymdownx.superfences
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.superfences
-  - pymdownx.mark
-  - attr_list
-  - md_in_html
 
 plugins:
   - search
