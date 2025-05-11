@@ -36,7 +36,7 @@ Push the **08-Jenkinsfile-child-pipeline** file to the GitHub repository
 
 Create a Jenkins Pipeline named **08-hello-world-child-pipeline** referring to your GitHub repository and enter **Script Path** as **`cicd/08-Jenkinsfile-child-pipeline`**
 
-![](images/jenkins-hw-j-08-child-pipeline-1024x487.png)
+![](../images/jenkins-hw-j-08-child-pipeline-1024x487.png)
 
 ### Parent Pipeline to Trigger Child Pipeline
 
@@ -62,7 +62,7 @@ Push the **08-Jenkinsfile-parent-pipeline** file to the GitHub repository
 
 Create a Jenkins Pipeline named **08-hello-world-parent-pipeline** referring to your GitHub repository and enter **Script Path** as **`cicd/08-Jenkinsfile-parent-pipeline`**
 
-![](images/jenkins-hw-j-08-parent-pipeline-1024x376.png)
+![](../images/jenkins-hw-j-08-parent-pipeline-1024x376.png)
 
 Add new stage **Trigger child pipeline** after Build stage
 
@@ -138,11 +138,11 @@ Push the **08-Jenkinsfile-parent-pipeline** file to the GitHub repository
 
 Build the **08-hello-world-parent-pipeline**, and it should trigger the **08-hello-world-child-pipeline** pipeline and it will not wait, since you set **wait: false**
 
-![](images/jenkins-hw-j-08-parent-build-1024x678.png)
+![](../images/jenkins-hw-j-08-parent-build-1024x678.png)
 
 Check the logs of the **08-hello-world-child-pipeline** pipeline, it will show it has been triggered by the Upstream pipeline **08-hello-world-parent-pipeline**
 
-![](images/jenkins-hw-j-08-child-pipeline-triggered-1024x327.png)
+![](../images/jenkins-hw-j-08-child-pipeline-triggered-1024x327.png)
 
 Update **wait: true** in Jenkinsfile **`08-Jenkinsfile-parent-pipeline`**
 
@@ -196,7 +196,7 @@ Push the **08-Jenkinsfile-parent-pipeline** file to the GitHub repository
 
 Build the **08-hello-world-parent-pipeline**, and it should trigger the **08-hello-world-child-pipeline** pipeline and it will wait until the **08-hello-world-child-pipeline** pipeline finishes
 
-![](images/jenkins-hw-j-08-parent-triggered-wait-1024x686.png)
+![](../images/jenkins-hw-j-08-parent-triggered-wait-1024x686.png)
 
 In the **08-hello-world-parent-pipeline** pipeline logs, you can see, that it has waited until the child pipeline completes and then it resumes and finishes the pipeline
 

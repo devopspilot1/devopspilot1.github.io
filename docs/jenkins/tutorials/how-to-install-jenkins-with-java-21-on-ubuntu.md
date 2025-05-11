@@ -33,15 +33,15 @@ OpenJDK 64-Bit Server VM (build 21.0.3+9-Ubuntu-1ubuntu1, mixed mode, sharing)
 
 2\. Click on **Linux**
 
-![jenkins-install-official](images/jenkins-install-official-1024x614.png)
+![jenkins-install-official](../images/jenkins-install-official-1024x614.png)
 
 3\. Click on **Debian/Ubuntu**
 
-![](images/jenkins-install-linux-1024x614.png)
+![](../images/jenkins-install-linux-1024x614.png)
 
 4\. Copy and run the commands in **Long** **Term Support release** section
 
-![](images/jenkins-install-commnds-1024x611.png)
+![](../images/jenkins-install-commnds-1024x611.png)
 
 ```bash
 sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \

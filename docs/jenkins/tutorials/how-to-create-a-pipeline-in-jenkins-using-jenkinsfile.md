@@ -143,34 +143,34 @@ To https://github.com/devopspilot1/hello-world-java.git
 
 Verify **cicd/01-Jenkinsfile-helloworld** file is pushed to the GitHub repository
 
-![](images/github-cicd-folder-1024x382.png)
+![](../images/github-cicd-folder-1024x382.png)
 
-![](images/github-cicd-01-jenkinsfile-1024x379.png)
+![](../images/github-cicd-01-jenkinsfile-1024x379.png)
 
 Goto Jenkins dashboard, click on **New Item**
 
 Enter the Pipeline name **01-hello-world-java**, select **Pipeline**, and then click **OK**
 
-![](images/jenkins-hw-j-echo-create-1024x572.png)
+![](../images/jenkins-hw-j-echo-create-1024x572.png)
 
 Select the **Pipeline** section, under **Definition** choose **Pipeline script from SCM**
 
 From **SCM** choose **Git** and enter your **GitHub repository** URL
 
-![](images/jenkins-hw-j-echo-scm-1024x572.png)
+![](../images/jenkins-hw-j-echo-scm-1024x572.png)
 
 Under **Branch Specifier** change the branch name to **main**
 
 Under **Script Path** enter the Jenkfinsfile path **cicd/01-Jenkinsfile-helloworld** and click on **Save**
 
-![](images/jenkins-hw-j-echo-script-1024x572.png)
+![](../images/jenkins-hw-j-echo-script-1024x572.png)
 
 Click on **Build Now**
 
 Goto **Console Output**, first it obtained the Jenkinsfile **cicd/01-Jenkinsfile-helloworld** from the GitHub repository, then clones the GitHub Repository and executed the commands defined in the stages
 
-![](images/jenkins-hw-j-obtained-1024x311.png)
+![](../images/jenkins-hw-j-obtained-1024x311.png)
 
 In **Jenkinsfile** you had 2 stages **Build** and **Test**, in both the stages it executes the **sh** step to execute the echo commands
 
-![](images/jenkins-hw-j-echo-logs-1024x490.png)
+![](../images/jenkins-hw-j-echo-logs-1024x490.png)

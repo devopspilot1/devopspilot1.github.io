@@ -23,7 +23,7 @@ Install Tomcat 9
 sudo apt install tomcat9 tomcat9-admin
 ```
 
-![tomcat](images/tomcat-apt-install.png)
+![tomcat](../images/tomcat-apt-install.png)
 
 Check the status of tomcat installation
 
@@ -31,7 +31,7 @@ Check the status of tomcat installation
 sudo systemctl status tomcat9
 ```
 
-![tomcat](images/tomcat-status.png)
+![tomcat](../images/tomcat-status.png)
 
 Enable the tomcat to start automatically after reboot
 
@@ -43,7 +43,7 @@ To access the apache tomcat webserver in browser
 
 Open the browser and type the ipaddress and port number to access the Tomcat application `http://<ip-address>:8080` By default tomcat starts in port 8080.
 
-![tomcat](images/tomcat-home.png)
+![tomcat](../images/tomcat-home.png)
 
 All the configuration files for tomcat9 are located in **/var/lib/tomcat9** folder
 
@@ -57,7 +57,7 @@ Update the port number to whatever port number you want. I am updating the port 
 
 Update the port number to 9000 in connector block **port** feild in server.xml
 
-![tomcat](images/tomcat-port-change.png)
+![tomcat](../images/tomcat-port-change.png)
 
 Restart the tomcat to take effect.
 
@@ -67,7 +67,7 @@ sudo systemctl restart tomcat9
 
 Now access the Tomcat webserver in 9000 port from browser. eg: [http://your-ip-address:9000](http://your-ip-address:9000)
 
-![tomcat](images/tomcat-server-9000.png)
+![tomcat](../images/tomcat-server-9000.png)
 
 ### Install Tomcat 9 as docker container
 

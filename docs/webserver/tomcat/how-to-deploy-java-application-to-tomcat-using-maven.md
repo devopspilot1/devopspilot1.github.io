@@ -26,7 +26,7 @@ Go to end of the file and paste the following lines inside tomcat-users block an
   <user username="deployer" password="deployer" roles="manager-script"/>
 ```
 
-![tomcat](images/tomcat-user-script.png)
+![tomcat](../images/tomcat-user-script.png)
 
 Here we have defined two roles **manager-gui**, **manager-script** and created two users **admin**, **deployer** and assigned the **manager-gui** role to admin user and **manager-script** role to deployer user.
 
@@ -52,7 +52,7 @@ If you are using **Ubuntu** system, you can easily install git and maven using f
 sudo apt install -y git maven
 ```
 
-![tomcat](images/tomcat-install-git-maven.png)
+![tomcat](../images/tomcat-install-git-maven.png)
 
 Now we can clone the **hello-world** project from Github
 
@@ -60,7 +60,7 @@ Now we can clone the **hello-world** project from Github
 git clone -b maven-deploy-to-tomcat https://github.com/vigneshsweekaran/hello-world.git
 ```
 
-![tomcat](images/tomcat-git-clone.png)
+![tomcat](../images/tomcat-git-clone.png)
 
 Before compiling the code, we have to do some configuration in maven to deploy the hello-world.war to tomcat.
 
@@ -70,7 +70,7 @@ After installing the maven, `.m2` directory will be created in home folder. If y
 
 Create `settings.xml` file in `/home/ubuntu/.m2` folder.
 
-![tomcat](images/tomcat-setting-xml-location.png)
+![tomcat](../images/tomcat-setting-xml-location.png)
 
 Paste the following content in `settings.xml`
 
@@ -89,7 +89,7 @@ Paste the following content in `settings.xml`
 </settings>
 ```
 
-![tomcat](images/tomcat-settings-xml.png)
+![tomcat](../images/tomcat-settings-xml.png)
 
 **settings.xml** file is used to save some useful or secret data and these data can be fetched into pom.xml by refering the id.
 
@@ -99,7 +99,7 @@ And i have already added the `cargo` maven plugin details to the pom.xml. While 
 
 While creating the `settings.xml` we have created a id `<id>tomcat-server</id>` for the tomcat details. This id we have to refer in cargo maven plugin definition in pom.xml file to fetch the tomcat details.
 
-![tomcat](images/tomcat-cargo-plugin-pom.png)
+![tomcat](../images/tomcat-cargo-plugin-pom.png)
 
 Go inside hello-world folder
 
@@ -113,11 +113,11 @@ Now we can run the maven command to compile the Java code and package it to .war
 mvn clean install
 ```
 
-![tomcat](images/tomcat-mvn-clean-install.png)
+![tomcat](../images/tomcat-mvn-clean-install.png)
 
 After compilation, the **hello-world.war** file is generated in **target** folder
 
-![tomcat](images/tomcat-target-folder.png)
+![tomcat](../images/tomcat-target-folder.png)
 
 Now we can run the `mvn cargo:deploy` command to deploy the hello-world.war file to tomcat
 
@@ -125,13 +125,13 @@ Now we can run the `mvn cargo:deploy` command to deploy the hello-world.war file
 mvn cargo:deploy
 ```
 
-![tomcat](images/tomcat-mvn-cargo-deploy.png)
+![tomcat](../images/tomcat-mvn-cargo-deploy.png)
 
 While executing `mvn cargo:deploy` command, maven will fetch the tomcat details from settings.xml and deploy to tomcat
 
 Now, we can verify the deployment by visiting the [http://your-ip-address:8080/hello-world](http://your-ip-address:8080/hello-world)
 
-![tomcat](images/tomcat-hello-world-page.png)
+![tomcat](../images/tomcat-hello-world-page.png)
 
 To undeploy the hello-world.war file from tomcat
 
@@ -139,7 +139,7 @@ To undeploy the hello-world.war file from tomcat
 mvn cargo:undeploy
 ```
 
-![tomcat](images/tomcat-maven-cargo-undeploy.png)
+![tomcat](../images/tomcat-maven-cargo-undeploy.png)
 
 Hurray!! we have succesfully deployed and undeployed the java web application to Tomcat 9 using Maven
 

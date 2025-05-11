@@ -49,11 +49,11 @@ IP-address:8082 --> Should show background color as green
 
 IP-address:8083 --> Should show background color as blue
 
-![letsencrypt](images/app1.png)
+![letsencrypt](../images/app1.png)
 
-![letsencrypt](images/app2.png)
+![letsencrypt](../images/app2.png)
 
-![letsencrypt](images/app3.png)
+![letsencrypt](../images/app3.png)
 
 ### Configure DNS record in Domain registrar
 
@@ -63,7 +63,7 @@ app2.devopspilot.tk --> Public IP-address
 
 app3.devopspilot.tk --> Public IP-address
 
-![letsencrypt](images/dns-record.png)
+![letsencrypt](../images/dns-record.png)
 
 `Note :`
 
@@ -157,9 +157,9 @@ sudo certbot --nginx -d app1.devopspilot.tk -d app2.devopspilot.tk -d app3.devop
 
 It will ask for email address, agree the terms and conditions, certificate will be issued and finally enter `2` to automatically redirect `http` to `https`
 
-![letsencrypt](images/subdomain-generate-ssl1.png)
+![letsencrypt](../images/subdomain-generate-ssl1.png)
 
-![letsencrypt](images/subdomain-generate-ssl2.png)
+![letsencrypt](../images/subdomain-generate-ssl2.png)
 
 Check the nginx conf file `/etc/nginx/conf.d/devopspilot.tk.conf` which was updated by certbot
 
@@ -233,7 +233,7 @@ Go to browser and type `http://app1.devopspilot.tk`
 
 Now it will automatically redirect to `https://app1.devopspilot.tk`
 
-![letsencrypt](images/app-ssl.png)
+![letsencrypt](../images/app-ssl.png)
 
 Now lets see how to automatically renew the certificates.
 

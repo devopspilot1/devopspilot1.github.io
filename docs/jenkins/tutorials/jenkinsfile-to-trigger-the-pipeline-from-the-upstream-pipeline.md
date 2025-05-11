@@ -35,11 +35,11 @@ Create a Jenkins Pipeline named **07-hello-world-trigger-upstream** referring 
 
 Click on **Configure**
 
-![](images/jenkins-hw-j-configure.png)
+![](../images/jenkins-hw-j-configure.png)
 
 Under the Build Triggers section enable **`Build after other projects are built`** option, under the **`Projects to watch`** section, enter your Upstream Pipeline (Parent Pipeline) name and click on **Save**
 
-![](images/jenkins-hw-j-07-upstream-config-1024x588.png)
+![](../images/jenkins-hw-j-07-upstream-config-1024x588.png)
 
 Use the 01-hello-world-java upstream pipeline as a reference and add your upstream pipeline based on your needs.
 
@@ -49,19 +49,19 @@ If you want to change this behavior, enable the options accordingly
 
 To trigger the pipeline even Parent pipeline **Fails**, enable **Trigger even if the build fails** option
 
-![](images/jenkins-hw-j-07-upstream-config-fail-1024x471.png)
+![](../images/jenkins-hw-j-07-upstream-config-fail-1024x471.png)
 
 **Trigger** the Pipeline **01-hello-world-java**
 
-![](images/jenkins-hw-j-07-trigger-upstream.png)
+![](../images/jenkins-hw-j-07-trigger-upstream.png)
 
 Check the logs of the **01-hello-world-java** pipeline, it will show the logs of triggering the **07-hello-world-trigger-upstream**
 
-![](images/jenkins-hw-j-07-trigger-upstream-logs-1024x764.png)
+![](../images/jenkins-hw-j-07-trigger-upstream-logs-1024x764.png)
 
 Now check the 07-hello-world-trigger-upstream; it should trigger.
 
-![](images/jenkins-hw-j-07-triggered-logs-1024x326.png)
+![](../images/jenkins-hw-j-07-triggered-logs-1024x326.png)
 
 ### Enabling the **upstream** option from Jenkinsfile to trigger the Pipeline
 
@@ -69,7 +69,7 @@ Previously you have enabled the **`Build after other projects are built`** fro
 
 Uncheck the option **`Build after other projects are built`** from Pipeline and click on **Save**
 
-![](images/jenkins-hw-j-07-upstream-uncheck.png)
+![](../images/jenkins-hw-j-07-upstream-uncheck.png)
 
 Let’s enable it from Jenkinfile
 
@@ -123,7 +123,7 @@ index 0e3fd6f..707de7e 100644
 
 **Build** the pipeline, and check the pipeline configuration now **`Build after other projects are built`** option should be enabled
 
-![](images/jenkins-hw-j-07-upstream-config-jenkinsfile-1024x457.png)
+![](../images/jenkins-hw-j-07-upstream-config-jenkinsfile-1024x457.png)
 
 ### Reference:
 

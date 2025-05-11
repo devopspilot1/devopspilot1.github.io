@@ -15,7 +15,7 @@ Using `hypervisor` technology we can create multiple virtual machines from physi
 
 - Virtual machine - 3 with memory 16GB, storage 200 GB and operating system windows 11
 
-![Server](images/server.png)
+![Server](../images/server.png)
 
 ### Virtual Machine in detail
 
@@ -25,7 +25,7 @@ Virtual machine - 1 with memory 16GB, storage 200 GB and operating system window
 
 Virtual machine - 2 with memory 8GB, storage 100 GB and operating system Ubuntu 23.04. On top of that Java 17, maven 3.8 and Jenkins CI/CD application is installed
 
-![Server-detail](images/server-detail.png)
+![Server-detail](../images/server-detail.png)
 
 ### Why we need to create multiple virtual machines from Physical server.
 
@@ -45,7 +45,7 @@ You are using old version of Jenkins application and it will support only on Jav
 
 You are using latest version of SonarQube 10.1 with requires minimum Java 17
 
-![cicd-server](images/cicd-server.png)
+![cicd-server](../images/cicd-server.png)
 
 ### Where docker comes into picture here ?
 
@@ -57,10 +57,10 @@ Application dependencies are packaged within the docker container, no need to in
 
 In virtual machine, only docker needs to be installed
 
-![cicd-server](images/docker.png)
+![cicd-server](../images/docker.png)
 
 We can create multiple containers until the capacity of the virtual machine fully utilized
 
 Resources(Memory/cpu) in the virtual machine is shared across all containers
 
-![cicd-server](images/docker-containers.png)
+![cicd-server](../images/docker-containers.png)

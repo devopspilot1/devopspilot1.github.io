@@ -28,7 +28,7 @@ Use the **sh** step to define any shell commands.
 
 Push a **02-Jenkinsfile-maven-build** file to the GitHub repository
 
-![](images/jenkins-hw-j-02-maven-1024x406.png)
+![](../images/jenkins-hw-j-02-maven-1024x406.png)
 
 Create the Pipeline named **02-hello-world-maven** referring to your GitHub repository and enter **Script Path** as **`cicd/02-Jenkinsfile-maven-build`**
 
@@ -38,12 +38,12 @@ To create a pipeline follow these steps [Click here](https://devopspilot.com/jen
 
 First **`cicd/02-Jenkinsfile-maven-build`** is obtained from the GitHub repository
 
-![](images/jenkins-hw-j-02-maven-obtained-1024x291.png)
+![](../images/jenkins-hw-j-02-maven-obtained-1024x291.png)
 
 Then the **`mvn clean package`** command is executed
 
-![](images/jenkins-hw-j-02-maven-sh-1024x291.png)
+![](../images/jenkins-hw-j-02-maven-sh-1024x291.png)
 
 Finally, Jenkins creates a **hello-world-1.0-SNAPSHOT.war** file in the **/var/lib/jenkins/workspace/02-hello-world-maven/target** folder.
 
-![](images/jenkins-hw-j-02-maven-war-1024x491.png)
+![](../images/jenkins-hw-j-02-maven-war-1024x491.png)

@@ -16,19 +16,19 @@ Reference: **[Snippet Generator](https://www.jenkins.io/doc/book/pipeline/gettin
 
 In your Jenkins URL append path **/pipeline-syntax** E.g. **https:jenkins.com/piepline-syntax**
 
-![](images/jenkins-snippet-generator-1024x343.png)
+![](../images/jenkins-snippet-generator-1024x343.png)
 
 ### How to go to **Declarative Directive Generator**
 
 In your Jenkins URL append path **/directive-generator** E.g. **https:jenkins.com/directive-generator** then click on **Declarative Directive Generator**
 
-![](images/jenkins-declarative-directive-generator-1024x385.png)
+![](../images/jenkins-declarative-directive-generator-1024x385.png)
 
 ### How to go to Declarative Directive Generator from Pipeline Page
 
 From any pipeline page, you can click on **Pipeline Syntax** to go to **Snippet Generator** or **Declarative Directive Generator**
 
-![](images/jenkins-pipeline-syntax-1024x708.png)
+![](../images/jenkins-pipeline-syntax-1024x708.png)
 
 ### Generate code for cron triggers using Declarative Directive Generator
 
@@ -36,19 +36,19 @@ Go to your **JENKINS\_URL/directive-generator** E.g. **https:jenkins.com/directi
 
 Under **Sample Directive** choose **triggers: Triggers** from dropdown
 
-![](images/jenkins-ps-triggers-1024x494.png)
+![](../images/jenkins-ps-triggers-1024x494.png)
 
 Click on **Add** and choose **cron: Build periodically**
 
-![](images/jenkins-ps-triggers-cron-1024x518.png)
+![](../images/jenkins-ps-triggers-cron-1024x518.png)
 
 Enter the cron expression **`* * * * *`**
 
-![](images/jenkins-ps-cron-expression-1024x755.png)
+![](../images/jenkins-ps-cron-expression-1024x755.png)
 
 Click on the **Generate Declarative Directive** to generate the code
 
-![](images/jenkins-ps-cron-generate-1024x662.png)
+![](../images/jenkins-ps-cron-generate-1024x662.png)
 
 Copy the generated code
 
@@ -64,11 +64,11 @@ Choose **`tools: Tools`** from the dropdown under **Sample Directive**
 
 Click on **Add** and choose **`maven: Maven`**
 
-![](images/jenkins-ps-tools-1024x507.png)
+![](../images/jenkins-ps-tools-1024x507.png)
 
 Click on the **Generate Declarative Directive** to generate the **tools block** code
 
-![](images/jenkins-ps-tools-generate-1024x771.png)
+![](../images/jenkins-ps-tools-generate-1024x771.png)
 
 Copy the generated code
 
@@ -84,17 +84,17 @@ This feature was available from scripted Jenkinsfile, so it needs to generate it
 
 Go to **Snippet Generator**, choose **`build: Build a job`** from Sample Step
 
-![](images/jenkins-ps-build-job-1024x522.png)
+![](../images/jenkins-ps-build-job-1024x522.png)
 
 Enter the child pipeline name **01-hello-world-java** you want to trigger under **Project to Build**
 
 Enable **Wait for completion** depends on your needs
 
-![](images/jenkins-ps-build-job-name-1024x696.png)
+![](../images/jenkins-ps-build-job-name-1024x696.png)
 
 Click on **Generate Pipeline Script** to generate the code to trigger the child pipeline
 
-![](images/jenkins-ps-build-job-generate-1024x719.png)
+![](../images/jenkins-ps-build-job-generate-1024x719.png)
 
 Copy the generated code
 

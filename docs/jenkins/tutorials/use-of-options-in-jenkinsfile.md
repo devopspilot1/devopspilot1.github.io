@@ -53,11 +53,11 @@ Create a Jenkins Pipeline named **10-hello-world-options** referring to your G
 
 Build the Pipeline and check the Pipeline configuration **Do not allow concurrent builds** and **Do not allow the pipeline to resume if the controller restarts** option should be enabled
 
-![](images/jenkins-hw-j-10-options-disableconcurrent-1024x475.png)
+![](../images/jenkins-hw-j-10-options-disableconcurrent-1024x475.png)
 
 Now trigger the pipeline 2 times, only 1 pipeline will run and the other pipeline will **wait on the queue**
 
-![](images/jenkins-hw-j-10-options-trigger.png)
+![](../images/jenkins-hw-j-10-options-trigger.png)
 
 ### Testing buildDiscarder() option
 
@@ -112,11 +112,11 @@ Push the **10-Jenkinsfile-maven-build-options** file to the GitHub repository
 
 Trigger the Pipeline and check the Pipeline Configuration
 
-![](images/jenkins-hw-j-10-builddiscarder-1024x435.png)
+![](../images/jenkins-hw-j-10-builddiscarder-1024x435.png)
 
 After the build is completed, **the old pipeline runs are deleted and only the** last 5 pipeline executions are kept
 
-![](images/jenkins-hw-j-10-builddiscarder-removed-1024x838.png)
+![](../images/jenkins-hw-j-10-builddiscarder-removed-1024x838.png)
 
 You can also **set the days to keep the pipeline executions** and then delete them. E.g. To delete the Pipeline after 30 days
 
@@ -193,10 +193,10 @@ Push the **10-Jenkinsfile-maven-build-options** file to the GitHub repository
 
 Trigger the Pipeline, it will timeout in 20 seconds
 
-![](images/jenkins-hw-j-10-timeout-set-1024x259.png)
+![](../images/jenkins-hw-j-10-timeout-set-1024x259.png)
 
-![](images/jenkins-hw-j-10-timeout-logs-1024x595.png)
+![](../images/jenkins-hw-j-10-timeout-logs-1024x595.png)
 
-![](images/jenkins-hw-j-10-timeout-cancelled.png)
+![](../images/jenkins-hw-j-10-timeout-cancelled.png)
 
 Like this you can configure many configurations for Pipeline from Jenkinsfile.

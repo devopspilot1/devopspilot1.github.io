@@ -39,7 +39,7 @@ Create a Jenkins Pipeline named **09-hello-world-replay** referring to your Gi
 
 Build the Pipeline
 
-![](images/jenkins-hw-j-09-reply-first-success-1024x569.png)
+![](../images/jenkins-hw-j-09-reply-first-success-1024x569.png)
 
 ### Create Failure in Jenkins Pipeline
 
@@ -76,25 +76,25 @@ Push the **09-Jenkinsfile-replay** file to the GitHub repository
 
 Build the Pipeline, it should fail
 
-![](images/jenkins-hw-j-09-reply-failure-1024x555.png)
+![](../images/jenkins-hw-j-09-reply-failure-1024x555.png)
 
 ### Fix the failure using the Replay option
 
 Go inside the Failed pipeline and click on the **Replay** option
 
-![](images/jenkins-hw-j-09-reply-option-1024x447.png)
+![](../images/jenkins-hw-j-09-reply-option-1024x447.png)
 
 You can see the Jenkinsfile in Jenkins GUI
 
-![](images/jenkins-hw-j-09-jenkinsfile-gui-1024x726.png)
+![](../images/jenkins-hw-j-09-jenkinsfile-gui-1024x726.png)
 
 Correct the spelling **mvn clean package** and click on **Build**
 
-![](images/jenkins-hw-j-09-correct-spelling-1024x859.png)
+![](../images/jenkins-hw-j-09-correct-spelling-1024x859.png)
 
 The build is a success now, but the fix is done temporarily.
 
-![](images/jenkins-hw-j-09-reply-success-1024x859.png)
+![](../images/jenkins-hw-j-09-reply-success-1024x859.png)
 
 You need to again correct the spelling in Jenkinsfile and push it to the GitHub Repository to make the fix permanent
 

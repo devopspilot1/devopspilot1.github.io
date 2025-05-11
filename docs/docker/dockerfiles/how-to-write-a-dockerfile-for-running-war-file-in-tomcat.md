@@ -11,7 +11,7 @@ Run the `mvn clean package` command to compile and package the java application.
 
 The `hello-world.war` file will be created in `targets` folder
 
-![Docker](images/docker-target-folder.png)
+![Docker](../images/docker-target-folder.png)
 
 I have already created a file `Dockerfile` and kept in root folder
 

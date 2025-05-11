@@ -35,14 +35,14 @@ date: 2024-07-01
 
 From Jenkins dashboard, click on **Manage Jenkins**
 
-![Jenkins](images/jenkins-manage-jenkins.png)
+![Jenkins](../images/jenkins-manage-jenkins.png)
 
 Click on **Manage Plugins**
 
-![Jenkins](images/jenkins-manage-plugins.png)
+![Jenkins](../images/jenkins-manage-plugins.png)
 
 Click on **Availabe** tab and type the plugin name in search box, select the plugin and click on **Install without restart**
 
-![Jenkins](images/jenkins-plugin-installation.png)
+![Jenkins](../images/jenkins-plugin-installation.png)
 
-![Jenkins](images/jenkins-plugin-install-success.png)
+![Jenkins](../images/jenkins-plugin-install-success.png)

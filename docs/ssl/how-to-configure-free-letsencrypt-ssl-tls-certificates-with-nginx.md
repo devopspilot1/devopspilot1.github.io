@@ -95,9 +95,9 @@ sudo certbot --nginx -d www.devopspilot.tk
 
 It will ask for email address, agree the terms and conditions, certificate will be issued and finally enter `2` to automatically redirect `http` to `https`
 
-![letsencrypt](images/generate-ssl.png)
+![letsencrypt](../images/generate-ssl.png)
 
-![letsencrypt](images/generate-ssl2.png)
+![letsencrypt](../images/generate-ssl2.png)
 
 Check the nginx conf file `/etc/nginx/conf.d/devopspilot.tk.conf` which was updated by certbot
 
@@ -140,7 +140,7 @@ Wait for couple of minutes.
 
 Go to browser and type the domain name `devopspilot.tk`
 
-![letsencrypt](images/nginx.png)
+![letsencrypt](../images/nginx.png)
 
 Now it will automatically redirect to `https://www.devopspilot.tk`
 

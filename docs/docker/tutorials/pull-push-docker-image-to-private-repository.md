@@ -5,11 +5,11 @@ date: 2024-07-01
 
 ## Create private repository in dockerhub
 
-![docker-acc-create](images/docker-acc-create.png)
+![docker-acc-create](../images/docker-acc-create.png)
 
-![docker-acc-creation-submit](images/docker-acc-creation-submit.png)
+![docker-acc-creation-submit](../images/docker-acc-creation-submit.png)
 
-![docker-private-repo-created](images/docker-private-repo-created.png)
+![docker-private-repo-created](../images/docker-private-repo-created.png)
 
 ### Pull nginx docker image from dockerhub
 
@@ -81,7 +81,7 @@ latest: digest: sha256:73e957703f1266530db0aeac1fd6a3f87c1e59943f4c13eb340bb8521
 
 Now devopspilot1/private-nginx:latest docker image is pushed to your dockerhub account private repository
 
-![acc-nginx-private](images/acc-nginx-private.png)
+![acc-nginx-private](../images/acc-nginx-private.png)
 
 ### Delete all the images locally
 

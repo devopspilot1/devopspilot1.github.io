@@ -57,11 +57,11 @@ Installed Maven version is **3.8.7**
 
 Goto Jenkins dashboard, click on **New Item**
 
-![](images/jenkins-dashboard-new-item-1024x584.png)
+![](../images/jenkins-dashboard-new-item-1024x584.png)
 
 Enter the Freestyle project name **freestyle-project-maven**, select **Freestyle project** and then click **OK**
 
-![](images/jenkins-freestyle-create-1024x586.png)
+![](../images/jenkins-freestyle-create-1024x586.png)
 
 Select **Source Code Management** -> **Git** Enter your Public GitHub repository https URL where you have the Maven Java Project
 
@@ -69,29 +69,29 @@ If you don't have a sample Hello World Maven Java project. Fork this Github repo
 
 Enter Branch Specifier as **main**
 
-![](images/jenkins-freestyle-configure-url-1024x586.png)
+![](../images/jenkins-freestyle-configure-url-1024x586.png)
 
 Click on **Build Steps** -> **Add build steps** -> **Execute shell**
 
-![](images/jenkins-freestyle-configure-buildstep-1024x586.png)
+![](../images/jenkins-freestyle-configure-buildstep-1024x586.png)
 
 Enter **`mvn clean package`** command and click on **Save**
 
-![](images/jenkins-freestyle-buildstep-shell.png)
+![](../images/jenkins-freestyle-buildstep-shell.png)
 
 ### Build the Freestyle Project
 
 Click on **Build Now** to run a Freestyle project
 
-![](images/jenkins-freestyle-build-now-1024x586.png)
+![](../images/jenkins-freestyle-build-now-1024x586.png)
 
 **1st** Build started
 
-![](images/jenkins-freestyle-build-started-1024x586.png)
+![](../images/jenkins-freestyle-build-started-1024x586.png)
 
 Click on Build Number **#1** to see the details
 
-![](images/jenkins-freestyle-build-started-num-1024x586.png)
+![](../images/jenkins-freestyle-build-started-num-1024x586.png)
 
 Here you can see,
 
@@ -105,15 +105,15 @@ Here you can see,
 
 Now click on **Console output** to see the Build logs
 
-![](images/jenkins-freestyle-console-out-1024x360.png)
+![](../images/jenkins-freestyle-console-out-1024x360.png)
 
 Click on **Full Log**
 
-![](images/jenkins-freestyle-fulllog-1024x382.png)
+![](../images/jenkins-freestyle-fulllog-1024x382.png)
 
 Here you can see Jenkins is building this Freestyle project in the Jenkins server from **/var/lib/jenkins/workspace/freestyle-project-maven** folder
 
-![](images/jenkins-freestyle-log-begin-1024x586.png)
+![](../images/jenkins-freestyle-log-begin-1024x586.png)
 
 - Jenkins HOME folder is **`/var/lib/jenkins`**, under this folder, Jenkins keeps all the details as files
 
@@ -172,4 +172,4 @@ Next its executing the command **mvn clean package** which you have given in the
 
 Once the build is completed, it creates a war file in the path **/var/lib/jenkins/workspace/freestyle-project-maven/target/hello-world-1.0-SNAPSHOT.war**
 
-![](images/jenkins-freestyle-log-end-1024x507.png)
+![](../images/jenkins-freestyle-log-end-1024x507.png)
