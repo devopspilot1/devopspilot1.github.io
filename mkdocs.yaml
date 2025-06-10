@@ -126,9 +126,6 @@ nav:
     - How to configure free single Let’s Encrypt SSL/TLS Certificate with NGINX for multiple subdomains and auto renew certificate: ssl/how-to-configure-free-letsencrypt-ssl-tls-certificates-with-nginx-for-subdomains.md
     - How to configure free single Let’s Encrypt SSL/TLS wildcard Certificate with Nginx: ssl/how-to-configure-free-letsencrypt-ssl-tls-wildcard-certificates-with-nginx-for-subdomains.md
     - How to generate self signed certificate using openssl: ssl/self-signed-certificate-using-openssl.md
-  - Helm:
-    - Basics: helm/basics.md
-    - Commands: helm/commands.md
   - Interview Questions:
     - Linux commands Interview Questions: interview-questions/linux-commands.md
     - Git Interview Questions: interview-questions/git.md
