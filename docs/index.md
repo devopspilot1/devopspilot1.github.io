@@ -82,7 +82,7 @@ This synergy allows teams to build, deploy, and operate applications with unprec
 5. [Shell script examples](https://github.com/vigneshsweekaran/shellscript)
 
 ## Git
-* [Learn Git](git)
+* [Learn Git](git/how-to-create-github-account)
 
 ## 3-Tier Architecture
 * [Understanding 3-Tier Architecture](3-tier/3-tier.md)
