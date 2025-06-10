@@ -55,35 +55,34 @@ This synergy allows teams to build, deploy, and operate applications with unprec
 * [Devops prerequisite course video](https://www.youtube.com/watch?v=Wvf0mBNGjXY) This course has a hands on lab also register for it and do the hands on for free.
 
 ## Windows vs Linux
-* [Windows vs Linux basics](cloud/types-of-os.md)
+* [Windows vs Linux basics](cloud/types-of-os)
 <!-- * [Basic windows and linux commands](/content/devops-journey/windows-linux-commands) -->
 
 ## Linux basics
 * [Linux folder structure](https://www.thegeekstuff.com/2010/09/linux-file-system-structure/)
-* [Linux commands part-1](/content/linux/tutorials/commands/commands-part1)
+* [Linux commands part-1](linux-commands/commands-part1)
 * [Relative path and Absolute path](https://www.geeksforgeeks.org/absolute-relative-pathnames-unix/)
-* [Linux commands part-2](/content/linux/tutorials/commands/commands-part2)
-* [Linux commands part-3](/content/linux/tutorials/commands/commands-part3)
-* [Linux commands part-4](/content/linux/tutorials/commands/commands-part4)
-* [Linux commands part-5](/content/linux/tutorials/commands/commands-part5)
-* [Linux commands part-6](/content/linux/tutorials/commands/commands-part6)
-* [Linux commands part-7](/content/linux/tutorials/commands/commands-part7)
-* [Linux commands part-8](/content/linux/tutorials/commands/commands-part8)
-* [Linux commands part-9](/content/linux/tutorials/commands/commands-part9)
-* [On Premise vs Cloud](/content/devops-journey/on-premise-cloud)
-* [Linux - ssh](/content/linux/tutorials/ssh/ssh)
-* [How to install virtualbox and create ubuntu virtual machine](/content/linux/virtualbox)
+* [Linux commands part-2](linux-commands/commands-part2)
+* [Linux commands part-3](linux-commands/commands-part3)
+* [Linux commands part-4](linux-commands/commands-part4)
+* [Linux commands part-5](linux-commands/commands-part5)
+* [Linux commands part-6](linux-commands/commands-part6)
+* [Linux commands part-7](linux-commands/commands-part7)
+* [Linux commands part-8](linux-commands/commands-part8)
+* [Linux commands part-9](linux-commands/commands-part9)
+* [On Premise vs Cloud](cloud/on-premise-cloud)
+* [Linux - ssh](ssh/ssh)
+* [How to install virtualbox and create ubuntu virtual machine](cloud/virtualbox)
 
 ## Shell script
-* [Part - 1 : Basics and if condition](/content/shellscript/tutorials/part-1)
-* [Part - 2 : for loop](/content/shellscript/tutorials/part-2)
-* [Part - 3 : while loop](/content/shellscript/tutorials/part-3)
-* [Part - 4 : function](/content/shellscript/tutorials/part-4)
-* [Shell script examples](https://github.com/vigneshsweekaran/shellscript)
+1. [Basics and if condition](shellscript/part-1)
+2. [For loop](shellscript/part-2)
+3. [While loop](shellscript/part-3)
+4. [Function](shellscript/part-4)
+5. [Shell script examples](https://github.com/vigneshsweekaran/shellscript)
 
 ## Git
-* [Part - 1 : How to create Github account and repositories](/content/git/tutorials/part-1)
-* [Part - 2 : How to create private repositories and types of authentication](/content/git/tutorials/part-2)
+* [Learn Git](git)
 
 ## 3-Tier Architecture
 * [Understanding 3-Tier Architecture](3-tier/3-tier.md)
