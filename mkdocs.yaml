@@ -139,7 +139,7 @@ nav:
       - How to create a storage class in kubernetes: kubernetes/tutorials/how-to-create-storage-class-in-kubernetes.md
       - How to create a statefulset in kubernetes: kubernetes/tutorials/how-to-create-statefulset-in-kubernetes.md
       - How to create a daemonset in kubernetes: kubernetes/tutorials/how-to-create-daemonset-in-kubernetes.md
-      - How to create an ingress controller in kubernetes: kubernetes/how-to-create-ingress-controller-in-kubernetes.md
+      - How to create and configure ingress in kubernetes: kubernetes/tutorials/how-to-create-ingress-in-kubernetes.md
       - How to scale up and scale down the deployment in kubernetes: kubernetes/how-to-scale-up-scale-down-deployment-in-kubernetes.md
       - How to update the application running inside the pod using rolling update strategy in kubernetes: kubernetes/rolling-update-strategy-in-kubernetes.md
       - How to rollback the application running inside the pod in kubernetes: kubernetes/how-to-rollback-the-application-running-inside-the-pod-in-kubernetes.md

@@ -113,12 +113,37 @@ spec:
 ```bash
 # Apply the StatefulSet configuration
 kubectl apply -f statefulset.yaml
+```
+Output:
+```
+statefulset.apps/web created
+```
 
+```bash
 # Verify the creation
 kubectl get statefulset
+```
+Output:
+```
+NAME   READY   AGE
+web    3/3     2m
+```
 
+```bash
 # Watch the pods being created
 kubectl get pods -w
+```
+Output:
+```
+NAME    READY   STATUS              RESTARTS   AGE
+web-0   0/1     ContainerCreating   0          10s
+web-0   1/1     Running            0          20s
+web-1   0/1     Pending            0          0s
+web-1   0/1     ContainerCreating   0          0s
+web-1   1/1     Running            0          20s
+web-2   0/1     Pending            0          0s
+web-2   0/1     ContainerCreating   0          0s
+web-2   1/1     Running            0          20s
 ```
 
 ### 2. Scaling a StatefulSet
@@ -126,9 +151,57 @@ kubectl get pods -w
 ```bash
 # Scale up
 kubectl scale statefulset web --replicas=5
+```
+Output:
+```
+statefulset.apps/web scaled
+```
 
+```bash
+# Watch new pods being created
+kubectl get pods -w
+```
+Output:
+```
+NAME    READY   STATUS              RESTARTS   AGE
+web-0   1/1     Running            0          5m
+web-1   1/1     Running            0          4m40s
+web-2   1/1     Running            0          4m20s
+web-3   0/1     Pending            0          0s
+web-3   0/1     ContainerCreating   0          0s
+web-3   1/1     Running            0          20s
+web-4   0/1     Pending            0          0s
+web-4   0/1     ContainerCreating   0          0s
+web-4   1/1     Running            0          20s
+```
+
+```bash
 # Scale down
 kubectl scale statefulset web --replicas=3
+```
+Output:
+```
+statefulset.apps/web scaled
+```
+
+```bash
+# Watch pods being terminated
+kubectl get pods -w
+```
+Output:
+```
+NAME    READY   STATUS    RESTARTS   AGE
+web-0   1/1     Running   0          6m
+web-1   1/1     Running   0          5m40s
+web-2   1/1     Running   0          5m20s
+web-3   1/1     Running   0          1m
+web-4   1/1     Running   0          40s
+web-4   1/1     Terminating   0          45s
+web-4   0/1     Terminating   0          50s
+web-4   0/1     Terminating   0          50s
+web-3   1/1     Terminating   0          1m10s
+web-3   0/1     Terminating   0          1m15s
+web-3   0/1     Terminating   0          1m15s
 ```
 
 ### 3. Updating a StatefulSet
@@ -144,11 +217,56 @@ kubectl rollout status statefulset/web
 ### 4. Deleting a StatefulSet
 
 ```bash
-# Delete the StatefulSet but keep the pods
-kubectl delete statefulset web --cascade=orphan
+### 3. Deleting a StatefulSet
 
-# Delete the StatefulSet and its pods
+```bash
+# Delete StatefulSet
 kubectl delete statefulset web
+```
+Output:
+```
+statefulset.apps "web" deleted
+```
+
+```bash
+# Watch pods being terminated in reverse order
+kubectl get pods -w
+```
+Output:
+```
+NAME    READY   STATUS    RESTARTS   AGE
+web-0   1/1     Running   0          10m
+web-1   1/1     Running   0          9m40s
+web-2   1/1     Running   0          9m20s
+web-2   1/1     Terminating   0          9m25s
+web-2   0/1     Terminating   0          9m30s
+web-1   1/1     Terminating   0          9m45s
+web-1   0/1     Terminating   0          9m50s
+web-0   1/1     Terminating   0          10m15s
+web-0   0/1     Terminating   0          10m20s
+```
+
+```bash
+# List PVCs created by StatefulSet
+kubectl get pvc
+```
+Output:
+```
+NAME        STATUS   VOLUME                                   CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+www-web-0   Bound    pvc-f1bc8a7e-8fb8-11ea-a699-42010a800021   1Gi       RWO           standard       10m
+www-web-1   Bound    pvc-f1e3c97e-8fb8-11ea-a699-42010a800021   1Gi       RWO           standard       9m40s
+www-web-2   Bound    pvc-f209d07e-8fb8-11ea-a699-42010a800021   1Gi       RWO           standard       9m20s
+```
+
+```bash
+# Delete PVC (if cleanup of persistent storage is needed)
+kubectl delete pvc -l app=nginx
+```
+Output:
+```
+persistentvolumeclaim "www-web-0" deleted
+persistentvolumeclaim "www-web-1" deleted
+persistentvolumeclaim "www-web-2" deleted
 ```
 
 ## Advanced Configurations
