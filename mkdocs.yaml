@@ -129,6 +129,7 @@ nav:
       - How to install Minikube in Linux: kubernetes/tutorials/how-to-install-minikube-in-linux.md
       - How to install kubectl in Linux: kubernetes/tutorials/how-to-install-kubectl-in-linux.md
       - How to create a simple pod in kubernetes: kubernetes/tutorials/how-to-create-a-simple-pod-in-kubernetes.md
+      - How to create a replicaset in kubernetes: kubernetes/tutorials/how-to-create-replicaset-in-kubernetes.md
       - How to create a deployment in kubernetes: kubernetes/tutorials/how-to-create-a-deployment-in-kubernetes.md
       - How to create a service in kubernetes: kubernetes/tutorials/how-to-create-a-service-in-kubernetes.md
       - How to create a namespace in kubernetes: kubernetes/tutorials/how-to-create-a-namespace-in-kubernetes.md
@@ -136,15 +137,15 @@ nav:
       - How to create a secret in kubernetes: kubernetes/tutorials/how-to-create-a-secret-in-kubernetes.md
       - How to create a persistent volume and persistent volume claim in kubernetes: kubernetes/tutorials/how-to-create-pv-pvc-in-kubernetes.md
       - How to create a storage class in kubernetes: kubernetes/tutorials/how-to-create-storage-class-in-kubernetes.md
-      - How to create a statefulset in kubernetes: kubernetes/how-to-create-statefulset-in-kubernetes.md
-      - How to create a daemonset in kubernetes: kubernetes/how-to-create-daemonset-in-kubernetes.md
+      - How to create a statefulset in kubernetes: kubernetes/tutorials/how-to-create-statefulset-in-kubernetes.md
+      - How to create a daemonset in kubernetes: kubernetes/tutorials/how-to-create-daemonset-in-kubernetes.md
       - How to create an ingress controller in kubernetes: kubernetes/how-to-create-ingress-controller-in-kubernetes.md
       - How to scale up and scale down the deployment in kubernetes: kubernetes/how-to-scale-up-scale-down-deployment-in-kubernetes.md
       - How to update the application running inside the pod using rolling update strategy in kubernetes: kubernetes/rolling-update-strategy-in-kubernetes.md
       - How to rollback the application running inside the pod in kubernetes: kubernetes/how-to-rollback-the-application-running-inside-the-pod-in-kubernetes.md
       - How to run a job and cronjob in kubernetes: kubernetes/how-to-run-a-job-and-cronjob-in-kubernetes.md
-    - How to install/uninstall cert-manager in kubernetes: kubernetes/how-to-install-certmanager.md
-    - How to install Nginx Ingress controller in kubernetes: kubernetes/how-to-install-nginx-ingress-controller.md
+    - How to install/uninstall cert-manager in kubernetes: kubernetes/tutorials/how-to-install-certmanager.md
+    - How to install Nginx Ingress controller in kubernetes: kubernetes/tutorials/how-to-install-nginx-ingress-controller.md
   - Helm:
     - Helm chart basics: helm/basics.md
     - Helm commands: helm/commands.md
