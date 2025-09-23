@@ -133,22 +133,24 @@ nav:
       - Installing Minikube: kubernetes/tutorials/how-to-install-minikube-in-linux.md
       - Installing kubectl: kubernetes/tutorials/how-to-install-kubectl-in-linux.md
     - Core Concepts:
-      - Namespaces: kubernetes/tutorials/how-to-create-namespace-in-kubernetes.md
       - Pods: kubernetes/tutorials/how-to-create-pod-in-kubernetes.md
     - Workload Resources:
       - ReplicaSets: kubernetes/tutorials/how-to-create-replicaset-in-kubernetes.md
       - Deployments: kubernetes/tutorials/how-to-create-deployment-in-kubernetes.md
-      - StatefulSets: kubernetes/tutorials/how-to-create-statefulset-in-kubernetes.md
       - DaemonSets: kubernetes/tutorials/how-to-create-daemonset-in-kubernetes.md
+      - StatefulSets: kubernetes/tutorials/how-to-create-statefulset-in-kubernetes.md
       - Jobs and CronJobs: kubernetes/tutorials/how-to-create-job-cronjob-in-kubernetes.md
+    - Resource Organization:
+      - Namespaces: kubernetes/tutorials/how-to-create-a-namespace-in-kubernetes.md
+    - Configuration:
+      - ConfigMaps: kubernetes/tutorials/how-to-create-configmap-in-kubernetes.md
+      - Secrets: kubernetes/tutorials/how-to-create-secret-in-kubernetes.md
     - Service & Networking:
       - Services: kubernetes/tutorials/how-to-create-service-in-kubernetes.md
       - Ingress: kubernetes/tutorials/how-to-create-ingress-in-kubernetes.md
       - Ingress Controllers:
         - Nginx Ingress Controller: kubernetes/tutorials/how-to-install-ingress-controller.md
-    - Configuration & Storage:
-      - ConfigMaps: kubernetes/tutorials/how-to-create-configmap-in-kubernetes.md
-      - Secrets: kubernetes/tutorials/how-to-create-secret-in-kubernetes.md
+    - Storage:
       - Storage Classes: kubernetes/tutorials/how-to-create-storage-class-in-kubernetes.md
       - PV and PVC: kubernetes/tutorials/how-to-create-pv-pvc-in-kubernetes.md
     - Application Management:
