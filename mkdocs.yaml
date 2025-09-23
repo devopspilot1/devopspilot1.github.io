@@ -125,17 +125,17 @@ nav:
     - How to integrate Sonarqube Quality Gate in Jenkins Pipeline: sonarqube/quality-gate.md
   - K8s:
     - Tutorials:
-      - What is Kubernetes: kubernetes/what-is-kubernetes.md
-      - How to install Minikube in Linux: kubernetes/how-to-install-minikube-in-linux.md
-      - How to install kubectl in Linux: kubernetes/how-to-install-kubectl-in-linux.md
-      - How to create a simple pod in kubernetes: kubernetes/how-to-create-a-simple-pod-in-kubernetes.md
-      - How to create a deployment in kubernetes: kubernetes/how-to-create-a-deployment-in-kubernetes.md
-      - How to create a service in kubernetes: kubernetes/how-to-create-a-service-in-kubernetes.md
-      - How to create a namespace in kubernetes: kubernetes/how-to-create-a-namespace-in-kubernetes.md
-      - How to create a configmap in kubernetes: kubernetes/how-to-create-a-configmap-in-kubernetes.md
-      - How to create a secret in kubernetes: kubernetes/how-to-create-a-secret-in-kubernetes.md
-      - How to create a persistent volume and persistent volume claim in kubernetes: kubernetes/how-to-create-pv-pvc-in-kubernetes.md
-      - How to create a storage class in kubernetes: kubernetes/how-to-create-storage-class-in-kubernetes.md
+      - What is Kubernetes: kubernetes/tutorials/what-is-kubernetes.md
+      - How to install Minikube in Linux: kubernetes/tutorials/how-to-install-minikube-in-linux.md
+      - How to install kubectl in Linux: kubernetes/tutorials/how-to-install-kubectl-in-linux.md
+      - How to create a simple pod in kubernetes: kubernetes/tutorials/how-to-create-a-simple-pod-in-kubernetes.md
+      - How to create a deployment in kubernetes: kubernetes/tutorials/how-to-create-a-deployment-in-kubernetes.md
+      - How to create a service in kubernetes: kubernetes/tutorials/how-to-create-a-service-in-kubernetes.md
+      - How to create a namespace in kubernetes: kubernetes/tutorials/how-to-create-a-namespace-in-kubernetes.md
+      - How to create a configmap in kubernetes: kubernetes/tutorials/how-to-create-a-configmap-in-kubernetes.md
+      - How to create a secret in kubernetes: kubernetes/tutorials/how-to-create-a-secret-in-kubernetes.md
+      - How to create a persistent volume and persistent volume claim in kubernetes: kubernetes/tutorials/how-to-create-pv-pvc-in-kubernetes.md
+      - How to create a storage class in kubernetes: kubernetes/tutorials/how-to-create-storage-class-in-kubernetes.md
       - How to create a statefulset in kubernetes: kubernetes/how-to-create-statefulset-in-kubernetes.md
       - How to create a daemonset in kubernetes: kubernetes/how-to-create-daemonset-in-kubernetes.md
       - How to create an ingress controller in kubernetes: kubernetes/how-to-create-ingress-controller-in-kubernetes.md
