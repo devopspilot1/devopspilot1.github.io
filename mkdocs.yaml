@@ -45,6 +45,19 @@ nav:
     - How to clone the github public repository: git/how-to-clone-the-public-repository.md
     - How to create private repository: git/how-to-create-private-repository.md
     - How to push the changes to github repository: git/how-to-push-the-changes-to-github-repository.md
+    - Tutorials:
+      - Git Basics: git/tutorials/02-basics.md
+      - Git Branching and Merging: git/tutorials/03-branching-merging.md
+      - Git Pull and Fetch: git/tutorials/04-pull_fetch.md
+      - Git Reset: git/tutorials/05-reset.md
+      - Git Tags: git/tutorials/06-tags.md
+      - Git Stash: git/tutorials/07-stash.md
+      - Common Issues in Git: git/tutorials/08-issues-faced.md
+      - How to Fix Merge Conflicts: git/tutorials/09-how-to-fix-merge-conflict.md
+      - How to Create Pull Request in GitHub: git/tutorials/10-how-to-create-pull-request-in-github.md
+      - How to Fix Merge Conflicts in Pull Request: git/tutorials/11-how-to-fix-merge-conflict-in-pull-request.md
+      - Git Rebase: git/tutorials/12-rebase.md
+      - Git Visual Diff and Merge Tools: git/tutorials/visual_diff_merge.md
   - Build Tools:
     - Maven:
       - How to install Java and compile a single Java file: build-tools/maven/install-java-compile.md
