@@ -15,7 +15,6 @@ theme:
     - navigation.expand
     - navigation.indexes
     - toc.follow
-    - toc.integrate
 copyright:  Copyright &copy; 2021 - 2025 DevopsPilot
 extra_css:
   - stylesheets/extra.css
