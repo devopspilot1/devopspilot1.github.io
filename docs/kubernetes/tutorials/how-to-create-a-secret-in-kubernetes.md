@@ -10,11 +10,30 @@ This guide explains how to create and manage Secrets in Kubernetes to handle sen
 
 ## Types of Secrets
 
-1. **Opaque**: Arbitrary user-defined data (default)
-2. **kubernetes.io/dockerconfigjson**: Docker registry credentials
-3. **kubernetes.io/service-account-token**: Service account token
-4. **kubernetes.io/tls**: TLS certificates
-5. **kubernetes.io/ssh-auth**: SSH credentials
+1. **Opaque (generic)**: Arbitrary user-defined data (default)
+   - Most commonly used type
+   - Suitable for passwords, keys, and configuration
+   - Can store any kind of sensitive data
+
+2. **kubernetes.io/dockerconfigjson**:
+   - Docker registry credentials
+   - Used for pulling images from private registries
+   - Created with `kubectl create secret docker-registry`
+
+3. **kubernetes.io/service-account-token**:
+   - Service account authentication tokens
+   - Automatically created for service accounts
+   - Used for API authentication
+
+4. **kubernetes.io/tls**:
+   - TLS certificates and private keys
+   - Used for securing ingress and services
+   - Must contain tls.crt and tls.key
+
+5. **kubernetes.io/ssh-auth**:
+   - SSH private keys
+   - Used for git operations or SSH authentication
+   - Created from SSH private key files
 
 ## Creating Secrets
 
@@ -194,13 +213,33 @@ stringData:  # Values will be automatically encoded
 
 ## Best Practices
 
-### 1. Security
+### 1. Security Fundamentals
 
 - Never store secrets in version control
-- Use encryption at rest
-- Implement RBAC policies
-- Rotate secrets regularly
-- Use service accounts appropriately
+- Enable encryption at rest using `EncryptionConfiguration`
+- Use namespaces to isolate secrets
+- Implement strict RBAC policies
+- Rotate secrets regularly (at least every 90 days)
+- Use service accounts with minimal permissions
+- Implement network policies to restrict secret access
+
+Example Encryption Configuration:
+```yaml
+apiVersion: apiserver.config.k8s.io/v1
+kind: EncryptionConfiguration
+metadata:
+  name: encryption-config
+spec:
+  resources:
+  - resources:
+    - secrets
+    providers:
+    - aescbc:
+        keys:
+        - name: key1
+          secret: <32-byte-key>
+    - identity: {}
+```
 
 ### 2. Secret Management
 
@@ -298,23 +337,39 @@ kubectl logs pod-name
 
 ## Security Considerations
 
-1. **Network Security**
+### 1. Network Security
+
+Implement NetworkPolicies to restrict access to pods that use secrets:
+
 ```yaml
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: secret-network-policy
+  namespace: production
 spec:
   podSelector:
     matchLabels:
       role: secret-consumer
   policyTypes:
   - Ingress
+  - Egress
   ingress:
   - from:
     - podSelector:
         matchLabels:
           role: authorized
+    ports:
+    - port: 443
+      protocol: TCP
+  egress:
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          purpose: production
+    ports:
+    - port: 443
+      protocol: TCP
 ```
 
 2. **Pod Security**
