@@ -159,6 +159,8 @@ nav:
       - Rollbacks: kubernetes/tutorials/how-to-rollback-deployment-in-kubernetes.md
     - Security:
       - Cert Manager: kubernetes/tutorials/how-to-install-cert-manager.md
+    - Command Reference:
+      - Imperative Commands: kubernetes/tutorials/imperative-commands.md
   - Helm:
     - Helm chart basics: helm/basics.md
     - Helm commands: helm/commands.md
