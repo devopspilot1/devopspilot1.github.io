@@ -31,6 +31,10 @@ date: 2024-07-01
 
 - **Declarative Pipeline Migration Assistant** - Generate Declarative pipeline script(Jenkinsfile) from freestyle project
 
+- **SSH Build Agents** - To configure SSH agent nodes
+
+- **SSH Pipeline Steps** - For using ssh in Pipeline steps
+
 #### Install Plugin
 
 From Jenkins dashboard, click on **Manage Jenkins**

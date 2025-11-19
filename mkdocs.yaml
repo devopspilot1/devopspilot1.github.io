@@ -146,7 +146,7 @@ nav:
       - ConfigMaps: kubernetes/tutorials/how-to-create-configmap-in-kubernetes.md
       - Secrets: kubernetes/tutorials/how-to-create-secret-in-kubernetes.md
     - Service & Networking:
-      - Services: kubernetes/tutorials/how-to-create-service-in-kubernetes.md
+      - Services: kubernetes/tutorials/how-to-create-a-service-in-kubernetes.md
       - Ingress: kubernetes/tutorials/how-to-create-ingress-in-kubernetes.md
       - Ingress Controllers:
         - Nginx Ingress Controller: kubernetes/tutorials/how-to-install-ingress-controller.md
