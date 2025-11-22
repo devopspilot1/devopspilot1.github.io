@@ -1,0 +1,7084 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://devopspilot1.github.io/linux-commands/part-7/">
+      
+      
+        <link rel="prev" href="../part-6/">
+      
+      
+        <link rel="next" href="../part-8/">
+      
+      
+      <link rel="icon" href="../../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.13">
+    
+    
+      
+        <title>Linux commands Part 7 - DevopsPilot</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-EKDQC3L9T7"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-EKDQC3L9T7",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-EKDQC3L9T7",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#types-of-shell" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="DevopsPilot" class="md-header__button md-logo" aria-label="DevopsPilot" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DevopsPilot
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Linux commands Part 7
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../part-1/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Linux Commands
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ssh/ssh/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  SSH
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../shellscript/part-1/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Shellscript
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../git/how-to-create-github-account/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Git
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../build-tools/maven/install-java-compile/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Build Tools
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../webserver/nginx/how-to-install-nginx/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Web Server
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../jenkins/tutorials/how-to-install-jenkins-with-java-21-on-ubuntu/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Jenkins
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../docker/tutorials/what-is-docker/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Docker
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../sonarqube/quality-gate/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Sonarqube
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../kubernetes/tutorials/what-is-kubernetes/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  K8s
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../helm/basics/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Helm
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../terraform/aws/codebuild-helloworld/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Terraform
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cloud/gcp/what-is-gcp/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Cloud
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ssl/how-to-configure-free-letsencrypt-ssl-tls-certificates-with-nginx/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  SSL
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../interview-questions/linux-commands/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Interview Questions
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="DevopsPilot" class="md-nav__button md-logo" aria-label="DevopsPilot" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    DevopsPilot
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Linux Commands
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Linux Commands
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part-4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part-5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 5
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part-6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 6
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Part 7
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 7
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#types-of-shell" class="md-nav__link">
+    <span class="md-ellipsis">
+      Types of shell
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redirection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redirection
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wget" class="md-nav__link">
+    <span class="md-ellipsis">
+      wget
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wget-command-without-showing-the-progress-bar" class="md-nav__link">
+    <span class="md-ellipsis">
+      wget command without showing the progress bar
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#curl-command-to-download-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      curl command to download file
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#curl-command-to-download-file-without-showing-progress-bar" class="md-nav__link">
+    <span class="md-ellipsis">
+      curl command to download file without showing progress bar
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-unzip-the-zip-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to unzip the zip file
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-unzip-to-different-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to unzip to different directory
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-extract-tar-or-targz-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to extract tar or tar.gz file
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-extract-to-different-folder-using-tar-command-and-in-silent-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to extract to different folder using tar command and in silent mode
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-create-a-zip-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to create a zip file
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-json-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sample JSON file
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#curl-command-to-retrieve-the-rest-api-response-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      Curl command to retrieve the Rest api response (JSON)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-store-the-json-response-data-from-rest-api-to-a-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to store the Json response data from rest api to a file
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part-8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 8
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../part-9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 9
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    SSH
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            SSH
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ssh/ssh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ssh
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Shellscript
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Shellscript
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shellscript/part-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shellscript/part-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shellscript/part-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../shellscript/part-4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Git
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Git
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/how-to-create-github-account/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create github account
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/how-to-install-git-in-linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to install git in linux
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/how-to-create-public-repository-in-github/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create public repository in github
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/how-to-clone-the-public-repository/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to clone the github public repository
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/how-to-create-private-repository/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create private repository
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/how-to-push-the-changes-to-github-repository/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to push the changes to github repository
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/tutorials/02-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Basics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/tutorials/03-branching-merging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Branching and Merging
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/tutorials/04-pull_fetch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Pull and Fetch
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/tutorials/05-reset/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Reset
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/tutorials/06-tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Tags
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/tutorials/07-stash/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Stash
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/tutorials/08-issues-faced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Common Issues in Git
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/tutorials/09-how-to-fix-merge-conflict/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to Fix Merge Conflicts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/tutorials/10-how-to-create-pull-request-in-github/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to Create Pull Request in GitHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/tutorials/11-how-to-fix-merge-conflict-in-pull-request/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to Fix Merge Conflicts in Pull Request
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/tutorials/12-rebase/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Rebase
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/tutorials/visual_diff_merge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Visual Diff and Merge Tools
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Build Tools
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Build Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Maven
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Maven
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-tools/maven/install-java-compile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to install Java and compile a single Java file
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-tools/maven/install-maven/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to install Maven in Linux
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-tools/maven/what-is-maven/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is Maven?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-tools/maven/generate-a-sample-java-application-using-maven/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Generate a sample java application using maven
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-tools/maven/how-to-create-a-github-repository-and-push-a-sample-java-maven-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create a GitHub repository and push a Hello World Java 21 Maven Project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Web Server
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Web Server
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Nginx
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            Nginx
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../webserver/nginx/how-to-install-nginx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to install nginx in Linux
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tomcat
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Tomcat
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../webserver/tomcat/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to install Tomcat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../webserver/tomcat/how-to-manually-deploy-java-application-to-tomcat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to manually deploy the java application to Tomcat 9 webserver
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../webserver/tomcat/how-to-deploy-java-application-to-tomcat-using-maven/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to deploy the java application to Tomcat 9 webserver using Maven
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Jenkins
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Jenkins
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jenkins/tutorials/how-to-install-jenkins-with-java-21-on-ubuntu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to install Jenkins with Java 21 on Ubuntu 24.04
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jenkins/tutorials/how-to-complete-the-initial-setup-after-installing-jenkins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to complete the initial setup after installing Jenkins
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jenkins/tutorials/how-to-create-a-freestyle-project-to-build-a-maven-java-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create a Freestyle project in Jenkins to build a Maven Java project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jenkins/tutorials/how-to-create-a-maven-project-in-jenkins-to-build-a-maven-java-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to install the Maven plugin in Jenkins
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jenkins/tutorials/how-to-install-the-maven-plugin-in-jenkins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to install Maven using Jenkins Tools
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jenkins/tutorials/how-to-install-maven-from-jenkins-tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create a Maven project in Jenkins to build a Maven Java project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jenkins/tutorials/how-to-store-a-github-token-safely-in-jenkins-credentials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to store a Github Token safely in Jenkins Credentials
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jenkins/tutorials/how-to-create-a-maven-project-in-jenkins-with-private-github-repository/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create a Maven project in Jenkins with Private Github Repository
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jenkins/tutorials/how-to-create-a-pipeline-in-jenkins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create a Pipeline in Jenkins using Pipeline Script
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jenkins/tutorials/how-to-write-jenkinsfile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to write a Jenkinsfile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jenkins/tutorials/how-to-create-a-pipeline-in-jenkins-using-jenkinsfile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create a Pipeline in Jenkins using Jenkinsfile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jenkins/tutorials/jenkinsfile-to-build-a-java-maven-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jenkinsfile to build a Java Maven Project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jenkins/tutorials/how-to-use-tools-block-in-jenkinsfile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to use the tools block in Jenkinsfile to refer to Maven
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jenkins/tutorials/how-to-enable-github-webhook-to-trigger-the-jenkins-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to enable GitHub Webhook to trigger the Jenkins pipeline
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jenkins/tutorials/jenkinsfile-to-trigger-the-jenkins-pipeline-using-poll-scm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jenkinsfile to trigger the Jenkins Pipeline using Poll SCM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jenkins/tutorials/jenkinsfile-to-trigger-the-jenkins-pipeline-using-cron/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jenkinsfile to trigger the Jenkins Pipeline using Cron
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jenkins/tutorials/jenkinsfile-to-trigger-the-pipeline-from-the-upstream-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jenkinsfile to trigger the Pipeline from the Upstream Pipeline
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jenkins/tutorials/jenkinsfile-to-trigger-other-jenkins-pipeline-from-the-stage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jenkinsfile to trigger other Jenkins Pipeline from the stage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jenkins/tutorials/generate-the-code-for-jenkinsfile-using-declarative-directive-generator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Generate the code for Jenkinsfile using Declarative Directive Generator
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jenkins/tutorials/how-to-replay-the-jenkins-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to Replay the Jenkins Pipeline
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jenkins/tutorials/use-of-options-in-jenkinsfile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to use Options in Jenkinsfile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Configuration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            Configuration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jenkins/configuration/how-to-install-plugins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to install plugins in Jenkins
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jenkins/configuration/global-tool-configurations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Global Tool Configurations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jenkins/configuration/how-to-store-credentials-in-jenkins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to store credentials in Jenkins
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jenkins/configuration/how-to-restore-deleted-job/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to restore deleted job in Jenkins
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Pipelines
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            Pipelines
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jenkins/pipelines/how-to-create-pipeline-job/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create pipeline job in Jenkins
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jenkins/pipelines/jenkinsfile-to-build-maven-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to write a Jenkinsfile to build a Maven project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jenkins/pipelines/jenkinsfile-to-build-maven-project-and-deploy-to-tomcat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to write a Jenkinsfile to build a Maven project and deploy to Apache Tomcat webserver
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jenkins/pipelines/jenkinsfile-to-build-docker-image-push-deploy-to-same-server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to write a Jenkinsfile to build a Maven project, build and push docker image to Dockerhub and deploy the container to same server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jenkins/pipelines/jenkinsfile-to-build-docker-image-push-to-artifactory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to write a Jenkinsfile to build a Maven project, build and push docker image to Jfrog artifactory and deploy the container to same server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_4" id="__nav_7_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Other Topics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_4">
+            <span class="md-nav__icon md-icon"></span>
+            Other Topics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jenkins/other-topics/how-to-create-a-job-automatically-using-jobdsl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create a Job automatically using Seed Jenkins plugin and Job DSL script
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Docker
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_1" id="__nav_8_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_1">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docker/tutorials/what-is-docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docker/tutorials/how-to-install-docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to install docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docker/tutorials/docker-images-vs-containers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker Images vs Docker Containers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docker/tutorials/create-docker-image-nginx-html/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Create docker image for nginx and html file
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docker/tutorials/pull-push-docker-image-to-public-repository/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pull nginx docker image from dockerhub, tag and push to your public repo in dockerhub account
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docker/tutorials/pull-push-docker-image-to-private-repository/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pull nginx docker image from dockerhub, tag and push to your private repository in dockerhub account
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_2" id="__nav_8_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Dockerfile
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_2">
+            <span class="md-nav__icon md-icon"></span>
+            Dockerfile
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docker/dockerfiles/create-dockerfile-to-install-packages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to write Dockerfile for installing packages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docker/dockerfiles/create-a-dockerfile-for-installing-openjdk15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to write a dockerfile for installing openjdk15
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docker/dockerfiles/create-multi-stage-dockerfile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create a multi stage Dockerfile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docker/dockerfiles/how-to-write-a-dockerfile-for-running-war-file-in-tomcat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to write a dockerfile for running a java application (*.war) in Apache tomcat webserver
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Sonarqube
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Sonarqube
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sonarqube/quality-gate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to integrate Sonarqube Quality Gate in Jenkins Pipeline
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    K8s
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            K8s
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_1" id="__nav_10_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_1">
+            <span class="md-nav__icon md-icon"></span>
+            Introduction
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes/tutorials/what-is-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is Kubernetes?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_2" id="__nav_10_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Setup and Installation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_2">
+            <span class="md-nav__icon md-icon"></span>
+            Setup and Installation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes/tutorials/how-to-install-minikube-in-linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installing Minikube
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes/tutorials/how-to-install-kubectl-in-linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installing kubectl
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_3" id="__nav_10_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Core Concepts
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_3">
+            <span class="md-nav__icon md-icon"></span>
+            Core Concepts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes/tutorials/how-to-create-pod-in-kubernetes.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pods
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_4" id="__nav_10_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Workload Resources
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_4">
+            <span class="md-nav__icon md-icon"></span>
+            Workload Resources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes/tutorials/how-to-create-replicaset-in-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ReplicaSets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes/tutorials/how-to-create-deployment-in-kubernetes.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployments
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes/tutorials/how-to-create-daemonset-in-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DaemonSets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes/tutorials/how-to-create-statefulset-in-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    StatefulSets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes/tutorials/how-to-create-job-cronjob-in-kubernetes.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jobs and CronJobs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_5" id="__nav_10_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Resource Organization
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_5">
+            <span class="md-nav__icon md-icon"></span>
+            Resource Organization
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes/tutorials/how-to-create-a-namespace-in-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Namespaces
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_6" id="__nav_10_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Configuration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_6">
+            <span class="md-nav__icon md-icon"></span>
+            Configuration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes/tutorials/how-to-create-configmap-in-kubernetes.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ConfigMaps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes/tutorials/how-to-create-secret-in-kubernetes.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Secrets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_7" id="__nav_10_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Service & Networking
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_7">
+            <span class="md-nav__icon md-icon"></span>
+            Service & Networking
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes/tutorials/how-to-create-a-service-in-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Services
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes/tutorials/how-to-create-ingress-in-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ingress
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_7_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_7_3" id="__nav_10_7_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Ingress Controllers
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_10_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            Ingress Controllers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes/tutorials/how-to-install-ingress-controller.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nginx Ingress Controller
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_8" id="__nav_10_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Storage
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_8">
+            <span class="md-nav__icon md-icon"></span>
+            Storage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes/tutorials/how-to-create-storage-class-in-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Storage Classes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes/tutorials/how-to-create-pv-pvc-in-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PV and PVC
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_9" id="__nav_10_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Application Management
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_9">
+            <span class="md-nav__icon md-icon"></span>
+            Application Management
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes/tutorials/how-to-scale-deployment-in-kubernetes.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Scaling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes/tutorials/how-to-create-rolling-update-in-kubernetes.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rolling Updates
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes/tutorials/how-to-rollback-deployment-in-kubernetes.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rollbacks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_10" id="__nav_10_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Security
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_10">
+            <span class="md-nav__icon md-icon"></span>
+            Security
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes/tutorials/how-to-install-cert-manager.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cert Manager
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_11" id="__nav_10_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Command Reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_11">
+            <span class="md-nav__icon md-icon"></span>
+            Command Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kubernetes/tutorials/imperative-commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Imperative Commands
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Helm
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Helm
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../helm/basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Helm chart basics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../helm/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Helm commands
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Terraform
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            Terraform
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_12_1" id="__nav_12_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AWS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_1">
+            <span class="md-nav__icon md-icon"></span>
+            AWS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../terraform/aws/codebuild-helloworld/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Terraform script to create AWS Codebuild project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../terraform/aws/codedeploy-helloworld/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Terraform script to create AWS Codedeploy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../terraform/aws/codepipeline-helloworld/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Terraform script to create AWS Codepipeline
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Cloud
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            Cloud
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_13_1" id="__nav_13_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    GCP
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_13_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13_1">
+            <span class="md-nav__icon md-icon"></span>
+            GCP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud/gcp/what-is-gcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is GCP?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud/gcp/tutorials/create-cloud-run-using-gcloud-cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create Cloud Run service using gcloud CLI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud/gcp/tutorials/create-artifact-registry-using-gcloud-cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create Artifact Registry Docker Repository using gcloud CLI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud/gcp/tutorials/create-docker-image-push-to-artifact-registry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Build and Push Docker Image to Artifact Registry
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_13_2" id="__nav_13_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Projects
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_13_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13_2">
+            <span class="md-nav__icon md-icon"></span>
+            Projects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud/gcp/projects/deploy-python-image-to-cloud-run/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deploy Python App to Cloud Run
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud/gcp/projects/deploy-signed-image-to-cloud-run-with-binary-authorization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deploy Signed Image to Cloud Run with Binary Authorization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    SSL
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            SSL
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ssl/how-to-configure-free-letsencrypt-ssl-tls-certificates-with-nginx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to configure free Let’s Encrypt SSL/TLS Certificates with NGINX and auto renew certificates
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ssl/how-to-configure-free-letsencrypt-ssl-tls-certificates-with-nginx-for-subdomains/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to configure free single Let’s Encrypt SSL/TLS Certificate with NGINX for multiple subdomains and auto renew certificate
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ssl/how-to-configure-free-letsencrypt-ssl-tls-wildcard-certificates-with-nginx-for-subdomains/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to configure free single Let’s Encrypt SSL/TLS wildcard Certificate with Nginx
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ssl/self-signed-certificate-using-openssl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to generate self signed certificate using openssl
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Interview Questions
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            Interview Questions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interview-questions/linux-commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linux commands Interview Questions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interview-questions/git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Interview Questions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interview-questions/docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker Interview Questions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interview-questions/helm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Helm Interview Questions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../interview-questions/ansible/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ansible Interview Questions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#types-of-shell" class="md-nav__link">
+    <span class="md-ellipsis">
+      Types of shell
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redirection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redirection
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wget" class="md-nav__link">
+    <span class="md-ellipsis">
+      wget
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wget-command-without-showing-the-progress-bar" class="md-nav__link">
+    <span class="md-ellipsis">
+      wget command without showing the progress bar
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#curl-command-to-download-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      curl command to download file
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#curl-command-to-download-file-without-showing-progress-bar" class="md-nav__link">
+    <span class="md-ellipsis">
+      curl command to download file without showing progress bar
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-unzip-the-zip-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to unzip the zip file
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-unzip-to-different-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to unzip to different directory
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-extract-tar-or-targz-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to extract tar or tar.gz file
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-extract-to-different-folder-using-tar-command-and-in-silent-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to extract to different folder using tar command and in silent mode
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-create-a-zip-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to create a zip file
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-json-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sample JSON file
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#curl-command-to-retrieve-the-rest-api-response-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      Curl command to retrieve the Rest api response (JSON)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-store-the-json-response-data-from-rest-api-to-a-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to store the Json response data from rest api to a file
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Part 7</h1>
+
+<h4 id="types-of-shell">Types of shell<a class="headerlink" href="#types-of-shell" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>sh</p>
+</li>
+<li>
+<p>bash (Bourne Again Shell)</p>
+</li>
+<li>
+<p>zsh</p>
+</li>
+<li>
+<p>ksh (Korn Shell)</p>
+</li>
+<li>
+<p>csh</p>
+</li>
+</ul>
+<p>Reference: <a href="https://www.shiksha.com/online-courses/articles/introduction-to-types-of-shell/">https://www.shiksha.com/online-courses/articles/introduction-to-types-of-shell/</a></p>
+<h4 id="redirection">Redirection<a class="headerlink" href="#redirection" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>&gt;  content override the file content, If file is already having the content
+&gt;&gt; Will append the content to the existing content in the file
+</code></pre></div>
+<p>In Both case, if the file is not present it will create a file and write the content to the file</p>
+<p>By default echo command prints the output to screen. But if we redirection arrows it can store to files</p>
+<div class="highlight"><pre><span></span><code>[opc@new-k8s ~]$ mkdir redirection
+[opc@new-k8s ~]$ cd redirection/
+[opc@new-k8s redirection]$ pwd
+/home/opc/redirection
+[opc@new-k8s redirection]$ ll
+total 0
+[opc@new-k8s redirection]$ echo &quot;hello devops&quot; &gt; hello.txt
+[opc@new-k8s redirection]$ ll
+total 4
+-rw-rw-r--. 1 opc opc 13 Apr 17 14:11 hello.txt
+[opc@new-k8s redirection]$ cat hello.txt
+hello devops
+[opc@new-k8s redirection]$ echo &quot;I am learning devops&quot; &gt; hello.txt
+[opc@new-k8s redirection]$ ll
+total 4
+-rw-rw-r--. 1 opc opc 21 Apr 17 14:11 hello.txt
+[opc@new-k8s redirection]$ cat hello.txt
+I am learning devops
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[opc@new-k8s redirection]$ pwd
+/home/opc/redirection
+[opc@new-k8s redirection]$ ll
+total 0
+[opc@new-k8s redirection]$ echo &quot;I eat fruits daily&quot; &gt;&gt; double-arrow.txt
+[opc@new-k8s redirection]$ ll
+total 4
+-rw-rw-r--. 1 opc opc 19 Apr 17 14:13 double-arrow.txt
+[opc@new-k8s redirection]$ cat double-arrow.txt
+I eat fruits daily
+[opc@new-k8s redirection]$ echo &quot;I love banana&quot; &gt;&gt; double-arrow.txt
+[opc@new-k8s redirection]$ echo &quot;I also like apples&quot; &gt;&gt; double-arrow.txt
+[opc@new-k8s redirection]$ ll
+total 4
+-rw-rw-r--. 1 opc opc 52 Apr 17 14:13 double-arrow.txt
+[opc@new-k8s redirection]$ cat double-arrow.txt
+I eat fruits daily
+I love banana
+I also like apples
+</code></pre></div>
+<h4 id="wget">wget<a class="headerlink" href="#wget" title="Permanent link">&para;</a></h4>
+<p>wget command is used to dowload some binary or big files eg zip, tar, tar.gz files</p>
+<div class="highlight"><pre><span></span><code>[opc@new-k8s ~]$ pwd
+/home/opc
+[opc@new-k8s ~]$ mkdir wget-examples
+[opc@new-k8s ~]$ cd wget-examples/
+[opc@new-k8s wget-examples]$ pwd
+/home/opc/wget-examples
+[opc@new-k8s wget-examples]$ ll
+total 0
+[opc@new-k8s wget-examples]$ wget https://dlcdn.apache.org/maven/maven-3/3.9.1/binaries/apache-maven-3.9.1-bin.zip
+--2023-04-17 13:27:27-- https://dlcdn.apache.org/maven/maven-3/3.9.1/binaries/apache-maven-3.9.1-bin.zip
+Resolving dlcdn.apache.org (dlcdn.apache.org)... 151.101.2.132, 2a04:4e42::644
+Connecting to dlcdn.apache.org (dlcdn.apache.org)|151.101.2.132|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 9143026 (8.7M) [application/zip]
+Saving to: ‘apache-maven-3.9.1-bin.zip’
+
+100%[=========================================================================================================================&gt;] 9,143,026   24.9MB/s   in 0.4s
+
+2023-04-17 13:27:28 (24.9 MB/s) - ‘apache-maven-3.9.1-bin.zip’ saved [9143026/9143026]
+
+[opc@new-k8s wget-examples]$ ll
+total 8932
+-rw-rw-r--. 1 opc opc 9143026 Mar 15 10:00 apache-maven-3.9.1-bin.zip
+</code></pre></div>
+<h4 id="wget-command-without-showing-the-progress-bar">wget command without showing the progress bar<a class="headerlink" href="#wget-command-without-showing-the-progress-bar" title="Permanent link">&para;</a></h4>
+<p><strong>-q or --quiet</strong> &rarr; quit mode, will not show any logs or progress bar</p>
+<div class="highlight"><pre><span></span><code>[opc@new-k8s wget-examples]$ wget -q https://dlcdn.apache.org/maven/maven-3/3.9.1/binaries/apache-maven-3.9.1-bin.tar.gz
+[opc@new-k8s wget-examples]$ ll -h
+total 18M
+-rw-rw-r--. 1 opc opc 8.7M Mar 15 10:00 apache-maven-3.9.1-bin.tar.gz
+-rw-rw-r--. 1 opc opc 8.8M Mar 15 10:00 apache-maven-3.9.1-bin.zip
+</code></pre></div>
+<h4 id="curl-command-to-download-file">curl command to download file<a class="headerlink" href="#curl-command-to-download-file" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>[opc@new-k8s ~]$ mkdir curl-examples
+[opc@new-k8s ~]$ cd curl-examples/
+[opc@new-k8s curl-examples]$ pwd
+/home/opc/curl-examples
+[opc@new-k8s curl-examples]$ ll
+total 0
+[opc@new-k8s curl-examples]$ curl https://dlcdn.apache.org/maven/maven-3/3.9.1/binaries/apache-maven-3.9.1-bin.zip -o apache-maven-3.9.1-bin.zip
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 8928k  100 8928k    0     0  13.4M      0 --:--:-- --:--:-- --:--:-- 13.4M
+[opc@new-k8s curl-examples]$ ll
+total 8932
+-rw-rw-r--. 1 opc opc 9143026 Apr 17 13:35 apache-maven-3.9.1-bin.zip
+</code></pre></div>
+<h4 id="curl-command-to-download-file-without-showing-progress-bar">curl command to download file without showing progress bar<a class="headerlink" href="#curl-command-to-download-file-without-showing-progress-bar" title="Permanent link">&para;</a></h4>
+<p>-s or --silent &rarr; Will not show the logs or progress bar</p>
+<div class="highlight"><pre><span></span><code>[opc@new-k8s curl-examples]$ curl -s https://dlcdn.apache.org/maven/maven-3/3.9.1/source/apache-maven-3.9.1-src.tar.gz -o apache-maven-3.9.1-src.tar.gz
+[opc@new-k8s curl-examples]$ ll -h
+total 12M
+-rw-rw-r--. 1 opc opc 8.8M Apr 17 13:35 apache-maven-3.9.1-bin.zip
+-rw-rw-r--. 1 opc opc 2.7M Apr 17 13:38 apache-maven-3.9.1-src.tar.gz
+</code></pre></div>
+<h4 id="how-to-unzip-the-zip-file">How to unzip the zip file<a class="headerlink" href="#how-to-unzip-the-zip-file" title="Permanent link">&para;</a></h4>
+<p>By default unzip command will unzip the zip package to the current directory</p>
+<div class="highlight"><pre><span></span><code>[opc@new-k8s curl-examples]$ ll
+total 11652
+-rw-rw-r--. 1 opc opc 9143026 Apr 17 13:35 apache-maven-3.9.1-bin.zip
+-rw-rw-r--. 1 opc opc 2784624 Apr 17 13:38 apache-maven-3.9.1-src.tar.gz
+[opc@new-k8s curl-examples]$ pwd
+/home/opc/curl-examples
+[opc@new-k8s curl-examples]$ unzip apache-maven-3.9.1-bin.zip
+Archive:  apache-maven-3.9.1-bin.zip
+   creating: apache-maven-3.9.1/
+   creating: apache-maven-3.9.1/lib/
+   creating: apache-maven-3.9.1/boot/
+   creating: apache-maven-3.9.1/lib/jansi-native/
+   creating: apache-maven-3.9.1/lib/jansi-native/Windows/
+   creating: apache-maven-3.9.1/lib/jansi-native/Windows/x86/
+   creating: apache-maven-3.9.1/lib/jansi-native/Windows/x86_64/
+   creating: apache-maven-3.9.1/bin/
+   creating: apache-maven-3.9.1/conf/
+   creating: apache-maven-3.9.1/conf/logging/
+   creating: apache-maven-3.9.1/lib/ext/
+   creating: apache-maven-3.9.1/lib/ext/hazelcast/
+   creating: apache-maven-3.9.1/lib/ext/redisson/
+  inflating: apache-maven-3.9.1/README.txt
+  inflating: apache-maven-3.9.1/LICENSE
+  inflating: apache-maven-3.9.1/NOTICE
+  inflating: apache-maven-3.9.1/lib/aopalliance.license
+  inflating: apache-maven-3.9.1/lib/commons-cli.license
+  inflating: apache-maven-3.9.1/lib/commons-codec.license
+  inflating: apache-maven-3.9.1/lib/commons-lang3.license
+  inflating: apache-maven-3.9.1/lib/failureaccess.license
+  inflating: apache-maven-3.9.1/lib/guava.license
+  inflating: apache-maven-3.9.1/lib/guice.license
+  inflating: apache-maven-3.9.1/lib/httpclient.license
+  inflating: apache-maven-3.9.1/lib/httpcore.license
+  inflating: apache-maven-3.9.1/lib/jansi.license
+  inflating: apache-maven-3.9.1/lib/javax.annotation-api.license
+  inflating: apache-maven-3.9.1/lib/javax.inject.license
+  inflating: apache-maven-3.9.1/lib/jcl-over-slf4j.license
+  inflating: apache-maven-3.9.1/lib/org.eclipse.sisu.inject.license
+  inflating: apache-maven-3.9.1/lib/org.eclipse.sisu.plexus.license
+  inflating: apache-maven-3.9.1/lib/plexus-cipher.license
+  inflating: apache-maven-3.9.1/lib/plexus-component-annotations.license
+  inflating: apache-maven-3.9.1/lib/plexus-interpolation.license
+  inflating: apache-maven-3.9.1/lib/plexus-sec-dispatcher.license
+  inflating: apache-maven-3.9.1/lib/plexus-utils.license
+  inflating: apache-maven-3.9.1/lib/slf4j-api.license
+  inflating: apache-maven-3.9.1/boot/plexus-classworlds.license
+  inflating: apache-maven-3.9.1/lib/jansi-native/Windows/x86/jansi.dll
+  inflating: apache-maven-3.9.1/lib/jansi-native/Windows/x86_64/jansi.dll
+  inflating: apache-maven-3.9.1/bin/m2.conf
+  inflating: apache-maven-3.9.1/bin/mvn.cmd
+  inflating: apache-maven-3.9.1/bin/mvnDebug.cmd
+  inflating: apache-maven-3.9.1/bin/mvn
+  inflating: apache-maven-3.9.1/bin/mvnDebug
+  inflating: apache-maven-3.9.1/bin/mvnyjp
+  inflating: apache-maven-3.9.1/conf/logging/simplelogger.properties
+  inflating: apache-maven-3.9.1/conf/settings.xml
+  inflating: apache-maven-3.9.1/conf/toolchains.xml
+  inflating: apache-maven-3.9.1/lib/ext/README.txt
+  inflating: apache-maven-3.9.1/lib/ext/hazelcast/README.txt
+  inflating: apache-maven-3.9.1/lib/ext/redisson/README.txt
+  inflating: apache-maven-3.9.1/lib/jansi-native/README.txt
+  inflating: apache-maven-3.9.1/boot/plexus-classworlds-2.6.0.jar
+  inflating: apache-maven-3.9.1/lib/maven-embedder-3.9.1.jar
+  inflating: apache-maven-3.9.1/lib/maven-settings-3.9.1.jar
+  inflating: apache-maven-3.9.1/lib/maven-settings-builder-3.9.1.jar
+  inflating: apache-maven-3.9.1/lib/maven-plugin-api-3.9.1.jar
+  inflating: apache-maven-3.9.1/lib/maven-model-3.9.1.jar
+  inflating: apache-maven-3.9.1/lib/maven-model-builder-3.9.1.jar
+  inflating: apache-maven-3.9.1/lib/maven-builder-support-3.9.1.jar
+  inflating: apache-maven-3.9.1/lib/maven-resolver-api-1.9.7.jar
+  inflating: apache-maven-3.9.1/lib/maven-resolver-util-1.9.7.jar
+  inflating: apache-maven-3.9.1/lib/maven-shared-utils-3.3.4.jar
+  inflating: apache-maven-3.9.1/lib/guice-5.1.0.jar
+  inflating: apache-maven-3.9.1/lib/aopalliance-1.0.jar
+  inflating: apache-maven-3.9.1/lib/guava-30.1-jre.jar
+  inflating: apache-maven-3.9.1/lib/failureaccess-1.0.1.jar
+  inflating: apache-maven-3.9.1/lib/javax.inject-1.jar
+  inflating: apache-maven-3.9.1/lib/javax.annotation-api-1.3.2.jar
+  inflating: apache-maven-3.9.1/lib/plexus-utils-3.5.1.jar
+  inflating: apache-maven-3.9.1/lib/plexus-sec-dispatcher-2.0.jar
+  inflating: apache-maven-3.9.1/lib/plexus-cipher-2.0.jar
+  inflating: apache-maven-3.9.1/lib/plexus-interpolation-1.26.jar
+  inflating: apache-maven-3.9.1/lib/slf4j-api-1.7.36.jar
+  inflating: apache-maven-3.9.1/lib/commons-lang3-3.8.1.jar
+  inflating: apache-maven-3.9.1/lib/maven-core-3.9.1.jar
+  inflating: apache-maven-3.9.1/lib/maven-repository-metadata-3.9.1.jar
+  inflating: apache-maven-3.9.1/lib/maven-artifact-3.9.1.jar
+  inflating: apache-maven-3.9.1/lib/maven-resolver-provider-3.9.1.jar
+  inflating: apache-maven-3.9.1/lib/maven-resolver-impl-1.9.7.jar
+  inflating: apache-maven-3.9.1/lib/maven-resolver-named-locks-1.9.7.jar
+  inflating: apache-maven-3.9.1/lib/maven-resolver-spi-1.9.7.jar
+  inflating: apache-maven-3.9.1/lib/org.eclipse.sisu.inject-0.3.5.jar
+  inflating: apache-maven-3.9.1/lib/plexus-component-annotations-2.1.0.jar
+  inflating: apache-maven-3.9.1/lib/maven-compat-3.9.1.jar
+  inflating: apache-maven-3.9.1/lib/wagon-provider-api-3.5.3.jar
+  inflating: apache-maven-3.9.1/lib/org.eclipse.sisu.plexus-0.3.5.jar
+  inflating: apache-maven-3.9.1/lib/commons-cli-1.4.jar
+  inflating: apache-maven-3.9.1/lib/wagon-http-3.5.3.jar
+  inflating: apache-maven-3.9.1/lib/wagon-http-shared-3.5.3.jar
+  inflating: apache-maven-3.9.1/lib/httpclient-4.5.14.jar
+  inflating: apache-maven-3.9.1/lib/commons-codec-1.11.jar
+  inflating: apache-maven-3.9.1/lib/wagon-file-3.5.3.jar
+  inflating: apache-maven-3.9.1/lib/jcl-over-slf4j-1.7.36.jar
+  inflating: apache-maven-3.9.1/lib/maven-resolver-connector-basic-1.9.7.jar
+  inflating: apache-maven-3.9.1/lib/maven-resolver-transport-file-1.9.7.jar
+  inflating: apache-maven-3.9.1/lib/maven-resolver-transport-http-1.9.7.jar
+  inflating: apache-maven-3.9.1/lib/httpcore-4.4.15.jar
+  inflating: apache-maven-3.9.1/lib/maven-resolver-transport-wagon-1.9.7.jar
+  inflating: apache-maven-3.9.1/lib/maven-slf4j-provider-3.9.1.jar
+  inflating: apache-maven-3.9.1/lib/jansi-2.4.0.jar
+[opc@new-k8s curl-examples]$ ll
+total 11652
+drwxr-xr-x. 6 opc opc      99 Mar 15 09:39 apache-maven-3.9.1
+-rw-rw-r--. 1 opc opc 9143026 Apr 17 13:35 apache-maven-3.9.1-bin.zip
+-rw-rw-r--. 1 opc opc 2784624 Apr 17 13:38 apache-maven-3.9.1-src.tar.gz
+</code></pre></div>
+<h4 id="how-to-unzip-to-different-directory">How to unzip to different directory<a class="headerlink" href="#how-to-unzip-to-different-directory" title="Permanent link">&para;</a></h4>
+<p>Using -d parameter we can extract the zip package to different folder<br />
+-q &rarr; silent mode</p>
+<p>Lets extract to /tmp folder</p>
+<div class="highlight"><pre><span></span><code>[opc@new-k8s tmp]$ pwd
+/tmp
+[opc@new-k8s tmp]$ ll
+total 0
+[opc@new-k8s tmp]$ cd ~/curl-examples/
+[opc@new-k8s curl-examples]$ ll
+total 11652
+-rw-rw-r--. 1 opc opc 9143026 Apr 17 13:35 apache-maven-3.9.1-bin.zip
+-rw-rw-r--. 1 opc opc 2784624 Apr 17 13:38 apache-maven-3.9.1-src.tar.gz
+[opc@new-k8s curl-examples]$ pwd
+/home/opc/curl-examples
+[opc@new-k8s curl-examples]$ unzip apache-maven-3.9.1-bin.zip -d /tmp
+Archive:  apache-maven-3.9.1-bin.zip
+   creating: /tmp/apache-maven-3.9.1/
+   creating: /tmp/apache-maven-3.9.1/lib/
+   creating: /tmp/apache-maven-3.9.1/boot/
+   creating: /tmp/apache-maven-3.9.1/lib/jansi-native/
+   creating: /tmp/apache-maven-3.9.1/lib/jansi-native/Windows/
+   creating: /tmp/apache-maven-3.9.1/lib/jansi-native/Windows/x86/
+   creating: /tmp/apache-maven-3.9.1/lib/jansi-native/Windows/x86_64/
+   creating: /tmp/apache-maven-3.9.1/bin/
+   creating: /tmp/apache-maven-3.9.1/conf/
+   creating: /tmp/apache-maven-3.9.1/conf/logging/
+   creating: /tmp/apache-maven-3.9.1/lib/ext/
+   creating: /tmp/apache-maven-3.9.1/lib/ext/hazelcast/
+   creating: /tmp/apache-maven-3.9.1/lib/ext/redisson/
+  inflating: /tmp/apache-maven-3.9.1/README.txt
+  inflating: /tmp/apache-maven-3.9.1/LICENSE
+  inflating: /tmp/apache-maven-3.9.1/NOTICE
+  inflating: /tmp/apache-maven-3.9.1/lib/aopalliance.license
+  inflating: /tmp/apache-maven-3.9.1/lib/commons-cli.license
+  inflating: /tmp/apache-maven-3.9.1/lib/commons-codec.license
+  inflating: /tmp/apache-maven-3.9.1/lib/commons-lang3.license
+  inflating: /tmp/apache-maven-3.9.1/lib/failureaccess.license
+  inflating: /tmp/apache-maven-3.9.1/lib/guava.license
+  inflating: /tmp/apache-maven-3.9.1/lib/guice.license
+  inflating: /tmp/apache-maven-3.9.1/lib/httpclient.license
+  inflating: /tmp/apache-maven-3.9.1/lib/httpcore.license
+  inflating: /tmp/apache-maven-3.9.1/lib/jansi.license
+  inflating: /tmp/apache-maven-3.9.1/lib/javax.annotation-api.license
+  inflating: /tmp/apache-maven-3.9.1/lib/javax.inject.license
+  inflating: /tmp/apache-maven-3.9.1/lib/jcl-over-slf4j.license
+  inflating: /tmp/apache-maven-3.9.1/lib/org.eclipse.sisu.inject.license
+  inflating: /tmp/apache-maven-3.9.1/lib/org.eclipse.sisu.plexus.license
+  inflating: /tmp/apache-maven-3.9.1/lib/plexus-cipher.license
+  inflating: /tmp/apache-maven-3.9.1/lib/plexus-component-annotations.license
+  inflating: /tmp/apache-maven-3.9.1/lib/plexus-interpolation.license
+  inflating: /tmp/apache-maven-3.9.1/lib/plexus-sec-dispatcher.license
+  inflating: /tmp/apache-maven-3.9.1/lib/plexus-utils.license
+  inflating: /tmp/apache-maven-3.9.1/lib/slf4j-api.license
+  inflating: /tmp/apache-maven-3.9.1/boot/plexus-classworlds.license
+  inflating: /tmp/apache-maven-3.9.1/lib/jansi-native/Windows/x86/jansi.dll
+  inflating: /tmp/apache-maven-3.9.1/lib/jansi-native/Windows/x86_64/jansi.dll
+  inflating: /tmp/apache-maven-3.9.1/bin/m2.conf
+  inflating: /tmp/apache-maven-3.9.1/bin/mvn.cmd
+  inflating: /tmp/apache-maven-3.9.1/bin/mvnDebug.cmd
+  inflating: /tmp/apache-maven-3.9.1/bin/mvn
+  inflating: /tmp/apache-maven-3.9.1/bin/mvnDebug
+  inflating: /tmp/apache-maven-3.9.1/bin/mvnyjp
+  inflating: /tmp/apache-maven-3.9.1/conf/logging/simplelogger.properties
+  inflating: /tmp/apache-maven-3.9.1/conf/settings.xml
+  inflating: /tmp/apache-maven-3.9.1/conf/toolchains.xml
+  inflating: /tmp/apache-maven-3.9.1/lib/ext/README.txt
+  inflating: /tmp/apache-maven-3.9.1/lib/ext/hazelcast/README.txt
+  inflating: /tmp/apache-maven-3.9.1/lib/ext/redisson/README.txt
+  inflating: /tmp/apache-maven-3.9.1/lib/jansi-native/README.txt
+  inflating: /tmp/apache-maven-3.9.1/boot/plexus-classworlds-2.6.0.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/maven-embedder-3.9.1.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/maven-settings-3.9.1.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/maven-settings-builder-3.9.1.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/maven-plugin-api-3.9.1.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/maven-model-3.9.1.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/maven-model-builder-3.9.1.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/maven-builder-support-3.9.1.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/maven-resolver-api-1.9.7.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/maven-resolver-util-1.9.7.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/maven-shared-utils-3.3.4.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/guice-5.1.0.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/aopalliance-1.0.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/guava-30.1-jre.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/failureaccess-1.0.1.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/javax.inject-1.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/javax.annotation-api-1.3.2.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/plexus-utils-3.5.1.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/plexus-sec-dispatcher-2.0.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/plexus-cipher-2.0.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/plexus-interpolation-1.26.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/slf4j-api-1.7.36.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/commons-lang3-3.8.1.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/maven-core-3.9.1.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/maven-repository-metadata-3.9.1.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/maven-artifact-3.9.1.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/maven-resolver-provider-3.9.1.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/maven-resolver-impl-1.9.7.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/maven-resolver-named-locks-1.9.7.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/maven-resolver-spi-1.9.7.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/org.eclipse.sisu.inject-0.3.5.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/plexus-component-annotations-2.1.0.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/maven-compat-3.9.1.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/wagon-provider-api-3.5.3.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/org.eclipse.sisu.plexus-0.3.5.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/commons-cli-1.4.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/wagon-http-3.5.3.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/wagon-http-shared-3.5.3.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/httpclient-4.5.14.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/commons-codec-1.11.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/wagon-file-3.5.3.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/jcl-over-slf4j-1.7.36.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/maven-resolver-connector-basic-1.9.7.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/maven-resolver-transport-file-1.9.7.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/maven-resolver-transport-http-1.9.7.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/httpcore-4.4.15.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/maven-resolver-transport-wagon-1.9.7.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/maven-slf4j-provider-3.9.1.jar
+  inflating: /tmp/apache-maven-3.9.1/lib/jansi-2.4.0.jar
+[opc@new-k8s curl-examples]$ ll
+total 11652
+-rw-rw-r--. 1 opc opc 9143026 Apr 17 13:35 apache-maven-3.9.1-bin.zip
+-rw-rw-r--. 1 opc opc 2784624 Apr 17 13:38 apache-maven-3.9.1-src.tar.gz
+[opc@new-k8s curl-examples]$ cd /tmp
+[opc@new-k8s tmp]$ pwd
+/tmp
+[opc@new-k8s tmp]$ ll
+total 0
+drwxr-xr-x. 6 opc opc 99 Mar 15 09:39 apache-maven-3.9.1
+</code></pre></div>
+<h4 id="how-to-extract-tar-or-targz-file">How to extract tar or tar.gz file<a class="headerlink" href="#how-to-extract-tar-or-targz-file" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>[opc@new-k8s curl-examples]$ ll
+total 11652
+-rw-rw-r--. 1 opc opc 9143026 Apr 17 13:35 apache-maven-3.9.1-bin.zip
+-rw-rw-r--. 1 opc opc 2784624 Apr 17 13:38 apache-maven-3.9.1-src.tar.gz
+[opc@new-k8s curl-examples]$ pwd
+/home/opc/curl-examples
+[opc@new-k8s curl-examples]$ tar --version
+tar (GNU tar) 1.26
+Copyright (C) 2011 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Written by John Gilmore and Jay Fenlason.
+[opc@new-k8s curl-examples]$ tar -xvf apache-maven-3.9.1-src.tar.gz
+apache-maven-3.9.1/
+apache-maven-3.9.1/.github/
+apache-maven-3.9.1/.github/workflows/
+apache-maven-3.9.1/apache-maven/
+apache-maven-3.9.1/apache-maven/src/
+apache-maven-3.9.1/apache-maven/src/bin/
+apache-maven-3.9.1/apache-maven/src/conf/
+apache-maven-3.9.1/apache-maven/src/conf/logging/
+apache-maven-3.9.1/apache-maven/src/lib/
+apache-maven-3.9.1/apache-maven/src/lib/ext/
+apache-maven-3.9.1/apache-maven/src/lib/ext/hazelcast/
+apache-maven-3.9.1/apache-maven/src/lib/ext/redisson/
+apache-maven-3.9.1/apache-maven/src/lib/jansi-native/
+apache-maven-3.9.1/apache-maven/src/main/
+apache-maven-3.9.1/apache-maven/src/main/appended-resources/
+apache-maven-3.9.1/apache-maven/src/main/appended-resources/META-INF/
+apache-maven-3.9.1/apache-maven/src/main/appended-resources/licenses/
+apache-maven-3.9.1/apache-maven/src/main/assembly/
+apache-maven-3.9.1/apache-maven/src/site/
+apache-maven-3.9.1/apache-maven/src/site/apt/
+apache-maven-3.9.1/apache-maven/src/test/
+apache-maven-3.9.1/apache-maven/src/test/java/
+apache-maven-3.9.1/apache-maven/src/test/java/org/
+apache-maven-3.9.1/apache-maven/src/test/java/org/apache/
+apache-maven-3.9.1/apache-maven/src/test/java/org/apache/maven/
+apache-maven-3.9.1/apache-maven/src/test/java/org/apache/maven/settings/
+apache-maven-3.9.1/maven-artifact/
+apache-maven-3.9.1/maven-artifact/src/
+apache-maven-3.9.1/maven-artifact/src/main/
+apache-maven-3.9.1/maven-artifact/src/main/java/
+apache-maven-3.9.1/maven-artifact/src/main/java/org/
+apache-maven-3.9.1/maven-artifact/src/main/java/org/apache/
+apache-maven-3.9.1/maven-artifact/src/main/java/org/apache/maven/
+apache-maven-3.9.1/maven-artifact/src/main/java/org/apache/maven/artifact/
+apache-maven-3.9.1/maven-artifact/src/main/java/org/apache/maven/artifact/handler/
+apache-maven-3.9.1/maven-artifact/src/main/java/org/apache/maven/artifact/metadata/
+apache-maven-3.9.1/maven-artifact/src/main/java/org/apache/maven/artifact/repository/
+apache-maven-3.9.1/maven-artifact/src/main/java/org/apache/maven/artifact/repository/layout/
+apache-maven-3.9.1/maven-artifact/src/main/java/org/apache/maven/artifact/repository/metadata/
+apache-maven-3.9.1/maven-artifact/src/main/java/org/apache/maven/artifact/resolver/
+apache-maven-3.9.1/maven-artifact/src/main/java/org/apache/maven/artifact/resolver/filter/
+apache-maven-3.9.1/maven-artifact/src/main/java/org/apache/maven/artifact/versioning/
+apache-maven-3.9.1/maven-artifact/src/main/java/org/apache/maven/repository/
+apache-maven-3.9.1/maven-artifact/src/main/java/org/apache/maven/repository/legacy/
+apache-maven-3.9.1/maven-artifact/src/main/java/org/apache/maven/repository/legacy/metadata/
+[opc@new-k8s curl-examples]$ ll -h
+total 12M
+drwxr-xr-x. 18 opc opc 4.0K Mar 15 09:39 apache-maven-3.9.1
+-rw-rw-r--.  1 opc opc 8.8M Apr 17 13:35 apache-maven-3.9.1-bin.zip
+-rw-rw-r--.  1 opc opc 2.7M Apr 17 13:38 apache-maven-3.9.1-src.tar.gz
+[opc@new-k8s curl-examples]$ cd apache-maven-3.9.1/
+[opc@new-k8s apache-maven-3.9.1]$ ll
+total 108
+drwxr-xr-x. 3 opc opc    50 Apr 17 13:48 apache-maven
+-rw-r--r--. 1 opc opc  4726 Mar 15 09:39 CONTRIBUTING.md
+-rw-r--r--. 1 opc opc 11354 Mar 15 09:39 DEPENDENCIES
+-rw-r--r--. 1 opc opc   871 Mar 15 09:39 deploySite.sh
+-rw-r--r--. 1 opc opc 23461 Mar 15 09:39 doap_Maven.rdf
+-rw-r--r--. 1 opc opc  7487 Mar 15 09:39 Jenkinsfile
+-rw-r--r--. 1 opc opc 11358 Mar 15 09:39 LICENSE
+drwxr-xr-x. 3 opc opc    32 Apr 17 13:48 maven-artifact
+drwxr-xr-x. 3 opc opc    32 Apr 17 13:48 maven-builder-support
+drwxr-xr-x. 3 opc opc    32 Apr 17 13:48 maven-compat
+drwxr-xr-x. 3 opc opc    88 Apr 17 13:48 maven-core
+drwxr-xr-x. 3 opc opc    32 Apr 17 13:48 maven-embedder
+drwxr-xr-x. 3 opc opc    32 Apr 17 13:48 maven-model
+drwxr-xr-x. 3 opc opc    32 Apr 17 13:48 maven-model-builder
+drwxr-xr-x. 3 opc opc    32 Apr 17 13:48 maven-plugin-api
+drwxr-xr-x. 3 opc opc    32 Apr 17 13:48 maven-repository-metadata
+drwxr-xr-x. 3 opc opc    32 Apr 17 13:48 maven-resolver-provider
+drwxr-xr-x. 3 opc opc    32 Apr 17 13:48 maven-settings
+drwxr-xr-x. 3 opc opc    32 Apr 17 13:48 maven-settings-builder
+drwxr-xr-x. 3 opc opc    32 Apr 17 13:48 maven-slf4j-provider
+-rw-r--r--. 1 opc opc   166 Mar 15 09:39 NOTICE
+-rw-r--r--. 1 opc opc 28045 Mar 15 09:39 pom.xml
+-rw-r--r--. 1 opc opc  4114 Mar 15 09:39 README.md
+drwxr-xr-x. 3 opc opc    18 Mar 15 09:39 src
+[opc@new-k8s apache-maven-3.9.1]$ du -sh .
+14M     .
+</code></pre></div>
+<h4 id="how-to-extract-to-different-folder-using-tar-command-and-in-silent-mode">How to extract to different folder using tar command and in silent mode<a class="headerlink" href="#how-to-extract-to-different-folder-using-tar-command-and-in-silent-mode" title="Permanent link">&para;</a></h4>
+<p>Use -C argument to extract to different directory</p>
+<p>By default tar dosen't print any logs to output, if we use -v it shows the logs(extracting files names)</p>
+<div class="highlight"><pre><span></span><code>[opc@new-k8s tmp]$ pwd
+/tmp
+[opc@new-k8s tmp]$ ll
+total 0
+[opc@new-k8s tmp]$ cd ~/curl-examples/
+[opc@new-k8s curl-examples]$ pwd
+/home/opc/curl-examples
+[opc@new-k8s curl-examples]$ ll
+total 11652
+-rw-rw-r--. 1 opc opc 9143026 Apr 17 13:35 apache-maven-3.9.1-bin.zip
+-rw-rw-r--. 1 opc opc 2784624 Apr 17 13:38 apache-maven-3.9.1-src.tar.gz
+[opc@new-k8s curl-examples]$ tar -xf apache-maven-3.9.1-src.tar.gz -C /tmp
+[opc@new-k8s curl-examples]$ ll
+total 11652
+-rw-rw-r--. 1 opc opc 9143026 Apr 17 13:35 apache-maven-3.9.1-bin.zip
+-rw-rw-r--. 1 opc opc 2784624 Apr 17 13:38 apache-maven-3.9.1-src.tar.gz
+[opc@new-k8s curl-examples]$ cd /tmp/
+[opc@new-k8s tmp]$ ll
+total 4
+drwxr-xr-x. 18 opc opc 4096 Mar 15 09:39 apache-maven-3.9.1
+[opc@new-k8s tmp]$ pwd
+/tmp
+</code></pre></div>
+<h4 id="how-to-create-a-zip-file">How to create a zip file<a class="headerlink" href="#how-to-create-a-zip-file" title="Permanent link">&para;</a></h4>
+<p>zip -r ZIP_FILE_NAME.zip folder_name</p>
+<p>or</p>
+<p>zip ZIP_FILE_NAME.zip file1.ttx file2.txt</p>
+<p>-q &rarr; Silent mode</p>
+<div class="highlight"><pre><span></span><code>[opc@new-k8s zip-file]$ pwd
+/home/opc/zip-file
+[opc@new-k8s zip-file]$ ll
+total 0
+drwxr-xr-x. 6 opc opc 99 Mar 15 09:39 apache-maven-3.9.1
+[opc@new-k8s zip-file]$ ll apache-maven-3.9.1/
+total 36
+drwxr-xr-x. 2 opc opc    97 Mar 15 09:39 bin
+drwxr-xr-x. 2 opc opc    76 Mar 15 09:39 boot
+drwxr-xr-x. 3 opc opc    63 Mar 15 09:39 conf
+drwxr-xr-x. 4 opc opc  4096 Mar 15 09:39 lib
+-rw-r--r--. 1 opc opc 18644 Mar 15 09:39 LICENSE
+-rw-r--r--. 1 opc opc  5036 Mar 15 09:39 NOTICE
+-rw-r--r--. 1 opc opc  2533 Mar 15 09:39 README.txt
+[opc@new-k8s zip-file]$ zip -r newapache-maven.zip apache-maven-3.9.1
+  adding: apache-maven-3.9.1/ (stored 0%)
+  adding: apache-maven-3.9.1/lib/ (stored 0%)
+  adding: apache-maven-3.9.1/lib/jansi-native/ (stored 0%)
+  adding: apache-maven-3.9.1/lib/jansi-native/Windows/ (stored 0%)
+  adding: apache-maven-3.9.1/lib/jansi-native/Windows/x86/ (stored 0%)
+  adding: apache-maven-3.9.1/lib/jansi-native/Windows/x86/jansi.dll (deflated 69%)
+  adding: apache-maven-3.9.1/lib/jansi-native/Windows/x86_64/ (stored 0%)
+  adding: apache-maven-3.9.1/lib/jansi-native/Windows/x86_64/jansi.dll (deflated 70%)
+  adding: apache-maven-3.9.1/lib/jansi-native/README.txt (deflated 40%)
+  adding: apache-maven-3.9.1/lib/ext/ (stored 0%)
+  adding: apache-maven-3.9.1/lib/ext/hazelcast/ (stored 0%)
+  adding: apache-maven-3.9.1/lib/ext/hazelcast/README.txt (deflated 35%)
+  adding: apache-maven-3.9.1/lib/ext/redisson/ (stored 0%)
+  adding: apache-maven-3.9.1/lib/ext/redisson/README.txt (deflated 34%)
+  adding: apache-maven-3.9.1/lib/ext/README.txt (deflated 26%)
+  adding: apache-maven-3.9.1/lib/aopalliance.license (stored 0%)
+  adding: apache-maven-3.9.1/lib/commons-cli.license (deflated 65%)
+  adding: apache-maven-3.9.1/lib/commons-codec.license (deflated 65%)
+  adding: apache-maven-3.9.1/lib/commons-lang3.license (deflated 65%)
+  adding: apache-maven-3.9.1/lib/failureaccess.license (deflated 65%)
+  adding: apache-maven-3.9.1/lib/guava.license (deflated 65%)
+  adding: apache-maven-3.9.1/lib/guice.license (deflated 65%)
+  adding: apache-maven-3.9.1/lib/httpclient.license (deflated 65%)
+  adding: apache-maven-3.9.1/lib/httpcore.license (deflated 65%)
+  adding: apache-maven-3.9.1/lib/jansi.license (deflated 65%)
+  adding: apache-maven-3.9.1/lib/javax.annotation-api.license (deflated 67%)
+  adding: apache-maven-3.9.1/lib/javax.inject.license (deflated 65%)
+  adding: apache-maven-3.9.1/lib/jcl-over-slf4j.license (deflated 65%)
+  adding: apache-maven-3.9.1/lib/org.eclipse.sisu.inject.license (deflated 63%)
+  adding: apache-maven-3.9.1/lib/org.eclipse.sisu.plexus.license (deflated 63%)
+  adding: apache-maven-3.9.1/lib/plexus-cipher.license (deflated 65%)
+  adding: apache-maven-3.9.1/lib/plexus-component-annotations.license (deflated 65%)
+  adding: apache-maven-3.9.1/lib/plexus-interpolation.license (deflated 65%)
+  adding: apache-maven-3.9.1/lib/plexus-sec-dispatcher.license (deflated 65%)
+  adding: apache-maven-3.9.1/lib/plexus-utils.license (deflated 65%)
+  adding: apache-maven-3.9.1/lib/slf4j-api.license (deflated 42%)
+  adding: apache-maven-3.9.1/lib/maven-embedder-3.9.1.jar (deflated 10%)
+  adding: apache-maven-3.9.1/lib/maven-settings-3.9.1.jar (deflated 8%)
+  adding: apache-maven-3.9.1/lib/maven-settings-builder-3.9.1.jar (deflated 17%)
+  adding: apache-maven-3.9.1/lib/maven-plugin-api-3.9.1.jar (deflated 12%)
+  adding: apache-maven-3.9.1/lib/maven-model-3.9.1.jar (deflated 5%)
+  adding: apache-maven-3.9.1/lib/maven-model-builder-3.9.1.jar (deflated 12%)
+  adding: apache-maven-3.9.1/lib/maven-builder-support-3.9.1.jar (deflated 18%)
+  adding: apache-maven-3.9.1/lib/maven-resolver-api-1.9.7.jar (deflated 14%)
+  adding: apache-maven-3.9.1/lib/maven-resolver-util-1.9.7.jar (deflated 11%)
+  adding: apache-maven-3.9.1/lib/maven-shared-utils-3.3.4.jar (deflated 9%)
+  adding: apache-maven-3.9.1/lib/guice-5.1.0.jar (deflated 9%)
+  adding: apache-maven-3.9.1/lib/aopalliance-1.0.jar (deflated 41%)
+  adding: apache-maven-3.9.1/lib/guava-30.1-jre.jar (deflated 11%)
+  adding: apache-maven-3.9.1/lib/failureaccess-1.0.1.jar (deflated 40%)
+  adding: apache-maven-3.9.1/lib/javax.inject-1.jar (deflated 28%)
+  adding: apache-maven-3.9.1/lib/javax.annotation-api-1.3.2.jar (deflated 12%)
+  adding: apache-maven-3.9.1/lib/plexus-utils-3.5.1.jar (deflated 7%)
+  adding: apache-maven-3.9.1/lib/plexus-sec-dispatcher-2.0.jar (deflated 18%)
+  adding: apache-maven-3.9.1/lib/plexus-cipher-2.0.jar (deflated 16%)
+  adding: apache-maven-3.9.1/lib/plexus-interpolation-1.26.jar (deflated 15%)
+  adding: apache-maven-3.9.1/lib/slf4j-api-1.7.36.jar (deflated 12%)
+  adding: apache-maven-3.9.1/lib/commons-lang3-3.8.1.jar (deflated 8%)
+  adding: apache-maven-3.9.1/lib/maven-core-3.9.1.jar (deflated 10%)
+  adding: apache-maven-3.9.1/lib/maven-repository-metadata-3.9.1.jar (deflated 12%)
+  adding: apache-maven-3.9.1/lib/maven-artifact-3.9.1.jar (deflated 13%)
+  adding: apache-maven-3.9.1/lib/maven-resolver-provider-3.9.1.jar (deflated 9%)
+  adding: apache-maven-3.9.1/lib/maven-resolver-impl-1.9.7.jar (deflated 10%)
+  adding: apache-maven-3.9.1/lib/maven-resolver-named-locks-1.9.7.jar (deflated 15%)
+  adding: apache-maven-3.9.1/lib/maven-resolver-spi-1.9.7.jar (deflated 23%)
+  adding: apache-maven-3.9.1/lib/org.eclipse.sisu.inject-0.3.5.jar (deflated 9%)
+  adding: apache-maven-3.9.1/lib/plexus-component-annotations-2.1.0.jar (deflated 43%)
+  adding: apache-maven-3.9.1/lib/maven-compat-3.9.1.jar (deflated 10%)
+  adding: apache-maven-3.9.1/lib/wagon-provider-api-3.5.3.jar (deflated 13%)
+  adding: apache-maven-3.9.1/lib/org.eclipse.sisu.plexus-0.3.5.jar (deflated 14%)
+  adding: apache-maven-3.9.1/lib/commons-cli-1.4.jar (deflated 8%)
+  adding: apache-maven-3.9.1/lib/wagon-http-3.5.3.jar (deflated 19%)
+  adding: apache-maven-3.9.1/lib/wagon-http-shared-3.5.3.jar (deflated 8%)
+  adding: apache-maven-3.9.1/lib/httpclient-4.5.14.jar (deflated 9%)
+  adding: apache-maven-3.9.1/lib/commons-codec-1.11.jar (deflated 16%)
+  adding: apache-maven-3.9.1/lib/wagon-file-3.5.3.jar (deflated 16%)
+  adding: apache-maven-3.9.1/lib/jcl-over-slf4j-1.7.36.jar (deflated 15%)
+  adding: apache-maven-3.9.1/lib/maven-resolver-connector-basic-1.9.7.jar (deflated 10%)
+  adding: apache-maven-3.9.1/lib/maven-resolver-transport-file-1.9.7.jar (deflated 15%)
+  adding: apache-maven-3.9.1/lib/maven-resolver-transport-http-1.9.7.jar (deflated 9%)
+  adding: apache-maven-3.9.1/lib/httpcore-4.4.15.jar (deflated 10%)
+  adding: apache-maven-3.9.1/lib/maven-resolver-transport-wagon-1.9.7.jar (deflated 15%)
+  adding: apache-maven-3.9.1/lib/maven-slf4j-provider-3.9.1.jar (deflated 11%)
+  adding: apache-maven-3.9.1/lib/jansi-2.4.0.jar (deflated 6%)
+  adding: apache-maven-3.9.1/boot/ (stored 0%)
+  adding: apache-maven-3.9.1/boot/plexus-classworlds.license (deflated 65%)
+  adding: apache-maven-3.9.1/boot/plexus-classworlds-2.6.0.jar (deflated 14%)
+  adding: apache-maven-3.9.1/bin/ (stored 0%)
+  adding: apache-maven-3.9.1/bin/m2.conf (deflated 52%)
+  adding: apache-maven-3.9.1/bin/mvn.cmd (deflated 64%)
+  adding: apache-maven-3.9.1/bin/mvnDebug.cmd (deflated 55%)
+  adding: apache-maven-3.9.1/bin/mvn (deflated 62%)
+  adding: apache-maven-3.9.1/bin/mvnDebug (deflated 51%)
+  adding: apache-maven-3.9.1/bin/mvnyjp (deflated 48%)
+  adding: apache-maven-3.9.1/conf/ (stored 0%)
+  adding: apache-maven-3.9.1/conf/logging/ (stored 0%)
+  adding: apache-maven-3.9.1/conf/logging/simplelogger.properties (deflated 52%)
+  adding: apache-maven-3.9.1/conf/settings.xml (deflated 63%)
+  adding: apache-maven-3.9.1/conf/toolchains.xml (deflated 60%)
+  adding: apache-maven-3.9.1/README.txt (deflated 57%)
+  adding: apache-maven-3.9.1/LICENSE (deflated 72%)
+  adding: apache-maven-3.9.1/NOTICE (deflated 58%)
+[opc@new-k8s zip-file]$ ll
+total 8924
+drwxr-xr-x. 6 opc opc      99 Mar 15 09:39 apache-maven-3.9.1
+-rw-rw-r--. 1 opc opc 9137892 Apr 17 14:39 newapache-maven.zip
+</code></pre></div>
+<h4 id="sample-json-file">Sample JSON file<a class="headerlink" href="#sample-json-file" title="Permanent link">&para;</a></h4>
+<p>Json file contains the key vaue pair</p>
+<p>Json file name ends with extension ".json" eg: output.json</p>
+<div class="highlight"><pre><span></span><code>{
+  &quot;name&quot;: &quot;john&quot;,
+  &quot;age&quot;: &quot;30&quot;,
+  &quot;car&quot;: &quot;BMW&quot;,
+  &quot;games&quot;: [&quot;cricket&quot;, &quot;basketball&quot;, &quot;badminton&quot;]  
+}
+</code></pre></div>
+<p>or</p>
+<div class="highlight"><pre><span></span><code>{&quot;name&quot;:&quot;John&quot;, &quot;age&quot;:30, &quot;car&quot;:null, &quot;games&quot;: [&quot;cricket&quot;, &quot;basketball&quot;, &quot;badminton&quot;]}
+</code></pre></div>
+<h4 id="curl-command-to-retrieve-the-rest-api-response-json">Curl command to retrieve the Rest api response (JSON)<a class="headerlink" href="#curl-command-to-retrieve-the-rest-api-response-json" title="Permanent link">&para;</a></h4>
+<p>Most of the time curl command is used for calling the rest api</p>
+<p>In simple term, Rest api is URL(<a href="https://example.com">https://example.com</a>), when we call that url , you will get a response data.</p>
+<p>The most of the case the response data will be a JSON</p>
+<p>Actual Data in GUI : <a href="https://github.com/vigneshsweekaran/hello-world/releases/tag/clean">https://github.com/vigneshsweekaran/hello-world/releases/tag/clean</a></p>
+<div class="highlight"><pre><span></span><code>[opc@new-k8s redirection]$ curl https://api.github.com/repos/vigneshsweekaran/hello-world/releases/latest
+{
+  &quot;url&quot;: &quot;https://api.github.com/repos/vigneshsweekaran/hello-world/releases/43010389&quot;,
+  &quot;assets_url&quot;: &quot;https://api.github.com/repos/vigneshsweekaran/hello-world/releases/43010389/assets&quot;,
+  &quot;upload_url&quot;: &quot;https://uploads.github.com/repos/vigneshsweekaran/hello-world/releases/43010389/assets{?name,label}&quot;,
+  &quot;html_url&quot;: &quot;https://github.com/vigneshsweekaran/hello-world/releases/tag/clean&quot;,
+  &quot;id&quot;: 43010389,
+  &quot;author&quot;: {
+    &quot;login&quot;: &quot;vigneshsweekaran&quot;,
+    &quot;id&quot;: 40670015,
+    &quot;node_id&quot;: &quot;MDQ6VXNlcjQwNjcwMDE1&quot;,
+    &quot;avatar_url&quot;: &quot;https://avatars.githubusercontent.com/u/40670015?v=4&quot;,
+    &quot;gravatar_id&quot;: &quot;&quot;,
+    &quot;url&quot;: &quot;https://api.github.com/users/vigneshsweekaran&quot;,
+    &quot;html_url&quot;: &quot;https://github.com/vigneshsweekaran&quot;,
+    &quot;followers_url&quot;: &quot;https://api.github.com/users/vigneshsweekaran/followers&quot;,
+    &quot;following_url&quot;: &quot;https://api.github.com/users/vigneshsweekaran/following{/other_user}&quot;,
+    &quot;gists_url&quot;: &quot;https://api.github.com/users/vigneshsweekaran/gists{/gist_id}&quot;,
+    &quot;starred_url&quot;: &quot;https://api.github.com/users/vigneshsweekaran/starred{/owner}{/repo}&quot;,
+    &quot;subscriptions_url&quot;: &quot;https://api.github.com/users/vigneshsweekaran/subscriptions&quot;,
+    &quot;organizations_url&quot;: &quot;https://api.github.com/users/vigneshsweekaran/orgs&quot;,
+    &quot;repos_url&quot;: &quot;https://api.github.com/users/vigneshsweekaran/repos&quot;,
+    &quot;events_url&quot;: &quot;https://api.github.com/users/vigneshsweekaran/events{/privacy}&quot;,
+    &quot;received_events_url&quot;: &quot;https://api.github.com/users/vigneshsweekaran/received_events&quot;,
+    &quot;type&quot;: &quot;User&quot;,
+    &quot;site_admin&quot;: false
+  },
+  &quot;node_id&quot;: &quot;MDc6UmVsZWFzZTQzMDEwMzg5&quot;,
+  &quot;tag_name&quot;: &quot;clean&quot;,
+  &quot;target_commitish&quot;: &quot;master&quot;,
+  &quot;name&quot;: &quot;Clean repo with maven application&quot;,
+  &quot;draft&quot;: false,
+  &quot;prerelease&quot;: false,
+  &quot;created_at&quot;: &quot;2021-05-16T06:18:49Z&quot;,
+  &quot;published_at&quot;: &quot;2021-05-16T06:26:47Z&quot;,
+  &quot;assets&quot;: [
+
+  ],
+  &quot;tarball_url&quot;: &quot;https://api.github.com/repos/vigneshsweekaran/hello-world/tarball/clean&quot;,
+  &quot;zipball_url&quot;: &quot;https://api.github.com/repos/vigneshsweekaran/hello-world/zipball/clean&quot;,
+  &quot;body&quot;: &quot;&quot;
+}
+</code></pre></div>
+<h4 id="how-to-store-the-json-response-data-from-rest-api-to-a-file">How to store the Json response data from rest api to a file<a class="headerlink" href="#how-to-store-the-json-response-data-from-rest-api-to-a-file" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>[opc@new-k8s ~]$ mkdir json-response
+[opc@new-k8s ~]$ cd json-response/
+[opc@new-k8s json-response]$ ll
+total 0
+[opc@new-k8s json-response]$ pwd
+/home/opc/json-response
+[opc@new-k8s json-response]$ curl https://api.github.com/repos/vigneshsweekaran/hello-world/releases/latest &gt; output.json
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  2026  100  2026    0     0   2809      0 --:--:-- --:--:-- --:--:-- 2809
+[opc@new-k8s json-response]$ ll
+total 4
+-rw-rw-r--. 1 opc opc 2026 Apr 17 14:23 output.json
+[opc@new-k8s json-response]$ cat output.json
+{
+  &quot;url&quot;: &quot;https://api.github.com/repos/vigneshsweekaran/hello-world/releases/43010389&quot;,
+  &quot;assets_url&quot;: &quot;https://api.github.com/repos/vigneshsweekaran/hello-world/releases/43010389/assets&quot;,
+  &quot;upload_url&quot;: &quot;https://uploads.github.com/repos/vigneshsweekaran/hello-world/releases/43010389/assets{?name,label}&quot;,
+  &quot;html_url&quot;: &quot;https://github.com/vigneshsweekaran/hello-world/releases/tag/clean&quot;,
+  &quot;id&quot;: 43010389,
+  &quot;author&quot;: {
+    &quot;login&quot;: &quot;vigneshsweekaran&quot;,
+    &quot;id&quot;: 40670015,
+    &quot;node_id&quot;: &quot;MDQ6VXNlcjQwNjcwMDE1&quot;,
+    &quot;avatar_url&quot;: &quot;https://avatars.githubusercontent.com/u/40670015?v=4&quot;,
+    &quot;gravatar_id&quot;: &quot;&quot;,
+    &quot;url&quot;: &quot;https://api.github.com/users/vigneshsweekaran&quot;,
+    &quot;html_url&quot;: &quot;https://github.com/vigneshsweekaran&quot;,
+    &quot;followers_url&quot;: &quot;https://api.github.com/users/vigneshsweekaran/followers&quot;,
+    &quot;following_url&quot;: &quot;https://api.github.com/users/vigneshsweekaran/following{/other_user}&quot;,
+    &quot;gists_url&quot;: &quot;https://api.github.com/users/vigneshsweekaran/gists{/gist_id}&quot;,
+    &quot;starred_url&quot;: &quot;https://api.github.com/users/vigneshsweekaran/starred{/owner}{/repo}&quot;,
+    &quot;subscriptions_url&quot;: &quot;https://api.github.com/users/vigneshsweekaran/subscriptions&quot;,
+    &quot;organizations_url&quot;: &quot;https://api.github.com/users/vigneshsweekaran/orgs&quot;,
+    &quot;repos_url&quot;: &quot;https://api.github.com/users/vigneshsweekaran/repos&quot;,
+    &quot;events_url&quot;: &quot;https://api.github.com/users/vigneshsweekaran/events{/privacy}&quot;,
+    &quot;received_events_url&quot;: &quot;https://api.github.com/users/vigneshsweekaran/received_events&quot;,
+    &quot;type&quot;: &quot;User&quot;,
+    &quot;site_admin&quot;: false
+  },
+  &quot;node_id&quot;: &quot;MDc6UmVsZWFzZTQzMDEwMzg5&quot;,
+  &quot;tag_name&quot;: &quot;clean&quot;,
+  &quot;target_commitish&quot;: &quot;master&quot;,
+  &quot;name&quot;: &quot;Clean repo with maven application&quot;,
+  &quot;draft&quot;: false,
+  &quot;prerelease&quot;: false,
+  &quot;created_at&quot;: &quot;2021-05-16T06:18:49Z&quot;,
+  &quot;published_at&quot;: &quot;2021-05-16T06:26:47Z&quot;,
+  &quot;assets&quot;: [
+
+  ],
+  &quot;tarball_url&quot;: &quot;https://api.github.com/repos/vigneshsweekaran/hello-world/tarball/clean&quot;,
+  &quot;zipball_url&quot;: &quot;https://api.github.com/repos/vigneshsweekaran/hello-world/zipball/clean&quot;,
+  &quot;body&quot;: &quot;&quot;
+}
+</code></pre></div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../part-6/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Part 6">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Part 6
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../part-8/" class="md-footer__link md-footer__link--next" aria-label="Next: Part 8">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Part 8
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2021 - 2025 DevopsPilot
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.top", "navigation.footer", "navigation.expand", "navigation.indexes", "toc.follow"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
