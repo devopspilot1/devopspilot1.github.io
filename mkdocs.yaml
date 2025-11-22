@@ -172,6 +172,11 @@ nav:
   - Cloud:
     - GCP:
       - What is GCP?: cloud/gcp/what-is-gcp.md
+      - How to create Cloud Run service using gcloud CLI: cloud/gcp/tutorials/create-cloud-run-using-gcloud-cli.md
+      - How to create Artifact Registry Docker Repository using gcloud CLI: cloud/gcp/tutorials/create-artifact-registry-using-gcloud-cli.md
+      - Build and Push Docker Image to Artifact Registry: cloud/gcp/tutorials/create-docker-image-push-to-artifact-registry.md
+    - Projects:
+      - Deploy Python App to Cloud Run: cloud/gcp/projects/deploy-python-image-tocloud-run-using-gcloud-cli.md
   - SSL:
     - How to configure free Let’s Encrypt SSL/TLS Certificates with NGINX and auto renew certificates: ssl/how-to-configure-free-letsencrypt-ssl-tls-certificates-with-nginx.md
     - How to configure free single Let’s Encrypt SSL/TLS Certificate with NGINX for multiple subdomains and auto renew certificate: ssl/how-to-configure-free-letsencrypt-ssl-tls-certificates-with-nginx-for-subdomains.md
