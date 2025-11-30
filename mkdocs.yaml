@@ -169,6 +169,9 @@ nav:
       - Terraform script to create AWS Codebuild project: terraform/aws/codebuild-helloworld.md
       - Terraform script to create AWS Codedeploy: terraform/aws/codedeploy-helloworld.md
       - Terraform script to create AWS Codepipeline: terraform/aws/codepipeline-helloworld.md
+    - GCP:
+      - Projects:
+        - Deploy Python Flask App to Cloud Run: terraform/gcp/projects/cloud-run.md
   - Cloud:
     - GCP:
       - What is GCP?: cloud/gcp/what-is-gcp.md
