@@ -147,10 +147,10 @@ First, set up the environment variables that will be used throughout this guide:
 
 ```bash
 # Project Configuration
-export PROJECT_ID="your-project-id"
+export PROJECT_ID="qwiklabs-gcp-04-37611958e772"
 export PROJECT_NUMBER=$(gcloud projects describe $PROJECT_ID --format="value(projectNumber)")
-export REGION="us-central1"
-export ZONE="us-central1-a"
+export REGION="us-east1"
+export ZONE="us-east1-a"
 
 # Apigee Configuration
 export APIGEE_ENV="eval"
@@ -180,6 +180,12 @@ export LB_IP_NAME="apigee-lb-ip"
 export BACKEND_SERVICE_NAME="apigee-backend"
 export HEALTH_CHECK_NAME="apigee-health-check"
 export PSC_NEG_NAME="apigee-psc-neg"
+
+# Forwarding Rule Configuration
+export FORWARDING_RULE_NAME="cloudrun-forwarding-rule"
+
+# Create endpoint attachment in Apigee
+export ENDPOINT_ATTACHMENT_NAME="apigee-to-cloudrun"
 
 # Set the project
 gcloud config set project $PROJECT_ID
@@ -238,6 +244,11 @@ gcloud compute networks subnets create $PROXY_SUBNET_NAME \
   --range=$PROXY_SUBNET_RANGE \
   --purpose=REGIONAL_MANAGED_PROXY \
   --role=ACTIVE
+
+# Verify the proxy subnet was created
+gcloud compute networks subnets describe $PROXY_SUBNET_NAME \
+  --region=$REGION \
+  --format="value(purpose,role)"
 ```
 
 
@@ -257,49 +268,126 @@ We'll configure PSC attachments in later steps.
 
 ## Step 5: Provision Apigee X Evaluation Organization
 
-Create an Apigee X evaluation organization (free tier). With PSC, we don't need to specify an authorized network:
+Create an Apigee X evaluation organization (free tier) without VPC peering. For PSC-based provisioning, we use the Apigee API directly:
 
 ```bash
-# Create Apigee organization (Evaluation)
-gcloud alpha apigee organizations provision \
-  --runtime-location=$REGION \
-  --analytics-region=$REGION \
-  --project=$PROJECT_ID
+# Get an access token for API authentication
+export AUTH=$(gcloud auth print-access-token)
+
+# Create Apigee organization using API (with PSC, no VPC peering)
+curl "https://apigee.googleapis.com/v1/organizations?parent=projects/$PROJECT_ID" \
+  -H "Authorization: Bearer $AUTH" \
+  -X POST \
+  -H "Content-Type:application/json" \
+  -d '{
+    "name":"'"$PROJECT_ID"'",
+    "analyticsRegion":"'"$REGION"'",
+    "runtimeType":"CLOUD",
+    "disableVpcPeering":"true"
+  }'
 ```
 
-**Note**: This process takes approximately 30-45 minutes. Monitor the progress:
+**Note**: 
+- `disableVpcPeering: true` enables Private Service Connect instead of traditional VPC peering
+- This eliminates the need for `--authorized-network` parameter
+- The gcloud CLI doesn't support this flag; you must use the API directly
+
+**Note**: This process takes approximately 5 minutes. Monitor the progress:
+
 
 ```bash
-# Check provisioning status
-gcloud alpha apigee organizations describe --format="value(state)"
+# Check provisioning status using the API
+curl -H "Authorization: Bearer $AUTH" \
+  "https://apigee.googleapis.com/v1/organizations/$PROJECT_ID" | jq -r '.state'
 ```
 
-Wait until the state shows `ACTIVE` before proceeding.
+Wait until the state shows `ACTIVE` before proceeding. You can also check the full organization details:
+
+```bash
+# Get full organization details
+curl -H "Authorization: Bearer $AUTH" \
+  "https://apigee.googleapis.com/v1/organizations/$PROJECT_ID" | jq .
+```
 
 
-## Step 6: Create Apigee Environment and Environment Group
+## Step 6: Create Apigee Instance
 
-Once the organization is active, create an environment and environment group:
+Create an Apigee runtime instance. This will automatically create the Service Attachment for Northbound PSC connectivity:
+
+```bash
+# Create Apigee instance
+curl -X POST "https://apigee.googleapis.com/v1/organizations/$PROJECT_ID/instances" \
+  -H "Authorization: Bearer $AUTH" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "eval-instance",
+    "location": "'$REGION'",
+    "consumerAcceptList": ["'"$PROJECT_ID"'"]
+  }'
+```
+
+**Note**: Instance creation can take 20-30 minutes. Monitor the status:
+
+```bash
+# Check instance status
+curl -H "Authorization: Bearer $AUTH" \
+  "https://apigee.googleapis.com/v1/organizations/$PROJECT_ID/instances/eval-instance" | jq -r '.state'
+```
+
+Wait until the state shows `ACTIVE`.
+
+## Step 7: Create Apigee Environment and Environment Group
+
+Once the organization is active, create an environment and environment group using the Apigee API:
 
 ```bash
 # Create Apigee environment
-gcloud alpha apigee environments create $APIGEE_ENV \
-  --organization=$PROJECT_ID \
-  --display-name="Evaluation Environment"
+curl "https://apigee.googleapis.com/v1/organizations/$PROJECT_ID/environments" \
+  -H "Authorization: Bearer $AUTH" \
+  -X POST \
+  -H "Content-Type:application/json" \
+  -d '{
+    "name":"'"$APIGEE_ENV"'"
+  }'
 
 # Create environment group
-gcloud alpha apigee envgroups create $APIGEE_ENVGROUP \
-  --organization=$PROJECT_ID \
-  --hostnames=$APIGEE_HOSTNAME
+curl "https://apigee.googleapis.com/v1/organizations/$PROJECT_ID/envgroups" \
+  -H "Authorization: Bearer $AUTH" \
+  -X POST \
+  -H "Content-Type:application/json" \
+  -d '{
+    "name":"'"$APIGEE_ENVGROUP"'",
+    "hostnames":["'"$APIGEE_HOSTNAME"'"]
+  }'
 
 # Attach environment to environment group
-gcloud alpha apigee envgroups attachments create \
-  --organization=$PROJECT_ID \
-  --envgroup=$APIGEE_ENVGROUP \
-  --environment=$APIGEE_ENV
+curl "https://apigee.googleapis.com/v1/organizations/$PROJECT_ID/envgroups/$APIGEE_ENVGROUP/attachments" \
+  -H "Authorization: Bearer $AUTH" \
+  -X POST \
+  -H "Content-Type:application/json" \
+  -d '{
+    "environment":"'"$APIGEE_ENV"'"
+  }'
 ```
 
-## Step 7: Deploy Cloud Run Service
+## Step 8: Attach Instance to Environment
+
+```bash
+# Attach instance to environment
+curl -X POST \
+  "https://apigee.googleapis.com/v1/organizations/$PROJECT_ID/instances/eval-instance/attachments" \
+  -H "Authorization: Bearer $AUTH" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "environment": "'$APIGEE_ENV'"
+  }'
+
+# Verify the attachment
+curl -H "Authorization: Bearer $AUTH" \
+  "https://apigee.googleapis.com/v1/organizations/$PROJECT_ID/instances/eval-instance/attachments"
+```
+
+## Step 9: Deploy Cloud Run Service
 
 Deploy a Cloud Run service with internal-only ingress (it will be accessed via PSC):
 
@@ -311,23 +399,16 @@ gcloud run deploy $CLOUD_RUN_SERVICE \
   --region=$REGION \
   --no-allow-unauthenticated \
   --ingress=internal
-
-# Get Cloud Run service URL
-export CLOUD_RUN_URL=$(gcloud run services describe $CLOUD_RUN_SERVICE \
-  --region=$REGION \
-  --format="value(status.url)")
-
-echo "Cloud Run URL: $CLOUD_RUN_URL"
 ```
 
 **Note**: 
 - Cloud Run uses `--ingress=internal` for maximum security
-- It will be accessed by Apigee through PSC (configured in next steps)
+- It will be accessed by Apigee through the Endpoint Attachment (PSC), not the direct Cloud Run URL
 - An Internal Load Balancer will front Cloud Run and be exposed via PSC service attachment
 
-## Step 8: Create PSC Service Attachment for Cloud Run
+## Step 10: Create PSC Service Attachment for Cloud Run
 
-Cloud Run can create a PSC service attachment directly without needing an Internal Load Balancer:
+To expose Cloud Run to Apigee via PSC, we need to set up an Internal Load Balancer (ILB) with a Serverless NEG, and then publish it using a Service Attachment:
 
 ```bash
 # First, we need to create a serverless NEG for Cloud Run
@@ -336,23 +417,26 @@ gcloud compute network-endpoint-groups create $NEG_NAME \
   --network-endpoint-type=SERVERLESS \
   --cloud-run-service=$CLOUD_RUN_SERVICE
 
-# Create a backend service for the NEG
+# Create a backend service for the NEG (Regional)
 gcloud compute backend-services create cloudrun-backend \
-  --global \
-  --load-balancing-scheme=INTERNAL_MANAGED
+  --region=$REGION \
+  --load-balancing-scheme=INTERNAL_MANAGED \
+  --protocol=HTTP
 
 # Add the Cloud Run NEG to the backend service
 gcloud compute backend-services add-backend cloudrun-backend \
-  --global \
+  --region=$REGION \
   --network-endpoint-group=$NEG_NAME \
   --network-endpoint-group-region=$REGION
 
-# Create a URL map
+# Create a URL map (Regional)
 gcloud compute url-maps create cloudrun-urlmap \
+  --region=$REGION \
   --default-service=cloudrun-backend
 
-# Create a target HTTP proxy
+# Create a target HTTP proxy (Regional)
 gcloud compute target-http-proxies create cloudrun-proxy \
+  --region=$REGION \
   --url-map=cloudrun-urlmap
 
 # Create a regional forwarding rule (required for service attachment)
@@ -365,9 +449,6 @@ gcloud compute forwarding-rules create cloudrun-forwarding-rule \
   --target-http-proxy-region=$REGION \
   --ports=80
 
-# Get the forwarding rule for service attachment
-export FORWARDING_RULE_NAME="cloudrun-forwarding-rule"
-
 # Create PSC service attachment
 gcloud compute service-attachments create cloudrun-psc-attachment \
   --region=$REGION \
@@ -375,47 +456,36 @@ gcloud compute service-attachments create cloudrun-psc-attachment \
   --connection-preference=ACCEPT_AUTOMATIC \
   --nat-subnets=$PSC_SUBNET_NAME
 
-# Get the service attachment URI
+# Get the service attachment URI (relative path)
 export BACKEND_SERVICE_ATTACHMENT=$(gcloud compute service-attachments describe cloudrun-psc-attachment \
   --region=$REGION \
-  --format="value(selfLink)")
+  --format="value(selfLink)" | sed 's|https://www.googleapis.com/compute/v1/||')
 
 echo "Backend Service Attachment: $BACKEND_SERVICE_ATTACHMENT"
 ```
 
 **Note**: This creates a regional Internal Load Balancer with Cloud Run NEG and exposes it via PSC service attachment. This is the recommended pattern for exposing Cloud Run to Apigee via PSC.
 
-## Step 9: Create Endpoint Attachment in Apigee (Southbound PSC)
+## Step 11: Create Endpoint Attachment in Apigee (Southbound PSC)
 
 Create an endpoint attachment in Apigee to connect to the Cloud Run backend via PSC:
 
 ```bash
-# Create endpoint attachment in Apigee
 curl -X POST \
-  "https://apigee.googleapis.com/v1/organizations/$PROJECT_ID/endpointAttachments" \
-  -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+  "https://apigee.googleapis.com/v1/organizations/$PROJECT_ID/endpointAttachments?endpointAttachmentId=$ENDPOINT_ATTACHMENT_NAME" \
+  -H "Authorization: Bearer $AUTH" \
   -H "Content-Type: application/json" \
   -d '{
     "location": "'$REGION'",
     "serviceAttachment": "'$BACKEND_SERVICE_ATTACHMENT'"
   }'
 
-# Wait a few moments for the endpoint attachment to be created, then get its details
-sleep 10
-
-# List endpoint attachments to get the name
-export ENDPOINT_ATTACHMENT_NAME=$(curl -s \
-  "https://apigee.googleapis.com/v1/organizations/$PROJECT_ID/endpointAttachments" \
-  -H "Authorization: Bearer $(gcloud auth print-access-token)" | \
-  jq -r '.endpointAttachments[] | select(.serviceAttachment == "'$BACKEND_SERVICE_ATTACHMENT'") | .name' | \
-  awk -F'/' '{print $NF}')
-
-echo "Endpoint Attachment Name: $ENDPOINT_ATTACHMENT_NAME"
+# Wait a few seconds for the endpoint attachment to be created
 
 # Get the endpoint attachment host
 export ENDPOINT_ATTACHMENT_HOST=$(curl -s \
   "https://apigee.googleapis.com/v1/organizations/$PROJECT_ID/endpointAttachments/$ENDPOINT_ATTACHMENT_NAME" \
-  -H "Authorization: Bearer $(gcloud auth print-access-token)" | \
+  -H "Authorization: Bearer $AUTH" | \
   jq -r '.host')
 
 echo "Endpoint Attachment Host: $ENDPOINT_ATTACHMENT_HOST"
@@ -423,7 +493,7 @@ echo "Endpoint Attachment Host: $ENDPOINT_ATTACHMENT_HOST"
 
 **Note**: The endpoint attachment host will be used in the API proxy to route traffic to Cloud Run via PSC.
 
-## Step 10: Create Apigee API Proxy
+## Step 12: Create Apigee API Proxy
 
 Create a simple API proxy that routes traffic to Cloud Run:
 
@@ -450,7 +520,7 @@ cat > apiproxy/targets/default.xml <<EOF
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <TargetEndpoint name="default">
     <HTTPTargetConnection>
-        <URL>${CLOUD_RUN_URL}</URL>
+        <URL>http://${ENDPOINT_ATTACHMENT_HOST}</URL>
     </HTTPTargetConnection>
 </TargetEndpoint>
 EOF
@@ -465,42 +535,58 @@ cat > apiproxy/cloudrun-proxy.xml <<EOF
 EOF
 
 # Create the bundle
-cd apiproxy && zip -r ../cloudrun-proxy.zip * && cd ..
+zip -r cloudrun-proxy.zip apiproxy
 
 # Deploy the API proxy
-gcloud alpha apigee apis create cloudrun-proxy \
-  --organization=$PROJECT_ID \
-  --bundle-file=cloudrun-proxy.zip
+# Import the API proxy bundle
+curl -X POST \
+  "https://apigee.googleapis.com/v1/organizations/$PROJECT_ID/apis?action=import&name=cloudrun-proxy" \
+  -H "Authorization: Bearer $AUTH" \
+  -F "file=@cloudrun-proxy.zip"
 
-# Deploy to environment
-gcloud alpha apigee apis deploy cloudrun-proxy \
-  --organization=$PROJECT_ID \
-  --environment=$APIGEE_ENV \
-  --revision=1
+# Deploy the API proxy to the environment
+curl -X POST \
+  "https://apigee.googleapis.com/v1/organizations/$PROJECT_ID/environments/$APIGEE_ENV/apis/cloudrun-proxy/revisions/1/deployments" \
+  -H "Authorization: Bearer $AUTH" \
+  -H "Content-Type: application/json"
 ```
 
-## Step 10: Configure Northbound PSC (Client to Apigee)
+## Step 13: Get Apigee Service Attachment (Northbound PSC)
 
-Create a PSC attachment for clients to access Apigee privately:
+When you create an Apigee instance with PSC enabled, it automatically creates a Service Attachment. Let's retrieve it:
+
 
 ```bash
-# Create PSC service attachment
-gcloud alpha apigee organizations attachments create $PSC_ATTACHMENT_NAME \
-  --organization=$PROJECT_ID \
-  --environment=$APIGEE_ENV \
-  --subnet=$PSC_SUBNET_NAME \
-  --region=$REGION
+# Get an access token for API authentication
+export AUTH=$(gcloud auth print-access-token)
 
-# Get the service attachment
-export SERVICE_ATTACHMENT=$(gcloud alpha apigee organizations attachments describe \
-  $PSC_ATTACHMENT_NAME \
-  --organization=$PROJECT_ID \
-  --format="value(serviceAttachment)")
+# Get the Apigee instance details to find the service attachment
+export APIGEE_INSTANCE_INFO=$(curl -s \
+  "https://apigee.googleapis.com/v1/organizations/$PROJECT_ID/instances/eval-instance" \
+  -H "Authorization: Bearer $AUTH")
+
+# Extract the service attachment URI from the instance
+export SERVICE_ATTACHMENT=$(echo $APIGEE_INSTANCE_INFO | jq -r '.serviceAttachment // empty')
+
+# If service attachment is not directly available, it might be in the host field
+if [ -z "$SERVICE_ATTACHMENT" ] || [ "$SERVICE_ATTACHMENT" = "null" ]; then
+  # For PSC-enabled instances, the service attachment is automatically created
+  # We need to get it from the instance host information
+  export APIGEE_HOST=$(echo $APIGEE_INSTANCE_INFO | jq -r '.host // empty')
+  
+  # The service attachment follows a pattern for PSC instances
+  export SERVICE_ATTACHMENT="projects/$PROJECT_ID/regions/$REGION/serviceAttachments/apigee-$REGION-$(echo $APIGEE_HOST | cut -d'.' -f1)"
+fi
 
 echo "Service Attachment: $SERVICE_ATTACHMENT"
+
+# Verify the instance details
+echo $APIGEE_INSTANCE_INFO | jq .
 ```
 
-## Step 11: Create PSC Endpoint for Client Access
+**Note**: For Apigee X instances created with `disableVpcPeering: true`, a Service Attachment is automatically created. You don't need to manually create PSC attachments - they're built into the instance.
+
+## Step 14: Create PSC Endpoint for Client Access
 
 Create a PSC endpoint that clients will use to connect to Apigee:
 
@@ -525,27 +611,7 @@ gcloud compute forwarding-rules create apigee-psc-endpoint \
 echo "PSC Endpoint IP: $PSC_IP"
 ```
 
-## Step 12: Configure DNS (Optional)
-
-Create a Cloud DNS private zone for easier access:
-
-```bash
-# Create private DNS zone
-gcloud dns managed-zones create apigee-zone \
-  --description="Private zone for Apigee" \
-  --dns-name=$APIGEE_HOSTNAME. \
-  --networks=$VPC_NETWORK \
-  --visibility=private
-
-# Add A record pointing to PSC endpoint
-gcloud dns record-sets create $APIGEE_HOSTNAME. \
-  --zone=apigee-zone \
-  --type=A \
-  --ttl=300 \
-  --rrdatas=$PSC_IP
-```
-
-## Step 13: Configure Regional External Load Balancer
+## Step 15: Configure Regional External Load Balancer
 
 Create a Regional External Load Balancer to make your Apigee APIs publicly accessible from the internet:
 
@@ -561,13 +627,7 @@ export LB_IP=$(gcloud compute addresses describe $LB_IP_NAME \
 
 echo "Load Balancer IP: $LB_IP"
 
-# Step 2: Create a regional health check
-gcloud compute health-checks create https $HEALTH_CHECK_NAME \
-  --region=$REGION \
-  --port=443 \
-  --request-path=/healthz/ingress
-
-# Step 3: Create a PSC Network Endpoint Group (NEG) pointing to the PSC service attachment
+# Step 2: Create a PSC Network Endpoint Group (NEG) pointing to the PSC service attachment
 gcloud compute network-endpoint-groups create $PSC_NEG_NAME \
   --region=$REGION \
   --network-endpoint-type=PRIVATE_SERVICE_CONNECT \
@@ -575,82 +635,54 @@ gcloud compute network-endpoint-groups create $PSC_NEG_NAME \
   --network=$VPC_NETWORK \
   --subnet=$SUBNET_NAME
 
-# Step 4: Create a regional backend service
+# Step 3: Create a regional backend service (no health checks for PSC NEGs)
 gcloud compute backend-services create $BACKEND_SERVICE_NAME \
   --load-balancing-scheme=EXTERNAL_MANAGED \
-  --protocol=HTTPS \
-  --health-checks=$HEALTH_CHECK_NAME \
-  --health-checks-region=$REGION \
+  --protocol=HTTP \
   --region=$REGION
 
-# Step 5: Add the PSC NEG as a backend
+# Step 4: Add the PSC NEG as a backend
 gcloud compute backend-services add-backend $BACKEND_SERVICE_NAME \
   --region=$REGION \
   --network-endpoint-group=$PSC_NEG_NAME \
-  --network-endpoint-group-region=$REGION \
-  --balancing-mode=UTILIZATION \
-  --max-utilization=0.8
+  --network-endpoint-group-region=$REGION
 
-# Step 6: Create a URL map
+# Step 5: Create a URL map
 gcloud compute url-maps create $LB_NAME-url-map \
   --region=$REGION \
   --default-service=$BACKEND_SERVICE_NAME
 
-# Step 7: Create a managed SSL certificate (optional, for HTTPS)
-gcloud compute ssl-certificates create apigee-ssl-cert \
-  --domains=$APIGEE_HOSTNAME \
-  --region=$REGION
-
-# Step 8: Create a target HTTPS proxy
-gcloud compute target-https-proxies create $LB_NAME-https-proxy \
+# Step 6: Create a target HTTP proxy
+gcloud compute target-http-proxies create $LB_NAME-http-proxy \
   --region=$REGION \
-  --url-map=$LB_NAME-url-map \
-  --ssl-certificates=apigee-ssl-cert
+  --url-map=$LB_NAME-url-map
 
-# Step 9: Create a forwarding rule (this is the entry point)
+# Step 7: Create a forwarding rule with explicit proxy subnet reference
 gcloud compute forwarding-rules create $LB_NAME-forwarding-rule \
   --region=$REGION \
   --load-balancing-scheme=EXTERNAL_MANAGED \
   --network-tier=PREMIUM \
   --address=$LB_IP_NAME \
-  --target-https-proxy=$LB_NAME-https-proxy \
-  --ports=443
-
-# Optional: Create HTTP to HTTPS redirect
-gcloud compute url-maps create $LB_NAME-http-redirect \
-  --region=$REGION \
-  --default-url-redirect-https-redirect
-
-gcloud compute target-http-proxies create $LB_NAME-http-proxy \
-  --region=$REGION \
-  --url-map=$LB_NAME-http-redirect
-
-gcloud compute forwarding-rules create $LB_NAME-http-forwarding-rule \
-  --region=$REGION \
-  --load-balancing-scheme=EXTERNAL_MANAGED \
-  --network-tier=PREMIUM \
-  --address=$LB_IP_NAME \
   --target-http-proxy=$LB_NAME-http-proxy \
+  --target-http-proxy-region=$REGION \
   --ports=80
+
+# Note: The proxy-only subnet (proxy-subnet) is automatically used by the regional load balancer
+# If you still get proxy subnet errors, ensure the subnet exists and has the correct purpose:
+# gcloud compute networks subnets describe $PROXY_SUBNET_NAME --region=$REGION
 ```
 
 **Important**: Update your DNS A record to point to the Load Balancer IP:
 
 ```bash
-# If using Cloud DNS
-gcloud dns record-sets update $APIGEE_HOSTNAME. \
-  --zone=apigee-zone \
-  --type=A \
-  --ttl=300 \
-  --rrdatas=$LB_IP
-
 # If using external DNS provider, create an A record:
 # Domain: api.example.com
 # Type: A
 # Value: <LB_IP>
+echo "Update your DNS to point $APIGEE_HOSTNAME to $LB_IP"
 ```
 
-## Step 14: Create Test VM
+## Step 16: Create Test VM
 
 Create a test VM in the VPC to test the connectivity:
 
@@ -665,7 +697,7 @@ gcloud compute instances create test-vm \
   --scopes=cloud-platform
 ```
 
-## Step 15: Test the Setup
+## Step 17: Test the Setup
 
 ### Test 1: Internal Access (from VPC via PSC)
 
@@ -684,24 +716,19 @@ curl -v http://$PSC_IP/cloudrun -H "Host: $APIGEE_HOSTNAME"
 Test from your local machine or any internet-connected device:
 
 ```bash
-# Test HTTPS endpoint (from your local machine)
-curl -v https://$APIGEE_HOSTNAME/cloudrun
+# Test HTTP endpoint (from your local machine)
+curl -v http://$APIGEE_HOSTNAME/cloudrun
 
 # Or using the Load Balancer IP directly
-curl -v https://$LB_IP/cloudrun -H "Host: $APIGEE_HOSTNAME" --resolve $APIGEE_HOSTNAME:443:$LB_IP
+curl -v http://$LB_IP/cloudrun -H "Host: $APIGEE_HOSTNAME"
 
-# Test HTTP to HTTPS redirect
-curl -v http://$APIGEE_HOSTNAME/cloudrun
+# Test with IP address resolution
+curl -v http://$LB_IP/cloudrun -H "Host: $APIGEE_HOSTNAME"
 ```
 
-Expected response: You should see the response from the Cloud Run service in both cases.
+Expected response: You should see the response from the Cloud Run service.
 
-**Troubleshooting**:
-- If SSL certificate is not yet provisioned, it may take 15-30 minutes
-- Check certificate status: `gcloud compute ssl-certificates describe apigee-ssl-cert --region=$REGION`
-- For immediate testing, you can use the IP address with `-k` flag to skip SSL verification
-
-## Step 16: Monitor and Verify
+## Step 18: Monitor and Verify
 
 Verify the setup using Apigee analytics and logs:
 
@@ -718,7 +745,7 @@ gcloud alpha apigee organizations attachments describe $PSC_ATTACHMENT_NAME \
   --organization=$PROJECT_ID
 ```
 
-## Step 17: Configure IAM for Cloud Run Access
+## Step 19: Configure IAM for Cloud Run Access
 
 Ensure Apigee can invoke the Cloud Run service:
 
@@ -758,25 +785,13 @@ To avoid incurring charges, clean up the resources in reverse order:
 gcloud compute instances delete test-vm --zone=$ZONE --quiet
 
 # Delete Load Balancer components
-gcloud compute forwarding-rules delete $LB_NAME-http-forwarding-rule \
-  --region=$REGION --quiet
-
 gcloud compute forwarding-rules delete $LB_NAME-forwarding-rule \
   --region=$REGION --quiet
 
 gcloud compute target-http-proxies delete $LB_NAME-http-proxy \
   --region=$REGION --quiet
 
-gcloud compute target-https-proxies delete $LB_NAME-https-proxy \
-  --region=$REGION --quiet
-
-gcloud compute url-maps delete $LB_NAME-http-redirect \
-  --region=$REGION --quiet
-
 gcloud compute url-maps delete $LB_NAME-url-map \
-  --region=$REGION --quiet
-
-gcloud compute ssl-certificates delete apigee-ssl-cert \
   --region=$REGION --quiet
 
 gcloud compute backend-services delete $BACKEND_SERVICE_NAME \
@@ -785,8 +800,7 @@ gcloud compute backend-services delete $BACKEND_SERVICE_NAME \
 gcloud compute network-endpoint-groups delete $PSC_NEG_NAME \
   --region=$REGION --quiet
 
-gcloud compute health-checks delete $HEALTH_CHECK_NAME \
-  --region=$REGION --quiet
+
 
 gcloud compute addresses delete $LB_IP_NAME \
   --region=$REGION --quiet
@@ -798,9 +812,8 @@ gcloud compute forwarding-rules delete apigee-psc-endpoint \
 gcloud compute addresses delete apigee-psc-ip \
   --region=$REGION --quiet 2>/dev/null || true
 
-# Delete PSC attachment
-gcloud alpha apigee organizations attachments delete $PSC_ATTACHMENT_NAME \
-  --organization=$PROJECT_ID --quiet
+# Note: PSC service attachment is automatically deleted when the Apigee instance is deleted
+# No manual cleanup needed for the service attachment
 
 # Undeploy API proxy
 gcloud alpha apigee apis undeploy cloudrun-proxy \
@@ -829,12 +842,7 @@ gcloud compute backend-services delete cloudrun-backend --global --quiet
 gcloud compute network-endpoint-groups delete $NEG_NAME \
   --region=$REGION --quiet
 
-# Delete DNS records (if created)
-gcloud dns record-sets delete $APIGEE_HOSTNAME. \
-  --zone=apigee-zone --type=A --quiet
 
-# Delete DNS zone
-gcloud dns managed-zones delete apigee-zone --quiet
 
 # Delete environment
 gcloud alpha apigee environments delete $APIGEE_ENV \
