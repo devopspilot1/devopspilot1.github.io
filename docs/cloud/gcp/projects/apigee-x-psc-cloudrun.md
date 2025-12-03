@@ -1,21 +1,25 @@
-# Apigee X with Private Service Connect (PSC) to Cloud Run
+# Apigee X with Private Service Connect to Cloud Run
 
 ## Overview
 
-This guide demonstrates how to set up **Apigee X** with **Private Service Connect (PSC)** for both northbound (client to Apigee) and southbound (Apigee to Cloud Run) connectivity. This architecture enables **public API access** through a Regional External Load Balancer while keeping the **backend services private and secure** using PSC connections.
+This guide demonstrates how to set up **Apigee X** with **Private Service Connect (PSC)** for both **northbound** (client to Apigee) and **southbound** (Apigee to Cloud Run) connectivity. This architecture enables **public API access** through a Regional External Load Balancer while keeping all backend connectivity private using PSC.
+
+**Official Documentation:**
+- [Northbound PSC Networking](https://docs.cloud.google.com/apigee/docs/api-platform/system-administration/northbound-networking-psc)
+- [Southbound PSC Networking Patterns](https://docs.cloud.google.com/apigee/docs/api-platform/architecture/southbound-networking-patterns-endpoints)
 
 **What you'll build:**
 - Public-facing APIs accessible from the internet via HTTPS
-- Apigee X runtime connected through Private Service Connect (no VPC peering needed)
-- Private Cloud Run backend (internal ingress only, no VPC configuration needed)
-- Internal Load Balancer for Apigee to Cloud Run connectivity
+- **Northbound PSC**: Apigee runtime connected through Private Service Connect (no VPC peering needed)
+- **Southbound PSC**: Cloud Run backend connected to Apigee via PSC service attachment and endpoint attachment
+- Internal Load Balancer fronting Cloud Run for PSC connectivity
 - Secure, scalable API gateway architecture following GCP best practices
 
 ### Architecture Components
-
 - **Regional External Load Balancer**: Public entry point for external clients
-- **Northbound PSC**: Private Service Connect attachment for Apigee runtime
-- **Southbound PSC**: Apigee connects to Cloud Run backend through Private Service Connect
+- **Northbound PSC**: PSC service attachment (created by Apigee) for client-to-Apigee connectivity
+- **Southbound PSC**: PSC service attachment (you create) + endpoint attachment (in Apigee) for Apigee-to-Cloud Run
+- **Internal Load Balancer**: Fronts Cloud Run and exposes it via PSC service attachment
 - **Apigee X Evaluation**: Free evaluation organization for testing (no VPC peering required)
 - **Cloud Run**: Backend service running a containerized application
 
@@ -201,10 +205,10 @@ gcloud alpha apigee envgroups attachments create \
 
 ## Step 7: Deploy Cloud Run Service
 
-Deploy a Cloud Run service with internal-only ingress:
+Deploy a Cloud Run service with internal-only ingress (it will be accessed via PSC):
 
 ```bash
-# Deploy Cloud Run service (no VPC configuration needed)
+# Deploy Cloud Run service
 gcloud run deploy $CLOUD_RUN_SERVICE \
   --image=$CLOUD_RUN_IMAGE \
   --platform=managed \
@@ -221,51 +225,109 @@ echo "Cloud Run URL: $CLOUD_RUN_URL"
 ```
 
 **Note**: 
-- Cloud Run doesn't need VPC egress configuration because **Apigee calls Cloud Run** (not the other way around)
-- The connection from Apigee to Cloud Run happens through the **Internal Load Balancer with Cloud Run NEG** (configured in Step 8)
-- `--ingress=internal` ensures Cloud Run only accepts requests from internal Google Cloud sources
+- Cloud Run uses `--ingress=internal` for maximum security
+- It will be accessed by Apigee through PSC (configured in next steps)
+- An Internal Load Balancer will front Cloud Run and be exposed via PSC service attachment
 
-## Step 8: Configure Southbound PSC (Apigee to Cloud Run)
+## Step 8: Create PSC Service Attachment for Cloud Run
 
-Create a Private Service Connect endpoint for Cloud Run:
+Cloud Run can create a PSC service attachment directly without needing an Internal Load Balancer:
 
 ```bash
-# Create a Network Endpoint Group (NEG) for Cloud Run
+# First, we need to create a serverless NEG for Cloud Run
 gcloud compute network-endpoint-groups create $NEG_NAME \
   --region=$REGION \
   --network-endpoint-type=SERVERLESS \
   --cloud-run-service=$CLOUD_RUN_SERVICE
 
-# Create a backend service
+# Create a backend service for the NEG
 gcloud compute backend-services create cloudrun-backend \
   --global \
-  --load-balancing-scheme=INTERNAL_SELF_MANAGED
+  --load-balancing-scheme=INTERNAL_MANAGED
 
-# Add NEG to backend service
+# Add the Cloud Run NEG to the backend service
 gcloud compute backend-services add-backend cloudrun-backend \
   --global \
   --network-endpoint-group=$NEG_NAME \
   --network-endpoint-group-region=$REGION
 
-# Create URL map
+# Create a URL map
 gcloud compute url-maps create cloudrun-urlmap \
   --default-service=cloudrun-backend
 
-# Create target HTTP proxy
+# Create a target HTTP proxy
 gcloud compute target-http-proxies create cloudrun-proxy \
   --url-map=cloudrun-urlmap
 
-# Create forwarding rule for internal access
+# Create a regional forwarding rule (required for service attachment)
 gcloud compute forwarding-rules create cloudrun-forwarding-rule \
-  --global \
-  --load-balancing-scheme=INTERNAL_SELF_MANAGED \
-  --address=0.0.0.0 \
+  --region=$REGION \
+  --load-balancing-scheme=INTERNAL_MANAGED \
+  --network=$VPC_NETWORK \
+  --subnet=$SUBNET_NAME \
   --target-http-proxy=cloudrun-proxy \
-  --ports=80 \
-  --network=$VPC_NETWORK
+  --target-http-proxy-region=$REGION \
+  --ports=80
+
+# Get the forwarding rule for service attachment
+export FORWARDING_RULE_NAME="cloudrun-forwarding-rule"
+
+# Create PSC service attachment
+gcloud compute service-attachments create cloudrun-psc-attachment \
+  --region=$REGION \
+  --producer-forwarding-rule=$FORWARDING_RULE_NAME \
+  --connection-preference=ACCEPT_AUTOMATIC \
+  --nat-subnets=$PSC_SUBNET_NAME
+
+# Get the service attachment URI
+export BACKEND_SERVICE_ATTACHMENT=$(gcloud compute service-attachments describe cloudrun-psc-attachment \
+  --region=$REGION \
+  --format="value(selfLink)")
+
+echo "Backend Service Attachment: $BACKEND_SERVICE_ATTACHMENT"
 ```
 
-## Step 9: Create Apigee API Proxy
+**Note**: This creates a regional Internal Load Balancer with Cloud Run NEG and exposes it via PSC service attachment. This is the recommended pattern for exposing Cloud Run to Apigee via PSC.
+
+## Step 9: Create Endpoint Attachment in Apigee (Southbound PSC)
+
+Create an endpoint attachment in Apigee to connect to the Cloud Run backend via PSC:
+
+```bash
+# Create endpoint attachment in Apigee
+curl -X POST \
+  "https://apigee.googleapis.com/v1/organizations/$PROJECT_ID/endpointAttachments" \
+  -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "location": "'$REGION'",
+    "serviceAttachment": "'$BACKEND_SERVICE_ATTACHMENT'"
+  }'
+
+# Wait a few moments for the endpoint attachment to be created, then get its details
+sleep 10
+
+# List endpoint attachments to get the name
+export ENDPOINT_ATTACHMENT_NAME=$(curl -s \
+  "https://apigee.googleapis.com/v1/organizations/$PROJECT_ID/endpointAttachments" \
+  -H "Authorization: Bearer $(gcloud auth print-access-token)" | \
+  jq -r '.endpointAttachments[] | select(.serviceAttachment == "'$BACKEND_SERVICE_ATTACHMENT'") | .name' | \
+  awk -F'/' '{print $NF}')
+
+echo "Endpoint Attachment Name: $ENDPOINT_ATTACHMENT_NAME"
+
+# Get the endpoint attachment host
+export ENDPOINT_ATTACHMENT_HOST=$(curl -s \
+  "https://apigee.googleapis.com/v1/organizations/$PROJECT_ID/endpointAttachments/$ENDPOINT_ATTACHMENT_NAME" \
+  -H "Authorization: Bearer $(gcloud auth print-access-token)" | \
+  jq -r '.host')
+
+echo "Endpoint Attachment Host: $ENDPOINT_ATTACHMENT_HOST"
+```
+
+**Note**: The endpoint attachment host will be used in the API proxy to route traffic to Cloud Run via PSC.
+
+## Step 10: Create Apigee API Proxy
 
 Create a simple API proxy that routes traffic to Cloud Run:
 
@@ -848,9 +910,15 @@ gcloud compute networks delete $VPC_NETWORK --quiet
 
 ## Additional Resources
 
+### Official Apigee PSC Documentation
+- [Northbound PSC Networking](https://docs.cloud.google.com/apigee/docs/api-platform/system-administration/northbound-networking-psc)
+- [Southbound PSC Networking Patterns](https://docs.cloud.google.com/apigee/docs/api-platform/architecture/southbound-networking-patterns-endpoints)
+
+### General Documentation
 - [Apigee X Documentation](https://cloud.google.com/apigee/docs)
 - [Private Service Connect Overview](https://cloud.google.com/vpc/docs/private-service-connect)
 - [Cloud Run Documentation](https://cloud.google.com/run/docs)
+- [Internal Load Balancing](https://cloud.google.com/load-balancing/docs/l7-internal)
 
 ## Conclusion
 
