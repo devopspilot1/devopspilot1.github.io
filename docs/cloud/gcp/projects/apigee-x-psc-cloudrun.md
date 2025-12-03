@@ -594,6 +594,9 @@ gcloud run services add-iam-policy-binding $CLOUD_RUN_SERVICE \
 ## Architecture Diagram
 
 ```
+External Access Path:
+═══════════════════════════════════════════════════════════════
+
                     ┌──────────────────────┐
                     │  Internet Clients    │
                     └──────────┬───────────┘
@@ -606,15 +609,7 @@ gcloud run services add-iam-policy-binding $CLOUD_RUN_SERVICE \
                     │  (Public IP)         │
                     └──────────┬───────────┘
                                │
-                               │ (2) Forward to PSC NEG
-                               ▼
-┌─────────────┐     ┌──────────────────────┐
-│   Client    │────▶│  PSC Service         │
-│  (Test VM)  │     │  Attachment          │
-│  Internal   │     │  (Northbound PSC)    │
-└─────────────┘     └──────────┬───────────┘
-                               │
-                               │ (3) Private Connection
+                               │ (2) Via PSC NEG
                                ▼
                     ┌──────────────────────┐
                     │   Apigee X           │
@@ -622,7 +617,7 @@ gcloud run services add-iam-policy-binding $CLOUD_RUN_SERVICE \
                     │   (API Proxy)        │
                     └──────────┬───────────┘
                                │
-                               │ (4) HTTP Request
+                               │ (3) HTTP Request
                                ▼
                     ┌──────────────────────┐
                     │  Internal Load       │
@@ -630,7 +625,7 @@ gcloud run services add-iam-policy-binding $CLOUD_RUN_SERVICE \
                     │  (Cloud Run NEG)     │
                     └──────────┬───────────┘
                                │
-                               │ (5) Route to Cloud Run
+                               │ (4) Route to Service
                                ▼
                     ┌──────────────────────┐
                     │   Cloud Run          │
@@ -638,11 +633,58 @@ gcloud run services add-iam-policy-binding $CLOUD_RUN_SERVICE \
                     │   (Internal Ingress) │
                     └──────────────────────┘
 
-Flow Summary:
-- External: Internet → External LB → PSC → Apigee → Internal LB → Cloud Run
-- Internal: VM → PSC → Apigee → Internal LB → Cloud Run
 
-Key: Internal LB with Cloud Run NEG provides the connectivity layer (no VPC connector/egress needed)
+Internal Access Path (Optional):
+═══════════════════════════════════════════════════════════════
+
+┌─────────────┐
+│   Client    │
+│  (Test VM)  │
+│  in VPC     │
+└──────┬──────┘
+       │
+       │ (1) HTTP Request
+       ▼
+┌──────────────────────┐
+│  Forwarding Rule     │
+│  (PSC Endpoint)      │
+└──────┬───────────────┘
+       │
+       │ (2) Via PSC Service Attachment
+       ▼
+┌──────────────────────┐
+│   Apigee X           │
+│   Runtime            │
+│   (API Proxy)        │
+└──────┬───────────────┘
+       │
+       │ (3) HTTP Request
+       ▼
+┌──────────────────────┐
+│  Internal Load       │
+│  Balancer            │
+│  (Cloud Run NEG)     │
+└──────┬───────────────┘
+       │
+       │ (4) Route to Service
+       ▼
+┌──────────────────────┐
+│   Cloud Run          │
+│   Service            │
+│   (Internal Ingress) │
+└──────────────────────┘
+
+
+Flow Summary:
+═══════════════════════════════════════════════════════════════
+- External: Internet → External LB (PSC NEG) → Apigee → Internal LB → Cloud Run
+- Internal: VM → Forwarding Rule (PSC Endpoint) → Apigee → Internal LB → Cloud Run
+
+Key Components:
+- PSC NEG: Connects External LB to Apigee (Step 13)
+- PSC Service Attachment: Created by Apigee for PSC connectivity (Step 10)
+- Internal LB with Cloud Run NEG: Connects Apigee to Cloud Run (Step 8)
+- No VPC connector or VPC egress needed for Cloud Run
 ```
 
 ## Cleanup
