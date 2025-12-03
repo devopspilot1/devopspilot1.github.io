@@ -23,6 +23,102 @@ This guide demonstrates how to set up **Apigee X** with **Private Service Connec
 - **Apigee X Evaluation**: Free evaluation organization for testing (no VPC peering required)
 - **Cloud Run**: Backend service running a containerized application
 
+## Architecture Diagram
+
+```
+External Access Path:
+═══════════════════════════════════════════════════════════════
+
+                    ┌──────────────────────┐
+                    │  Internet Clients    │
+                    └──────────┬───────────┘
+                               │
+                               │ (1) HTTPS Request
+                               ▼
+                    ┌──────────────────────┐
+                    │  Regional External   │
+                    │   Load Balancer      │
+                    │  (Public IP)         │
+                    └──────────┬───────────┘
+                               │
+                               │ (2) Via PSC NEG
+                               ▼
+                    ┌──────────────────────┐
+                    │   Apigee X           │
+                    │   Runtime            │
+                    │   (API Proxy)        │
+                    └──────────┬───────────┘
+                               │
+                               │ (3) HTTP Request
+                               ▼
+                    ┌──────────────────────┐
+                    │  Internal Load       │
+                    │  Balancer            │
+                    │  (Cloud Run NEG)     │
+                    └──────────┬───────────┘
+                               │
+                               │ (4) Route to Service
+                               ▼
+                    ┌──────────────────────┐
+                    │   Cloud Run          │
+                    │   Service            │
+                    │   (Internal Ingress) │
+                    └──────────────────────┘
+
+
+Internal Access Path (Optional):
+═══════════════════════════════════════════════════════════════
+
+┌─────────────┐
+│   Client    │
+│  (Test VM)  │
+│  in VPC     │
+└──────┬──────┘
+       │
+       │ (1) HTTP Request
+       ▼
+┌──────────────────────┐
+│  Forwarding Rule     │
+│  (PSC Endpoint)      │
+└──────┬───────────────┘
+       │
+       │ (2) Via PSC Service Attachment
+       ▼
+┌──────────────────────┐
+│   Apigee X           │
+│   Runtime            │
+│   (API Proxy)        │
+└──────┬───────────────┘
+       │
+       │ (3) HTTP Request
+       ▼
+┌──────────────────────┐
+│  Internal Load       │
+│  Balancer            │
+│  (Cloud Run NEG)     │
+└──────┬───────────────┘
+       │
+       │ (4) Route to Service
+       ▼
+┌──────────────────────┐
+│   Cloud Run          │
+│   Service            │
+│   (Internal Ingress) │
+└──────────────────────┘
+
+
+Flow Summary:
+═══════════════════════════════════════════════════════════════
+- External: Internet → External LB (PSC NEG) → Apigee → Internal LB → Cloud Run
+- Internal: VM → Forwarding Rule (PSC Endpoint) → Apigee → Internal LB → Cloud Run
+
+Key Components:
+- PSC NEG: Connects External LB to Apigee (Step 13)
+- PSC Service Attachment: Created by Apigee for PSC connectivity (Step 10)
+- Internal LB with Cloud Run NEG: Connects Apigee to Cloud Run (Step 8)
+- Endpoint Attachment: Created in Apigee to connect to backend (Step 9)
+```
+
 ### Key Highlights
 
 🔑 **No VPC Peering Required**: Unlike traditional Apigee setups, PSC-based architecture doesn't require VPC peering or dedicated CIDR ranges for peering connections.
@@ -652,102 +748,6 @@ gcloud run services add-iam-policy-binding $CLOUD_RUN_SERVICE \
 - [ ] API calls from internet through Load Balancer work
 - [ ] API calls from VPC through PSC endpoint work
 - [ ] API calls through Apigee reach Cloud Run successfully
-
-## Architecture Diagram
-
-```
-External Access Path:
-═══════════════════════════════════════════════════════════════
-
-                    ┌──────────────────────┐
-                    │  Internet Clients    │
-                    └──────────┬───────────┘
-                               │
-                               │ (1) HTTPS Request
-                               ▼
-                    ┌──────────────────────┐
-                    │  Regional External   │
-                    │   Load Balancer      │
-                    │  (Public IP)         │
-                    └──────────┬───────────┘
-                               │
-                               │ (2) Via PSC NEG
-                               ▼
-                    ┌──────────────────────┐
-                    │   Apigee X           │
-                    │   Runtime            │
-                    │   (API Proxy)        │
-                    └──────────┬───────────┘
-                               │
-                               │ (3) HTTP Request
-                               ▼
-                    ┌──────────────────────┐
-                    │  Internal Load       │
-                    │  Balancer            │
-                    │  (Cloud Run NEG)     │
-                    └──────────┬───────────┘
-                               │
-                               │ (4) Route to Service
-                               ▼
-                    ┌──────────────────────┐
-                    │   Cloud Run          │
-                    │   Service            │
-                    │   (Internal Ingress) │
-                    └──────────────────────┘
-
-
-Internal Access Path (Optional):
-═══════════════════════════════════════════════════════════════
-
-┌─────────────┐
-│   Client    │
-│  (Test VM)  │
-│  in VPC     │
-└──────┬──────┘
-       │
-       │ (1) HTTP Request
-       ▼
-┌──────────────────────┐
-│  Forwarding Rule     │
-│  (PSC Endpoint)      │
-└──────┬───────────────┘
-       │
-       │ (2) Via PSC Service Attachment
-       ▼
-┌──────────────────────┐
-│   Apigee X           │
-│   Runtime            │
-│   (API Proxy)        │
-└──────┬───────────────┘
-       │
-       │ (3) HTTP Request
-       ▼
-┌──────────────────────┐
-│  Internal Load       │
-│  Balancer            │
-│  (Cloud Run NEG)     │
-└──────┬───────────────┘
-       │
-       │ (4) Route to Service
-       ▼
-┌──────────────────────┐
-│   Cloud Run          │
-│   Service            │
-│   (Internal Ingress) │
-└──────────────────────┘
-
-
-Flow Summary:
-═══════════════════════════════════════════════════════════════
-- External: Internet → External LB (PSC NEG) → Apigee → Internal LB → Cloud Run
-- Internal: VM → Forwarding Rule (PSC Endpoint) → Apigee → Internal LB → Cloud Run
-
-Key Components:
-- PSC NEG: Connects External LB to Apigee (Step 13)
-- PSC Service Attachment: Created by Apigee for PSC connectivity (Step 10)
-- Internal LB with Cloud Run NEG: Connects Apigee to Cloud Run (Step 8)
-- No VPC connector or VPC egress needed for Cloud Run
-```
 
 ## Cleanup
 
