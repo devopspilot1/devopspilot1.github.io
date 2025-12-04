@@ -147,7 +147,7 @@ First, set up the environment variables that will be used throughout this guide:
 
 ```bash
 # Project Configuration
-export PROJECT_ID="qwiklabs-gcp-04-37611958e772"
+export PROJECT_ID="qwiklabs-gcp-04-af84abd8f80b"
 export PROJECT_NUMBER=$(gcloud projects describe $PROJECT_ID --format="value(projectNumber)")
 export REGION="us-east1"
 export ZONE="us-east1-a"
@@ -534,6 +534,9 @@ cat > apiproxy/cloudrun-proxy.xml <<EOF
 </APIProxy>
 EOF
 
+# verify the target URL is correct before zipping
+grep -A 1 "HTTPTargetConnection" apiproxy/targets/default.xml
+
 # Create the bundle
 zip -r cloudrun-proxy.zip apiproxy
 
@@ -638,7 +641,7 @@ gcloud compute network-endpoint-groups create $PSC_NEG_NAME \
 # Step 3: Create a regional backend service (no health checks for PSC NEGs)
 gcloud compute backend-services create $BACKEND_SERVICE_NAME \
   --load-balancing-scheme=EXTERNAL_MANAGED \
-  --protocol=HTTP \
+  --protocol=HTTPS \
   --region=$REGION
 
 # Step 4: Add the PSC NEG as a backend
@@ -661,25 +664,12 @@ gcloud compute target-http-proxies create $LB_NAME-http-proxy \
 gcloud compute forwarding-rules create $LB_NAME-forwarding-rule \
   --region=$REGION \
   --load-balancing-scheme=EXTERNAL_MANAGED \
+  --network=$VPC_NETWORK \
   --network-tier=PREMIUM \
   --address=$LB_IP_NAME \
   --target-http-proxy=$LB_NAME-http-proxy \
   --target-http-proxy-region=$REGION \
   --ports=80
-
-# Note: The proxy-only subnet (proxy-subnet) is automatically used by the regional load balancer
-# If you still get proxy subnet errors, ensure the subnet exists and has the correct purpose:
-# gcloud compute networks subnets describe $PROXY_SUBNET_NAME --region=$REGION
-```
-
-**Important**: Update your DNS A record to point to the Load Balancer IP:
-
-```bash
-# If using external DNS provider, create an A record:
-# Domain: api.example.com
-# Type: A
-# Value: <LB_IP>
-echo "Update your DNS to point $APIGEE_HOSTNAME to $LB_IP"
 ```
 
 ## Step 16: Create Test VM
@@ -720,9 +710,6 @@ Test from your local machine or any internet-connected device:
 curl -v http://$APIGEE_HOSTNAME/cloudrun
 
 # Or using the Load Balancer IP directly
-curl -v http://$LB_IP/cloudrun -H "Host: $APIGEE_HOSTNAME"
-
-# Test with IP address resolution
 curl -v http://$LB_IP/cloudrun -H "Host: $APIGEE_HOSTNAME"
 ```
 
