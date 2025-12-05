@@ -172,6 +172,7 @@ nav:
     - GCP:
       - Projects:
         - Deploy Python Flask App to Cloud Run: terraform/gcp/projects/cloud-run.md
+        - Apigee X with PSC to Cloud Run: terraform/gcp/projects/apigee-psc-cloud-run.md
   - Cloud:
     - GCP:
       - What is GCP?: cloud/gcp/what-is-gcp.md
