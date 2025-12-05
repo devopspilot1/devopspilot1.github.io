@@ -98,7 +98,54 @@ Key Components:
   - Cloud Run Admin
   - Service Usage Admin
 
-## Step 1: Set Environment Variables
+## Quick Setup with Automated Script
+
+Want to skip the manual steps? Use our automated shell script that handles the entire deployment:
+
+**Shell Script:** [apigee-cloudrun.sh](https://github.com/vigneshsweekaran/shellscript/blob/main/cloud/gcp/projects/apigee-cloudrun.sh)
+
+```bash
+# Download the automated setup script
+curl -O https://raw.githubusercontent.com/vigneshsweekaran/shellscript/main/cloud/gcp/projects/apigee-cloudrun.sh
+chmod +x apigee-cloudrun.sh
+
+# Edit the script to configure your environment
+vim apigee-cloudrun.sh
+# Update: PROJECT_ID, REGION, APIGEE_HOSTNAME
+
+# Run the complete setup
+./apigee-cloudrun.sh
+```
+
+**What the script does:**
+- ✅ Enables all required GCP APIs
+- ✅ Creates VPC network with proper subnets (main, PSC, proxy)
+- ✅ Provisions Apigee X organization with PSC enabled
+- ✅ Creates Apigee instance, environment, and environment group
+- ✅ Deploys Cloud Run service with internal ingress
+- ✅ Configures Internal Load Balancer with Cloud Run NEG
+- ✅ Creates PSC service attachment for Cloud Run
+- ✅ Creates Apigee endpoint attachment
+- ✅ Sets up Regional External Load Balancer with PSC NEG
+- ✅ Deploys and configures API proxy
+- ✅ Verifies the setup with automated curl tests
+
+**Estimated time:** 30-40 minutes (mostly Apigee instance provisioning)
+
+**Script features:**
+- Color-coded logging (INFO, WARN, ERROR)
+- Idempotent operations (safe to re-run)
+- Automatic status checking and retries
+- Built-in verification with curl
+- Detailed troubleshooting guidance
+
+---
+
+## Manual Setup (Step-by-Step)
+
+If you prefer to understand each component or customize the setup, follow these detailed manual steps:
+
+### Step 1: Set Environment Variables
 
 First, set up the environment variables that will be used throughout this guide:
 
