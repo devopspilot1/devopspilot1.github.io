@@ -1,0 +1,7840 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://devopspilot1.github.io/terraform/gcp/projects/cloud-run/">
+      
+      
+        <link rel="prev" href="../../../aws/codepipeline-helloworld/">
+      
+      
+        <link rel="next" href="../apigee-psc-cloud-run/">
+      
+      
+      <link rel="icon" href="../../../../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.13">
+    
+    
+      
+        <title>Deploy Python Flask App to Cloud Run - DevopsPilot</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-EKDQC3L9T7"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-EKDQC3L9T7",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-EKDQC3L9T7",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#deploy-python-flask-application-to-google-cloud-run-using-terraform" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="DevopsPilot" class="md-header__button md-logo" aria-label="DevopsPilot" data-md-component="logo">
+      
+  <img src="../../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DevopsPilot
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Deploy Python Flask App to Cloud Run
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../linux-commands/part-1/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Linux Commands
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../ssh/ssh/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  SSH
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../shellscript/part-1/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Shellscript
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../git/how-to-create-github-account/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Git
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../build-tools/maven/install-java-compile/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Build Tools
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../webserver/nginx/how-to-install-nginx/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Web Server
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../jenkins/tutorials/how-to-install-jenkins-with-java-21-on-ubuntu/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Jenkins
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../docker/tutorials/what-is-docker/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Docker
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../sonarqube/quality-gate/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Sonarqube
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../kubernetes/tutorials/what-is-kubernetes/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  K8s
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../helm/basics/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Helm
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../aws/codebuild-helloworld/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Terraform
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../cloud/gcp/what-is-gcp/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Cloud
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../ssl/how-to-configure-free-letsencrypt-ssl-tls-certificates-with-nginx/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  SSL
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../interview-questions/linux-commands/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Interview Questions
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="DevopsPilot" class="md-nav__button md-logo" aria-label="DevopsPilot" data-md-component="logo">
+      
+  <img src="../../../../assets/logo.png" alt="logo">
+
+    </a>
+    DevopsPilot
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Linux Commands
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Linux Commands
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../linux-commands/part-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../linux-commands/part-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../linux-commands/part-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../linux-commands/part-4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../linux-commands/part-5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 5
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../linux-commands/part-6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 6
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../linux-commands/part-7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 7
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../linux-commands/part-8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 8
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../linux-commands/part-9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 9
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    SSH
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            SSH
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ssh/ssh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ssh
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Shellscript
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Shellscript
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../shellscript/part-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../shellscript/part-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../shellscript/part-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../shellscript/part-4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Git
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Git
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/how-to-create-github-account/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create github account
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/how-to-install-git-in-linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to install git in linux
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/how-to-create-public-repository-in-github/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create public repository in github
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/how-to-clone-the-public-repository/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to clone the github public repository
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/how-to-create-private-repository/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create private repository
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/how-to-push-the-changes-to-github-repository/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to push the changes to github repository
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/tutorials/02-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Basics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/tutorials/03-branching-merging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Branching and Merging
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/tutorials/04-pull_fetch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Pull and Fetch
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/tutorials/05-reset/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Reset
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/tutorials/06-tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Tags
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/tutorials/07-stash/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Stash
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/tutorials/08-issues-faced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Common Issues in Git
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/tutorials/09-how-to-fix-merge-conflict/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to Fix Merge Conflicts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/tutorials/10-how-to-create-pull-request-in-github/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to Create Pull Request in GitHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/tutorials/11-how-to-fix-merge-conflict-in-pull-request/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to Fix Merge Conflicts in Pull Request
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/tutorials/12-rebase/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Rebase
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/tutorials/visual_diff_merge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Visual Diff and Merge Tools
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Build Tools
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Build Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Maven
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Maven
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../build-tools/maven/install-java-compile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to install Java and compile a single Java file
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../build-tools/maven/install-maven/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to install Maven in Linux
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../build-tools/maven/what-is-maven/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is Maven?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../build-tools/maven/generate-a-sample-java-application-using-maven/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Generate a sample java application using maven
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../build-tools/maven/how-to-create-a-github-repository-and-push-a-sample-java-maven-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create a GitHub repository and push a Hello World Java 21 Maven Project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Web Server
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Web Server
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Nginx
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            Nginx
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../webserver/nginx/how-to-install-nginx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to install nginx in Linux
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tomcat
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Tomcat
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../webserver/tomcat/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to install Tomcat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../webserver/tomcat/how-to-manually-deploy-java-application-to-tomcat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to manually deploy the java application to Tomcat 9 webserver
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../webserver/tomcat/how-to-deploy-java-application-to-tomcat-using-maven/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to deploy the java application to Tomcat 9 webserver using Maven
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Jenkins
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Jenkins
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/how-to-install-jenkins-with-java-21-on-ubuntu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to install Jenkins with Java 21 on Ubuntu 24.04
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/how-to-complete-the-initial-setup-after-installing-jenkins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to complete the initial setup after installing Jenkins
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/how-to-create-a-freestyle-project-to-build-a-maven-java-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create a Freestyle project in Jenkins to build a Maven Java project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/how-to-create-a-maven-project-in-jenkins-to-build-a-maven-java-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to install the Maven plugin in Jenkins
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/how-to-install-the-maven-plugin-in-jenkins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to install Maven using Jenkins Tools
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/how-to-install-maven-from-jenkins-tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create a Maven project in Jenkins to build a Maven Java project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/how-to-store-a-github-token-safely-in-jenkins-credentials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to store a Github Token safely in Jenkins Credentials
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/how-to-create-a-maven-project-in-jenkins-with-private-github-repository/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create a Maven project in Jenkins with Private Github Repository
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/how-to-create-a-pipeline-in-jenkins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create a Pipeline in Jenkins using Pipeline Script
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/how-to-write-jenkinsfile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to write a Jenkinsfile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/how-to-create-a-pipeline-in-jenkins-using-jenkinsfile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create a Pipeline in Jenkins using Jenkinsfile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/jenkinsfile-to-build-a-java-maven-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jenkinsfile to build a Java Maven Project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/how-to-use-tools-block-in-jenkinsfile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to use the tools block in Jenkinsfile to refer to Maven
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/how-to-enable-github-webhook-to-trigger-the-jenkins-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to enable GitHub Webhook to trigger the Jenkins pipeline
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/jenkinsfile-to-trigger-the-jenkins-pipeline-using-poll-scm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jenkinsfile to trigger the Jenkins Pipeline using Poll SCM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/jenkinsfile-to-trigger-the-jenkins-pipeline-using-cron/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jenkinsfile to trigger the Jenkins Pipeline using Cron
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/jenkinsfile-to-trigger-the-pipeline-from-the-upstream-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jenkinsfile to trigger the Pipeline from the Upstream Pipeline
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/jenkinsfile-to-trigger-other-jenkins-pipeline-from-the-stage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jenkinsfile to trigger other Jenkins Pipeline from the stage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/generate-the-code-for-jenkinsfile-using-declarative-directive-generator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Generate the code for Jenkinsfile using Declarative Directive Generator
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/how-to-replay-the-jenkins-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to Replay the Jenkins Pipeline
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/use-of-options-in-jenkinsfile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to use Options in Jenkinsfile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Configuration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            Configuration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/configuration/how-to-install-plugins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to install plugins in Jenkins
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/configuration/global-tool-configurations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Global Tool Configurations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/configuration/how-to-store-credentials-in-jenkins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to store credentials in Jenkins
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/configuration/how-to-restore-deleted-job/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to restore deleted job in Jenkins
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Pipelines
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            Pipelines
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/pipelines/how-to-create-pipeline-job/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create pipeline job in Jenkins
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/pipelines/jenkinsfile-to-build-maven-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to write a Jenkinsfile to build a Maven project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/pipelines/jenkinsfile-to-build-maven-project-and-deploy-to-tomcat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to write a Jenkinsfile to build a Maven project and deploy to Apache Tomcat webserver
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/pipelines/jenkinsfile-to-build-docker-image-push-deploy-to-same-server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to write a Jenkinsfile to build a Maven project, build and push docker image to Dockerhub and deploy the container to same server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/pipelines/jenkinsfile-to-build-docker-image-push-to-artifactory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to write a Jenkinsfile to build a Maven project, build and push docker image to Jfrog artifactory and deploy the container to same server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_4" id="__nav_7_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Other Topics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_4">
+            <span class="md-nav__icon md-icon"></span>
+            Other Topics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/other-topics/how-to-create-a-job-automatically-using-jobdsl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create a Job automatically using Seed Jenkins plugin and Job DSL script
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Docker
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_1" id="__nav_8_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_1">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docker/tutorials/what-is-docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docker/tutorials/how-to-install-docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to install docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docker/tutorials/docker-images-vs-containers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker Images vs Docker Containers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docker/tutorials/create-docker-image-nginx-html/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Create docker image for nginx and html file
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docker/tutorials/pull-push-docker-image-to-public-repository/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pull nginx docker image from dockerhub, tag and push to your public repo in dockerhub account
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docker/tutorials/pull-push-docker-image-to-private-repository/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pull nginx docker image from dockerhub, tag and push to your private repository in dockerhub account
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_2" id="__nav_8_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Dockerfile
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_2">
+            <span class="md-nav__icon md-icon"></span>
+            Dockerfile
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docker/dockerfiles/create-dockerfile-to-install-packages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to write Dockerfile for installing packages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docker/dockerfiles/create-a-dockerfile-for-installing-openjdk15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to write a dockerfile for installing openjdk15
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docker/dockerfiles/create-multi-stage-dockerfile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create a multi stage Dockerfile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docker/dockerfiles/how-to-write-a-dockerfile-for-running-war-file-in-tomcat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to write a dockerfile for running a java application (*.war) in Apache tomcat webserver
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Sonarqube
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Sonarqube
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../sonarqube/quality-gate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to integrate Sonarqube Quality Gate in Jenkins Pipeline
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    K8s
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            K8s
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_1" id="__nav_10_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_1">
+            <span class="md-nav__icon md-icon"></span>
+            Introduction
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/what-is-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is Kubernetes?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_2" id="__nav_10_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Setup and Installation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_2">
+            <span class="md-nav__icon md-icon"></span>
+            Setup and Installation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-install-minikube-in-linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installing Minikube
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-install-kubectl-in-linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installing kubectl
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_3" id="__nav_10_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Core Concepts
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_3">
+            <span class="md-nav__icon md-icon"></span>
+            Core Concepts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-create-pod-in-kubernetes.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pods
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_4" id="__nav_10_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Workload Resources
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_4">
+            <span class="md-nav__icon md-icon"></span>
+            Workload Resources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-create-replicaset-in-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ReplicaSets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-create-deployment-in-kubernetes.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployments
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-create-daemonset-in-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DaemonSets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-create-statefulset-in-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    StatefulSets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-create-job-cronjob-in-kubernetes.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jobs and CronJobs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_5" id="__nav_10_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Resource Organization
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_5">
+            <span class="md-nav__icon md-icon"></span>
+            Resource Organization
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-create-a-namespace-in-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Namespaces
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_6" id="__nav_10_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Configuration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_6">
+            <span class="md-nav__icon md-icon"></span>
+            Configuration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-create-configmap-in-kubernetes.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ConfigMaps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-create-secret-in-kubernetes.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Secrets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_7" id="__nav_10_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Service & Networking
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_7">
+            <span class="md-nav__icon md-icon"></span>
+            Service & Networking
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-create-a-service-in-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Services
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-create-ingress-in-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ingress
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_7_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_7_3" id="__nav_10_7_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Ingress Controllers
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_10_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            Ingress Controllers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-install-ingress-controller.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nginx Ingress Controller
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_8" id="__nav_10_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Storage
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_8">
+            <span class="md-nav__icon md-icon"></span>
+            Storage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-create-storage-class-in-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Storage Classes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-create-pv-pvc-in-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PV and PVC
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_9" id="__nav_10_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Application Management
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_9">
+            <span class="md-nav__icon md-icon"></span>
+            Application Management
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-scale-deployment-in-kubernetes.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Scaling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-create-rolling-update-in-kubernetes.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rolling Updates
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-rollback-deployment-in-kubernetes.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rollbacks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_10" id="__nav_10_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Security
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_10">
+            <span class="md-nav__icon md-icon"></span>
+            Security
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-install-cert-manager.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cert Manager
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_11" id="__nav_10_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Command Reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_11">
+            <span class="md-nav__icon md-icon"></span>
+            Command Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/imperative-commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Imperative Commands
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Helm
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Helm
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../helm/basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Helm chart basics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../helm/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Helm commands
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Terraform
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            Terraform
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_12_1" id="__nav_12_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AWS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_1">
+            <span class="md-nav__icon md-icon"></span>
+            AWS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/codebuild-helloworld/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Terraform script to create AWS Codebuild project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/codedeploy-helloworld/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Terraform script to create AWS Codedeploy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/codepipeline-helloworld/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Terraform script to create AWS Codepipeline
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_12_2" id="__nav_12_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    GCP
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_12_2">
+            <span class="md-nav__icon md-icon"></span>
+            GCP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_12_2_1" id="__nav_12_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Projects
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_12_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_12_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Projects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Deploy Python Flask App to Cloud Run
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deploy Python Flask App to Cloud Run
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#project-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Structure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-step-by-step-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detailed Step-by-Step Guide
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Detailed Step-by-Step Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-authentication-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Authentication Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-enable-required-gcp-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Enable Required GCP APIs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-navigate-to-project-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Navigate to Project Directory
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-review-configuration-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Review Configuration Files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-initialize-terraform" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Initialize Terraform
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-plan-infrastructure-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6: Plan Infrastructure Changes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-create-artifact-registry-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 7: Create Artifact Registry Repository
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-8-configure-docker-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 8: Configure Docker Authentication
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-9-get-repository-location-from-terraform" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 9: Get Repository Location from Terraform
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-10-build-docker-image-locally" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 10: Build Docker Image Locally
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-11-test-docker-image-locally-optional-but-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 11: Test Docker Image Locally (Optional but Recommended)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-12-tag-docker-image-for-artifact-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 12: Tag Docker Image for Artifact Registry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-13-push-docker-image-to-artifact-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 13: Push Docker Image to Artifact Registry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-14-return-to-project-root" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 14: Return to Project Root
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-15-deploy-cloud-run-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 15: Deploy Cloud Run Service
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-16-verify-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 16: Verify Deployment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-17-view-terraform-outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 17: View Terraform Outputs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-the-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing the Application
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Testing the Application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#test-basic-http-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test: Basic HTTP Request
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-and-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitoring and Logs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Monitoring and Logs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#view-cloud-run-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      View Cloud Run Logs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-logs-in-real-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      View Logs in Real-time
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-service-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Service Metrics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-the-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      Updating the Application
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Updating the Application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-modify-application-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Modify Application Code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-build-new-image-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Build New Image Version
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-tag-and-push-new-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Tag and Push New Version
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-update-tfvars" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Update tfvars
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-apply-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Apply Changes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cleanup-and-resource-destruction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cleanup and Resource Destruction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cleanup and Resource Destruction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-destroy-cloud-run-service-and-artifact-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Destroy Cloud Run Service and Artifact Registry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-verify-resources-are-deleted" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Verify Resources are Deleted
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-clean-up-local-docker-images-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Clean Up Local Docker Images (Optional)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-clean-up-terraform-state-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Clean Up Terraform State (Optional)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-1-permission-denied-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue 1: Permission Denied Errors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-2-docker-push-fails" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue 2: Docker Push Fails
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-3-cloud-run-service-not-accessible" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue 3: Cloud Run Service Not Accessible
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-4-image-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue 4: Image Not Found
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-5-terraform-state-lock" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue 5: Terraform State Lock
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-estimation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost Estimation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cost Estimation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#artifact-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Artifact Registry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud Run
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Considerations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#current-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Current Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#production-recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Production Recommendations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Resources
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apigee-psc-cloud-run/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Apigee X with PSC to Cloud Run
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Cloud
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            Cloud
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_13_1" id="__nav_13_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    GCP
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_13_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13_1">
+            <span class="md-nav__icon md-icon"></span>
+            GCP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cloud/gcp/what-is-gcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is GCP?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cloud/gcp/tutorials/create-cloud-run-using-gcloud-cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create Cloud Run service using gcloud CLI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cloud/gcp/tutorials/create-artifact-registry-using-gcloud-cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create Artifact Registry Docker Repository using gcloud CLI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cloud/gcp/tutorials/create-docker-image-push-to-artifact-registry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Build and Push Docker Image to Artifact Registry
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_13_2" id="__nav_13_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Projects
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_13_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13_2">
+            <span class="md-nav__icon md-icon"></span>
+            Projects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cloud/gcp/projects/deploy-python-image-to-cloud-run/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deploy Python App to Cloud Run
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cloud/gcp/projects/deploy-signed-image-to-cloud-run-with-binary-authorization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deploy Signed Image to Cloud Run with Binary Authorization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cloud/gcp/projects/apigee-x-psc-cloudrun/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Apigee X with PSC to Cloud Run
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    SSL
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            SSL
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ssl/how-to-configure-free-letsencrypt-ssl-tls-certificates-with-nginx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to configure free Let’s Encrypt SSL/TLS Certificates with NGINX and auto renew certificates
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ssl/how-to-configure-free-letsencrypt-ssl-tls-certificates-with-nginx-for-subdomains/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to configure free single Let’s Encrypt SSL/TLS Certificate with NGINX for multiple subdomains and auto renew certificate
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ssl/how-to-configure-free-letsencrypt-ssl-tls-wildcard-certificates-with-nginx-for-subdomains/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to configure free single Let’s Encrypt SSL/TLS wildcard Certificate with Nginx
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ssl/self-signed-certificate-using-openssl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to generate self signed certificate using openssl
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Interview Questions
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            Interview Questions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../interview-questions/linux-commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linux commands Interview Questions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../interview-questions/git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Interview Questions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../interview-questions/docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker Interview Questions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../interview-questions/helm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Helm Interview Questions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../interview-questions/ansible/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ansible Interview Questions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#project-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Structure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-step-by-step-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detailed Step-by-Step Guide
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Detailed Step-by-Step Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-authentication-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Authentication Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-enable-required-gcp-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Enable Required GCP APIs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-navigate-to-project-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Navigate to Project Directory
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-review-configuration-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Review Configuration Files
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-initialize-terraform" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Initialize Terraform
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-plan-infrastructure-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6: Plan Infrastructure Changes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-create-artifact-registry-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 7: Create Artifact Registry Repository
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-8-configure-docker-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 8: Configure Docker Authentication
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-9-get-repository-location-from-terraform" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 9: Get Repository Location from Terraform
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-10-build-docker-image-locally" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 10: Build Docker Image Locally
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-11-test-docker-image-locally-optional-but-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 11: Test Docker Image Locally (Optional but Recommended)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-12-tag-docker-image-for-artifact-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 12: Tag Docker Image for Artifact Registry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-13-push-docker-image-to-artifact-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 13: Push Docker Image to Artifact Registry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-14-return-to-project-root" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 14: Return to Project Root
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-15-deploy-cloud-run-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 15: Deploy Cloud Run Service
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-16-verify-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 16: Verify Deployment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-17-view-terraform-outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 17: View Terraform Outputs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-the-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing the Application
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Testing the Application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#test-basic-http-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test: Basic HTTP Request
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-and-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitoring and Logs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Monitoring and Logs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#view-cloud-run-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      View Cloud Run Logs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-logs-in-real-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      View Logs in Real-time
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-service-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check Service Metrics
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-the-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      Updating the Application
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Updating the Application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-modify-application-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Modify Application Code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-build-new-image-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Build New Image Version
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-tag-and-push-new-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Tag and Push New Version
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-update-tfvars" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Update tfvars
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-apply-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Apply Changes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cleanup-and-resource-destruction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cleanup and Resource Destruction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cleanup and Resource Destruction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-destroy-cloud-run-service-and-artifact-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Destroy Cloud Run Service and Artifact Registry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-verify-resources-are-deleted" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Verify Resources are Deleted
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-clean-up-local-docker-images-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Clean Up Local Docker Images (Optional)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-clean-up-terraform-state-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Clean Up Terraform State (Optional)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-1-permission-denied-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue 1: Permission Denied Errors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-2-docker-push-fails" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue 2: Docker Push Fails
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-3-cloud-run-service-not-accessible" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue 3: Cloud Run Service Not Accessible
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-4-image-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue 4: Image Not Found
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-5-terraform-state-lock" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue 5: Terraform State Lock
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-estimation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost Estimation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cost Estimation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#artifact-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      Artifact Registry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud Run
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Considerations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#current-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Current Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#production-recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Production Recommendations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Resources
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="deploy-python-flask-application-to-google-cloud-run-using-terraform">Deploy Python Flask Application to Google Cloud Run using Terraform<a class="headerlink" href="#deploy-python-flask-application-to-google-cloud-run-using-terraform" title="Permanent link">&para;</a></h1>
+<p>This guide provides a comprehensive, step-by-step walkthrough for deploying a Python Flask application to Google Cloud Run using Terraform. The project demonstrates infrastructure as code best practices for containerized application deployment on GCP.</p>
+<p><strong>GitHub Repository:</strong> <a href="https://github.com/vigneshsweekaran/terraform/tree/main/gcp/projects/cloud-run">https://github.com/vigneshsweekaran/terraform/tree/main/gcp/projects/cloud-run</a></p>
+<h2 id="project-overview">Project Overview<a class="headerlink" href="#project-overview" title="Permanent link">&para;</a></h2>
+<p>This project deploys a simple Python Flask application to Google Cloud Run with the following components:
+- <strong>Artifact Registry</strong>: Docker repository to store container images
+- <strong>Cloud Run v2 Service</strong>: Serverless container platform for running the application
+- <strong>Flask Application</strong>: Simple "Hello World" web application
+- <strong>Docker</strong>: Containerization of the Python application</p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<p>Before starting, ensure you have:
+- Google Cloud SDK (<code>gcloud</code>) installed
+- Terraform &gt;= 1.5.0 installed
+- Docker installed and running
+- A GCP project with billing enabled
+- Appropriate IAM permissions (Project Editor or Owner)</p>
+<h2 id="project-structure">Project Structure<a class="headerlink" href="#project-structure" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>cloud-run/
+├── 01-artifact-registry.tf    # Artifact Registry repository definition
+├── 02-cloud-run.tf            # Cloud Run v2 service configuration
+├── versions.tf                # Terraform and provider version constraints
+├── variables.tf               # Input variable definitions
+├── outputs.tf                 # Output values (URLs, repository info)
+├── test.tfvars                # Variable values for deployment
+├── README.md                  # Quick reference guide
+└── src/
+    ├── app.py                 # Flask application code
+    ├── Dockerfile             # Container image definition
+    └── requirements.txt       # Python dependencies
+</code></pre></div>
+<h2 id="detailed-step-by-step-guide">Detailed Step-by-Step Guide<a class="headerlink" href="#detailed-step-by-step-guide" title="Permanent link">&para;</a></h2>
+<h3 id="step-1-authentication-setup">Step 1: Authentication Setup<a class="headerlink" href="#step-1-authentication-setup" title="Permanent link">&para;</a></h3>
+<p>First, authenticate with Google Cloud to allow Terraform and Docker to interact with GCP services.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Authenticate with Google Cloud</span>
+gcloud<span class="w"> </span>auth<span class="w"> </span>application-default<span class="w"> </span>login
+</code></pre></div>
+<p><strong>What this does:</strong>
+- Opens a browser window for Google authentication
+- Creates application default credentials at <code>~/.config/gcloud/application_default_credentials.json</code>
+- Allows Terraform to authenticate with GCP APIs</p>
+<p><strong>Expected output:</strong>
+<div class="highlight"><pre><span></span><code>Credentials saved to file: [~/.config/gcloud/application_default_credentials.json]
+</code></pre></div></p>
+<h3 id="step-2-enable-required-gcp-apis">Step 2: Enable Required GCP APIs<a class="headerlink" href="#step-2-enable-required-gcp-apis" title="Permanent link">&para;</a></h3>
+<p>Enable the necessary Google Cloud APIs for Artifact Registry and Cloud Run.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Enable Artifact Registry API</span>
+gcloud<span class="w"> </span>services<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>artifactregistry.googleapis.com
+
+<span class="c1"># Enable Cloud Run API</span>
+gcloud<span class="w"> </span>services<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>run.googleapis.com
+</code></pre></div>
+<p><strong>What this does:</strong>
+- Activates the Artifact Registry API for storing Docker images
+- Activates the Cloud Run API for deploying containerized applications</p>
+<p><strong>Expected output:</strong>
+<div class="highlight"><pre><span></span><code>Operation &quot;operations/...&quot; finished successfully.
+</code></pre></div></p>
+<p><strong>Note:</strong> If you encounter permission errors, ensure your account has the <code>serviceusage.services.enable</code> permission or the <code>Service Usage Admin</code> role.</p>
+<h3 id="step-3-navigate-to-project-directory">Step 3: Navigate to Project Directory<a class="headerlink" href="#step-3-navigate-to-project-directory" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/Users/vignesh/code/terraform/gcp/projects/cloud-run
+</code></pre></div>
+<h3 id="step-4-review-configuration-files">Step 4: Review Configuration Files<a class="headerlink" href="#step-4-review-configuration-files" title="Permanent link">&para;</a></h3>
+<p>Before proceeding, review the key configuration files:</p>
+<p><strong><code>test.tfvars</code></strong> - Contains your deployment parameters:
+<div class="highlight"><pre><span></span><code><span class="na">project_id</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;exalted-slice-479614-f1&quot;</span>
+<span class="na">region</span><span class="w">              </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;us-central1&quot;</span>
+<span class="na">repository_name</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;python-cloudrun-repo&quot;</span>
+<span class="na">service_name</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;python-service&quot;</span>
+<span class="na">image_name</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;python-app&quot;</span>
+<span class="na">image_tag</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;1.0&quot;</span>
+</code></pre></div></p>
+<p><strong>Modify these values</strong> according to your requirements:
+- <code>project_id</code>: Your GCP project ID
+- <code>region</code>: Desired GCP region (e.g., us-central1, europe-west1)
+- <code>repository_name</code>: Name for your Artifact Registry repository
+- <code>service_name</code>: Name for your Cloud Run service
+- <code>image_name</code>: Name for your Docker image
+- <code>image_tag</code>: Version tag for your image</p>
+<h3 id="step-5-initialize-terraform">Step 5: Initialize Terraform<a class="headerlink" href="#step-5-initialize-terraform" title="Permanent link">&para;</a></h3>
+<p>Initialize Terraform to download required providers and set up the backend.</p>
+<div class="highlight"><pre><span></span><code>terraform<span class="w"> </span>init
+</code></pre></div>
+<p><strong>What this does:</strong>
+- Downloads the Google Cloud provider (version 7.12.0)
+- Creates <code>.terraform</code> directory with provider binaries
+- Creates <code>.terraform.lock.hcl</code> to lock provider versions
+- Initializes the backend (local state file)</p>
+<p><strong>Expected output:</strong>
+<div class="highlight"><pre><span></span><code>Initializing the backend...
+Initializing provider plugins...
+- Finding hashicorp/google versions matching &quot;7.12.0&quot;...
+- Installing hashicorp/google v7.12.0...
+
+Terraform has been successfully initialized!
+</code></pre></div></p>
+<h3 id="step-6-plan-infrastructure-changes">Step 6: Plan Infrastructure Changes<a class="headerlink" href="#step-6-plan-infrastructure-changes" title="Permanent link">&para;</a></h3>
+<p>Review what Terraform will create before applying changes.</p>
+<div class="highlight"><pre><span></span><code>terraform<span class="w"> </span>plan<span class="w"> </span>-var-file<span class="o">=</span>test.tfvars
+</code></pre></div>
+<p><strong>What this does:</strong>
+- Reads the current state (if any)
+- Compares desired state (from .tf files) with actual state
+- Shows a preview of resources to be created, modified, or destroyed</p>
+<p><strong>Expected output:</strong>
+<div class="highlight"><pre><span></span><code>Terraform will perform the following actions:
+
+  # google_artifact_registry_repository.repo will be created
+  # google_cloud_run_v2_service.service will be created
+
+Plan: 2 to add, 0 to change, 0 to destroy.
+</code></pre></div></p>
+<p><strong>Review the plan carefully</strong> to ensure it matches your expectations.</p>
+<h3 id="step-7-create-artifact-registry-repository">Step 7: Create Artifact Registry Repository<a class="headerlink" href="#step-7-create-artifact-registry-repository" title="Permanent link">&para;</a></h3>
+<p>Create only the Artifact Registry repository first, as we need it to exist before pushing the Docker image.</p>
+<div class="highlight"><pre><span></span><code>terraform<span class="w"> </span>apply<span class="w"> </span>-target<span class="o">=</span>google_artifact_registry_repository.repo<span class="w"> </span>-var-file<span class="o">=</span>test.tfvars
+</code></pre></div>
+<p><strong>What this does:</strong>
+- Creates a Docker-format Artifact Registry repository in the specified region
+- Uses targeted apply to create only the repository resource
+- Waits for the repository to be ready</p>
+<p><strong>Expected output:</strong>
+<div class="highlight"><pre><span></span><code>google_artifact_registry_repository.repo: Creating...
+google_artifact_registry_repository.repo: Creation complete after 5s
+
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+</code></pre></div></p>
+<p><strong>When prompted</strong>, type <code>yes</code> to confirm the creation.</p>
+<h3 id="step-8-configure-docker-authentication">Step 8: Configure Docker Authentication<a class="headerlink" href="#step-8-configure-docker-authentication" title="Permanent link">&para;</a></h3>
+<p>Configure Docker to authenticate with Google Artifact Registry.</p>
+<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>auth<span class="w"> </span>configure-docker<span class="w"> </span>us-central1-docker.pkg.dev
+</code></pre></div>
+<p><strong>What this does:</strong>
+- Adds Artifact Registry credentials to Docker's configuration file (<code>~/.docker/config.json</code>)
+- Enables Docker to push/pull images from the specified registry</p>
+<p><strong>Expected output:</strong>
+<div class="highlight"><pre><span></span><code>Adding credentials for: us-central1-docker.pkg.dev
+Docker configuration file updated.
+</code></pre></div></p>
+<p><strong>Note:</strong> Replace <code>us-central1</code> with your region if different.</p>
+<h3 id="step-9-get-repository-location-from-terraform">Step 9: Get Repository Location from Terraform<a class="headerlink" href="#step-9-get-repository-location-from-terraform" title="Permanent link">&para;</a></h3>
+<p>Retrieve the full Docker repository path from Terraform outputs.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">REPO_LOCATION</span><span class="o">=</span><span class="k">$(</span>terraform<span class="w"> </span>output<span class="w"> </span>-raw<span class="w"> </span>artifact_registry_location<span class="k">)</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Repository Location: </span><span class="nv">$REPO_LOCATION</span><span class="s2">&quot;</span>
+</code></pre></div>
+<p><strong>What this does:</strong>
+- Extracts the <code>artifact_registry_location</code> output value
+- Stores it in the <code>REPO_LOCATION</code> environment variable for use in subsequent commands</p>
+<p><strong>Expected output:</strong>
+<div class="highlight"><pre><span></span><code>Repository Location: us-central1-docker.pkg.dev/exalted-slice-479614-f1/python-cloudrun-repo
+</code></pre></div></p>
+<h3 id="step-10-build-docker-image-locally">Step 10: Build Docker Image Locally<a class="headerlink" href="#step-10-build-docker-image-locally" title="Permanent link">&para;</a></h3>
+<p>Navigate to the source directory and build the Docker image.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>src
+docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>python-app:1.0<span class="w"> </span>.
+</code></pre></div>
+<p><strong>What this does:</strong>
+- Reads the <code>Dockerfile</code> in the current directory
+- Creates a Docker image with Python 3.12-slim base
+- Installs Flask dependencies from <code>requirements.txt</code>
+- Copies the Flask application (<code>app.py</code>)
+- Tags the image as <code>python-app:1.0</code></p>
+<p><strong>Expected output:</strong>
+<div class="highlight"><pre><span></span><code>[+] Building 45.2s (10/10) FINISHED
+ =&gt; [internal] load build definition from Dockerfile
+ =&gt; =&gt; transferring dockerfile: 465B
+ =&gt; [internal] load .dockerignore
+ =&gt; [1/4] FROM docker.io/library/python:3.12-slim
+ =&gt; [2/4] WORKDIR /app
+ =&gt; [3/4] COPY . /app
+ =&gt; [4/4] RUN pip install --no-cache-dir -r requirements.txt
+ =&gt; exporting to image
+ =&gt; =&gt; naming to docker.io/library/python-app:1.0
+</code></pre></div></p>
+<h3 id="step-11-test-docker-image-locally-optional-but-recommended">Step 11: Test Docker Image Locally (Optional but Recommended)<a class="headerlink" href="#step-11-test-docker-image-locally-optional-but-recommended" title="Permanent link">&para;</a></h3>
+<p>Before pushing to the cloud, test the image locally to ensure it works.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Run the container locally</span>
+docker<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </span><span class="m">8080</span>:8080<span class="w"> </span>python-app:1.0
+
+<span class="c1"># In another terminal, test the endpoint</span>
+curl<span class="w"> </span>http://localhost:8080
+</code></pre></div>
+<p><strong>Expected output:</strong>
+<div class="highlight"><pre><span></span><code>Hello, World from Cloud Run!
+</code></pre></div></p>
+<p><strong>Press Ctrl+C</strong> to stop the container after testing.</p>
+<h3 id="step-12-tag-docker-image-for-artifact-registry">Step 12: Tag Docker Image for Artifact Registry<a class="headerlink" href="#step-12-tag-docker-image-for-artifact-registry" title="Permanent link">&para;</a></h3>
+<p>Tag the local image with the full Artifact Registry path.</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>tag<span class="w"> </span>python-app:1.0<span class="w"> </span><span class="si">${</span><span class="nv">REPO_LOCATION</span><span class="si">}</span>/python-app:1.0
+</code></pre></div>
+<p><strong>What this does:</strong>
+- Creates a new tag for the existing image
+- The new tag includes the full registry path required for pushing
+- Does not create a duplicate image, just an additional reference</p>
+<p><strong>Verify the tag:</strong>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>images<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>python-app
+</code></pre></div></p>
+<p><strong>Expected output:</strong>
+<div class="highlight"><pre><span></span><code>python-app                                                                    1.0       abc123def456   2 minutes ago   150MB
+us-central1-docker.pkg.dev/exalted-slice-479614-f1/python-cloudrun-repo/python-app   1.0       abc123def456   2 minutes ago   150MB
+</code></pre></div></p>
+<h3 id="step-13-push-docker-image-to-artifact-registry">Step 13: Push Docker Image to Artifact Registry<a class="headerlink" href="#step-13-push-docker-image-to-artifact-registry" title="Permanent link">&para;</a></h3>
+<p>Push the tagged image to Google Artifact Registry.</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>push<span class="w"> </span><span class="si">${</span><span class="nv">REPO_LOCATION</span><span class="si">}</span>/python-app:1.0
+</code></pre></div>
+<p><strong>What this does:</strong>
+- Uploads the Docker image layers to Artifact Registry
+- Makes the image available for Cloud Run deployment
+- Uses the authentication configured in Step 8</p>
+<p><strong>Expected output:</strong>
+<div class="highlight"><pre><span></span><code>The push refers to repository [us-central1-docker.pkg.dev/exalted-slice-479614-f1/python-cloudrun-repo/python-app]
+5f70bf18a086: Pushed
+d8d1f5b28f42: Pushed
+1.0: digest: sha256:abc123... size: 1234
+</code></pre></div></p>
+<p><strong>Note:</strong> The first push may take several minutes depending on your internet speed.</p>
+<h3 id="step-14-return-to-project-root">Step 14: Return to Project Root<a class="headerlink" href="#step-14-return-to-project-root" title="Permanent link">&para;</a></h3>
+<p>Navigate back to the Terraform project root directory.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>..
+</code></pre></div>
+<h3 id="step-15-deploy-cloud-run-service">Step 15: Deploy Cloud Run Service<a class="headerlink" href="#step-15-deploy-cloud-run-service" title="Permanent link">&para;</a></h3>
+<p>Now that the image is available in Artifact Registry, deploy the complete infrastructure.</p>
+<div class="highlight"><pre><span></span><code>terraform<span class="w"> </span>apply<span class="w"> </span>-var-file<span class="o">=</span>test.tfvars
+</code></pre></div>
+<p><strong>What this does:</strong>
+- Creates the Cloud Run v2 service
+- Configures the service to use the pushed Docker image
+- Sets ingress to allow all traffic
+- Disables authentication (public access)
+- Sets deletion protection to false for easy cleanup</p>
+<p><strong>Expected output:</strong>
+<div class="highlight"><pre><span></span><code>google_artifact_registry_repository.repo: Refreshing state...
+google_cloud_run_v2_service.service: Creating...
+google_cloud_run_v2_service.service: Still creating... [10s elapsed]
+google_cloud_run_v2_service.service: Creation complete after 15s
+
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+artifact_registry_location = &quot;us-central1-docker.pkg.dev/exalted-slice-479614-f1/python-cloudrun-repo&quot;
+artifact_registry_repository = &quot;projects/exalted-slice-479614-f1/locations/us-central1/repositories/python-cloudrun-repo&quot;
+cloud_run_service_url = &quot;https://python-service-&lt;hash&gt;-uc.a.run.app&quot;
+</code></pre></div></p>
+<p><strong>When prompted</strong>, type <code>yes</code> to confirm the deployment.</p>
+<h3 id="step-16-verify-deployment">Step 16: Verify Deployment<a class="headerlink" href="#step-16-verify-deployment" title="Permanent link">&para;</a></h3>
+<p>Test the deployed Cloud Run service to ensure it's working correctly.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Get the service URL</span>
+<span class="nv">SERVICE_URL</span><span class="o">=</span><span class="k">$(</span>terraform<span class="w"> </span>output<span class="w"> </span>-raw<span class="w"> </span>cloud_run_service_url<span class="k">)</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Service URL: </span><span class="nv">$SERVICE_URL</span><span class="s2">&quot;</span>
+
+<span class="c1"># Test the endpoint</span>
+curl<span class="w"> </span><span class="nv">$SERVICE_URL</span>
+</code></pre></div>
+<p><strong>Expected output:</strong>
+<div class="highlight"><pre><span></span><code>Service URL: https://python-service-abc123-uc.a.run.app
+Hello, World from Cloud Run!
+</code></pre></div></p>
+<p><strong>Alternative verification methods:</strong></p>
+<ol>
+<li>
+<p><strong>Using gcloud:</strong>
+<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>run<span class="w"> </span>services<span class="w"> </span>describe<span class="w"> </span>python-service<span class="w"> </span>--region<span class="o">=</span>us-central1<span class="w"> </span>--format<span class="o">=</span><span class="s1">&#39;value(status.url)&#39;</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Using a web browser:</strong></p>
+</li>
+<li>Open the URL from the output in your browser</li>
+<li>
+<p>You should see "Hello, World from Cloud Run!"</p>
+</li>
+<li>
+<p><strong>Check service status:</strong>
+<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>run<span class="w"> </span>services<span class="w"> </span>list<span class="w"> </span>--region<span class="o">=</span>us-central1
+</code></pre></div></p>
+</li>
+</ol>
+<h3 id="step-17-view-terraform-outputs">Step 17: View Terraform Outputs<a class="headerlink" href="#step-17-view-terraform-outputs" title="Permanent link">&para;</a></h3>
+<p>Display all Terraform outputs for reference.</p>
+<div class="highlight"><pre><span></span><code>terraform<span class="w"> </span>output
+</code></pre></div>
+<p><strong>Expected output:</strong>
+<div class="highlight"><pre><span></span><code>artifact_registry_location = &quot;us-central1-docker.pkg.dev/exalted-slice-479614-f1/python-cloudrun-repo&quot;
+artifact_registry_repository = &quot;projects/exalted-slice-479614-f1/locations/us-central1/repositories/python-cloudrun-repo&quot;
+cloud_run_service_url = &quot;https://python-service-abc123-uc.a.run.app&quot;
+</code></pre></div></p>
+<h2 id="testing-the-application">Testing the Application<a class="headerlink" href="#testing-the-application" title="Permanent link">&para;</a></h2>
+<h3 id="test-basic-http-request">Test: Basic HTTP Request<a class="headerlink" href="#test-basic-http-request" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span><span class="k">$(</span>terraform<span class="w"> </span>output<span class="w"> </span>-raw<span class="w"> </span>cloud_run_service_url<span class="k">)</span>
+</code></pre></div>
+<p><strong>Expected:</strong> <code>Hello, World from Cloud Run!</code></p>
+<h2 id="monitoring-and-logs">Monitoring and Logs<a class="headerlink" href="#monitoring-and-logs" title="Permanent link">&para;</a></h2>
+<h3 id="view-cloud-run-logs">View Cloud Run Logs<a class="headerlink" href="#view-cloud-run-logs" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>run<span class="w"> </span>services<span class="w"> </span>logs<span class="w"> </span><span class="nb">read</span><span class="w"> </span>python-service<span class="w"> </span>--region<span class="o">=</span>us-central1<span class="w"> </span>--limit<span class="o">=</span><span class="m">50</span>
+</code></pre></div>
+<h3 id="view-logs-in-real-time">View Logs in Real-time<a class="headerlink" href="#view-logs-in-real-time" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>run<span class="w"> </span>services<span class="w"> </span>logs<span class="w"> </span>tail<span class="w"> </span>python-service<span class="w"> </span>--region<span class="o">=</span>us-central1
+</code></pre></div>
+<h3 id="check-service-metrics">Check Service Metrics<a class="headerlink" href="#check-service-metrics" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>run<span class="w"> </span>services<span class="w"> </span>describe<span class="w"> </span>python-service<span class="w"> </span>--region<span class="o">=</span>us-central1
+</code></pre></div>
+<h2 id="updating-the-application">Updating the Application<a class="headerlink" href="#updating-the-application" title="Permanent link">&para;</a></h2>
+<p>If you need to update the application code:</p>
+<h3 id="step-1-modify-application-code">Step 1: Modify Application Code<a class="headerlink" href="#step-1-modify-application-code" title="Permanent link">&para;</a></h3>
+<p>Edit <code>src/app.py</code> with your changes.</p>
+<h3 id="step-2-build-new-image-version">Step 2: Build New Image Version<a class="headerlink" href="#step-2-build-new-image-version" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>src
+docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>python-app:2.0<span class="w"> </span>.
+</code></pre></div>
+<h3 id="step-3-tag-and-push-new-version">Step 3: Tag and Push New Version<a class="headerlink" href="#step-3-tag-and-push-new-version" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nv">REPO_LOCATION</span><span class="o">=</span><span class="k">$(</span>terraform<span class="w"> </span>output<span class="w"> </span>-raw<span class="w"> </span>artifact_registry_location<span class="k">)</span>
+docker<span class="w"> </span>tag<span class="w"> </span>python-app:2.0<span class="w"> </span><span class="si">${</span><span class="nv">REPO_LOCATION</span><span class="si">}</span>/python-app:2.0
+docker<span class="w"> </span>push<span class="w"> </span><span class="si">${</span><span class="nv">REPO_LOCATION</span><span class="si">}</span>/python-app:2.0
+<span class="nb">cd</span><span class="w"> </span>..
+</code></pre></div>
+<h3 id="step-4-update-tfvars">Step 4: Update tfvars<a class="headerlink" href="#step-4-update-tfvars" title="Permanent link">&para;</a></h3>
+<p>Edit <code>test.tfvars</code> and change <code>image_tag = "2.0"</code>.</p>
+<h3 id="step-5-apply-changes">Step 5: Apply Changes<a class="headerlink" href="#step-5-apply-changes" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>terraform<span class="w"> </span>apply<span class="w"> </span>-var-file<span class="o">=</span>test.tfvars
+</code></pre></div>
+<h2 id="cleanup-and-resource-destruction">Cleanup and Resource Destruction<a class="headerlink" href="#cleanup-and-resource-destruction" title="Permanent link">&para;</a></h2>
+<p>When you're finished with the project, clean up all resources to avoid ongoing charges.</p>
+<h3 id="step-1-destroy-cloud-run-service-and-artifact-registry">Step 1: Destroy Cloud Run Service and Artifact Registry<a class="headerlink" href="#step-1-destroy-cloud-run-service-and-artifact-registry" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>terraform<span class="w"> </span>destroy<span class="w"> </span>-var-file<span class="o">=</span>test.tfvars
+</code></pre></div>
+<p><strong>What this does:</strong>
+- Destroys the Cloud Run service
+- Destroys the Artifact Registry repository (including all stored images)
+- Removes all associated resources</p>
+<p><strong>Expected output:</strong>
+<div class="highlight"><pre><span></span><code>google_cloud_run_v2_service.service: Refreshing state...
+google_artifact_registry_repository.repo: Refreshing state...
+
+Terraform will perform the following actions:
+
+  # google_artifact_registry_repository.repo will be destroyed
+  # google_cloud_run_v2_service.service will be destroyed
+
+Plan: 0 to add, 0 to change, 2 to destroy.
+
+Do you really want to destroy all resources?
+  Terraform will destroy all your managed infrastructure, as shown above.
+  There is no undo. Only &#39;yes&#39; will be accepted to confirm.
+</code></pre></div></p>
+<p><strong>When prompted</strong>, type <code>yes</code> to confirm destruction.</p>
+<p><strong>Expected completion:</strong>
+<div class="highlight"><pre><span></span><code>google_cloud_run_v2_service.service: Destroying...
+google_cloud_run_v2_service.service: Destruction complete after 10s
+google_artifact_registry_repository.repo: Destroying...
+google_artifact_registry_repository.repo: Destruction complete after 5s
+
+Destroy complete! Resources: 2 destroyed.
+</code></pre></div></p>
+<h3 id="step-2-verify-resources-are-deleted">Step 2: Verify Resources are Deleted<a class="headerlink" href="#step-2-verify-resources-are-deleted" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check Cloud Run services</span>
+gcloud<span class="w"> </span>run<span class="w"> </span>services<span class="w"> </span>list<span class="w"> </span>--region<span class="o">=</span>us-central1
+
+<span class="c1"># Check Artifact Registry repositories</span>
+gcloud<span class="w"> </span>artifacts<span class="w"> </span>repositories<span class="w"> </span>list<span class="w"> </span>--location<span class="o">=</span>us-central1
+</code></pre></div>
+<p><strong>Expected output:</strong> No resources should be listed.</p>
+<h3 id="step-3-clean-up-local-docker-images-optional">Step 3: Clean Up Local Docker Images (Optional)<a class="headerlink" href="#step-3-clean-up-local-docker-images-optional" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Remove local Docker images</span>
+docker<span class="w"> </span>rmi<span class="w"> </span>python-app:1.0
+docker<span class="w"> </span>rmi<span class="w"> </span><span class="si">${</span><span class="nv">REPO_LOCATION</span><span class="si">}</span>/python-app:1.0
+
+<span class="c1"># Or remove all unused images</span>
+docker<span class="w"> </span>image<span class="w"> </span>prune<span class="w"> </span>-a
+</code></pre></div>
+<h3 id="step-4-clean-up-terraform-state-optional">Step 4: Clean Up Terraform State (Optional)<a class="headerlink" href="#step-4-clean-up-terraform-state-optional" title="Permanent link">&para;</a></h3>
+<p>If you want to completely reset the project:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Remove state files</span>
+rm<span class="w"> </span>terraform.tfstate
+rm<span class="w"> </span>terraform.tfstate.backup
+
+<span class="c1"># Remove Terraform directory</span>
+rm<span class="w"> </span>-rf<span class="w"> </span>.terraform
+rm<span class="w"> </span>.terraform.lock.hcl
+</code></pre></div>
+<p><strong>Warning:</strong> Only do this if you're certain you won't need the state history.</p>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="issue-1-permission-denied-errors">Issue 1: Permission Denied Errors<a class="headerlink" href="#issue-1-permission-denied-errors" title="Permanent link">&para;</a></h3>
+<p><strong>Problem:</strong> <code>Error 403: Permission denied</code> when enabling APIs or creating resources.</p>
+<p><strong>Solution:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check current authenticated account</span>
+gcloud<span class="w"> </span>auth<span class="w"> </span>list
+
+<span class="c1"># Ensure you&#39;re using the correct project</span>
+gcloud<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>project<span class="w"> </span>exalted-slice-479614-f1
+
+<span class="c1"># Re-authenticate if needed</span>
+gcloud<span class="w"> </span>auth<span class="w"> </span>application-default<span class="w"> </span>login
+</code></pre></div></p>
+<h3 id="issue-2-docker-push-fails">Issue 2: Docker Push Fails<a class="headerlink" href="#issue-2-docker-push-fails" title="Permanent link">&para;</a></h3>
+<p><strong>Problem:</strong> <code>denied: Permission denied</code> when pushing to Artifact Registry.</p>
+<p><strong>Solution:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># Re-configure Docker authentication</span>
+gcloud<span class="w"> </span>auth<span class="w"> </span>configure-docker<span class="w"> </span>us-central1-docker.pkg.dev
+
+<span class="c1"># Ensure you have the Artifact Registry Writer role</span>
+gcloud<span class="w"> </span>projects<span class="w"> </span>add-iam-policy-binding<span class="w"> </span>exalted-slice-479614-f1<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--member<span class="o">=</span><span class="s2">&quot;user:your-email@gmail.com&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--role<span class="o">=</span><span class="s2">&quot;roles/artifactregistry.writer&quot;</span>
+</code></pre></div></p>
+<h3 id="issue-3-cloud-run-service-not-accessible">Issue 3: Cloud Run Service Not Accessible<a class="headerlink" href="#issue-3-cloud-run-service-not-accessible" title="Permanent link">&para;</a></h3>
+<p><strong>Problem:</strong> Service URL returns 403 or 404 errors.</p>
+<p><strong>Solution:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check service status</span>
+gcloud<span class="w"> </span>run<span class="w"> </span>services<span class="w"> </span>describe<span class="w"> </span>python-service<span class="w"> </span>--region<span class="o">=</span>us-central1
+
+<span class="c1"># Ensure the service is ready</span>
+gcloud<span class="w"> </span>run<span class="w"> </span>services<span class="w"> </span>list<span class="w"> </span>--region<span class="o">=</span>us-central1
+
+<span class="c1"># Check IAM permissions for unauthenticated access</span>
+gcloud<span class="w"> </span>run<span class="w"> </span>services<span class="w"> </span>get-iam-policy<span class="w"> </span>python-service<span class="w"> </span>--region<span class="o">=</span>us-central1
+</code></pre></div></p>
+<h3 id="issue-4-image-not-found">Issue 4: Image Not Found<a class="headerlink" href="#issue-4-image-not-found" title="Permanent link">&para;</a></h3>
+<p><strong>Problem:</strong> <code>Error: Image not found</code> when deploying Cloud Run service.</p>
+<p><strong>Solution:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># Verify image exists in Artifact Registry</span>
+gcloud<span class="w"> </span>artifacts<span class="w"> </span>docker<span class="w"> </span>images<span class="w"> </span>list<span class="w"> </span>us-central1-docker.pkg.dev/exalted-slice-479614-f1/python-cloudrun-repo
+
+<span class="c1"># Ensure image tag matches tfvars</span>
+cat<span class="w"> </span>test.tfvars<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>image_tag
+</code></pre></div></p>
+<h3 id="issue-5-terraform-state-lock">Issue 5: Terraform State Lock<a class="headerlink" href="#issue-5-terraform-state-lock" title="Permanent link">&para;</a></h3>
+<p><strong>Problem:</strong> <code>Error acquiring the state lock</code> when running Terraform commands.</p>
+<p><strong>Solution:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># If you&#39;re sure no other Terraform process is running</span>
+terraform<span class="w"> </span>force-unlock<span class="w"> </span>&lt;LOCK_ID&gt;
+
+<span class="c1"># Or remove the lock file (local backend only)</span>
+rm<span class="w"> </span>.terraform.tfstate.lock.info
+</code></pre></div></p>
+<h2 id="cost-estimation">Cost Estimation<a class="headerlink" href="#cost-estimation" title="Permanent link">&para;</a></h2>
+<h3 id="artifact-registry">Artifact Registry<a class="headerlink" href="#artifact-registry" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Storage:</strong> $0.10 per GB per month</li>
+<li><strong>Estimated:</strong> ~$0.02/month for a small image (~150MB)</li>
+</ul>
+<h3 id="cloud-run">Cloud Run<a class="headerlink" href="#cloud-run" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>CPU:</strong> $0.00002400 per vCPU-second</li>
+<li><strong>Memory:</strong> $0.00000250 per GiB-second</li>
+<li><strong>Requests:</strong> $0.40 per million requests</li>
+<li><strong>Free tier:</strong> 2 million requests per month, 360,000 GiB-seconds, 180,000 vCPU-seconds</li>
+</ul>
+<p><strong>Estimated monthly cost for low traffic:</strong> $0-$5 (mostly within free tier)</p>
+<h2 id="security-considerations">Security Considerations<a class="headerlink" href="#security-considerations" title="Permanent link">&para;</a></h2>
+<h3 id="current-configuration">Current Configuration<a class="headerlink" href="#current-configuration" title="Permanent link">&para;</a></h3>
+<ul>
+<li>✅ Uses Cloud Run v2 (latest version)</li>
+<li>⚠️ Public access enabled (<code>invoker_iam_disabled = true</code>)</li>
+<li>✅ Deletion protection disabled (for easy testing)</li>
+</ul>
+<h3 id="production-recommendations">Production Recommendations<a class="headerlink" href="#production-recommendations" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Enable Authentication:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># In 02-cloud-run.tf</span>
+<span class="na">invoker_iam_disabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">false</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Enable Deletion Protection:</strong>
+<div class="highlight"><pre><span></span><code><span class="na">deletion_protection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Use Service Accounts:</strong>
+<div class="highlight"><pre><span></span><code><span class="nb">template</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="na">service_account</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">google_service_account.cloudrun_sa.email</span>
+<span class="c1">  # ...</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Implement VPC Connector:</strong>
+<div class="highlight"><pre><span></span><code><span class="nb">template</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nb">vpc_access</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="na">connector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">google_vpc_access_connector.connector.id</span>
+<span class="w">    </span><span class="na">egress</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;PRIVATE_RANGES_ONLY&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Add Environment Variables Securely:</strong>
+<div class="highlight"><pre><span></span><code><span class="nb">template</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nb">containers</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nb">env</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;DATABASE_URL&quot;</span>
+<span class="w">      </span><span class="nb">value_source</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nb">secret_key_ref</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="na">secret</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="nv">google_secret_manager_secret.db_url.secret_id</span>
+<span class="w">          </span><span class="na">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;latest&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</li>
+</ol>
+<h2 id="additional-resources">Additional Resources<a class="headerlink" href="#additional-resources" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://cloud.google.com/run/docs">Cloud Run Documentation</a></li>
+<li><a href="https://cloud.google.com/artifact-registry/docs">Artifact Registry Documentation</a></li>
+<li><a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs">Terraform Google Provider</a></li>
+<li><a href="https://flask.palletsprojects.com/">Flask Documentation</a></li>
+<li><a href="https://docs.docker.com/">Docker Documentation</a></li>
+</ul>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>This guide covered:
+1. ✅ Setting up authentication and enabling APIs
+2. ✅ Initializing Terraform and reviewing configurations
+3. ✅ Creating Artifact Registry repository
+4. ✅ Building and testing Docker images locally
+5. ✅ Pushing images to Artifact Registry
+6. ✅ Deploying Cloud Run services
+7. ✅ Testing and verifying deployments
+8. ✅ Monitoring and updating applications
+9. ✅ Cleaning up resources completely</p>
+<p>You now have a complete, production-ready workflow for deploying containerized Python applications to Google Cloud Run using Terraform!</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../../aws/codepipeline-helloworld/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Terraform script to create AWS Codepipeline">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Terraform script to create AWS Codepipeline
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../apigee-psc-cloud-run/" class="md-footer__link md-footer__link--next" aria-label="Next: Apigee X with PSC to Cloud Run">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Apigee X with PSC to Cloud Run
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2021 - 2025 DevopsPilot
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.top", "navigation.footer", "navigation.expand", "navigation.indexes", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

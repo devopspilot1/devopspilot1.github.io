@@ -1,0 +1,7762 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://devopspilot1.github.io/terraform/gcp/projects/apigee-psc-cloud-run/">
+      
+      
+        <link rel="prev" href="../cloud-run/">
+      
+      
+        <link rel="next" href="../../../../cloud/gcp/what-is-gcp/">
+      
+      
+      <link rel="icon" href="../../../../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.13">
+    
+    
+      
+        <title>Apigee X with PSC to Cloud Run - DevopsPilot</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-EKDQC3L9T7"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-EKDQC3L9T7",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-EKDQC3L9T7",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#deploy-apigee-x-with-private-service-connect-to-cloud-run-using-terraform" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="DevopsPilot" class="md-header__button md-logo" aria-label="DevopsPilot" data-md-component="logo">
+      
+  <img src="../../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DevopsPilot
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Apigee X with PSC to Cloud Run
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../linux-commands/part-1/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Linux Commands
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../ssh/ssh/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  SSH
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../shellscript/part-1/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Shellscript
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../git/how-to-create-github-account/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Git
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../build-tools/maven/install-java-compile/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Build Tools
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../webserver/nginx/how-to-install-nginx/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Web Server
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../jenkins/tutorials/how-to-install-jenkins-with-java-21-on-ubuntu/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Jenkins
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../docker/tutorials/what-is-docker/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Docker
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../sonarqube/quality-gate/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Sonarqube
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../kubernetes/tutorials/what-is-kubernetes/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  K8s
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../helm/basics/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Helm
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../aws/codebuild-helloworld/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Terraform
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../cloud/gcp/what-is-gcp/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Cloud
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../ssl/how-to-configure-free-letsencrypt-ssl-tls-certificates-with-nginx/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  SSL
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../interview-questions/linux-commands/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Interview Questions
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="DevopsPilot" class="md-nav__button md-logo" aria-label="DevopsPilot" data-md-component="logo">
+      
+  <img src="../../../../assets/logo.png" alt="logo">
+
+    </a>
+    DevopsPilot
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Linux Commands
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Linux Commands
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../linux-commands/part-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../linux-commands/part-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../linux-commands/part-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../linux-commands/part-4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../linux-commands/part-5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 5
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../linux-commands/part-6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 6
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../linux-commands/part-7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 7
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../linux-commands/part-8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 8
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../linux-commands/part-9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 9
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    SSH
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            SSH
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ssh/ssh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ssh
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Shellscript
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Shellscript
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../shellscript/part-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../shellscript/part-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../shellscript/part-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../shellscript/part-4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Git
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Git
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/how-to-create-github-account/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create github account
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/how-to-install-git-in-linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to install git in linux
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/how-to-create-public-repository-in-github/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create public repository in github
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/how-to-clone-the-public-repository/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to clone the github public repository
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/how-to-create-private-repository/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create private repository
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/how-to-push-the-changes-to-github-repository/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to push the changes to github repository
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/tutorials/02-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Basics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/tutorials/03-branching-merging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Branching and Merging
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/tutorials/04-pull_fetch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Pull and Fetch
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/tutorials/05-reset/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Reset
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/tutorials/06-tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Tags
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/tutorials/07-stash/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Stash
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/tutorials/08-issues-faced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Common Issues in Git
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/tutorials/09-how-to-fix-merge-conflict/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to Fix Merge Conflicts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/tutorials/10-how-to-create-pull-request-in-github/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to Create Pull Request in GitHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/tutorials/11-how-to-fix-merge-conflict-in-pull-request/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to Fix Merge Conflicts in Pull Request
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/tutorials/12-rebase/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Rebase
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/tutorials/visual_diff_merge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Visual Diff and Merge Tools
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Build Tools
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Build Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Maven
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Maven
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../build-tools/maven/install-java-compile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to install Java and compile a single Java file
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../build-tools/maven/install-maven/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to install Maven in Linux
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../build-tools/maven/what-is-maven/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is Maven?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../build-tools/maven/generate-a-sample-java-application-using-maven/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Generate a sample java application using maven
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../build-tools/maven/how-to-create-a-github-repository-and-push-a-sample-java-maven-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create a GitHub repository and push a Hello World Java 21 Maven Project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Web Server
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Web Server
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Nginx
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            Nginx
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../webserver/nginx/how-to-install-nginx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to install nginx in Linux
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tomcat
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Tomcat
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../webserver/tomcat/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to install Tomcat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../webserver/tomcat/how-to-manually-deploy-java-application-to-tomcat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to manually deploy the java application to Tomcat 9 webserver
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../webserver/tomcat/how-to-deploy-java-application-to-tomcat-using-maven/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to deploy the java application to Tomcat 9 webserver using Maven
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Jenkins
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Jenkins
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/how-to-install-jenkins-with-java-21-on-ubuntu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to install Jenkins with Java 21 on Ubuntu 24.04
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/how-to-complete-the-initial-setup-after-installing-jenkins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to complete the initial setup after installing Jenkins
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/how-to-create-a-freestyle-project-to-build-a-maven-java-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create a Freestyle project in Jenkins to build a Maven Java project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/how-to-create-a-maven-project-in-jenkins-to-build-a-maven-java-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to install the Maven plugin in Jenkins
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/how-to-install-the-maven-plugin-in-jenkins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to install Maven using Jenkins Tools
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/how-to-install-maven-from-jenkins-tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create a Maven project in Jenkins to build a Maven Java project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/how-to-store-a-github-token-safely-in-jenkins-credentials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to store a Github Token safely in Jenkins Credentials
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/how-to-create-a-maven-project-in-jenkins-with-private-github-repository/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create a Maven project in Jenkins with Private Github Repository
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/how-to-create-a-pipeline-in-jenkins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create a Pipeline in Jenkins using Pipeline Script
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/how-to-write-jenkinsfile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to write a Jenkinsfile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/how-to-create-a-pipeline-in-jenkins-using-jenkinsfile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create a Pipeline in Jenkins using Jenkinsfile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/jenkinsfile-to-build-a-java-maven-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jenkinsfile to build a Java Maven Project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/how-to-use-tools-block-in-jenkinsfile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to use the tools block in Jenkinsfile to refer to Maven
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/how-to-enable-github-webhook-to-trigger-the-jenkins-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to enable GitHub Webhook to trigger the Jenkins pipeline
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/jenkinsfile-to-trigger-the-jenkins-pipeline-using-poll-scm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jenkinsfile to trigger the Jenkins Pipeline using Poll SCM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/jenkinsfile-to-trigger-the-jenkins-pipeline-using-cron/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jenkinsfile to trigger the Jenkins Pipeline using Cron
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/jenkinsfile-to-trigger-the-pipeline-from-the-upstream-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jenkinsfile to trigger the Pipeline from the Upstream Pipeline
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/jenkinsfile-to-trigger-other-jenkins-pipeline-from-the-stage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jenkinsfile to trigger other Jenkins Pipeline from the stage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/generate-the-code-for-jenkinsfile-using-declarative-directive-generator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Generate the code for Jenkinsfile using Declarative Directive Generator
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/how-to-replay-the-jenkins-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to Replay the Jenkins Pipeline
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/use-of-options-in-jenkinsfile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to use Options in Jenkinsfile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Configuration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            Configuration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/configuration/how-to-install-plugins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to install plugins in Jenkins
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/configuration/global-tool-configurations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Global Tool Configurations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/configuration/how-to-store-credentials-in-jenkins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to store credentials in Jenkins
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/configuration/how-to-restore-deleted-job/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to restore deleted job in Jenkins
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Pipelines
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            Pipelines
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/pipelines/how-to-create-pipeline-job/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create pipeline job in Jenkins
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/pipelines/jenkinsfile-to-build-maven-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to write a Jenkinsfile to build a Maven project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/pipelines/jenkinsfile-to-build-maven-project-and-deploy-to-tomcat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to write a Jenkinsfile to build a Maven project and deploy to Apache Tomcat webserver
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/pipelines/jenkinsfile-to-build-docker-image-push-deploy-to-same-server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to write a Jenkinsfile to build a Maven project, build and push docker image to Dockerhub and deploy the container to same server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/pipelines/jenkinsfile-to-build-docker-image-push-to-artifactory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to write a Jenkinsfile to build a Maven project, build and push docker image to Jfrog artifactory and deploy the container to same server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_4" id="__nav_7_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Other Topics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_4">
+            <span class="md-nav__icon md-icon"></span>
+            Other Topics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/other-topics/how-to-create-a-job-automatically-using-jobdsl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create a Job automatically using Seed Jenkins plugin and Job DSL script
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Docker
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_1" id="__nav_8_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_1">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docker/tutorials/what-is-docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docker/tutorials/how-to-install-docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to install docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docker/tutorials/docker-images-vs-containers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker Images vs Docker Containers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docker/tutorials/create-docker-image-nginx-html/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Create docker image for nginx and html file
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docker/tutorials/pull-push-docker-image-to-public-repository/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pull nginx docker image from dockerhub, tag and push to your public repo in dockerhub account
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docker/tutorials/pull-push-docker-image-to-private-repository/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pull nginx docker image from dockerhub, tag and push to your private repository in dockerhub account
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_2" id="__nav_8_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Dockerfile
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_2">
+            <span class="md-nav__icon md-icon"></span>
+            Dockerfile
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docker/dockerfiles/create-dockerfile-to-install-packages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to write Dockerfile for installing packages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docker/dockerfiles/create-a-dockerfile-for-installing-openjdk15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to write a dockerfile for installing openjdk15
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docker/dockerfiles/create-multi-stage-dockerfile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create a multi stage Dockerfile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docker/dockerfiles/how-to-write-a-dockerfile-for-running-war-file-in-tomcat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to write a dockerfile for running a java application (*.war) in Apache tomcat webserver
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Sonarqube
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Sonarqube
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../sonarqube/quality-gate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to integrate Sonarqube Quality Gate in Jenkins Pipeline
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    K8s
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            K8s
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_1" id="__nav_10_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_1">
+            <span class="md-nav__icon md-icon"></span>
+            Introduction
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/what-is-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is Kubernetes?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_2" id="__nav_10_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Setup and Installation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_2">
+            <span class="md-nav__icon md-icon"></span>
+            Setup and Installation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-install-minikube-in-linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installing Minikube
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-install-kubectl-in-linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installing kubectl
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_3" id="__nav_10_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Core Concepts
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_3">
+            <span class="md-nav__icon md-icon"></span>
+            Core Concepts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-create-pod-in-kubernetes.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pods
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_4" id="__nav_10_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Workload Resources
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_4">
+            <span class="md-nav__icon md-icon"></span>
+            Workload Resources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-create-replicaset-in-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ReplicaSets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-create-deployment-in-kubernetes.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployments
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-create-daemonset-in-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DaemonSets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-create-statefulset-in-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    StatefulSets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-create-job-cronjob-in-kubernetes.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jobs and CronJobs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_5" id="__nav_10_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Resource Organization
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_5">
+            <span class="md-nav__icon md-icon"></span>
+            Resource Organization
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-create-a-namespace-in-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Namespaces
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_6" id="__nav_10_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Configuration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_6">
+            <span class="md-nav__icon md-icon"></span>
+            Configuration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-create-configmap-in-kubernetes.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ConfigMaps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-create-secret-in-kubernetes.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Secrets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_7" id="__nav_10_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Service & Networking
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_7">
+            <span class="md-nav__icon md-icon"></span>
+            Service & Networking
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-create-a-service-in-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Services
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-create-ingress-in-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ingress
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_7_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_7_3" id="__nav_10_7_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Ingress Controllers
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_10_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            Ingress Controllers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-install-ingress-controller.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nginx Ingress Controller
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_8" id="__nav_10_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Storage
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_8">
+            <span class="md-nav__icon md-icon"></span>
+            Storage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-create-storage-class-in-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Storage Classes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-create-pv-pvc-in-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PV and PVC
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_9" id="__nav_10_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Application Management
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_9">
+            <span class="md-nav__icon md-icon"></span>
+            Application Management
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-scale-deployment-in-kubernetes.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Scaling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-create-rolling-update-in-kubernetes.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rolling Updates
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-rollback-deployment-in-kubernetes.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rollbacks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_10" id="__nav_10_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Security
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_10">
+            <span class="md-nav__icon md-icon"></span>
+            Security
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-install-cert-manager.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cert Manager
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_10_11" id="__nav_10_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Command Reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10_11">
+            <span class="md-nav__icon md-icon"></span>
+            Command Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/imperative-commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Imperative Commands
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Helm
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Helm
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../helm/basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Helm chart basics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../helm/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Helm commands
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Terraform
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            Terraform
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_12_1" id="__nav_12_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AWS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_1">
+            <span class="md-nav__icon md-icon"></span>
+            AWS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/codebuild-helloworld/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Terraform script to create AWS Codebuild project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/codedeploy-helloworld/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Terraform script to create AWS Codedeploy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../aws/codepipeline-helloworld/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Terraform script to create AWS Codepipeline
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_12_2" id="__nav_12_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    GCP
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_12_2">
+            <span class="md-nav__icon md-icon"></span>
+            GCP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_12_2_1" id="__nav_12_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Projects
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_12_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_12_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Projects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud-run/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deploy Python Flask App to Cloud Run
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Apigee X with PSC to Cloud Run
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Apigee X with PSC to Cloud Run
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#project-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Structure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-with-terraform-step-by-step" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup with Terraform (Step-by-Step)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup with Terraform (Step-by-Step)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-authentication-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Authentication Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-enable-required-gcp-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Enable Required GCP APIs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-navigate-to-project-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Navigate to Project Directory
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-configure-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Configure Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-initialize-terraform" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Initialize Terraform
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-plan-infrastructure-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6: Plan Infrastructure Changes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-apply-terraform-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 7: Apply Terraform Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-8-monitor-apigee-instance-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 8: Monitor Apigee Instance Creation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-9-get-terraform-outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 9: Get Terraform Outputs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-10-deploy-api-proxy-to-apigee" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 10: Deploy API Proxy to Apigee
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-11-test-the-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 11: Test the Deployment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-12-verify-all-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 12: Verify All Components
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-the-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding the Architecture
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding the Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#network-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network Components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#psc-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      PSC Components
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-and-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitoring and Logs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Monitoring and Logs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#view-apigee-api-proxy-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      View Apigee API Proxy Logs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-cloud-run-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      View Cloud Run Logs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-load-balancer-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      View Load Balancer Logs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-the-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Updating the Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Updating the Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#update-cloud-run-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update Cloud Run Image
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-apigee-hostname" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update Apigee Hostname
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-api-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update API Proxy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cleanup-and-resource-destruction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cleanup and Resource Destruction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cleanup and Resource Destruction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-undeploy-api-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Undeploy API Proxy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-destroy-terraform-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Destroy Terraform Resources
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-verify-resources-are-deleted" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Verify Resources are Deleted
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-1-apigee-instance-creation-timeout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue 1: Apigee Instance Creation Timeout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-2-load-balancer-proxy-subnet-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue 2: Load Balancer Proxy Subnet Error
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-3-cloud-run-access-denied" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue 3: Cloud Run Access Denied
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-4-api-proxy-deployment-fails" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue 4: API Proxy Deployment Fails
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-5-psc-neg-creation-fails" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue 5: PSC NEG Creation Fails
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-estimation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost Estimation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cost Estimation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apigee-x" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apigee X
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud Run
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-balancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load Balancer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#networking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Networking
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Considerations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#current-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Current Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#production-recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Production Recommendations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Resources
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Cloud
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            Cloud
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_13_1" id="__nav_13_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    GCP
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_13_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13_1">
+            <span class="md-nav__icon md-icon"></span>
+            GCP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cloud/gcp/what-is-gcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is GCP?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cloud/gcp/tutorials/create-cloud-run-using-gcloud-cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create Cloud Run service using gcloud CLI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cloud/gcp/tutorials/create-artifact-registry-using-gcloud-cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create Artifact Registry Docker Repository using gcloud CLI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cloud/gcp/tutorials/create-docker-image-push-to-artifact-registry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Build and Push Docker Image to Artifact Registry
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_13_2" id="__nav_13_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Projects
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_13_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13_2">
+            <span class="md-nav__icon md-icon"></span>
+            Projects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cloud/gcp/projects/deploy-python-image-to-cloud-run/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deploy Python App to Cloud Run
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cloud/gcp/projects/deploy-signed-image-to-cloud-run-with-binary-authorization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deploy Signed Image to Cloud Run with Binary Authorization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../cloud/gcp/projects/apigee-x-psc-cloudrun/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Apigee X with PSC to Cloud Run
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    SSL
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            SSL
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ssl/how-to-configure-free-letsencrypt-ssl-tls-certificates-with-nginx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to configure free Let’s Encrypt SSL/TLS Certificates with NGINX and auto renew certificates
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ssl/how-to-configure-free-letsencrypt-ssl-tls-certificates-with-nginx-for-subdomains/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to configure free single Let’s Encrypt SSL/TLS Certificate with NGINX for multiple subdomains and auto renew certificate
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ssl/how-to-configure-free-letsencrypt-ssl-tls-wildcard-certificates-with-nginx-for-subdomains/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to configure free single Let’s Encrypt SSL/TLS wildcard Certificate with Nginx
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ssl/self-signed-certificate-using-openssl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to generate self signed certificate using openssl
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Interview Questions
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            Interview Questions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../interview-questions/linux-commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linux commands Interview Questions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../interview-questions/git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Interview Questions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../interview-questions/docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker Interview Questions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../interview-questions/helm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Helm Interview Questions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../interview-questions/ansible/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ansible Interview Questions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#project-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Structure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-with-terraform-step-by-step" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup with Terraform (Step-by-Step)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup with Terraform (Step-by-Step)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-authentication-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Authentication Setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-enable-required-gcp-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Enable Required GCP APIs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-navigate-to-project-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Navigate to Project Directory
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-configure-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Configure Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-initialize-terraform" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Initialize Terraform
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-plan-infrastructure-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6: Plan Infrastructure Changes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-apply-terraform-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 7: Apply Terraform Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-8-monitor-apigee-instance-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 8: Monitor Apigee Instance Creation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-9-get-terraform-outputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 9: Get Terraform Outputs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-10-deploy-api-proxy-to-apigee" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 10: Deploy API Proxy to Apigee
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-11-test-the-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 11: Test the Deployment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-12-verify-all-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 12: Verify All Components
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-the-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Understanding the Architecture
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Understanding the Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#network-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network Components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#psc-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      PSC Components
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-and-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitoring and Logs
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Monitoring and Logs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#view-apigee-api-proxy-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      View Apigee API Proxy Logs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-cloud-run-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      View Cloud Run Logs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-load-balancer-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      View Load Balancer Logs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-the-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Updating the Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Updating the Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#update-cloud-run-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update Cloud Run Image
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-apigee-hostname" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update Apigee Hostname
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-api-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update API Proxy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cleanup-and-resource-destruction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cleanup and Resource Destruction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cleanup and Resource Destruction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-undeploy-api-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Undeploy API Proxy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-destroy-terraform-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Destroy Terraform Resources
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-verify-resources-are-deleted" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Verify Resources are Deleted
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-1-apigee-instance-creation-timeout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue 1: Apigee Instance Creation Timeout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-2-load-balancer-proxy-subnet-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue 2: Load Balancer Proxy Subnet Error
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-3-cloud-run-access-denied" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue 3: Cloud Run Access Denied
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-4-api-proxy-deployment-fails" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue 4: API Proxy Deployment Fails
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-5-psc-neg-creation-fails" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue 5: PSC NEG Creation Fails
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-estimation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost Estimation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cost Estimation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apigee-x" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apigee X
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud Run
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-balancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load Balancer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#networking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Networking
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Considerations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#current-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Current Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#production-recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Production Recommendations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Resources
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="deploy-apigee-x-with-private-service-connect-to-cloud-run-using-terraform">Deploy Apigee X with Private Service Connect to Cloud Run using Terraform<a class="headerlink" href="#deploy-apigee-x-with-private-service-connect-to-cloud-run-using-terraform" title="Permanent link">&para;</a></h1>
+<p>This guide provides a comprehensive walkthrough for deploying Apigee X with Private Service Connect (PSC) for both northbound and southbound connectivity using Terraform. The project demonstrates infrastructure as code best practices for API gateway deployment with private backend connectivity on GCP.</p>
+<p><strong>GitHub Repository:</strong> <a href="https://github.com/vigneshsweekaran/terraform/tree/main/gcp/projects/apigee-psc-cloud-run">https://github.com/vigneshsweekaran/terraform/tree/main/gcp/projects/apigee-psc-cloud-run</a></p>
+<h2 id="project-overview">Project Overview<a class="headerlink" href="#project-overview" title="Permanent link">&para;</a></h2>
+<p>This project deploys a complete Apigee X infrastructure with the following components:
+- <strong>Apigee X Organization</strong>: API management platform with PSC enabled (no VPC peering)
+- <strong>Apigee Instance</strong>: Runtime instance with automatic PSC service attachment
+- <strong>Cloud Run Service</strong>: Backend application with internal-only ingress
+- <strong>Internal Load Balancer</strong>: Fronts Cloud Run and exposes via PSC
+- <strong>PSC Service Attachment</strong>: Connects Apigee to Cloud Run backend
+- <strong>Endpoint Attachment</strong>: Apigee's connection to backend via PSC
+- <strong>Regional External Load Balancer</strong>: Public entry point for API access
+- <strong>PSC Network Endpoint Group</strong>: Connects load balancer to Apigee</p>
+<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>Internet → External LB → PSC NEG → Apigee → Endpoint Attachment → Cloud Run
+</code></pre></div>
+<p><strong>Key Benefits:</strong>
+- No VPC peering required
+- Private backend connectivity
+- Public API access via load balancer
+- Fully automated with Terraform
+- Enterprise-grade security</p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<p>Before starting, ensure you have:
+- Google Cloud SDK (<code>gcloud</code>) installed and authenticated
+- Terraform &gt;= 1.0 installed
+- A GCP project with billing enabled
+- Appropriate IAM permissions:
+  - Apigee Admin
+  - Compute Network Admin
+  - Cloud Run Admin
+  - Service Usage Admin</p>
+<h2 id="project-structure">Project Structure<a class="headerlink" href="#project-structure" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>apigee-psc-cloud-run/
+├── provider.tf           # Terraform and provider configuration
+├── variables.tf          # Input variable definitions
+├── terraform.tfvars.example  # Example configuration
+├── 00-network.tf         # VPC network and subnets
+├── 01-apigee.tf          # Apigee organization, instance, environment
+├── 02-cloud-run.tf       # Cloud Run, Internal LB, PSC attachment
+├── 03-load-balancer.tf   # External LB, PSC NEG
+├── outputs.tf            # Output values
+└── README.md             # Quick reference guide
+</code></pre></div>
+<h2 id="setup-with-terraform-step-by-step">Setup with Terraform (Step-by-Step)<a class="headerlink" href="#setup-with-terraform-step-by-step" title="Permanent link">&para;</a></h2>
+<p>Follow these detailed steps to deplo</p>
+<h3 id="step-1-authentication-setup">Step 1: Authentication Setup<a class="headerlink" href="#step-1-authentication-setup" title="Permanent link">&para;</a></h3>
+<p>Authenticate with Google Cloud to allow Terraform to interact with GCP services.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Authenticate with Google Cloud</span>
+gcloud<span class="w"> </span>auth<span class="w"> </span>application-default<span class="w"> </span>login
+</code></pre></div>
+<p><strong>What this does:</strong>
+- Opens a browser window for Google authentication
+- Creates application default credentials
+- Allows Terraform to authenticate with GCP APIs</p>
+<p><strong>Expected output:</strong>
+<div class="highlight"><pre><span></span><code>Credentials saved to file: [~/.config/gcloud/application_default_credentials.json]
+</code></pre></div></p>
+<h3 id="step-2-enable-required-gcp-apis">Step 2: Enable Required GCP APIs<a class="headerlink" href="#step-2-enable-required-gcp-apis" title="Permanent link">&para;</a></h3>
+<p>Enable the necessary Google Cloud APIs.</p>
+<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>services<span class="w"> </span><span class="nb">enable</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>apigee.googleapis.com<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>cloudresourcemanager.googleapis.com<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>compute.googleapis.com<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>run.googleapis.com<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>servicenetworking.googleapis.com
+</code></pre></div>
+<p><strong>What this does:</strong>
+- Activates Apigee API for API management
+- Activates Compute Engine API for networking and load balancing
+- Activates Cloud Run API for containerized applications</p>
+<p><strong>Expected output:</strong>
+<div class="highlight"><pre><span></span><code>Operation &quot;operations/...&quot; finished successfully.
+</code></pre></div></p>
+<h3 id="step-3-navigate-to-project-directory">Step 3: Navigate to Project Directory<a class="headerlink" href="#step-3-navigate-to-project-directory" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>terraform/gcp/projects/apigee-psc-cloud-run
+</code></pre></div>
+<h3 id="step-4-configure-variables">Step 4: Configure Variables<a class="headerlink" href="#step-4-configure-variables" title="Permanent link">&para;</a></h3>
+<p>Create <code>terraform.tfvars</code> from the example:</p>
+<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>terraform.tfvars.example<span class="w"> </span>terraform.tfvars
+</code></pre></div>
+<p>Edit <code>terraform.tfvars</code> with your values:</p>
+<div class="highlight"><pre><span></span><code><span class="na">project_id</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;your-project-id&quot;</span>
+<span class="na">region</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;us-east1&quot;</span>
+<span class="na">zone</span><span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;us-east1-a&quot;</span>
+<span class="na">apigee_hostname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;api.example.com&quot;</span>
+</code></pre></div>
+<p><strong>Key variables to configure:</strong>
+- <code>project_id</code>: Your GCP project ID
+- <code>region</code>: Desired GCP region (e.g., us-east1, europe-west1)
+- <code>apigee_hostname</code>: Domain name for your API gateway</p>
+<h3 id="step-5-initialize-terraform">Step 5: Initialize Terraform<a class="headerlink" href="#step-5-initialize-terraform" title="Permanent link">&para;</a></h3>
+<p>Initialize Terraform to download required providers.</p>
+<div class="highlight"><pre><span></span><code>terraform<span class="w"> </span>init
+</code></pre></div>
+<p><strong>What this does:</strong>
+- Downloads the Google Cloud provider (~&gt; 5.0)
+- Creates <code>.terraform</code> directory with provider binaries
+- Creates <code>.terraform.lock.hcl</code> to lock provider versions</p>
+<p><strong>Expected output:</strong>
+<div class="highlight"><pre><span></span><code>Initializing the backend...
+Initializing provider plugins...
+- Finding hashicorp/google versions matching &quot;~&gt; 5.0&quot;...
+
+Terraform has been successfully initialized!
+</code></pre></div></p>
+<h3 id="step-6-plan-infrastructure-changes">Step 6: Plan Infrastructure Changes<a class="headerlink" href="#step-6-plan-infrastructure-changes" title="Permanent link">&para;</a></h3>
+<p>Review what Terraform will create.</p>
+<div class="highlight"><pre><span></span><code>terraform<span class="w"> </span>plan
+</code></pre></div>
+<p><strong>What this does:</strong>
+- Shows a preview of all resources to be created
+- Validates the configuration
+- Estimates the changes without applying them</p>
+<p><strong>Expected output:</strong>
+<div class="highlight"><pre><span></span><code>Terraform will perform the following actions:
+
+  # VPC Network and Subnets (3)
+  # Apigee Organization, Instance, Environment (5)
+  # Cloud Run Service and Internal LB (7)
+  # PSC Service Attachment and Endpoint Attachment (2)
+  # External Load Balancer and PSC NEG (6)
+
+Plan: 23 to add, 0 to change, 0 to destroy.
+</code></pre></div></p>
+<p><strong>Review the plan carefully</strong> to ensure it matches your expectations.</p>
+<h3 id="step-7-apply-terraform-configuration">Step 7: Apply Terraform Configuration<a class="headerlink" href="#step-7-apply-terraform-configuration" title="Permanent link">&para;</a></h3>
+<p>Deploy the complete infrastructure.</p>
+<div class="highlight"><pre><span></span><code>terraform<span class="w"> </span>apply
+</code></pre></div>
+<p><strong>What this does:</strong>
+- Creates VPC network with 3 subnets (main, PSC, proxy)
+- Provisions Apigee organization with PSC enabled
+- Creates Apigee instance (takes 20-30 minutes)
+- Deploys Cloud Run service with internal ingress
+- Sets up Internal Load Balancer for Cloud Run
+- Creates PSC service attachment for Cloud Run
+- Creates Apigee endpoint attachment
+- Configures External Load Balancer with PSC NEG</p>
+<p><strong>When prompted</strong>, type <code>yes</code> to confirm.</p>
+<p><strong>Expected output:</strong>
+<div class="highlight"><pre><span></span><code>Apply complete! Resources: 23 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+apigee_org_id = &quot;organizations/your-project-id&quot;
+apigee_instance_id = &quot;organizations/your-project-id/instances/eval-instance&quot;
+endpoint_attachment_host = &quot;10.x.x.x&quot;
+load_balancer_ip = &quot;34.x.x.x&quot;
+test_external_url = &quot;http://34.x.x.x/cloudrun&quot;
+</code></pre></div></p>
+<p><strong>Note:</strong> Apigee instance creation takes 20-30 minutes. Be patient!</p>
+<h3 id="step-8-monitor-apigee-instance-creation">Step 8: Monitor Apigee Instance Creation<a class="headerlink" href="#step-8-monitor-apigee-instance-creation" title="Permanent link">&para;</a></h3>
+<p>While waiting, you can monitor the Apigee instance status:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check instance status</span>
+gcloud<span class="w"> </span>alpha<span class="w"> </span>apigee<span class="w"> </span>organizations<span class="w"> </span>describe<span class="w"> </span>--organization<span class="o">=</span><span class="k">$(</span>terraform<span class="w"> </span>output<span class="w"> </span>-raw<span class="w"> </span>project_id<span class="k">)</span>
+</code></pre></div>
+<p>Wait until <code>state: ACTIVE</code> before proceeding to the next step.</p>
+<h3 id="step-9-get-terraform-outputs">Step 9: Get Terraform Outputs<a class="headerlink" href="#step-9-get-terraform-outputs" title="Permanent link">&para;</a></h3>
+<p>Display all Terraform outputs for reference.</p>
+<div class="highlight"><pre><span></span><code>terraform<span class="w"> </span>output
+</code></pre></div>
+<p><strong>Expected output:</strong>
+<div class="highlight"><pre><span></span><code>apigee_org_id = &quot;organizations/your-project-id&quot;
+apigee_service_attachment = &quot;projects/your-project-id/regions/us-east1/serviceAttachments/...&quot;
+endpoint_attachment_host = &quot;10.x.x.x&quot;
+load_balancer_ip = &quot;34.x.x.x&quot;
+test_external_url = &quot;http://34.x.x.x/cloudrun&quot;
+</code></pre></div></p>
+<h3 id="step-10-deploy-api-proxy-to-apigee">Step 10: Deploy API Proxy to Apigee<a class="headerlink" href="#step-10-deploy-api-proxy-to-apigee" title="Permanent link">&para;</a></h3>
+<p>After Terraform completes, deploy an API proxy to route traffic from Apigee to Cloud Run.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Get required values</span>
+<span class="nv">ENDPOINT_HOST</span><span class="o">=</span><span class="k">$(</span>terraform<span class="w"> </span>output<span class="w"> </span>-raw<span class="w"> </span>endpoint_attachment_host<span class="k">)</span>
+<span class="nv">PROJECT_ID</span><span class="o">=</span><span class="k">$(</span>terraform<span class="w"> </span>output<span class="w"> </span>-raw<span class="w"> </span>apigee_org_id<span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-d<span class="s1">&#39;/&#39;</span><span class="w"> </span>-f2<span class="k">)</span>
+<span class="nv">APIGEE_ENV</span><span class="o">=</span><span class="k">$(</span>terraform<span class="w"> </span>output<span class="w"> </span>-raw<span class="w"> </span>apigee_environment<span class="k">)</span>
+<span class="nv">AUTH</span><span class="o">=</span><span class="k">$(</span>gcloud<span class="w"> </span>auth<span class="w"> </span>print-access-token<span class="k">)</span>
+
+<span class="c1"># Create API proxy directory structure</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span>apiproxy/proxies<span class="w"> </span>apiproxy/targets
+
+<span class="c1"># Create proxy endpoint configuration</span>
+cat<span class="w"> </span>&gt;<span class="w"> </span>apiproxy/proxies/default.xml<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+<span class="s">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;</span>
+<span class="s">&lt;ProxyEndpoint name=&quot;default&quot;&gt;</span>
+<span class="s">    &lt;HTTPProxyConnection&gt;</span>
+<span class="s">        &lt;BasePath&gt;/cloudrun&lt;/BasePath&gt;</span>
+<span class="s">    &lt;/HTTPProxyConnection&gt;</span>
+<span class="s">    &lt;RouteRule name=&quot;default&quot;&gt;</span>
+<span class="s">        &lt;TargetEndpoint&gt;default&lt;/TargetEndpoint&gt;</span>
+<span class="s">    &lt;/RouteRule&gt;</span>
+<span class="s">&lt;/ProxyEndpoint&gt;</span>
+<span class="s">EOF</span>
+
+<span class="c1"># Create target endpoint configuration</span>
+cat<span class="w"> </span>&gt;<span class="w"> </span>apiproxy/targets/default.xml<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+<span class="s">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;</span>
+<span class="s">&lt;TargetEndpoint name=&quot;default&quot;&gt;</span>
+<span class="s">    &lt;HTTPTargetConnection&gt;</span>
+<span class="s">        &lt;URL&gt;http://${ENDPOINT_HOST}&lt;/URL&gt;</span>
+<span class="s">    &lt;/HTTPTargetConnection&gt;</span>
+<span class="s">&lt;/TargetEndpoint&gt;</span>
+<span class="s">EOF</span>
+
+<span class="c1"># Create API proxy configuration</span>
+cat<span class="w"> </span>&gt;<span class="w"> </span>apiproxy/cloudrun-proxy.xml<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+<span class="s">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;</span>
+<span class="s">&lt;APIProxy name=&quot;cloudrun-proxy&quot;&gt;</span>
+<span class="s">    &lt;DisplayName&gt;Cloud Run Proxy&lt;/DisplayName&gt;</span>
+<span class="s">    &lt;Description&gt;API Proxy to Cloud Run via PSC&lt;/Description&gt;</span>
+<span class="s">&lt;/APIProxy&gt;</span>
+<span class="s">EOF</span>
+
+<span class="c1"># Verify the target URL</span>
+grep<span class="w"> </span>-A<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="s2">&quot;HTTPTargetConnection&quot;</span><span class="w"> </span>apiproxy/targets/default.xml
+
+<span class="c1"># Create the bundle</span>
+zip<span class="w"> </span>-r<span class="w"> </span>cloudrun-proxy.zip<span class="w"> </span>apiproxy
+
+<span class="c1"># Import API proxy</span>
+curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;https://apigee.googleapis.com/v1/organizations/</span><span class="nv">$PROJECT_ID</span><span class="s2">/apis?action=import&amp;name=cloudrun-proxy&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$AUTH</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-F<span class="w"> </span><span class="s2">&quot;file=@cloudrun-proxy.zip&quot;</span>
+
+<span class="c1"># Deploy API proxy to environment</span>
+curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;https://apigee.googleapis.com/v1/organizations/</span><span class="nv">$PROJECT_ID</span><span class="s2">/environments/</span><span class="nv">$APIGEE_ENV</span><span class="s2">/apis/cloudrun-proxy/revisions/1/deployments&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$AUTH</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span>
+</code></pre></div>
+<p><strong>What this does:</strong>
+- Creates an API proxy with <code>/cloudrun</code> base path
+- Configures the target to use the endpoint attachment host
+- Imports the proxy bundle to Apigee
+- Deploys the proxy to the evaluation environment</p>
+<p><strong>Expected output:</strong>
+<div class="highlight"><pre><span></span><code>{
+  &quot;name&quot;: &quot;cloudrun-proxy&quot;,
+  &quot;revision&quot;: [&quot;1&quot;]
+}
+</code></pre></div></p>
+<h3 id="step-11-test-the-deployment">Step 11: Test the Deployment<a class="headerlink" href="#step-11-test-the-deployment" title="Permanent link">&para;</a></h3>
+<p>Test the complete flow from internet to Cloud Run via Apigee.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Get the load balancer IP</span>
+<span class="nv">LB_IP</span><span class="o">=</span><span class="k">$(</span>terraform<span class="w"> </span>output<span class="w"> </span>-raw<span class="w"> </span>load_balancer_ip<span class="k">)</span>
+
+<span class="c1"># Test the API</span>
+curl<span class="w"> </span>-v<span class="w"> </span>http://<span class="nv">$LB_IP</span>/cloudrun
+</code></pre></div>
+<p><strong>Expected output:</strong>
+<div class="highlight"><pre><span></span><code>Hello World!
+</code></pre></div></p>
+<p><strong>What this tests:</strong>
+- External Load Balancer receives the request
+- PSC NEG routes to Apigee service attachment
+- Apigee API proxy processes the request
+- Endpoint attachment routes to Cloud Run via PSC
+- Cloud Run returns the response</p>
+<h3 id="step-12-verify-all-components">Step 12: Verify All Components<a class="headerlink" href="#step-12-verify-all-components" title="Permanent link">&para;</a></h3>
+<p>Verify each component is working correctly.</p>
+<p><strong>Check Apigee Organization:</strong>
+<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>alpha<span class="w"> </span>apigee<span class="w"> </span>organizations<span class="w"> </span>describe<span class="w"> </span>--organization<span class="o">=</span><span class="nv">$PROJECT_ID</span>
+</code></pre></div></p>
+<p><strong>Check Apigee Instance:</strong>
+<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>alpha<span class="w"> </span>apigee<span class="w"> </span>instances<span class="w"> </span>list<span class="w"> </span>--organization<span class="o">=</span><span class="nv">$PROJECT_ID</span>
+</code></pre></div></p>
+<p><strong>Check Cloud Run Service:</strong>
+<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>run<span class="w"> </span>services<span class="w"> </span>describe<span class="w"> </span>backend-service<span class="w"> </span>--region<span class="o">=</span>us-east1
+</code></pre></div></p>
+<p><strong>Check Load Balancer:</strong>
+<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>compute<span class="w"> </span>forwarding-rules<span class="w"> </span>describe<span class="w"> </span>apigee-external-lb-forwarding-rule<span class="w"> </span>--region<span class="o">=</span>us-east1
+</code></pre></div></p>
+<h2 id="understanding-the-architecture">Understanding the Architecture<a class="headerlink" href="#understanding-the-architecture" title="Permanent link">&para;</a></h2>
+<h3 id="network-components">Network Components<a class="headerlink" href="#network-components" title="Permanent link">&para;</a></h3>
+<p><strong>Main Subnet (10.0.0.0/24):</strong>
+- Used by Cloud Run Internal Load Balancer
+- Used by PSC Network Endpoint Group</p>
+<p><strong>PSC Subnet (10.1.0.0/24):</strong>
+- Purpose: PRIVATE_SERVICE_CONNECT
+- Used for PSC service attachments NAT</p>
+<p><strong>Proxy Subnet (10.2.0.0/24):</strong>
+- Purpose: REGIONAL_MANAGED_PROXY
+- Used by External Load Balancer proxies</p>
+<h3 id="psc-components">PSC Components<a class="headerlink" href="#psc-components" title="Permanent link">&para;</a></h3>
+<p><strong>Northbound PSC (Client → Apigee):</strong>
+- PSC NEG connects External LB to Apigee
+- Uses Apigee's service attachment (auto-created)
+- No separate PSC endpoint needed</p>
+<p><strong>Southbound PSC (Apigee → Cloud Run):</strong>
+- PSC Service Attachment exposes Cloud Run
+- Endpoint Attachment in Apigee connects to it
+- Private connectivity without VPC peering</p>
+<h2 id="monitoring-and-logs">Monitoring and Logs<a class="headerlink" href="#monitoring-and-logs" title="Permanent link">&para;</a></h2>
+<h3 id="view-apigee-api-proxy-logs">View Apigee API Proxy Logs<a class="headerlink" href="#view-apigee-api-proxy-logs" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># List API proxies</span>
+gcloud<span class="w"> </span>alpha<span class="w"> </span>apigee<span class="w"> </span>apis<span class="w"> </span>list<span class="w"> </span>--organization<span class="o">=</span><span class="nv">$PROJECT_ID</span>
+
+<span class="c1"># View deployments</span>
+gcloud<span class="w"> </span>alpha<span class="w"> </span>apigee<span class="w"> </span>deployments<span class="w"> </span>list<span class="w"> </span>--environment<span class="o">=</span><span class="nb">eval</span><span class="w"> </span>--organization<span class="o">=</span><span class="nv">$PROJECT_ID</span>
+</code></pre></div>
+<h3 id="view-cloud-run-logs">View Cloud Run Logs<a class="headerlink" href="#view-cloud-run-logs" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>run<span class="w"> </span>services<span class="w"> </span>logs<span class="w"> </span><span class="nb">read</span><span class="w"> </span>backend-service<span class="w"> </span>--region<span class="o">=</span>us-east1<span class="w"> </span>--limit<span class="o">=</span><span class="m">50</span>
+</code></pre></div>
+<h3 id="view-load-balancer-logs">View Load Balancer Logs<a class="headerlink" href="#view-load-balancer-logs" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>logging<span class="w"> </span><span class="nb">read</span><span class="w"> </span><span class="s2">&quot;resource.type=http_load_balancer&quot;</span><span class="w"> </span>--limit<span class="o">=</span><span class="m">50</span>
+</code></pre></div>
+<h2 id="updating-the-configuration">Updating the Configuration<a class="headerlink" href="#updating-the-configuration" title="Permanent link">&para;</a></h2>
+<p>If you need to update any component:</p>
+<h3 id="update-cloud-run-image">Update Cloud Run Image<a class="headerlink" href="#update-cloud-run-image" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Modify <code>cloud_run_image</code> variable in <code>terraform.tfvars</code></li>
+<li>Run <code>terraform apply</code></li>
+</ol>
+<h3 id="update-apigee-hostname">Update Apigee Hostname<a class="headerlink" href="#update-apigee-hostname" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Modify <code>apigee_hostname</code> variable in <code>terraform.tfvars</code></li>
+<li>Run <code>terraform apply</code></li>
+<li>Redeploy API proxy with new configuration</li>
+</ol>
+<h3 id="update-api-proxy">Update API Proxy<a class="headerlink" href="#update-api-proxy" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Modify the API proxy files</li>
+<li>Re-create the zip bundle</li>
+<li>Import and deploy the new revision</li>
+</ol>
+<h2 id="cleanup-and-resource-destruction">Cleanup and Resource Destruction<a class="headerlink" href="#cleanup-and-resource-destruction" title="Permanent link">&para;</a></h2>
+<p>When you're finished, clean up all resources to avoid ongoing charges.</p>
+<h3 id="step-1-undeploy-api-proxy">Step 1: Undeploy API Proxy<a class="headerlink" href="#step-1-undeploy-api-proxy" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nv">PROJECT_ID</span><span class="o">=</span><span class="k">$(</span>terraform<span class="w"> </span>output<span class="w"> </span>-raw<span class="w"> </span>apigee_org_id<span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-d<span class="s1">&#39;/&#39;</span><span class="w"> </span>-f2<span class="k">)</span>
+<span class="nv">AUTH</span><span class="o">=</span><span class="k">$(</span>gcloud<span class="w"> </span>auth<span class="w"> </span>print-access-token<span class="k">)</span>
+
+<span class="c1"># Undeploy API proxy</span>
+curl<span class="w"> </span>-X<span class="w"> </span>DELETE<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;https://apigee.googleapis.com/v1/organizations/</span><span class="nv">$PROJECT_ID</span><span class="s2">/environments/eval/apis/cloudrun-proxy/revisions/1/deployments&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$AUTH</span><span class="s2">&quot;</span>
+
+<span class="c1"># Delete API proxy</span>
+curl<span class="w"> </span>-X<span class="w"> </span>DELETE<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;https://apigee.googleapis.com/v1/organizations/</span><span class="nv">$PROJECT_ID</span><span class="s2">/apis/cloudrun-proxy&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$AUTH</span><span class="s2">&quot;</span>
+</code></pre></div>
+<h3 id="step-2-destroy-terraform-resources">Step 2: Destroy Terraform Resources<a class="headerlink" href="#step-2-destroy-terraform-resources" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>terraform<span class="w"> </span>destroy
+</code></pre></div>
+<p><strong>What this does:</strong>
+- Destroys External Load Balancer components
+- Destroys PSC NEG
+- Destroys Apigee endpoint attachment
+- Destroys PSC service attachment
+- Destroys Internal Load Balancer
+- Destroys Cloud Run service
+- Destroys Apigee instance (takes 10-15 minutes)
+- Destroys Apigee environment and organization
+- Destroys VPC network and subnets</p>
+<p><strong>When prompted</strong>, type <code>yes</code> to confirm destruction.</p>
+<p><strong>Expected output:</strong>
+<div class="highlight"><pre><span></span><code>Destroy complete! Resources: 23 destroyed.
+</code></pre></div></p>
+<p><strong>Note:</strong> Apigee organization deletion may not be supported for evaluation organizations.</p>
+<h3 id="step-3-verify-resources-are-deleted">Step 3: Verify Resources are Deleted<a class="headerlink" href="#step-3-verify-resources-are-deleted" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check Cloud Run services</span>
+gcloud<span class="w"> </span>run<span class="w"> </span>services<span class="w"> </span>list<span class="w"> </span>--region<span class="o">=</span>us-east1
+
+<span class="c1"># Check load balancers</span>
+gcloud<span class="w"> </span>compute<span class="w"> </span>forwarding-rules<span class="w"> </span>list<span class="w"> </span>--regions<span class="o">=</span>us-east1
+
+<span class="c1"># Check Apigee organization</span>
+gcloud<span class="w"> </span>alpha<span class="w"> </span>apigee<span class="w"> </span>organizations<span class="w"> </span>describe<span class="w"> </span>--organization<span class="o">=</span><span class="nv">$PROJECT_ID</span>
+</code></pre></div>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="issue-1-apigee-instance-creation-timeout">Issue 1: Apigee Instance Creation Timeout<a class="headerlink" href="#issue-1-apigee-instance-creation-timeout" title="Permanent link">&para;</a></h3>
+<p><strong>Problem:</strong> Terraform times out waiting for Apigee instance creation.</p>
+<p><strong>Solution:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check instance status manually</span>
+gcloud<span class="w"> </span>alpha<span class="w"> </span>apigee<span class="w"> </span>organizations<span class="w"> </span>describe<span class="w"> </span>--organization<span class="o">=</span><span class="nv">$PROJECT_ID</span>
+
+<span class="c1"># Wait for state: ACTIVE, then retry</span>
+terraform<span class="w"> </span>apply
+</code></pre></div></p>
+<p>Apigee instance creation takes 20-30 minutes. This is normal.</p>
+<h3 id="issue-2-load-balancer-proxy-subnet-error">Issue 2: Load Balancer Proxy Subnet Error<a class="headerlink" href="#issue-2-load-balancer-proxy-subnet-error" title="Permanent link">&para;</a></h3>
+<p><strong>Problem:</strong> <code>An active proxy-only subnetwork is required</code> error.</p>
+<p><strong>Solution:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># Verify proxy subnet exists</span>
+gcloud<span class="w"> </span>compute<span class="w"> </span>networks<span class="w"> </span>subnets<span class="w"> </span>describe<span class="w"> </span>proxy-subnet<span class="w"> </span>--region<span class="o">=</span>us-east1
+
+<span class="c1"># Check purpose and role</span>
+gcloud<span class="w"> </span>compute<span class="w"> </span>networks<span class="w"> </span>subnets<span class="w"> </span>list<span class="w"> </span>--filter<span class="o">=</span><span class="s2">&quot;purpose=REGIONAL_MANAGED_PROXY&quot;</span>
+</code></pre></div></p>
+<p>The proxy subnet should have <code>purpose: REGIONAL_MANAGED_PROXY</code> and <code>role: ACTIVE</code>.</p>
+<h3 id="issue-3-cloud-run-access-denied">Issue 3: Cloud Run Access Denied<a class="headerlink" href="#issue-3-cloud-run-access-denied" title="Permanent link">&para;</a></h3>
+<p><strong>Problem:</strong> 403 Forbidden when accessing Cloud Run through Apigee.</p>
+<p><strong>Solution:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># Get Apigee service account</span>
+<span class="nv">APIGEE_SA</span><span class="o">=</span><span class="k">$(</span>gcloud<span class="w"> </span>alpha<span class="w"> </span>apigee<span class="w"> </span>organizations<span class="w"> </span>describe<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--organization<span class="o">=</span><span class="nv">$PROJECT_ID</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--format<span class="o">=</span><span class="s2">&quot;value(runtimeDatabaseEncryptionKeyName)&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>sed<span class="w"> </span><span class="s1">&#39;s/.*serviceAccount://&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;s/@.*//&#39;</span><span class="k">)</span>
+
+<span class="c1"># Grant Cloud Run Invoker role</span>
+gcloud<span class="w"> </span>run<span class="w"> </span>services<span class="w"> </span>add-iam-policy-binding<span class="w"> </span>backend-service<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--region<span class="o">=</span>us-east1<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--member<span class="o">=</span><span class="s2">&quot;serviceAccount:</span><span class="si">${</span><span class="nv">APIGEE_SA</span><span class="si">}</span><span class="s2">@</span><span class="si">${</span><span class="nv">PROJECT_ID</span><span class="si">}</span><span class="s2">.iam.gserviceaccount.com&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--role<span class="o">=</span><span class="s2">&quot;roles/run.invoker&quot;</span>
+</code></pre></div></p>
+<h3 id="issue-4-api-proxy-deployment-fails">Issue 4: API Proxy Deployment Fails<a class="headerlink" href="#issue-4-api-proxy-deployment-fails" title="Permanent link">&para;</a></h3>
+<p><strong>Problem:</strong> API proxy import or deployment fails.</p>
+<p><strong>Solution:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># Verify endpoint attachment host is correct</span>
+terraform<span class="w"> </span>output<span class="w"> </span>endpoint_attachment_host
+
+<span class="c1"># Check if endpoint attachment exists</span>
+curl<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="k">$(</span>gcloud<span class="w"> </span>auth<span class="w"> </span>print-access-token<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;https://apigee.googleapis.com/v1/organizations/</span><span class="nv">$PROJECT_ID</span><span class="s2">/endpointAttachments&quot;</span>
+
+<span class="c1"># Verify API proxy XML files are correct</span>
+cat<span class="w"> </span>apiproxy/targets/default.xml
+</code></pre></div></p>
+<h3 id="issue-5-psc-neg-creation-fails">Issue 5: PSC NEG Creation Fails<a class="headerlink" href="#issue-5-psc-neg-creation-fails" title="Permanent link">&para;</a></h3>
+<p><strong>Problem:</strong> PSC Network Endpoint Group fails to create.</p>
+<p><strong>Solution:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># Verify Apigee instance has service attachment</span>
+terraform<span class="w"> </span>output<span class="w"> </span>apigee_service_attachment
+
+<span class="c1"># Check if service attachment is accessible</span>
+gcloud<span class="w"> </span>compute<span class="w"> </span>service-attachments<span class="w"> </span>list<span class="w"> </span>--region<span class="o">=</span>us-east1
+</code></pre></div></p>
+<h2 id="cost-estimation">Cost Estimation<a class="headerlink" href="#cost-estimation" title="Permanent link">&para;</a></h2>
+<h3 id="apigee-x">Apigee X<a class="headerlink" href="#apigee-x" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Evaluation Tier:</strong> Free for 60 days</li>
+<li><strong>Production:</strong> Starting at $2,500/month</li>
+</ul>
+<h3 id="cloud-run">Cloud Run<a class="headerlink" href="#cloud-run" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>CPU:</strong> $0.00002400 per vCPU-second</li>
+<li><strong>Memory:</strong> $0.00000250 per GiB-second</li>
+<li><strong>Requests:</strong> $0.40 per million requests</li>
+<li><strong>Free tier:</strong> 2 million requests/month</li>
+</ul>
+<h3 id="load-balancer">Load Balancer<a class="headerlink" href="#load-balancer" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Forwarding rules:</strong> $0.025 per hour</li>
+<li><strong>Data processing:</strong> $0.008-$0.016 per GB</li>
+</ul>
+<h3 id="networking">Networking<a class="headerlink" href="#networking" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>PSC:</strong> No additional charge</li>
+<li><strong>Egress:</strong> Standard GCP egress rates</li>
+</ul>
+<p><strong>Estimated monthly cost:</strong> $20-$50 for testing (excluding Apigee production license)</p>
+<h2 id="security-considerations">Security Considerations<a class="headerlink" href="#security-considerations" title="Permanent link">&para;</a></h2>
+<h3 id="current-configuration">Current Configuration<a class="headerlink" href="#current-configuration" title="Permanent link">&para;</a></h3>
+<ul>
+<li>✅ Apigee with PSC (no VPC peering)</li>
+<li>✅ Cloud Run with internal ingress only</li>
+<li>✅ Private backend connectivity via PSC</li>
+<li>✅ Public access via load balancer only</li>
+<li>⚠️ HTTP only (no HTTPS/SSL)</li>
+</ul>
+<h3 id="production-recommendations">Production Recommendations<a class="headerlink" href="#production-recommendations" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Add HTTPS Support:</strong></li>
+<li>Configure SSL certificates on load balancer</li>
+<li>
+<p>Use managed certificates or upload custom certs</p>
+</li>
+<li>
+<p><strong>Enable API Authentication:</strong></p>
+</li>
+<li>Implement OAuth 2.0 in Apigee</li>
+<li>Add API key validation</li>
+<li>
+<p>Configure JWT verification</p>
+</li>
+<li>
+<p><strong>Add Rate Limiting:</strong></p>
+</li>
+<li>Configure spike arrest policies</li>
+<li>Implement quota policies</li>
+<li>
+<p>Add concurrent rate limit</p>
+</li>
+<li>
+<p><strong>Enable Monitoring:</strong></p>
+</li>
+<li>Set up Cloud Monitoring alerts</li>
+<li>Configure Apigee analytics</li>
+<li>
+<p>Enable Cloud Logging</p>
+</li>
+<li>
+<p><strong>Implement Security Policies:</strong></p>
+</li>
+<li>Add threat protection policies</li>
+<li>Enable CORS policies</li>
+<li>Configure IP filtering</li>
+</ol>
+<h2 id="additional-resources">Additional Resources<a class="headerlink" href="#additional-resources" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://cloud.google.com/apigee/docs">Apigee X Documentation</a></li>
+<li><a href="https://cloud.google.com/vpc/docs/private-service-connect">Private Service Connect</a></li>
+<li><a href="https://cloud.google.com/run/docs">Cloud Run Documentation</a></li>
+<li><a href="https://registry.terraform.io/providers/hashicorp/google/latest/docs">Terraform Google Provider</a></li>
+<li><a href="https://cloud.google.com/apigee/docs/api-platform/fundamentals/build-simple-api-proxy">Apigee API Proxies</a></li>
+</ul>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>This guide covered:
+1. ✅ Setting up authentication and enabling APIs
+2. ✅ Configuring Terraform variables
+3. ✅ Deploying complete Apigee X infrastructure with PSC
+4. ✅ Creating Cloud Run service with Internal Load Balancer
+5. ✅ Configuring PSC service attachments and endpoint attachments
+6. ✅ Setting up External Load Balancer with PSC NEG
+7. ✅ Deploying and testing API proxies
+8. ✅ Monitoring and troubleshooting
+9. ✅ Cleaning up resources</p>
+<p>You now have a complete, production-ready workflow for deploying Apigee X with Private Service Connect to Cloud Run using Terraform!</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../cloud-run/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Deploy Python Flask App to Cloud Run">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Deploy Python Flask App to Cloud Run
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../../../cloud/gcp/what-is-gcp/" class="md-footer__link md-footer__link--next" aria-label="Next: What is GCP?">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                What is GCP?
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2021 - 2025 DevopsPilot
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.top", "navigation.footer", "navigation.expand", "navigation.indexes", "toc.follow"], "search": "../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
