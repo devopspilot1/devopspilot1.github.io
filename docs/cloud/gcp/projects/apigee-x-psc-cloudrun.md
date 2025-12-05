@@ -33,7 +33,7 @@ External Access Path:
                     │  Internet Clients    │
                     └──────────┬───────────┘
                                │
-                               │ (1) HTTPS Request
+                               │ (1) HTTP Request
                                ▼
                     ┌──────────────────────┐
                     │  Regional External   │
@@ -66,57 +66,15 @@ External Access Path:
                     └──────────────────────┘
 
 
-Internal Access Path (Optional):
-═══════════════════════════════════════════════════════════════
-
-┌─────────────┐
-│   Client    │
-│  (Test VM)  │
-│  in VPC     │
-└──────┬──────┘
-       │
-       │ (1) HTTP Request
-       ▼
-┌──────────────────────┐
-│  Forwarding Rule     │
-│  (PSC Endpoint)      │
-└──────┬───────────────┘
-       │
-       │ (2) Via PSC Service Attachment
-       ▼
-┌──────────────────────┐
-│   Apigee X           │
-│   Runtime            │
-│   (API Proxy)        │
-└──────┬───────────────┘
-       │
-       │ (3) HTTP Request
-       ▼
-┌──────────────────────┐
-│  Internal Load       │
-│  Balancer            │
-│  (Cloud Run NEG)     │
-└──────┬───────────────┘
-       │
-       │ (4) Route to Service
-       ▼
-┌──────────────────────┐
-│   Cloud Run          │
-│   Service            │
-│   (Internal Ingress) │
-└──────────────────────┘
-
-
 Flow Summary:
 ═══════════════════════════════════════════════════════════════
-- External: Internet → External LB (PSC NEG) → Apigee → Internal LB → Cloud Run
-- Internal: VM → Forwarding Rule (PSC Endpoint) → Apigee → Internal LB → Cloud Run
+Internet → External LB (PSC NEG) → Apigee → Internal LB → Cloud Run
 
 Key Components:
-- PSC NEG: Connects External LB to Apigee (Step 13)
-- PSC Service Attachment: Created by Apigee for PSC connectivity (Step 10)
-- Internal LB with Cloud Run NEG: Connects Apigee to Cloud Run (Step 8)
-- Endpoint Attachment: Created in Apigee to connect to backend (Step 9)
+- PSC NEG: Connects External LB to Apigee (Step 14)
+- PSC Service Attachment: Created by Apigee for PSC connectivity (Step 13)
+- Internal LB with Cloud Run NEG: Connects Apigee to Cloud Run (Step 10)
+- Endpoint Attachment: Created in Apigee to connect to backend (Step 11)
 ```
 
 ### Key Highlights
@@ -127,9 +85,8 @@ Key Components:
 
 🔒 **Private Backend Connectivity**: Cloud Run remains private (internal ingress only) and is accessed by Apigee through an Internal Load Balancer with Cloud Run NEG.
 
-⚡ **Dual Access Patterns**:
-- **External**: Internet clients → Load Balancer → PSC → Apigee → Internal LB → Cloud Run
-- **Internal**: VPC clients → PSC → Apigee → Internal LB → Cloud Run
+⚡ **Access Pattern**:
+- **External**: Internet clients → Load Balancer → PSC NEG → Apigee → Internal LB → Cloud Run
 
 ### Prerequisites
 
@@ -589,32 +546,7 @@ echo $APIGEE_INSTANCE_INFO | jq .
 
 **Note**: For Apigee X instances created with `disableVpcPeering: true`, a Service Attachment is automatically created. You don't need to manually create PSC attachments - they're built into the instance.
 
-## Step 14: Create PSC Endpoint for Client Access
-
-Create a PSC endpoint that clients will use to connect to Apigee:
-
-```bash
-# Reserve an internal IP address
-gcloud compute addresses create apigee-psc-ip \
-  --region=$REGION \
-  --subnet=$SUBNET_NAME
-
-# Get the reserved IP
-export PSC_IP=$(gcloud compute addresses describe apigee-psc-ip \
-  --region=$REGION \
-  --format="value(address)")
-
-# Create forwarding rule for PSC
-gcloud compute forwarding-rules create apigee-psc-endpoint \
-  --region=$REGION \
-  --network=$VPC_NETWORK \
-  --address=apigee-psc-ip \
-  --target-service-attachment=$SERVICE_ATTACHMENT
-
-echo "PSC Endpoint IP: $PSC_IP"
-```
-
-## Step 15: Configure Regional External Load Balancer
+## Step 14: Configure Regional External Load Balancer
 
 Create a Regional External Load Balancer to make your Apigee APIs publicly accessible from the internet:
 
@@ -672,36 +604,7 @@ gcloud compute forwarding-rules create $LB_NAME-forwarding-rule \
   --ports=80
 ```
 
-## Step 16: Create Test VM
-
-Create a test VM in the VPC to test the connectivity:
-
-```bash
-# Create a test VM
-gcloud compute instances create test-vm \
-  --zone=$ZONE \
-  --machine-type=e2-micro \
-  --subnet=$SUBNET_NAME \
-  --image-family=debian-11 \
-  --image-project=debian-cloud \
-  --scopes=cloud-platform
-```
-
-## Step 17: Test the Setup
-
-### Test 1: Internal Access (from VPC via PSC)
-
-SSH into the test VM and test the API through the internal PSC endpoint:
-
-```bash
-# SSH into the VM
-gcloud compute ssh test-vm --zone=$ZONE
-
-# Inside the VM, test the API via PSC endpoint
-curl -v http://$PSC_IP/cloudrun -H "Host: $APIGEE_HOSTNAME"
-```
-
-### Test 2: External Access (from Internet via Load Balancer)
+## Step 15: Test the Setup
 
 Test from your local machine or any internet-connected device:
 
@@ -715,7 +618,7 @@ curl -v http://$LB_IP/cloudrun -H "Host: $APIGEE_HOSTNAME"
 
 Expected response: You should see the response from the Cloud Run service.
 
-## Step 18: Monitor and Verify
+## Step 16: Monitor and Verify
 
 Verify the setup using Apigee analytics and logs:
 
@@ -753,14 +656,11 @@ gcloud run services add-iam-policy-binding $CLOUD_RUN_SERVICE \
 
 - [ ] Apigee organization is in ACTIVE state
 - [ ] VPC network and subnets are created (including proxy subnet)
-- [ ] Cloud Run service is deployed and accessible internally
+- [ ] Cloud Run service is deployed with internal ingress
 - [ ] API proxy is deployed to the environment
-- [ ] PSC attachment is created and active
 - [ ] Regional External Load Balancer is configured
-- [ ] SSL certificate is provisioned (may take 15-30 minutes)
 - [ ] DNS resolution works (pointing to Load Balancer IP)
 - [ ] API calls from internet through Load Balancer work
-- [ ] API calls from VPC through PSC endpoint work
 - [ ] API calls through Apigee reach Cloud Run successfully
 
 ## Cleanup
@@ -768,9 +668,6 @@ gcloud run services add-iam-policy-binding $CLOUD_RUN_SERVICE \
 To avoid incurring charges, clean up the resources in reverse order:
 
 ```bash
-# Delete test VM
-gcloud compute instances delete test-vm --zone=$ZONE --quiet
-
 # Delete Load Balancer components
 gcloud compute forwarding-rules delete $LB_NAME-forwarding-rule \
   --region=$REGION --quiet
@@ -791,16 +688,6 @@ gcloud compute network-endpoint-groups delete $PSC_NEG_NAME \
 
 gcloud compute addresses delete $LB_IP_NAME \
   --region=$REGION --quiet
-
-# Delete PSC endpoint (if created for internal testing)
-gcloud compute forwarding-rules delete apigee-psc-endpoint \
-  --region=$REGION --quiet 2>/dev/null || true
-
-gcloud compute addresses delete apigee-psc-ip \
-  --region=$REGION --quiet 2>/dev/null || true
-
-# Note: PSC service attachment is automatically deleted when the Apigee instance is deleted
-# No manual cleanup needed for the service attachment
 
 # Undeploy API proxy
 gcloud alpha apigee apis undeploy cloudrun-proxy \
@@ -870,12 +757,7 @@ gcloud compute networks delete $VPC_NETWORK --quiet
 - Ensure Cloud Run ingress is set to internal
 - Verify the API Proxy target URL matches the Cloud Run URL
 
-### Issue: PSC endpoint not accessible
 
-**Solution**:
-- Verify PSC attachment is in ACTIVE state
-- Check firewall rules allow traffic
-- Ensure DNS is configured correctly
 
 ### Issue: 403 Forbidden from Cloud Run
 
