@@ -710,6 +710,8 @@ gcloud run services add-iam-policy-binding $CLOUD_RUN_SERVICE \
 - [ ] API calls from internet through Load Balancer work
 - [ ] API calls through Apigee reach Cloud Run successfully
 
+---
+
 ## Cleanup
 
 To avoid incurring charges, clean up the resources in reverse order:
@@ -790,6 +792,8 @@ gcloud compute networks subnets delete $SUBNET_NAME \
 gcloud compute networks delete $VPC_NETWORK --quiet
 ```
 
+---
+
 ## Troubleshooting
 
 ### Issue: Apigee provisioning fails
@@ -809,6 +813,8 @@ gcloud compute networks delete $VPC_NETWORK --quiet
 ### Issue: 403 Forbidden from Cloud Run
 
 **Solution**: Grant the Apigee service account the `roles/run.invoker` role on the Cloud Run service.
+
+---
 
 ## Best Practices
 
@@ -832,6 +838,8 @@ gcloud compute networks delete $VPC_NETWORK --quiet
    - Right-size Cloud Run instances
    - Clean up unused resources
 
+---
+
 ## Additional Resources
 
 ### Official Apigee PSC Documentation
@@ -843,6 +851,8 @@ gcloud compute networks delete $VPC_NETWORK --quiet
 - [Private Service Connect Overview](https://cloud.google.com/vpc/docs/private-service-connect)
 - [Cloud Run Documentation](https://cloud.google.com/run/docs)
 - [Internal Load Balancing](https://cloud.google.com/load-balancing/docs/l7-internal)
+
+---
 
 ## Conclusion
 
