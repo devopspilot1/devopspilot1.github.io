@@ -824,21 +824,25 @@ gcloud compute networks delete $VPC_NETWORK --quiet
 ## Best Practices
 
 **1. Security:**
+
 - Use PSC for private connectivity
 - Implement authentication and authorization policies in Apigee
 - Use service accounts with minimal required permissions
 
 **2. Networking:**
+
 - Plan IP address ranges carefully to avoid conflicts
 - Use separate subnets for different purposes
 - Implement proper firewall rules
 
 **3. Monitoring:**
+
 - Enable Apigee analytics
 - Set up Cloud Monitoring alerts
 - Use Cloud Logging for debugging
 
 **4. Cost Optimization:**
+
 - Use Apigee evaluation for testing
 - Right-size Cloud Run instances
 - Clean up unused resources
