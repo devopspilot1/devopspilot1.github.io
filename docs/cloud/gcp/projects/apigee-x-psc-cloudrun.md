@@ -118,17 +118,18 @@ vim apigee-cloudrun.sh
 ```
 
 **What the script does:**
-- ✅ Enables all required GCP APIs
-- ✅ Creates VPC network with proper subnets (main, PSC, proxy)
-- ✅ Provisions Apigee X organization with PSC enabled
-- ✅ Creates Apigee instance, environment, and environment group
-- ✅ Deploys Cloud Run service with internal ingress
-- ✅ Configures Internal Load Balancer with Cloud Run NEG
-- ✅ Creates PSC service attachment for Cloud Run
-- ✅ Creates Apigee endpoint attachment
-- ✅ Sets up Regional External Load Balancer with PSC NEG
-- ✅ Deploys and configures API proxy
-- ✅ Verifies the setup with automated curl tests
+
+1. Enables all required GCP APIs
+2. Creates VPC network with proper subnets (main, PSC, proxy)
+3. Provisions Apigee X organization with PSC enabled
+4. Creates Apigee instance, environment, and environment group
+5. Deploys Cloud Run service with internal ingress
+6. Configures Internal Load Balancer with Cloud Run NEG
+7. Creates PSC service attachment for Cloud Run
+8. Creates Apigee endpoint attachment
+9. Sets up Regional External Load Balancer with PSC NEG
+10. Deploys and configures API proxy
+11. Verifies the setup with automated curl tests
 
 **Estimated time:** 30-40 minutes (mostly Apigee instance provisioning)
 
@@ -261,11 +262,15 @@ gcloud compute networks subnets describe $PROXY_SUBNET_NAME \
 **Important**: When using Apigee X with Private Service Connect (PSC), you do **NOT** need VPC peering or dedicated IP address ranges for peering. PSC uses service attachments to provide private connectivity without the complexity of VPC peering.
 
 **Key differences from traditional Apigee setup:**
-- ❌ No VPC peering required
-- ❌ No need to allocate IP ranges for peering
-- ✅ Uses PSC service attachments instead
-- ✅ Simpler network architecture
-- ✅ Better isolation and security
+
+**NOT needed:**
+1. VPC peering
+2. IP ranges for peering
+
+**Instead use:**
+1. PSC service attachments
+2. Simpler network architecture
+3. Better isolation and security
 
 We'll configure PSC attachments in later steps.
 
