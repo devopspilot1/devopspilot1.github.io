@@ -124,8 +124,6 @@ nav:
       - How to write a dockerfile for installing openjdk15: docker/dockerfiles/create-a-dockerfile-for-installing-openjdk15.md
       - How to create a multi stage Dockerfile: docker/dockerfiles/create-multi-stage-dockerfile.md
       - How to write a dockerfile for running a java application (*.war) in Apache tomcat webserver: docker/dockerfiles/how-to-write-a-dockerfile-for-running-war-file-in-tomcat.md
-  - Sonarqube:
-    - How to integrate Sonarqube Quality Gate in Jenkins Pipeline: sonarqube/quality-gate.md
   - K8s:
     - Introduction:
       - What is Kubernetes?: kubernetes/tutorials/what-is-kubernetes.md
@@ -133,32 +131,26 @@ nav:
       - Installing Minikube: kubernetes/tutorials/how-to-install-minikube-in-linux.md
       - Installing kubectl: kubernetes/tutorials/how-to-install-kubectl-in-linux.md
     - Core Concepts:
-      - Pods: kubernetes/tutorials/how-to-create-pod-in-kubernetes.md
+      - Pods: kubernetes/tutorials/how-to-create-a-simple-pod-in-kubernetes.md
     - Workload Resources:
       - ReplicaSets: kubernetes/tutorials/how-to-create-replicaset-in-kubernetes.md
-      - Deployments: kubernetes/tutorials/how-to-create-deployment-in-kubernetes.md
+      - Deployments: kubernetes/tutorials/how-to-create-a-deployment-in-kubernetes.md
       - DaemonSets: kubernetes/tutorials/how-to-create-daemonset-in-kubernetes.md
       - StatefulSets: kubernetes/tutorials/how-to-create-statefulset-in-kubernetes.md
-      - Jobs and CronJobs: kubernetes/tutorials/how-to-create-job-cronjob-in-kubernetes.md
     - Resource Organization:
       - Namespaces: kubernetes/tutorials/how-to-create-a-namespace-in-kubernetes.md
     - Configuration:
-      - ConfigMaps: kubernetes/tutorials/how-to-create-configmap-in-kubernetes.md
-      - Secrets: kubernetes/tutorials/how-to-create-secret-in-kubernetes.md
+      - ConfigMaps: kubernetes/tutorials/how-to-create-a-configmap-in-kubernetes.md
+      - Secrets: kubernetes/tutorials/how-to-create-a-secret-in-kubernetes.md
     - Service & Networking:
       - Services: kubernetes/tutorials/how-to-create-a-service-in-kubernetes.md
       - Ingress: kubernetes/tutorials/how-to-create-ingress-in-kubernetes.md
       - Ingress Controllers:
-        - Nginx Ingress Controller: kubernetes/tutorials/how-to-install-ingress-controller.md
+        - Nginx Ingress Controller: kubernetes/tutorials/how-to-install-nginx-ingress-controller.md
     - Storage:
       - Storage Classes: kubernetes/tutorials/how-to-create-storage-class-in-kubernetes.md
-      - PV and PVC: kubernetes/tutorials/how-to-create-pv-pvc-in-kubernetes.md
-    - Application Management:
-      - Scaling: kubernetes/tutorials/how-to-scale-deployment-in-kubernetes.md
-      - Rolling Updates: kubernetes/tutorials/how-to-create-rolling-update-in-kubernetes.md
-      - Rollbacks: kubernetes/tutorials/how-to-rollback-deployment-in-kubernetes.md
     - Security:
-      - Cert Manager: kubernetes/tutorials/how-to-install-cert-manager.md
+      - Cert Manager: kubernetes/tutorials/how-to-install-certmanager.md
     - Command Reference:
       - Imperative Commands: kubernetes/tutorials/imperative-commands.md
   - Helm:
