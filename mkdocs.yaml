@@ -180,7 +180,6 @@ nav:
       - Deploy Signed Image to Cloud Run with Binary Authorization: cloud/gcp/projects/deploy-signed-image-to-cloud-run-with-binary-authorization.md
       - Apigee X with PSC to Cloud Run: cloud/gcp/projects/apigee-x-psc-cloudrun.md
   - Notebooks:
-    - Overview: notebooks/index.md
     - AWS Bedrock AgentCore:
       - Tutorials:
         - AgentCore Runtime:
