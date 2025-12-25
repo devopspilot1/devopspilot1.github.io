@@ -185,26 +185,26 @@ nav:
       - Tutorials:
         - AgentCore Runtime:
           - Hosting Agents:
-            - Strands with Bedrock Model: notebooks/aws/amazon-bedrock-agentcore-samples/01-tutorials/01-AgentCore-runtime/01-hosting-agent/01-strands-with-bedrock-model/runtime_with_strands_and_bedrock_models.ipynb
-            - LangGraph with Bedrock Model: notebooks/aws/amazon-bedrock-agentcore-samples/01-tutorials/01-AgentCore-runtime/01-hosting-agent/02-langgraph-with-bedrock-model/runtime_with_langgraph_and_bedrock_models.ipynb
-            - Strands with OpenAI Model: notebooks/aws/amazon-bedrock-agentcore-samples/01-tutorials/01-AgentCore-runtime/01-hosting-agent/03-strands-with-openai-model/runtime_with_strands_and_openai_models.ipynb
-            - CrewAI with Bedrock Model: notebooks/aws/amazon-bedrock-agentcore-samples/01-tutorials/01-AgentCore-runtime/01-hosting-agent/04-crewai-with-bedrock-model/runtime-with-crewai-and-bedrock-models.ipynb
+            - Strands with Bedrock Model: https://raw.githubusercontent.com/awslabs/amazon-bedrock-agentcore-samples/refs/heads/main/01-tutorials/01-AgentCore-runtime/01-hosting-agent/01-strands-with-bedrock-model/runtime_with_strands_and_bedrock_models.ipynb
+            - LangGraph with Bedrock Model: https://raw.githubusercontent.com/awslabs/amazon-bedrock-agentcore-samples/refs/heads/main/01-tutorials/01-AgentCore-runtime/01-hosting-agent/02-langgraph-with-bedrock-model/runtime_with_langgraph_and_bedrock_models.ipynb
+            - Strands with OpenAI Model: https://raw.githubusercontent.com/awslabs/amazon-bedrock-agentcore-samples/refs/heads/main/01-tutorials/01-AgentCore-runtime/01-hosting-agent/03-strands-with-openai-model/runtime_with_strands_and_openai_models.ipynb
+            - CrewAI with Bedrock Model: https://raw.githubusercontent.com/awslabs/amazon-bedrock-agentcore-samples/refs/heads/main/01-tutorials/01-AgentCore-runtime/01-hosting-agent/04-crewai-with-bedrock-model/runtime-with-crewai-and-bedrock-models.ipynb
           - Hosting MCP Server:
-            - MCP Server Basics: notebooks/aws/amazon-bedrock-agentcore-samples/01-tutorials/01-AgentCore-runtime/02-hosting-MCP-server/hosting_mcp_server.ipynb
-            - MCP Server with IAM Auth: notebooks/aws/amazon-bedrock-agentcore-samples/01-tutorials/01-AgentCore-runtime/02-hosting-MCP-server/hosting_mcp_server_iam_auth.ipynb
+            - MCP Server Basics: https://raw.githubusercontent.com/awslabs/amazon-bedrock-agentcore-samples/refs/heads/main/01-tutorials/01-AgentCore-runtime/02-hosting-MCP-server/hosting_mcp_server.ipynb
+            - MCP Server with IAM Auth: https://raw.githubusercontent.com/awslabs/amazon-bedrock-agentcore-samples/refs/heads/main/01-tutorials/01-AgentCore-runtime/02-hosting-MCP-server/hosting_mcp_server_iam_auth.ipynb
           - Advanced Concepts:
-            - Streaming Agent Response: notebooks/aws/amazon-bedrock-agentcore-samples/01-tutorials/01-AgentCore-runtime/03-advanced-concepts/01-streaming-agent-response/streamining_agent_response.ipynb
-            - Understanding Runtime Context: notebooks/aws/amazon-bedrock-agentcore-samples/01-tutorials/01-AgentCore-runtime/03-advanced-concepts/02-understanding-runtime-context/understanding_runtime_context.ipynb
-            - Handling Large Payloads: notebooks/aws/amazon-bedrock-agentcore-samples/01-tutorials/01-AgentCore-runtime/03-advanced-concepts/03-handling-large-payloads/handling_large_payloads.ipynb
-            - Multi Agents with Boto3: notebooks/aws/amazon-bedrock-agentcore-samples/01-tutorials/01-AgentCore-runtime/03-advanced-concepts/05-multi-agents/01-multi-runtimes-with-boto3/distributed_agents_with_agentcore.ipynb
+            - Streaming Agent Response: https://raw.githubusercontent.com/awslabs/amazon-bedrock-agentcore-samples/refs/heads/main/01-tutorials/01-AgentCore-runtime/03-advanced-concepts/01-streaming-agent-response/streamining_agent_response.ipynb
+            - Understanding Runtime Context: https://raw.githubusercontent.com/awslabs/amazon-bedrock-agentcore-samples/refs/heads/main/01-tutorials/01-AgentCore-runtime/03-advanced-concepts/02-understanding-runtime-context/understanding_runtime_context.ipynb
+            - Handling Large Payloads: https://raw.githubusercontent.com/awslabs/amazon-bedrock-agentcore-samples/refs/heads/main/01-tutorials/01-AgentCore-runtime/03-advanced-concepts/03-handling-large-payloads/handling_large_payloads.ipynb
+            - Multi Agents with Boto3: https://raw.githubusercontent.com/awslabs/amazon-bedrock-agentcore-samples/refs/heads/main/01-tutorials/01-AgentCore-runtime/03-advanced-concepts/05-multi-agents/01-multi-runtimes-with-boto3/distributed_agents_with_agentcore.ipynb
           - Hosting TypeScript MCP Server:
-            - MCP Client: notebooks/aws/amazon-bedrock-agentcore-samples/01-tutorials/01-AgentCore-runtime/04-hosting-ts-MCP-server/mcp_client.ipynb
+            - MCP Client: https://raw.githubusercontent.com/awslabs/amazon-bedrock-agentcore-samples/refs/heads/main/01-tutorials/01-AgentCore-runtime/04-hosting-ts-MCP-server/mcp_client.ipynb
           - Hosting A2A:
-            - A2A Getting Started with Strands: notebooks/aws/amazon-bedrock-agentcore-samples/01-tutorials/01-AgentCore-runtime/05-hosting-a2a/01-a2a-getting-started-agentcore-strands.ipynb
-            - A2A Deploy Orchestrator: notebooks/aws/amazon-bedrock-agentcore-samples/01-tutorials/01-AgentCore-runtime/05-hosting-a2a/02-a2a-deploy-orchestrator.ipynb
-            - A2A Cleanup: notebooks/aws/amazon-bedrock-agentcore-samples/01-tutorials/01-AgentCore-runtime/05-hosting-a2a/03-a2a-cleanup.ipynb
+            - A2A Getting Started with Strands: https://raw.githubusercontent.com/awslabs/amazon-bedrock-agentcore-samples/refs/heads/main/01-tutorials/01-AgentCore-runtime/05-hosting-a2a/01-a2a-getting-started-agentcore-strands.ipynb
+            - A2A Deploy Orchestrator: https://raw.githubusercontent.com/awslabs/amazon-bedrock-agentcore-samples/refs/heads/main/01-tutorials/01-AgentCore-runtime/05-hosting-a2a/02-a2a-deploy-orchestrator.ipynb
+            - A2A Cleanup: https://raw.githubusercontent.com/awslabs/amazon-bedrock-agentcore-samples/refs/heads/main/01-tutorials/01-AgentCore-runtime/05-hosting-a2a/03-a2a-cleanup.ipynb
           - MCP Dynamic Client Registration:
-            - Deploy DCR MCP AgentCore: notebooks/aws/amazon-bedrock-agentcore-samples/01-tutorials/01-AgentCore-runtime/07-mcp-dynamic-client-registration/deploy_dcr_mcp_agentcore.ipynb
+            - Deploy DCR MCP AgentCore: https://raw.githubusercontent.com/awslabs/amazon-bedrock-agentcore-samples/refs/heads/main/01-tutorials/01-AgentCore-runtime/07-mcp-dynamic-client-registration/deploy_dcr_mcp_agentcore.ipynb
   - SSL:
     - How to configure free Let’s Encrypt SSL/TLS Certificates with NGINX and auto renew certificates: ssl/how-to-configure-free-letsencrypt-ssl-tls-certificates-with-nginx.md
     - How to configure free single Let’s Encrypt SSL/TLS Certificate with NGINX for multiple subdomains and auto renew certificate: ssl/how-to-configure-free-letsencrypt-ssl-tls-certificates-with-nginx-for-subdomains.md
