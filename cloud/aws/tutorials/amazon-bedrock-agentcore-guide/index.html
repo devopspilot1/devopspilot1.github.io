@@ -1,0 +1,8754 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://devopspilot1.github.io/cloud/aws/tutorials/amazon-bedrock-agentcore-guide/">
+      
+      
+        <link rel="prev" href="../amazon-sagemaker-guide/">
+      
+      
+        <link rel="next" href="../../../gcp/what-is-gcp/">
+      
+      
+      <link rel="icon" href="../../../../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.13">
+    
+    
+      
+        <title>Amazon Bedrock AgentCore Guide - DevopsPilot</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-FG4SPPD5JY"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-FG4SPPD5JY",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-FG4SPPD5JY",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#amazon-bedrock-agentcore-complete-service-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="DevopsPilot" class="md-header__button md-logo" aria-label="DevopsPilot" data-md-component="logo">
+      
+  <img src="../../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DevopsPilot
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Amazon Bedrock AgentCore Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../linux-commands/part-1/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Linux Commands
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../ssh/ssh/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  SSH
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../shellscript/part-1/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Shellscript
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../git/how-to-create-github-account/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Git
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../build-tools/maven/install-java-compile/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Build Tools
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../webserver/nginx/how-to-install-nginx/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Web Server
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../jenkins/tutorials/how-to-install-jenkins-with-java-21-on-ubuntu/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Jenkins
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../docker/tutorials/what-is-docker/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Docker
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../kubernetes/tutorials/what-is-kubernetes/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  K8s
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../helm/basics/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Helm
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../terraform/aws/codebuild-helloworld/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Terraform
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../amazon-sagemaker-guide/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Cloud
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="https://raw.githubusercontent.com/awslabs/amazon-bedrock-agentcore-samples/refs/heads/main/01-tutorials/01-AgentCore-runtime/01-hosting-agent/01-strands-with-bedrock-model/runtime_with_strands_and_bedrock_models.ipynb" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Notebooks
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+    
+  
+
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../ssl/how-to-configure-free-letsencrypt-ssl-tls-certificates-with-nginx/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  SSL
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../interview-questions/linux-commands/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Interview Questions
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="DevopsPilot" class="md-nav__button md-logo" aria-label="DevopsPilot" data-md-component="logo">
+      
+  <img src="../../../../assets/logo.png" alt="logo">
+
+    </a>
+    DevopsPilot
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Linux Commands
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Linux Commands
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../linux-commands/part-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../linux-commands/part-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../linux-commands/part-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../linux-commands/part-4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../linux-commands/part-5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 5
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../linux-commands/part-6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 6
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../linux-commands/part-7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 7
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../linux-commands/part-8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 8
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../linux-commands/part-9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 9
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    SSH
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            SSH
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ssh/ssh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ssh
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Shellscript
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Shellscript
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../shellscript/part-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../shellscript/part-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../shellscript/part-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../shellscript/part-4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Part 4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Git
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Git
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/how-to-create-github-account/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create github account
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/how-to-install-git-in-linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to install git in linux
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/how-to-create-public-repository-in-github/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create public repository in github
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/how-to-clone-the-public-repository/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to clone the github public repository
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/how-to-create-private-repository/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create private repository
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/how-to-push-the-changes-to-github-repository/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to push the changes to github repository
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/tutorials/02-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Basics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/tutorials/03-branching-merging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Branching and Merging
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/tutorials/04-pull_fetch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Pull and Fetch
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/tutorials/05-reset/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Reset
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/tutorials/06-tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Tags
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/tutorials/07-stash/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Stash
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/tutorials/08-issues-faced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Common Issues in Git
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/tutorials/09-how-to-fix-merge-conflict/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to Fix Merge Conflicts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/tutorials/10-how-to-create-pull-request-in-github/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to Create Pull Request in GitHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/tutorials/11-how-to-fix-merge-conflict-in-pull-request/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to Fix Merge Conflicts in Pull Request
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/tutorials/12-rebase/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Rebase
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../git/tutorials/visual_diff_merge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Visual Diff and Merge Tools
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Build Tools
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Build Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Maven
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Maven
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../build-tools/maven/install-java-compile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to install Java and compile a single Java file
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../build-tools/maven/install-maven/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to install Maven in Linux
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../build-tools/maven/what-is-maven/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is Maven?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../build-tools/maven/generate-a-sample-java-application-using-maven/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Generate a sample java application using maven
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../build-tools/maven/how-to-create-a-github-repository-and-push-a-sample-java-maven-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create a GitHub repository and push a Hello World Java 21 Maven Project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Web Server
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Web Server
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Nginx
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            Nginx
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../webserver/nginx/how-to-install-nginx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to install nginx in Linux
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tomcat
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Tomcat
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../webserver/tomcat/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to install Tomcat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../webserver/tomcat/how-to-manually-deploy-java-application-to-tomcat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to manually deploy the java application to Tomcat 9 webserver
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../webserver/tomcat/how-to-deploy-java-application-to-tomcat-using-maven/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to deploy the java application to Tomcat 9 webserver using Maven
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Jenkins
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Jenkins
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/how-to-install-jenkins-with-java-21-on-ubuntu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to install Jenkins with Java 21 on Ubuntu 24.04
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/how-to-complete-the-initial-setup-after-installing-jenkins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to complete the initial setup after installing Jenkins
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/how-to-create-a-freestyle-project-to-build-a-maven-java-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create a Freestyle project in Jenkins to build a Maven Java project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/how-to-create-a-maven-project-in-jenkins-to-build-a-maven-java-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to install the Maven plugin in Jenkins
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/how-to-install-the-maven-plugin-in-jenkins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to install Maven using Jenkins Tools
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/how-to-install-maven-from-jenkins-tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create a Maven project in Jenkins to build a Maven Java project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/how-to-store-a-github-token-safely-in-jenkins-credentials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to store a Github Token safely in Jenkins Credentials
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/how-to-create-a-maven-project-in-jenkins-with-private-github-repository/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create a Maven project in Jenkins with Private Github Repository
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/how-to-create-a-pipeline-in-jenkins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create a Pipeline in Jenkins using Pipeline Script
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/how-to-write-jenkinsfile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to write a Jenkinsfile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/how-to-create-a-pipeline-in-jenkins-using-jenkinsfile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create a Pipeline in Jenkins using Jenkinsfile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/jenkinsfile-to-build-a-java-maven-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jenkinsfile to build a Java Maven Project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/how-to-use-tools-block-in-jenkinsfile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to use the tools block in Jenkinsfile to refer to Maven
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/how-to-enable-github-webhook-to-trigger-the-jenkins-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to enable GitHub Webhook to trigger the Jenkins pipeline
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/jenkinsfile-to-trigger-the-jenkins-pipeline-using-poll-scm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jenkinsfile to trigger the Jenkins Pipeline using Poll SCM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/jenkinsfile-to-trigger-the-jenkins-pipeline-using-cron/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jenkinsfile to trigger the Jenkins Pipeline using Cron
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/jenkinsfile-to-trigger-the-pipeline-from-the-upstream-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jenkinsfile to trigger the Pipeline from the Upstream Pipeline
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/jenkinsfile-to-trigger-other-jenkins-pipeline-from-the-stage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jenkinsfile to trigger other Jenkins Pipeline from the stage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/generate-the-code-for-jenkinsfile-using-declarative-directive-generator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Generate the code for Jenkinsfile using Declarative Directive Generator
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/how-to-replay-the-jenkins-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to Replay the Jenkins Pipeline
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/tutorials/use-of-options-in-jenkinsfile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to use Options in Jenkinsfile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Configuration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            Configuration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/configuration/how-to-install-plugins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to install plugins in Jenkins
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/configuration/global-tool-configurations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Global Tool Configurations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/configuration/how-to-store-credentials-in-jenkins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to store credentials in Jenkins
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/configuration/how-to-restore-deleted-job/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to restore deleted job in Jenkins
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Pipelines
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            Pipelines
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/pipelines/how-to-create-pipeline-job/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create pipeline job in Jenkins
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/pipelines/jenkinsfile-to-build-maven-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to write a Jenkinsfile to build a Maven project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/pipelines/jenkinsfile-to-build-maven-project-and-deploy-to-tomcat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to write a Jenkinsfile to build a Maven project and deploy to Apache Tomcat webserver
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/pipelines/jenkinsfile-to-build-docker-image-push-deploy-to-same-server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to write a Jenkinsfile to build a Maven project, build and push docker image to Dockerhub and deploy the container to same server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/pipelines/jenkinsfile-to-build-docker-image-push-to-artifactory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to write a Jenkinsfile to build a Maven project, build and push docker image to Jfrog artifactory and deploy the container to same server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_4" id="__nav_7_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Other Topics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_4">
+            <span class="md-nav__icon md-icon"></span>
+            Other Topics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../jenkins/other-topics/how-to-create-a-job-automatically-using-jobdsl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create a Job automatically using Seed Jenkins plugin and Job DSL script
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Docker
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_1" id="__nav_8_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_1">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docker/tutorials/what-is-docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docker/tutorials/how-to-install-docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to install docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docker/tutorials/docker-images-vs-containers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker Images vs Docker Containers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docker/tutorials/create-docker-image-nginx-html/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Create docker image for nginx and html file
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docker/tutorials/pull-push-docker-image-to-public-repository/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pull nginx docker image from dockerhub, tag and push to your public repo in dockerhub account
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docker/tutorials/pull-push-docker-image-to-private-repository/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pull nginx docker image from dockerhub, tag and push to your private repository in dockerhub account
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_2" id="__nav_8_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Dockerfile
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_2">
+            <span class="md-nav__icon md-icon"></span>
+            Dockerfile
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docker/dockerfiles/create-dockerfile-to-install-packages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to write Dockerfile for installing packages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docker/dockerfiles/create-a-dockerfile-for-installing-openjdk15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to write a dockerfile for installing openjdk15
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docker/dockerfiles/create-multi-stage-dockerfile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create a multi stage Dockerfile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docker/dockerfiles/how-to-write-a-dockerfile-for-running-war-file-in-tomcat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to write a dockerfile for running a java application (*.war) in Apache tomcat webserver
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    K8s
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            K8s
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_1" id="__nav_9_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_1">
+            <span class="md-nav__icon md-icon"></span>
+            Introduction
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/what-is-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is Kubernetes?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_2" id="__nav_9_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Setup and Installation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_2">
+            <span class="md-nav__icon md-icon"></span>
+            Setup and Installation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-install-minikube-in-linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installing Minikube
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-install-kubectl-in-linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installing kubectl
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_3" id="__nav_9_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Core Concepts
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_3">
+            <span class="md-nav__icon md-icon"></span>
+            Core Concepts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-create-a-simple-pod-in-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pods
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_4" id="__nav_9_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Workload Resources
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_4">
+            <span class="md-nav__icon md-icon"></span>
+            Workload Resources
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-create-replicaset-in-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ReplicaSets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-create-a-deployment-in-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deployments
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-create-daemonset-in-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DaemonSets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-create-statefulset-in-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    StatefulSets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_5" id="__nav_9_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Resource Organization
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_5">
+            <span class="md-nav__icon md-icon"></span>
+            Resource Organization
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-create-a-namespace-in-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Namespaces
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_6" id="__nav_9_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Configuration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_6">
+            <span class="md-nav__icon md-icon"></span>
+            Configuration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-create-a-configmap-in-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ConfigMaps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-create-a-secret-in-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Secrets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_7" id="__nav_9_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Service & Networking
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_7">
+            <span class="md-nav__icon md-icon"></span>
+            Service & Networking
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-create-a-service-in-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Services
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-create-ingress-in-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ingress
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9_7_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_7_3" id="__nav_9_7_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Ingress Controllers
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_9_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            Ingress Controllers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-install-nginx-ingress-controller/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nginx Ingress Controller
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_8" id="__nav_9_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Storage
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_8">
+            <span class="md-nav__icon md-icon"></span>
+            Storage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-create-storage-class-in-kubernetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Storage Classes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_9" id="__nav_9_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Security
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_9">
+            <span class="md-nav__icon md-icon"></span>
+            Security
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/how-to-install-certmanager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cert Manager
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_10" id="__nav_9_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Command Reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_10">
+            <span class="md-nav__icon md-icon"></span>
+            Command Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../kubernetes/tutorials/imperative-commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Imperative Commands
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Helm
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Helm
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../helm/basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Helm chart basics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../helm/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Helm commands
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Terraform
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Terraform
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_11_1" id="__nav_11_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AWS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_11_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11_1">
+            <span class="md-nav__icon md-icon"></span>
+            AWS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../terraform/aws/codebuild-helloworld/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Terraform script to create AWS Codebuild project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../terraform/aws/codedeploy-helloworld/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Terraform script to create AWS Codedeploy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../terraform/aws/codepipeline-helloworld/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Terraform script to create AWS Codepipeline
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_11_2" id="__nav_11_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    GCP
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_11_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11_2">
+            <span class="md-nav__icon md-icon"></span>
+            GCP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_11_2_1" id="__nav_11_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Projects
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_11_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Projects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../terraform/gcp/projects/cloud-run/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deploy Python Flask App to Cloud Run
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../terraform/gcp/projects/apigee-psc-cloud-run/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Apigee X with PSC to Cloud Run
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Cloud
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            Cloud
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_12_1" id="__nav_12_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AWS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_12_1">
+            <span class="md-nav__icon md-icon"></span>
+            AWS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../amazon-sagemaker-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Amazon SageMaker Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Amazon Bedrock AgentCore Guide
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Amazon Bedrock AgentCore Guide
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-bedrock-agentcore" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is Bedrock AgentCore?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-benefits-of-bedrock-agentcore" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Benefits of Bedrock AgentCore
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Benefits of Bedrock AgentCore">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#supported-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Supported Use Cases
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-components-of-bedrock-agentcore" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Components of Bedrock AgentCore
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Components of Bedrock AgentCore">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Agents
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-knowledge-bases-retrieval" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Knowledge Bases &amp; Retrieval
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-tools-and-integrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Tools and Integrations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-memory-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Memory Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-guardrails" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Guardrails
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-foundation-model-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Foundation Model Selection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-logging-and-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Logging and Monitoring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-api-and-invocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. API and Invocation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-components-of-bedrock-agentcore_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Components of Bedrock AgentCore
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bedrock-agentcore-workflow-from-concept-to-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bedrock AgentCore Workflow: From Concept to Deployment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-get-started-with-bedrock-agentcore" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Get Started with Bedrock AgentCore
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to Get Started with Bedrock AgentCore">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-enable-amazon-bedrock" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Enable Amazon Bedrock
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-an-iam-role-for-agent-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Create an IAM Role for Agent Execution
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-create-a-knowledge-base-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Create a Knowledge Base (Optional)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-create-an-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Create an Agent
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-define-and-add-tools-to-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Define and Add Tools to Agent
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-test-the-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6: Test the Agent
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-deploy-and-monitor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 7: Deploy and Monitor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pricing-and-cost-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pricing and Cost Optimization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pricing and Cost Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pricing-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pricing Models
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cost-optimization-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost Optimization Strategies
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#access-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Access Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-protection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Protection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agent Security
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitoring-auditing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitoring &amp; Auditing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-use-cases-for-bedrock-agentcore" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Use Cases for Bedrock AgentCore
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Use Cases for Bedrock AgentCore">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-customer-support-automation" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Customer Support Automation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-data-analysis-reporting" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Data Analysis &amp; Reporting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-research-assistant" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Research Assistant
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-it-helpdesk-automation" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. IT Helpdesk Automation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-content-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Content Generation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-multi-tool-orchestration" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Multi-Tool Orchestration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Resources
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Learning Resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#official-aws-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Official AWS Documentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-examples-tutorials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Examples &amp; Tutorials
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#training-certifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Training &amp; Certifications
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#community-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Community &amp; Support
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_12_2" id="__nav_12_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    GCP
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_2">
+            <span class="md-nav__icon md-icon"></span>
+            GCP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../gcp/what-is-gcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is GCP?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../gcp/tutorials/create-cloud-run-using-gcloud-cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create Cloud Run service using gcloud CLI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../gcp/tutorials/create-artifact-registry-using-gcloud-cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to create Artifact Registry Docker Repository using gcloud CLI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../gcp/tutorials/create-docker-image-push-to-artifact-registry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Build and Push Docker Image to Artifact Registry
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_12_3" id="__nav_12_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Projects
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_12_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12_3">
+            <span class="md-nav__icon md-icon"></span>
+            Projects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../gcp/projects/deploy-python-image-to-cloud-run/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deploy Python App to Cloud Run
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../gcp/projects/deploy-signed-image-to-cloud-run-with-binary-authorization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deploy Signed Image to Cloud Run with Binary Authorization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../gcp/projects/apigee-x-psc-cloudrun/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Apigee X with PSC to Cloud Run
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Notebooks
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            Notebooks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_13_1" id="__nav_13_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AWS Bedrock AgentCore
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_13_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13_1">
+            <span class="md-nav__icon md-icon"></span>
+            AWS Bedrock AgentCore
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_13_1_1" id="__nav_13_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tutorials
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_13_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13_1_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_13_1_1_1" id="__nav_13_1_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AgentCore Runtime
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_13_1_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13_1_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            AgentCore Runtime
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13_1_1_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_13_1_1_1_1" id="__nav_13_1_1_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Hosting Agents
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_13_1_1_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13_1_1_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            Hosting Agents
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://raw.githubusercontent.com/awslabs/amazon-bedrock-agentcore-samples/refs/heads/main/01-tutorials/01-AgentCore-runtime/01-hosting-agent/01-strands-with-bedrock-model/runtime_with_strands_and_bedrock_models.ipynb" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Strands with Bedrock Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://raw.githubusercontent.com/awslabs/amazon-bedrock-agentcore-samples/refs/heads/main/01-tutorials/01-AgentCore-runtime/01-hosting-agent/02-langgraph-with-bedrock-model/runtime_with_langgraph_and_bedrock_models.ipynb" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LangGraph with Bedrock Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://raw.githubusercontent.com/awslabs/amazon-bedrock-agentcore-samples/refs/heads/main/01-tutorials/01-AgentCore-runtime/01-hosting-agent/03-strands-with-openai-model/runtime_with_strands_and_openai_models.ipynb" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Strands with OpenAI Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://raw.githubusercontent.com/awslabs/amazon-bedrock-agentcore-samples/refs/heads/main/01-tutorials/01-AgentCore-runtime/01-hosting-agent/04-crewai-with-bedrock-model/runtime-with-crewai-and-bedrock-models.ipynb" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CrewAI with Bedrock Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13_1_1_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_13_1_1_1_2" id="__nav_13_1_1_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Hosting MCP Server
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_13_1_1_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13_1_1_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            Hosting MCP Server
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://raw.githubusercontent.com/awslabs/amazon-bedrock-agentcore-samples/refs/heads/main/01-tutorials/01-AgentCore-runtime/02-hosting-MCP-server/hosting_mcp_server.ipynb" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MCP Server Basics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://raw.githubusercontent.com/awslabs/amazon-bedrock-agentcore-samples/refs/heads/main/01-tutorials/01-AgentCore-runtime/02-hosting-MCP-server/hosting_mcp_server_iam_auth.ipynb" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MCP Server with IAM Auth
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13_1_1_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_13_1_1_1_3" id="__nav_13_1_1_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Advanced Concepts
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_13_1_1_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13_1_1_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            Advanced Concepts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://raw.githubusercontent.com/awslabs/amazon-bedrock-agentcore-samples/refs/heads/main/01-tutorials/01-AgentCore-runtime/03-advanced-concepts/01-streaming-agent-response/streamining_agent_response.ipynb" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Streaming Agent Response
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://raw.githubusercontent.com/awslabs/amazon-bedrock-agentcore-samples/refs/heads/main/01-tutorials/01-AgentCore-runtime/03-advanced-concepts/02-understanding-runtime-context/understanding_runtime_context.ipynb" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Understanding Runtime Context
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://raw.githubusercontent.com/awslabs/amazon-bedrock-agentcore-samples/refs/heads/main/01-tutorials/01-AgentCore-runtime/03-advanced-concepts/03-handling-large-payloads/handling_large_payloads.ipynb" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Handling Large Payloads
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://raw.githubusercontent.com/awslabs/amazon-bedrock-agentcore-samples/refs/heads/main/01-tutorials/01-AgentCore-runtime/03-advanced-concepts/05-multi-agents/01-multi-runtimes-with-boto3/distributed_agents_with_agentcore.ipynb" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Multi Agents with Boto3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13_1_1_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_13_1_1_1_4" id="__nav_13_1_1_1_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Hosting TypeScript MCP Server
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_13_1_1_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13_1_1_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            Hosting TypeScript MCP Server
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://raw.githubusercontent.com/awslabs/amazon-bedrock-agentcore-samples/refs/heads/main/01-tutorials/01-AgentCore-runtime/04-hosting-ts-MCP-server/mcp_client.ipynb" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MCP Client
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13_1_1_1_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_13_1_1_1_5" id="__nav_13_1_1_1_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Hosting A2A
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_13_1_1_1_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13_1_1_1_5">
+            <span class="md-nav__icon md-icon"></span>
+            Hosting A2A
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://raw.githubusercontent.com/awslabs/amazon-bedrock-agentcore-samples/refs/heads/main/01-tutorials/01-AgentCore-runtime/05-hosting-a2a/01-a2a-getting-started-agentcore-strands.ipynb" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    A2A Getting Started with Strands
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://raw.githubusercontent.com/awslabs/amazon-bedrock-agentcore-samples/refs/heads/main/01-tutorials/01-AgentCore-runtime/05-hosting-a2a/02-a2a-deploy-orchestrator.ipynb" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    A2A Deploy Orchestrator
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://raw.githubusercontent.com/awslabs/amazon-bedrock-agentcore-samples/refs/heads/main/01-tutorials/01-AgentCore-runtime/05-hosting-a2a/03-a2a-cleanup.ipynb" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    A2A Cleanup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_13_1_1_1_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_13_1_1_1_6" id="__nav_13_1_1_1_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    MCP Dynamic Client Registration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_13_1_1_1_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13_1_1_1_6">
+            <span class="md-nav__icon md-icon"></span>
+            MCP Dynamic Client Registration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://raw.githubusercontent.com/awslabs/amazon-bedrock-agentcore-samples/refs/heads/main/01-tutorials/01-AgentCore-runtime/07-mcp-dynamic-client-registration/deploy_dcr_mcp_agentcore.ipynb" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deploy DCR MCP AgentCore
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    SSL
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            SSL
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ssl/how-to-configure-free-letsencrypt-ssl-tls-certificates-with-nginx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to configure free Let’s Encrypt SSL/TLS Certificates with NGINX and auto renew certificates
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ssl/how-to-configure-free-letsencrypt-ssl-tls-certificates-with-nginx-for-subdomains/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to configure free single Let’s Encrypt SSL/TLS Certificate with NGINX for multiple subdomains and auto renew certificate
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ssl/how-to-configure-free-letsencrypt-ssl-tls-wildcard-certificates-with-nginx-for-subdomains/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to configure free single Let’s Encrypt SSL/TLS wildcard Certificate with Nginx
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ssl/self-signed-certificate-using-openssl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to generate self signed certificate using openssl
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Interview Questions
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            Interview Questions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../interview-questions/linux-commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linux commands Interview Questions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../interview-questions/git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Interview Questions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../interview-questions/docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker Interview Questions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../interview-questions/helm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Helm Interview Questions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../interview-questions/ansible/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ansible Interview Questions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-bedrock-agentcore" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is Bedrock AgentCore?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-benefits-of-bedrock-agentcore" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Benefits of Bedrock AgentCore
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Benefits of Bedrock AgentCore">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#supported-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Supported Use Cases
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-components-of-bedrock-agentcore" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Components of Bedrock AgentCore
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Components of Bedrock AgentCore">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Agents
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-knowledge-bases-retrieval" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Knowledge Bases &amp; Retrieval
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-tools-and-integrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Tools and Integrations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-memory-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Memory Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-guardrails" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Guardrails
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-foundation-model-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Foundation Model Selection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-logging-and-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Logging and Monitoring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-api-and-invocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. API and Invocation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-components-of-bedrock-agentcore_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Components of Bedrock AgentCore
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bedrock-agentcore-workflow-from-concept-to-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bedrock AgentCore Workflow: From Concept to Deployment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-get-started-with-bedrock-agentcore" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Get Started with Bedrock AgentCore
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to Get Started with Bedrock AgentCore">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-enable-amazon-bedrock" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Enable Amazon Bedrock
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-an-iam-role-for-agent-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Create an IAM Role for Agent Execution
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-create-a-knowledge-base-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Create a Knowledge Base (Optional)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-create-an-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Create an Agent
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-define-and-add-tools-to-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 5: Define and Add Tools to Agent
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-test-the-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6: Test the Agent
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-deploy-and-monitor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 7: Deploy and Monitor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pricing-and-cost-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pricing and Cost Optimization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pricing and Cost Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pricing-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pricing Models
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cost-optimization-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost Optimization Strategies
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Best Practices
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#access-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Access Control
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-protection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Protection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agent Security
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitoring-auditing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitoring &amp; Auditing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-use-cases-for-bedrock-agentcore" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Use Cases for Bedrock AgentCore
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Use Cases for Bedrock AgentCore">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-customer-support-automation" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Customer Support Automation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-data-analysis-reporting" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Data Analysis &amp; Reporting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-research-assistant" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Research Assistant
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-it-helpdesk-automation" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. IT Helpdesk Automation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-content-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Content Generation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-multi-tool-orchestration" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Multi-Tool Orchestration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#learning-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Learning Resources
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Learning Resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#official-aws-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Official AWS Documentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-examples-tutorials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Examples &amp; Tutorials
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#training-certifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Training &amp; Certifications
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#community-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Community &amp; Support
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Takeaways
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="amazon-bedrock-agentcore-complete-service-guide">Amazon Bedrock AgentCore: Complete Service Guide<a class="headerlink" href="#amazon-bedrock-agentcore-complete-service-guide" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p><strong>Amazon Bedrock AgentCore</strong> is a fully managed service that enables developers to build, deploy, and manage intelligent agents powered by foundation models (FMs) with minimal infrastructure complexity.</p>
+<p>This guide focuses on Amazon Bedrock AgentCore - the core agent orchestration service for building autonomous, multi-step AI agents on AWS.</p>
+<h3 id="what-is-bedrock-agentcore">What is Bedrock AgentCore?<a class="headerlink" href="#what-is-bedrock-agentcore" title="Permanent link">&para;</a></h3>
+<p><strong>Amazon Bedrock AgentCore</strong> (part of Amazon Bedrock) is a managed service for creating intelligent agents that can autonomously perform tasks using foundation models. It provides the infrastruc<strong>Titan Models</strong>: Lower cost alternative</p>
+<ul>
+<li>Titan Text Express: $0.20 per 1K tokensre to run agents that can reason, plan, and execute multi-step workflows without manual orchestration.</li>
+</ul>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Managed agent orchestration and execution</li>
+<li>Foundation model integration (Claude, Titan, Llama, Mistral, etc.)</li>
+<li>Multi-step reasoning and planning</li>
+<li>Tool/function calling capabilities</li>
+<li>Memory management for context awareness</li>
+<li>Built-in RAG (Retrieval-Augmented Generation) support</li>
+<li>Secure execution with IAM integration</li>
+<li>API-based agent invocation</li>
+<li>Full audit trail and monitoring</li>
+<li>Cost-optimized pay-per-use model</li>
+<li>No infrastructure to manage</li>
+</ul>
+<p><strong>Best For:</strong></p>
+<ul>
+<li>Building autonomous AI agents for complex workflows</li>
+<li>Customer support and chatbot automation</li>
+<li>Data analysis and reporting automation</li>
+<li>Research and information gathering tasks</li>
+<li>Multi-tool orchestration and workflow automation</li>
+<li>Enterprise intelligent assistants</li>
+<li>Knowledge base query and synthesis</li>
+</ul>
+<hr />
+<h2 id="key-benefits-of-bedrock-agentcore">Key Benefits of Bedrock AgentCore<a class="headerlink" href="#key-benefits-of-bedrock-agentcore" title="Permanent link">&para;</a></h2>
+<p>✅ <strong>Fully Managed Service</strong>: No infrastructure management, deployment, or scaling required
+✅ <strong>Multi-Model Support</strong>: Use any foundation model available in Amazon Bedrock
+✅ <strong>Autonomous Reasoning</strong>: Agents can plan and execute multi-step workflows
+✅ <strong>Tool Integration</strong>: Connect agents to external APIs, databases, and services
+✅ <strong>RAG Support</strong>: Built-in retrieval-augmented generation for knowledge bases
+✅ <strong>Memory &amp; Context</strong>: Maintains conversation context across multiple interactions
+✅ <strong>Cost-Effective</strong>: Pay per inference call, no minimum commitments
+✅ <strong>Enterprise Security</strong>: IAM integration, encryption, and audit logging
+✅ <strong>Fast Deployment</strong>: Create agents without complex infrastructure setup
+✅ <strong>Flexible Model Choice</strong>: Switch between foundation models as needed</p>
+<h3 id="supported-use-cases">Supported Use Cases<a class="headerlink" href="#supported-use-cases" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Customer Support Automation</strong>: AI agents handling support tickets, FAQs, troubleshooting</li>
+<li><strong>Data Analysis &amp; Reporting</strong>: Agents querying databases, analyzing data, generating reports</li>
+<li><strong>Knowledge Base Assistants</strong>: Agents retrieving and synthesizing information from documents</li>
+<li><strong>Research Assistants</strong>: Automated literature review, data collection, summarization</li>
+<li><strong>Multi-Tool Orchestration</strong>: Agents coordinating across multiple systems and APIs</li>
+<li><strong>Workflow Automation</strong>: Agents executing business processes across departments</li>
+<li><strong>Interactive Q&amp;A Systems</strong>: Agents answering questions with reasoning and citations</li>
+<li><strong>Chatbots &amp; Conversational AI</strong>: Context-aware assistants for specific domains</li>
+<li><strong>Content Generation</strong>: Agents creating reports, summaries, and analyses</li>
+<li><strong>Decision Support Systems</strong>: Agents gathering information and providing recommendations</li>
+</ul>
+<hr />
+<h2 id="core-components-of-bedrock-agentcore">Core Components of Bedrock AgentCore<a class="headerlink" href="#core-components-of-bedrock-agentcore" title="Permanent link">&para;</a></h2>
+<h3 id="1-agents">1. Agents<a class="headerlink" href="#1-agents" title="Permanent link">&para;</a></h3>
+<p><strong>Purpose</strong>: The primary execution unit that orchestrates AI-powered workflows</p>
+<p><strong>Features:</strong></p>
+<ul>
+<li>Autonomous task execution using foundation models</li>
+<li>Multi-step reasoning and planning capability</li>
+<li>Tool invocation and API integration</li>
+<li>Stateful conversation management</li>
+<li>Custom instructions and system prompts</li>
+<li>Model selection flexibility</li>
+<li>Guardrails for responsible AI</li>
+</ul>
+<p><strong>Agent Types:</strong></p>
+<ul>
+<li><strong>Basic Agents</strong>: Simple single-step tasks</li>
+<li><strong>Complex Agents</strong>: Multi-step reasoning with tool chains</li>
+<li><strong>Retrieval Agents</strong>: RAG-enabled agents with knowledge bases</li>
+<li><strong>Conversational Agents</strong>: Context-aware multi-turn conversations</li>
+</ul>
+<p><strong>Agent Workflow:</strong>
+<div class="highlight"><pre><span></span><code>User Input → Foundation Model (Reasoning) → Tool Selection 
+  → Tool Execution → Response Generation → Return to User
+</code></pre></div></p>
+<hr />
+<h3 id="2-knowledge-bases-retrieval">2. Knowledge Bases &amp; Retrieval<a class="headerlink" href="#2-knowledge-bases-retrieval" title="Permanent link">&para;</a></h3>
+<p><strong>Purpose</strong>: Enable agents to access and reason over external documents and data</p>
+<p><strong>Components:</strong></p>
+<p><strong>Knowledge Bases</strong></p>
+<ul>
+<li>Document storage and indexing</li>
+<li>Support for multiple file formats (PDF, DOCX, HTML, etc.)</li>
+<li>Automatic chunking and embedding</li>
+<li>Vector storage for similarity search</li>
+<li>Metadata filtering</li>
+</ul>
+<p><strong>Retrieval Capabilities</strong></p>
+<ul>
+<li>Semantic search over documents</li>
+<li>Keyword and hybrid search</li>
+<li>Ranked results with relevance scores</li>
+<li>Context-aware retrieval</li>
+<li>Citation and source tracking</li>
+</ul>
+<hr />
+<h3 id="3-tools-and-integrations">3. Tools and Integrations<a class="headerlink" href="#3-tools-and-integrations" title="Permanent link">&para;</a></h3>
+<p><strong>Purpose</strong>: Extend agent capabilities by connecting to external systems</p>
+<p><strong>Supported Tools:</strong></p>
+<p><strong>Built-in Integrations</strong></p>
+<ul>
+<li>AWS service APIs (Lambda, DynamoDB, S3, etc.)</li>
+<li>REST APIs and webhooks</li>
+<li>Databases (SQL, NoSQL)</li>
+<li>Third-party SaaS platforms</li>
+<li>Custom Lambda functions</li>
+</ul>
+<p><strong>Tool Definition</strong></p>
+<ul>
+<li>OpenAPI schema for API description</li>
+<li>Parameter schema and validation</li>
+<li>Tool description and usage examples</li>
+<li>Error handling and retry logic</li>
+<li>Permission and access controls</li>
+</ul>
+<p><strong>Example Tool Types:</strong></p>
+<ul>
+<li>Data retrieval (query databases, search APIs)</li>
+<li>Data modification (create, update, delete operations)</li>
+<li>External service invocation</li>
+<li>Computation and analysis</li>
+<li>Report generation and export</li>
+</ul>
+<hr />
+<h3 id="4-memory-management">4. Memory Management<a class="headerlink" href="#4-memory-management" title="Permanent link">&para;</a></h3>
+<p><strong>Purpose</strong>: Maintain context and state across agent interactions</p>
+<p><strong>Memory Types:</strong></p>
+<p><strong>Short-term Memory</strong></p>
+<ul>
+<li>Current conversation context</li>
+<li>Recent interactions and decisions</li>
+<li>Temporary computation results</li>
+</ul>
+<p><strong>Long-term Memory</strong></p>
+<ul>
+<li>Persistent conversation history</li>
+<li>User profiles and preferences</li>
+<li>Historical context for learning</li>
+</ul>
+<p><strong>Features:</strong></p>
+<ul>
+<li>Automatic context summarization</li>
+<li>Token limit optimization</li>
+<li>Multi-turn conversation support</li>
+<li>Context window management</li>
+</ul>
+<hr />
+<h3 id="5-guardrails">5. Guardrails<a class="headerlink" href="#5-guardrails" title="Permanent link">&para;</a></h3>
+<p><strong>Purpose</strong>: Implement safety and policy controls for agent behavior</p>
+<p><strong>Guardrail Features:</strong></p>
+<ul>
+<li>Content filtering (harmful content prevention)</li>
+<li>Topic constraints (limit agent scope)</li>
+<li>PII detection and handling</li>
+<li>Sensitive information protection</li>
+<li>Jailbreak prevention</li>
+<li>Output validation and filtering</li>
+</ul>
+<p><strong>Policy Types:</strong></p>
+<ul>
+<li>Deny lists (prohibited topics/words)</li>
+<li>Allow lists (permitted topics)</li>
+<li>Custom filter logic</li>
+<li>Sensitive information redaction</li>
+</ul>
+<hr />
+<h3 id="6-foundation-model-selection">6. Foundation Model Selection<a class="headerlink" href="#6-foundation-model-selection" title="Permanent link">&para;</a></h3>
+<p><strong>Purpose</strong>: Choose the right model for agent reasoning and response generation</p>
+<p><strong>Available Models:</strong></p>
+<p><strong>Anthropic Claude</strong></p>
+<ul>
+<li>Claude 3.5 Sonnet (latest, best reasoning)</li>
+<li>Claude 3 Opus (most capable)</li>
+<li>Claude 3 Haiku (fast, lightweight)</li>
+</ul>
+<p><strong>AWS Titan</strong></p>
+<ul>
+<li>Titan Text Premier</li>
+<li>Titan Text Express</li>
+<li>Optimized for cost</li>
+</ul>
+<p><strong>Open Source Models</strong></p>
+<ul>
+<li>Meta Llama 2, 3</li>
+<li>Mistral Large</li>
+<li>Cohere Command R+</li>
+<li>Various fine-tuned variants</li>
+</ul>
+<p><strong>Model Selection Criteria:</strong></p>
+<ul>
+<li>Reasoning complexity (Opus/Sonnet for complex tasks)</li>
+<li>Cost sensitivity (Haiku/Mistral for simple tasks)</li>
+<li>Latency requirements (Haiku/Express for speed)</li>
+<li>Specific domain expertise</li>
+</ul>
+<hr />
+<h3 id="7-logging-and-monitoring">7. Logging and Monitoring<a class="headerlink" href="#7-logging-and-monitoring" title="Permanent link">&para;</a></h3>
+<p><strong>Purpose</strong>: Track agent behavior, performance, and usage</p>
+<p><strong>Monitoring Capabilities:</strong></p>
+<p><strong>Execution Logs</strong></p>
+<ul>
+<li>Agent invocation details</li>
+<li>Tool calls and responses</li>
+<li>Reasoning steps and decisions</li>
+<li>Error and exception tracking</li>
+<li>Token usage per request</li>
+</ul>
+<p><strong>Performance Metrics</strong></p>
+<ul>
+<li>Latency and response times</li>
+<li>Tool invocation success rates</li>
+<li>Model inference performance</li>
+<li>Cost per interaction</li>
+</ul>
+<p><strong>CloudWatch Integration</strong></p>
+<ul>
+<li>Custom metrics and dashboards</li>
+<li>Alarms for errors and anomalies</li>
+<li>Log analysis and insights</li>
+<li>Cost tracking and optimization</li>
+</ul>
+<p><strong>Audit Logging</strong></p>
+<ul>
+<li>All API calls and changes</li>
+<li>User actions and agent modifications</li>
+<li>Data access logs</li>
+<li>Compliance and regulatory tracking</li>
+</ul>
+<hr />
+<h3 id="8-api-and-invocation">8. API and Invocation<a class="headerlink" href="#8-api-and-invocation" title="Permanent link">&para;</a></h3>
+<p><strong>Purpose</strong>: Integrate agents into applications and workflows</p>
+<p><strong>Invocation Methods:</strong></p>
+<p><strong>Synchronous Invocation</strong></p>
+<ul>
+<li>Real-time agent execution</li>
+<li>Direct HTTP API calls</li>
+<li>Immediate response</li>
+<li>Best for chatbots and interactive use</li>
+</ul>
+<p><strong>Asynchronous Invocation</strong></p>
+<ul>
+<li>Lambda-based agent triggers</li>
+<li>EventBridge integration</li>
+<li>Batch processing</li>
+<li>Best for long-running tasks</li>
+</ul>
+<p><strong>API Operations:</strong>
+<div class="highlight"><pre><span></span><code>POST /agents/{agentId}/sessions/{sessionId}/invoke
+- Input: user message, session context
+- Output: agent response, tool calls, reasoning
+
+GET /agents/{agentId}/sessions/{sessionId}/history
+- Retrieve conversation history
+
+DELETE /agents/{agentId}/sessions/{sessionId}
+- Clear session state
+</code></pre></div></p>
+<hr />
+<h2 id="core-components-of-bedrock-agentcore_1">Core Components of Bedrock AgentCore<a class="headerlink" href="#core-components-of-bedrock-agentcore_1" title="Permanent link">&para;</a></h2>
+<p><strong>Foundation Models:</strong></p>
+<ul>
+<li>Anthropic Claude (multiple versions)</li>
+<li>AWS Titan Text family</li>
+<li>Meta Llama &#8532;</li>
+<li>Mistral models</li>
+<li>Cohere models</li>
+</ul>
+<p><strong>Integration Services:</strong></p>
+<ul>
+<li><strong>Data Access</strong>: S3, DynamoDB, RDS, Athena</li>
+<li><strong>Compute</strong>: Lambda for tool execution</li>
+<li><strong>Storage</strong>: Knowledge base indexing</li>
+<li><strong>Monitoring</strong>: CloudWatch logs and metrics</li>
+<li><strong>Security</strong>: IAM, Secrets Manager, KMS</li>
+<li><strong>Messaging</strong>: SNS, SQS for async workflows</li>
+</ul>
+<p><strong>Vector Database Support:</strong></p>
+<ul>
+<li>Amazon OpenSearch Serverless</li>
+<li>Pinecone (third-party)</li>
+<li>Weaviate (third-party)</li>
+<li>Custom vector stores</li>
+</ul>
+<p><strong>Orchestration &amp; Workflow:</strong></p>
+<ul>
+<li>AWS Step Functions integration</li>
+<li>EventBridge for event-driven agents</li>
+<li>Lambda for custom logic</li>
+<li>SNS/SQS for asynchronous patterns</li>
+</ul>
+<hr />
+<h2 id="bedrock-agentcore-workflow-from-concept-to-deployment">Bedrock AgentCore Workflow: From Concept to Deployment<a class="headerlink" href="#bedrock-agentcore-workflow-from-concept-to-deployment" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>┌─────────────────────────────────────────────────────────────────┐
+│              Agent Development &amp; Deployment Lifecycle            │
+└─────────────────────────────────────────────────────────────────┘
+
+1. AGENT DESIGN &amp; PLANNING
+   └─&gt; Define agent purpose and responsibilities
+   └─&gt; Identify required tools and integrations
+   └─&gt; Plan knowledge base content
+   └─&gt; Design user interaction flows
+
+2. KNOWLEDGE BASE SETUP (Optional)
+   └─&gt; Collect and organize documents
+   └─&gt; Configure Bedrock Knowledge Base
+   └─&gt; Upload and index documents
+   └─&gt; Test retrieval functionality
+
+3. TOOL INTEGRATION
+   └─&gt; Define external APIs and services
+   └─&gt; Create OpenAPI specifications
+   └─&gt; Configure AWS Lambda functions
+   └─&gt; Set up permissions and credentials
+
+4. AGENT CREATION
+   └─&gt; Create agent in Bedrock AgentCore
+   └─&gt; Select foundation model
+   └─&gt; Define instructions and system prompt
+   └─&gt; Configure guardrails and policies
+   └─&gt; Connect knowledge bases and tools
+
+5. TESTING &amp; EVALUATION
+   └─&gt; Test agent conversations
+   └─&gt; Verify tool invocations
+   └─&gt; Evaluate response quality
+   └─&gt; Identify edge cases and improvements
+
+6. DEPLOYMENT &amp; INTEGRATION
+   └─&gt; Deploy agent to production
+   └─&gt; Integrate with applications via API
+   └─&gt; Set up monitoring and logging
+   └─&gt; Configure auto-scaling and limits
+
+7. MONITORING &amp; OPTIMIZATION
+   └─&gt; Track agent performance metrics
+   └─&gt; Monitor error rates and latency
+   └─&gt; Analyze usage patterns
+   └─&gt; Optimize prompts and tools
+   └─&gt; Update knowledge bases as needed
+</code></pre></div>
+<hr />
+<h2 id="how-to-get-started-with-bedrock-agentcore">How to Get Started with Bedrock AgentCore<a class="headerlink" href="#how-to-get-started-with-bedrock-agentcore" title="Permanent link">&para;</a></h2>
+<h3 id="step-1-enable-amazon-bedrock">Step 1: Enable Amazon Bedrock<a class="headerlink" href="#step-1-enable-amazon-bedrock" title="Permanent link">&para;</a></h3>
+<p><strong>Via AWS Console:</strong>
+1. Navigate to Amazon Bedrock
+2. Go to "Model access" section
+3. Enable models you want to use (e.g., Claude 3.5 Sonnet)
+4. Wait for access approval (usually immediate)</p>
+<p><strong>Via AWS CLI:</strong>
+<div class="highlight"><pre><span></span><code><span class="c1"># List available models</span>
+aws<span class="w"> </span>bedrock<span class="w"> </span>list-foundation-models<span class="w"> </span>--region<span class="w"> </span>us-east-1
+
+<span class="c1"># Check model access</span>
+aws<span class="w"> </span>bedrock<span class="w"> </span>list-foundation-models<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--query<span class="w"> </span><span class="s2">&quot;modelSummaries[?modelId==&#39;anthropic.claude-3-5-sonnet-20241022-v2:0&#39;]&quot;</span>
+</code></pre></div></p>
+<h3 id="step-2-create-an-iam-role-for-agent-execution">Step 2: Create an IAM Role for Agent Execution<a class="headerlink" href="#step-2-create-an-iam-role-for-agent-execution" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create role for Bedrock agents</span>
+cat<span class="w"> </span>&gt;<span class="w"> </span>bedrock-agent-trust.json<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+<span class="s">{</span>
+<span class="s">  &quot;Version&quot;: &quot;2012-10-17&quot;,</span>
+<span class="s">  &quot;Statement&quot;: [</span>
+<span class="s">    {</span>
+<span class="s">      &quot;Effect&quot;: &quot;Allow&quot;,</span>
+<span class="s">      &quot;Principal&quot;: {</span>
+<span class="s">        &quot;Service&quot;: &quot;bedrock.amazonaws.com&quot;</span>
+<span class="s">      },</span>
+<span class="s">      &quot;Action&quot;: &quot;sts:AssumeRole&quot;</span>
+<span class="s">    }</span>
+<span class="s">  ]</span>
+<span class="s">}</span>
+<span class="s">EOF</span>
+
+<span class="c1"># Create role</span>
+aws<span class="w"> </span>iam<span class="w"> </span>create-role<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--role-name<span class="w"> </span>BedrockAgentExecutionRole<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--assume-role-policy-document<span class="w"> </span>file://bedrock-agent-trust.json
+
+<span class="c1"># Attach permissions for model invocation</span>
+aws<span class="w"> </span>iam<span class="w"> </span>attach-role-policy<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--role-name<span class="w"> </span>BedrockAgentExecutionRole<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--policy-arn<span class="w"> </span>arn:aws:iam::aws:policy/AmazonBedrockFullAccess
+</code></pre></div>
+<h3 id="step-3-create-a-knowledge-base-optional">Step 3: Create a Knowledge Base (Optional)<a class="headerlink" href="#step-3-create-a-knowledge-base-optional" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">boto3</span>
+
+<span class="n">bedrock</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s1">&#39;bedrock&#39;</span><span class="p">,</span> <span class="n">region_name</span><span class="o">=</span><span class="s1">&#39;us-east-1&#39;</span><span class="p">)</span>
+<span class="n">bedrock_agent</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s1">&#39;bedrock-agent&#39;</span><span class="p">,</span> <span class="n">region_name</span><span class="o">=</span><span class="s1">&#39;us-east-1&#39;</span><span class="p">)</span>
+
+<span class="c1"># Create knowledge base</span>
+<span class="n">kb_response</span> <span class="o">=</span> <span class="n">bedrock_agent</span><span class="o">.</span><span class="n">create_knowledge_base</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;my-knowledge-base&#39;</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Knowledge base for customer support&#39;</span><span class="p">,</span>
+    <span class="n">roleArn</span><span class="o">=</span><span class="s1">&#39;arn:aws:iam::ACCOUNT_ID:role/BedrockAgentExecutionRole&#39;</span><span class="p">,</span>
+    <span class="n">knowledgeBaseConfiguration</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;VECTOR&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;vectorKnowledgeBaseConfiguration&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;embeddingModel&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;provider&#39;</span><span class="p">:</span> <span class="s1">&#39;BEDROCK&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;modelIdentifier&#39;</span><span class="p">:</span> <span class="s1">&#39;amazon.titan-embed-text-v1&#39;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="n">storageConfiguration</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;OPENSEARCH_SERVERLESS&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;opensearchServerlessConfiguration&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;collectionArn&#39;</span><span class="p">:</span> <span class="s1">&#39;arn:aws:aoss:region:account-id:collection/collection-id&#39;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+
+<span class="n">kb_id</span> <span class="o">=</span> <span class="n">kb_response</span><span class="p">[</span><span class="s1">&#39;knowledgeBase&#39;</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Knowledge base created: </span><span class="si">{</span><span class="n">kb_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="step-4-create-an-agent">Step 4: Create an Agent<a class="headerlink" href="#step-4-create-an-agent" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Define agent instructions</span>
+<span class="n">agent_instructions</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;You are a customer support agent. </span>
+<span class="s2">You help customers with product questions, troubleshooting, and account issues.</span>
+<span class="s2">Always be helpful, patient, and professional.</span>
+<span class="s2">If you don&#39;t know something, suggest the customer contact support.&quot;&quot;&quot;</span>
+
+<span class="c1"># Create the agent</span>
+<span class="n">agent_response</span> <span class="o">=</span> <span class="n">bedrock_agent</span><span class="o">.</span><span class="n">create_agent</span><span class="p">(</span>
+    <span class="n">agentName</span><span class="o">=</span><span class="s1">&#39;customer-support-agent&#39;</span><span class="p">,</span>
+    <span class="n">agentRoleArn</span><span class="o">=</span><span class="s1">&#39;arn:aws:iam::ACCOUNT_ID:role/BedrockAgentExecutionRole&#39;</span><span class="p">,</span>
+    <span class="n">instruction</span><span class="o">=</span><span class="n">agent_instructions</span><span class="p">,</span>
+    <span class="n">foundationModel</span><span class="o">=</span><span class="s1">&#39;anthropic.claude-3-5-sonnet-20241022-v2:0&#39;</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Customer support automation agent&#39;</span><span class="p">,</span>
+    <span class="n">knowledgeBaseAssociations</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s1">&#39;knowledgeBaseId&#39;</span><span class="p">:</span> <span class="n">kb_id</span><span class="p">,</span>
+            <span class="s1">&#39;knowledgeBaseState&#39;</span><span class="p">:</span> <span class="s1">&#39;ENABLED&#39;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">agent_id</span> <span class="o">=</span> <span class="n">agent_response</span><span class="p">[</span><span class="s1">&#39;agent&#39;</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Agent created: </span><span class="si">{</span><span class="n">agent_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="step-5-define-and-add-tools-to-agent">Step 5: Define and Add Tools to Agent<a class="headerlink" href="#step-5-define-and-add-tools-to-agent" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Define a tool for querying customer database</span>
+<span class="n">customer_tool</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;toolName&#39;</span><span class="p">:</span> <span class="s1">&#39;query_customer_database&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s1">&#39;Query customer information from the database&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;toolInputSchema&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;json&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;object&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;properties&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;customer_id&#39;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s1">&#39;The customer ID to query&#39;</span>
+                <span class="p">},</span>
+                <span class="s1">&#39;query_type&#39;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;enum&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;account_status&#39;</span><span class="p">,</span> <span class="s1">&#39;order_history&#39;</span><span class="p">,</span> <span class="s1">&#39;contact_info&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s1">&#39;Type of information to retrieve&#39;</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="s1">&#39;required&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;customer_id&#39;</span><span class="p">,</span> <span class="s1">&#39;query_type&#39;</span><span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;toolInputSchema&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;json&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;object&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;properties&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;customer_id&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">},</span>
+                <span class="s1">&#39;query_type&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;string&#39;</span><span class="p">}</span>
+            <span class="p">},</span>
+            <span class="s1">&#39;required&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;customer_id&#39;</span><span class="p">,</span> <span class="s1">&#39;query_type&#39;</span><span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1"># Add tool to agent</span>
+<span class="n">bedrock_agent</span><span class="o">.</span><span class="n">create_agent_action_group</span><span class="p">(</span>
+    <span class="n">agentId</span><span class="o">=</span><span class="n">agent_id</span><span class="p">,</span>
+    <span class="n">actionGroupName</span><span class="o">=</span><span class="s1">&#39;CustomerDatabase&#39;</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Tools for accessing customer information&#39;</span><span class="p">,</span>
+    <span class="n">actionGroupExecutor</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">&#39;lambda&#39;</span><span class="p">:</span> <span class="s1">&#39;arn:aws:lambda:region:account-id:function:query-customer-db&#39;</span>
+    <span class="p">},</span>
+    <span class="n">apiSchema</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">&#39;payload&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;properties&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;functions&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">customer_tool</span><span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tool added to agent&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="step-6-test-the-agent">Step 6: Test the Agent<a class="headerlink" href="#step-6-test-the-agent" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create session for conversation</span>
+<span class="n">session_response</span> <span class="o">=</span> <span class="n">bedrock_agent</span><span class="o">.</span><span class="n">create_session</span><span class="p">(</span>
+    <span class="n">agentId</span><span class="o">=</span><span class="n">agent_id</span><span class="p">,</span>
+    <span class="n">sessionName</span><span class="o">=</span><span class="s1">&#39;test-session&#39;</span>
+<span class="p">)</span>
+
+<span class="n">session_id</span> <span class="o">=</span> <span class="n">session_response</span><span class="p">[</span><span class="s1">&#39;sessionId&#39;</span><span class="p">]</span>
+
+<span class="c1"># Invoke agent with user input</span>
+<span class="n">invoke_response</span> <span class="o">=</span> <span class="n">bedrock_agent</span><span class="o">.</span><span class="n">invoke_agent</span><span class="p">(</span>
+    <span class="n">agentId</span><span class="o">=</span><span class="n">agent_id</span><span class="p">,</span>
+    <span class="n">sessionId</span><span class="o">=</span><span class="n">session_id</span><span class="p">,</span>
+    <span class="n">inputText</span><span class="o">=</span><span class="s2">&quot;I have a question about my order #12345&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Process response</span>
+<span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">invoke_response</span><span class="p">[</span><span class="s1">&#39;response&#39;</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="s1">&#39;text&#39;</span> <span class="ow">in</span> <span class="n">event</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Agent: </span><span class="si">{</span><span class="n">event</span><span class="p">[</span><span class="s1">&#39;text&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="s1">&#39;toolInvocation&#39;</span> <span class="ow">in</span> <span class="n">event</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Tool invoked: </span><span class="si">{</span><span class="n">event</span><span class="p">[</span><span class="s1">&#39;toolInvocation&#39;</span><span class="p">][</span><span class="s1">&#39;toolName&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total tokens used: </span><span class="si">{</span><span class="n">invoke_response</span><span class="p">[</span><span class="s1">&#39;metrics&#39;</span><span class="p">][</span><span class="s1">&#39;tokenUsage&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="step-7-deploy-and-monitor">Step 7: Deploy and Monitor<a class="headerlink" href="#step-7-deploy-and-monitor" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Prepare agent for deployment</span>
+<span class="n">bedrock_agent</span><span class="o">.</span><span class="n">prepare_agent</span><span class="p">(</span><span class="n">agentId</span><span class="o">=</span><span class="n">agent_id</span><span class="p">)</span>
+
+<span class="c1"># Wait for preparation</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+
+<span class="c1"># Get agent details</span>
+<span class="n">agent_details</span> <span class="o">=</span> <span class="n">bedrock_agent</span><span class="o">.</span><span class="n">get_agent</span><span class="p">(</span><span class="n">agentId</span><span class="o">=</span><span class="n">agent_id</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Agent status: </span><span class="si">{</span><span class="n">agent_details</span><span class="p">[</span><span class="s1">&#39;agent&#39;</span><span class="p">][</span><span class="s1">&#39;agentStatus&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Monitor using CloudWatch</span>
+<span class="n">cloudwatch</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s1">&#39;cloudwatch&#39;</span><span class="p">)</span>
+
+<span class="c1"># Create custom metric for agent invocations</span>
+<span class="n">cloudwatch</span><span class="o">.</span><span class="n">put_metric_data</span><span class="p">(</span>
+    <span class="n">Namespace</span><span class="o">=</span><span class="s1">&#39;BedrockAgents&#39;</span><span class="p">,</span>
+    <span class="n">MetricData</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s1">&#39;MetricName&#39;</span><span class="p">:</span> <span class="s1">&#39;AgentInvocations&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;Value&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s1">&#39;Unit&#39;</span><span class="p">:</span> <span class="s1">&#39;Count&#39;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</code></pre></div>
+<hr />
+<h2 id="pricing-and-cost-optimization">Pricing and Cost Optimization<a class="headerlink" href="#pricing-and-cost-optimization" title="Permanent link">&para;</a></h2>
+<h3 id="pricing-models">Pricing Models<a class="headerlink" href="#pricing-models" title="Permanent link">&para;</a></h3>
+<p><strong>Model Invocation Costs</strong></p>
+<ul>
+<li><strong>Claude Models</strong>: Charged per 1K input/output tokens</li>
+<li>Claude 3.5 Sonnet: $3 per 1M input tokens, $15 per 1M output tokens</li>
+<li>Claude 3 Opus: $15 per 1M input tokens, $75 per 1M output tokens</li>
+<li>Claude 3 Haiku: $0.25 per 1M input tokens, $1.25 per 1M output tokens</li>
+</ul>
+<p><strong>Titan Models</strong>: Lower cost alternative
+  - Titan Text Express: $0.20 per 1K tokens
+  - Titan Text Premier: $0.50 per 1K tokens</p>
+<p><strong>Knowledge Base Costs</strong></p>
+<ul>
+<li>OpenSearch Serverless: Charged per OCU (OpenSearch Compute Unit)</li>
+<li>Embedding generation: Charged per 1K embeddings</li>
+</ul>
+<p><strong>Tool Invocation Costs</strong></p>
+<ul>
+<li>Lambda execution: Standard Lambda pricing</li>
+<li>API calls: Depends on integrated service pricing</li>
+</ul>
+<h3 id="cost-optimization-strategies">Cost Optimization Strategies<a class="headerlink" href="#cost-optimization-strategies" title="Permanent link">&para;</a></h3>
+<p>✅ <strong>Choose Right-Sized Models</strong>
+- Use Claude 3 Haiku for simple tasks (lowest cost)
+- Reserve Opus for complex reasoning
+- Balance cost vs. quality for your use case</p>
+<p>✅ <strong>Optimize Prompt Engineering</strong>
+- Reduce unnecessary context in prompts
+- Be specific about required information
+- Minimize output token generation</p>
+<p>✅ <strong>Implement Caching Strategies</strong>
+- Cache frequent questions and answers
+- Store successful tool results
+- Reuse computed information</p>
+<p>✅ <strong>Use RAG Efficiently</strong>
+- Retrieve only necessary documents
+- Limit knowledge base results
+- Pre-filter large datasets</p>
+<p>✅ <strong>Batch Processing</strong>
+- Group multiple requests together
+- Use asynchronous invocation
+- Process during off-peak hours</p>
+<p>✅ <strong>Monitor and Analyze</strong>
+- Track token usage per agent
+- Identify expensive interactions
+- Optimize based on usage patterns</p>
+<hr />
+<h2 id="security-best-practices">Security Best Practices<a class="headerlink" href="#security-best-practices" title="Permanent link">&para;</a></h2>
+<h3 id="access-control">Access Control<a class="headerlink" href="#access-control" title="Permanent link">&para;</a></h3>
+<p><strong>IAM Permissions</strong></p>
+<ul>
+<li>Use least privilege principle</li>
+<li>Create specific roles per agent</li>
+<li>Separate read and write permissions</li>
+<li>Audit role usage regularly</li>
+</ul>
+<p><strong>API Security</strong></p>
+<ul>
+<li>Authenticate all API calls</li>
+<li>Use AWS Signature Version 4</li>
+<li>Implement rate limiting</li>
+<li>Monitor for suspicious activity</li>
+</ul>
+<h3 id="data-protection">Data Protection<a class="headerlink" href="#data-protection" title="Permanent link">&para;</a></h3>
+<p><strong>Encryption</strong></p>
+<ul>
+<li>Enable encryption in transit (TLS)</li>
+<li>Encrypt sensitive data at rest</li>
+<li>Use AWS KMS for key management</li>
+<li>Rotate encryption keys regularly</li>
+</ul>
+<p><strong>PII Handling</strong></p>
+<ul>
+<li>Configure guardrails for PII detection</li>
+<li>Redact sensitive information</li>
+<li>Log PII handling for compliance</li>
+<li>Implement data retention policies</li>
+</ul>
+<h3 id="agent-security">Agent Security<a class="headerlink" href="#agent-security" title="Permanent link">&para;</a></h3>
+<p><strong>Guardrails Implementation</strong></p>
+<ul>
+<li>Enable content filtering</li>
+<li>Set topic constraints</li>
+<li>Prevent jailbreak attempts</li>
+<li>Filter inappropriate outputs</li>
+</ul>
+<p><strong>Tool Security</strong></p>
+<ul>
+<li>Validate all tool inputs</li>
+<li>Implement error handling</li>
+<li>Use VPC endpoints for private data</li>
+<li>Limit tool permissions</li>
+</ul>
+<h3 id="monitoring-auditing">Monitoring &amp; Auditing<a class="headerlink" href="#monitoring-auditing" title="Permanent link">&para;</a></h3>
+<p><strong>Logging</strong></p>
+<ul>
+<li>Enable CloudTrail for API calls</li>
+<li>Monitor agent invocations</li>
+<li>Track tool execution</li>
+<li>Store logs for compliance</li>
+</ul>
+<p><strong>Alerts</strong></p>
+<ul>
+<li>Set up CloudWatch alarms</li>
+<li>Monitor error rates</li>
+<li>Alert on unusual patterns</li>
+<li>Track cost anomalies</li>
+</ul>
+<hr />
+<h2 id="common-use-cases-for-bedrock-agentcore">Common Use Cases for Bedrock AgentCore<a class="headerlink" href="#common-use-cases-for-bedrock-agentcore" title="Permanent link">&para;</a></h2>
+<h3 id="1-customer-support-automation">1. Customer Support Automation<a class="headerlink" href="#1-customer-support-automation" title="Permanent link">&para;</a></h3>
+<ul>
+<li>AI agent handling support tickets</li>
+<li>Knowledge base integration for FAQs</li>
+<li>Tool integration with ticketing systems</li>
+<li>Multi-turn conversation support</li>
+<li>Escalation to human agents when needed</li>
+</ul>
+<h3 id="2-data-analysis-reporting">2. Data Analysis &amp; Reporting<a class="headerlink" href="#2-data-analysis-reporting" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Agents querying databases and data lakes</li>
+<li>Automated report generation</li>
+<li>Data visualization assistance</li>
+<li>Trend analysis and insights</li>
+<li>Executive summary creation</li>
+</ul>
+<h3 id="3-research-assistant">3. Research Assistant<a class="headerlink" href="#3-research-assistant" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Literature review automation</li>
+<li>Information gathering from multiple sources</li>
+<li>Content synthesis and summarization</li>
+<li>Citation tracking</li>
+<li>Research question answering</li>
+</ul>
+<h3 id="4-it-helpdesk-automation">4. IT Helpdesk Automation<a class="headerlink" href="#4-it-helpdesk-automation" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Troubleshooting assistance</li>
+<li>System status checking</li>
+<li>Configuration management</li>
+<li>Knowledge base search</li>
+<li>Ticket routing and prioritization</li>
+</ul>
+<h3 id="5-content-generation">5. Content Generation<a class="headerlink" href="#5-content-generation" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Document and report creation</li>
+<li>Email drafting and response</li>
+<li>Blog post generation</li>
+<li>Code documentation</li>
+<li>Meeting summaries</li>
+</ul>
+<h3 id="6-multi-tool-orchestration">6. Multi-Tool Orchestration<a class="headerlink" href="#6-multi-tool-orchestration" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Cross-system workflow automation</li>
+<li>Data integration across platforms</li>
+<li>Complex business process automation</li>
+<li>API coordination</li>
+<li>System monitoring and alerts</li>
+</ul>
+<hr />
+<h2 id="learning-resources">Learning Resources<a class="headerlink" href="#learning-resources" title="Permanent link">&para;</a></h2>
+<h3 id="official-aws-documentation">Official AWS Documentation<a class="headerlink" href="#official-aws-documentation" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://docs.aws.amazon.com/bedrock/">Amazon Bedrock Documentation</a></li>
+<li><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents.html">Bedrock Agents Developer Guide</a></li>
+<li><a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/">Bedrock API Reference</a></li>
+<li><a href="https://aws.amazon.com/bedrock/pricing/">Bedrock Pricing</a></li>
+</ul>
+<h3 id="code-examples-tutorials">Code Examples &amp; Tutorials<a class="headerlink" href="#code-examples-tutorials" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://github.com/aws-samples/amazon-bedrock-examples">AWS Bedrock Examples (GitHub)</a></li>
+<li><a href="https://github.com/aws/amazon-bedrock-agentcore-samples">Bedrock Agents Repository</a></li>
+<li><a href="https://aws.amazon.com/blogs/machine-learning/category/artificial-intelligence/bedrock/">AWS Blogs - Bedrock</a></li>
+<li><a href="https://github.com/aws-samples/bedrock-workshop">Bedrock Workshop Materials</a></li>
+</ul>
+<h3 id="training-certifications">Training &amp; Certifications<a class="headerlink" href="#training-certifications" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://skillbuilder.aws/">AWS Skill Builder - Generative AI Learning Path</a></li>
+<li><a href="https://aws.amazon.com/certification/certified-ai-practitioner/">AWS Certified AI Practitioner</a></li>
+<li><a href="https://github.com/aws-samples/bedrock-workshop">Bedrock Workshop Repository</a></li>
+</ul>
+<h3 id="community-support">Community &amp; Support<a class="headerlink" href="#community-support" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://forums.aws.amazon.com/forum.jspa?forumID=371">AWS Community Forums - Bedrock</a></li>
+<li><a href="https://stackoverflow.com/questions/tagged/amazon-bedrock">Stack Overflow - amazon-bedrock tag</a></li>
+<li><a href="https://console.aws.amazon.com/support/">AWS Support Center</a></li>
+</ul>
+<hr />
+<h2 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">&para;</a></h2>
+<p><strong>What is Bedrock AgentCore?</strong>
+- Fully managed service for building and deploying intelligent agents
+- Uses foundation models for reasoning and decision-making
+- Integrates seamlessly with tools and external systems
+- Supports RAG for knowledge base integration</p>
+<p><strong>Core Strengths:</strong>
+- ✅ Fully managed (no infrastructure to manage)
+- ✅ Multi-model support with flexible choices
+- ✅ Autonomous multi-step reasoning and planning
+- ✅ Tool integration for extended capabilities
+- ✅ RAG support for domain-specific knowledge
+- ✅ Cost-effective pay-per-use model
+- ✅ Enterprise-grade security and governance
+- ✅ Fast deployment without complex setup</p>
+<p><strong>Getting Started:</strong>
+1. Enable Amazon Bedrock and model access
+2. Create IAM execution role
+3. Set up knowledge base (optional)
+4. Create agent with instructions
+5. Define and add tools
+6. Test agent conversations
+7. Deploy and monitor performance</p>
+<p><strong>Best Practices:</strong>
+- Start with simple agents, expand capabilities
+- Use appropriate model for task complexity
+- Implement proper guardrails for safety
+- Monitor costs and usage patterns
+- Maintain security through IAM and encryption
+- Continuously improve prompts based on feedback</p>
+<p>Amazon Bedrock AgentCore enables enterprises to build intelligent, autonomous agents that can handle complex multi-step tasks while maintaining security, cost efficiency, and reliability.</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../amazon-sagemaker-guide/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Amazon SageMaker Guide">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Amazon SageMaker Guide
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../../gcp/what-is-gcp/" class="md-footer__link md-footer__link--next" aria-label="Next: What is GCP?">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                What is GCP?
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2021 - 2025 DevopsPilot
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.top", "navigation.footer", "navigation.expand", "navigation.indexes", "toc.follow", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
