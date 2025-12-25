@@ -1,6 +1,7 @@
 # MkDocs and Material for MkDocs
 mkdocs==1.6.1
 mkdocs-material==9.6.13
+mkdocs-jupyter==0.24.7
 pymdown-extensions==10.15
 
 # Markdown extensions (as specified in the mkdocs.yaml)

@@ -179,6 +179,10 @@ nav:
       - Deploy Python App to Cloud Run: cloud/gcp/projects/deploy-python-image-to-cloud-run.md
       - Deploy Signed Image to Cloud Run with Binary Authorization: cloud/gcp/projects/deploy-signed-image-to-cloud-run-with-binary-authorization.md
       - Apigee X with PSC to Cloud Run: cloud/gcp/projects/apigee-x-psc-cloudrun.md
+  - Notebooks:
+    - Overview: notebooks/index.md
+    - AWS Bedrock AgentCore:
+      - Tutorials: notebooks/aws/amazon-bedrock-agentcore-samples/01-tutorials
   - SSL:
     - How to configure free Let’s Encrypt SSL/TLS Certificates with NGINX and auto renew certificates: ssl/how-to-configure-free-letsencrypt-ssl-tls-certificates-with-nginx.md
     - How to configure free single Let’s Encrypt SSL/TLS Certificate with NGINX for multiple subdomains and auto renew certificate: ssl/how-to-configure-free-letsencrypt-ssl-tls-certificates-with-nginx-for-subdomains.md
@@ -225,3 +229,5 @@ markdown_extensions:
 
 plugins:
   - search
+  - jupyter:
+      execute: false
