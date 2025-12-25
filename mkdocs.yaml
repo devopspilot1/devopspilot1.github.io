@@ -229,5 +229,6 @@ markdown_extensions:
 
 plugins:
   - search
-  - jupyter:
+  - mkdocs-jupyter:
+      include: ["*.ipynb"]
       execute: false
