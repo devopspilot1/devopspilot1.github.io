@@ -5,6 +5,7 @@
 This tutorial demonstrates how to deploy a Flask application to AWS Lambda using Docker container images. We'll cover everything from writing a Dockerfile with AWS base images to creating the Lambda function with a function URL using AWS CLI.
 
 **What you'll learn:**
+
 - How to write a Dockerfile for Flask applications using AWS Lambda base images
 - Why AWS base images are recommended for Lambda
 - Best practices for CMD instructions in Lambda containers
@@ -13,6 +14,7 @@ This tutorial demonstrates how to deploy a Flask application to AWS Lambda using
 - Creating Lambda functions with function URLs using AWS CLI
 
 **Prerequisites:**
+
 - AWS CLI installed and configured
 - Docker installed and running
 - Basic knowledge of Python, Flask, and Docker
@@ -36,6 +38,7 @@ AWS provides official base images for Lambda that include:
 - &#x2705; **AWS SDK**: Pre-installed AWS SDK for your runtime
 
 **Available base images:**
+
 - `public.ecr.aws/lambda/python:3.9`
 - `public.ecr.aws/lambda/python:3.10`
 - `public.ecr.aws/lambda/python:3.11`
@@ -178,28 +181,34 @@ CMD ["app.lambda_handler"]
 **Line-by-line explanation:**
 
 1. **`FROM public.ecr.aws/lambda/python:3.13`**
+
    - Uses AWS official Lambda Python 3.13 base image (latest)
    - Includes Lambda Runtime Interface Client pre-installed
    - Optimized for Lambda execution environment
 
 2. **`WORKDIR ${LAMBDA_TASK_ROOT}`**
+
    - `${LAMBDA_TASK_ROOT}` is an environment variable set by AWS base image
    - Points to `/var/task` - the default working directory for Lambda
    - All your code should be placed here
 
 3. **`COPY requirements.txt .`**
+
    - Copies dependencies file first (Docker layer caching optimization)
    - If requirements don't change, this layer is cached
 
 4. **`RUN pip install --no-cache-dir -r requirements.txt`**
+
    - Installs Flask and its dependencies
    - `--no-cache-dir` reduces image size by not storing pip cache
 
 5. **`COPY app.py .`**
+
    - Copies application code
    - Done after pip install for better layer caching
 
 6. **`CMD ["app.lambda_handler"]`**
+
    - Specifies the Lambda handler function
    - Format: `module_name.function_name`
    - This is what Lambda will invoke
@@ -220,6 +229,7 @@ ENTRYPOINT ["/lambda-entrypoint.sh"]
 #### How ENTRYPOINT and CMD Work Together
 
 In Docker, `ENTRYPOINT` and `CMD` work together:
+
 - **ENTRYPOINT**: The main executable (fixed)
 - **CMD**: Arguments passed to the ENTRYPOINT (you specify this)
 
@@ -235,21 +245,25 @@ Full command = ENTRYPOINT + CMD
 The Lambda entrypoint script performs several critical functions:
 
 1. **Starts the Lambda Runtime Interface Client (RIC)**
+
    - Communicates with Lambda service via the Runtime API
    - Handles the invocation lifecycle
    - Manages the request/response protocol
 
 2. **Sets Up the Runtime Environment**
+
    - Configures environment variables
    - Sets up logging to CloudWatch
    - Initializes AWS SDK credentials
 
 3. **Loads Your Handler**
+
    - Imports your Python module (e.g., `app`)
    - Finds your handler function (e.g., `lambda_handler`)
    - Keeps it ready for invocations
 
 4. **Manages the Execution Loop**
+
    - Waits for invocation events from Lambda service
    - Calls your handler with (event, context)
    - Returns responses to Lambda service
@@ -299,6 +313,7 @@ CMD ["app.py"]
 ```
 
 **Why it breaks:**
+
 - Removes the Lambda Runtime Interface Client
 - Lambda service can't communicate with your container
 - No event handling, no context, no CloudWatch logs
@@ -313,20 +328,24 @@ CMD ["app.lambda_handler"]  # Just specify your handler
 #### Benefits of Pre-configured ENTRYPOINT
 
 1. **Simplified Dockerfile**
+
    - You only need to specify CMD
    - No need to manage runtime client
 
 2. **Consistent Behavior**
+
    - All Lambda containers work the same way
    - Guaranteed compatibility with Lambda service
 
 3. **Built-in Features**
+
    - Automatic CloudWatch logging
    - AWS X-Ray tracing support
    - Proper error handling
    - Graceful shutdown
 
 4. **Security**
+
    - AWS-maintained and updated
    - Security patches applied automatically
    - No custom runtime vulnerabilities
@@ -468,6 +487,7 @@ docker build -t $REPO_NAME:latest .
 ```
 
 **What happens during build:**
+
 1. Downloads AWS Lambda Python base image
 2. Installs Flask and dependencies
 3. Copies application code
@@ -607,6 +627,7 @@ aws lambda create-function \
 ```
 
 **Parameters explained:**
+
 - `--function-name`: Name of your Lambda function
 - `--package-type Image`: Specifies we're using a container image (not ZIP)
 - `--code ImageUri`: Full URI of the Docker image in ECR
@@ -664,6 +685,7 @@ aws lambda create-function-url-config \
 ```
 
 **Parameters explained:**
+
 - `--auth-type NONE`: Public access (no authentication required)
 - `--cors`: CORS configuration for browser access
   - `AllowOrigins`: Which domains can access (use specific domains in production)
