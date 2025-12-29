@@ -169,7 +169,7 @@ nav:
   - Cloud:
     - AWS:
       - Tutorials:
-        - Deploy Flask API to Lambda using Docker: cloud/aws/tutorials/lambda-docker-flask.md
+        - Deploy Flask API to AWS Lambda using Docker: cloud/aws/tutorials/deploy-flask-api-to-aws-lambda-using-docker.md
         - Amazon SageMaker Guide: cloud/aws/tutorials/amazon-sagemaker-guide.md
         - Amazon Bedrock AgentCore Guide: cloud/aws/tutorials/amazon-bedrock-agentcore-guide.md
     - GCP:

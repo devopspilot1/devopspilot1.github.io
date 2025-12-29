@@ -131,12 +131,10 @@ def lambda_handler(event, context):
 **Understanding the code:**
 
 1. **Flask Routes**: Two simple endpoints
-
    - `@app.route('/')` - Root endpoint returns hello message
    - `@app.route('/health')` - Health check endpoint
 
 2. **Lambda Handler**: Routes requests to Flask functions
-
    - Checks the request path
    - **Uses `with app.app_context()`** - Creates Flask application context (required!)
    - Calls the appropriate Flask function
@@ -182,35 +180,29 @@ CMD ["app.lambda_handler"]
 
 **Line-by-line explanation:**
 
-1. **FROM public.ecr.aws/lambda/python:3.13**
-
+1. **`FROM public.ecr.aws/lambda/python:3.13`**
    - Uses AWS official Lambda Python 3.13 base image (latest)
    - Includes Lambda Runtime Interface Client pre-installed
    - Optimized for Lambda execution environment
 
-2. **WORKDIR ${LAMBDA_TASK_ROOT}**
-
+2. **`WORKDIR ${LAMBDA_TASK_ROOT}`**
    - `${LAMBDA_TASK_ROOT}` is an environment variable set by AWS base image
    - Points to `/var/task` - the default working directory for Lambda
    - All your code should be placed here
 
-3. **COPY requirements.txt .**
-
+3. **`COPY requirements.txt .`**
    - Copies dependencies file first (Docker layer caching optimization)
    - If requirements don't change, this layer is cached
 
-4. **RUN pip install --no-cache-dir -r requirements.txt**
-
+4. **`RUN pip install --no-cache-dir -r requirements.txt`**
    - Installs Flask and its dependencies
    - `--no-cache-dir` reduces image size by not storing pip cache
 
-5. **COPY app.py .**
-
+5. **`COPY app.py .`**
    - Copies application code
    - Done after pip install for better layer caching
 
-6. **CMD ["app.lambda_handler"]**
-
+6. **`CMD ["app.lambda_handler"]`**
    - Specifies the Lambda handler function
    - Format: `module_name.function_name`
    - This is what Lambda will invoke
@@ -247,25 +239,21 @@ Full command = ENTRYPOINT + CMD
 The Lambda entrypoint script performs several critical functions:
 
 1. **Starts the Lambda Runtime Interface Client (RIC)**
-
    - Communicates with Lambda service via the Runtime API
    - Handles the invocation lifecycle
    - Manages the request/response protocol
 
 2. **Sets Up the Runtime Environment**
-
    - Configures environment variables
    - Sets up logging to CloudWatch
    - Initializes AWS SDK credentials
 
 3. **Loads Your Handler**
-
    - Imports your Python module (e.g., `app`)
    - Finds your handler function (e.g., `lambda_handler`)
    - Keeps it ready for invocations
 
 4. **Manages the Execution Loop**
-
    - Waits for invocation events from Lambda service
    - Calls your handler with (event, context)
    - Returns responses to Lambda service
@@ -330,24 +318,20 @@ CMD ["app.lambda_handler"]  # Just specify your handler
 #### Benefits of Pre-configured ENTRYPOINT
 
 1. **Simplified Dockerfile**
-
    - You only need to specify CMD
    - No need to manage runtime client
 
 2. **Consistent Behavior**
-
    - All Lambda containers work the same way
    - Guaranteed compatibility with Lambda service
 
 3. **Built-in Features**
-
    - Automatic CloudWatch logging
    - AWS X-Ray tracing support
    - Proper error handling
    - Graceful shutdown
 
 4. **Security**
-
    - AWS-maintained and updated
    - Security patches applied automatically
    - No custom runtime vulnerabilities
