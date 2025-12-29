@@ -131,14 +131,16 @@ def lambda_handler(event, context):
 **Understanding the code:**
 
 1. **Flask Routes**: Two simple endpoints
-   - `@app.route('/')` - Root endpoint returns hello message
-   - `@app.route('/health')` - Health check endpoint
+
+    - `@app.route('/')` - Root endpoint returns hello message
+    - `@app.route('/health')` - Health check endpoint
 
 2. **Lambda Handler**: Routes requests to Flask functions
-   - Checks the request path
-   - **Uses `with app.app_context()`** - Creates Flask application context (required!)
-   - Calls the appropriate Flask function
-   - Returns Lambda-compatible response
+
+    - Checks the request path
+    - **Uses `with app.app_context()`** - Creates Flask application context (required!)
+    - Calls the appropriate Flask function
+    - Returns Lambda-compatible response
 
 3. **Why app_context()?** Flask functions like `jsonify()` need an active application context. Without it, you'll get "Working outside of application context" errors in Lambda.
 
@@ -674,10 +676,10 @@ aws lambda create-function-url-config \
 
 - `--auth-type NONE`: Public access (no authentication required)
 - `--cors`: CORS configuration for browser access
-  - `AllowOrigins`: Which domains can access (use specific domains in production)
-  - `AllowMethods`: HTTP methods allowed
-  - `AllowHeaders`: Headers allowed in requests
-  - `MaxAge`: How long browsers cache CORS preflight responses
+    - `AllowOrigins`: Which domains can access (use specific domains in production)
+    - `AllowMethods`: HTTP methods allowed
+    - `AllowHeaders`: Headers allowed in requests
+    - `MaxAge`: How long browsers cache CORS preflight responses
 
 **Expected output:**
 ```json
