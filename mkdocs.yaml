@@ -168,8 +168,10 @@ nav:
         - Apigee X with PSC to Cloud Run: terraform/gcp/projects/apigee-psc-cloud-run.md
   - Cloud:
     - AWS:
-      - Amazon SageMaker Guide: cloud/aws/tutorials/amazon-sagemaker-guide.md
-      - Amazon Bedrock AgentCore Guide: cloud/aws/tutorials/amazon-bedrock-agentcore-guide.md
+      - Tutorials:
+        - Deploy Flask API to Lambda using Docker: cloud/aws/tutorials/lambda-docker-flask.md
+        - Amazon SageMaker Guide: cloud/aws/tutorials/amazon-sagemaker-guide.md
+        - Amazon Bedrock AgentCore Guide: cloud/aws/tutorials/amazon-bedrock-agentcore-guide.md
     - GCP:
       - What is GCP?: cloud/gcp/what-is-gcp.md
       - How to create Cloud Run service using gcloud CLI: cloud/gcp/tutorials/create-cloud-run-using-gcloud-cli.md
@@ -180,6 +182,7 @@ nav:
       - Deploy Signed Image to Cloud Run with Binary Authorization: cloud/gcp/projects/deploy-signed-image-to-cloud-run-with-binary-authorization.md
       - Apigee X with PSC to Cloud Run: cloud/gcp/projects/apigee-x-psc-cloudrun.md
   - Notebooks:
+    - Overview: notebooks/index.md
     - AWS Bedrock AgentCore:
       - Tutorials:
         - AgentCore Runtime:
@@ -253,3 +256,4 @@ plugins:
   - mkdocs-jupyter:
       include: ["*.ipynb"]
       execute: false
+      allow_download: true
