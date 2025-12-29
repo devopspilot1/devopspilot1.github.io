@@ -28,12 +28,12 @@ Flask App → Dockerfile (AWS Base Image) → ECR Repository → Lambda Function
 
 AWS provides official base images for Lambda that include:
 
-&#x2705; **Lambda Runtime Interface Client (RIC)**: Pre-installed and configured to handle Lambda invocations
-&#x2705; **Optimized for Lambda**: Designed specifically for Lambda's execution environment
-&#x2705; **Security**: Regularly updated with security patches
-&#x2705; **Compatibility**: Guaranteed compatibility with Lambda service
-&#x2705; **Performance**: Optimized for cold start times
-&#x2705; **AWS SDK**: Pre-installed AWS SDK for your runtime
+- &#x2705; **Lambda Runtime Interface Client (RIC)**: Pre-installed and configured to handle Lambda invocations
+- &#x2705; **Optimized for Lambda**: Designed specifically for Lambda's execution environment
+- &#x2705; **Security**: Regularly updated with security patches
+- &#x2705; **Compatibility**: Guaranteed compatibility with Lambda service
+- &#x2705; **Performance**: Optimized for cold start times
+- &#x2705; **AWS SDK**: Pre-installed AWS SDK for your runtime
 
 **Available base images:**
 - `public.ecr.aws/lambda/python:3.9`
@@ -1009,6 +1009,7 @@ aws lambda update-function-configuration \
 ## Summary
 
 You've successfully:
+
 - &#x2705; Created a Flask application for Lambda
 - &#x2705; Written a Dockerfile using AWS Lambda base images
 - &#x2705; Understood why AWS base images are important
