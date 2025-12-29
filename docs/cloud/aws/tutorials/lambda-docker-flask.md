@@ -28,12 +28,12 @@ Flask App → Dockerfile (AWS Base Image) → ECR Repository → Lambda Function
 
 AWS provides official base images for Lambda that include:
 
-✅ **Lambda Runtime Interface Client (RIC)**: Pre-installed and configured to handle Lambda invocations
-✅ **Optimized for Lambda**: Designed specifically for Lambda's execution environment
-✅ **Security**: Regularly updated with security patches
-✅ **Compatibility**: Guaranteed compatibility with Lambda service
-✅ **Performance**: Optimized for cold start times
-✅ **AWS SDK**: Pre-installed AWS SDK for your runtime
+&#x2705; **Lambda Runtime Interface Client (RIC)**: Pre-installed and configured to handle Lambda invocations
+&#x2705; **Optimized for Lambda**: Designed specifically for Lambda's execution environment
+&#x2705; **Security**: Regularly updated with security patches
+&#x2705; **Compatibility**: Guaranteed compatibility with Lambda service
+&#x2705; **Performance**: Optimized for cold start times
+&#x2705; **AWS SDK**: Pre-installed AWS SDK for your runtime
 
 **Available base images:**
 - `public.ecr.aws/lambda/python:3.9`
@@ -291,7 +291,7 @@ The Lambda entrypoint script performs several critical functions:
 
 #### Why You Don't Override ENTRYPOINT
 
-**❌ Don't do this:**
+**&#x274C; Don't do this:**
 ```dockerfile
 FROM public.ecr.aws/lambda/python:3.13
 ENTRYPOINT ["python"]  # This breaks Lambda!
@@ -303,7 +303,7 @@ CMD ["app.py"]
 - Lambda service can't communicate with your container
 - No event handling, no context, no CloudWatch logs
 
-**✅ Do this instead:**
+**&#x2705; Do this instead:**
 ```dockerfile
 FROM public.ecr.aws/lambda/python:3.13
 # ENTRYPOINT is already set by base image
@@ -377,14 +377,14 @@ CMD ["src.handler.process_event"]
 
 **Common Mistakes:**
 
-❌ **Wrong:**
+&#x274C; **Wrong:**
 ```dockerfile
 CMD ["python", "app.py"]  # Don't run Python directly
 CMD ["flask", "run"]       # Don't start Flask server
 CMD ["app"]                # Missing function name
 ```
 
-✅ **Correct:**
+&#x2705; **Correct:**
 ```dockerfile
 CMD ["app.lambda_handler"]  # Module.function format
 ```
@@ -946,12 +946,12 @@ aws lambda put-function-concurrency \
 
 ### 5. Security Best Practices
 
-- ✅ Use specific IAM permissions (principle of least privilege)
-- ✅ Enable ECR image scanning
-- ✅ Use AWS Secrets Manager for sensitive data
-- ✅ Implement authentication for Function URLs in production
-- ✅ Use VPC for private resources access
-- ✅ Enable AWS X-Ray for tracing
+- &#x2705; Use specific IAM permissions (principle of least privilege)
+- &#x2705; Enable ECR image scanning
+- &#x2705; Use AWS Secrets Manager for sensitive data
+- &#x2705; Implement authentication for Function URLs in production
+- &#x2705; Use VPC for private resources access
+- &#x2705; Enable AWS X-Ray for tracing
 
 ## Troubleshooting
 
@@ -1009,15 +1009,15 @@ aws lambda update-function-configuration \
 ## Summary
 
 You've successfully:
-- ✅ Created a Flask application for Lambda
-- ✅ Written a Dockerfile using AWS Lambda base images
-- ✅ Understood why AWS base images are important
-- ✅ Learned CMD and ENTRYPOINT best practices for Lambda containers
-- ✅ Created an ECR repository
-- ✅ Built and pushed a Docker image to ECR
-- ✅ Created a Lambda function from a container image
-- ✅ Created a Function URL for HTTP access
-- ✅ Tested and monitored your Lambda function
+- &#x2705; Created a Flask application for Lambda
+- &#x2705; Written a Dockerfile using AWS Lambda base images
+- &#x2705; Understood why AWS base images are important
+- &#x2705; Learned CMD and ENTRYPOINT best practices for Lambda containers
+- &#x2705; Created an ECR repository
+- &#x2705; Built and pushed a Docker image to ECR
+- &#x2705; Created a Lambda function from a container image
+- &#x2705; Created a Function URL for HTTP access
+- &#x2705; Tested and monitored your Lambda function
 
 Your Flask application is now running serverlessly on AWS Lambda with a public HTTP endpoint!
 
