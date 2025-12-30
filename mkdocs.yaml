@@ -224,6 +224,11 @@ nav:
     - Ansible Interview Questions: interview-questions/ansible.md
     # - AWS Interview Questions: interview-questions/
     # - Terraform Interview Questions: interview-questions/
+    - Quizzes:
+      - Git:
+        - Beginner: quiz/git/beginner.md
+        - Intermediate: quiz/git/intermediate.md
+        - Advanced: quiz/git/advanced.md
 
 markdown_extensions:
   - admonition
@@ -252,8 +257,10 @@ markdown_extensions:
   - toc:
       permalink: true
 
+
 plugins:
   - search
+  - quiz
   # - mkdocs-jupyter:
   #     include: ["*.ipynb"]
   #     execute: false

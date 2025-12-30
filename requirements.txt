@@ -40,3 +40,4 @@ pymdown-extensions==10.15
 # You *could* have a minimal requirements.txt with just 'mkdocs' and 'mkdocs-material' and then
 # install the other packages separately, but including them all in requirements.txt ensures
 # a consistent and reproducible setup.
+mkdocs-quiz
