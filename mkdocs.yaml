@@ -28,10 +28,10 @@ nav:
   - Linux Commands:
     - Overview: linux-commands/index.md
     - Basic Linux Commands: linux-commands/basic-linux-commands/index.md
-    - Part 2: linux-commands/part-2.md
-    - Part 3: linux-commands/part-3.md
-    - Part 4: linux-commands/part-4.md
-    - Part 5: linux-commands/part-5.md
+    - System & Disk Commands: linux-commands/linux-system-disk-commands/index.md
+    - File & Directory Management: linux-commands/linux-file-directory-commands/index.md
+    - Users & Sudo Permissions: linux-commands/linux-users-sudo-permissions/index.md
+    - File Permissions & Environment Variables: linux-commands/linux-file-permissions-env/index.md
     - Part 6: linux-commands/part-6.md
     - Part 7: linux-commands/part-7.md
     - Part 8: linux-commands/part-8.md

@@ -212,5 +212,3 @@ Which command will list **all files, including hidden ones**, in the current dir
 
 Hidden files begin with a `.` and are only shown when using the `-a` option with `ls`.
 </quiz>
-
----
