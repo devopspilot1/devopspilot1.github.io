@@ -5,9 +5,11 @@ date: 2024-07-01
 
 # Linux System and Disk Commands for DevOps Engineers
 
-In this section, you will learn basic system, memory, disk, and navigation commands commonly used by DevOps engineers while monitoring servers and troubleshooting production issues.
-
 ← [Back to Linux Commands](../)
+
+---
+
+In this section, you will learn basic system, memory, disk, and navigation commands commonly used by DevOps engineers while monitoring servers and troubleshooting production issues.
 
 ---
 

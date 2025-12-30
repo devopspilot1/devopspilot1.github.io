@@ -5,11 +5,13 @@ date: 2024-07-01
 
 # Basic Linux Commands for DevOps Engineers
 
+← [Back to Linux Commands](../)
+
+---
+
 Linux is the foundation of DevOps. Whether you are working on cloud servers, CI/CD pipelines, or Kubernetes nodes, these basic Linux commands are used daily.
 
 This page covers **basic navigation and file viewing commands** that every DevOps engineer must know.
-
-← [Back to Linux Commands](../)
 
 ---
 

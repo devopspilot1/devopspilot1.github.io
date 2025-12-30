@@ -5,9 +5,11 @@ date: 2024-07-01
 
 # Linux File Viewing, Permissions, and Environment Variables
 
-This section covers **file viewing commands, Linux permissions, ownership, and environment variables** — all heavily used by DevOps engineers for log analysis, access control, and runtime debugging.
-
 ← [Back to Linux Commands](../)
+
+---
+
+This section covers **file viewing commands, Linux permissions, ownership, and environment variables** — all heavily used by DevOps engineers for log analysis, access control, and runtime debugging.
 
 ---
 

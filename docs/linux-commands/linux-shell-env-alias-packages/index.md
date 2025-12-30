@@ -1,11 +1,21 @@
 ---
-title: "Linux commands Part 6"
+title: "Linux Shell Variables, Environment Variables, PATH, Aliases & Package Management"
 date: 2024-07-01
 ---
 
-#### Shell varibales
+# Linux Shell Variables, Environment Variables, PATH, Aliases & Package Management
 
-Shell variables means only accessible within the shell script
+← [Back to Linux Commands](../)
+
+---
+
+This page explains how shell variables and environment variables work in Linux, how the PATH variable affects command execution, how to create aliases, and how DevOps engineers manage packages across different Linux distributions.
+
+---
+
+## Shell Variables
+
+Shell variables are only accessible within the current shell session.
 
 ```
 [opc@new-k8s ~]$ clear
@@ -19,9 +29,9 @@ printenv NAME   -- dosen't show anything, since its not a environment variable
 Even in env, printenv command the NAME variable will not been shown
 ```
 
-#### Creating Environment variable
+## Creating Environment Variable
 
-Environment Variables are accesible to child process also
+Environment variables are accessible to child processes as well.
 
 ```
 [opc@new-k8s ~]$ export NEW_NAME="Raghav"
@@ -49,18 +59,19 @@ HISTCONTROL=ignoredups
 SHLVL=1
 ```
 
-#### Environment variable - PATH
+## Environment Variable - PATH
 
-Most of the linux commands can be executed from any path/directory, since the command paths are added to PATH environment variable
+Most Linux commands can be executed from any directory because their paths are added to the `PATH` environment variable.
 
 ```
 [opc@new-k8s ~]$ echo $PATH
 /usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/opc/.local/bin:/home/opc/bin
 ```
 
-#### Creating small shell script program/comamnd and exporting that path to PATH variable
+## Creating a Shell Script and Exporting to PATH
 
-Shell script to print the user name, hostname, date, present working directory and the files in that directory (Filename - myinfo)
+We will create a shell script to print the username, hostname, date, present working directory, and the files in that directory.
+Filename: `myinfo`
 
 ```
 #!/bin/bash
@@ -154,11 +165,11 @@ drwx------. 3 root root   17 Mar 27 20:01 systemd-private-c60b800098604975be26db
 -rw-rw-r--. 1 opc  opc     0 Apr 12 12:30 vignesh.txt
 ```
 
-#### alias command
+## Alias Command
 
-Creating shortcut commands
+Aliases allow you to create shortcut commands.
 
-Creating command "myls" which will print date and show the files
+We will create a command named `myls` which will print the current date and list files.
 
 ```
 [opc@new-k8s tmp]$ alias myls="date && ls"
@@ -168,13 +179,13 @@ dhclient-exit-hooksRZi.log                                               systemd
 systemd-private-c60b800098604975be26dbbb3215bd47-chronyd.service-ZzaKpF  vignesh.txt
 ```
 
-Manually exported environment variables and alias command will be gone, once we open new terminal/session
+Manually exported environment variables and aliases will be lost once the terminal session is closed.
 
-#### How to persist the environment variable and alias across terminal/session
+## Persisting Environment Variables and Aliases
 
-.bashrc file in user home directory will be executed first, when we open the terminal/session
+The `.bashrc` file in the user's home directory is executed every time a new terminal session is started.
 
-By placing all these commands in .bashrc file, will execute those commands when we open new terminal/session
+By placing commands in the `.bashrc` file, they will be automatically executed for every new session.
 
 .bashrc file
 
@@ -232,15 +243,13 @@ drwxrwxr-x. 4 opc  vignesh        100 Apr 13 12:46 test
 Raghav
 ```
 
-#### Package manager
+## Package Managers
 
-Redhat/Centos/racle inux/Amazon Linux - yum
+- **RedHat / CentOS / Oracle Linux / Amazon Linux**: `yum`
+- **Ubuntu / Debian**: `apt`
+- **Alpine Linux**: `apk`
 
-Ubuntu/Debian - apt
-
-Alpine Linux - apk
-
-#### Installing tree package using yum in oracle Linux 7.9
+### Installing `tree` package using `yum` in Oracle Linux 7.9
 
 ```
 [opc@new-k8s ~]$ sudo yum install -y tree
@@ -280,7 +289,7 @@ Installed:
 Complete!
 ```
 
-#### Removing tree package using yum in oracle Linux 7.9
+### Removing `tree` package using `yum` in Oracle Linux 7.9
 
 ```
 [opc@new-k8s ~]$ sudo yum remove -y tree
@@ -319,7 +328,7 @@ Complete!
 bash: tree: command not found
 ```
 
-#### Installing tree package using apt in Ubuntu 22.04
+### Installing `tree` package using `apt` in Ubuntu 22.04
 
 ```
 root@456f7ef57784:/# apt install tree
@@ -343,7 +352,7 @@ root@456f7ef57784:/# tree --version
 tree v2.0.2 (c) 1996 - 2022 by Steve Baker, Thomas Moore, Francesc Rocher, Florian Sesser, Kyosuke Tokoro
 ```
 
-#### Removing tree package using apt in Ubuntu 22.04
+### Removing `tree` package using `apt` in Ubuntu 22.04
 
 ```
 root@456f7ef57784:/# apt remove -y tree
@@ -360,7 +369,7 @@ root@456f7ef57784:/# tree
 bash: /usr/bin/tree: No such file or directory
 ```
 
-#### Installing tree package using apk in Alpine Linux 3.17.3
+### Installing `tree` package using `apk` in Alpine Linux 3.17.3
 
 ```
 / # tree
@@ -375,7 +384,7 @@ OK: 8 MiB in 16 packages
 tree v2.0.4 (c) 1996 - 2022 by Steve Baker, Thomas Moore, Francesc Rocher, Florian Sesser, Kyosuke Tokoro
 ```
 
-#### Removing tree package using apk in Alpine Linux 3.17.3
+### Removing `tree` package using `apk` in Alpine Linux 3.17.3
 
 ```
 / # apk del tree
@@ -385,3 +394,16 @@ OK: 7 MiB in 15 packages
 / # tree
 sh: tree: not found
 ```
+
+## 🧠 Quick Quiz – Shell, PATH & Environment Variables
+
+<quiz>
+Which statement is TRUE about environment variables in Linux?
+- [ ] They are available only inside the current shell
+- [x] They are inherited by child processes
+- [ ] They cannot be accessed using `printenv`
+- [ ] They are stored only in `.vimrc`
+
+Environment variables are inherited by child processes, which is why commands
+and scripts can access variables like PATH, USER, and HOME.
+</quiz>

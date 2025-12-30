@@ -5,9 +5,11 @@ date: 2024-07-01
 
 # Linux File and Directory Management Commands
 
-This section covers **file and directory management commands** that DevOps engineers use daily while working with application code, logs, configuration files, and automation scripts.
-
 ← [Back to Linux Commands](../)
+
+---
+
+This section covers **file and directory management commands** that DevOps engineers use daily while working with application code, logs, configuration files, and automation scripts.
 
 ---
 

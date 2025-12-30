@@ -32,8 +32,8 @@ nav:
     - File & Directory Management: linux-commands/linux-file-directory-commands/index.md
     - Users & Sudo Permissions: linux-commands/linux-users-sudo-permissions/index.md
     - File Permissions & Environment Variables: linux-commands/linux-file-permissions-env/index.md
-    - Part 6: linux-commands/part-6.md
-    - Part 7: linux-commands/part-7.md
+    - Shell, Env, Alias & Package Management: linux-commands/linux-shell-env-alias-packages/index.md
+    - Log & Text Processing Commands: linux-commands/linux-log-text-processing/index.md
     - Part 8: linux-commands/part-8.md
     - Part 9: linux-commands/part-9.md
   - SSH:

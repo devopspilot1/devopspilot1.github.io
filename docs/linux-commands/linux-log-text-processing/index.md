@@ -1,32 +1,39 @@
 ---
-title: "Linux commands Part 7"
+title: "Linux Log and Text Processing Commands for DevOps Engineers"
 date: 2024-07-01
 ---
 
-#### Types of shell
+# Linux Log and Text Processing Commands for DevOps Engineers
+
+← [Back to Linux Commands](../)
+
+---
+
+This page covers essential Linux commands used to analyze logs and process text files in real production environments.
+You will learn how DevOps engineers search, filter, and extract useful information from large log files efficiently.
+
+---
+
+## Types of Shell
 
 - sh
-
 - bash (Bourne Again Shell)
-
 - zsh
-
 - ksh (Korn Shell)
-
 - csh
 
 Reference: [https://www.shiksha.com/online-courses/articles/introduction-to-types-of-shell/](https://www.shiksha.com/online-courses/articles/introduction-to-types-of-shell/)
 
-#### Redirection
+## Redirection
 
 ```
->  content override the file content, If file is already having the content
->> Will append the content to the existing content in the file
+>  Overwrites the file content, if the file already exists
+>> Appends the content to the existing content in the file
 ```
 
-In Both case, if the file is not present it will create a file and write the content to the file
+In both cases, if the file is not present, it will create the file and write the content to it.
 
-By default echo command prints the output to screen. But if we redirection arrows it can store to files
+By default, the `echo` command prints the output to the screen. But if we use redirection arrows, it can store the output to files.
 
 ```
 [opc@new-k8s ~]$ mkdir redirection
@@ -71,9 +78,9 @@ I love banana
 I also like apples
 ```
 
-#### wget
+## wget Command
 
-wget command is used to dowload some binary or big files eg zip, tar, tar.gz files
+The `wget` command is used to download binary or large files (e.g., zip, tar, tar.gz files).
 
 ```
 [opc@new-k8s ~]$ pwd
@@ -101,9 +108,9 @@ total 8932
 -rw-rw-r--. 1 opc opc 9143026 Mar 15 10:00 apache-maven-3.9.1-bin.zip
 ```
 
-#### wget command without showing the progress bar
+### wget - Quiet Mode
 
-**\-q or --quiet** --> quit mode, will not show any logs or progress bar
+**-q or --quiet** --> Quiet mode, will not show any logs or progress bar.
 
 ```
 [opc@new-k8s wget-examples]$ wget -q https://dlcdn.apache.org/maven/maven-3/3.9.1/binaries/apache-maven-3.9.1-bin.tar.gz
@@ -113,7 +120,7 @@ total 18M
 -rw-rw-r--. 1 opc opc 8.8M Mar 15 10:00 apache-maven-3.9.1-bin.zip
 ```
 
-#### curl command to download file
+## curl Command
 
 ```
 [opc@new-k8s ~]$ mkdir curl-examples
@@ -131,9 +138,9 @@ total 8932
 -rw-rw-r--. 1 opc opc 9143026 Apr 17 13:35 apache-maven-3.9.1-bin.zip
 ```
 
-#### curl command to download file without showing progress bar
+### curl - Silent Mode
 
-\-s or --silent --> Will not show the logs or progress bar
+-s or --silent --> Will not show the logs or progress bar.
 
 ```
 [opc@new-k8s curl-examples]$ curl -s https://dlcdn.apache.org/maven/maven-3/3.9.1/source/apache-maven-3.9.1-src.tar.gz -o apache-maven-3.9.1-src.tar.gz
@@ -143,9 +150,9 @@ total 12M
 -rw-rw-r--. 1 opc opc 2.7M Apr 17 13:38 apache-maven-3.9.1-src.tar.gz
 ```
 
-#### How to unzip the zip file
+## zip & unzip Commands
 
-By default unzip command will unzip the zip package to the current directory
+By default, the `unzip` command will unzip the zip package to the current directory.
 
 ```
 [opc@new-k8s curl-examples]$ ll
@@ -265,12 +272,12 @@ drwxr-xr-x. 6 opc opc      99 Mar 15 09:39 apache-maven-3.9.1
 -rw-rw-r--. 1 opc opc 2784624 Apr 17 13:38 apache-maven-3.9.1-src.tar.gz
 ```
 
-#### How to unzip to different directory
+### Unzip to Specific Directory
 
-Using -d parameter we can extract the zip package to different folder  
-\-q --> silent mode
+Using the `-d` parameter, we can extract the zip package to a different folder.
+-q --> Silent mode
 
-Lets extract to /tmp folder
+Let's extract to the `/tmp` folder.
 
 ```
 [opc@new-k8s tmp]$ pwd
@@ -400,7 +407,7 @@ total 0
 drwxr-xr-x. 6 opc opc 99 Mar 15 09:39 apache-maven-3.9.1
 ```
 
-#### How to extract tar or tar.gz file
+## tar Command
 
 ```
 [opc@new-k8s curl-examples]$ ll
@@ -499,11 +506,11 @@ drwxr-xr-x. 3 opc opc    18 Mar 15 09:39 src
 14M     .
 ```
 
-#### How to extract to different folder using tar command and in silent mode
+### Extract to Specific Directory
 
-Use -C argument to extract to different directory
+Use the `-C` argument to extract to a different directory.
 
-By default tar dosen't print any logs to output, if we use -v it shows the logs(extracting files names)
+By default, the `tar` command doesn't print any logs to output; if we use `-v`, it shows the logs (extracting file names).
 
 ```
 [opc@new-k8s tmp]$ pwd
@@ -530,15 +537,15 @@ drwxr-xr-x. 18 opc opc 4096 Mar 15 09:39 apache-maven-3.9.1
 /tmp
 ```
 
-#### How to create a zip file
+### Creating Zip Files
 
-zip -r ZIP\_FILE\_NAME.zip folder\_name
+`zip -r ZIP_FILE_NAME.zip folder_name`
 
 or
 
-zip ZIP\_FILE\_NAME.zip file1.ttx file2.txt
+`zip ZIP_FILE_NAME.zip file1.txt file2.txt`
 
-\-q --> Silent mode
+**-q** --> Silent mode
 
 ```
 [opc@new-k8s zip-file]$ pwd
@@ -664,11 +671,11 @@ drwxr-xr-x. 6 opc opc      99 Mar 15 09:39 apache-maven-3.9.1
 -rw-rw-r--. 1 opc opc 9137892 Apr 17 14:39 newapache-maven.zip
 ```
 
-#### Sample JSON file
+## JSON Basics
 
-Json file contains the key vaue pair
+JSON file contains key-value pairs.
 
-Json file name ends with extension ".json" eg: output.json
+A JSON file name ends with the extension ".json" (e.g., `output.json`).
 
 ```
 {
@@ -685,13 +692,13 @@ or
 {"name":"John", "age":30, "car":null, "games": ["cricket", "basketball", "badminton"]}
 ```
 
-#### Curl command to retrieve the Rest api response (JSON)
+## Processing JSON with curl
 
-Most of the time curl command is used for calling the rest api
+Most of the time, the `curl` command is used for calling a REST API.
 
-In simple term, Rest api is URL([https://example.com](https://example.com)), when we call that url , you will get a response data.
+In simple terms, a REST API is a URL (e.g., [https://example.com](https://example.com)). When we call that URL, we get response data.
 
-The most of the case the response data will be a JSON
+In most cases, the response data will be in JSON format.
 
 Actual Data in GUI : [https://github.com/vigneshsweekaran/hello-world/releases/tag/clean](https://github.com/vigneshsweekaran/hello-world/releases/tag/clean)
 
@@ -740,7 +747,7 @@ Actual Data in GUI : [https://github.com/vigneshsweekaran/hello-world/releases/t
 }
 ```
 
-#### How to store the Json response data from rest api to a file
+### Saving API Response to File
 
 ```
 [opc@new-k8s ~]$ mkdir json-response
@@ -799,3 +806,17 @@ total 4
   "body": ""
 }
 ```
+
+## 🧠 Quick Quiz – Logs & Text Processing
+
+<quiz>
+Which command is MOST commonly used to search for a pattern inside log files?
+- [ ] awk
+- [x] grep
+- [ ] sed
+- [ ] wc
+
+The `grep` command is primarily used to search for patterns or keywords
+inside files, especially log files in DevOps environments.
+</quiz>
+
