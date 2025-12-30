@@ -2,7 +2,7 @@
 hide:
   - toc
 ---
-<!-- mkdocs-quiz intro -->
+
 # Git Intermediate Quiz
 
 Leveling up! 🌟
@@ -13,31 +13,27 @@ You know the basics—now let's see if you can handle branching, merging, and st
 *   Select the correct commands and concepts.
 *   Good luck!
 
+<!-- mkdocs-quiz intro -->
+
 <quiz>
-    <question>
-        <p>Which command combines two branches while creating a new commit?</p>
-        <answer correct>git merge</answer>
-        <answer>git combine</answer>
-    </question>
-    <question>
-        <p>Which command temporarily saves your changes without committing them?</p>
-        <answer correct>git stash</answer>
-        <answer>git save</answer>
-    </question>
-    <question>
-        <p>What is the difference between git fetch and git pull?</p>
-        <answer correct>fetch downloads changes, pull downloads and merges</answer>
-        <answer>fetch merges changes, pull only downloads</answer>
-    </question>
-    <question>
-        <p>Which command is used to discard changes in the working directory?</p>
-        <answer correct>git restore</answer>
-        <answer>git remove</answer>
-    </question>
-    <question>
-        <p>How do you view the commit history?</p>
-        <answer correct>git log</answer>
-        <answer>git history</answer>
-    </question>
+Which command combines two branches while creating a new commit?
+- [x] git merge
+- [ ] git combine
+
+Which command temporarily saves your changes without committing them?
+- [x] git stash
+- [ ] git save
+
+What is the difference between git fetch and git pull?
+- [x] fetch downloads changes, pull downloads and merges
+- [ ] fetch merges changes, pull only downloads
+
+Which command is used to discard changes in the working directory?
+- [x] git restore
+- [ ] git remove
+
+How do you view the commit history?
+- [x] git log
+- [ ] git history
 </quiz>
 <!-- mkdocs-quiz results -->
