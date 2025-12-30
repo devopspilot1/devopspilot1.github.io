@@ -5,6 +5,13 @@ hide:
 
 # Git Advanced Quiz
 
+Expert Mode Activated! 🧠
+Ready to dive into the internals? This quiz challenges your knowledge of bisecting, reflogs, and commit manipulation.
+
+**Instructions**:
+*   These scenarios are for seasoned Git users.
+*   Think carefully before answering!
+
 <quiz>
     <question>
         <p>Which command uses a binary search to find the commit that introduced a bug?</p>

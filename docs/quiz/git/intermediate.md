@@ -5,6 +5,14 @@ hide:
 
 # Git Intermediate Quiz
 
+Leveling up! 🌟
+You know the basics—now let's see if you can handle branching, merging, and stashing.
+
+**Instructions**:
+*   These questions cover common daily workflows.
+*   Select the correct commands and concepts.
+*   Good luck!
+
 <quiz>
     <question>
         <p>Which command combines two branches while creating a new commit?</p>

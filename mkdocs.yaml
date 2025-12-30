@@ -222,8 +222,18 @@ nav:
     # - Kubernetes Interview Question: interview-questions/
     - Helm Interview Questions: interview-questions/helm.md
     - Ansible Interview Questions: interview-questions/ansible.md
-    # - AWS Interview Questions: interview-questions/
-    # - Terraform Interview Questions: interview-questions/
+    - AWS Interview Questions:
+      - Cloud Engineer: interview-questions/aws/cloud-engineer.md
+      - DevOps Engineer: interview-questions/aws/devops-engineer.md
+      - Solutions Architect: interview-questions/aws/solutions-architect.md
+      - SysOps Administrator: interview-questions/aws/sysops-admin.md
+      - SRE: interview-questions/aws/sre.md
+      - Developer: interview-questions/aws/developer.md
+      - Security Engineer: interview-questions/aws/security-engineer.md
+      - Data Engineer: interview-questions/aws/data-engineer.md
+      - ML Engineer: interview-questions/aws/ml-engineer.md
+      - Network Engineer: interview-questions/aws/network-engineer.md
+      - Generative AI Engineer: interview-questions/aws/gen-ai-engineer.md
     - Quizzes:
       - Git:
         - Beginner: quiz/git/beginner.md
@@ -260,7 +270,7 @@ markdown_extensions:
 
 plugins:
   - search
-  - quiz
+  - mkdocs-quiz
   # - mkdocs-jupyter:
   #     include: ["*.ipynb"]
   #     execute: false

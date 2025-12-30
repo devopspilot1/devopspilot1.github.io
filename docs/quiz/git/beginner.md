@@ -5,6 +5,14 @@ hide:
 
 # Git Beginner Quiz
 
+Welcome! 🚀
+Test your fundamental Git knowledge with this quick quiz. Perfect for beginners starting their version control journey.
+
+**Instructions**:
+*   Select the best answer for each question.
+*   Your score will be shown at the end.
+*   Aim for 100% to prove you are ready for the next level!
+
 <quiz>
     <question>
         <p>Which command initializes a new Git repository?</p>
