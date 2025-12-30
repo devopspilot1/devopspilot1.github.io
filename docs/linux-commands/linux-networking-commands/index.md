@@ -1,11 +1,22 @@
 ---
-title: "Linux commands Part 8"
+title: "Linux Networking Commands for DevOps Engineers"
 date: 2024-07-01
 ---
 
-#### |
+# Linux Networking Commands for DevOps Engineers
 
-Pipe is used to pass the output from one command/program to the input for another command
+← [Back to Linux Commands](../)
+
+---
+
+This page covers essential Linux networking commands used by DevOps engineers to troubleshoot connectivity,
+inspect network interfaces, and debug service-to-service communication in production systems.
+
+---
+
+## Pipe (|)
+
+A pipe (`|`) is used to pass the output from one command/program to the input for another command.
 
 ```
 [opc@new-k8s test]$ pwd
@@ -22,9 +33,9 @@ drwxrwxr-x. 3 opc opc 18 Apr 13 12:46 vignesh
 7
 ```
 
-#### jq
+## jq Command
 
-Used to read the JSON data or Json file
+Used to read JSON data or files.
 
 ```
 [opc@new-k8s ~]$ pwd
@@ -80,7 +91,7 @@ drwxrwxr-x. 4 opc  opc         100 Apr 15 13:04 test
 }
 ```
 
-#### Using jq command directly with curl output
+### Piping curl output to jq
 
 ```
 [opc@new-k8s ~]$ curl https://api.github.com/repos/vigneshsweekaran/hello-world/releases/latest | jq .
@@ -128,21 +139,21 @@ drwxrwxr-x. 4 opc  opc         100 Apr 15 13:04 test
 }
 ```
 
-#### Redaing only one data from JSON file using jq
+### Reading specific data with jq
 
 ```
 [opc@new-k8s ~]$ cat output.json | jq .url
 "https://api.github.com/repos/vigneshsweekaran/hello-world/releases/43010389"
 ```
 
-#### Redaing only one data from JSON file using jq and removing the double quotes from output
+### Reading raw output with jq
 
 ```
 [opc@new-k8s ~]$ cat output.json | jq -r .url
 https://api.github.com/repos/vigneshsweekaran/hello-world/releases/43010389
 ```
 
-#### How to read the value from JSON using, which is two level inner
+### Reading nested values with jq
 
 ```
 [opc@new-k8s ~]$ cat output.json | jq .
@@ -189,11 +200,11 @@ https://api.github.com/repos/vigneshsweekaran/hello-world/releases/43010389
 "vigneshsweekaran"
 ```
 
-#### How to check the status code of last executed command
+## Exit Codes ($?)
 
-$? is a special variable, which will hold the status code of last command executed
+`$?` is a special variable which holds the status code of the last executed command.
 
-In Linux, 0 means success, any other value is failure
+In Linux, `0` means success, any other value indicates failure.
 
 ```
 [opc@new-k8s ~]$ ll
@@ -211,9 +222,9 @@ drwxrwxr-x. 4 opc  opc         100 Apr 15 13:04 test
 127
 ```
 
-#### grep
+## grep Command
 
-grep command is used to serach for a word and print those lines
+The `grep` command is used to search for a word and print the matching lines.
 
 ```
 [opc@new-k8s ~]$ cat /etc/passwd | grep bash
@@ -222,9 +233,9 @@ opc:x:1000:1000:Oracle Public Cloud User:/home/opc:/bin/bash
 vignesh:x:1001:1001::/home/vignesh:/bin/bash
 ```
 
-#### grep command - ignoring the case
+### grep - Ignore Case
 
-\-i --> Is used to ignore the case
+-i --> Used to ignore case sensitivity.
 
 ```
 [opc@new-k8s ~]$ cat /etc/passwd | grep BASH
@@ -234,9 +245,9 @@ opc:x:1000:1000:Oracle Public Cloud User:/home/opc:/bin/bash
 vignesh:x:1001:1001::/home/vignesh:/bin/bash
 ```
 
-#### grep - find the match and print next n number of lines
+### grep - Print Lines After Match
 
-\-An --> arugument used to print the next n number of lines
+-A n --> Argument used to print the next `n` lines after the match.
 
 ```
 [opc@new-k8s ~]$ cat states.txt | grep -i tamil
@@ -250,9 +261,9 @@ Uttarakhand
 West Bengal
 ```
 
-#### grep - find the match and print n number of lines before the match
+### grep - Print Lines Before Match
 
-\-Bn --> arugument used to print the next n number of lines
+-B n --> Argument used to print `n` lines before the match.
 
 ```
 [opc@new-k8s ~]$ cat states.txt | grep -i tamil
@@ -266,11 +277,11 @@ Sikkim
 Tamil Nadu
 ```
 
-#### awk
+## awk Command
 
-awk command is used to print the specific columns from the output.
+The `awk` command is used to print specific columns from the output.
 
-It has lot of features to operate on the outputs
+It has a lot of features to operate on text.
 
 ```
 [opc@new-k8s ~]$ ll
@@ -293,7 +304,7 @@ swapfile
 test
 ```
 
-#### awk - customising the output
+### awk - Customizing Output
 
 ```
 [opc@new-k8s ~]$ ll
@@ -316,11 +327,11 @@ drwxrwxr-x.     prometheus
 drwxrwxr-x.     test
 ```
 
-#### cut
+## cut Command
 
-cut command can be used to print the specific column  
-\-d --> delimiter  
-\-f --> field number
+The `cut` command can be used to print specific columns.
+-d --> delimiter
+-f --> field number
 
 ```
 [opc@new-k8s ~]$ ll
@@ -343,9 +354,9 @@ drwxrwxr-x.
 drwxrwxr-x.
 ```
 
-#### cut command with different delimiter
+### cut - Custom Delimiter
 
-cat /etc/passwd | cut -d ":" -f 1
+`cat /etc/passwd | cut -d ":" -f 1`
 
 ```
 [opc@new-k8s ~]$ cat /etc/passwd
@@ -416,13 +427,13 @@ jenkins
 vignesh
 ```
 
-#### sed
+## sed Command
 
-sed command can be used to replace the word
+The `sed` command can be used to replace words.
 
-By default, the sed command replaces the first occurrence of the pattern in each line and it won’t replace the second, third…occurrence in the line.
+By default, the `sed` command replaces the **first** occurrence of the pattern in each line. It won’t replace the second, third, etc. occurrence in the line.
 
-It prints the changed content to screen by default
+It prints the modified content to the screen by default.
 
 ```
 [opc@new-k8s ~]$ cat hello.txt
@@ -433,7 +444,7 @@ hello devops
 hello devops world my world
 ```
 
-#### sed - Change all the matches in a line
+### sed - Global Replacement
 
 g --> replace all matches in a line
 
@@ -446,9 +457,9 @@ hello devops
 hello devops devops my devops
 ```
 
-#### sed - save the change in original file
+### sed - Edit File in Place
 
-\-i --> argument can be used to save the chnage to actual file
+-i --> argument used to save the change to the actual file
 
 ```
 [opc@new-k8s ~]$ cat hello.txt
@@ -465,3 +476,16 @@ hello world world my world
 hello devops
 hello devops devops my devops
 ```
+
+## 🧠 Quick Quiz – Linux Networking
+
+<quiz>
+Which command is commonly used to test network connectivity to a remote host?
+- [ ] ss
+- [ ] ip addr
+- [x] ping
+- [ ] traceroute
+
+The `ping` command sends ICMP echo requests to verify that a remote host
+is reachable over the network.
+</quiz>

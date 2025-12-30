@@ -3,7 +3,7 @@
 Linux is the backbone of DevOps.  
 From CI/CD pipelines to Kubernetes nodes and cloud servers, **every DevOps engineer works with Linux daily**.
 
-This guide is a **complete, structured Linux commands reference**, written specifically for **DevOps engineers**, starting from basics and going all the way to **production troubleshooting**.
+This guide is a **complete, structured Linux commands reference**, written specifically for **DevOps engineers**, starting from basics and progressing to **real-world production troubleshooting**.
 
 ---
 
@@ -19,123 +19,52 @@ This Linux commands guide is ideal if you are:
 
 ## 🧭 Linux Commands Learning Path
 
-Follow this order for best results 👇
+This guide is structured to take you from Linux fundamentals to **real-world DevOps troubleshooting**.
+
+> 💡 *Basic Linux commands and fundamentals are covered in the earlier sections and sidebar navigation.
+> Below are the most important sections every DevOps engineer should master.*
 
 ---
 
-## 🔹 Part 1: Basic Linux Commands
-Start here if you are new to Linux.
+## 🔹 Users & Sudo Permissions
+Essential for managing access on production servers.
 
-👉 [Linux Commands – Part 1: Basics](./part-1/)
-
-Topics covered:
-- `ls`, `cd`, `pwd`
-- `cp`, `mv`, `rm`
-- `cat`, `less`, `head`, `tail`
-- Understanding file paths and directories
+👉 [Users & Sudo Permissions](./linux-users-sudo-permissions/)
 
 ---
 
-## 🔹 Part 2: File & Directory Management
-Learn how files are handled in Linux systems.
+## 🔹 File Permissions & Environment Variables
+Core Linux security and configuration concepts.
 
-👉 [Linux Commands – Part 2: File Management](./part-2/)
-
-Topics covered:
-- `touch`, `stat`, `file`
-- `find`, `locate`
-- `du`, `df`
-- File search and disk usage
+👉 [File Permissions & Environment Variables](./linux-file-permissions-env/)
 
 ---
 
-## 🔹 Part 3: Permissions & Ownership
-Critical for security and production servers.
+## 🔹 Shell, Environment, Alias & Package Management
+How Linux behaves interactively and during automation.
 
-👉 [Linux Commands – Part 3: Permissions](./part-3/)
-
-Topics covered:
-- `chmod`, `chown`, `chgrp`
-- Permission numbers (755, 644)
-- SUID, SGID, Sticky bit
-- Real-world DevOps permission examples
+👉 [Shell, Env, Alias & Package Management](./linux-shell-env-alias-packages/)
 
 ---
 
-## 🔹 Part 4: Process & System Monitoring
-Used daily for troubleshooting servers.
+## 🔹 Log & Text Processing Commands
+Where DevOps engineers spend most of their debugging time.
 
-👉 [Linux Commands – Part 4: Process Management](./part-4/)
-
-Topics covered:
-- `ps`, `top`, `htop`
-- `kill`, `killall`
-- `uptime`, `free`, `vmstat`
-- CPU & memory analysis
+👉 [Log & Text Processing Commands](./linux-log-text-processing/)
 
 ---
 
-## 🔹 Part 5: Networking Commands
-Essential for cloud, Docker, and Kubernetes debugging.
+## 🔹 Networking Commands
+Critical for cloud, Docker, and Kubernetes troubleshooting.
 
-👉 [Linux Commands – Part 5: Networking](./part-5/)
-
-Topics covered:
-- `ip`, `ifconfig`
-- `netstat`, `ss`
-- `curl`, `wget`
-- DNS & port troubleshooting
+👉 [Networking Commands](./linux-networking-commands/)
 
 ---
 
-## 🔹 Part 6: Log & Text Processing
-DevOps engineers live inside logs.
+## 🔹 Process & Service Management
+Understand how Linux runs applications and services.
 
-👉 [Linux Commands – Part 6: Logs & Text Processing](./part-6/)
-
-Topics covered:
-- `grep`, `awk`, `sed`
-- `cut`, `sort`, `uniq`
-- Log filtering and analysis
-- Production log debugging
-
----
-
-## 🔹 Part 7: Disk & Storage Commands
-Important for server health and scaling.
-
-👉 [Linux Commands – Part 7: Disk & Storage](./part-7/)
-
-Topics covered:
-- `mount`, `umount`
-- `lsblk`, `blkid`
-- `fdisk`, `mkfs`
-- Disk troubleshooting
-
----
-
-## 🔹 Part 8: Archive & Compression
-Used in CI/CD and backups.
-
-👉 [Linux Commands – Part 8: Archive & Compression](./part-8/)
-
-Topics covered:
-- `tar`, `zip`, `unzip`
-- `gzip`, `gunzip`
-- Backup best practices
-
----
-
-## 🔹 Part 9: Linux Commands for DevOps & Kubernetes
-Real-world DevOps usage.
-
-👉 [Linux Commands – Part 9: DevOps Use Cases](./part-9/)
-
-Topics covered:
-- Debugging Kubernetes nodes
-- Jenkins agent troubleshooting
-- Docker container inspection
-- Cloud VM issues
+👉 [Process & Service Management](./linux-process-service-management/)
 
 ---
 
@@ -147,12 +76,13 @@ If you are short on time, focus on these first:
 - `grep`, `awk`, `sed`
 - `ps`, `top`, `kill`
 - `df`, `du`
-- `curl`, `netstat`, `ss`
+- `curl`, `ss`, `netstat`
 - `chmod`, `chown`
 
 ---
 
 ## 📚 Related DevOps Guides
+
 To become job-ready, combine Linux with:
 
 - [Git for DevOps](../git/)
@@ -164,7 +94,7 @@ To become job-ready, combine Linux with:
 
 ## 🚀 Final Note
 
-Linux mastery is **non-negotiable** for DevOps.  
+Linux mastery is **non-negotiable** for DevOps engineers.  
 This guide is designed to be:
 - Practical
 - Production-focused

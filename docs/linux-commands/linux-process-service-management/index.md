@@ -1,11 +1,22 @@
 ---
-title: "Linux commands Part 9"
+title: "Linux Process Management and Service Commands for DevOps Engineers"
 date: 2024-07-01
 ---
 
-#### find
+# Linux Process Management and Service Commands for DevOps Engineers
 
-find command is used to find the files or directories
+← [Back to Linux Commands](../)
+
+---
+
+This page explains how DevOps engineers monitor, control, and troubleshoot running processes
+and system services in Linux-based production environments.
+
+---
+
+## find Command
+
+The `find` command is used to search for files or directories.
 
 ```
 [opc@new-k8s ~]$ ll
@@ -32,7 +43,7 @@ drwxrwxr-x. 4 opc  opc         100 Apr 15 13:04 test
 ./test.json
 ```
 
-You can also find the files in diferrent folder
+You can also find files in a different folder.
 
 ```
 [opc@new-k8s ~]$ pwd
@@ -64,7 +75,7 @@ find: ‘/home/vignesh’: Permission denied
 find: ‘/opt/containerd’: Permission denied
 ```
 
-#### Search for empty files and directories and using find
+### Find Empty Files & Directories
 
 ```
 [opc@new-k8s ~]$ find ./ -empty
@@ -74,7 +85,7 @@ find: ‘/opt/containerd’: Permission denied
 ./test/vignesh/mani/raghav
 ```
 
-#### Search for empty files only
+### Find Empty Files Only
 
 ```
 [opc@new-k8s ~]$ find ./ -type f -empty
@@ -83,26 +94,26 @@ find: ‘/opt/containerd’: Permission denied
 ./test/hello.txt
 ```
 
-#### Search for empty directories only
+### Find Empty Directories Only
 
 ```
 [opc@new-k8s ~]$ find ./ -type d -empty
 ./test/vignesh/mani/raghav
 ```
 
-#### Search for empty file and delete those files
+### Find and Delete Empty Files
 
 ```
 find ./ -type f -empty -exec rm -i {} ;
 ```
 
-#### locate
+## locate Command
 
-locate command used for quickly finding files and directories
+The `locate` command is used for quickly finding files and directories.
 
-locate command doesn't search the entire filesystem, but looks through a regularly updated file database in the system. Thus, the search completes much faster
+The `locate` command doesn't search the entire filesystem, but looks through a regularly updated file database in the system. Thus, the search completes much faster.
 
-\-i --> ignore case
+-i --> ignore case
 
 ```
 [opc@new-k8s ~]$ locate hello
@@ -110,9 +121,9 @@ locate command doesn't search the entire filesystem, but looks through a regular
 /home/opc/test/hello.txt
 ```
 
-Sometimes, even delete files are shown in the output of locate command. Because its not updated yet in locate database
+Sometimes, even deleted files are shown in the output of the `locate` command because it's not updated yet in the locate database.
 
-\-e argument to search the filesystem
+-e --> argument to search the filesystem (checks existence)
 
 ```
 [opc@new-k8s ~]$ pwd
@@ -155,7 +166,7 @@ drwxrwxr-x. 4 opc  opc          86 Apr 20 11:46 test
 /home/opc/test/hello.txt
 ```
 
-#### sort
+## sort Command
 
 ```
 [opc@new-k8s ~]$ cat states.txt
@@ -221,7 +232,7 @@ Uttar Pradesh
 West Bengal
 ```
 
-#### uniq
+## uniq Command
 
 ```
 [opc@new-k8s ~]$ cat names.txt
@@ -260,15 +271,15 @@ Lines which are uniq
 I love music.
 ```
 
-#### systemctl
+## systemctl Command
 
-Systemctl command is used to check the status, start, stop, restart, reload, enable and disable the service / background process
+The `systemctl` command is used to check the status, start, stop, restart, reload, enable, and disable services.
 
-In Linux, we have sshd service, which is used to connect to the linux servers.
+In Linux, we have the `sshd` service, which is used to connect to Linux servers.
 
-#### To check the status of a service using systemctl
+### Check Service Status
 
-systemctl status service\_name
+`systemctl status service_name`
 
 ```
 ● sshd.service - OpenSSH server daemon
@@ -285,11 +296,11 @@ systemctl status service\_name
            └─26927 /usr/sbin/sshd -D
 ```
 
-#### To start the service using systemctl
+### Start Service
 
-systemctl start service\_name
+`systemctl start service_name`
 
-httpd is the most popular web server
+`httpd` is the most popular web server.
 
 ```
 [opc@new-k8s ~]$ systemctl status httpd
@@ -327,9 +338,9 @@ Apr 21 00:02:49 new-k8s systemd[1]: Starting The Apache HTTP Server...
 Apr 21 00:02:49 new-k8s systemd[1]: Started The Apache HTTP Server.
 ```
 
-#### To stop the service using systemctl
+### Stop Service
 
-systemctl stop service\_name
+`systemctl stop service_name`
 
 ```
 [opc@new-k8s ~]$ sudo systemctl stop httpd
@@ -349,9 +360,9 @@ Apr 21 00:04:11 new-k8s systemd[1]: Stopping The Apache HTTP Server...
 Apr 21 00:04:12 new-k8s systemd[1]: Stopped The Apache HTTP Server.
 ```
 
-#### To restart the service using systemctl
+### Restart Service
 
-systemctl restart service\_name
+`systemctl restart service_name`
 
 ```
 [opc@new-k8s ~]$ sudo systemctl status httpd
@@ -404,11 +415,11 @@ Apr 21 00:06:17 new-k8s systemd[1]: Starting The Apache HTTP Server...
 Apr 21 00:06:17 new-k8s systemd[1]: Started The Apache HTTP Server.
 ```
 
-#### To enable the service using systemctl
+### Enable Service
 
-If we restart/ stop-start our Linux system. The service will be staopped and it will not start automatically. To start the service automatically on start / restart, we need to enable the service
+If we restart our Linux system, services will be stopped and will not start automatically. To start a service automatically on boot, we need to enable it.
 
-systemctl enable service\_name
+`systemctl enable service_name`
 
 ```
 [opc@new-k8s ~]$ sudo systemctl status httpd
@@ -470,9 +481,9 @@ Now the service is enabled
 Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)
 ```
 
-#### To disable the service using systemctl
+### Disable Service
 
-systemctl disable service\_name
+`systemctl disable service_name`
 
 ```
 [opc@new-k8s ~]$ sudo systemctl disable httpd
@@ -507,17 +518,17 @@ Now the service is disabled
 Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled; vendor preset: disabled)
 ```
 
-#### service
+## service Command
 
-service is an "high-level" command used for starting and stopping services in different unixes and linuxes. Depending on the "lower-level" service manager, service redirects on different binaries.
+`service` is a "high-level" command used for starting and stopping services in different Unix/Linux systems. Depending on the "lower-level" service manager, `service` redirects to different binaries.
 
-For example, on CentOS 7 it redirects to systemctl, while on CentOS 6 it directly calls the relative /etc/init.d script. On the other hand, in older Ubuntu releases it redirects to upstart
+For example, on CentOS 7 it redirects to `systemctl`, while on CentOS 6 it directly calls the relative `/etc/init.d` script. On the other hand, in older Ubuntu releases it redirects to `upstart`.
 
-service is adequate for basic service management, while directly calling systemctl give greater control options.
+`service` is adequate for basic service management, while directly calling `systemctl` gives greater control options.
 
-#### To check the status of a service using service command
+### Check Status (service)
 
-service service\_name status
+`service service_name status`
 
 ```
 [opc@new-k8s ~]$ sudo service httpd status
@@ -542,9 +553,9 @@ Apr 21 00:06:59 new-k8s systemd[1]: Starting The Apache HTTP Server...
 Apr 21 00:06:59 new-k8s systemd[1]: Started The Apache HTTP Server.
 ```
 
-#### To stop the service using service command
+### Stop Service (service)
 
-service service\_name stop
+`service service_name stop`
 
 ```
 [opc@new-k8s ~]$ sudo service httpd stop
@@ -561,9 +572,9 @@ Redirecting to /bin/systemctl status httpd.service
            man:apachectl(8)
 ```
 
-#### To start the service using service command
+### Start Service (service)
 
-service service\_name start
+`service service_name start`
 
 ```
 [opc@new-k8s ~]$ sudo service httpd start
@@ -591,9 +602,9 @@ Redirecting to /bin/systemctl status httpd.service
            └─2175 /usr/sbin/httpd -DFOREGROUND
 ```
 
-#### To restart the service using service command
+### Restart Service (service)
 
-service service\_name restart
+`service service_name restart`
 
 ```
 [opc@new-k8s ~]$ sudo service httpd restart
@@ -622,13 +633,13 @@ Redirecting to /bin/systemctl status httpd.service
            └─3438 /usr/sbin/httpd -DFOREGROUND
 ```
 
-**NOTE:** We cannot use service command to enable and disable the service
+**NOTE:** We cannot use the `service` command to enable and disable services.
 
-#### journactl
+## journalctl Command
 
-journalctl command is used to check the logs of a service
+The `journalctl` command is used to check the logs of a service.
 
-journalctl -u service\_name
+`journalctl -u service_name`
 
 ```
 [opc@new-k8s ~]$ journalctl -u httpd
@@ -657,9 +668,9 @@ Apr 21 00:21:58 new-k8s systemd[1]: Starting The Apache HTTP Server...
 Apr 21 00:21:58 new-k8s systemd[1]: Started The Apache HTTP Server.
 ```
 
-#### ps -ef
+## ps Command
 
-ps command is used o list all the running background process
+The `ps` command is used to list all running background processes.
 
 ```
 ps -ef | grep -i sshd
@@ -682,3 +693,16 @@ This is the running process info for sshd, it has process id 26927
 ```
 root     26927     1  0 Apr20 ?        00:00:02 /usr/sbin/sshd -D
 ```
+
+## 🧠 Quick Quiz – Processes & Services
+
+<quiz>
+Which command is commonly used to terminate a running process using its PID?
+- [ ] ps
+- [ ] top
+- [x] kill
+- [ ] systemctl
+
+The `kill` command sends signals to a process, most commonly to terminate it
+using the process ID (PID).
+</quiz>
