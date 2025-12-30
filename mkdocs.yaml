@@ -234,11 +234,11 @@ nav:
       - ML Engineer: interview-questions/aws/ml-engineer.md
       - Network Engineer: interview-questions/aws/network-engineer.md
       - Generative AI Engineer: interview-questions/aws/gen-ai-engineer.md
-    - Quizzes:
-      - Git:
-        - Beginner: quiz/git/beginner.md
-        - Intermediate: quiz/git/intermediate.md
-        - Advanced: quiz/git/advanced.md
+  - Quizzes:
+    - Git:
+      - Beginner: quiz/git/beginner.md
+      - Intermediate: quiz/git/intermediate.md
+      - Advanced: quiz/git/advanced.md
 
 markdown_extensions:
   - admonition
@@ -271,6 +271,7 @@ markdown_extensions:
 plugins:
   - search
   - mkdocs_quiz
+      shuffle_answers: true
   # - mkdocs-jupyter:
   #     include: ["*.ipynb"]
   #     execute: false
