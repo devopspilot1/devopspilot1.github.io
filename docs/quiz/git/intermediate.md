@@ -2,7 +2,7 @@
 hide:
   - toc
 ---
-
+<!-- mkdocs-quiz intro -->
 # Git Intermediate Quiz
 
 Leveling up! 🌟
@@ -40,3 +40,4 @@ You know the basics—now let's see if you can handle branching, merging, and st
         <answer>git history</answer>
     </question>
 </quiz>
+<!-- mkdocs-quiz results -->

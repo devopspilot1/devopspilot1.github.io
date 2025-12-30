@@ -2,15 +2,12 @@
 hide:
   - toc
 ---
-
+<!-- mkdocs-quiz intro -->
 # Git Advanced Quiz
 
 Expert Mode Activated! 🧠
 Ready to dive into the internals? This quiz challenges your knowledge of bisecting, reflogs, and commit manipulation.
 
-**Instructions**:
-*   These scenarios are for seasoned Git users.
-*   Think carefully before answering!
 
 <quiz>
     <question>
@@ -39,3 +36,5 @@ Ready to dive into the internals? This quiz challenges your knowledge of bisecti
         <answer>HEAD is deleted</answer>
     </question>
 </quiz>
+
+<!-- mkdocs-quiz results -->

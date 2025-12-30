@@ -2,7 +2,7 @@
 hide:
   - toc
 ---
-
+<!-- mkdocs-quiz intro -->
 # Git Beginner Quiz
 
 Welcome! 🚀
@@ -40,3 +40,5 @@ Test your fundamental Git knowledge with this quick quiz. Perfect for beginners 
         <answer>git check</answer>
     </question>
 </quiz>
+<!-- mkdocs-quiz results -->
+
