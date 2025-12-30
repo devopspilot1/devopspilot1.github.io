@@ -271,6 +271,7 @@ aws apigatewayv2 create-api \
 ```
 
 **What this command does:**
+
 1. Creates a Regional API Gateway (HTTP Protocol).
 2. Creates a `$default` stage with auto-deploy enabled.
 3. Creates an integration with your Lambda function.
