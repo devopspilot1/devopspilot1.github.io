@@ -201,4 +201,16 @@ cat → Print file content
 
 ---
 
-👉 **Next:** [Linux File and Directory Management Commands](../linux-file-directory-commands/)
+## 🧠 Quick Quiz — Basic Linux Commands
+
+<quiz>
+Which command will list **all files, including hidden ones**, in the current directory?
+- [ ] ls
+- [ ] ls -l
+- [x] ls -la
+- [ ] pwd
+
+Hidden files begin with a `.` and are only shown when using the `-a` option with `ls`.
+</quiz>
+
+---
