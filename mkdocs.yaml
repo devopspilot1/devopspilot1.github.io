@@ -270,7 +270,7 @@ markdown_extensions:
 
 plugins:
   - search
-  - mkdocs_quiz
+  - mkdocs_quiz:
       shuffle_answers: true
   # - mkdocs-jupyter:
   #     include: ["*.ipynb"]
