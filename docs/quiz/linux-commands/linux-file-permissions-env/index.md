@@ -214,3 +214,5 @@ Which permission setting prevents others from accessing a file?
 
 `600` gives read/write to the owner and no permissions (0) to group and others, effectively blocking access.
 </quiz>
+
+<!-- mkdocs-quiz results -->

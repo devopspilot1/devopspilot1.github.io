@@ -215,3 +215,5 @@ Which tool is most commonly used to filter logs in production?
 
 `grep` is the go-to tool for filtering large log files to find errors or specific events.
 </quiz>
+
+<!-- mkdocs-quiz results -->

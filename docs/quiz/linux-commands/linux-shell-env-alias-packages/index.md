@@ -215,3 +215,5 @@ Which file interpreter is defined by the shebang?
 
 The shebang `#!/bin/bash` at the top of a script tells the system to execute the file using the Bash shell.
 </quiz>
+
+<!-- mkdocs-quiz results -->

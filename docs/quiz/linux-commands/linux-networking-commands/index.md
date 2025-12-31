@@ -214,3 +214,5 @@ Which command is most useful for debugging service-to-service communication?
 
 `curl` allows you to simulate requests between services to verify connectivity and API responses.
 </quiz>
+
+<!-- mkdocs-quiz results -->

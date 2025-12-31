@@ -215,3 +215,5 @@ Which command helps a DevOps engineer quickly verify disk space issues?
 
 `df` (disk free) is the primary command to check overall disk space usage on mounted filesystems.
 </quiz>
+
+<!-- mkdocs-quiz results -->

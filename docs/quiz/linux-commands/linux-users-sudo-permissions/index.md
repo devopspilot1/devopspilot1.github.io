@@ -214,3 +214,5 @@ Which command should be used to safely edit the sudoers file?
 
 `visudo` locks the `sudoers` file against multiple simultaneous edits, provides basic sanity checks, and checks for syntax errors.
 </quiz>
+
+<!-- mkdocs-quiz results -->

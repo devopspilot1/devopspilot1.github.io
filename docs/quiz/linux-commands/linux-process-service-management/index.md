@@ -215,3 +215,5 @@ Which command lists failed services?
 
 `systemctl --failed` specifically lists units that have entered a failed state.
 </quiz>
+
+<!-- mkdocs-quiz results -->

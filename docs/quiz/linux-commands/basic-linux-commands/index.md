@@ -57,10 +57,10 @@ The `-a` (all) option lists all files, including hidden files that start with a 
 
 <quiz>
 In Linux, hidden files start with which character?
-- [x] .
-- [ ] _
-- [ ] #
-- [ ] $
+- [x] `.`
+- [ ] `_`
+- [ ] `#`
+- [ ] `$`
 
 Files and directories starting with a dot (`.`) are hidden by default and are not shown by a standard `ls` command.
 </quiz>
@@ -214,3 +214,5 @@ Which command helps verify where you are in the filesystem?
 
 `pwd` confirms your current location in the directory structure.
 </quiz>
+
+<!-- mkdocs-quiz results -->
