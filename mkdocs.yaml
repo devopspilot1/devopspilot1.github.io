@@ -23,6 +23,7 @@ extra:
   analytics:
     provider: google
     property: G-FG4SPPD5JY
+custom_dir: overrides
 
 nav:
   - Linux Commands:
