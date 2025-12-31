@@ -16,55 +16,108 @@ This Linux commands guide is ideal if you are:
 - Debugging **production servers**
 
 ---
-
 ## 🧭 Linux Commands Learning Path
 
-This guide is structured to take you from Linux fundamentals to **real-world DevOps troubleshooting**.
-
-> 💡 *Basic Linux commands and fundamentals are covered in the earlier sections and sidebar navigation.
-> Below are the most important sections every DevOps engineer should master.*
+Follow this order for best results 👇
 
 ---
 
-## 🔹 Users & Sudo Permissions
-Essential for managing access on production servers.
+### 👉 [Basic Linux Commands](./basic-linux-commands/)
+Start here if you are new to Linux.
 
-👉 [Users & Sudo Permissions](./linux-users-sudo-permissions/)
-
----
-
-## 🔹 File Permissions & Environment Variables
-Core Linux security and configuration concepts.
-
-👉 [File Permissions & Environment Variables](./linux-file-permissions-env/)
+Topics covered:
+- `ls`, `cd`, `pwd`
+- Hidden files and directories
+- Relative vs absolute paths
+- Reading files using `cat`, `head`, `tail`
 
 ---
 
-## 🔹 Shell, Environment, Alias & Package Management
-How Linux behaves interactively and during automation.
+### 👉 [System & Disk Commands](./linux-system-disk-commands/)
+Understand memory and disk usage on Linux servers.
 
-👉 [Shell, Env, Alias & Package Management](./linux-shell-env-alias-packages/)
-
----
-
-## 🔹 Log & Text Processing Commands
-Where DevOps engineers spend most of their debugging time.
-
-👉 [Log & Text Processing Commands](./linux-log-text-processing/)
+Topics covered:
+- `free`, `df`
+- Disk and memory usage
+- Hostname and system information
+- Directory navigation shortcuts
 
 ---
 
-## 🔹 Networking Commands
-Critical for cloud, Docker, and Kubernetes troubleshooting.
+### 👉 [File & Directory Management](./linux-file-directory-commands/)
+Learn how files and directories are managed in Linux.
 
-👉 [Networking Commands](./linux-networking-commands/)
+Topics covered:
+- `mkdir`, `rm`, `cp`, `mv`
+- `touch`, `tree`
+- Editing files using `vi`
+- File organization basics
 
 ---
 
-## 🔹 Process & Service Management
-Understand how Linux runs applications and services.
+### 👉 [Users & Sudo Permissions](./linux-users-sudo-permissions/)
+Critical for multi-user systems and production security.
 
-👉 [Process & Service Management](./linux-process-service-management/)
+Topics covered:
+- `sudo`, `su`
+- Creating and managing users
+- Groups and sudo access
+- Real-world permission scenarios
+
+---
+
+### 👉 [File Permissions & Environment Variables](./linux-file-permissions-env/)
+Understand Linux security and environment configuration.
+
+Topics covered:
+- `chmod`, `chown`
+- Permission numbers (600, 644, 755)
+- Environment variables
+- `env`, `printenv`, `echo $VAR`
+
+---
+
+### 👉 [Shell, Env, Alias & Package Management](./linux-shell-env-alias-packages/)
+Learn how Linux behaves interactively and during automation.
+
+Topics covered:
+- Shell vs environment variables
+- `PATH` variable
+- Aliases and `.bashrc`
+- Package managers: `yum`, `apt`, `apk`
+
+---
+
+### 👉 [Log & Text Processing Commands](./linux-log-text-processing/)
+DevOps engineers spend a lot of time analyzing logs.
+
+Topics covered:
+- `grep`, `awk`, `sed`
+- `cut`, `sort`, `uniq`
+- Log filtering and pattern matching
+- Production log debugging
+
+---
+
+### 👉 [Networking Commands](./linux-networking-commands/)
+Essential for cloud, containers, and Kubernetes debugging.
+
+Topics covered:
+- `ip`, `ifconfig`
+- `ss`, `netstat`
+- `ping`, `curl`, `wget`
+- DNS and port troubleshooting
+
+---
+
+### 👉 [Process & Service Management](./linux-process-service-management/)
+Learn how Linux runs applications and services.
+
+Topics covered:
+- `ps`, `top`, `htop`
+- `kill`, `nice`
+- `systemctl`, `service`
+- Process and service troubleshooting
 
 ---
 
