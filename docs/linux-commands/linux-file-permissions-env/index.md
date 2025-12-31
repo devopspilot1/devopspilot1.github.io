@@ -209,14 +209,24 @@ PATH=/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/opc/.local/bin:/hom
 
 ---
 
-## 🧠 Quick Quiz – Permissions & Files
+## 🧠 Quick Quiz — File Permissions & Environment Variables
 
 <quiz>
-Which permission value gives read and write access only to the file owner?
+Which permission value represents read and write access for the file owner only?
 - [x] 600
 - [ ] 644
-- [ ] 660
+- [ ] 755
 - [ ] 777
 
-Permission value `600` allows only the owner to read and write the file.
+The permission value `600` allows only the file owner to read and write the file.
 </quiz>
+
+---
+
+### 📝 Want More Practice?
+
+To strengthen your understanding and prepare for interviews, try the **full 20-question practice quiz** based on this chapter:
+
+👉 **[Start File Permissions & Environment Variables Quiz (20 Questions)](/quiz/linux-commands/linux-file-permissions-env/)**
+
+---

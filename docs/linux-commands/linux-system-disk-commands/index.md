@@ -134,3 +134,13 @@ Which command shows disk usage in a human-readable format?
 
 The `-h` option converts sizes into MB/GB, making disk usage easier to understand.
 </quiz>
+
+---
+
+### 📝 Want More Practice?
+
+To strengthen your understanding and prepare for interviews, try the **full 20-question practice quiz** based on this chapter:
+
+👉 **[Start System & Disk Commands Quiz (20 Questions)](/quiz/linux-commands/linux-system-disk-commands/)**
+
+---

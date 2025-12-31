@@ -395,15 +395,24 @@ OK: 7 MiB in 15 packages
 sh: tree: not found
 ```
 
-## 🧠 Quick Quiz – Shell, PATH & Environment Variables
+## 🧠 Quick Quiz — Shell, Environment Variables & PATH
 
 <quiz>
-Which statement is TRUE about environment variables in Linux?
-- [ ] They are available only inside the current shell
-- [x] They are inherited by child processes
-- [ ] They cannot be accessed using `printenv`
-- [ ] They are stored only in `.vimrc`
+Which environment variable determines where Linux looks for executable commands?
+- [ ] HOME
+- [x] PATH
+- [ ] SHELL
+- [ ] USER
 
-Environment variables are inherited by child processes, which is why commands
-and scripts can access variables like PATH, USER, and HOME.
+The PATH variable contains directories where executable commands are searched.
 </quiz>
+
+---
+
+### 📝 Want More Practice?
+
+To strengthen your understanding and prepare for interviews, try the **full 20-question practice quiz** based on this chapter:
+
+👉 **[Start Shell & Environment Commands Quiz (20 Questions)](/quiz/linux-commands/linux-shell-env-alias-packages/)**
+
+---

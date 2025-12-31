@@ -202,14 +202,24 @@ userdel -r test
 
 ---
 
-## 🧠 Quick Quiz – Users & Sudo
+## 🧠 Quick Quiz — Users & Sudo Permissions
 
 <quiz>
-Which group gives sudo access on Ubuntu systems?
-- [ ] wheel
+Which group gives sudo access to users on Ubuntu systems?
 - [x] sudo
-- [ ] root
+- [ ] wheel
 - [ ] admin
+- [ ] root
 
-Ubuntu-based systems use the `sudo` group to grant administrative privileges.
+On Ubuntu, users must be part of the `sudo` group to execute commands with sudo privileges.
 </quiz>
+
+---
+
+### 📝 Want More Practice?
+
+To strengthen your understanding and prepare for interviews, try the **full 20-question practice quiz** based on this chapter:
+
+👉 **[Start Users & Sudo Permissions Quiz (20 Questions)](/quiz/linux-commands/linux-users-sudo-permissions/)**
+
+---

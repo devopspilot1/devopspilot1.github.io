@@ -214,3 +214,13 @@ Which command will list **all files, including hidden ones**, in the current dir
 
 Hidden files begin with a `.` and are only shown when using the `-a` option with `ls`.
 </quiz>
+
+---
+
+### 📝 Want More Practice?
+
+To strengthen your understanding and prepare for interviews, try the **full 20-question practice quiz** based on this chapter:
+
+👉 **[Start Linux Basic Commands Quiz (20 Questions)](/quiz/linux-commands/basic-linux-commands/)**
+
+---

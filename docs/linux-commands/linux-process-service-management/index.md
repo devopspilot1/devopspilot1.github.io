@@ -694,15 +694,24 @@ This is the running process info for sshd, it has process id 26927
 root     26927     1  0 Apr20 ?        00:00:02 /usr/sbin/sshd -D
 ```
 
-## 🧠 Quick Quiz – Processes & Services
+## 🧠 Quick Quiz — Process & Service Management
 
 <quiz>
-Which command is commonly used to terminate a running process using its PID?
-- [ ] ps
-- [ ] top
-- [x] kill
-- [ ] systemctl
+Which command is used to manage services on modern Linux systems?
+- [ ] service
+- [x] systemctl
+- [ ] chkconfig
+- [ ] init
 
-The `kill` command sends signals to a process, most commonly to terminate it
-using the process ID (PID).
+The `systemctl` command is used to control services on systemd-based Linux systems.
 </quiz>
+
+---
+
+### 📝 Want More Practice?
+
+To strengthen your understanding and prepare for interviews, try the **full 20-question practice quiz** based on this chapter:
+
+👉 **[Start Process & Service Management Quiz (20 Questions)](/quiz/linux-commands/linux-process-service-management/)**
+
+---

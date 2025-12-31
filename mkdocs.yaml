@@ -235,11 +235,24 @@ nav:
       - ML Engineer: interview-questions/aws/ml-engineer.md
       - Network Engineer: interview-questions/aws/network-engineer.md
       - Generative AI Engineer: interview-questions/aws/gen-ai-engineer.md
-  - Quizzes:
+  - Quiz:
+    - Overview: quiz/index.md
+    - Linux Commands:
+      - Overview: quiz/linux-commands/index.md
+      - Basic Linux Commands: quiz/linux-commands/basic-linux-commands/index.md
+      - System & Disk Commands: quiz/linux-commands/linux-system-disk-commands/index.md
+      - File & Directory Management: quiz/linux-commands/linux-file-directory-commands/index.md
+      - Users & Sudo Permissions: quiz/linux-commands/linux-users-sudo-permissions/index.md
+      - File Permissions & Env: quiz/linux-commands/linux-file-permissions-env/index.md
+      - Shell & Packages: quiz/linux-commands/linux-shell-env-alias-packages/index.md
+      - Logs & Text Processing: quiz/linux-commands/linux-log-text-processing/index.md
+      - Networking: quiz/linux-commands/linux-networking-commands/index.md
+      - Process Management: quiz/linux-commands/linux-process-service-management/index.md
     - Git:
-      - Beginner: quiz/git/beginner.md
-      - Intermediate: quiz/git/intermediate.md
-      - Advanced: quiz/git/advanced.md
+      - Overview: quiz/git/index.md
+      - Beginner: quiz/git/beginner/index.md
+      - Intermediate: quiz/git/intermediate/index.md
+      - Advanced: quiz/git/advanced/index.md
 
 markdown_extensions:
   - admonition

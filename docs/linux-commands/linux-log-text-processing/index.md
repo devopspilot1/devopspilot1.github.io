@@ -807,16 +807,24 @@ total 4
 }
 ```
 
-## 🧠 Quick Quiz – Logs & Text Processing
+## 🧠 Quick Quiz — Log & Text Processing
 
 <quiz>
-Which command is MOST commonly used to search for a pattern inside log files?
-- [ ] awk
-- [x] grep
-- [ ] sed
-- [ ] wc
+Which command allows you to follow a log file in real time as new lines are added?
+- [ ] grep
+- [x] tail -f
+- [ ] less
+- [ ] head
 
-The `grep` command is primarily used to search for patterns or keywords
-inside files, especially log files in DevOps environments.
+The `tail -f` command is commonly used by DevOps engineers to monitor live logs.
 </quiz>
 
+---
+
+### 📝 Want More Practice?
+
+To strengthen your understanding and prepare for interviews, try the **full 20-question practice quiz** based on this chapter:
+
+👉 **[Start Log & Text Processing Quiz (20 Questions)](/quiz/linux-commands/linux-log-text-processing/)**
+
+---

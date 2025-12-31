@@ -154,3 +154,13 @@ Which command creates parent directories automatically if they do not exist?
 
 The `-p` option allows mkdir to create missing parent directories.
 </quiz>
+
+---
+
+### 📝 Want More Practice?
+
+To strengthen your understanding and prepare for interviews, try the **full 20-question practice quiz** based on this chapter:
+
+👉 **[Start File & Directory Management Quiz (20 Questions)](/quiz/linux-commands/linux-file-directory-commands/)**
+
+---

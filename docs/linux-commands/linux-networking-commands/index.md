@@ -477,15 +477,25 @@ hello devops
 hello devops devops my devops
 ```
 
-## 🧠 Quick Quiz – Linux Networking
+## 🧠 Quick Quiz — Networking Commands
 
 <quiz>
-Which command is commonly used to test network connectivity to a remote host?
-- [ ] ss
-- [ ] ip addr
+Which command is most commonly used to test basic network connectivity to a remote host?
 - [x] ping
-- [ ] traceroute
+- [ ] curl
+- [ ] ss
+- [ ] ip
 
-The `ping` command sends ICMP echo requests to verify that a remote host
-is reachable over the network.
+The `ping` command checks reachability using ICMP packets.
 </quiz>
+
+---
+
+### 📝 Want More Practice?
+
+To strengthen your understanding and prepare for interviews, try the **full 20-question practice quiz** based on this chapter:
+
+👉 **[Start Networking Commands Quiz (20 Questions)](/quiz/linux-commands/linux-networking-commands/)**
+
+---
+
