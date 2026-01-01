@@ -9,7 +9,7 @@ hide:
   :root {
     /* Use the MkDocs Material theme primary color variable (defined in extra.css as #0f790e) */
     --primary-color: var(--md-primary-fg-color, #0f790e);
-    --secondary-color: #14b8a6; /* Teal-500 to match Green */
+    --secondary-color: #4ade80; /* Light Green to match Primary */
     --accent-color: #10b981;
     --text-dark: #1f2937;
     --text-light: #6b7280;
