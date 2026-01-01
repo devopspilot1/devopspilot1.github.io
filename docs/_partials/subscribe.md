@@ -1,4 +1,5 @@
-<!-- Substack Subscribe Embed -->
+📬 Weekly DevOps quizzes & practical guides
+
 <div style="max-width: 480px; margin: 2rem auto;">
   <iframe 
     src="https://devopspilot.substack.com/embed"
