@@ -164,3 +164,7 @@ To strengthen your understanding and prepare for interviews, try the **full 20-q
 👉 **[Start File & Directory Management Quiz (20 Questions)](/quiz/linux-commands/linux-file-directory-commands/)**
 
 ---
+
+📩 Get weekly DevOps learning updates
+Linux, Git, CI/CD, Kubernetes & Cloud — practical guides and quizzes.
+Subscribe: https://devopspilot.substack.com

@@ -55,3 +55,9 @@ How do you view the commit history?
 </quiz>
 
 <!-- mkdocs-quiz results -->
+
+---
+
+📩 **Get weekly DevOps quizzes & guides**
+
+{% include-markdown "_partials/subscribe.md" %}

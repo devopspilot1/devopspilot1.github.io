@@ -84,3 +84,9 @@ After mastering Git basics, continue with:
 👉 **[Back to Git Commands Guide](/git/)**
 
 Happy Learning 🚀
+
+---
+
+📩 **Get weekly DevOps quizzes & guides**
+
+{% include-markdown "_partials/subscribe.md" %}

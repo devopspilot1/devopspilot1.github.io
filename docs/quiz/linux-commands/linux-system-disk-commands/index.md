@@ -217,3 +217,9 @@ Which command helps a DevOps engineer quickly verify disk space issues?
 </quiz>
 
 <!-- mkdocs-quiz results -->
+
+---
+
+📩 **Get weekly DevOps quizzes & guides**
+
+{% include-markdown "_partials/subscribe.md" %}

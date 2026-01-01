@@ -55,3 +55,9 @@ A detached HEAD state occurs when you check out a commit that is not a branch ti
 </quiz>
 
 <!-- mkdocs-quiz results -->
+
+---
+
+📩 **Get weekly DevOps quizzes & guides**
+
+{% include-markdown "_partials/subscribe.md" %}

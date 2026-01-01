@@ -148,3 +148,9 @@ After mastering Linux quizzes, continue with:
 👉 **[Back to Linux Commands Guide](/linux-commands/)**
 
 Happy Learning 🚀
+
+---
+
+📩 **Get weekly DevOps quizzes & guides**
+
+{% include-markdown "_partials/subscribe.md" %}

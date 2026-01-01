@@ -156,3 +156,9 @@ This guide is designed to be:
 👉 Bookmark this page and follow the parts in order.
 
 Happy Learning! 🚀
+
+---
+
+📩 **Get weekly DevOps quizzes & guides**
+
+{% include-markdown "_partials/subscribe.md" %}

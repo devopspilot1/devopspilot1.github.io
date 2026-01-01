@@ -216,3 +216,9 @@ Which command helps verify where you are in the filesystem?
 </quiz>
 
 <!-- mkdocs-quiz results -->
+
+---
+
+📩 **Get weekly DevOps quizzes & guides**
+
+{% include-markdown "_partials/subscribe.md" %}

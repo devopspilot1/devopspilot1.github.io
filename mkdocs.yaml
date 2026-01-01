@@ -285,6 +285,7 @@ markdown_extensions:
 
 plugins:
   - search
+  - include-markdown
   - mkdocs_quiz:
       shuffle_answers: true
   # - mkdocs-jupyter:

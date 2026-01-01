@@ -217,3 +217,9 @@ The shebang `#!/bin/bash` at the top of a script tells the system to execute the
 </quiz>
 
 <!-- mkdocs-quiz results -->
+
+---
+
+📩 **Get weekly DevOps quizzes & guides**
+
+{% include-markdown "_partials/subscribe.md" %}

@@ -55,3 +55,9 @@ Which command shows the status of changes as untracked, modified, or staged?
 </quiz>
 
 <!-- mkdocs-quiz results -->
+
+---
+
+📩 **Get weekly DevOps quizzes & guides**
+
+{% include-markdown "_partials/subscribe.md" %}
