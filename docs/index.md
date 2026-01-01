@@ -9,7 +9,7 @@ hide:
   :root {
     /* Use the MkDocs Material theme primary color variable (defined in extra.css as #0f790e) */
     --primary-color: var(--md-primary-fg-color, #0f790e);
-    --secondary-color: #7c3aed; 
+    --secondary-color: #14b8a6; /* Teal-500 to match Green */
     --accent-color: #10b981;
     --text-dark: #1f2937;
     --text-light: #6b7280;
@@ -203,7 +203,7 @@ hide:
 
 <div class="hero">
   <h1>Your Co-Pilot for DevOps Mastery</h1>
-  <p>Stop watching endless videos. Start learning by doing with our hands-on labs, real-world examples, and interactive quizzes.</p>
+  <p>Stop watching endless videos. Start learning by doing with our step-by-step guides, real-world examples, and interactive quizzes.</p>
   <div class="hero-buttons">
     <a href="linux-commands/basic-linux-commands/" class="btn btn-primary">🚀 Start Learning Linux</a>
     <a href="quiz/" class="btn btn-secondary">📝 Practice Quizzes</a>
