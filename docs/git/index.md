@@ -93,7 +93,4 @@ Follow this order for best understanding 👇
 
 ---
 
-<div style="margin-top: 2rem; padding: 1.2rem; border-left: 4px solid #4CAF50; background-color: #f9fff9;">
-  <h3>📬 DevopsPilot Weekly Newsletter</h3>
-  <p>Get <strong>Git, Linux & DevOps</strong> guides delivered weekly.</p>
-</div>
+{% include-markdown "_partials/subscribe.md" %}
