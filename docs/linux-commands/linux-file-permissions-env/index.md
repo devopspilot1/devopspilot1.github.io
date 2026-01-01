@@ -230,3 +230,6 @@ To strengthen your understanding and prepare for interviews, try the **full 20-q
 👉 **[Start File Permissions & Environment Variables Quiz (20 Questions)](/quiz/linux-commands/linux-file-permissions-env/)**
 
 ---
+
+📬 **DevopsPilot Weekly** — Linux commands explained simply.  
+👉 [Subscribe here](https://devopspilot.substack.com)

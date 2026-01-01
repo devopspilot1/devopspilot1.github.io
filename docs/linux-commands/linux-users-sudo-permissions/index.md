@@ -223,3 +223,6 @@ To strengthen your understanding and prepare for interviews, try the **full 20-q
 👉 **[Start Users & Sudo Permissions Quiz (20 Questions)](/quiz/linux-commands/linux-users-sudo-permissions/)**
 
 ---
+
+📬 **DevopsPilot Weekly** — Linux commands explained simply.
+👉 [Subscribe here](https://devopspilot.substack.com)

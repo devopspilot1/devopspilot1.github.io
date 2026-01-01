@@ -828,3 +828,6 @@ To strengthen your understanding and prepare for interviews, try the **full 20-q
 👉 **[Start Log & Text Processing Quiz (20 Questions)](/quiz/linux-commands/linux-log-text-processing/)**
 
 ---
+
+📬 **DevopsPilot Weekly** — Linux commands explained simply.  
+👉 [Subscribe here](https://devopspilot.substack.com)

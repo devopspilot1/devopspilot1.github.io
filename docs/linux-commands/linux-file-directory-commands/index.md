@@ -165,6 +165,5 @@ To strengthen your understanding and prepare for interviews, try the **full 20-q
 
 ---
 
-📩 Get weekly DevOps learning updates
-Linux, Git, CI/CD, Kubernetes & Cloud — practical guides and quizzes.
-Subscribe: https://devopspilot.substack.com
+📬 **DevopsPilot Weekly** — Linux commands explained simply.
+👉 [Subscribe here](https://devopspilot.substack.com)

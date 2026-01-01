@@ -416,3 +416,6 @@ To strengthen your understanding and prepare for interviews, try the **full 20-q
 👉 **[Start Shell & Environment Commands Quiz (20 Questions)](/quiz/linux-commands/linux-shell-env-alias-packages/)**
 
 ---
+
+📬 **DevopsPilot Weekly** — Linux commands explained simply.
+👉 [Subscribe here](https://devopspilot.substack.com)

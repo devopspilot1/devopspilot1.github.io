@@ -499,3 +499,5 @@ To strengthen your understanding and prepare for interviews, try the **full 20-q
 
 ---
 
+📬 **DevopsPilot Weekly** — Linux commands explained simply.
+👉 [Subscribe here](https://devopspilot.substack.com)

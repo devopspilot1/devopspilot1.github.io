@@ -44,3 +44,8 @@ Create two branch master and feature, do one commit in master, switch to feature
 git clone --single-branch --branch branch_name github_url
 
 git clone --single-branch --branch release-1.3 https://github.com/rook/rook.git
+
+---
+
+📬 **DevopsPilot Weekly** — Git & DevOps made simple.  
+👉 [Subscribe here](https://devopspilot.substack.com)
