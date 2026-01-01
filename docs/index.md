@@ -7,8 +7,9 @@ hide:
 
 <style>
   :root {
-    --primary-color: #2563eb;
-    --secondary-color: #7c3aed;
+    /* Use the MkDocs Material theme primary color variable (defined in extra.css as #0f790e) */
+    --primary-color: var(--md-primary-fg-color, #0f790e);
+    --secondary-color: #7c3aed; 
     --accent-color: #10b981;
     --text-dark: #1f2937;
     --text-light: #6b7280;
@@ -22,7 +23,7 @@ hide:
     border-radius: 16px;
     text-align: center;
     margin-bottom: 3rem;
-    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   }
   .hero h1 {
     font-size: 3rem !important;
@@ -61,6 +62,7 @@ hide:
   .btn-primary:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    color: var(--primary-color) !important;
   }
   .btn-secondary {
     background: rgba(255,255,255,0.2);
@@ -313,9 +315,7 @@ hide:
 <div class="newsletter">
   <h3>🚀 Join the DevOps Revolution</h3>
   <p>We are constantly adding new content. Stay tuned for updates!</p>
-  <p style="opacity: 0.7; font-size: 0.9rem; margin-top: 1rem;">(Newsletter subscription coming soon)</p>
+  <div style="margin-top: 1rem;">
+    <iframe src="https://devopspilot.substack.com/embed" width="480" height="320" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>
+  </div>
 </div>
-
-<center style="margin-top: 3rem; opacity: 0.6;">
-  <small>Made with ❤️ by DevopsPilot Team</small>
-</center>
