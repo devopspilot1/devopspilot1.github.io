@@ -1,4 +1,4 @@
-📬 Weekly DevOps quizzes & practical guides
+**📬 Weekly DevOps, Cloud & Gen AI quizzes & guides**
 
 <div style="max-width: 480px; margin: 2rem auto;">
   <iframe 
