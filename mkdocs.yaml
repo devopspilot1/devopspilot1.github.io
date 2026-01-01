@@ -2,6 +2,7 @@ site_name: DevopsPilot
 site_url: https://devopspilot1.github.io/
 theme:
   name: material
+  custom_dir: overrides
   logo: assets/logo.png
   favicon: assets/favicon.ico
   palette:
@@ -16,14 +17,13 @@ theme:
     - navigation.indexes
     - toc.follow
     - content.code.copy
-copyright:  Copyright &copy; 2021 - 2025 DevopsPilot
+copyright:  Copyright &copy; 2021 - 2026 DevopsPilot
 extra_css:
   - stylesheets/extra.css
 extra:
   analytics:
     provider: google
     property: G-FG4SPPD5JY
-custom_dir: overrides
 
 nav:
   - Linux Commands:
