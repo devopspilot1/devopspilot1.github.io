@@ -5,186 +5,317 @@ hide:
   - toc
 ---
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1em;">
-  <div style="padding: 15px; border: 1px solid #ddd; border-radius: 5px;">
-    <h2 style="margin-top: 0;">DevOps Explained</h2>
-    <p>A set of practices that automates the processes between software development and IT teams, in order to build, test, and release software faster and more reliably.</p>
-  </div>
-  <div style="padding: 15px; border: 1px solid #ddd; border-radius: 5px;">
-    <h2 style="margin-top: 0;">Understanding the Cloud</h2>
-    <p>A network of remote servers hosted on the Internet to store, manage, and process data, rather than a local server or a personal computer.</p>
-  </div>
-  <div style="padding: 15px; border: 1px solid #ddd; border-radius: 5px;">
-    <h2 style="margin-top: 0;">Why DevOps and Cloud?</h2>
-    <p>The synergy of DevOps and Cloud enables organizations to achieve agility, scalability, efficiency, and faster innovation cycles.</p>
+<style>
+  :root {
+    --primary-color: #2563eb;
+    --secondary-color: #7c3aed;
+    --accent-color: #10b981;
+    --text-dark: #1f2937;
+    --text-light: #6b7280;
+  }
+  
+  /* Hero Section */
+  .hero {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 4rem 2rem;
+    border-radius: 16px;
+    text-align: center;
+    margin-bottom: 3rem;
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
+  }
+  .hero h1 {
+    font-size: 3rem !important;
+    font-weight: 800;
+    margin: 0 0 1rem 0;
+    color: white !important;
+    line-height: 1.2;
+  }
+  .hero p {
+    font-size: 1.25rem;
+    max-width: 700px;
+    margin: 0 auto 2.5rem auto;
+    opacity: 0.95;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.9);
+  }
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn {
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none !important;
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+  .btn-primary {
+    background: white;
+    color: var(--primary-color) !important;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+  }
+  .btn-secondary {
+    background: rgba(255,255,255,0.2);
+    color: white !important;
+    border: 2px solid rgba(255,255,255,0.4);
+    backdrop-filter: blur(5px);
+  }
+  .btn-secondary:hover {
+    background: rgba(255,255,255,0.3);
+    border-color: white;
+    transform: translateY(-3px);
+  }
+
+  /* Grid Layouts */
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+  }
+  .topic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  
+  /* Feature Cards */
+  .card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid #eaeaea;
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+    border-color: var(--primary-color);
+  }
+  .card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+  .card h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+  }
+  .card p {
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
+
+  /* Learning Path */
+  .path-container {
+    background: #f8fafc;
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid #e2e8f0;
+  }
+  .step-item {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .step-item:last-child { margin-bottom: 0; }
+  .step-num {
+    background: var(--primary-color);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+    font-size: 1.2rem;
+  }
+  .step-info h4 {
+    margin: 0 0 0.5rem 0;
+    color: var(--text-dark);
+    font-size: 1.2rem;
+  }
+  .step-info p {
+    margin: 0 0 0.5rem 0;
+    color: var(--text-light);
+  }
+  .step-link {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.95rem;
+  }
+  .step-link:hover { text-decoration: underline; }
+
+  /* Topic Cards */
+  .topic-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid #eaeaea;
+    text-decoration: none !important;
+    transition: all 0.3s ease;
+    color: var(--text-dark) !important;
+  }
+  .topic-card:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  }
+  .topic-icon { font-size: 3rem; margin-bottom: 0.5rem; }
+  .topic-name { font-weight: 700; font-size: 1.1rem; }
+
+  /* Utilities */
+  .text-center { text-align: center; }
+  .section-title { font-size: 2rem; font-weight: 800; text-align: center; margin: 4rem 0 2rem 0; color: var(--text-dark); }
+  .newsletter {
+    margin-top: 4rem;
+    padding: 2rem;
+    background: #f0fdf4; /* Light green */
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid #bbf7d0;
+  }
+</style>
+
+<div class="hero">
+  <h1>Your Co-Pilot for DevOps Mastery</h1>
+  <p>Stop watching endless videos. Start learning by doing with our hands-on labs, real-world examples, and interactive quizzes.</p>
+  <div class="hero-buttons">
+    <a href="linux-commands/basic-linux-commands/" class="btn btn-primary">🚀 Start Learning Linux</a>
+    <a href="quiz/" class="btn btn-secondary">📝 Practice Quizzes</a>
   </div>
 </div>
 
----
+<h2 class="section-title">Why DevopsPilot?</h2>
 
-## What is DevOps?
+<div class="grid-3">
+  <div class="card">
+    <span class="card-icon">🛠️</span>
+    <h3>Practical Approach</h3>
+    <p>We believe in "Learning by Doing". Every tutorial comes with commands you can run and real scenarios to solve, not just theory.</p>
+  </div>
+  <div class="card">
+    <span class="card-icon">🎯</span>
+    <h3>Interview Focused</h3>
+    <p>Curated content that targets the most common questions in DevOps interviews. We prepare you for the job, not just the certification.</p>
+  </div>
+  <div class="card">
+    <span class="card-icon">⚡</span>
+    <h3>Beginner Friendly</h3>
+    <p>Complex topics broken down into simple, bite-sized lessons. No jargon overload—just clear, actionable engineering advice.</p>
+  </div>
+</div>
 
-DevOps represents a culture and a set of practices that aims to break down silos between development (Dev) and operations (Ops) teams. By fostering collaboration, automation, and continuous feedback, DevOps enables organizations to:
+<h2 class="section-title">🗺️ Recommended Learning Path</h2>
 
-* Increase deployment frequency: Automating release pipelines allows for more frequent and less risky deployments.
-* Achieve faster time to market: Streamlined processes reduce the time it takes to get new features and products to users.
-* Improve reliability: Automation and monitoring help identify and resolve issues quickly, leading to more stable systems.
-* Enhance scalability: Cloud infrastructure, combined with DevOps practices, allows for easier scaling of applications and services.
-* Foster better collaboration: Shared responsibility and communication lead to more effective teamwork.
+<div class="path-container">
+  <div class="step-item">
+    <div class="step-num">1</div>
+    <div class="step-info">
+      <h4>Master Linux Fundamentals</h4>
+      <p>The operating system of the cloud. Learn permissions, shell, and file systems.</p>
+      <a href="linux-commands/basic-linux-commands/" class="step-link">Start Linux Track →</a>
+    </div>
+  </div>
+  <div class="step-item">
+    <div class="step-num">2</div>
+    <div class="step-info">
+      <h4>Version Control with Git</h4>
+      <p>Essential for every engineer. Learn branching, merging, and collaboration.</p>
+      <a href="git/" class="step-link">Learn Git →</a>
+    </div>
+  </div>
+  <div class="step-item">
+    <div class="step-num">3</div>
+    <div class="step-info">
+      <h4>Shell Scripting</h4>
+      <p>Automate repetitive tasks and build powerful tools.</p>
+      <a href="shellscript/part-1/" class="step-link">Start Scripting →</a>
+    </div>
+  </div>
+  <div class="step-item">
+    <div class="step-num">4</div>
+    <div class="step-info">
+      <h4>Docker & Containers</h4>
+      <p>Package applications for consistency across environments.</p>
+      <a href="docker/" class="step-link">Explore Docker →</a>
+    </div>
+  </div>
+  <div class="step-item">
+    <div class="step-num">5</div>
+    <div class="step-info">
+      <h4>Kubernetes Orchestration</h4>
+      <p>Manage containerized applications at scale.</p>
+      <a href="kubernetes/" class="step-link">Master Kubernetes →</a>
+    </div>
+  </div>
+</div>
 
-## Understanding the Cloud
+<h2 class="section-title">📚 Explore Topics</h2>
 
-Cloud computing provides on-demand access to computing resources—including servers, storage, databases, networking, software, analytics, and intelligence—over the Internet ("the cloud"). Key characteristics of cloud computing include:
+<div class="topic-grid">
+  <a href="linux-commands/basic-linux-commands/" class="topic-card">
+    <span class="topic-icon">🐧</span>
+    <span class="topic-name">Linux</span>
+  </a>
+  <a href="git/" class="topic-card">
+    <span class="topic-icon">🐙</span>
+    <span class="topic-name">Git</span>
+  </a>
+  <a href="docker/" class="topic-card">
+    <span class="topic-icon">🐳</span>
+    <span class="topic-name">Docker</span>
+  </a>
+  <a href="kubernetes/" class="topic-card">
+    <span class="topic-icon">☸️</span>
+    <span class="topic-name">Kubernetes</span>
+  </a>
+  <a href="jenkins/" class="topic-card">
+    <span class="topic-icon">⚙️</span>
+    <span class="topic-name">Jenkins</span>
+  </a>
+  <a href="cloud/on-premise-cloud/" class="topic-card">
+    <span class="topic-icon">☁️</span>
+    <span class="topic-name">Cloud</span>
+  </a>
+  <a href="terraform/" class="topic-card">
+    <span class="topic-icon">🏗️</span>
+    <span class="topic-name">Terraform</span>
+  </a>
+  <a href="quiz/" class="topic-card">
+    <span class="topic-icon">📝</span>
+    <span class="topic-name">Quizzes</span>
+  </a>
+</div>
 
-* On-demand self-service: Users can provision resources as needed without human interaction with a service provider.
-* Broad network access: Cloud services are accessible over a wide range of devices through standard network mechanisms.
-* Resource pooling: Providers pool their resources to serve multiple consumers, with resources dynamically assigned and reassigned according to demand.
-* Rapid elasticity: Resources can be rapidly and elastically provisioned and released, in some cases automatically, to scale out and in commensurate with demand.
-* Measured service: Cloud systems automatically control and optimize resource use by leveraging a metering capability at some level of abstraction appropriate to the type of service (e.g., storage, processing, bandwidth, and active user accounts).
+<div class="newsletter">
+  <h3>🚀 Join the DevOps Revolution</h3>
+  <p>We are constantly adding new content. Stay tuned for updates!</p>
+  <p style="opacity: 0.7; font-size: 0.9rem; margin-top: 1rem;">(Newsletter subscription coming soon)</p>
+</div>
 
-## The Power of Integration
-
-The true power comes from integrating DevOps practices with cloud technologies. Cloud provides the infrastructure and services needed to implement DevOps automation and scalability, while DevOps provides the methodologies to effectively manage and deploy applications in the cloud environment.
-
-This synergy allows teams to build, deploy, and operate applications with unprecedented speed, reliability, and efficiency.
-
-## RoadMap
-# Kickstart your DevOps Journey
-
-## Devops Prerequisite course:
-* [Devops prerequisite course video](https://www.youtube.com/watch?v=Wvf0mBNGjXY) This course has a hands on lab also register for it and do the hands on for free.
-
-## Windows vs Linux
-* [Windows vs Linux basics](cloud/types-of-os)
-<!-- * [Basic windows and linux commands](/content/devops-journey/windows-linux-commands) -->
-
-## Linux basics
-* [Linux folder structure](https://www.thegeekstuff.com/2010/09/linux-file-system-structure/)
-* [Linux commands part-1](linux-commands/commands-part1)
-* [Relative path and Absolute path](https://www.geeksforgeeks.org/absolute-relative-pathnames-unix/)
-* [Linux commands part-2](linux-commands/commands-part2)
-* [Linux commands part-3](linux-commands/commands-part3)
-* [Linux commands part-4](linux-commands/commands-part4)
-* [Linux commands part-5](linux-commands/commands-part5)
-* [Linux commands part-6](linux-commands/commands-part6)
-* [Linux commands part-7](linux-commands/commands-part7)
-* [Linux commands part-8](linux-commands/commands-part8)
-* [Linux commands part-9](linux-commands/commands-part9)
-* [On Premise vs Cloud](cloud/on-premise-cloud)
-* [Linux - ssh](ssh/ssh)
-* [How to install virtualbox and create ubuntu virtual machine](cloud/virtualbox)
-
-## Shell script
-1. [Basics and if condition](shellscript/part-1)
-2. [For loop](shellscript/part-2)
-3. [While loop](shellscript/part-3)
-4. [Function](shellscript/part-4)
-5. [Shell script examples](https://github.com/vigneshsweekaran/shellscript)
-
-## Git
-* [Learn Git](git/how-to-create-github-account)
-
-## 3-Tier Architecture
-* [Understanding 3-Tier Architecture](3-tier/3-tier.md)
-
-## Web servers
-`Nginx/httpd` Majorly used for deploying frontend application developed using HTML,CSS,Javascript, AngularJs and ReactJS
-* [How to install Nginx webserver](https://devopspilot.com/content/nginx/tutorials/01-how-to-install-nginx)
-
-`Tomcat` Majorly used for deploying Java based application
-* [How to install Tomcat](https://vigneshsweekaran.github.io/content/tomcat/tutorials/installation)
-* [How to manually deploy the java application to Tomcat 9 webserver](https://vigneshsweekaran.github.io/content/tomcat/tutorials/how-to-manually-deploy-java-application-to-tomcat)
-* [How to deploy the java application to Tomcat 9 webserver using maven](https://vigneshsweekaran.github.io/content/tomcat/tutorials/how-to-deploy-java-application-to-tomcat-using-maven)
-
-## Build Tools
-`Maven/Gradle` : For Java programming language (Backend application)
-* [How to install Maven](/content/maven/tutorials/01-installation)
-* [About Maven](https://www.youtube.com/watch?v=x8sMN4tossY)
-* [How to generate a sample java application using Maven](/content/maven/tutorials/02-generate-a-sample-java-application-using-maven)
-* [Building Java Projects with Maven](https://spring.io/guides/gs/maven/#initial)
-
-`Npm` : Build / Package Manager for AngularJs, NodeJs, ReactJs (Frontend application)
-
-`Pip` : Package manager for Python
-
-## Docker
-* [Docker training video](https://www.youtube.com/watch?v=zJ6WbK9zFpI&t=5722s) 
-* [Docker Tutorials](https://devopspilot.com/nav/docker.html)
-
-## Jenkins
-* [Jenkins Tutorials](https://devopspilot.com/nav/jenkins.html)
-* [Jenkins advanced tutorials in youtube by CloudBeesTv channel](https://www.youtube.com/watch?v=fj_TD9pufFM&list=PLvBBnHmZuNQJeznYL2F-MpZYBUeLIXYEe)
-
-## Kubernetes
-* [Kubernetes Concept](https://www.youtube.com/watch?v=QJ4fODH6DXI&list=RDCMUCSWj8mqQCcrcBlXPi4ThRDQ&index=3)
-* [Kubernetes Architecture](https://www.youtube.com/watch?v=8C_SCDbUJTg)
-* [Pod,ReplicaSet,Deployment](https://www.youtube.com/watch?v=deFfAUZpoxs&list=PL34sAs7_26wP009Cl03TZbtRFZ2DMJovl&index=2)
-* [Horizontal Pod Autoscaler](https://www.youtube.com/watch?v=3BnrXapY7zo)
-* [Namespace](https://www.youtube.com/watch?v=j_UUnlVC2Ss&list=RDCMUCSWj8mqQCcrcBlXPi4ThRDQ&index=6)
-* [Service](https://www.youtube.com/watch?v=5lzUpDtmWgM&list=RDCMUCSWj8mqQCcrcBlXPi4ThRDQ&index=4)
-* [Configmap](https://www.youtube.com/watch?v=upmLONFGNBs)
-* [Secret](https://www.youtube.com/watch?v=ch9YlQZ4xTc&t=361s)
-* [Taints & Tolerations](https://www.youtube.com/watch?v=mo2UrkjA7FE&list=RDCMUCSWj8mqQCcrcBlXPi4ThRDQ&index=9)
-
-##### Reference Youtube channels for learning kubernetes
-* [Justmeandopensource youtube channel Kubernetes](https://www.youtube.com/c/wenkatn-justmeandopensource/playlists)
-
-##### Kubernetes free lab environment
-* [IBM kubernetes Lab - 4 hours](https://www.ibm.com/cloud/kubernetes-service/kubernetes-tutorials)
-* [Katacoda kubernetes Lab](https://www.katacoda.com/learn)
-* [Play with kubernetes](https://labs.play-with-k8s.com/)
-
-##### Kubernetes Paid course
-* [Certified Kubernetes Application Developer (CKAD) course in Udemy by Mumshad Mannambeth](https://www.udemy.com/course/certified-kubernetes-application-developer/)
-* [Certified Kubernetes Administrator (CKA) course in Udemy by Mumshad Mannambeth](https://www.udemy.com/course/certified-kubernetes-administrator-with-practice-tests/)
-* [Certified Kubernetes Security Specialist (CKS) course in Kodekloud by Mumshad Mannambeth](https://kodekloud.com/courses/certified-kubernetes-security-specialist-cks/)
-
-##### Realtime examples and kubernetes additional tools
-* [Kubernetes Realtime examples Tutorials](https://devopspilot.com/nav/kubernetes.html)
-
-## Helm Chart
-* [Helm chart tutorials in youtube by Richard Chesterwood](https://www.youtube.com/playlist?list=PLSwo-wAGP1b8svO5fbAr7ko2Buz6GuH1g)
-
-## Monitoring
-
-## Logging
-
-## Cloud certification (AWS, AZURE, GCP)
-Preferably you can start with AWS Solution Architect Associate
-
-##### AWS Paid course
-* [AWS Certified Solution Architect Associate course in Udemy](https://www.udemy.com/course/aws-certified-solutions-architect-associate-saa-c02/)
-* [AWS Certified Solutions Architect Associate Practice Exams](https://www.udemy.com/course/aws-certified-solutions-architect-associate-amazon-practice-exams-saa-c02/)
-
-##### AWS free course
-* [AWS Certified Cloud Practitioner Training 2020 - Full Course](https://www.youtube.com/watch?v=3hLmDS179YE)
-* [AWS Basics for Beginners full Course by Neil Davis](https://www.youtube.com/watch?v=ulprqHHWlng)
-* [Free course for AWS certifications](https://www.youtube.com/c/Freecodecamp/search?query=aws)
-
-##### Azure free course
-* [Microsoft Azure Fundamentals Certification Course (AZ-900)](https://www.youtube.com/watch?v=NKEFWyqJ5XA)
-
-## SSL/TLS
-How to configure SSL/TLS certificates for websites (How to make a website as secure - https)
-* [SSL/TLS Tutorials](https://devopspilot.com/nav/ssl-tls.html)
-
-## Terraform
-
-##### Terraform free course
-* [Terraform free course in youtube by kodekloud](https://www.youtube.com/watch?v=YcJ9IeukJL8&t=1s)
-* [Terraform free course in youtube by Sandip Das](https://learn.sandipdas.in/2021/07/26/terraform-full-course-for-beginners-hashicorp-terraform-associate-certification-exam-prep-course/)
-
-## AWS DevOps
-* [AWS DevOps Free course in youtube by Sandip Das](https://www.youtube.com/playlist?list=PL7kXAf0BmEqura2P3brCGE4pIfeSh-kgw)
-
-## Devops Playground by Katakoda
-* [Learn and do handson on lots of devops tools for free](https://www.katacoda.com/learn)
-
-## Devops Bootcamp by Techworld with nana
-[Devops Bootcamp course](https://mega.nz/folder/ObpDTKoL#RW4R8lqpN49k4I9GL5YJ4g/folder/PS4HiAKY)
-
-## Backend development using Python
-* [Python and REST APIs: Interacting With Web Services](https://realpython.com/api-integration-in-python/)
-* [Python REST APIs With Flask, Connexion, and SQLAlchemy – Part 1](https://realpython.com/flask-connexion-rest-api/)
-* [Python REST APIs With Flask, Connexion, and SQLAlchemy – Part 2](https://realpython.com/flask-connexion-rest-api-part-2/)
-* [Python REST APIs With Flask, Connexion, and SQLAlchemy – Part 3](https://realpython.com/flask-connexion-rest-api-part-3/)
+<center style="margin-top: 3rem; opacity: 0.6;">
+  <small>Made with ❤️ by DevopsPilot Team</small>
+</center>
