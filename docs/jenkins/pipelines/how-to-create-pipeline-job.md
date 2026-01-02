@@ -79,7 +79,7 @@ Scroll down, go to **Pipeline** section, in **Definition** select **Pipeline scr
 
 This is a public repository so credentials are not required. If your reository is private then we need credentials to pull the code. Store the username and password in credentials. Then from the **Credentials** drop down select your git repository credential.
 
-[How to store credentials in Jenkins](/content/jenkins/tutorials/common/04-how-to-store-credentials-in-jenkins)
+[How to store credentials in Jenkins](../tutorials/how-to-store-a-github-token-safely-in-jenkins-credentials.md)
 
 ![Jenkins](../../images/jenkins-pipeline-scm.png)
 

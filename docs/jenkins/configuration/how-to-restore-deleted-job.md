@@ -9,7 +9,7 @@ date: 2024-07-01
 
 #### References
 
-- [How to install plugins in Jenkins](/_images/jenkins/02-how-to-install-plugins)
+- [How to install plugins in Jenkins](../../images/jenkins-plugin-installation.png)
 
 #### Restore deleted Jobs
 

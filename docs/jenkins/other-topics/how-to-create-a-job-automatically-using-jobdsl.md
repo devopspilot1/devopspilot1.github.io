@@ -29,7 +29,7 @@ Job DSL script Reference:
 
 #### References
 
-- [How to install plugins in Jenkins](/_images/jenkins/02-how-to-install-plugins)
+- [How to install plugins in Jenkins](../../images/jenkins-plugin-installation.png)
 
 #### Creating Seed Job by declaring Job DSL script in Job itself
 
