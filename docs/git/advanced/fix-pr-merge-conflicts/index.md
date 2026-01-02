@@ -4,11 +4,11 @@ title: "How to Fix PR Merge Conflicts"
 
 # How to Fix PR Merge Conflicts
 
-[← Back to Git](../../)
+[← Back to Git](../../index.md)
 
 ### Reference
-* [How to create repository in Github](/content/git/tutorials/01-how-to-create-github-account)
-* [How to create pull request in Github](/content/git/tutorials/10-how-to-create-pull-request-in-github)
+* [How to create repository in Github](../../basics/create-github-account/index.md)
+* [How to create pull request in Github](../../advanced/create-pull-request/index.md)
 
 ### Create Pull Request
 

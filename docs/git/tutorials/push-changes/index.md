@@ -4,7 +4,7 @@ title: "How to Push Changes to GitHub"
 
 # How to Push Changes to GitHub
 
-[← Back to Git](../../)
+[← Back to Git](../../index.md)
 
 ### How to make the changes locally and push to remote repository
 

@@ -4,7 +4,7 @@ title: "How to Create a GitHub Account"
 
 # How to Create a GitHub Account
 
-[← Back to Git](../../)
+[← Back to Git](../../index.md)
 
 ### What is git
 

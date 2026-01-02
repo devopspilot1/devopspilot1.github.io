@@ -4,7 +4,7 @@ title: "How to Create a Public Repository"
 
 # How to Create a Public Repository
 
-[← Back to Git](../../)
+[← Back to Git](../../index.md)
 
 ### How to create Github public repository
 

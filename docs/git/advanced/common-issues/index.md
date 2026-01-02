@@ -4,7 +4,7 @@ title: "Common Git Issues"
 
 # Common Git Issues
 
-[← Back to Git](../../)
+[← Back to Git](../../index.md)
 
 * File permissions in Git bash is different from gerrit remote repo
     Check the existing remote file permissions with the following command:

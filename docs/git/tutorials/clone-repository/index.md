@@ -4,7 +4,7 @@ title: "How to Clone a Repository"
 
 # How to Clone a Repository
 
-[← Back to Git](../../)
+[← Back to Git](../../index.md)
 
 Go to your repository -> click on **code** -> make sure **https** is selected -> copy the url
 

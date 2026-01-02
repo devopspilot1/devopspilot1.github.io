@@ -4,10 +4,10 @@ title: "How to Fix Merge Conflicts"
 
 # How to Fix Merge Conflicts
 
-[← Back to Git](../../)
+[← Back to Git](../../index.md)
 
 ### Reference
-* [How to create repository in Github](/content/git/tutorials/01-how-to-create-github-account)
+* [How to create repository in Github](../../basics/create-github-account/index.md)
 
 ##### What is Merge Conflict ?
 When some changes are done in same line and same file by two engineers, conflict will occur while merging.

@@ -4,7 +4,7 @@ title: "Git Overview - Part 1"
 
 # Git Overview - Part 1
 
-[← Back to Git](../../)
+[← Back to Git](../../index.md)
 
 ### Youtube
 [![Git part-1](../../images/part-1.png){: style="width:400px"}](https://www.youtube.com/watch?v=kvqHSStbgfU)

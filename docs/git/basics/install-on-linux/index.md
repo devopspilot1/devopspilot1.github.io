@@ -4,7 +4,7 @@ title: "How to Install Git on Linux"
 
 # How to Install Git on Linux
 
-[← Back to Git](../../)
+[← Back to Git](../../index.md)
 
 ### How to install git in linux operating system
 

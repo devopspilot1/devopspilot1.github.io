@@ -4,7 +4,7 @@ title: "Git Reset"
 
 # Git Reset
 
-[← Back to Git](../../)
+[← Back to Git](../../index.md)
 
 ### To reset one top local commit (This will only remove the commits and the chnages are still shown in local repository, we have to manaually remove the changes)
 git reset HEAD^1 OR git reset HEAD^

@@ -33,28 +33,28 @@ Whether you are a **beginner or preparing for DevOps roles**, this section will 
 Follow this order for best understanding 👇
 
 ### 🟢 Basics
-- [What is Git and Key Concepts](./basics/git-key-concepts/)
-- [Installing Git](./basics/install-on-linux/)
-- [Create GitHub Account](./basics/create-github-account/)
+- [What is Git and Key Concepts](./basics/git-key-concepts/index.md)
+- [Installing Git](./basics/install-on-linux/index.md)
+- [Create GitHub Account](./basics/create-github-account/index.md)
 
 ### 🟡 Tutorials
-- [Create Public Repository](./tutorials/create-public-repository/)
-- [Clone Repository](./tutorials/clone-repository/)
-- [Create Private Repository](./tutorials/create-private-repository/)
-- [Push Changes](./tutorials/push-changes/)
-- [Branching & Merging](./tutorials/branching-and-merging/)
-- [Pull and Fetch](./tutorials/pull-and-fetch/)
-- [Reset](./tutorials/reset/)
-- [Tags](./tutorials/tags/)
-- [Stash](./tutorials/stash/)
+- [Create Public Repository](./tutorials/create-public-repository/index.md)
+- [Clone Repository](./tutorials/clone-repository/index.md)
+- [Create Private Repository](./tutorials/create-private-repository/index.md)
+- [Push Changes](./tutorials/push-changes/index.md)
+- [Branching & Merging](./tutorials/branching-and-merging/index.md)
+- [Pull and Fetch](./tutorials/pull-and-fetch/index.md)
+- [Reset](./tutorials/reset/index.md)
+- [Tags](./tutorials/tags/index.md)
+- [Stash](./tutorials/stash/index.md)
 
 ### 🔴 Advanced Git
-- [Common Issues](./advanced/common-issues/)
-- [Fix Merge Conflicts](./advanced/fix-merge-conflicts/)
-- [Create Pull Request](./advanced/create-pull-request/)
-- [Fix PR Merge Conflicts](./advanced/fix-pr-merge-conflicts/)
-- [Rebase](./advanced/rebase/)
-- [Visual Diff Merge](./advanced/visual-diff-merge/)
+- [Common Issues](./advanced/common-issues/index.md)
+- [Fix Merge Conflicts](./advanced/fix-merge-conflicts/index.md)
+- [Create Pull Request](./advanced/create-pull-request/index.md)
+- [Fix PR Merge Conflicts](./advanced/fix-pr-merge-conflicts/index.md)
+- [Rebase](./advanced/rebase/index.md)
+- [Visual Diff Merge](./advanced/visual-diff-merge/index.md)
 
 ---
 

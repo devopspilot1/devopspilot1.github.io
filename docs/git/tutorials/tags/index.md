@@ -4,7 +4,7 @@ title: "How to Manage Git Tags"
 
 # How to Manage Git Tags
 
-[← Back to Git](../../)
+[← Back to Git](../../index.md)
 
 Tag (Its just a label or marker)
 

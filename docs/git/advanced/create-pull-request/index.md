@@ -4,10 +4,10 @@ title: "How to Create a Pull Request"
 
 # How to Create a Pull Request
 
-[← Back to Git](../../)
+[← Back to Git](../../index.md)
 
 ### Reference
-* [How to create repository in Github](/content/git/tutorials/01-how-to-create-github-account)
+* [How to create repository in Github](../../basics/create-github-account/index.md)
 
 ### What is Pull Request
 Pull Request is way of merging two branches from Github UI.

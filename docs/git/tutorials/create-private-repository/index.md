@@ -4,7 +4,7 @@ title: "How to Create a Private Repository"
 
 # How to Create a Private Repository
 
-[← Back to Git](../../)
+[← Back to Git](../../index.md)
 
 ### How to create private repository
 

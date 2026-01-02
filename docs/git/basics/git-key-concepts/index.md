@@ -4,7 +4,7 @@ title: "Git Key Concepts"
 
 # Git Key Concepts
 
-[← Back to Git](../../)
+[← Back to Git](../../index.md)
 
 ### To see files tracked in staging area
 git ls-files

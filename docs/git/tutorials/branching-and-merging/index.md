@@ -4,7 +4,7 @@ title: "Branching and Merging"
 
 # Branching and Merging
 
-[← Back to Git](../../)
+[← Back to Git](../../index.md)
 
 ### To list all branches from local and remote
 git branch -a

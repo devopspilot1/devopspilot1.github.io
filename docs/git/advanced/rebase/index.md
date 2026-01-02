@@ -4,7 +4,7 @@ title: "Git Rebase Explained"
 
 # Git Rebase Explained
 
-[← Back to Git](../../)
+[← Back to Git](../../index.md)
 
 Git rebase is used to synchronize your current bramch with the target-branch / created-branch / any-branch
 

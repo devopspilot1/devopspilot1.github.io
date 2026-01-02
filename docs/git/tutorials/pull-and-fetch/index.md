@@ -4,7 +4,7 @@ title: "Git Pull vs Fetch"
 
 # Git Pull vs Fetch
 
-[← Back to Git](../index.md)
+[← Back to Git](../../index.md)
 
 ### Reference
 * https://www.atlassian.com/git/tutorials/syncing/git-pull#:~:text=The%20git%20pull%20command%20is,Git%2Dbased%20collaboration%20work%20flows.
