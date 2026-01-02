@@ -2,9 +2,9 @@
 title: "How to Create a Public Repository"
 ---
 
-[← Back to Git](../../)
-
 # How to Create a Public Repository
+
+[← Back to Git](../../)
 
 ### How to create Github public repository
 

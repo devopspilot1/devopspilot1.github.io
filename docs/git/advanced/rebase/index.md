@@ -2,9 +2,9 @@
 title: "Git Rebase Explained"
 ---
 
-[← Back to Git](../../)
-
 # Git Rebase Explained
+
+[← Back to Git](../../)
 
 Git rebase is used to synchronize your current bramch with the target-branch / created-branch / any-branch
 

@@ -2,9 +2,9 @@
 title: "Git Reset"
 ---
 
-[← Back to Git](../../)
-
 # Git Reset
+
+[← Back to Git](../../)
 
 ### To reset one top local commit (This will only remove the commits and the chnages are still shown in local repository, we have to manaually remove the changes)
 git reset HEAD^1 OR git reset HEAD^

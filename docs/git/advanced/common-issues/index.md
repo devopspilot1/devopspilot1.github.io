@@ -2,9 +2,9 @@
 title: "Common Git Issues"
 ---
 
-[← Back to Git](../../)
-
 # Common Git Issues
+
+[← Back to Git](../../)
 
 * File permissions in Git bash is different from gerrit remote repo
     Check the existing remote file permissions with the following command:

@@ -2,9 +2,9 @@
 title: "Visual Diff and Merge Tools"
 ---
 
-[← Back to Git](../../)
-
 # Visual Diff and Merge Tools
+
+[← Back to Git](../../)
    
 2. configure git
 git config --global merge.tool p4merge

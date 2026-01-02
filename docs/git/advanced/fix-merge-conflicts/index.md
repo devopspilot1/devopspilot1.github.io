@@ -2,9 +2,9 @@
 title: "How to Fix Merge Conflicts"
 ---
 
-[← Back to Git](../../)
-
 # How to Fix Merge Conflicts
+
+[← Back to Git](../../)
 
 ### Reference
 * [How to create repository in Github](/content/git/tutorials/01-how-to-create-github-account)

@@ -2,9 +2,9 @@
 title: "How to Push Changes to GitHub"
 ---
 
-[← Back to Git](../../)
-
 # How to Push Changes to GitHub
+
+[← Back to Git](../../)
 
 ### How to make the changes locally and push to remote repository
 

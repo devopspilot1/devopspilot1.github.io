@@ -2,9 +2,9 @@
 title: "How to Manage Git Tags"
 ---
 
-[← Back to Git](../../)
-
 # How to Manage Git Tags
+
+[← Back to Git](../../)
 
 Tag (Its just a label or marker)
 

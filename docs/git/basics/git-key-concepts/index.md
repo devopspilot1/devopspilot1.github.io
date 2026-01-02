@@ -2,9 +2,9 @@
 title: "Git Key Concepts"
 ---
 
-[← Back to Git](../../)
-
 # Git Key Concepts
+
+[← Back to Git](../../)
 
 ### To see files tracked in staging area
 git ls-files

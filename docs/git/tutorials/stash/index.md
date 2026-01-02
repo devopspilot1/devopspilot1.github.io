@@ -2,9 +2,9 @@
 title: "How to Use Git Stash"
 ---
 
-[← Back to Git](../../)
-
 # How to Use Git Stash
+
+[← Back to Git](../../)
 
 In the current branch we have done some changes in the file and we havent committed those changes, now you want to work on some other idea, but you want to save this changes for future purpose, we can save this chnages locally using stash. 
 

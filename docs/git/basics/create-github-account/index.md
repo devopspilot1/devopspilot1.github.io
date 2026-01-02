@@ -2,9 +2,9 @@
 title: "How to Create a GitHub Account"
 ---
 
-[← Back to Git](../../)
-
 # How to Create a GitHub Account
+
+[← Back to Git](../../)
 
 ### What is git
 

@@ -2,9 +2,9 @@
 title: "How to Clone a Repository"
 ---
 
-[← Back to Git](../../)
-
 # How to Clone a Repository
+
+[← Back to Git](../../)
 
 Go to your repository -> click on **code** -> make sure **https** is selected -> copy the url
 

@@ -2,9 +2,9 @@
 title: "Branching and Merging"
 ---
 
-[← Back to Git](../../)
-
 # Branching and Merging
+
+[← Back to Git](../../)
 
 ### To list all branches from local and remote
 git branch -a

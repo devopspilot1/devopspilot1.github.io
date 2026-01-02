@@ -2,9 +2,9 @@
 title: "How to Create a Private Repository"
 ---
 
-[← Back to Git](../../)
-
 # How to Create a Private Repository
+
+[← Back to Git](../../)
 
 ### How to create private repository
 
