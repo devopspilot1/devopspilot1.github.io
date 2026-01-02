@@ -17,26 +17,26 @@ In current branch, the commits comming from target-branch will be kept below the
 ### Example
 Lets create a branch called `feature-1` from `dev` branch and do two commits in `feature-1` branch 
 
-![git](../../../images/rebase/rebase-feature-1-commits.PNG)
+![git](../../images/rebase/rebase-feature-1-commits.PNG)
 
-![git](../../../images/rebase/rebase-feature-1-log.PNG)
+![git](../../images/rebase/rebase-feature-1-log.PNG)
 
 Go to `dev` branch and do two commits there
 
-![git](../../../images/rebase/rebase-dev-commits.PNG)
+![git](../../images/rebase/rebase-dev-commits.PNG)
 
-![git](../../../images/rebase/rebase-dev-log.PNG)
+![git](../../images/rebase/rebase-dev-log.PNG)
 
 Now go to `feature-1` branch and run rebase command to bring `dev` commits below the commits in `feature-1` branch
 ```
 git rebase dev
 ```
 
-![git](../../../images/rebase/rebase.PNG)
+![git](../../images/rebase/rebase.PNG)
 
 If you are pushing the `feature-1` branch for first time then no issue, simple `git push origin feature-1` should work
 
-![git](../../../images/rebase/rebase-feature-1-push.PNG)
+![git](../../images/rebase/rebase-feature-1-push.PNG)
 
 If you have already pushed `feature-1` branch with some commits and now if you are trying to push it may fail, since we have altered the commit history, we have the push the branch forcefully
 

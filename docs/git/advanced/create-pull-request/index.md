@@ -35,13 +35,13 @@ Then create a file called `cat.txt` and paste the following content,
 5. Domestic cats spend about 70 percent of the day sleeping. And 15 percent of the day grooming.
 ```
 
-![git](../../../images/pullrequest/git-create-file.png)
+![git](../../images/pullrequest/git-create-file.png)
 
-![git](../../../images/pullrequest/git-files.png)
+![git](../../images/pullrequest/git-files.png)
 
 Create a new branch called `feature`
 
-![git](../../../images/pullrequest/git-create-branch.png)
+![git](../../images/pullrequest/git-create-branch.png)
 
 Add one more line in cat.txt in `feature` branch
 ```
@@ -53,21 +53,21 @@ Add one more line in cat.txt in `feature` branch
 6. I like cats
 ```
 
-![git](../../../images/pullrequest/git-updated-file.png)
+![git](../../images/pullrequest/git-updated-file.png)
 
 After pushing your changes, you can see one Notification `Compare & pull request`
 
 Click on `Compare & pull request`
 
-![git](../../../images/pullrequest/git-pull-request.png)
+![git](../../images/pullrequest/git-pull-request.png)
 
 Verify the source branch and target branch
 
-![git](../../../images/pullrequest/git-pull-request-comment.png)
+![git](../../images/pullrequest/git-pull-request-comment.png)
 
 Scroll down and see the file changes and click on `Create pull request`
 
-![git](../../../images/pullrequest/git-pull-request-diff.png)
+![git](../../images/pullrequest/git-pull-request-diff.png)
 
 Now pull request is created and it is in `open` state
 
@@ -75,12 +75,12 @@ If you need some more changes in that file, you can add those as a comment, so t
 
 Click on `Merge pull request` --> `Confirm merge`
 
-![git](../../../images/pullrequest/git-pull-request-comments.png)
+![git](../../images/pullrequest/git-pull-request-comments.png)
 
-![git](../../../images/pullrequest/git-pull-request-merged.png)
+![git](../../images/pullrequest/git-pull-request-merged.png)
 
 Now you can go to `master` branch and  see the merged changes.
 
-![git](../../../images/pullrequest/git-pull-request-final.png)
+![git](../../images/pullrequest/git-pull-request-final.png)
 
 {% include-markdown "_partials/subscribe-guides.md" %}

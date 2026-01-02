@@ -24,13 +24,13 @@ Downloads the latest changes from Github(remote repository) and merge to local r
 ##### Lets create a conflict and fix it
 First create a repository called `mergeconflict` in github
 
-![git](../../../images/mergeconflict/git-mergeconflict-repo.png)
+![git](../../images/mergeconflict/git-mergeconflict-repo.png)
 
 Clone the repo to your system
 ```
 git clone https://github.com/vigneshsweekaran/mergeconflict.git
 ```
-![git](../../../images/mergeconflict/git-clone.png)
+![git](../../../images/git-clone.png)
 
 Then create a file called `cat.txt` and paste the following content
 ```
@@ -47,15 +47,15 @@ After pushing the changes, update the `cat.txt` in line no 2, Change the angle `
 
 Commit the changes locally and don't push your changes
 
-![git](../../../images/mergeconflict/git-commit-150.png)
+![git](../../images/mergeconflict/git-commit-150.png)
 
 Assume one more Developer changed the angle to 200 and pushed to `master` branch
 
 Lets create this scenario, go to github, edit the `cat.txt` file and change the angle from `180` to `200` and commit the changes from Github UI
 
-![git](../../../images/mergeconflict/git-edit-200.png)
+![git](../../images/mergeconflict/git-edit-200.png)
 
-![git](../../../images/mergeconflict/git-commit-200.png)
+![git](../../images/mergeconflict/git-commit-200.png)
 
 Be clear, till now we haven't pushed our local change(angle 150) to github
 
@@ -63,13 +63,13 @@ Check your local commits once
 ```
 git log
 ```
-![git](../../../images/mergeconflict/git-log-before-merge.png)
+![git](../../images/mergeconflict/git-log-before-merge.png)
 
 Lets pull the latest changes from Github to local repository
 ```
 git pull origin master
 ```
-![git](../../../images/mergeconflict/git-pull.png)
+![git](../../images/mergeconflict/git-pull.png)
 
 Now we can see the git pull has failed, basically auto-merging failed.
 
@@ -83,21 +83,21 @@ Now you have to decide, which change you need, manually fix the conflict.
 
 I want to keep angle as 200. Lets open the file and see how it looks, now the file will have both remote and local changes
 
-![git](../../../images/mergeconflict/git-conflict.png)
+![git](../../images/mergeconflict/git-conflict.png)
 
 After fixing the conflict, file looks as below
 
-![git](../../../images/mergeconflict/git-conflict-fixed-file.png)
+![git](../../images/mergeconflict/git-conflict-fixed-file.png)
 
 Add the `cat.txt` and run `git commit`
 ```
 git add cat.txt
 git commit
 ```
-![git](../../../images/mergeconflict/git-conflict-fixed.png)
+![git](../../images/mergeconflict/git-conflict-fixed.png)
 
 Now check the commit logs
-![git](../../../images/mergeconflict/git-log-after-merge.png)
+![git](../../images/mergeconflict/git-log-after-merge.png)
 
 Finally push your changes to Github
 ```

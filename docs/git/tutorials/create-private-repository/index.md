@@ -36,10 +36,10 @@ Lets generate the token
 
 ### Remote vs local repo
 
-![Git](../../../images/remote-vs-local.png)
+![Git](../../images/remote-vs-local.png)
 
 ### Youtube
 
-[![Git part-2](../../../images/git-part-2.png)](https://www.youtube.com/watch?v=LvlXQA5V1n0)
+[![Git part-2](../../../images/git-part-2.png){: style="width:400px"}](https://www.youtube.com/watch?v=LvlXQA5V1n0)
 
 {% include-markdown "_partials/subscribe-guides.md" %}

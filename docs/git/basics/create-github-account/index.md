@@ -13,7 +13,7 @@ GIT stands for Global Information Tracker
 It is a powerful and widely-used version control system commonly used for software development and other collaborative projects
 
 
-![Git](../../../images/central-repository.png)
+![Git](../../images/central-repository.png)
 
 The model here is pull and push
 
@@ -49,6 +49,6 @@ Click on the link received on your mail for complete the email verification. Onc
 
 ### Youtube
 
-[![Git part-1](../../images/git-part-1.png)](https://www.youtube.com/watch?v=kvqHSStbgfU)
+[![Git part-1](../../../images/git-part-1.png){: style="width:400px"}](https://www.youtube.com/watch?v=kvqHSStbgfU)
 
 {% include-markdown "_partials/subscribe-guides.md" %}

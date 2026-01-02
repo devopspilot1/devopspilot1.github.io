@@ -6,8 +6,6 @@ title: "Git Key Concepts"
 
 # Git Key Concepts
 
-{% include-markdown "_partials/subscribe-guides.md" %}
-
 ### To see files tracked in staging area
 git ls-files
   
