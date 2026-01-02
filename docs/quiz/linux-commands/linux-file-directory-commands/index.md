@@ -4,9 +4,9 @@ title: "Linux File & Directory Management Quiz (20 Questions)"
 
 # Linux File & Directory Management – Full Quiz
 
-← [Back to File & Directory Management](/linux-commands/linux-file-directory-commands/) <br>
-← [Back to Linux Commands](/linux-commands/) <br>
-← [Back to Quiz Home](/quiz/)
+← [Back to File & Directory Management](../../../linux-commands/linux-file-directory-commands/index.md) <br>
+← [Back to Linux Commands](../../../linux-commands/index.md) <br>
+← [Back to Quiz Home](../../index.md)
 
 ---
 

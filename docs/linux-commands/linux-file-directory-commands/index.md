@@ -5,7 +5,7 @@ date: 2024-07-01
 
 # Linux File and Directory Management Commands
 
-← [Back to Linux Commands](../)
+← [Back to Linux Commands](../index.md)
 
 ---
 
@@ -161,7 +161,7 @@ The `-p` option allows mkdir to create missing parent directories.
 
 To strengthen your understanding and prepare for interviews, try the **full 20-question practice quiz** based on this chapter:
 
-👉 **[Start File & Directory Management Quiz (20 Questions)](/quiz/linux-commands/linux-file-directory-commands/)**
+👉 **[Start File & Directory Management Quiz (20 Questions)](../../quiz/linux-commands/linux-file-directory-commands/index.md)**
 
 ---
 

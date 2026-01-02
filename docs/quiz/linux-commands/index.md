@@ -23,7 +23,7 @@ Follow the quizzes in order for best results 👇
 ### 🔹 Part 1: Basic Linux Commands
 Fundamental commands every Linux user must know.
 
-👉 **[Start Quiz – Basic Linux Commands](/quiz/linux-commands/basic-linux-commands/)**
+👉 **[Start Quiz – Basic Linux Commands](../../linux-commands/basic-linux-commands/index.md)**
 
 Topics:
 - `ls`, `cd`, `pwd`
@@ -35,7 +35,7 @@ Topics:
 ### 🔹 Part 2: System & Disk Commands
 Understand system resources and disk usage.
 
-👉 **[Start Quiz – System & Disk Commands](/quiz/linux-commands/linux-system-disk-commands/)**
+👉 **[Start Quiz – System & Disk Commands](../../linux-commands/linux-system-disk-commands/index.md)**
 
 Topics:
 - `free`, `df`, `du`
@@ -47,7 +47,7 @@ Topics:
 ### 🔹 Part 3: File & Directory Management
 Daily file operations on Linux systems.
 
-👉 **[Start Quiz – File & Directory Management](/quiz/linux-commands/linux-file-directory-commands/)**
+👉 **[Start Quiz – File & Directory Management](../../linux-commands/linux-file-directory-commands/index.md)**
 
 Topics:
 - `mkdir`, `rm`, `cp`, `mv`
@@ -59,7 +59,7 @@ Topics:
 ### 🔹 Part 4: Users & Sudo Permissions
 User management and access control.
 
-👉 **[Start Quiz – Users & Sudo Permissions](/quiz/linux-commands/linux-users-sudo-permissions/)**
+👉 **[Start Quiz – Users & Sudo Permissions](../../linux-commands/linux-users-sudo-permissions/index.md)**
 
 Topics:
 - `useradd`, `passwd`
@@ -71,7 +71,7 @@ Topics:
 ### 🔹 Part 5: File Permissions & Environment Variables
 Linux security and runtime configuration.
 
-👉 **[Start Quiz – File Permissions & Environment Variables](/quiz/linux-commands/linux-file-permissions-env/)**
+👉 **[Start Quiz – File Permissions & Environment Variables](../../linux-commands/linux-file-permissions-env/index.md)**
 
 Topics:
 - `chmod`, `chown`
@@ -83,7 +83,7 @@ Topics:
 ### 🔹 Part 6: Shell, Environment, Alias & Package Management
 Shell behavior and package installation.
 
-👉 **[Start Quiz – Shell & Package Management](/quiz/linux-commands/linux-shell-env-alias-packages/)**
+👉 **[Start Quiz – Shell & Package Management](../../linux-commands/linux-shell-env-alias-packages/index.md)**
 
 Topics:
 - Shell vs environment variables
@@ -95,7 +95,7 @@ Topics:
 ### 🔹 Part 7: Log & Text Processing
 Log analysis and text filtering.
 
-👉 **[Start Quiz – Log & Text Processing](/quiz/linux-commands/linux-log-text-processing/)**
+👉 **[Start Quiz – Log & Text Processing](../../linux-commands/linux-log-text-processing/index.md)**
 
 Topics:
 - `grep`, `awk`, `sed`
@@ -107,7 +107,7 @@ Topics:
 ### 🔹 Part 8: Networking Commands
 Network troubleshooting on Linux servers.
 
-👉 **[Start Quiz – Networking Commands](/quiz/linux-commands/linux-networking-commands/)**
+👉 **[Start Quiz – Networking Commands](../../linux-commands/linux-networking-commands/index.md)**
 
 Topics:
 - `ip`, `ping`
@@ -119,7 +119,7 @@ Topics:
 ### 🔹 Part 9: Process & Service Management
 Managing running processes and services.
 
-👉 **[Start Quiz – Process & Service Management](/quiz/linux-commands/linux-process-service-management/)**
+👉 **[Start Quiz – Process & Service Management](../../linux-commands/linux-process-service-management/index.md)**
 
 Topics:
 - `ps`, `top`, `kill`
@@ -145,7 +145,7 @@ After mastering Linux quizzes, continue with:
 - Kubernetes
 - Cloud (AWS / Azure)
 
-👉 **[Back to Linux Commands Guide](/linux-commands/)**
+👉 **[Back to Linux Commands Guide](../../linux-commands/index.md)**
 
 Happy Learning 🚀
 

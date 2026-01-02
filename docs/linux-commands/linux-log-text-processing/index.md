@@ -5,7 +5,7 @@ date: 2024-07-01
 
 # Linux Log and Text Processing Commands for DevOps Engineers
 
-← [Back to Linux Commands](../)
+← [Back to Linux Commands](../index.md)
 
 ---
 
@@ -825,7 +825,7 @@ The `tail -f` command is commonly used by DevOps engineers to monitor live logs.
 
 To strengthen your understanding and prepare for interviews, try the **full 20-question practice quiz** based on this chapter:
 
-👉 **[Start Log & Text Processing Quiz (20 Questions)](/quiz/linux-commands/linux-log-text-processing/)**
+👉 **[Start Log & Text Processing Quiz (20 Questions)](../../quiz/linux-commands/linux-log-text-processing/index.md)**
 
 ---
 

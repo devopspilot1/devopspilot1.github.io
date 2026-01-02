@@ -5,7 +5,7 @@ date: 2024-07-01
 
 # Linux Networking Commands for DevOps Engineers
 
-← [Back to Linux Commands](../)
+← [Back to Linux Commands](../index.md)
 
 ---
 
@@ -495,7 +495,7 @@ The `ping` command checks reachability using ICMP packets.
 
 To strengthen your understanding and prepare for interviews, try the **full 20-question practice quiz** based on this chapter:
 
-👉 **[Start Networking Commands Quiz (20 Questions)](/quiz/linux-commands/linux-networking-commands/)**
+👉 **[Start Networking Commands Quiz (20 Questions)](../../quiz/linux-commands/linux-networking-commands/index.md)**
 
 ---
 

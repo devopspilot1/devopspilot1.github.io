@@ -5,7 +5,7 @@ date: 2024-07-01
 
 # Basic Linux Commands for DevOps Engineers
 
-← [Back to Linux Commands](../)
+← [Back to Linux Commands](../index.md)
 
 ---
 
@@ -221,7 +221,7 @@ Hidden files begin with a `.` and are only shown when using the `-a` option with
 
 To strengthen your understanding and prepare for interviews, try the **full 20-question practice quiz** based on this chapter:
 
-👉 **[Start Linux Basic Commands Quiz (20 Questions)](/quiz/linux-commands/basic-linux-commands/)**
+👉 **[Start Linux Basic Commands Quiz (20 Questions)](../../quiz/linux-commands/basic-linux-commands/index.md)**
 
 ---
 

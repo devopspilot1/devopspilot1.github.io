@@ -106,16 +106,16 @@ Parameters passed to `Deploy to container` plugin definition.
 
 #### References
 
-- [How to install plugins in Jenkins](/index.php/jenkins/configuration/10-how-to-install-plugins)
+- [How to install plugins in Jenkins](../configuration/how-to-install-plugins.md)
 
-- [How to configure maven in Global Tool Configuration](/index.php/jenkins/configuration/20-global-tool-configurations)
+- [How to configure maven in Global Tool Configuration](../configuration/global-tool-configurations.md)
 
-- [How to store credentials in Jenkins](/index.php/jenkins/configuration/30-how-to-store-credentials-in-jenkins)
+- [How to store credentials in Jenkins](../configuration/how-to-store-credentials-in-jenkins.md)
 
-- [How to create pipeline job in Jenkins](/index.php/jenkins/pipeline/10-how-to-create-pipeline-job)
+- [How to create pipeline job in Jenkins](how-to-create-pipeline-job.md)
 
-- [How to install Tomcat](/index.php/tomcat/10-installation)
+- [How to install Tomcat](../../webserver/tomcat/installation.md)
 
-- [How to manually deploy the java application to Tomcat 9 webserver](/index.php/tomcat/20-how-to-manually-deploy-java-application-to-tomcat)
+- [How to manually deploy the java application to Tomcat 9 webserver](../../webserver/tomcat/how-to-manually-deploy-java-application-to-tomcat.md)
 
-- [How to deploy the java application to Tomcat 9 webserver using maven](/index.php/tomcat/30-how-to-deploy-java-application-to-tomcat-using-maven)
+- [How to deploy the java application to Tomcat 9 webserver using maven](../../webserver/tomcat/how-to-deploy-java-application-to-tomcat-using-maven.md)

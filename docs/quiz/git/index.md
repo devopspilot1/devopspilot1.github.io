@@ -24,7 +24,7 @@ Follow the quizzes in order for best results 👇
 ### 🔹 Beginner Level: Git Basics
 Start here if you are new to Git or want to strengthen fundamentals.
 
-👉 **[Start Quiz – Git Beginner Level](/quiz/git/beginner/)**
+👉 **[Start Quiz – Git Beginner Level](../../quiz/git/beginner/index.md)**
 
 Topics covered:
 - What is Git and why it is used
@@ -80,8 +80,8 @@ After mastering Git basics, continue with:
 - Kubernetes
 - Cloud (AWS / Azure)
 
-👉 **[Back to Linux Quiz Index](/quiz/linux-commands/)**  
-👉 **[Back to Git Commands Guide](/git/)**
+👉 **[Back to Linux Quiz Index](../../quiz/linux-commands/index.md)**  
+👉 **[Back to Git Commands Guide](../../git/index.md)**
 
 Happy Learning 🚀
 

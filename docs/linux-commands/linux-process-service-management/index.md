@@ -5,7 +5,7 @@ date: 2024-07-01
 
 # Linux Process Management and Service Commands for DevOps Engineers
 
-← [Back to Linux Commands](../)
+← [Back to Linux Commands](../index.md)
 
 ---
 
@@ -712,7 +712,7 @@ The `systemctl` command is used to control services on systemd-based Linux syste
 
 To strengthen your understanding and prepare for interviews, try the **full 20-question practice quiz** based on this chapter:
 
-👉 **[Start Process & Service Management Quiz (20 Questions)](/quiz/linux-commands/linux-process-service-management/)**
+👉 **[Start Process & Service Management Quiz (20 Questions)](../../quiz/linux-commands/linux-process-service-management/index.md)**
 
 ---
 

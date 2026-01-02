@@ -4,9 +4,9 @@ title: "Linux Log & Text Processing Quiz (20 Questions)"
 
 # Linux Log & Text Processing – Full Quiz
 
-← [Back to Log & Text Processing](/linux-commands/linux-log-text-processing/) <br>
-← [Back to Linux Commands](/linux-commands/) <br>
-← [Back to Quiz Home](/quiz/)
+← [Back to Log & Text Processing](../../../linux-commands/linux-log-text-processing/index.md) <br>
+← [Back to Linux Commands](../../../linux-commands/index.md) <br>
+← [Back to Quiz Home](../../index.md)
 
 ---
 

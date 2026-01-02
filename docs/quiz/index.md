@@ -26,7 +26,7 @@ Choose a topic and follow the quizzes in order 👇
 Linux is the foundation of DevOps.  
 This quiz track covers Linux from **basics to process & service management**.
 
-👉 **[Go to Linux Commands Quiz](/quiz/linux-commands/)**
+👉 **[Go to Linux Commands Quiz](../quiz/linux-commands/index.md)**
 
 Includes:
 - 9 structured parts
@@ -45,7 +45,7 @@ Topics:
 
 Git is essential for collaboration and CI/CD pipelines.
 
-👉 **[Go to Git Quiz](/quiz/git/)**
+👉 **[Go to Git Quiz](../quiz/git/index.md)**
 
 Current level:
 - Beginner Git quiz

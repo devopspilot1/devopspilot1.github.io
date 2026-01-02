@@ -95,7 +95,7 @@ sudo certbot --nginx -d www.devopspilot.tk
 
 It will ask for email address, agree the terms and conditions, certificate will be issued and finally enter `2` to automatically redirect `http` to `https`
 
-![letsencrypt](../images/generate-ssl.png)
+![letsencrypt](../images/generate-ssl1.png)
 
 ![letsencrypt](../images/generate-ssl2.png)
 
@@ -168,4 +168,4 @@ Hurray! we have successfully configured the SSL/TLS certificate in nginx webserv
 
 ### Reference:
 
-- [How to install nginx](/index.php/nginx/how-to-install-nginx)
+- [How to install nginx](../webserver/nginx/how-to-install-nginx.md)

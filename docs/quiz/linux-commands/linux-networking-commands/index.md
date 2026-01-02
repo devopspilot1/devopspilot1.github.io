@@ -4,9 +4,9 @@ title: "Linux Networking Commands Quiz (20 Questions)"
 
 # Linux Networking Commands – Full Quiz
 
-← [Back to Networking Commands](/linux-commands/linux-networking-commands/) <br>
-← [Back to Linux Commands](/linux-commands/) <br>
-← [Back to Quiz Home](/quiz/)
+← [Back to Networking Commands](../../../linux-commands/linux-networking-commands/index.md) <br>
+← [Back to Linux Commands](../../../linux-commands/index.md) <br>
+← [Back to Quiz Home](../../index.md)
 
 ---
 

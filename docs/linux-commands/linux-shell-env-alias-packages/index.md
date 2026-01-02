@@ -5,7 +5,7 @@ date: 2024-07-01
 
 # Linux Shell Variables, Environment Variables, PATH, Aliases & Package Management
 
-← [Back to Linux Commands](../)
+← [Back to Linux Commands](../index.md)
 
 ---
 
@@ -413,7 +413,7 @@ The PATH variable contains directories where executable commands are searched.
 
 To strengthen your understanding and prepare for interviews, try the **full 20-question practice quiz** based on this chapter:
 
-👉 **[Start Shell & Environment Commands Quiz (20 Questions)](/quiz/linux-commands/linux-shell-env-alias-packages/)**
+👉 **[Start Shell & Environment Commands Quiz (20 Questions)](../../quiz/linux-commands/linux-shell-env-alias-packages/index.md)**
 
 ---
 

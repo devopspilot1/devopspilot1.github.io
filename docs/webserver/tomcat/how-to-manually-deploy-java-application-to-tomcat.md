@@ -5,7 +5,7 @@ date: 2024-07-01
 
 ### References:
 
-- [How to install Tomcat](/index.php/tomcat/10-installation)
+- [How to install Tomcat](installation.md)
 
 ### How to access the Manager GUI in Tomcat 9 webserver
 

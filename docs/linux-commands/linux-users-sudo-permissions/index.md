@@ -5,7 +5,7 @@ date: 2024-07-01
 
 # Linux Users, Groups, and Sudo Permissions
 
-← [Back to Linux Commands](../)
+← [Back to Linux Commands](../index.md)
 
 ---
 
@@ -220,7 +220,7 @@ On Ubuntu, users must be part of the `sudo` group to execute commands with sudo 
 
 To strengthen your understanding and prepare for interviews, try the **full 20-question practice quiz** based on this chapter:
 
-👉 **[Start Users & Sudo Permissions Quiz (20 Questions)](/quiz/linux-commands/linux-users-sudo-permissions/)**
+👉 **[Start Users & Sudo Permissions Quiz (20 Questions)](../../quiz/linux-commands/linux-users-sudo-permissions/index.md)**
 
 ---
 

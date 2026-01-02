@@ -4,9 +4,9 @@ title: "Linux Users & Sudo Permissions Quiz (20 Questions)"
 
 # Linux Users & Sudo Permissions – Full Quiz
 
-← [Back to Users & Sudo Permissions](/linux-commands/linux-users-sudo-permissions/) <br>
-← [Back to Linux Commands](/linux-commands/) <br>
-← [Back to Quiz Home](/quiz/)
+← [Back to Users & Sudo Permissions](../../../linux-commands/linux-users-sudo-permissions/index.md) <br>
+← [Back to Linux Commands](../../../linux-commands/index.md) <br>
+← [Back to Quiz Home](../../index.md)
 
 ---
 

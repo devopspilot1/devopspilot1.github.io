@@ -5,9 +5,9 @@ date: 2024-07-01
 
 ### References:
 
-- [How to install Tomcat](/index.php/tomcat/10-installation)
+- [How to install Tomcat](installation.md)
 
-- [How to manually deploy the java application to Tomcat 9 webserver](/index.php/tomcat/20-how-to-manually-deploy-java-application-to-tomcat)
+- [How to manually deploy the java application to Tomcat 9 webserver](how-to-manually-deploy-java-application-to-tomcat.md)
 
 We are going to deploy the java application war file to Tomcat webserver using maven, which means without touching the Tomcat manager GUI we are going to deploy the java application.
 

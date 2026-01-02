@@ -140,12 +140,12 @@ sh "docker rm hello-world | true"
 
 #### References
 
-- [How to install plugins in Jenkins](/index.php/jenkins/configuration/10-how-to-install-plugins)
+- [How to install plugins in Jenkins](../configuration/how-to-install-plugins.md)
 
-- [How to configure maven in Global Tool Configuration](/index.php/jenkins/configuration/20-global-tool-configurations)
+- [How to configure maven in Global Tool Configuration](../configuration/global-tool-configurations.md)
 
-- [How to store credentials in Jenkins](/index.php/jenkins/configuration/30-how-to-store-credentials-in-jenkins)
+- [How to store credentials in Jenkins](../configuration/how-to-store-credentials-in-jenkins.md)
 
-- [How to create pipeline job in Jenkins](/index.php/jenkins/pipeline/10-how-to-create-pipeline-job)
+- [How to create pipeline job in Jenkins](how-to-create-pipeline-job.md)
 
-- [How to write a dockerfile for running a java application (\*.war) in Apache tomcat webserver](/index.php/docker/04-how-to-write-a-dockerfile-for-running-war-file-in-tomcat)
+- [How to write a dockerfile for running a java application (\*.war) in Apache tomcat webserver](../../docker/dockerfiles/how-to-write-a-dockerfile-for-running-war-file-in-tomcat.md)

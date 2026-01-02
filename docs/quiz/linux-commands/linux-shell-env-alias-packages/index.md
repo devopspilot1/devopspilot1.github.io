@@ -4,9 +4,9 @@ title: "Linux Shell, Environment Variables, PATH, Alias & Package Management Qui
 
 # Linux Shell, Environment Variables, PATH, Alias & Package Management – Full Quiz
 
-← [Back to Shell & Environment Commands](/linux-commands/linux-shell-env-alias-packages/) <br>
-← [Back to Linux Commands](/linux-commands/) <br>
-← [Back to Quiz Home](/quiz/)
+← [Back to Shell & Environment Commands](../../../linux-commands/linux-shell-env-alias-packages/index.md) <br>
+← [Back to Linux Commands](../../../linux-commands/index.md) <br>
+← [Back to Quiz Home](../../index.md)
 
 ---
 

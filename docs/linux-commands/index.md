@@ -22,7 +22,7 @@ Follow this order for best results 👇
 
 ---
 
-### 👉 [Basic Linux Commands](./basic-linux-commands/)
+### 👉 [Basic Linux Commands](./basic-linux-commands/index.md)
 Start here if you are new to Linux.
 
 Topics covered:
@@ -33,7 +33,7 @@ Topics covered:
 
 ---
 
-### 👉 [System & Disk Commands](./linux-system-disk-commands/)
+### 👉 [System & Disk Commands](./linux-system-disk-commands/index.md)
 Understand memory and disk usage on Linux servers.
 
 Topics covered:
@@ -44,7 +44,7 @@ Topics covered:
 
 ---
 
-### 👉 [File & Directory Management](./linux-file-directory-commands/)
+### 👉 [File & Directory Management](./linux-file-directory-commands/index.md)
 Learn how files and directories are managed in Linux.
 
 Topics covered:
@@ -55,7 +55,7 @@ Topics covered:
 
 ---
 
-### 👉 [Users & Sudo Permissions](./linux-users-sudo-permissions/)
+### 👉 [Users & Sudo Permissions](./linux-users-sudo-permissions/index.md)
 Critical for multi-user systems and production security.
 
 Topics covered:
@@ -66,7 +66,7 @@ Topics covered:
 
 ---
 
-### 👉 [File Permissions & Environment Variables](./linux-file-permissions-env/)
+### 👉 [File Permissions & Environment Variables](./linux-file-permissions-env/index.md)
 Understand Linux security and environment configuration.
 
 Topics covered:
@@ -77,7 +77,7 @@ Topics covered:
 
 ---
 
-### 👉 [Shell, Env, Alias & Package Management](./linux-shell-env-alias-packages/)
+### 👉 [Shell, Env, Alias & Package Management](./linux-shell-env-alias-packages/index.md)
 Learn how Linux behaves interactively and during automation.
 
 Topics covered:
@@ -88,7 +88,7 @@ Topics covered:
 
 ---
 
-### 👉 [Log & Text Processing Commands](./linux-log-text-processing/)
+### 👉 [Log & Text Processing Commands](./linux-log-text-processing/index.md)
 DevOps engineers spend a lot of time analyzing logs.
 
 Topics covered:
@@ -99,7 +99,7 @@ Topics covered:
 
 ---
 
-### 👉 [Networking Commands](./linux-networking-commands/)
+### 👉 [Networking Commands](./linux-networking-commands/index.md)
 Essential for cloud, containers, and Kubernetes debugging.
 
 Topics covered:
@@ -110,7 +110,7 @@ Topics covered:
 
 ---
 
-### 👉 [Process & Service Management](./linux-process-service-management/)
+### 👉 [Process & Service Management](./linux-process-service-management/index.md)
 Learn how Linux runs applications and services.
 
 Topics covered:
@@ -138,10 +138,10 @@ If you are short on time, focus on these first:
 
 To become job-ready, combine Linux with:
 
-- [Git for DevOps](../git/)
-- [Jenkins CI/CD](../jenkins/)
-- [Kubernetes](../kubernetes/)
-- [AWS for DevOps](../aws/)
+- [Git for DevOps](../git/index.md)
+- [Jenkins CI/CD](../jenkins/index.md)
+- [Kubernetes](../kubernetes/index.md)
+- [AWS for DevOps](../aws/index.md)
 
 ---
 

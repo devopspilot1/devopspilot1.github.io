@@ -5,7 +5,7 @@ date: 2024-07-01
 
 # Linux System and Disk Commands for DevOps Engineers
 
-← [Back to Linux Commands](../)
+← [Back to Linux Commands](../index.md)
 
 ---
 
@@ -141,7 +141,7 @@ The `-h` option converts sizes into MB/GB, making disk usage easier to understan
 
 To strengthen your understanding and prepare for interviews, try the **full 20-question practice quiz** based on this chapter:
 
-👉 **[Start System & Disk Commands Quiz (20 Questions)](/quiz/linux-commands/linux-system-disk-commands/)**
+👉 **[Start System & Disk Commands Quiz (20 Questions)](../../quiz/linux-commands/linux-system-disk-commands/index.md)**
 
 ---
 

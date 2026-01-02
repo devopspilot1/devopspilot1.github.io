@@ -43,8 +43,8 @@ It will compile the java code and generate the package in **targets** folder.
 
 #### References
 
-- [How to install plugins in Jenkins](/index.php/jenkins/configuration/10-how-to-install-plugins)
+- [How to install plugins in Jenkins](../configuration/how-to-install-plugins.md)
 
-- [How to configure maven in Global Tool Configuration](/index.php/jenkins/configuration/20-global-tool-configurations)
+- [How to configure maven in Global Tool Configuration](../configuration/global-tool-configurations.md)
 
-- [How to create pipeline job in Jenkins](/index.php/jenkins/pipeline/10-how-to-create-pipeline-job)
+- [How to create pipeline job in Jenkins](how-to-create-pipeline-job.md)

@@ -5,7 +5,7 @@ date: 2024-07-01
 
 # Linux File Viewing, Permissions, and Environment Variables
 
-← [Back to Linux Commands](../)
+← [Back to Linux Commands](../index.md)
 
 ---
 
@@ -227,7 +227,7 @@ The permission value `600` allows only the file owner to read and write the file
 
 To strengthen your understanding and prepare for interviews, try the **full 20-question practice quiz** based on this chapter:
 
-👉 **[Start File Permissions & Environment Variables Quiz (20 Questions)](/quiz/linux-commands/linux-file-permissions-env/)**
+👉 **[Start File Permissions & Environment Variables Quiz (20 Questions)](../../quiz/linux-commands/linux-file-permissions-env/index.md)**
 
 ---
 
