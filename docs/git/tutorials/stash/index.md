@@ -1,4 +1,10 @@
-# How to create, list and delete Stash
+---
+title: "How to Use Git Stash"
+---
+
+[← Back to Git](../../)
+
+# How to Use Git Stash
 
 In the current branch we have done some changes in the file and we havent committed those changes, now you want to work on some other idea, but you want to save this changes for future purpose, we can save this chnages locally using stash. 
 
@@ -9,43 +15,43 @@ git stash or git stash save (By default if we run git stash it will append the "
 ```
 git stash
 ```
-![git](/content/git/tutorials/images/stash/stash.PNG)
+![git](../../../images/stash/stash.PNG)
 
 ```
 git stash save
 ```
-![git](/content/git/tutorials/images/stash/stash-save.PNG)
+![git](../../../images/stash/stash-save.PNG)
 
 ### Create a stash with message
 ```
 git stash save "message"
 ```
-![git](/content/git/tutorials/images/stash/stash-save-message.PNG)
+![git](../../../images/stash/stash-save-message.PNG)
 
 ### To list the stash
 ```
 git stash list
 ```
-![git](/content/git/tutorials/images/stash/stash-list.PNG)
+![git](../../../images/stash/stash-list.PNG)
 
 ### To apply the stash to the current branch
 ```
 git stash apply
 ```
-![git](/content/git/tutorials/images/stash/stash-apply.PNG)
+![git](../../../images/stash/stash-apply.PNG)
 
 ### To apply the specific stash from stash list
 ```
 git stash apply stash@{index_no}
 ```
-![git](/content/git/tutorials/images/stash/stash-apply-index-no.PNG)
+![git](../../../images/stash/stash-apply-index-no.PNG)
 
 ### To stash both tracked and untracked files
 If we do some chnages in the tracked file and also in one untacked file (new file). If we run git stash now, it will only stash the tracked files, it wont stash the untracked files
 ```
 git stash -u                --> to stash both tracked and untracked files
 ```
-![git](/content/git/tutorials/images/stash/stash-untracked.PNG)
+![git](../../../images/stash/stash-untracked.PNG)
 
 **Other Option :** we can add the untracked file and run "git stash" also
 
@@ -53,14 +59,14 @@ git stash -u                --> to stash both tracked and untracked files
 ```
 git stash pop
 ```
-![git](/content/git/tutorials/images/stash/stash-pop.PNG)
+![git](../../../images/stash/stash-pop.PNG)
 
 ### To know the file changes in stash
 ```
 git stash show stash@{index_no}
 ```
 latest stash will be assigned with index no '0'
-![git](/content/git/tutorials/images/stash/stash-show.PNG)
+![git](../../../images/stash/stash-show.PNG)
 
 ### To take stash changes from one branch to another new branch
 First stash the files/changes in the current branch
@@ -69,28 +75,30 @@ Then exceute the following command, it will automatically create a new branch, s
 ```
 git stash branch new_branch_name
 ```
-![git](/content/git/tutorials/images/stash/stash-branch.PNG)
+![git](../../../images/stash/stash-branch.PNG)
 
 ### To take specific stash changes from one branch to another new branch
 ```
 git stash branch new_branch_name stash@{index_no}
 ```
-![git](/content/git/tutorials/images/stash/stash-branch-index-no.PNG)
+![git](../../../images/stash/stash-branch-index-no.PNG)
 
 ### To drop the latest stash from list
 ```
 git stash drop
 ```
-![git](/content/git/tutorials/images/stash/stash-drop.PNG)
+![git](../../../images/stash/stash-drop.PNG)
 
 ### To drop the stash from stash list using stash index number
 ```
 git stash drop stash@{0}
 ```
-![git](/content/git/tutorials/images/stash/stash-drop-index-no.PNG)
+![git](../../../images/stash/stash-drop-index-no.PNG)
 
 ### To drop all stashes from list in one shot
 ```
 git stash clear
 ```
-![git](/content/git/tutorials/images/stash/stash-clear.PNG)
+![git](../images/stash/stash-clear.PNG)
+
+{% include-markdown "_partials/subscribe-guides.md" %}

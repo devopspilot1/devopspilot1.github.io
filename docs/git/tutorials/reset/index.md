@@ -1,4 +1,10 @@
-# Git reset
+---
+title: "Git Reset"
+---
+
+[← Back to Git](../../)
+
+# Git Reset
 
 ### To reset one top local commit (This will only remove the commits and the chnages are still shown in local repository, we have to manaually remove the changes)
 git reset HEAD^1 OR git reset HEAD^
@@ -19,3 +25,5 @@ git reset HEAD@{index_no} (index_no from reflog)
 
 ### To reset the commit and remove the chnages
 git reset --hard HEAD^
+
+{% include-markdown "_partials/subscribe-guides.md" %}

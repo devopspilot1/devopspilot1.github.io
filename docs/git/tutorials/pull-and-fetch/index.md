@@ -1,4 +1,6 @@
-# Difference between Pull vs Fetch
+[← Back to Git](../index.md)
+
+# Git Pull vs Fetch
 
 ### Reference
 * https://www.atlassian.com/git/tutorials/syncing/git-pull#:~:text=The%20git%20pull%20command%20is,Git%2Dbased%20collaboration%20work%20flows.
@@ -25,3 +27,5 @@ git fetch will download the remote content and not alter the state of the local 
 git config --global branch.autosetuprebase always
 ```
 After running that command, all git pull commands will integrate via git rebase instead of git merge.
+
+{% include-markdown "_partials/subscribe-guides.md" %}

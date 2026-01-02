@@ -1,7 +1,10 @@
 ---
-title: "How to push the changes to github repository"
-date: 2024-07-01
+title: "How to Push Changes to GitHub"
 ---
+
+[← Back to Git](../../)
+
+# How to Push Changes to GitHub
 
 ### How to make the changes locally and push to remote repository
 
@@ -156,31 +159,31 @@ You cannot use the password, which you used for login to [https://github.com](ht
 
 Click your logo on top right corner and click on `settings`
 
-![git](../images/settings.png)
+![git](../../../images/settings.png)
 
 Click on `Developer settings`
 
-![git](../images/developer-settings.png)
+![git](../../../images/developer-settings.png)
 
 Click on `Personal access tokens` and then `Tokens(classic)`
 
-![git](../images/tokens.png)
+![git](../../../images/tokens.png)
 
 Click on `Generate token` and then `Generate new token(classic)`
 
-![git](../images/generate-token.png)
+![git](../../../images/generate-token.png)
 
 Give the name for token and click the `repo` check box
 
-![git](../images/token-access.png)
+![git](../../../images/token-access.png)
 
 Click on `Generate token`
 
-![git](../images/token-submit.png)
+![git](../../../images/token-submit.png)
 
 The Personal access token(PAT) is shown only one time. Copy and save in secure place
 
-![git](../images/pat-1.png)
+![git](../../../images/pat-1.png)
 
 Enter the username and PAT
 
@@ -200,22 +203,24 @@ To https://github.com/devopspilot2/firstproject.git
 
 The `hello.txt` is now pushed to Github
 
-![git](../images/pushed-hello-file.png)
+![git](../../../images/pushed-hello-file.png)
 
 ### How to see the commits in Github
 
 Goto Github `firstproject` repository and click on `commits`
 
-![git](../images/commits.png)
+![git](../../../images/commits.png)
 
 Here you can see all the commits pushed
 
-![git](../images/commits-list.png)
+![git](../../../images/commits-list.png)
 
 After clicking on one commit, you can see the changes made in the commit
 
-![git](../images/commit-diff.png)
+![git](../../../images/commit-diff.png)
 
 ### Youtube
 
-[![Git part-1](../images/git-part-1.png)](https://www.youtube.com/watch?v=kvqHSStbgfU)
+[![Git part-1](../../../images/git-part-1.png)](https://www.youtube.com/watch?v=kvqHSStbgfU)
+
+{% include-markdown "_partials/subscribe-guides.md" %}

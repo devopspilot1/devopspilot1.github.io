@@ -1,4 +1,10 @@
-# How to create, list and delete Tag
+---
+title: "How to Manage Git Tags"
+---
+
+[← Back to Git](../../)
+
+# How to Manage Git Tags
 
 Tag (Its just a label or marker)
 
@@ -44,3 +50,5 @@ git push origin branch_name --tags
 
 ### To delete particular tag in remote repository
 git push origin :tag_name
+
+{% include-markdown "_partials/subscribe-guides.md" %}

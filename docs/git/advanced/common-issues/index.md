@@ -1,4 +1,10 @@
-1. # Commonly faced Issues
+---
+title: "Common Git Issues"
+---
+
+[← Back to Git](../../)
+
+# Common Git Issues
 
 * File permissions in Git bash is different from gerrit remote repo
     Check the existing remote file permissions with the following command:
@@ -18,3 +24,5 @@
     Which should return something like 100755
 
     Commit changes and push!
+
+{% include-markdown "_partials/subscribe-guides.md" %}

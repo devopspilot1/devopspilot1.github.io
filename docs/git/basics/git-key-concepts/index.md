@@ -1,4 +1,12 @@
-# Git basics
+---
+title: "Git Key Concepts"
+---
+
+[← Back to Git](../../)
+
+# Git Key Concepts
+
+{% include-markdown "_partials/subscribe-guides.md" %}
 
 ### To see files tracked in staging area
 git ls-files
@@ -47,5 +55,4 @@ git clone --single-branch --branch release-1.3 https://github.com/rook/rook.git
 
 ---
 
-📬 **DevopsPilot Weekly** — Git & DevOps made simple.  
-👉 [Subscribe here](https://devopspilot.substack.com)
+{% include-markdown "_partials/subscribe-guides.md" %}

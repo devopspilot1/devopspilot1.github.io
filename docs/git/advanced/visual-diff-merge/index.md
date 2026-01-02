@@ -1,4 +1,10 @@
-1. Install p4merge for windows
+---
+title: "Visual Diff and Merge Tools"
+---
+
+[← Back to Git](../../)
+
+# Visual Diff and Merge Tools
    
 2. configure git
 git config --global merge.tool p4merge
@@ -25,4 +31,6 @@ git config --global mergetool.prompt false
   
 7. To see diff between local repo and remote repo
   git diff master origin/master
+
+{% include-markdown "_partials/subscribe-guides.md" %}
 

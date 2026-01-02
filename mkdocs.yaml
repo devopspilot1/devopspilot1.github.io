@@ -44,25 +44,30 @@ nav:
     - Part 3: shellscript/part-3.md
     - Part 4: shellscript/part-4.md
   - Git:
-    - How to create github account: git/how-to-create-github-account.md
-    - How to install git in linux: git/how-to-install-git-in-linux.md
-    - How to create public repository in github: git/how-to-create-public-repository-in-github.md
-    - How to clone the github public repository: git/how-to-clone-the-public-repository.md
-    - How to create private repository: git/how-to-create-private-repository.md
-    - How to push the changes to github repository: git/how-to-push-the-changes-to-github-repository.md
+    - Overview: git/index.md
+    - Basics:
+      - Key Concepts: git/basics/git-key-concepts/index.md
+      - Install on Linux: git/basics/install-on-linux/index.md
+      - Create GitHub Account: git/basics/create-github-account/index.md
     - Tutorials:
-      - Git Basics: git/tutorials/02-basics.md
-      - Git Branching and Merging: git/tutorials/03-branching-merging.md
-      - Git Pull and Fetch: git/tutorials/04-pull_fetch.md
-      - Git Reset: git/tutorials/05-reset.md
-      - Git Tags: git/tutorials/06-tags.md
-      - Git Stash: git/tutorials/07-stash.md
-      - Common Issues in Git: git/tutorials/08-issues-faced.md
-      - How to Fix Merge Conflicts: git/tutorials/09-how-to-fix-merge-conflict.md
-      - How to Create Pull Request in GitHub: git/tutorials/10-how-to-create-pull-request-in-github.md
-      - How to Fix Merge Conflicts in Pull Request: git/tutorials/11-how-to-fix-merge-conflict-in-pull-request.md
-      - Git Rebase: git/tutorials/12-rebase.md
-      - Git Visual Diff and Merge Tools: git/tutorials/visual_diff_merge.md
+      - Create Public Repository: git/tutorials/create-public-repository/index.md
+      - Clone Repository: git/tutorials/clone-repository/index.md
+      - Create Private Repository: git/tutorials/create-private-repository/index.md
+      - Push Changes: git/tutorials/push-changes/index.md
+      - Git Overview Part 1: git/tutorials/git-overview-part-1/index.md
+      - Git Overview Part 2: git/tutorials/git-overview-part-2/index.md
+      - Branching and Merging: git/tutorials/branching-and-merging/index.md
+      - Pull and Fetch: git/tutorials/pull-and-fetch/index.md
+      - Reset: git/tutorials/reset/index.md
+      - Tags: git/tutorials/tags/index.md
+      - Stash: git/tutorials/stash/index.md
+    - Advanced:
+      - Common Issues: git/advanced/common-issues/index.md
+      - Fix Merge Conflicts: git/advanced/fix-merge-conflicts/index.md
+      - Create Pull Request: git/advanced/create-pull-request/index.md
+      - Fix PR Merge Conflicts: git/advanced/fix-pr-merge-conflicts/index.md
+      - Rebase: git/advanced/rebase/index.md
+      - Visual Diff and Merge Tools: git/advanced/visual-diff-merge/index.md
   - Build Tools:
     - Maven:
       - How to install Java and compile a single Java file: build-tools/maven/install-java-compile.md

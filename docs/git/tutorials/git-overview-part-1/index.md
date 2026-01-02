@@ -1,7 +1,13 @@
-## GIT
+---
+title: "Git Overview - Part 1"
+---
+
+[← Back to Git](../../)
+
+# Git Overview - Part 1
 
 ### Youtube
-[![Git part-1](/content/git/tutorials/images/part-1.png)](https://www.youtube.com/watch?v=kvqHSStbgfU)
+[![Git part-1](../../../images/part-1.png)](https://www.youtube.com/watch?v=kvqHSStbgfU)
 
 ### Topics
 * What is git
@@ -16,7 +22,7 @@ GIT stands for Global Information Tracker
 
 It is a powerful and widely-used version control system commonly used for software development and other collaborative projects
 
-![Git](/content/git/tutorials/images/central-repository.png)
+![Git](../../../images/central-repository.png)
 
 The model here is pull and push
 
@@ -36,15 +42,15 @@ Now, the other developers can get `file-3` and all other files from the remote r
 Go to [https://github.com](https://github.com)
 
 Click on `Signup`
-![git](/content/git/tutorials/images/01-account-creation/git-github-com.png)
+![git](../../../images/01-account-creation/git-github-com.png)
 
 Enter the `email id`, `password`, `username` verify the puzzle and click on `Create account` then you will recieve verification mail with link in your inbox.
 
-![git](/content/git/tutorials/images/01-account-creation/git-github-signup1.png)
+![git](../../../images/01-account-creation/git-github-signup1.png)
 
-![git](/content/git/tutorials/images/01-account-creation/git-github-signup2.png)
+![git](../../../images/01-account-creation/git-github-signup2.png)
 
-![git](/content/git/tutorials/images/01-account-creation/git-github-signup3.png)
+![git](../../../images/01-account-creation/git-github-signup3.png)
 
 Click on the link received on your mail for complete the email verification. Once the email verification is completed, login to [https://github.com](https://github.com)
 
@@ -54,7 +60,7 @@ After login, click on `Create repository` to create a first repository in Github
 
 In Github, the repository is used to store the source code files.
 
-![git](/content/git/tutorials/images/01-account-creation/git-github-first-login.png)
+![git](../../../images/01-account-creation/git-github-first-login.png)
 
 Enter the repository name eg: `firstproject` and select the repository type as `public` or `private`
 
@@ -62,19 +68,19 @@ Enter the repository name eg: `firstproject` and select the repository type as `
 
 `private` --> The repository and its files are only visible to you. Need username and password for cloning. 
 
-![git](/content/git/tutorials/images/01-account-creation/git-github-create-repository1.png)
+![git](../../../images/01-account-creation/git-github-create-repository1.png)
 
 Click the check box `Add a README file`
 
 `README.md` file is used to tell about your repository, like for what purpose you have created this reposirory.
 
-![git](/content/git/tutorials/images/01-account-creation/git-github-create-repository2.png)
+![git](../../../images/01-account-creation/git-github-create-repository2.png)
 
 The content in your `README.md` will be shown in your repository home page.
 
 Now you have only one file `README.md` in your repository
 
-![git](/content/git/tutorials/images/01-account-creation/git-firstproject.png)
+![git](../../../images/01-account-creation/git-firstproject.png)
 
 ### How to install git in linux operating system
 
@@ -101,14 +107,14 @@ git --version
 
 Go to your repository --> click on `code` --> make sure `https` is selected --> copy the url
 
-![git](/content/git/tutorials/images/01-account-creation/git-clone.png)
+![git](../../../images/01-account-creation/git-clone.png)
 
 In your terminal type  `git clone` and your copied url
 ```
 git clone https://github.com/vigneshsweekaran/firstproject.git
 ```
 
-![git](/content/git/tutorials/images/01-account-creation/git-clone-terminal.png)
+![git](../../../images/01-account-creation/git-clone-terminal.png)
 
 Now we have successfully created the repository in github and cloned that repository to our local computer.
 
@@ -255,25 +261,25 @@ It will ask for username and password.
 You cannot use the password, which you used for login to https://github.com You have to generate a Personal Access Token(PAT) from github settings.
 
 Click your logo on top right corner and click on `settings`
-![git](/content/git/tutorials/images/part-1/settings.png)
+![git](../../../images/part-1/settings.png)
 
 Click on `Developer settings`
-![git](/content/git/tutorials/images/part-1/developer-settings.png)
+![git](../../../images/part-1/developer-settings.png)
 
 Click on `Personal access tokens` and then `Tokens(classic)`
-![git](/content/git/tutorials/images/part-1/tokens.png)
+![git](../../../images/part-1/tokens.png)
 
 Click on `Generate token` and then `Generate new token(classic)`
-![git](/content/git/tutorials/images/part-1/generate-token.png)
+![git](../../../images/part-1/generate-token.png)
 
 Give the name for token and click the `repo` check box
-![git](/content/git/tutorials/images/part-1/token-access.png)
+![git](../../../images/part-1/token-access.png)
 
 Click on `Generate token`
-![git](/content/git/tutorials/images/part-1/token-submit.png)
+![git](../../../images/part-1/token-submit.png)
 
 The Personal access token(PAT) is shown only one time. Copy and save in secure place
-![git](/content/git/tutorials/images/part-1/pat.png)
+![git](../../../images/part-1/pat.png)
 
 Enter the username and PAT
 
@@ -293,15 +299,17 @@ To https://github.com/devopspilot2/firstproject.git
 
 The `hello.txt` is now pushed to Github
 
-![git](/content/git/tutorials/images/part-1/pushed-hello-file.png)
+![git](../../../images/part-1/pushed-hello-file.png)
 
 ### How to see the commits in Github
 
 Goto Github `firstproject` repository and click on `commits`
-![git](/content/git/tutorials/images/part-1/commits.png)
+![git](../../../images/part-1/commits.png)
 
 Here you can see all the commits pushed
-![git](/content/git/tutorials/images/part-1/commits-list.png)
+![git](../../../images/part-1/commits-list.png)
 
 After clicking on one commit, you can see the changes made in the commit
-![git](/content/git/tutorials/images/part-1/commit-diff.png)
+![git](../../../images/part-1/commit-diff.png)
+
+{% include-markdown "_partials/subscribe-guides.md" %}

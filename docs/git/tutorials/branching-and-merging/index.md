@@ -1,3 +1,9 @@
+---
+title: "Branching and Merging"
+---
+
+[← Back to Git](../../)
+
 # Branching and Merging
 
 ### To list all branches from local and remote
@@ -53,3 +59,5 @@ git branch --no-merged
 
 ### To Delete a remote branch from terminal
 git push origin --delete branch_name
+
+{% include-markdown "_partials/subscribe-guides.md" %}

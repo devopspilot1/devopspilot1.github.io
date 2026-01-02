@@ -33,38 +33,28 @@ Whether you are a **beginner or preparing for DevOps roles**, this section will 
 Follow this order for best understanding 👇
 
 ### 🟢 Basics
-- What is Git?
-- Installing Git
-- Git configuration
-- Repository concepts
+- [What is Git and Key Concepts](./basics/git-key-concepts/)
+- [Installing Git](./basics/install-on-linux/)
+- [Create GitHub Account](./basics/create-github-account/)
 
-### 🟡 Core Commands
-- `git init`
-- `git clone`
-- `git status`
-- `git add`
-- `git commit`
-- `git log`
-
-### 🟠 Branching & Merging
-- Git branches
-- `git branch`
-- `git checkout`
-- `git merge`
-- Merge conflicts
-
-### 🔵 Remote Repositories
-- GitHub basics
-- `git push`
-- `git pull`
-- `git fetch`
-- SSH vs HTTPS
+### 🟡 Tutorials
+- [Create Public Repository](./tutorials/create-public-repository/)
+- [Clone Repository](./tutorials/clone-repository/)
+- [Create Private Repository](./tutorials/create-private-repository/)
+- [Push Changes](./tutorials/push-changes/)
+- [Branching & Merging](./tutorials/branching-and-merging/)
+- [Pull and Fetch](./tutorials/pull-and-fetch/)
+- [Reset](./tutorials/reset/)
+- [Tags](./tutorials/tags/)
+- [Stash](./tutorials/stash/)
 
 ### 🔴 Advanced Git
-- `git rebase`
-- `git stash`
-- `git cherry-pick`
-- Undoing mistakes safely
+- [Common Issues](./advanced/common-issues/)
+- [Fix Merge Conflicts](./advanced/fix-merge-conflicts/)
+- [Create Pull Request](./advanced/create-pull-request/)
+- [Fix PR Merge Conflicts](./advanced/fix-pr-merge-conflicts/)
+- [Rebase](./advanced/rebase/)
+- [Visual Diff Merge](./advanced/visual-diff-merge/)
 
 ---
 
@@ -93,4 +83,4 @@ Follow this order for best understanding 👇
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown "_partials/subscribe-guides.md" %}

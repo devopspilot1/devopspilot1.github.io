@@ -1,7 +1,10 @@
 ---
-title: "How to install git in linux"
-date: 2024-07-01
+title: "How to Install Git on Linux"
 ---
+
+[← Back to Git](../../)
+
+# How to Install Git on Linux
 
 ### How to install git in linux operating system
 
@@ -29,4 +32,6 @@ git --version
 
 ### Youtube
 
-[![Git part-1](../images/git-part-1.png)](https://www.youtube.com/watch?v=kvqHSStbgfU)
+[![Git part-1](../../../images/git-part-1.png)](https://www.youtube.com/watch?v=kvqHSStbgfU)
+
+{% include-markdown "_partials/subscribe-guides.md" %}
