@@ -4,34 +4,77 @@ title: "How to Install Git on Linux"
 
 # How to Install Git on Linux
 
-[← Back to Git](../../index.md)
+← [Back to Git](../../index.md)
 
-### How to install git in linux operating system
+---
 
-`Ubuntu`  
-Run the following command to install git in ubuntu operating system
+## 🐧 Install Git on Linux
 
-```
+Git is essential for version control. Here is how you can install it on major Linux distributions.
+
+---
+
+### 🟠 Ubuntu / Debian
+
+Run the following command to update your package list and install Git:
+
+```bash
 sudo apt update
-sudo apt install git
+sudo apt install git -y
 ```
 
-`Centos`  
-Run the following command to install git in Centos operating system
+---
 
-```
-sudo yum update
-sudo yum install git
+### 🔵 CentOS / RHEL
+
+Run the following command to install Git using `yum`:
+
+```bash
+sudo yum update -y
+sudo yum install git -y
 ```
 
-### How to check the version of git
+---
 
-```
+### ✅ Verify Installation
+
+After installation, verify that Git is installed correctly by checking its version:
+
+```bash
 git --version
 ```
 
-### Youtube
+**Output:**
+```
+git version 2.34.1
+```
+
+---
+
+## 📺 Video Tutorial
 
 [![Git part-1](../../../images/git-part-1.png){: style="width:400px"}](https://www.youtube.com/watch?v=kvqHSStbgfU)
+
+---
+
+## 🧠 Quick Quiz — Install Git
+
+<quiz>
+Which command is used to install Git on **Ubuntu**?
+- [ ] sudo yum install git
+- [ ] sudo dnf install git
+- [x] sudo apt install git
+- [ ] install git
+
+On Ubuntu and Debian systems, `apt` is the package manager used to install software.
+</quiz>
+
+---
+
+### 📝 Want More Practice?
+
+👉 **[Start Git Beginner Quiz (20 Questions)](../../../quiz/git/beginner/index.md)**
+
+---
 
 {% include-markdown "_partials/subscribe-guides.md" %}

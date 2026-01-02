@@ -4,52 +4,148 @@ title: "Git Key Concepts"
 
 # Git Key Concepts
 
-[← Back to Git](../../index.md)
+← [Back to Git](../../index.md)
 
-### To see files tracked in staging area
+---
+
+## 📂 Staging & Tracking
+
+Commands to manage the staging area and file tracking.
+
+### List Tracked Files
+To see files currently tracked in the staging area:
+```bash
 git ls-files
-  
-### To undo the changes from staging area
-git reset HEAD filename
-  
-### Git log
-git log --oneline --graph --decorate
-    
---oneline --> will show the logs in one line for each commit
-    
---graph --> show the branch in graph
+```
 
---decorate --> shows the tags and branches
-    
-git log --since="3 days ago"  (To show logs of last 3 days)
-  
-### To see commits happend in specific file
-git log -- fileame
-  
-## To know the diff from commit hash
-git show commit-hash
-  
-### To set alias for git commands
-git config --global alias.ALIAS_NAME(gitlog) "log --all --oneline --graph --decorate"
-  
-### Excluding unwanted files and folders
-create .gitignore and commit. we can put our filename, foldername or regular expression to ignore the files
+### Undo Staging
+To remove a file from the staging area (unstage) without deleting modifications:
+```bash
+git reset HEAD <filename>
+```
+
+### Ignore Files (.gitignore)
+To exclude files from being tracked (e.g., build artifacts, secrets):
+1. Create a file named `.gitignore`.
+2. Add filenames, folder names, or patterns to ignore.
+
+**Example .gitignore:**
+```text
+node_modules/
+*.log
+secret.json
+```
+
+---
+
+## 📜 Git History & Logs
+
+Commands to view and navigate commit history.
+
+### View Commit History
+To view a clean, concise graph of the commit history:
+```bash
+git log --oneline --graph --decorate
+```
+- `--oneline`: Condensed view (hash + message).
+- `--graph`: Visual branch tree.
+- `--decorate`: Shows tags and branch names.
+
+### View Recent History
+Show commits from a specific timeframe:
+```bash
+git log --since="3 days ago"
+```
+
+### File Specific History
+See commits that affected a specific file:
+```bash
+git log -- <filename>
+```
+
+### View Commit Details
+See the changes introduced by a specific commit:
+```bash
+git show <commit-hash>
+```
+
+---
+
+## ⚙️ Configuration & Aliases
+
+### Create Aliases
+Create shortcuts for long commands. For example, to make `git loggraph` run the long log command:
+```bash
+git config --global alias.loggraph "log --all --oneline --graph --decorate"
+```
+Usage:
+```bash
+git loggraph
+```
+
+---
+
+## 🚀 Advanced Concepts
 
 ### Rebase
-Create two branch master and feature. do 2 commits in each branch, you are currently in feature and not planning to merge the feature branch commits to master, but instead wants the two commits from master branch to be synced with this feature branch.
+Rebasing re-applies commits on top of another base tip. It is often used to keep a clean, linear history.
 
+**Scenario**: You are on `feature` branch and want to sync with `master` without creating a merge commit bubble.
+```bash
+git checkout feature
 git rebase master
+```
 
-### Git help
-git help command(pull, push, stash)
-  
-### Cherry-pick (To take one commit from one branch and apply to another branch)
-Create two branch master and feature, do one commit in master, switch to feature do two commits, now you want to take the one commit from feature to master branch and dont want to disturb the feature branch, now switch to the master branch run "git cherry-pick commit_id" (commit-id from feature branch)
-  
-### To clone only the single branch
-git clone --single-branch --branch branch_name github_url
+### Cherry-pick
+Apply the changes introduced by some existing commits string to the current branch.
 
+**Scenario**: You want to pick a specific commit (bug fix) from `feature` branch into `master` without merging the whole branch.
+```bash
+git checkout master
+git cherry-pick <commit-hash>
+```
+
+### Clone Single Branch
+To clone only a specific branch (saves time and space):
+```bash
+git clone --single-branch --branch <branch_name> <repository_url>
+```
+Example:
+```bash
 git clone --single-branch --branch release-1.3 https://github.com/rook/rook.git
+```
+
+---
+
+## 🆘 Getting Help
+
+To read the manual for any Git command:
+```bash
+git help <command>
+# Example:
+git help pull
+git help stash
+```
+
+---
+
+## 🧠 Quick Quiz — Git Concepts
+
+<quiz>
+Which command allows you to pick a **specific commit** from one branch and apply it to another?
+- [ ] git merge
+- [ ] git rebase
+- [x] git cherry-pick
+- [ ] git reset
+
+`git cherry-pick` applies the changes from a single specific commit to your current branch.
+</quiz>
+
+---
+
+### 📝 Want More Practice?
+
+👉 **[Start Git Beginner Quiz (20 Questions)](../../../quiz/git/beginner/index.md)**
 
 ---
 

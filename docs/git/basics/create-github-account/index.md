@@ -4,51 +4,90 @@ title: "How to Create a GitHub Account"
 
 # How to Create a GitHub Account
 
-[← Back to Git](../../index.md)
+← [Back to Git](../../index.md)
 
-### What is git
+---
 
-GIT stands for Global Information Tracker
+## 🤔 What is Git?
 
-It is a powerful and widely-used version control system commonly used for software development and other collaborative projects
+**Git** stands for **Global Information Tracker**.
 
+It is a powerful distributed version control system used to track changes in source code during software development.
 
-![Git](../../images/central-repository.png)
+### Git Architecture
 
-The model here is pull and push
+The core model of Git involves **Pull** and **Push** operations:
 
-Lets say, the `Developer 1` created a file `file-1` in local computer and pushed to file to `Remote repository`
+![Git Architecture](../../images/central-repository.png)
 
-Now the `Developer 2` and `3` can pull the `file-1` from the remote repository to the local computer
+1. **Developer 1** creates `file-1` locally and **pushes** it to the **Remote Repository**.
+2. **Developer 2** and **Developer 3** can **pull** `file-1` to their local machines.
+3. If **Developer 3** creates `file-3` and pushes it, others can pull it too.
 
-Similarly, if the `Developer 3` created a file `file-3` in local computer and pushed to file to `Remote repository`
+---
 
-Now, the other developers can get `file-3` and all other files from the remote repository to the local computer
+## 🐙 Git vs GitHub
 
-### How to create Github account
+| Feature | Git | GitHub |
+| :--- | :--- | :--- |
+| **Type** | Command-line Tool | Cloud Platform |
+| **Purpose** | Version Control System (VCS) | Hosting Service for Git Repositories |
+| **Installation** | Installed locally on your computer | Accessed via web browser ([github.com](https://github.com)) |
 
-`Github` --> Github is a open source platform to store source code in central place (cloud [https://github.com](https://github.com))
+---
 
-`Git` --> Git is a command line utility, which needs to be installed in your computer to connect to Github.
+## 📝 Create a GitHub Account
 
-Go to [https://github.com](https://github.com)
+Follow these steps to create your free GitHub account.
 
-Click on `Signup`
+### 1. Go to GitHub
+Visit [https://github.com](https://github.com).
 
-![git](../../../images/git-github-com-1.png)
+### 2. Sign Up
+Click on **Sign up** at the top right corner.
 
-Enter the `email id`, `password`, `username` verify the puzzle and click on `Create account` then you will recieve verification mail with link in your inbox.
+![GitHub Homepage](../../../images/git-github-com-1.png)
 
-![git](../../../images/git-github-signup1.png)
+### 3. Enter Details
+Enter your **email address**, create a **password**, and choose a **username**. Verify the puzzle to prove you are human.
 
-![git](../../../images/git-github-signup2.png)
+![Enter Email](../../../images/git-github-signup1.png)
 
-![git](../../../images/git-github-signup3.png)
+![Create Password](../../../images/git-github-signup2.png)
 
-Click on the link received on your mail for complete the email verification. Once the email verification is completed, login to [https://github.com](https://github.com)
+![Choose Username](../../../images/git-github-signup3.png)
 
-### Youtube
+### 4. Verify Email
+Click on **Create account**. You will receive a verification code or link in your email inbox. Enter it to complete the process.
 
-[![Git part-1](../../../images/git-part-1.png){: style="width:400px"}](https://www.youtube.com/watch?v=kvqHSStbgfU)
+🎉 **Congratulations!** You now have a GitHub account.
+
+---
+
+## 📺 Video Tutorial
+
+[![Git Overview](../../../images/git-part-1.png){: style="width:400px"}](https://www.youtube.com/watch?v=kvqHSStbgfU)
+
+---
+
+## 🧠 Quick Quiz — GitHub
+
+<quiz>
+What is the main difference between Git and GitHub?
+- [ ] They are the same thing.
+- [x] Git is a tool installed locally; GitHub is a cloud hosting service for Git repositories.
+- [ ] GitHub is the command line tool.
+- [ ] Git requires internet; GitHub works offline.
+
+Git is the version control engine that runs on your computer, while GitHub is a website that hosts your Git repositories online.
+</quiz>
+
+---
+
+### 📝 Want More Practice?
+
+👉 **[Start Git Beginner Quiz (20 Questions)](../../../quiz/git/beginner/index.md)**
+
+---
 
 {% include-markdown "_partials/subscribe-guides.md" %}
