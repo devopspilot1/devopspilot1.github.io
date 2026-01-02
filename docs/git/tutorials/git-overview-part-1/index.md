@@ -1,126 +1,129 @@
+← [Back to Git](../../index.md)
+
 ---
-title: "Git Overview - Part 1"
----
 
-# Git Overview - Part 1
+## 📺 Git Overview - Part 1
 
-[← Back to Git](../../index.md)
+This comprehensive guide covers the basics of Git and GitHub, from installation to your first push.
 
-### Youtube
 [![Git part-1](../../images/part-1.png){: style="width:400px"}](https://www.youtube.com/watch?v=kvqHSStbgfU)
 
-### Topics
-* What is git
-* How to create Github account
-* How to create Github public repository
-* How to install git in linux operating system(Ubuntu)
-* How to clone(download) the repository from Github to local computer
+### 📌 Topics Covered
+* What is Git
+* How to create GitHub account
+* How to create GitHub public repository
+* How to install Git in Linux operating system (Ubuntu)
+* How to clone (download) the repository from GitHub to local computer
 
-### What is git
+---
 
-GIT stands for Global Information Tracker
+## 🤔 What is Git?
 
-It is a powerful and widely-used version control system commonly used for software development and other collaborative projects
+**Git** (Global Information Tracker) is a powerful and widely-used version control system commonly used for software development and other collaborative projects.
 
-![Git](../../images/central-repository.png)
+![Git Architecture](../../images/central-repository.png)
 
-The model here is pull and push
+The model here is **pull** and **push**.
 
-Lets say, the `Developer 1` created a file `file-1` in local computer and pushed to file to `Remote repository`
+Let's say, `Developer 1` created a file `file-1` in their local computer and pushed that file to the **Remote repository**.
 
-Now the `Developer 2` and `3` can pull the `file-1` from the remote repository to the local computer
+Now `Developer 2` and `3` can pull `file-1` from the remote repository to their local computers.
 
-Similarly, if the `Developer 3` created a file `file-3` in local computer and pushed to file to `Remote repository`
+Similarly, if `Developer 3` created a file `file-3` locally and pushed it to the **Remote repository**, other developers can get `file-3` by pulling.
 
-Now, the other developers can get `file-3` and all other files from the remote repository to the local computer
+---
 
-### How to create Github account
-`Github` --> Github is a open source platform to store source code in central place (cloud [https://github.com](https://github.com)) 
+## 📝 Create GitHub Account
 
-`Git` --> Git is a command line utility, which needs to be installed in your computer to connect to Github.
+**GitHub** is a cloud platform for hosting Git repositories. **Git** is the command line utility installed on your computer.
 
-Go to [https://github.com](https://github.com)
+1. Go to [https://github.com](https://github.com).
+2. Click on **Signup**.
 
-Click on `Signup`
-![git](../../../images/git-github-com-1.png)
+![GitHub Homepage](../../../images/git-github-com-1.png)
 
-Enter the `email id`, `password`, `username` verify the puzzle and click on `Create account` then you will recieve verification mail with link in your inbox.
+3. Enter your `email id`, `password`, `username`, verify the puzzle, and click on **Create account**.
+4. You will receive a verification mail with a link in your inbox.
 
-![git](../../../images/git-github-signup1.png)
+![GitHub Signup 1](../../../images/git-github-signup1.png)
+![GitHub Signup 2](../../../images/git-github-signup2.png)
+![GitHub Signup 3](../../../images/git-github-signup3.png)
 
-![git](../../../images/git-github-signup2.png)
+5. Click on the link received in your mail to complete the email verification. Once completed, login to [https://github.com](https://github.com).
 
-![git](../../../images/git-github-signup3.png)
+---
 
-Click on the link received on your mail for complete the email verification. Once the email verification is completed, login to [https://github.com](https://github.com)
+## 📂 Create Public Repository
 
-### How to create Github public repository
+After login, click on **Create repository** to create your first repository in GitHub.
 
-After login, click on `Create repository` to create a first repository in Github.
+![First Login](../../../images/git-github-first-login.png)
 
-In Github, the repository is used to store the source code files.
+1. Enter the repository name e.g., `firstproject`.
+2. Select the repository type as **Public** or **Private**.
+    * **Public**: Anybody can see the repository and clone your project.
+    * **Private**: Only visible to you and collaborators.
 
-![git](../../../images/git-github-first-login.png)
+![Create Repo 1](../../../images/git-github-create-repository1.png)
 
-Enter the repository name eg: `firstproject` and select the repository type as `public` or `private`
+3. Check the box **Add a README file**.
+   * `README.md` is used to describe your repository and its purpose.
 
-`public` --> Anybody can see the repository and its files from github. Anybody can clone you project.
+![Create Repo 2](../../../images/git-github-create-repository2.png)
 
-`private` --> The repository and its files are only visible to you. Need username and password for cloning. 
+4. Click **Create repository**. The content in your `README.md` will be shown on your repository home page.
 
-![git](../../../images/git-github-create-repository1.png)
+![Repo Created](../../../images/git-firstproject.png)
 
-Click the check box `Add a README file`
+---
 
-`README.md` file is used to tell about your repository, like for what purpose you have created this reposirory.
+## 🐧 Install Git on Linux
 
-![git](../../../images/git-github-create-repository2.png)
-
-The content in your `README.md` will be shown in your repository home page.
-
-Now you have only one file `README.md` in your repository
-
-![git](../../../images/git-firstproject.png)
-
-### How to install git in linux operating system
-
-`Ubuntu`
-Run the following command to install git in ubuntu operating system
-```
+### Ubuntu
+Run the following command to install git in Ubuntu:
+```bash
 sudo apt update
-sudo apt install git
+sudo apt install git -y
 ```
 
-`Centos`
-Run the following command to install git in Centos operating system
-```
-sudo yum update
-sudo yum install git
+### CentOS
+Run the following command to install git in CentOS:
+```bash
+sudo yum update -y
+sudo yum install git -y
 ```
 
-### How to check the version of git
-```
+### Verify Version
+```bash
 git --version
 ```
 
-### How to clone(download) the repository from Github to local computer
+---
 
-Go to your repository --> click on `code` --> make sure `https` is selected --> copy the url
+## 📥 Clone Repository
 
-![git](../../../images/git-clone.png)
+Go to your repository -> click on **Code** -> make sure **HTTPS** is selected -> copy the URL.
 
-In your terminal type  `git clone` and your copied url
-```
+![Clone Button](../../../images/git-clone.png)
+
+In your terminal, type `git clone` followed by your copied URL:
+
+```bash
 git clone https://github.com/vigneshsweekaran/firstproject.git
 ```
 
-![git](../../../images/git-clone-terminal.png)
+![Clone Terminal](../../../images/git-clone-terminal.png)
 
-Now we have successfully created the repository in github and cloned that repository to our local computer.
+Now you have successfully cloned the repository to your local computer.
 
-### How to make the changes locally and push to remote repository
-Lets clone the repository
-```
+---
+
+## 💻 Making Changes & Pushing
+
+### 1. Clone the repository
+Let's clone the repository (if not already done) and see the output:
+
+```bash
 ubuntu@manikandan:~$ git clone https://github.com/devopspilot2/firstproject.git
 Cloning into 'firstproject'...
 remote: Enumerating objects: 3, done.
@@ -133,10 +136,12 @@ total 4
 -rw-rw-r-- 1 ubuntu ubuntu 14 Jun  2 23:41 README.md
 ```
 
-In this `firstproject` repository we have only README.md file
+In this `firstproject` repository we have only the `README.md` file.
 
-Lets create new file `hello.txt`
-```
+### 2. Create a new file
+Let's create a new file `hello.txt`:
+
+```bash
 ubuntu@manikandan:~/firstproject$ echo "Created for git demo" > hello.txt
 ubuntu@manikandan:~/firstproject$ ll
 total 8
@@ -146,8 +151,10 @@ ubuntu@manikandan:~/firstproject$ cat hello.txt
 Created for git demo
 ```
 
-Run the `git status` command to check the status of the file
-```
+### 3. Check Git Status
+Run `git status` to check the status of the file:
+
+```bash
 ubuntu@manikandan:~/firstproject$ git status
 On branch main
 Your branch is up to date with 'origin/main'.
@@ -159,15 +166,12 @@ Untracked files:
 nothing added to commit but untracked files present (use "git add" to track)
 ```
 
-In the untracked files, its showing the newly created file `hello.txt`
+It lists `hello.txt` under **Untracked files**, which means Git is not tracking this file yet. It suggests using `git add`.
 
-which means this file is not tracked by the git for versioning this file.
+### 4. Track the file (Git Add)
+Run `git add <FILE_NAME>` to add the file to the Git index/staging area:
 
-And its suggesting the command `git add` to track the file
-
-Run the `git add FILE_NAME` command to add the file to git index. So git will track this files for changes.
-
-```
+```bash
 ubuntu@manikandan:~/firstproject$ git add hello.txt 
 ubuntu@manikandan:~/firstproject$ git status
 On branch main
@@ -178,13 +182,12 @@ Changes to be committed:
         new file:   hello.txt
 ```
 
-Next run the `git status` command to check the status.
+Now it is tracked and ready to be committed.
 
-Now it is tracked, next we have to commit this file by giving some meaningful message
+### 5. Commit Changes
+Run `git commit -m "message"` to save the changes to the local repository.
 
-Run the `git commit -m "Some meaningful message"`
-
-```
+```bash
 ubuntu@manikandan:~/firstproject$ git commit -m "Added hello.txt for git demo"
 Author identity unknown
 
@@ -201,39 +204,39 @@ Omit --global to set the identity only in this repository.
 fatal: unable to auto-detect email address (got 'ubuntu@manikandan.(none)')
 ```
 
-The command has failed, since the author name and email id is not configured.
+**The command has failed** because the author identity is not configured. Git needs to know who is making the changes.
 
-Whenever you commit the change from this system, git will use this author name and email id.
+### 6. Configure Identity
+This is a one-time configuration per server (stored in `~/.gitconfig`).
 
-This is a one time activity in one server and it will be stored in a file `~/.gitconfig`
-
-To see the details
+```bash
+ubuntu@manikandan:~/firstproject$ git config --global user.email "devopspilot2@gmail.com"
+ubuntu@manikandan:~/firstproject$ git config --global user.name "Vignesh Sweekaran"
 ```
+
+Verify the configuration:
+```bash
 ubuntu@manikandan:~/firstproject$ git config -l --global
 user.email=devopspilot2@gmail.com
 user.name=Vignesh Sweekaran
 ```
 
-Or you can directly view the `.gitconfig` file
-```
-ubuntu@manikandan:~/firstproject$ cat ~/.gitconfig 
-[user]
-        email = devopspilot2@gmail.com
-        name = Vignesh Sweekaran
-```
+### 7. Retry Commit
+Now that identity is configured, run the commit command again:
 
-Lets continue the commit, rerun the commit command
-```
+```bash
 ubuntu@manikandan:~/firstproject$ git commit -m "Added hello.txt for git demo"
 [main d26925d] Added hello.txt for git demo
  1 file changed, 1 insertion(+)
  create mode 100644 hello.txt
 ```
 
-Now this has successfully committed the changes to local repository
+This has successfully committed the changes to the local repository.
 
-To see the commits run the `git log` command
-```
+### 8. View History
+To see the commits, run `git log`:
+
+```bash
 ubuntu@manikandan:~/firstproject$ git log
 commit d26925de77c593d4ac7dafaa07923d2f4a74f55a (HEAD -> main)
 Author: Vignesh Sweekaran <devopspilot2@gmail.com>
@@ -248,42 +251,45 @@ Date:   Mon May 22 18:26:49 2023 +0800
     Initial commit
 ```
 
-In the new commit you can see it has used the username and email id, which you have configured and showing the commit message and timestamp when you did the commit
+### 9. Push to GitHub
+Now it is time to push the changes to the Remote Repository (GitHub).
 
-Using this you can easily track, when this change was done, who made this changes.
+Run `git push origin main`. It will ask for username and password.
 
-Now its a time to push the changes to Remote repository(Github)
+> **Note**: You cannot use your GitHub account password. You have to generate a **Personal Access Token (PAT)**.
 
-Run the command `git push origin main`
+**Generating a PAT:**
+1. Click your profile photo -> **Settings**.
 
-It will ask for username and password.
+![Settings](../../../images/settings.png)
 
-You cannot use the password, which you used for login to https://github.com You have to generate a Personal Access Token(PAT) from github settings.
+2. Click on **Developer settings**.
 
-Click your logo on top right corner and click on `settings`
-![git](../../../images/settings.png)
+![Developer Settings](../../../images/developer-settings.png)
 
-Click on `Developer settings`
-![git](../../../images/developer-settings.png)
+3. Click on **Personal access tokens** and then **Tokens (classic)**.
 
-Click on `Personal access tokens` and then `Tokens(classic)`
-![git](../../../images/tokens.png)
+![Tokens](../../../images/tokens.png)
 
-Click on `Generate token` and then `Generate new token(classic)`
-![git](../../../images/generate-token.png)
+4. Click on **Generate token** and then **Generate new token (classic)**.
 
-Give the name for token and click the `repo` check box
-![git](../../../images/token-access.png)
+![Generate Token](../../../images/generate-token.png)
 
-Click on `Generate token`
-![git](../../../images/token-submit.png)
+5. Name the token and check the `repo` box.
 
-The Personal access token(PAT) is shown only one time. Copy and save in secure place
-![git](../../../images/pat-1.png)
+![Token Scopes](../../../images/token-access.png)
 
-Enter the username and PAT
+6. Click **Generate token**.
 
-```
+![Submit Token](../../../images/token-submit.png)
+
+7. The Personal access token(PAT) is shown only one time. Copy and save in secure place.
+
+![PAT Generation](../../../images/pat-1.png)
+
+8. Now, use the PAT as the password:
+
+```bash
 ubuntu@manikandan:~/firstproject$ git push origin main
 Username for 'https://github.com': devopspilot2
 Password for 'https://devopspilot2@github.com': 
@@ -297,19 +303,46 @@ To https://github.com/devopspilot2/firstproject.git
    12664f9..d26925d  main -> main
 ```
 
-The `hello.txt` is now pushed to Github
+The `hello.txt` is now pushed to GitHub!
 
-![git](../../../images/pushed-hello-file.png)
+![Pushed File](../../../images/pushed-hello-file.png)
 
-### How to see the commits in Github
+---
 
-Goto Github `firstproject` repository and click on `commits`
-![git](../../../images/commits.png)
+## 📜 View Commits in GitHub
 
-Here you can see all the commits pushed
-![git](../../../images/commits-list.png)
+Go to your `firstproject` repository and click on **Commits**.
 
-After clicking on one commit, you can see the changes made in the commit
-![git](../../../images/commit-diff.png)
+![Commits](../../../images/commits.png)
+
+Here you can see all the commits pushed:
+
+![Commits List](../../../images/commits-list.png)
+
+After clicking on one commit, you can see the changes made in the commit:
+
+![Commit Diff](../../../images/commit-diff.png)
+
+---
+
+## 🧠 Quick Quiz — Workflow
+
+<quiz>
+What is the correct order of commands to save changes to GitHub?
+- [ ] git push -> git commit -> git add
+- [x] git add -> git commit -> git push
+- [ ] git commit -> git add -> git push
+- [ ] git add -> git push -> git commit
+
+You first `add` to staging, then `commit` to local history, then `push` to remote.
+</quiz>
+
+---
+
+### 📝 Want More Practice?
+
+👉 **[Start Git Beginner Quiz (20 Questions)](../../../quiz/git/beginner/index.md)**
+
+---
 
 {% include-markdown "_partials/subscribe-guides.md" %}

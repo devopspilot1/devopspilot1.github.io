@@ -1,39 +1,66 @@
+← [Back to Git](../../index.md)
+
 ---
-title: "Git Overview - Part 2"
----
 
-# Git Overview - Part 2
+## 📺 Git Overview - Part 2
 
-[← Back to Git](../../index.md)
+This section covers private repositories and authentication.
 
-### Youtube
 [![Git part-2](../../images/part-2.png){: style="width:400px"}](https://www.youtube.com/watch?v=LvlXQA5V1n0)
 
-### How to create private repository
+---
 
-Click on `new`
-![Git](../../../images/repo-new-1.png)
+## 🔒 Create Private Repository
 
-Give the repository name and click the `private` check box and `Add a Readme file` check box
+1. Click on **New**.
 
-Click on `Create repository`
-![Git](../../../images/private-repo.png)
+![New Repo](../../../images/repo-new-1.png)
 
-Next to the repository name, you can see its mentioned as `private`
-![Git](../../../images/private-created.png)
+2. Give the repository name and check the **Private** box and **Add a README file** box.
+3. Click on **Create repository**.
 
-For private repository, you need to authenticate to clone the repo.
+![Private Repo](../../../images/private-repo.png)
 
-There are two types of authentication,
+Next to the repository name, you can see it is mentioned as `Private`.
 
-* Using Personal Access Token(PAT)
+![Private Badge](../../../images/private-created.png)
+
+For private repositories, you need to authenticate to clone the repo.
+
+There are two types of authentication:
+* Using Personal Access Token (PAT)
 * Using SSH public/private keys
 
-### How to authenticate using Personal Access Token(PAT)
+---
 
-Lets generate the token
+## 🔑 Authentication
 
-### Remote vs local repo
-![Git](../../../images/remote-vs-local.png)
+### How to authenticate using Personal Access Token (PAT)
+Let's generate the token (as shown in Part 1).
+
+### Remote vs Local Repo
+![Remote vs Local](../../../images/remote-vs-local.png)
+
+---
+
+## 🧠 Quick Quiz — Authentication
+
+<quiz>
+Why do you need a PAT (Personal Access Token) for Git?
+- [ ] To pay for GitHub features.
+- [x] Because GitHub passwords are no longer supported for Git HTTPS operations.
+- [ ] It makes git run faster.
+- [ ] It is required only for public repos.
+
+GitHub removed password authentication for Git over HTTPS in 2021, requiring tokens instead.
+</quiz>
+
+---
+
+### 📝 Want More Practice?
+
+👉 **[Start Git Beginner Quiz (20 Questions)](../../../quiz/git/beginner/index.md)**
+
+---
 
 {% include-markdown "_partials/subscribe-guides.md" %}

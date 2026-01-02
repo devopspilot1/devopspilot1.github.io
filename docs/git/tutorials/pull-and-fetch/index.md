@@ -4,32 +4,71 @@ title: "Git Pull vs Fetch"
 
 # Git Pull vs Fetch
 
-[← Back to Git](../../index.md)
+← [Back to Git](../../index.md)
 
-### Reference
-* https://www.atlassian.com/git/tutorials/syncing/git-pull#:~:text=The%20git%20pull%20command%20is,Git%2Dbased%20collaboration%20work%20flows.
+---
 
-1. Git Pull
-The git pull command is used to fetch and download content from a remote repository and immediately update the local repository to match that content. 
+## 🔄 Git Pull vs Fetch
 
-Merging remote upstream changes into your local repository is a common task in Git-based collaboration work flows. 
+Understanding how to synchronize your local repository with the remote.
 
-The git pull command is actually a combination of two other commands, git fetch followed by git merge. 
+---
 
-In the first stage of operation git pull will execute a git fetch scoped to the local branch that HEAD is pointed at. 
+### 📥 Git Fetch
+`git fetch` downloads commits, files, and refs from a remote repository into your local repo.
+**It does NOT merge the changes into your current working branch.** It simply updates your remote-tracking branches (e.g., `origin/main`).
 
-Once the content is downloaded, git pull will enter a merge workflow. A new merge commit will be-created and HEAD updated to point at the new commit.
-
-git pull <remote> --> will do git fetch and git merge to local repository it will create a new commit after the commits in the local branch
-
-git pull --rebase --> It will fetch the commits from the remote repository and add those commits before the commits in the local branch
-
-git fetch will download the remote content and not alter the state of the local repository.
-
-### To configure git pull with rebase by default instaed of merge
+```bash
+git fetch origin
 ```
-git config --global branch.autosetuprebase always
+*Safe to run anytime. It updates your view of the remote.*
+
+---
+
+### ⬇️ Git Pull
+`git pull` is essentially a combination of two commands:
+1. `git fetch` (download changes)
+2. `git merge` (integrate changes into current branch)
+
+```bash
+git pull origin main
 ```
-After running that command, all git pull commands will integrate via git rebase instead of git merge.
+
+**Common Flags:**
+- `--rebase`: Replays your local commits on top of the incoming remote commits (cleaner history).
+  ```bash
+  git pull --rebase
+  ```
+
+---
+
+### ⚙️ Configuration
+ To make `git pull` use rebase by default (recommended for cleaner history):
+
+ ```bash
+ git config --global branch.autosetuprebase always
+ ```
+
+---
+
+## 🧠 Quick Quiz — Pull vs Fetch
+
+<quiz>
+Which command downloads changes but does **not** modify your working files?
+- [ ] git pull
+- [ ] git merge
+- [x] git fetch
+- [ ] git push
+
+`git fetch` updates remote tracking branches safely without touching your working directory.
+</quiz>
+
+---
+
+### 📝 Want More Practice?
+
+👉 **[Start Git Beginner Quiz (20 Questions)](../../../quiz/git/beginner/index.md)**
+
+---
 
 {% include-markdown "_partials/subscribe-guides.md" %}

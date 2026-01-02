@@ -1,104 +1,153 @@
+← [Back to Git](../../index.md)
+
 ---
-title: "How to Use Git Stash"
----
 
-# How to Use Git Stash
+## 📦 Git Stash
 
-[← Back to Git](../../index.md)
+Stashing allows you to temporarily save changes that are not ready to be committed, so you can switch branches or work on something else.
 
-In the current branch we have done some changes in the file and we havent committed those changes, now you want to work on some other idea, but you want to save this changes for future purpose, we can save this chnages locally using stash. 
+### 1. Stash Changes
+To stash your modified tracked files:
 
-Run "git stash" and the current branch will become clean and all the chnages what you amd will be stored locally in temporary space.
-
-git stash or git stash save (By default if we run git stash it will append the "save" keyword to it )
-
-```
+```bash
 git stash
 ```
-![git](../../images/stash/stash.PNG)
 
-```
+![Stash](../../images/stash/stash.PNG)
+
+By default, it saves with a generic message. You can also run `git stash save`:
+
+```bash
 git stash save
 ```
-![git](../../images/stash/stash-save.PNG)
 
-### Create a stash with message
-```
+![Stash Save](../../images/stash/stash-save.PNG)
+
+### 2. Stash with Message
+To stash with a descriptive message (recommended):
+
+```bash
 git stash save "message"
 ```
-![git](../../images/stash/stash-save-message.PNG)
 
-### To list the stash
-```
+![Stash Save Message](../../images/stash/stash-save-message.PNG)
+
+### 3. List Stash
+To view stored stashes:
+
+```bash
 git stash list
 ```
-![git](../../images/stash/stash-list.PNG)
 
-### To apply the stash to the current branch
-```
+![Stash List](../../images/stash/stash-list.PNG)
+
+### 4. Apply Stash
+To apply the most recent stash (keeps it in the list):
+
+```bash
 git stash apply
 ```
-![git](../../images/stash/stash-apply.PNG)
 
-### To apply the specific stash from stash list
-```
+![Stash Apply](../../images/stash/stash-apply.PNG)
+
+To apply a specific stash:
+
+```bash
 git stash apply stash@{index_no}
 ```
-![git](../../images/stash/stash-apply-index-no.PNG)
 
-### To stash both tracked and untracked files
-If we do some chnages in the tracked file and also in one untacked file (new file). If we run git stash now, it will only stash the tracked files, it wont stash the untracked files
-```
-git stash -u                --> to stash both tracked and untracked files
-```
-![git](../../images/stash/stash-untracked.PNG)
+![Stash Apply Index](../../images/stash/stash-apply-index-no.PNG)
 
-**Other Option :** we can add the untracked file and run "git stash" also
+### 5. Stash Untracked Files
+By default, `git stash` only stores tracked files. To stash untracked (new) files as well:
 
-### To do git stash apply and git stash drop in a single command
+```bash
+git stash -u
 ```
+
+![Stash Untracked](../../images/stash/stash-untracked.PNG)
+
+### 6. Pop Stash
+To apply the most recent stash and **remove** it from the list immediately:
+
+```bash
 git stash pop
 ```
-![git](../../images/stash/stash-pop.PNG)
 
-### To know the file changes in stash
-```
+![Stash Pop](../../images/stash/stash-pop.PNG)
+
+### 7. View Stash Changes
+To see what files changed in a stash:
+
+```bash
 git stash show stash@{index_no}
 ```
-latest stash will be assigned with index no '0'
-![git](../../images/stash/stash-show.PNG)
 
-### To take stash changes from one branch to another new branch
-First stash the files/changes in the current branch
+![Stash Show](../../images/stash/stash-show.PNG)
 
-Then exceute the following command, it will automatically create a new branch, switch to that branch and take all the changes from the top stash to that branch and that stash will be dropped from the stash list
-```
+### 8. Create Branch from Stash
+To take stash changes and create a new branch immediately (useful if apply causes conflicts):
+
+```bash
 git stash branch new_branch_name
 ```
-![git](../../images/stash/stash-branch.PNG)
 
-### To take specific stash changes from one branch to another new branch
-```
+![Stash Branch](../../images/stash/stash-branch.PNG)
+
+Or from a specific stash:
+
+```bash
 git stash branch new_branch_name stash@{index_no}
 ```
-![git](../../images/stash/stash-branch-index-no.PNG)
 
-### To drop the latest stash from list
-```
+![Stash Branch Index](../../images/stash/stash-branch-index-no.PNG)
+
+### 9. Drop Stash
+To remove the most recent stash:
+
+```bash
 git stash drop
 ```
-![git](../../images/stash/stash-drop.PNG)
 
-### To drop the stash from stash list using stash index number
-```
-git stash drop stash@{0}
-```
-![git](../../images/stash/stash-drop-index-no.PNG)
+![Stash Drop](../../images/stash/stash-drop.PNG)
 
-### To drop all stashes from list in one shot
+To remove a specific stash:
+
+```bash
+git stash drop stash@{index_no}
 ```
+
+![Stash Drop Index](../../images/stash/stash-drop-index-no.PNG)
+
+### 10. Clear All Stashes
+To remove **all** stashes from the list:
+
+```bash
 git stash clear
 ```
-![git](../../images/stash/stash-clear.PNG)
+
+![Stash Clear](../../images/stash/stash-clear.PNG)
+
+---
+
+## 🧠 Quick Quiz — Stashing
+
+<quiz>
+What does `git stash pop` do?
+- [ ] Deletes the stash without applying it.
+- [ ] Applies the stash but keeps it in the list.
+- [x] Applies the stash and removes it from the list.
+- [ ] Saves a new stash.
+
+`pop` is equivalent to `apply` + `drop`.
+</quiz>
+
+---
+
+### 📝 Want More Practice?
+
+👉 **[Start Git Beginner Quiz (20 Questions)](../../../quiz/git/beginner/index.md)**
+
+---
 
 {% include-markdown "_partials/subscribe-guides.md" %}

@@ -4,38 +4,65 @@ title: "How to Create a Public Repository"
 
 # How to Create a Public Repository
 
-[← Back to Git](../../index.md)
+← [Back to Git](../../index.md)
 
-### How to create Github public repository
+---
 
-After login, click on `Create repository` to create a first repository in Github.
+## 📂 Create a Public Repository
 
-In Github, the repository is used to store the source code files.
+A public repository is visible to everyone on the internet.
 
-![git](../../../images/git-github-first-login.png)
+### 1. Create New Repo
+Log in to GitHub and click on **New** (or "Create repository").
 
-Enter the repository name eg: `firstproject` and select the repository type as `public` or `private`
+![First Login](../../../images/git-github-first-login.png)
 
-`public` --> Anybody can see the repository and its files from github. Anybody can clone you project.
+### 2. Configure Details
+1. Enter a unique **Repository name** (e.g., `firstproject`).
+2. Select **Public**.
+    - **Public**: Visible to anyone. Anyone can clone it.
+    - **Private**: Visible only to you and collaborators.
 
-`private` --> The repository and its files are only visible to you. Need username and password for cloning.
+![Create Repo Screen](../../../images/git-github-create-repository1.png)
 
-![git](../../../images/git-github-create-repository1.png)
+### 3. Initialize
+Check **Add a README file**.
+*A README file describes your project and is the first thing visitors see.*
 
-Click the check box `Add a README file`
+![Add README](../../../images/git-github-create-repository2.png)
 
-`README.md` file is used to tell about your repository, like for what purpose you have created this reposirory.
+### 4. Create
+Click **Create repository**.
+Your repository is now live! The `README.md` file will be displayed on the home page.
 
-![git](../../../images/git-github-create-repository2.png)
+![Repo Created](../../../images/git-firstproject.png)
 
-The content in your `README.md` will be shown in your repository home page.
+---
 
-Now you have only one file `README.md` in your repository
+## 📺 Video Tutorial
 
-![git](../../../images/git-firstproject.png)
+[![Git Overview](../../../images/git-part-1.png){: style="width:400px"}](https://www.youtube.com/watch?v=kvqHSStbgfU)
 
-### Youtube
+---
 
-[![Git part-1](../../../images/git-part-1.png){: style="width:400px"}](https://www.youtube.com/watch?v=kvqHSStbgfU)
+## 🧠 Quick Quiz — Public Repos
+
+<quiz>
+Which file is commonly used to describe your project on the repository home page?
+- [ ] INDEX.html
+- [ ] REPO.txt
+- [x] README.md
+- [ ] CONFIG.json
+
+The `README.md` file is automatically rendered on the main page of GitHub repositories.
+</quiz>
+
+---
+
+### 📝 Want More Practice?
+
+👉 **[Start Git Beginner Quiz (20 Questions)](../../../quiz/git/beginner/index.md)**
+
+---
 
 {% include-markdown "_partials/subscribe-guides.md" %}

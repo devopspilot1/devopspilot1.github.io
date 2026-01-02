@@ -4,51 +4,85 @@ title: "How to Manage Git Tags"
 
 # How to Manage Git Tags
 
-[← Back to Git](../../index.md)
+← [Back to Git](../../index.md)
 
-Tag (Its just a label or marker)
+---
 
-### To create a lightweight tag
-git tag tag_name
+## 🏷️ Git Tags
 
-### To list all tag names
-git tag --list  (we have to pass -- before list or lese it will create a tag with name "list")
+Tags are used to mark specific points in history as important, often for releases (e.g., `v1.0`).
 
-### To see the commit at that tag
-git show tag_name
-
-### To delete a tag
-git tag --delete tag_name
-
-### Annotated tags (which means a tag with message)
--a --> annotated tag
-```
-git tag -a tag_name --> enter --> we have to write the message in text editor and close
-```
-OR 
-```
-git tag tag_name -m "message"
+### Create Lightweight Tag
+A simple pointer to a specific commit.
+```bash
+git tag v1.0
 ```
 
-### To compare two tags
-git diff first_tag_name second_tag_name
-
-### Tagging a specific commit
-git tag -a tag_name commid_id
-
-### Updating the tag from one commit to another
+### Create Annotated Tag
+Includes a tagging message and author details (recommended for releases).
+```bash
+git tag -a v1.0 -m "Release version 1.0"
 ```
-git tag -a tag_name new_commit_is -f
+
+### List Tags
+```bash
+git tag
 ```
-OR we can delete the tag and create the tag with new commid id
 
-### To push one specific tag to remote repository
-git push origin tag_name  (The commits associated with that tags will alos be pushed)
+To search for tags:
+```bash
+git tag -l "v1.*"
+```
 
-### To push all tags to remore repository
-git push origin branch_name --tags
+### View Tag Details
+```bash
+git show v1.0
+```
 
-### To delete particular tag in remote repository
-git push origin :tag_name
+### Push Tags
+Tags are **not** pushed by default. You must explicitly push them.
+
+Push a single tag:
+```bash
+git push origin v1.0
+```
+
+Push **all** local tags:
+```bash
+git push origin --tags
+```
+
+### Delete Tag
+Delete a local tag:
+```bash
+git tag -d v1.0
+```
+
+Delete a remote tag:
+```bash
+git push origin --delete v1.0
+```
+
+---
+
+## 🧠 Quick Quiz — Tags
+
+<quiz>
+Which command pushes **all** your local tags to the remote repository?
+- [ ] git push origin
+- [x] git push origin --tags
+- [ ] git push tags
+- [ ] git push --all
+
+`--tags` is required to push all tags, as `git push` only pushes branches by default.
+</quiz>
+
+---
+
+### 📝 Want More Practice?
+
+👉 **[Start Git Beginner Quiz (20 Questions)](../../../quiz/git/beginner/index.md)**
+
+---
 
 {% include-markdown "_partials/subscribe-guides.md" %}

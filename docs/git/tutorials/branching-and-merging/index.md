@@ -4,60 +4,128 @@ title: "Branching and Merging"
 
 # Branching and Merging
 
-[← Back to Git](../../index.md)
+← [Back to Git](../../index.md)
 
-### To list all branches from local and remote
+---
+
+## 🌿 Branching Commands
+
+Branches allow you to develop features, fix bugs, or experiment safely without affecting the main codebase.
+
+### List Branches
+To list both local and remote branches:
+```bash
 git branch -a
-  
-### To list local branches
+```
+
+To list only local branches:
+```bash
 git branch
-  
-### To list remote branches
-  git branch -r
-  
-### To create branch
-git branch new_branch_name parent_branch_name (if parent_branch_name is not passed it will automatically take the current branch name)
-  
-### To change branch
-git checkout branch_name
-  
-### To create branch and checkout to that branch
-git checkout -b new_branch_name (This will fail, if we pass existing branch name)
-  
-### To delete a local branch
-git branch -d branch_name (For deleting a branch, we should change to other branch first)
+```
 
---> The -d option will delete the branch only if it has already been pushed and merged with the remote branch.
+To list only remote branches:
+```bash
+git branch -r
+```
 
---> Use -D instead if you want to force the branch to be deleted, even if it hasn't been pushed or merged yet.
-  
-### To see the diff between braches before merging
-git diff current_branch_name merging_branching_name
-  
-### To merge branch (by default Fast-Forward)
-git merge merging_branch_name  (1. Change to the main branch and run the command 2. After merging we can delete that branch)
+### Create Branch
+To create a new branch from a specific parent branch:
+```bash
+git branch <new_branch_name> <parent_branch_name>
+```
+*Note: If `parent_branch_name` is omitted, it defaults to the current branch.*
 
-Fast-Forward --> Merges all commits from the source branch into the target merge with exact commit log message (If 3 commits are happend in source_branch, then after merging these 3 commits will be shown in target branch)
-  
-### Disabling Fast-Forward merge
-git merge merging_branch_name --no-ff (Then we can delete that branch)
+### Switch Branch
+To switch to an existing branch:
+```bash
+git checkout <branch_name>
+```
 
-No Fast-Forward --> Merges all commits from the source branch into the target branch with exact commit log message (If 3 commits are happend in source branch then after merging these 3 commits will be shown in target branch) + (one more commit with messaage "merge source branch_name to target branch_name").
+### Create & Switch
+To create a new branch and switch to it immediately:
+```bash
+git checkout -b <new_branch_name>
+```
 
-The source branch will be preserved (we can see in git log --decorate --graph --oneline)
-  
-### (Also called as Automatic Merge)If we create new branch and created 3 commits and also in the main branch 2 commits are happend. Now if you switch to main branch and run "git merge source branch_name" by default Fast-Forward will be disabled
-    
-### Merge Conflit
-Changed and committed the changes in source branch and then changed to target branch, changed the same file in same line and commited the changes, now try merging, merge conflict will come, since two chnages are there in the same line, we have to manually edit the changes, add and commit.
+### Delete Branch
+To delete a local branch (safe delete):
+```bash
+git branch -d <branch_name>
+```
+*Note: This fails if the branch contains unmerged changes.*
 
-### To see the branches merged to the current branch
+To force delete a branch (even with unmerged changes):
+```bash
+git branch -D <branch_name>
+```
+
+### Delete Remote Branch
+To delete a branch from the remote repository:
+```bash
+git push origin --delete <branch_name>
+```
+
+---
+
+## 🔄 Merging Commands
+
+Merging integrates changes from one branch into another.
+
+### Compare Branches
+To see the differences between two branches before merging:
+```bash
+git diff <current_branch> <target_branch>
+```
+
+### Fast-Forward Merge (Default)
+If the target branch has not diverged, Git moves the pointer forward.
+```bash
+git merge <source_branch>
+```
+
+### Disable Fast-Forward
+To force a merge commit even if a fast-forward is possible (preserves history topology):
+```bash
+git merge <source_branch> --no-ff
+```
+
+### Merge Conflicts
+If the same line in the same file was modified in both branches, Git cannot auto-merge.
+1. Git pauses the merge and marks the conflict in the file.
+2. Manually edit the file to resolve changes.
+3. Add and commit the resolved file.
+
+### Check Merge Status
+To see branches already merged into the current branch:
+```bash
 git branch --merged
+```
 
-### To see what are all the branches not merged to the current branch
+To see branches NOT yet merged into the current branch:
+```bash
 git branch --no-merged
+```
 
-### To Delete a remote branch from terminal
-git push origin --delete branch_name
+---
+
+## 🧠 Quick Quiz — Branching
+
+<quiz>
+Which command creates a new branch and switches to it in one step?
+- [ ] git branch new-feature
+- [x] git checkout -b new-feature
+- [ ] git checkout new-feature
+- [ ] git switch new-feature
+
+`git checkout -b` is the shortcut to creating and checking out a branch simultaneously.
+</quiz>
+
+---
+
+### 📝 Want More Practice?
+
+👉 **[Start Git Beginner Quiz (20 Questions)](../../../quiz/git/beginner/index.md)**
+
+---
 
 {% include-markdown "_partials/subscribe-guides.md" %}

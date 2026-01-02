@@ -4,22 +4,57 @@ title: "How to Clone a Repository"
 
 # How to Clone a Repository
 
-[← Back to Git](../../index.md)
+← [Back to Git](../../index.md)
 
-Go to your repository -> click on **code** -> make sure **https** is selected -> copy the url
+---
 
-![git](../../../images/git-clone.png)
+## 📥 How to Clone a Repository
 
-In your terminal type **git clone** and your copied url
+Cloning creates a local copy of a remote repository on your machine.
 
-git clone [https://github.com/vigneshsweekaran/firstproject.git](https://github.com/vigneshsweekaran/firstproject.git)
+### 1. Get the URL
+Go to your repository on GitHub.
+Click on **Code** -> Select **HTTPS** -> Copy the URL.
 
-![git](../../../images/git-clone-terminal.png)
+![Copy URL](../../../images/git-clone.png)
 
-Now you have successfully cloned the repository to your local computer.
+### 2. Run Git Clone
+Open your terminal and use the `git clone` command followed by the URL:
 
-### Youtube
+```bash
+git clone https://github.com/vigneshsweekaran/firstproject.git
+```
 
-[![Git part-1](../../../images/git-part-1.png){: style="width:400px"}](https://www.youtube.com/watch?v=kvqHSStbgfU)
+![Terminal Clone](../../../images/git-clone-terminal.png)
+
+You have now successfully cloned the repository to your local computer.
+
+---
+
+## 📺 Video Tutorial
+
+[![Git Cloning](../../../images/git-part-1.png){: style="width:400px"}](https://www.youtube.com/watch?v=kvqHSStbgfU)
+
+---
+
+## 🧠 Quick Quiz — Cloning
+
+<quiz>
+What does `git clone` do?
+- [ ] Deletes a repository.
+- [x] Downloads a copy of a remote repository to your local machine.
+- [ ] Uploads your local files to GitHub.
+- [ ] Creates a new empty repository.
+
+Cloning creates a full local copy of the repo history and files.
+</quiz>
+
+---
+
+### 📝 Want More Practice?
+
+👉 **[Start Git Beginner Quiz (20 Questions)](../../../quiz/git/beginner/index.md)**
+
+---
 
 {% include-markdown "_partials/subscribe-guides.md" %}

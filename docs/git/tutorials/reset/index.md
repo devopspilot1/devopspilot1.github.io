@@ -4,26 +4,79 @@ title: "Git Reset"
 
 # Git Reset
 
-[← Back to Git](../../index.md)
+← [Back to Git](../../index.md)
 
-### To reset one top local commit (This will only remove the commits and the chnages are still shown in local repository, we have to manaually remove the changes)
-git reset HEAD^1 OR git reset HEAD^
+---
 
-### To reset top two commits
-git reset HEAD^^
+## ⏮️ Git Reset
 
-### To see the recently executed git commands(last 60 days)
+Git Reset updates your current head to the specified state. It is used to undo changes or move back in history.
+
+### Undo Last Commit (Soft)
+Undo the last commit but keep changes in your working directory (staged):
+```bash
+git reset --soft HEAD~1
+```
+
+### Undo Last Commit (Mixed)
+Undo the last commit and unstage changes (commands default to mixed):
+```bash
+git reset HEAD~1
+```
+
+### Hard Reset (Destructive)
+Undo the last commit and **delete** all changes from the file system:
+```bash
+git reset --hard HEAD~1
+```
+*Warning: You will lose any uncommitted work.*
+
+### Reset to 2 Commits Back
+```bash
+git reset HEAD~2
+```
+
+---
+
+## 🕵️ Git Reflog
+Reflog (Reference Log) tracks updates to the tip of git branches. It allows you to recover "lost" commits after a reset.
+
+### View Reflog
+To see all recent actions (last 90 days by default):
+```bash
 git reflog
+```
 
-### To go back to the commits from reflog which was removed(reset) earlier  OR back-offing commits
+### Recover Lost Commit
+If you accidentally did a hard reset, find the SHA in reflog and reset to it:
+```bash
+git reset --hard <commit-id>
+```
+Or using index:
+```bash
+git reset --hard HEAD@{2}
+```
 
-git reset commit_id (commit_is is taken from reflog)
+---
 
-OR
+## 🧠 Quick Quiz — Reset
 
-git reset HEAD@{index_no} (index_no from reflog)
+<quiz>
+Which reset mode erases your file changes completely?
+- [ ] --soft
+- [ ] --mixed
+- [x] --hard
+- [ ] --keep
 
-### To reset the commit and remove the chnages
-git reset --hard HEAD^
+`--hard` resets the index and working tree, discarding changes.
+</quiz>
+
+---
+
+### 📝 Want More Practice?
+
+👉 **[Start Git Beginner Quiz (20 Questions)](../../../quiz/git/beginner/index.md)**
+
+---
 
 {% include-markdown "_partials/subscribe-guides.md" %}

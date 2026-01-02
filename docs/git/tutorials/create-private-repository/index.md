@@ -4,42 +4,72 @@ title: "How to Create a Private Repository"
 
 # How to Create a Private Repository
 
-[← Back to Git](../../index.md)
+← [Back to Git](../../index.md)
 
-### How to create private repository
+---
 
-Click on `new`
+## 🔒 Create a Private Repository
 
-![Git](../../../images/repo-new-1.png)
+A private repository is only visible to you and people you explicitly invite.
 
-Give the repository name and click the `private` check box and `Add a Readme file` check box
+### 1. Start New Repository
+Click on the **New** button on your repository list or dashboard.
 
-Click on `Create repository`
+![New Repository](../../../images/repo-new-1.png)
 
-![Git](../../../images/private-repo.png)
+### 2. Configure Settings
+1. Enter a **Repository name**.
+2. Select **Private** (this creates a private repo).
+3. Check **Add a README file** (recommended to initialize the repo).
+4. Click **Create repository**.
 
-Next to the repository name, you can see its mentioned as `private`
+![Private Settings](../../../images/private-repo.png)
 
-![Git](../../../images/private-created.png)
+The repository will be marked with a `Private` badge next to its name.
 
-For private repository, you need to authenticate to clone the repo.
+![Private Badge](../../../images/private-created.png)
 
-There are two types of authentication,
+---
 
-- Using Personal Access Token(PAT)
+## 🔑 Authentication
 
-- Using SSH public/private keys
+Since the repository is private, you need to authenticate to clone or push to it.
+There are two common methods:
 
-### How to authenticate using Personal Access Token(PAT)
+1. **Personal Access Token (PAT)** (Recommended for HTTPS)
+2. **SSH Keys**
 
-Lets generate the token
+### Remote vs Local
+Understanding the connection:
 
-### Remote vs local repo
+![Remote vs Local](../../images/remote-vs-local.png)
 
-![Git](../../images/remote-vs-local.png)
+---
 
-### Youtube
+## 📺 Video Tutorial
 
-[![Git part-2](../../../images/git-part-2.png){: style="width:400px"}](https://www.youtube.com/watch?v=LvlXQA5V1n0)
+[![Git Private Repo](../../../images/git-part-2.png){: style="width:400px"}](https://www.youtube.com/watch?v=LvlXQA5V1n0)
+
+---
+
+## 🧠 Quick Quiz — Private Repos
+
+<quiz>
+Who can view a **Private** repository on GitHub?
+- [ ] Everyone on the internet.
+- [x] Only the owner and invited collaborators.
+- [ ] Anyone with the link.
+- [ ] Only paid users.
+
+Private repositories restrict access to authorized users only.
+</quiz>
+
+---
+
+### 📝 Want More Practice?
+
+👉 **[Start Git Beginner Quiz (20 Questions)](../../../quiz/git/beginner/index.md)**
+
+---
 
 {% include-markdown "_partials/subscribe-guides.md" %}

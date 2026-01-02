@@ -1,16 +1,15 @@
+← [Back to Git](../../index.md)
+
 ---
-title: "How to Push Changes to GitHub"
----
 
-# How to Push Changes to GitHub
+## ⬆️ How to Push Changes to GitHub
 
-[← Back to Git](../../index.md)
+Pushing transfers commits from your local repository to a remote repository.
 
-### How to make the changes locally and push to remote repository
+### 1. Clone & Prepare
+Let's clone the repository:
 
-Lets clone the repository
-
-```
+```bash
 ubuntu@manikandan:~$ git clone https://github.com/devopspilot2/firstproject.git
 Cloning into 'firstproject'...
 remote: Enumerating objects: 3, done.
@@ -23,11 +22,12 @@ total 4
 -rw-rw-r-- 1 ubuntu ubuntu 14 Jun  2 23:41 README.md
 ```
 
-In this `firstproject` repository we have only README.md file
+In this `firstproject` repository we have only `README.md` file.
 
-Lets create new file `hello.txt`
+### 2. Make Changes
+Let's create a new file `hello.txt`:
 
-```
+```bash
 ubuntu@manikandan:~/firstproject$ echo "Created for git demo" > hello.txt
 ubuntu@manikandan:~/firstproject$ ll
 total 8
@@ -37,9 +37,10 @@ ubuntu@manikandan:~/firstproject$ cat hello.txt
 Created for git demo
 ```
 
-Run the `git status` command to check the status of the file
+### 3. Check Status
+Run `git status` to check the status of the file:
 
-```
+```bash
 ubuntu@manikandan:~/firstproject$ git status
 On branch main
 Your branch is up to date with 'origin/main'.
@@ -51,15 +52,12 @@ Untracked files:
 nothing added to commit but untracked files present (use "git add" to track)
 ```
 
-In the untracked files, its showing the newly created file `hello.txt`
+In the untracked files, its showing the newly created file `hello.txt`.
 
-which means this file is not tracked by the git for versioning this file.
+### 4. Stage & Commit
+Run `git add` to track the file:
 
-And its suggesting the command `git add` to track the file
-
-Run the `git add FILE_NAME` command to add the file to git index. So git will track this files for changes.
-
-```
+```bash
 ubuntu@manikandan:~/firstproject$ git add hello.txt 
 ubuntu@manikandan:~/firstproject$ git status
 On branch main
@@ -70,13 +68,9 @@ Changes to be committed:
         new file:   hello.txt
 ```
 
-Next run the `git status` command to check the status.
+Now commit the file:
 
-Now it is tracked, next we have to commit this file by giving some meaningful message
-
-Run the `git commit -m "Some meaningful message"`
-
-```
+```bash
 ubuntu@manikandan:~/firstproject$ git commit -m "Added hello.txt for git demo"
 Author identity unknown
 
@@ -93,101 +87,69 @@ Omit --global to set the identity only in this repository.
 fatal: unable to auto-detect email address (got 'ubuntu@manikandan.(none)')
 ```
 
-The command has failed, since the author name and email id is not configured.
+The command has failed, since the author name and email id is not configured. This is a one-time activity.
 
-Whenever you commit the change from this system, git will use this author name and email id.
+**Configure Identity:**
 
-This is a one time activity in one server and it will be stored in a file `~/.gitconfig`
-
-To see the details
-
+```bash
+ubuntu@manikandan:~/firstproject$ git config --global user.email "devopspilot2@gmail.com"
+ubuntu@manikandan:~/firstproject$ git config --global user.name "Vignesh Sweekaran"
 ```
+
+Verify configuration:
+
+```bash
 ubuntu@manikandan:~/firstproject$ git config -l --global
 user.email=devopspilot2@gmail.com
 user.name=Vignesh Sweekaran
 ```
 
-Or you can directly view the `.gitconfig` file
+**Retry Commit:**
 
-```
-ubuntu@manikandan:~/firstproject$ cat ~/.gitconfig 
-```
-
-\[user\]
-
-email = devopspilot2@gmail.com name = Vignesh Sweekaran
-
-Lets continue the commit, rerun the commit command
-
-```
+```bash
 ubuntu@manikandan:~/firstproject$ git commit -m "Added hello.txt for git demo"
 [main d26925d] Added hello.txt for git demo
  1 file changed, 1 insertion(+)
  create mode 100644 hello.txt
 ```
 
-Now this has successfully committed the changes to local repository
+### 5. Push to Remote
+Run `git push origin main`. It will ask for username and password.
 
-To see the commits run the `git log` command
+> **Note**: You must use a **Personal Access Token (PAT)** as the password.
 
-```
-ubuntu@manikandan:~/firstproject$ git log
-commit d26925de77c593d4ac7dafaa07923d2f4a74f55a (HEAD -> main)
-Author: Vignesh Sweekaran <devopspilot2@gmail.com>
-Date:   Sat Jun 3 00:00:53 2023 +0000
+**Generating a PAT:**
+1. Click your profile photo -> **Settings**.
 
-    Added hello.txt for git demo
+![Settings](../../../images/settings.png)
 
-commit 12664f9c74d52f466c2091515e54d2fa2a184647 (origin/main, origin/HEAD)
-Author: devopspilot2 <134018546+devopspilot2@users.noreply.github.com>
-Date:   Mon May 22 18:26:49 2023 +0800
+2. Click on **Developer settings**.
 
-    Initial commit
-```
+![Developer Settings](../../../images/developer-settings.png)
 
-In the new commit you can see it has used the username and email id, which you have configured and showing the commit message and timestamp when you did the commit
+3. Click on **Personal access tokens** and then **Tokens (classic)**.
 
-Using this you can easily track, when this change was done, who made this changes.
+![Tokens](../../../images/tokens.png)
 
-Now its a time to push the changes to Remote repository(Github)
+4. Click on **Generate token** and then **Generate new token (classic)**.
 
-Run the command `git push origin main`
+![Generate Token](../../../images/generate-token.png)
 
-It will ask for username and password.
+5. Name the token and check the `repo` box.
 
-You cannot use the password, which you used for login to [https://github.com](https://github.com) You have to generate a Personal Access Token(PAT) from github settings.
+![Token Scopes](../../../images/token-access.png)
 
-Click your logo on top right corner and click on `settings`
+6. Click **Generate token**.
 
-![git](../../../images/settings.png)
+![Submit Token](../../../images/token-submit.png)
 
-Click on `Developer settings`
+7. The Personal access token(PAT) is shown only one time. Copy and save in secure place.
 
-![git](../../../images/developer-settings.png)
+![PAT Generation](../../../images/pat-1.png)
 
-Click on `Personal access tokens` and then `Tokens(classic)`
+Now, use the PAT as the password:
 
-![git](../../../images/tokens.png)
-
-Click on `Generate token` and then `Generate new token(classic)`
-
-![git](../../../images/generate-token.png)
-
-Give the name for token and click the `repo` check box
-
-![git](../../../images/token-access.png)
-
-Click on `Generate token`
-
-![git](../../../images/token-submit.png)
-
-The Personal access token(PAT) is shown only one time. Copy and save in secure place
-
-![git](../../../images/pat-1.png)
-
-Enter the username and PAT
-
-```
+```bash
 ubuntu@manikandan:~/firstproject$ git push origin main
 Username for 'https://github.com': devopspilot2
 Password for 'https://devopspilot2@github.com': 
@@ -201,26 +163,46 @@ To https://github.com/devopspilot2/firstproject.git
    12664f9..d26925d  main -> main
 ```
 
-The `hello.txt` is now pushed to Github
+The `hello.txt` is now pushed to GitHub!
 
-![git](../../../images/pushed-hello-file.png)
+![Pushed File](../../../images/pushed-hello-file.png)
 
-### How to see the commits in Github
+---
 
-Goto Github `firstproject` repository and click on `commits`
+## 📜 Verify on GitHub
 
-![git](../../../images/commits.png)
+Go to your repository on GitHub and click **Commits** to see your changes.
 
-Here you can see all the commits pushed
+![Commits List](../../../images/commits.png)
 
-![git](../../../images/commits-list.png)
+Here you can see all the commits pushed:
 
-After clicking on one commit, you can see the changes made in the commit
+![Commits List](../../../images/commits-list.png)
 
-![git](../../../images/commit-diff.png)
+After clicking on one commit, you can see the changes made in the commit:
 
-### Youtube
+![Commit Diff](../../../images/commit-diff.png)
 
-[![Git part-1](../../../images/git-part-1.png){: style="width:400px"}](https://www.youtube.com/watch?v=kvqHSStbgfU)
+---
+
+## 🧠 Quick Quiz — Pushing
+
+<quiz>
+What should you use as the password when pushing to GitHub via HTTPS?
+- [ ] Your GitHub account password.
+- [ ] Your SSH key passphrase.
+- [x] A Personal Access Token (PAT).
+- [ ] No password is required.
+
+GitHub deprecated account passwords for command-line Git authentication; you must use a PAT.
+</quiz>
+
+---
+
+### 📝 Want More Practice?
+
+👉 **[Start Git Beginner Quiz (20 Questions)](../../../quiz/git/beginner/index.md)**
+
+---
 
 {% include-markdown "_partials/subscribe-guides.md" %}
