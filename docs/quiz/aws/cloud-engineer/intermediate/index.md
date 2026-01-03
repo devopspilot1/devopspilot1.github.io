@@ -4,7 +4,7 @@ title: "AWS Cloud Engineer - Intermediate Quiz (20 Questions)"
 
 # AWS Cloud Engineer - Intermediate Quiz
 
-← [Back to Interview Questions](../../../../interview-questions/aws/cloud-engineer.md) <br>
+← [Back to Interview Questions](../../../../interview-questions/aws/cloud-engineer/index.md) <br>
 ← [Back to Quiz Home](../../../index.md)
 
 ---
@@ -216,7 +216,7 @@ Target Tracking works like a thermostat—it automatically adds or removes capac
 ---
 
 ### 📚 Study Guides
-- [AWS Cloud Engineer Interview Questions](../../../../interview-questions/aws/cloud-engineer.md)
+- [**AWS Cloud Engineer - Intermediate Questions**](../../../../interview-questions/aws/cloud-engineer/intermediate.md)
 
 ---
 

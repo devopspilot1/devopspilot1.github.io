@@ -4,7 +4,7 @@ title: "AWS Cloud Engineer - Advanced Quiz (20 Questions)"
 
 # AWS Cloud Engineer - Advanced Quiz
 
-← [Back to Interview Questions](../../../../interview-questions/aws/cloud-engineer.md) <br>
+← [Back to Interview Questions](../../../../interview-questions/aws/cloud-engineer/index.md) <br>
 ← [Back to Quiz Home](../../../index.md)
 
 ---
@@ -216,7 +216,7 @@ Instance Store is physically attached to the host hardware. If the instance move
 ---
 
 ### 📚 Study Guides
-- [AWS Cloud Engineer Interview Questions](../../../../interview-questions/aws/cloud-engineer.md)
+- [**AWS Cloud Engineer - Advanced Questions**](../../../../interview-questions/aws/cloud-engineer/advanced.md)
 
 ---
 

@@ -27,15 +27,15 @@ This track is designed for:
 <div class="grid cards" markdown>
 
 -   :material-signal-cellular-1: __[Basics Questions](basics.md)__
-    
+
     Master the fundamentals: EC2, S3, IAM, and Networking basics. Great for freshers and junior roles.
 
 -   :material-signal-cellular-2: __[Intermediate Questions](intermediate.md)__
-    
+
     Step up to troubleshooting, cost optimization, load balancing, and security best practices.
 
 -   :material-signal-cellular-3: __[Advanced Questions](advanced.md)__
-    
+
     Tackle complex scenarios: Disaster Recovery, hybrid architectures, migrations, and deep internal mechanics.
 
 </div>

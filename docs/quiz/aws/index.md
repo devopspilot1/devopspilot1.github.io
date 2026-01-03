@@ -39,4 +39,4 @@ Test your knowledge with our role-based AWS quizzes, designed to help you prepar
 ---
 
 ### 📚 Study Guides
-*   [AWS Interview Questions](../../interview-questions/aws/index.md)
+*  ← [Back to Interview Questions](../../interview-questions/aws/index.md) <br>

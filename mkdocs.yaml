@@ -240,7 +240,7 @@ nav:
     - Azure Interview Questions: interview-questions/azure.md
     - GCP Interview Questions: interview-questions/gcp.md
     - AWS Interview Questions:
-      - Overview: interview-questions/aws.md
+      - Overview: interview-questions/aws/index.md
       - AWS Cloud Engineer:
         - Overview: interview-questions/aws/cloud-engineer/index.md
         - Basics: interview-questions/aws/cloud-engineer/basics.md

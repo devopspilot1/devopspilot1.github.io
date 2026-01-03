@@ -4,7 +4,7 @@ title: "AWS Cloud Engineer - Basics Quiz (20 Questions)"
 
 # AWS Cloud Engineer - Basics Quiz
 
-← [Back to Interview Questions](../../../../interview-questions/aws/cloud-engineer.md) <br>
+← [Back to Interview Questions](../../../../interview-questions/aws/cloud-engineer/index.md) <br>
 ← [Back to Quiz Home](../../../index.md)
 
 ---
@@ -216,7 +216,7 @@ Access control policies in IAM are written in JSON (JavaScript Object Notation).
 ---
 
 ### 📚 Study Guides
-- [AWS Cloud Engineer Interview Questions](../../../../interview-questions/aws/cloud-engineer.md)
+- [**AWS Cloud Engineer - Basics Questions**](../../../../interview-questions/aws/cloud-engineer/basics.md)
 
 ---
 
