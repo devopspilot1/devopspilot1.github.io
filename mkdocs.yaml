@@ -79,8 +79,9 @@ nav:
       - What is Maven?: build-tools/maven/what-is-maven.md
       - Generate a sample java application using maven: build-tools/maven/generate-a-sample-java-application-using-maven.md
       - How to create a GitHub repository and push a Hello World Java 21 Maven Project: build-tools/maven/how-to-create-a-github-repository-and-push-a-sample-java-maven-project.md
-    - SonarQube:
-      - Quality Gate: sonarqube/quality-gate.md
+  - 3-Tier Architecture: 3-tier/index.md
+  - SonarQube:
+    - SonarQube Quality Gate: sonarqube/quality-gate/index.md
   - Web Server:
     - Nginx:
       - How to install nginx in Linux: webserver/nginx/how-to-install-nginx.md
@@ -170,8 +171,8 @@ nav:
     - Command Reference:
       - Imperative Commands: kubernetes/tutorials/imperative-commands.md
   - Helm:
-    - Helm chart basics: helm/basics.md
-    - Helm commands: helm/commands.md
+    - Basics: helm/basics/index.md
+    - Commands: helm/commands/index.md
   - Terraform:
     - Overview: terraform/index.md
     - AWS:
@@ -183,9 +184,10 @@ nav:
         - Deploy Python Flask App to Cloud Run: terraform/gcp/projects/cloud-run.md
         - Apigee X with PSC to Cloud Run: terraform/gcp/projects/apigee-psc-cloud-run.md
   - Cloud:
-    - Overview: cloud/on-premise-cloud.md
-    - Types of OS: cloud/types-of-os.md
-    - Virtualbox: cloud/virtualbox.md
+    - VirtualBox: cloud/virtualbox/index.md
+    - On Premise Cloud: cloud/on-premise/index.md
+    - Types of OS: cloud/types-of-os/index.md
+
     - AWS:
       - Tutorials:
         - Deploy Flask API to AWS Lambda using Docker: cloud/aws/tutorials/deploy-flask-api-to-aws-lambda-using-docker.md
