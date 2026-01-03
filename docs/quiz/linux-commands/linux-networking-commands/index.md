@@ -219,4 +219,9 @@ Which command is most useful for debugging service-to-service communication?
 
 ---
 
+### 📚 Study Guides
+- [Linux Networking Commands for DevOps Engineers](../../../linux-commands/linux-networking-commands/index.md)
+
+---
+
 {% include-markdown "_partials/subscribe.md" %}

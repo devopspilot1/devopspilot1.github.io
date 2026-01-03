@@ -219,4 +219,9 @@ Which permission setting prevents others from accessing a file?
 
 ---
 
+### 📚 Study Guides
+- [Linux File Viewing, Permissions, and Environment Variables](../../../linux-commands/linux-file-permissions-env/index.md)
+
+---
+
 {% include-markdown "_partials/subscribe.md" %}

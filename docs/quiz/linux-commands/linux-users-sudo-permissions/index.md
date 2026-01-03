@@ -219,4 +219,9 @@ Which command should be used to safely edit the sudoers file?
 
 ---
 
+### 📚 Study Guides
+- [Linux Users, Groups, and Sudo Permissions](../../../linux-commands/linux-users-sudo-permissions/index.md)
+
+---
+
 {% include-markdown "_partials/subscribe.md" %}

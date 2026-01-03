@@ -220,4 +220,9 @@ Which command helps a DevOps engineer quickly verify disk space issues?
 
 ---
 
+### 📚 Study Guides
+- [Linux System and Disk Commands for DevOps Engineers](../../../linux-commands/linux-system-disk-commands/index.md)
+
+---
+
 {% include-markdown "_partials/subscribe.md" %}

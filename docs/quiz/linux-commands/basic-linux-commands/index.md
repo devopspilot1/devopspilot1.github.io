@@ -219,4 +219,9 @@ Which command helps verify where you are in the filesystem?
 
 ---
 
+### 📚 Study Guides
+- [Basic Linux Commands for DevOps Engineers (With Examples)](../../../linux-commands/basic-linux-commands/index.md)
+
+---
+
 {% include-markdown "_partials/subscribe.md" %}

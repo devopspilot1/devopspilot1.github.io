@@ -213,4 +213,11 @@ Which low-level command resolves a reference to a SHA-1 hash?
 
 ---
 
+### 📚 Study Guides
+- [Git Basics](../../../git/index.md#basics)
+- [Git Tutorials](../../../git/index.md#tutorials)
+- [Git Advanced](../../../git/index.md#advanced-git)
+
+---
+
 {% include-markdown "_partials/subscribe.md" %}

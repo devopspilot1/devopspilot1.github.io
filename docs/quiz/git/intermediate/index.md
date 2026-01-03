@@ -213,6 +213,11 @@ Which command helps you switch to a specific commit (entering detached HEAD stat
 
 ---
 
-📩 **Get weekly DevOps quizzes & guides**
+### 📚 Study Guides
+- [Git Basics](../../../git/index.md#basics)
+- [Git Tutorials](../../../git/index.md#tutorials)
+- [Git Advanced](../../../git/index.md#advanced-git)
+
+---
 
 {% include-markdown "_partials/subscribe.md" %}

@@ -220,4 +220,9 @@ Which command lists failed services?
 
 ---
 
+### 📚 Study Guides
+- [Linux Process Management and Service Commands for DevOps Engineers](../../../linux-commands/linux-process-service-management/index.md)
+
+---
+
 {% include-markdown "_partials/subscribe.md" %}

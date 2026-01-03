@@ -219,4 +219,9 @@ Which command helps visualize directory contents recursively?
 
 ---
 
+### 📚 Study Guides
+- [Linux File and Directory Management Commands](../../../linux-commands/linux-file-directory-commands/index.md)
+
+---
+
 {% include-markdown "_partials/subscribe.md" %}

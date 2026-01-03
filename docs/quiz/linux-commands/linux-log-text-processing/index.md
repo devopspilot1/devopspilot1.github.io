@@ -220,4 +220,9 @@ Which tool is most commonly used to filter logs in production?
 
 ---
 
+### 📚 Study Guides
+- [Linux Log and Text Processing Commands for DevOps Engineers](../../../linux-commands/linux-log-text-processing/index.md)
+
+---
+
 {% include-markdown "_partials/subscribe.md" %}

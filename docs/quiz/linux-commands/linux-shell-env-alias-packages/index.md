@@ -220,4 +220,9 @@ The shebang `#!/bin/bash` at the top of a script tells the system to execute the
 
 ---
 
+### 📚 Study Guides
+- [Linux Shell Variables, Environment Variables, PATH, Aliases & Package Management](../../../linux-commands/linux-shell-env-alias-packages/index.md)
+
+---
+
 {% include-markdown "_partials/subscribe.md" %}
