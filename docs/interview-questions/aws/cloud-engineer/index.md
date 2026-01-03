@@ -5,10 +5,7 @@ description: "Comprehensive AWS Cloud Engineer interview questions and answers, 
 
 # AWS Cloud Engineer Interview Questions
 
-<!-- 
-    Interactive Interview Guide 
-    Usage: Click on the questions to reveal the answers.
--->
+
 
 Everything you need to ace your **AWS Cloud Engineer** interview, from EC2 primitives to advanced troubleshooting at scale.
 

@@ -253,8 +253,16 @@ nav:
         - Basics: interview-questions/aws/devops-engineer/basics/index.md
         - Intermediate: interview-questions/aws/devops-engineer/intermediate/index.md
         - Advanced: interview-questions/aws/devops-engineer/advanced/index.md
-      - Solutions Architect: interview-questions/aws/solutions-architect.md
-      - SysOps Administrator: interview-questions/aws/sysops-admin.md
+      - AWS Solutions Architect:
+        - Overview: interview-questions/aws/solutions-architect/index.md
+        - Basics: interview-questions/aws/solutions-architect/basics/index.md
+        - Intermediate: interview-questions/aws/solutions-architect/intermediate/index.md
+        - Advanced: interview-questions/aws/solutions-architect/advanced/index.md
+      - AWS SysOps Administrator:
+        - Overview: interview-questions/aws/sysops-admin/index.md
+        - Basics: interview-questions/aws/sysops-admin/basics/index.md
+        - Intermediate: interview-questions/aws/sysops-admin/intermediate/index.md
+        - Advanced: interview-questions/aws/sysops-admin/advanced/index.md
       - SRE: interview-questions/aws/sre.md
       - Developer: interview-questions/aws/developer.md
       - Security Engineer: interview-questions/aws/security-engineer.md

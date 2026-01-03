@@ -4,7 +4,6 @@ title: "AWS GenAI Engineer - Basics Quiz (20 Questions)"
 
 # AWS GenAI Engineer - Basics Quiz
 
-← [Back to Interview Questions](../../../../interview-questions/aws/gen-ai-engineer.md) <br>
 ← [Back to Quiz Home](../../../index.md)
 
 ---

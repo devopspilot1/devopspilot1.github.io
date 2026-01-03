@@ -4,7 +4,6 @@ title: "AWS Cloud Engineer - Intermediate Quiz (20 Questions)"
 
 # AWS Cloud Engineer - Intermediate Quiz
 
-← [Back to Interview Questions](../../../../interview-questions/aws/cloud-engineer/index.md) <br>
 ← [Back to Quiz Home](../../../index.md)
 
 ---

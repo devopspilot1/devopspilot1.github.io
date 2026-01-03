@@ -4,7 +4,6 @@ title: "AWS DevOps Engineer - Advanced Quiz (20 Questions)"
 
 # AWS DevOps Engineer - Advanced Quiz
 
-← [Back to Interview Questions](../../../../interview-questions/aws/devops-engineer/index.md) <br>
 ← [Back to Quiz Home](../../../index.md)
 
 ---

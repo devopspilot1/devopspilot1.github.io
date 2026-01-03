@@ -4,7 +4,6 @@ title: "AWS SysOps Administrator - Intermediate Quiz (20 Questions)"
 
 # AWS SysOps Administrator - Intermediate Quiz
 
-← [Back to Interview Questions](../../../../interview-questions/aws/sysops-admin.md) <br>
 ← [Back to Quiz Home](../../../index.md)
 
 ---
@@ -216,7 +215,7 @@ Lifecycle policies are the primary mechanism for S3 cost optimization.
 ---
 
 ### 📚 Study Guides
-- [AWS SysOps Administrator Interview Questions](../../../../interview-questions/aws/sysops-admin.md)
+- [AWS SysOps Administrator Interview Questions](../../../../interview-questions/aws/sysops-admin/index.md)
 
 ---
 

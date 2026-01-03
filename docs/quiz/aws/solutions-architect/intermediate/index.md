@@ -4,7 +4,6 @@ title: "AWS Solutions Architect - Intermediate Quiz (20 Questions)"
 
 # AWS Solutions Architect - Intermediate Quiz
 
-← [Back to Interview Questions](../../../../interview-questions/aws/solutions-architect.md) <br>
 ← [Back to Quiz Home](../../../index.md)
 
 ---
@@ -216,7 +215,7 @@ This is the classic "Elastic" pattern: ASG adds/removes compute, ELB distributes
 ---
 
 ### 📚 Study Guides
-- [AWS Solutions Architect Interview Questions](../../../../interview-questions/aws/solutions-architect.md)
+- [AWS Solutions Architect Interview Questions](../../../../interview-questions/aws/solutions-architect/index.md)
 
 ---
 

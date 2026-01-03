@@ -4,7 +4,6 @@ title: "AWS Network Engineer - Intermediate Quiz (20 Questions)"
 
 # AWS Network Engineer - Intermediate Quiz
 
-← [Back to Interview Questions](../../../../interview-questions/aws/network-engineer.md) <br>
 ← [Back to Quiz Home](../../../index.md)
 
 ---

@@ -4,7 +4,6 @@ title: "AWS Developer - Advanced Quiz (20 Questions)"
 
 # AWS Developer - Advanced Quiz
 
-← [Back to Interview Questions](../../../../interview-questions/aws/developer.md) <br>
 ← [Back to Quiz Home](../../../index.md)
 
 ---

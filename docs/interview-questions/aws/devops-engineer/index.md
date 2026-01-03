@@ -5,10 +5,7 @@ description: "Comprehensive AWS DevOps Engineer interview questions and answers,
 
 # AWS DevOps Engineer Interview Questions
 
-<!-- 
-    Interactive Interview Guide 
-    Usage: Click on the questions to reveal the answers.
--->
+
 
 Everything you need to ace your **AWS DevOps Engineer** interview, from CI/CD pipelines to advanced infrastructure automation.
 

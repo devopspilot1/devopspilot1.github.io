@@ -4,7 +4,6 @@ title: "AWS GenAI Engineer - Advanced Quiz (20 Questions)"
 
 # AWS GenAI Engineer - Advanced Quiz
 
-← [Back to Interview Questions](../../../../interview-questions/aws/gen-ai-engineer.md) <br>
 ← [Back to Quiz Home](../../../index.md)
 
 ---

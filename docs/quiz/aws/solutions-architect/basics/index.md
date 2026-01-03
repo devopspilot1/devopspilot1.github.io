@@ -4,7 +4,6 @@ title: "AWS Solutions Architect - Basics Quiz (20 Questions)"
 
 # AWS Solutions Architect - Basics Quiz
 
-← [Back to Interview Questions](../../../../interview-questions/aws/solutions-architect.md) <br>
 ← [Back to Quiz Home](../../../index.md)
 
 ---
@@ -216,7 +215,7 @@ Latency routing directs traffic to the region that provides the lowest network l
 ---
 
 ### 📚 Study Guides
-- [AWS Solutions Architect Interview Questions](../../../../interview-questions/aws/solutions-architect.md)
+- [AWS Solutions Architect Interview Questions](../../../../interview-questions/aws/solutions-architect/index.md)
 
 ---
 

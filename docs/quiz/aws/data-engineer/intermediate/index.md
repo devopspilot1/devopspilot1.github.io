@@ -4,7 +4,6 @@ title: "AWS Data Engineer - Intermediate Quiz (20 Questions)"
 
 # AWS Data Engineer - Intermediate Quiz
 
-← [Back to Interview Questions](../../../../interview-questions/aws/data-engineer.md) <br>
 ← [Back to Quiz Home](../../../index.md)
 
 ---

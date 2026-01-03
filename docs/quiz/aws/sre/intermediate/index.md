@@ -4,7 +4,6 @@ title: "AWS Site Reliability Engineer (SRE) - Intermediate Quiz (20 Questions)"
 
 # AWS Site Reliability Engineer (SRE) - Intermediate Quiz
 
-← [Back to Interview Questions](../../../../interview-questions/aws/sre.md) <br>
 ← [Back to Quiz Home](../../../index.md)
 
 ---

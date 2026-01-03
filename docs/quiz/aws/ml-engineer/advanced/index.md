@@ -4,7 +4,6 @@ title: "AWS Machine Learning Engineer - Advanced Quiz (20 Questions)"
 
 # AWS Machine Learning Engineer - Advanced Quiz
 
-← [Back to Interview Questions](../../../../interview-questions/aws/ml-engineer.md) <br>
 ← [Back to Quiz Home](../../../index.md)
 
 ---

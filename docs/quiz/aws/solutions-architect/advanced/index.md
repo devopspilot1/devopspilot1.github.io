@@ -4,7 +4,6 @@ title: "AWS Solutions Architect - Advanced Quiz (20 Questions)"
 
 # AWS Solutions Architect - Advanced Quiz
 
-← [Back to Interview Questions](../../../../interview-questions/aws/solutions-architect.md) <br>
 ← [Back to Quiz Home](../../../index.md)
 
 ---
@@ -216,7 +215,7 @@ It allows you to verify new services in production incrementally while the legac
 ---
 
 ### 📚 Study Guides
-- [AWS Solutions Architect Interview Questions](../../../../interview-questions/aws/solutions-architect.md)
+- [AWS Solutions Architect Interview Questions](../../../../interview-questions/aws/solutions-architect/index.md)
 
 ---
 

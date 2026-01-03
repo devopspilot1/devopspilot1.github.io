@@ -15,10 +15,10 @@ Prepare for your AWS interview with our role-specific question banks. Each secti
 -   **[AWS DevOps Engineer](devops-engineer/index.md)**
     <br>CI/CD pipelines, Infrastructure as Code (Terraform/CloudFormation), and automation.
 
--   **[AWS Solutions Architect](solutions-architect.md)**
+-   **[Solutions Architect](solutions-architect/index.md)**
     <br>System design, high availability, disaster recovery, and cost optimization.
 
--   **[AWS SysOps Administrator](sysops-admin.md)**
+-   **[AWS SysOps Administrator](sysops-admin/index.md)**
     <br>Operational excellence, monitoring (CloudWatch), and systems management.
 
 -   **[AWS Site Reliability Engineer (SRE)](sre.md)**

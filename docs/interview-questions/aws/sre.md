@@ -5,10 +5,7 @@ date: 2024-07-01
 
 # AWS SRE (Site Reliability Engineer) Interview Questions
 
-<!-- 
-    Interactive Interview Guide 
-    Usage: Click on the questions to reveal the answers.
--->
+
 
 ## Observability
 

@@ -4,7 +4,6 @@ title: "AWS Security Engineer - Advanced Quiz (20 Questions)"
 
 # AWS Security Engineer - Advanced Quiz
 
-← [Back to Interview Questions](../../../../interview-questions/aws/security-engineer.md) <br>
 ← [Back to Quiz Home](../../../index.md)
 
 ---

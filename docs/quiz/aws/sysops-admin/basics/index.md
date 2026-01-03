@@ -4,7 +4,6 @@ title: "AWS SysOps Administrator - Basics Quiz (20 Questions)"
 
 # AWS SysOps Administrator - Basics Quiz
 
-← [Back to Interview Questions](../../../../interview-questions/aws/sysops-admin.md) <br>
 ← [Back to Quiz Home](../../../index.md)
 
 ---
@@ -216,7 +215,7 @@ Always use SecureString for passwords/keys to ensure they are encrypted at rest.
 ---
 
 ### 📚 Study Guides
-- [AWS SysOps Administrator Interview Questions](../../../../interview-questions/aws/sysops-admin.md)
+- [AWS SysOps Administrator Interview Questions](../../../../interview-questions/aws/sysops-admin/index.md)
 
 ---
 

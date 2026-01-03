@@ -4,7 +4,6 @@ title: "AWS Network Engineer - Advanced Quiz (20 Questions)"
 
 # AWS Network Engineer - Advanced Quiz
 
-← [Back to Interview Questions](../../../../interview-questions/aws/network-engineer.md) <br>
 ← [Back to Quiz Home](../../../index.md)
 
 ---

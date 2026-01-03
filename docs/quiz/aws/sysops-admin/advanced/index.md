@@ -4,7 +4,6 @@ title: "AWS SysOps Administrator - Advanced Quiz (20 Questions)"
 
 # AWS SysOps Administrator - Advanced Quiz
 
-← [Back to Interview Questions](../../../../interview-questions/aws/sysops-admin.md) <br>
 ← [Back to Quiz Home](../../../index.md)
 
 ---
@@ -216,7 +215,7 @@ You can grow an attached volume while the OS is running and IO is happening.
 ---
 
 ### 📚 Study Guides
-- [AWS SysOps Administrator Interview Questions](../../../../interview-questions/aws/sysops-admin.md)
+- [AWS SysOps Administrator Interview Questions](../../../../interview-questions/aws/sysops-admin/index.md)
 
 ---
 

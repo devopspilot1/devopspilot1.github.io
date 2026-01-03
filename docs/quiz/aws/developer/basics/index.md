@@ -4,7 +4,6 @@ title: "AWS Developer - Basics Quiz (20 Questions)"
 
 # AWS Developer - Basics Quiz
 
-← [Back to Interview Questions](../../../../interview-questions/aws/developer.md) <br>
 ← [Back to Quiz Home](../../../index.md)
 
 ---
