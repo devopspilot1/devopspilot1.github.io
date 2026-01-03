@@ -328,3 +328,7 @@ allowedTopologies:
 3. Create backup and disaster recovery plans
 4. Study advanced storage patterns
 5. Explore CSI drivers
+
+---
+
+{% include-markdown "../../../_partials/subscribe-guides.md" %}

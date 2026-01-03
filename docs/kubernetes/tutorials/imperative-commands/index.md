@@ -354,3 +354,7 @@ kubectl get pod nginx -o yaml > nginx-pod.yaml
 - Always use `--namespace` or `-n` flag when working in specific namespaces
 - Use `kubectl api-resources --namespaced=false` to see cluster-wide resources
 - Use command completion: `source <(kubectl completion bash)`
+
+---
+
+{% include-markdown "../../../_partials/subscribe-guides.md" %}

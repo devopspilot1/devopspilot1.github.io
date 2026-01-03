@@ -421,3 +421,7 @@ kubectl delete -f https://github.com/cert-manager/cert-manager/releases/download
 4. Set up multiple issuers for redundancy
 5. Implement certificate transparency logging
 ```
+
+---
+
+{% include-markdown "../../../_partials/subscribe-guides.md" %}

@@ -213,3 +213,7 @@ After successfully installing Minikube, you can:
    # Create a second cluster
    minikube start -p cluster2
    ```
+
+---
+
+{% include-markdown "../../../_partials/subscribe-guides.md" %}

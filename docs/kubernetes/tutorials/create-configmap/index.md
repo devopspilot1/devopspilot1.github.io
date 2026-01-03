@@ -350,3 +350,7 @@ kubectl auth can-i get configmaps
 3. Set up configuration validation
 4. Implement secure secret handling
 5. Study configuration patterns
+
+---
+
+{% include-markdown "../../../_partials/subscribe-guides.md" %}

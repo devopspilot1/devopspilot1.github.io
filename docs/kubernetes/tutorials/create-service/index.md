@@ -506,6 +506,10 @@ Choose the appropriate service type based on your use case:
 
 ## Next Steps
 
-- Learn about [Ingress](how-to-create-ingress-in-kubernetes.md) for advanced routing
+- Learn about [Ingress](../create-ingress/index.md) for advanced routing
 - Explore Network Policies for security
 - Understand Endpoints for custom routing
+
+---
+
+{% include-markdown "../../../_partials/subscribe-guides.md" %}

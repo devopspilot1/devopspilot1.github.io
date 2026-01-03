@@ -396,3 +396,7 @@ spec:
 3. Implement secret encryption at rest
 4. Configure audit logging for secrets
 5. Study advanced security patterns
+
+---
+
+{% include-markdown "../../../_partials/subscribe-guides.md" %}

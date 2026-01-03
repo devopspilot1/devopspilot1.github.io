@@ -122,3 +122,7 @@ Continue learning about:
 - Creating pods and deployments
 - Setting up services
 - Managing configurations
+
+---
+
+{% include-markdown "../../../_partials/subscribe-guides.md" %}

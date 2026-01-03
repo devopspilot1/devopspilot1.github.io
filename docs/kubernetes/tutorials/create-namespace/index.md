@@ -287,3 +287,7 @@ kubectl auth can-i create pods -n development
 3. Set up CI/CD pipelines with namespace isolation
 4. Configure network policies between namespaces
 5. Implement multi-tenancy using namespaces
+
+---
+
+{% include-markdown "../../../_partials/subscribe-guides.md" %}

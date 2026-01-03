@@ -500,3 +500,7 @@ kubectl get events --field-selector involvedObject.kind=StatefulSet
 3. Set up high availability
 4. Plan for disaster recovery
 5. Implement security best practices
+
+---
+
+{% include-markdown "../../../_partials/subscribe-guides.md" %}

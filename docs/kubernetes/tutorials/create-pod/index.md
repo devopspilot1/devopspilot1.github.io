@@ -284,3 +284,7 @@ spec:
 2. Explore Services
 3. Study pod networking
 4. Implement pod security policies
+
+---
+
+{% include-markdown "../../../_partials/subscribe-guides.md" %}

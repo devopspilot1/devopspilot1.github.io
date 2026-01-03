@@ -715,3 +715,7 @@ LAST SEEN   TYPE     REASON              OBJECT                      MESSAGE
 3. Set up monitoring and alerting
 4. Configure horizontal pod autoscaling
 5. Implement rolling updates using Deployments
+
+---
+
+{% include-markdown "../../../_partials/subscribe-guides.md" %}

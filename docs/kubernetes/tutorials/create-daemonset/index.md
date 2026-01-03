@@ -361,3 +361,7 @@ kubectl get events --field-selector involvedObject.kind=DaemonSet
 3. Set up security policies
 4. Plan for updates and rollbacks
 5. Implement node affinity rules
+
+---
+
+{% include-markdown "../../../_partials/subscribe-guides.md" %}

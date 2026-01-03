@@ -327,3 +327,7 @@ kubectl describe nodes
 3. Set up proper monitoring
 4. Explore autoscaling capabilities
 5. Study deployment patterns (Blue/Green, Canary)
+
+---
+
+{% include-markdown "../../../_partials/subscribe-guides.md" %}

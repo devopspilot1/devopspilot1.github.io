@@ -286,3 +286,7 @@ kubectl delete -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/con
 3. Implement rate limiting and WAF rules
 4. Configure custom error pages
 5. Set up access and error logging
+
+---
+
+{% include-markdown "../../../_partials/subscribe-guides.md" %}

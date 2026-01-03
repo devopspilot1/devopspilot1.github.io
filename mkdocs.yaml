@@ -140,33 +140,33 @@ nav:
   - K8s:
     - Overview: kubernetes/index.md
     - Introduction:
-      - What is Kubernetes?: kubernetes/tutorials/what-is-kubernetes.md
+      - What is Kubernetes?: kubernetes/tutorials/what-is-kubernetes/index.md
     - Setup and Installation:
-      - Installing Minikube: kubernetes/tutorials/how-to-install-minikube-in-linux.md
-      - Installing kubectl: kubernetes/tutorials/how-to-install-kubectl-in-linux.md
+      - Installing Minikube: kubernetes/tutorials/install-minikube/index.md
+      - Installing kubectl: kubernetes/tutorials/install-kubectl/index.md
     - Core Concepts:
-      - Pods: kubernetes/tutorials/how-to-create-a-simple-pod-in-kubernetes.md
+      - Pods: kubernetes/tutorials/create-pod/index.md
     - Workload Resources:
-      - ReplicaSets: kubernetes/tutorials/how-to-create-replicaset-in-kubernetes.md
-      - Deployments: kubernetes/tutorials/how-to-create-a-deployment-in-kubernetes.md
-      - DaemonSets: kubernetes/tutorials/how-to-create-daemonset-in-kubernetes.md
-      - StatefulSets: kubernetes/tutorials/how-to-create-statefulset-in-kubernetes.md
+      - ReplicaSets: kubernetes/tutorials/create-replicaset/index.md
+      - Deployments: kubernetes/tutorials/create-deployment/index.md
+      - DaemonSets: kubernetes/tutorials/create-daemonset/index.md
+      - StatefulSets: kubernetes/tutorials/create-statefulset/index.md
     - Resource Organization:
-      - Namespaces: kubernetes/tutorials/how-to-create-a-namespace-in-kubernetes.md
+      - Namespaces: kubernetes/tutorials/create-namespace/index.md
     - Configuration:
-      - ConfigMaps: kubernetes/tutorials/how-to-create-a-configmap-in-kubernetes.md
-      - Secrets: kubernetes/tutorials/how-to-create-a-secret-in-kubernetes.md
+      - ConfigMaps: kubernetes/tutorials/create-configmap/index.md
+      - Secrets: kubernetes/tutorials/create-secret/index.md
     - Service & Networking:
-      - Services: kubernetes/tutorials/how-to-create-a-service-in-kubernetes.md
-      - Ingress: kubernetes/tutorials/how-to-create-ingress-in-kubernetes.md
+      - Services: kubernetes/tutorials/create-service/index.md
+      - Ingress: kubernetes/tutorials/create-ingress/index.md
       - Ingress Controllers:
-        - Nginx Ingress Controller: kubernetes/tutorials/how-to-install-nginx-ingress-controller.md
+        - Nginx Ingress Controller: kubernetes/tutorials/install-ingress-controller/index.md
     - Storage:
-      - Storage Classes: kubernetes/tutorials/how-to-create-storage-class-in-kubernetes.md
+      - Storage Classes: kubernetes/tutorials/create-storage-class/index.md
     - Security:
-      - Cert Manager: kubernetes/tutorials/how-to-install-certmanager.md
+      - Cert Manager: kubernetes/tutorials/install-certmanager/index.md
     - Command Reference:
-      - Imperative Commands: kubernetes/tutorials/imperative-commands.md
+      - Imperative Commands: kubernetes/tutorials/imperative-commands/index.md
   - Helm:
     - Basics: helm/basics/index.md
     - Commands: helm/commands/index.md

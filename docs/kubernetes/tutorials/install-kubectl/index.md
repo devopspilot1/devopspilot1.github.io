@@ -221,3 +221,7 @@ After installing kubectl:
 - [Official Kubernetes Documentation](https://kubernetes.io/docs/home/)
 - [kubectl Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
 - [kubectl Command Reference](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands)
+
+---
+
+{% include-markdown "../../../_partials/subscribe-guides.md" %}

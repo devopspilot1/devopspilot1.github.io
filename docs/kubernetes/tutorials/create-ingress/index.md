@@ -362,3 +362,7 @@ Content-Length: 42
 3. Configure WAF rules
 4. Set up automated testing
 5. Implement blue-green deployments
+
+---
+
+{% include-markdown "../../../_partials/subscribe-guides.md" %}
