@@ -571,7 +571,7 @@ fi
 <quiz>
 Which symbol starts a comment in a shell script?
 - [ ] //
-- [x] #
+- [x] `#`
 - [ ] /*
 - [ ] --
 

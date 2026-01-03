@@ -46,9 +46,8 @@ Understanding the connection:
 
 ---
 
-## 📺 Video Tutorial
-
-[![Git Private Repo](../../../images/git-part-2.png){: style="width:400px"}](https://www.youtube.com/watch?v=LvlXQA5V1n0)
+## 🎥 **Watch on YouTube:**
+[![Git Private Repo](../../../images/git-part-2.png){: style="max-width:100%; height:auto"}](https://www.youtube.com/watch?v=LvlXQA5V1n0)
 
 ---
 

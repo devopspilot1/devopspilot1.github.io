@@ -26,7 +26,7 @@ A shell script is simply a text file containing a list of commands that the shel
 <quiz>
 Which symbol starts a comment in a shell script?
 - [ ] //
-- [x] #
+- [x] `#`
 - [ ] /*
 - [ ] --
 

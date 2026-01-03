@@ -64,9 +64,8 @@ Click on **Create account**. You will receive a verification code or link in you
 
 ---
 
-## 📺 Video Tutorial
-
-[![Git Overview](../../../images/git-part-1.png){: style="width:400px"}](https://www.youtube.com/watch?v=kvqHSStbgfU)
+## 🎥 **Watch on YouTube:**
+[![Git Overview](../../../images/git-part-1.png){: style="max-width:100%; height:auto"}](https://www.youtube.com/watch?v=kvqHSStbgfU)
 
 ---
 

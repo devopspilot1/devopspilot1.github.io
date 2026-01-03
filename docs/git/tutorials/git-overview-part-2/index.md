@@ -6,8 +6,6 @@
 
 This section covers private repositories and authentication.
 
-[![Git part-2](../../images/part-2.png){: style="width:400px"}](https://www.youtube.com/watch?v=LvlXQA5V1n0)
-
 ---
 
 ## 🔒 Create Private Repository
@@ -42,6 +40,9 @@ Let's generate the token (as shown in Part 1).
 ![Remote vs Local](../../../images/remote-vs-local.png)
 
 ---
+
+## 🎥 **Watch on YouTube:**
+[![Git part-2](../../images/part-2.png){: style="max-width:100%; height:auto"}](https://www.youtube.com/watch?v=LvlXQA5V1n0)
 
 ## 🧠 Quick Quiz — Authentication
 

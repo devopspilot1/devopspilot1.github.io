@@ -6,8 +6,6 @@
 
 This comprehensive guide covers the basics of Git and GitHub, from installation to your first push.
 
-[![Git part-1](../../images/part-1.png){: style="width:400px"}](https://www.youtube.com/watch?v=kvqHSStbgfU)
-
 ### 📌 Topics Covered
 * What is Git
 * How to create GitHub account
@@ -324,6 +322,9 @@ After clicking on one commit, you can see the changes made in the commit:
 ![Commit Diff](../../../images/commit-diff.png)
 
 ---
+
+## 🎥 **Watch on YouTube:**
+[![Git part-1](../../images/part-1.png){: style="max-width:100%; height:auto"}](https://www.youtube.com/watch?v=kvqHSStbgfU)
 
 ## 🧠 Quick Quiz — Workflow
 

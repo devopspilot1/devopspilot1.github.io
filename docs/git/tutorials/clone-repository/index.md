@@ -31,9 +31,8 @@ You have now successfully cloned the repository to your local computer.
 
 ---
 
-## 📺 Video Tutorial
-
-[![Git Cloning](../../../images/git-part-1.png){: style="width:400px"}](https://www.youtube.com/watch?v=kvqHSStbgfU)
+## 🎥 **Watch on YouTube:**
+[![Git Cloning](../../../images/git-part-1.png){: style="max-width:100%; height:auto"}](https://www.youtube.com/watch?v=kvqHSStbgfU)
 
 ---
 

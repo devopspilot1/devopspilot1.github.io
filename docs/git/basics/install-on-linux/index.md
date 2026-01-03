@@ -51,9 +51,8 @@ git version 2.34.1
 
 ---
 
-## 📺 Video Tutorial
-
-[![Git part-1](../../../images/git-part-1.png){: style="width:400px"}](https://www.youtube.com/watch?v=kvqHSStbgfU)
+## 🎥 **Watch on YouTube:**
+[![Git part-1](../../../images/git-part-1.png){: style="max-width:100%; height:auto"}](https://www.youtube.com/watch?v=kvqHSStbgfU)
 
 ---
 

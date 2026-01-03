@@ -39,9 +39,8 @@ Your repository is now live! The `README.md` file will be displayed on the home 
 
 ---
 
-## 📺 Video Tutorial
-
-[![Git Overview](../../../images/git-part-1.png){: style="width:400px"}](https://www.youtube.com/watch?v=kvqHSStbgfU)
+## 🎥 **Watch on YouTube:**
+[![Git Overview](../../../images/git-part-1.png){: style="max-width:100%; height:auto"}](https://www.youtube.com/watch?v=kvqHSStbgfU)
 
 ---
 
