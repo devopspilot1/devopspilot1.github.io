@@ -270,6 +270,52 @@ nav:
       - Beginner: quiz/git/beginner/index.md
       - Intermediate: quiz/git/intermediate/index.md
       - Advanced: quiz/git/advanced/index.md
+    - AWS:
+      - Overview: quiz/aws/index.md
+      - Cloud Engineer:
+        - Basics: quiz/aws/cloud-engineer/basics/index.md
+        - Intermediate: quiz/aws/cloud-engineer/intermediate/index.md
+        - Advanced: quiz/aws/cloud-engineer/advanced/index.md
+      - DevOps Engineer:
+        - Basics: quiz/aws/devops-engineer/basics/index.md
+        - Intermediate: quiz/aws/devops-engineer/intermediate/index.md
+        - Advanced: quiz/aws/devops-engineer/advanced/index.md
+      - Solutions Architect:
+        - Basics: quiz/aws/solutions-architect/basics/index.md
+        - Intermediate: quiz/aws/solutions-architect/intermediate/index.md
+        - Advanced: quiz/aws/solutions-architect/advanced/index.md
+      - SysOps Administrator:
+        - Basics: quiz/aws/sysops-admin/basics/index.md
+        - Intermediate: quiz/aws/sysops-admin/intermediate/index.md
+        - Advanced: quiz/aws/sysops-admin/advanced/index.md
+      - SRE:
+        - Basics: quiz/aws/sre/basics/index.md
+        - Intermediate: quiz/aws/sre/intermediate/index.md
+        - Advanced: quiz/aws/sre/advanced/index.md
+      - Developer:
+        - Basics: quiz/aws/developer/basics/index.md
+        - Intermediate: quiz/aws/developer/intermediate/index.md
+        - Advanced: quiz/aws/developer/advanced/index.md
+      - Data Engineer:
+        - Basics: quiz/aws/data-engineer/basics/index.md
+        - Intermediate: quiz/aws/data-engineer/intermediate/index.md
+        - Advanced: quiz/aws/data-engineer/advanced/index.md
+      - ML Engineer:
+        - Basics: quiz/aws/ml-engineer/basics/index.md
+        - Intermediate: quiz/aws/ml-engineer/intermediate/index.md
+        - Advanced: quiz/aws/ml-engineer/advanced/index.md
+      - GenAI Engineer:
+        - Basics: quiz/aws/gen-ai-engineer/basics/index.md
+        - Intermediate: quiz/aws/gen-ai-engineer/intermediate/index.md
+        - Advanced: quiz/aws/gen-ai-engineer/advanced/index.md
+      - Security Engineer:
+        - Basics: quiz/aws/security-engineer/basics/index.md
+        - Intermediate: quiz/aws/security-engineer/intermediate/index.md
+        - Advanced: quiz/aws/security-engineer/advanced/index.md
+      - Network Engineer:
+        - Basics: quiz/aws/network-engineer/basics/index.md
+        - Intermediate: quiz/aws/network-engineer/intermediate/index.md
+        - Advanced: quiz/aws/network-engineer/advanced/index.md
   - Architecture:
     - 3 Tier Architecture: 3-tier/3-tier.md
   - Support: support/index.md

@@ -61,13 +61,32 @@ More levels coming soon:
 
 ---
 
+## ☁️ AWS Cloud Quiz
+
+AWS is the leading cloud provider.  
+This quiz track covers **11 tailored roles** from Cloud Engineer to Security Specialist.
+
+👉 **[Go to AWS Quiz](../quiz/aws/index.md)**
+
+Includes:
+- 33 quizzes across 11 roles
+- **660+ unique questions**
+- Basics → Intermediate → Advanced levels
+
+Popular Tracks:
+- Cloud Engineer
+- DevOps Engineer
+- Solutions Architect
+- Security Engineer
+
+---
+
 ## 🚀 Upcoming Quiz Tracks *(Planned)*
 
 These will be added gradually:
 
 - Jenkins & CI/CD
 - Kubernetes
-- AWS for DevOps
 - Terraform & Infrastructure as Code
 
 ---

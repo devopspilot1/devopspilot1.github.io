@@ -273,6 +273,14 @@ hide:
       <a href="kubernetes/" class="step-link">Master Kubernetes →</a>
     </div>
   </div>
+  <div class="step-item">
+    <div class="step-num">6</div>
+    <div class="step-info">
+      <h4>AWS Cloud Mastery</h4>
+      <p>Validate your expertise with role-based quizzes from Cloud Engineer to Security Specialist.</p>
+      <a href="quiz/aws/" class="step-link">Start AWS Track →</a>
+    </div>
+  </div>
 </div>
 
 <h2 class="section-title">📚 Explore Topics</h2>
@@ -314,7 +322,7 @@ hide:
 
 <div class="newsletter">
   <h3>🚀 Join the DevOps Revolution</h3>
-  <p>We are constantly adding new content. Stay tuned for updates!</p>
+  <p>DevOpsPilot is constantly adding new content. Stay tuned for updates!</p>
   <div style="margin-top: 1rem;">
     <iframe src="https://devopspilot.substack.com/embed" width="480" height="320" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>
   </div>
