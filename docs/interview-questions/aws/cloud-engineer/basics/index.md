@@ -27,6 +27,7 @@ description: "Top 20 Basic AWS Cloud Engineer interview questions covering EC2, 
     A **VPC** is a logically isolated virtual network involved in the AWS cloud. You control the IP range (CIDR), subnets, route tables, and network gateways. It is your private data center in the cloud.
     
     ✔ **Key Components:**
+    
     - Subnets (Public/Private)
     - Route Tables
     - Internet Gateway (IGW)
@@ -42,6 +43,7 @@ description: "Top 20 Basic AWS Cloud Engineer interview questions covering EC2, 
     Scripts entered during launch to bootstrap the instance. 
     
     ✔ Runs **only once** during the first boot.
+    
     ✔ Used to install software, updates, or join a domain.
 
 ??? question "5. What is an Availability Zone (AZ) and how does it differ from a Region?"
@@ -67,6 +69,7 @@ description: "Top 20 Basic AWS Cloud Engineer interview questions covering EC2, 
     A **Security Group** acts as a virtual firewall for your EC2 instance to control inbound and outbound traffic.
     
     ✔ **Key Characteristics:**
+    
     *   **Stateful**: If you send a request out, the response is automatically allowed back in.
     *   **Allow rules only**: You cannot deny traffic explicitly (default is deny all).
     *   Applied at the **Instance** level.

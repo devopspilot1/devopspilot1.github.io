@@ -27,6 +27,7 @@ description: "Top 20 Advanced AWS Cloud Engineer interview questions covering ar
     Occurs when many clients retry a failed request simultaneously, overwhelming the service.
     
     ✔ **Mitigation Strategy:**
+    
     - **Exponential Backoff**: Wait longer between retries (1s, 2s, 4s).
     - **Jitter**: Add randomness to the wait time to desynchronize clients.
 
@@ -57,6 +58,7 @@ description: "Top 20 Advanced AWS Cloud Engineer interview questions covering ar
     Instead of storing just the current state (Bank Balance: $100), store the **sequence of events** (Deposit $50, Withdraw $20).
     
     ✔ **Benefits:** Audit trail, replayability, time travel debugging.
+    
     ✔ **AWS Tools:** Kinesis Data Streams, EventBridge, DynamoDB Streams.
 
 ??? question "8. Explain the architecture of a Serverless Web Application."
@@ -110,6 +112,7 @@ description: "Top 20 Advanced AWS Cloud Engineer interview questions covering ar
     The scope of impact if a component fails.
     
     ✔ **Minimization Strategies:**
+    
     *   **Region Isolation**: Deploy to multiple regions.
     *   **Account Isolation**: Use separate AWS Accounts for Prod/Dev/Shared (Control Tower).
     *   **Cell-based Architecture**: Shard users into isolated cells.

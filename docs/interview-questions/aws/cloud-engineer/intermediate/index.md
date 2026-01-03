@@ -50,6 +50,7 @@ description: "Top 20 Intermediate AWS Cloud Engineer interview questions focusin
     *   **NACL**: **Stateless** (must explicitly allow return). Applies to Subnet. Allow and Deny rules. Processed in number order.
     
     ✔ **Rule of Thumb:**
+    
     SGs are your first line of defense; NACLs are a coarse subnet-level firewall.
 
 ??? question "6. How does Auto Scaling verify an instance is ready to receive traffic?"
@@ -82,6 +83,7 @@ description: "Top 20 Intermediate AWS Cloud Engineer interview questions focusin
     A networking connection between two VPCs that enables them to route traffic between each other using private IPv4 addresses.
     
     ✔ Instances in either VPC can communicate as if they are within the same network.
+    
     ✔ Transitive peering is **NOT** supported (A connected to B, B connected to C -> A cannot talk to C).
 
 ??? question "12. What is the difference between Vertical Scaling and Horizontal Scaling?"
@@ -95,6 +97,7 @@ description: "Top 20 Intermediate AWS Cloud Engineer interview questions focusin
     You cannot encrypt an existing volume in place.
     
     ✔ **Process:**
+    
     1.  Create a Snapshot of the unencrypted volume.
     2.  Copy the Snapshot and check the "Encrypt" box.
     3.  Create a new Volume from the encrypted snapshot.
@@ -130,6 +133,7 @@ description: "Top 20 Intermediate AWS Cloud Engineer interview questions focusin
     A high-availability feature. AWS automatically provisions and maintains a **synchronous standby replica** in a different Availability Zone.
     
     ✔ If the primary DB fails, AWS automatically fails over to the standby (updates DNS record).
+    
     ✔ Designed for **Disaster Recovery**, not scaling (Standby cannot take read traffic).
 
 ---
