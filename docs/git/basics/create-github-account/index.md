@@ -86,7 +86,7 @@ Git is the version control engine that runs on your computer, while GitHub is a 
 
 ### 📝 Want More Practice?
 
-👉 **[Start Git Beginner Quiz (20 Questions)](../../../quiz/git/beginner/index.md)**
+👉 **[Test your knowledge - Take the Git Basics Quiz](../../../quiz/git/basics/index.md)**
 
 ---
 

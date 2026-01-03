@@ -233,7 +233,11 @@ nav:
     - How to generate self signed certificate using openssl: ssl/self-signed-certificate-using-openssl.md
   - Interview Questions:
     - Linux commands Interview Questions: interview-questions/linux-commands.md
-    - Git Interview Questions: interview-questions/git.md
+    - Git:
+        - Overview: interview-questions/git/index.md
+        - Basics: interview-questions/git/basics/index.md
+        - Intermediate: interview-questions/git/intermediate/index.md
+        - Advanced: interview-questions/git/advanced/index.md
     # - Maven Interview Questions: interview-questions/
     # - Jenkins Interview Questions: interview-questions/
     - Docker Interview Questions: interview-questions/docker.md
@@ -313,7 +317,7 @@ nav:
       - Process Management: quiz/linux-commands/linux-process-service-management/index.md
     - Git:
       - Overview: quiz/git/index.md
-      - Beginner: quiz/git/beginner/index.md
+      - Basics: quiz/git/basics/index.md
       - Intermediate: quiz/git/intermediate/index.md
       - Advanced: quiz/git/advanced/index.md
     - AWS:

@@ -21,10 +21,10 @@ Follow the quizzes in order for best results 👇
 
 ---
 
-### 🔹 Beginner Level: Git Basics
+### 🔹 Basics Level: Git Basics
 Start here if you are new to Git or want to strengthen fundamentals.
 
-👉 **[Start Quiz – Git Beginner Level](../../quiz/git/beginner/index.md)**
+👉 **[Start Quiz – Git Basics Level](../../quiz/git/basics/index.md)**
 
 Topics covered:
 - What is Git and why it is used

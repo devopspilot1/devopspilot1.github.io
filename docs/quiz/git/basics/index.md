@@ -1,4 +1,4 @@
-# Git Beginner Quiz
+# Git Basics Quiz
 
 Welcome! 🚀
 Test your fundamental Git knowledge with this quick quiz. Perfect for beginners starting their version control journey.

@@ -145,7 +145,7 @@ Which command allows you to pick a **specific commit** from one branch and apply
 
 ### 📝 Want More Practice?
 
-👉 **[Start Git Beginner Quiz (20 Questions)](../../../quiz/git/beginner/index.md)**
+👉 **[Test your knowledge - Take the Git Basics Quiz](../../../quiz/git/basics/index.md)**
 
 ---
 
