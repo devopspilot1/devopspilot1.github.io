@@ -40,7 +40,7 @@ nav:
     - Networking Commands: linux-commands/linux-networking-commands/index.md
     - Process & Service Management: linux-commands/linux-process-service-management/index.md
   - SSH:
-    - SSH: ssh/index.md
+    - Overview: ssh/index.md
   - Shell Scripting:
     - Overview: shellscript/index.md
     - Basics & Error Handling: shellscript/basics/index.md
@@ -139,7 +139,7 @@ nav:
       - How to write a dockerfile for installing openjdk15: docker/dockerfiles/install-openjdk/index.md
       - How to create a multi stage Dockerfile: docker/dockerfiles/multi-stage-build/index.md
       - How to write a dockerfile for running a java application (*.war) in Apache tomcat webserver: docker/dockerfiles/run-war-in-tomcat/index.md
-  - K8s:
+  - Kubernetes:
     - Overview: kubernetes/index.md
     - Introduction:
       - What is Kubernetes?: kubernetes/tutorials/what-is-kubernetes/index.md
