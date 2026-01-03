@@ -373,9 +373,8 @@ Since the status code changes to 3, it enter the if condition and runs the break
      Docs: man:httpd(8)
            man:apachectl(8)
 ```
-### Youtube
-
-[![Shellscript part-3](../../images/shellscript-part-3.png)](https://www.youtube.com/watch?v=DipqrRNJX1c)
+## 🎥 **Watch on YouTube:**
+[![Shellscript part-3](../../images/shellscript-part-3.png){: style="width:400px"}](https://www.youtube.com/watch?v=DipqrRNJX1c)
 
 ## 🧠 Quick Quiz — While Loops & Conditionals
 

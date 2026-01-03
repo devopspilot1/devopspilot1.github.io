@@ -563,9 +563,8 @@ fi
 [opc@new-k8s part-1]$ ./8-check-file-double-bracket.sh 
 /etc/os-release exists.
 ```
-### Youtube
-
-[![Shellscript part-1](../../images/shellscript-part-1.png)](https://www.youtube.com/watch?v=Ou9wESB2gDg)
+## 🎥 **Watch on YouTube:**
+[![Shellscript part-1](../../images/shellscript-part-1.png){: style="width:400px"}](https://www.youtube.com/watch?v=Ou9wESB2gDg)
 
 ## 🧠 Quick Quiz — Shell Scripting Basics
 

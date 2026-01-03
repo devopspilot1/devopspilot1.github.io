@@ -282,9 +282,8 @@ Created user manoj successfully !!!
 id: ‘devops’: no such user
 Created user devops successfully !!!
 ```
-### Youtube
-
-[![Shellscript part-4](../../images/shellscript-part-4.png)](https://www.youtube.com/watch?v=NAm9xUOTubU)
+## 🎥 **Watch on YouTube:**
+[![Shellscript part-4](../../images/shellscript-part-4.png){: style="width:400px"}](https://www.youtube.com/watch?v=NAm9xUOTubU)
 
 ## 🧠 Quick Quiz — Functions & Automation
 

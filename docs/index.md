@@ -254,7 +254,7 @@ hide:
     <div class="step-info">
       <h4>Shell Scripting</h4>
       <p>Automate repetitive tasks and build powerful tools.</p>
-      <a href="shellscript/part-1/" class="step-link">Start Scripting →</a>
+      <a href="shellscript/" class="step-link">Start Scripting →</a>
     </div>
   </div>
   <div class="step-item">

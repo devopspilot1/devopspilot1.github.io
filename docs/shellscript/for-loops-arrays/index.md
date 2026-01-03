@@ -479,9 +479,8 @@ echo "$(jq --arg maven_version "$MAVEN_VERSION" '. += {"maven": $maven_version}'
   "maven": "3.0.5"
 }
 ```
-### Youtube
-
-[![Shellscript part-2](../../images/shellscript-part-2.png)](https://www.youtube.com/watch?v=GIk1wW7Y-uo)
+## 🎥 **Watch on YouTube:**
+[![Shellscript part-2](../../images/shellscript-part-2.png){: style="width:400px"}](https://www.youtube.com/watch?v=GIk1wW7Y-uo)
 
 ## 🧠 Quick Quiz — For Loops & Arrays
 
