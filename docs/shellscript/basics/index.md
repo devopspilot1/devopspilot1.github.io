@@ -7,7 +7,7 @@ date: 2024-07-01
 
 ← [Back to Shell Scripting Guide](../../shellscript/index.md)
 
-[![Shellscript part-1](../../images/shellscript-part-1.png)](https://www.youtube.com/watch?v=Ou9wESB2gDg)
+
 
 In simple term, shell script is putting the linux commands in a file and executing the file. The commands will be executed in sequential order.
 
@@ -563,4 +563,30 @@ fi
 [opc@new-k8s part-1]$ ./8-check-file-double-bracket.sh 
 /etc/os-release exists.
 ```
+### Youtube
+
+[![Shellscript part-1](../../images/shellscript-part-1.png)](https://www.youtube.com/watch?v=Ou9wESB2gDg)
+
+## 🧠 Quick Quiz — Shell Scripting Basics
+
+<quiz>
+Which symbol starts a comment in a shell script?
+- [ ] //
+- [x] #
+- [ ] /*
+- [ ] --
+
+The `#` symbol is used for comments. Everything after `#` on a line is ignored by the interpreter.
+</quiz>
+
+---
+
+### 📝 Want More Practice?
+
+To strengthen your understanding and prepare for interviews, try the **full 20-question practice quiz** based on this chapter:
+
+👉 **[Start Shell Basics Quiz (20 Questions)](../../quiz/shellscript/basics/index.md)**
+
+---
+
 {% include-markdown "../../_partials/subscribe-guides.md" %}

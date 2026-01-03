@@ -7,7 +7,7 @@ date: 2024-07-01
 
 ← [Back to Shell Scripting Guide](../../shellscript/index.md)
 
-[![Shellscript part-3](../images/shellscript-part-3.png)](https://www.youtube.com/watch?v=DipqrRNJX1c)
+
 
 ### What is while loop ?
 
@@ -15,7 +15,7 @@ While loop is a control flow statement that allows code or commands to be execut
 
 The while loop continues to run till the condition is true, once the condition becomes false, it comes out of the loop
 
-![While loop](../images/while.png)
+![While loop](../../images/while.png)
 
 ### Conditions symbol/syntax
 
@@ -373,4 +373,30 @@ Since the status code changes to 3, it enter the if condition and runs the break
      Docs: man:httpd(8)
            man:apachectl(8)
 ```
+### Youtube
+
+[![Shellscript part-3](../../images/shellscript-part-3.png)](https://www.youtube.com/watch?v=DipqrRNJX1c)
+
+## 🧠 Quick Quiz — While Loops & Conditionals
+
+<quiz>
+Which loop executes as long as the condition is true?
+- [x] while
+- [ ] until
+- [ ] for
+- [ ] case
+
+The `while` loop continues executing its block as long as the test condition returns true (exit status 0).
+</quiz>
+
+---
+
+### 📝 Want More Practice?
+
+To strengthen your understanding and prepare for interviews, try the **full 20-question practice quiz** based on this chapter:
+
+👉 **[Start While Loops & Conditionals Quiz (20 Questions)](../../quiz/shellscript/intermediate/index.md)**
+
+---
+
 {% include-markdown "../../_partials/subscribe-guides.md" %}

@@ -77,7 +77,6 @@ To become job-ready, combine Shell Scripting with:
 - [Linux Commands](../linux-commands/index.md)
 - [Git for DevOps](../git/index.md)
 - [Jenkins CI/CD](../jenkins/index.md)
-- [AWS for DevOps](../cloud/aws/index.md)
 
 ---
 

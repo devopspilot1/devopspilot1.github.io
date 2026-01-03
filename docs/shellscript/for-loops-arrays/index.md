@@ -7,13 +7,13 @@ date: 2024-07-01
 
 ← [Back to Shell Scripting Guide](../../shellscript/index.md)
 
-[![Shellscript part-2](../images/shellscript-part-2.png)](https://www.youtube.com/watch?v=GIk1wW7Y-uo)
+
 
 ### What is for loop ?
 
 for loop is used to repeat the task until the limit is reached or iterate through the items
 
-![For loop](../images/for.png)
+![For loop](../../images/for.png)
 
 In the above diagram `{1..5}` changes to `1,2,3,4,5` which means the for loop is going to repeat the command execution 5 times.
 
@@ -314,7 +314,7 @@ We had only one "\*.gz" file, which is also more than 1KB, so it got deleted
 
 ### for loop inside another for loop
 
-![For loop inside for loop](../images/for-for-1.png)
+![For loop inside for loop](../../images/for-for-1.png)
 
 ### How to delete files in multiple folders having multiple file extensions
 
@@ -479,4 +479,30 @@ echo "$(jq --arg maven_version "$MAVEN_VERSION" '. += {"maven": $maven_version}'
   "maven": "3.0.5"
 }
 ```
+### Youtube
+
+[![Shellscript part-2](../../images/shellscript-part-2.png)](https://www.youtube.com/watch?v=GIk1wW7Y-uo)
+
+## 🧠 Quick Quiz — For Loops & Arrays
+
+<quiz>
+Which loop is best for iterating over a known list of items?
+- [x] for
+- [ ] while
+- [ ] until
+- [ ] if
+
+The `for` loop is designed to iterate over a list of items or a range of numbers.
+</quiz>
+
+---
+
+### 📝 Want More Practice?
+
+To strengthen your understanding and prepare for interviews, try the **full 20-question practice quiz** based on this chapter:
+
+👉 **[Start Loops & Arrays Quiz (20 Questions)](../../quiz/shellscript/intermediate/index.md)**
+
+---
+
 {% include-markdown "../../_partials/subscribe-guides.md" %}

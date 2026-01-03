@@ -4,7 +4,6 @@ title: "Shell Scripting Intermediate Quiz (20 Questions)"
 
 # Shell Scripting Intermediate – Full Quiz
 
-← [Back to Shell Scripting Guide](../../../shellscript/index.md) <br>
 ← [Back to Quiz Home](../../index.md)
 
 ---

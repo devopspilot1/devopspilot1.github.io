@@ -35,7 +35,7 @@ Topics:
 ### 🔹 Part 2: For Loops, Arrays & Files
 Iterate over data and manage files.
 
-👉 **[Start Quiz – Loops & Arrays](../../shellscript/intermediate/index.md)**
+👉 **[Start Quiz – Loops & Arrays](../../quiz/shellscript/intermediate/index.md)**
 
 Topics:
 - `for` loop syntax
@@ -47,7 +47,7 @@ Topics:
 ### 🔹 Part 3: Advanced Automation
 Functions, logical operators, and loops.
 
-👉 **[Start Quiz – Advanced Automation](../../shellscript/advanced/index.md)**
+👉 **[Start Quiz – Advanced Automation](../../quiz/shellscript/advanced/index.md)**
 
 Topics:
 - `while` loops & conditions
@@ -70,7 +70,7 @@ After mastering Shell Scripting, continue with:
 - **[Linux Commands](../linux-commands/index.md)**
 - **[Git & Version Control](../git/index.md)**
 
-👉 **[Back to Shell Scripting Guide](../../../shellscript/index.md)**
+👉 **[Back to Shell Scripting Guide](../../shellscript/index.md)**
 
 Happy Learning 🚀
 

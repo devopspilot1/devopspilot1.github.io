@@ -7,7 +7,7 @@ date: 2024-07-01
 
 ← [Back to Shell Scripting Guide](../../shellscript/index.md)
 
-[![Shellscript part-4](../../images/shellscript-part-4.png)](https://www.youtube.com/watch?v=NAm9xUOTubU)
+
 
 ### What is function ?
 
@@ -282,4 +282,30 @@ Created user manoj successfully !!!
 id: ‘devops’: no such user
 Created user devops successfully !!!
 ```
+### Youtube
+
+[![Shellscript part-4](../../images/shellscript-part-4.png)](https://www.youtube.com/watch?v=NAm9xUOTubU)
+
+## 🧠 Quick Quiz — Functions & Automation
+
+<quiz>
+How do you define a function in Bash?
+- [x] func() { ... }
+- [ ] function: func { ... }
+- [ ] def func():
+- [ ] func = { ... }
+
+The standard syntax is `func_name() { commands; }`. Sometimes the `function` keyword is used: `function func_name { commands; }`.
+</quiz>
+
+---
+
+### 📝 Want More Practice?
+
+To strengthen your understanding and prepare for interviews, try the **full 20-question practice quiz** based on this chapter:
+
+👉 **[Start Advanced Automation Quiz (20 Questions)](../../quiz/shellscript/advanced/index.md)**
+
+---
+
 {% include-markdown "../../_partials/subscribe-guides.md" %}
