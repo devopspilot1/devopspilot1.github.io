@@ -241,8 +241,12 @@ nav:
     - GCP Interview Questions: interview-questions/gcp.md
     - AWS Interview Questions:
       - Overview: interview-questions/aws.md
-      - Cloud Engineer: interview-questions/aws/cloud-engineer.md
-      - DevOps Engineer: interview-questions/aws/devops-engineer.md
+      - AWS Cloud Engineer:
+        - Overview: interview-questions/aws/cloud-engineer/index.md
+        - Basics: interview-questions/aws/cloud-engineer/basics.md
+        - Intermediate: interview-questions/aws/cloud-engineer/intermediate.md
+        - Advanced: interview-questions/aws/cloud-engineer/advanced.md
+      - AWS DevOps Engineer: interview-questions/aws/devops-engineer.md
       - Solutions Architect: interview-questions/aws/solutions-architect.md
       - SysOps Administrator: interview-questions/aws/sysops-admin.md
       - SRE: interview-questions/aws/sre.md
