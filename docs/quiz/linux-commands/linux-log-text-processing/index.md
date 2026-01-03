@@ -220,6 +220,4 @@ Which tool is most commonly used to filter logs in production?
 
 ---
 
-📩 **Get weekly DevOps quizzes & guides**
-
 {% include-markdown "_partials/subscribe.md" %}

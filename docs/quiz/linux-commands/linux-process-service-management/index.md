@@ -220,6 +220,4 @@ Which command lists failed services?
 
 ---
 
-📩 **Get weekly DevOps quizzes & guides**
-
 {% include-markdown "_partials/subscribe.md" %}

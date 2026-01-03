@@ -219,6 +219,4 @@ Which command helps visualize directory contents recursively?
 
 ---
 
-📩 **Get weekly DevOps quizzes & guides**
-
 {% include-markdown "_partials/subscribe.md" %}

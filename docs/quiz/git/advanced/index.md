@@ -213,6 +213,4 @@ Which low-level command resolves a reference to a SHA-1 hash?
 
 ---
 
-📩 **Get weekly DevOps quizzes & guides**
-
 {% include-markdown "_partials/subscribe.md" %}

@@ -151,6 +151,4 @@ Happy Learning 🚀
 
 ---
 
-📩 **Get weekly DevOps quizzes & guides**
-
 {% include-markdown "_partials/subscribe.md" %}

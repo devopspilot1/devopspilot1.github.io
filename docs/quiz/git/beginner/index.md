@@ -213,6 +213,4 @@ How do you create a tag for a specific commit?
 
 ---
 
-📩 **Get weekly DevOps quizzes & guides**
-
 {% include-markdown "_partials/subscribe.md" %}

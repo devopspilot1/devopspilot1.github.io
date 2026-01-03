@@ -219,6 +219,4 @@ Which command is most useful for debugging service-to-service communication?
 
 ---
 
-📩 **Get weekly DevOps quizzes & guides**
-
 {% include-markdown "_partials/subscribe.md" %}

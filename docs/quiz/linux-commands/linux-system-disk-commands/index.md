@@ -220,6 +220,4 @@ Which command helps a DevOps engineer quickly verify disk space issues?
 
 ---
 
-📩 **Get weekly DevOps quizzes & guides**
-
 {% include-markdown "_partials/subscribe.md" %}

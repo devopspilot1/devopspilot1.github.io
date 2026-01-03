@@ -219,6 +219,4 @@ Which command should be used to safely edit the sudoers file?
 
 ---
 
-📩 **Get weekly DevOps quizzes & guides**
-
 {% include-markdown "_partials/subscribe.md" %}
