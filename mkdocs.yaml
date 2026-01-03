@@ -228,10 +228,10 @@ nav:
   #         - MCP Dynamic Client Registration:
   #           - Deploy DCR MCP AgentCore: https://raw.githubusercontent.com/awslabs/amazon-bedrock-agentcore-samples/refs/heads/main/01-tutorials/01-AgentCore-runtime/07-mcp-dynamic-client-registration/deploy_dcr_mcp_agentcore.ipynb
   - SSL:
-    - How to configure free Let’s Encrypt SSL/TLS Certificates with NGINX and auto renew certificates: ssl/how-to-configure-free-letsencrypt-ssl-tls-certificates-with-nginx.md
-    - How to configure free single Let’s Encrypt SSL/TLS Certificate with NGINX for multiple subdomains and auto renew certificate: ssl/how-to-configure-free-letsencrypt-ssl-tls-certificates-with-nginx-for-subdomains.md
-    - How to configure free single Let’s Encrypt SSL/TLS wildcard Certificate with Nginx: ssl/how-to-configure-free-letsencrypt-ssl-tls-wildcard-certificates-with-nginx-for-subdomains.md
-    - How to generate self signed certificate using openssl: ssl/self-signed-certificate-using-openssl.md
+    - Self Signed Certificate: ssl/self-signed-certificate/index.md
+    - Letsencrypt SSL with Nginx: ssl/letsencrypt-nginx/index.md
+    - Letsencrypt SSL Wildcard Certificate: ssl/letsencrypt-wildcard-nginx/index.md
+    - Letsencrypt SSL for Subdomains: ssl/letsencrypt-subdomains-nginx/index.md
   - Interview Questions:
     - Linux Commands:
         - Overview: interview-questions/linux-commands/index.md

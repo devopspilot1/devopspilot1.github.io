@@ -51,13 +51,13 @@ Now open the browser and verify the applications are running.
 
 IP-address:8081 --> Should show background color as red
 
-![letsencrypt](../images/app1.png)
+![letsencrypt](../../images/app1.png)
 
 ### Configure DNS record in Domain registrar
 
 app1.devopspilot.tk --> Public IP-address
 
-![letsencrypt](../images/dns-record.png)
+![letsencrypt](../../images/dns-record.png)
 
 `Note :`
 
@@ -87,11 +87,11 @@ Note:
 
 - If you are using freenom domain registrar, wait for 5 minutes before pressing ENTER after adding the `TXT` DNS record.
 
-![letsencrypt](../images/generate-ssl1.png)
+![letsencrypt](../../images/generate-ssl1.png)
 
-![letsencrypt](../images/dns-record-txt.png)
+![letsencrypt](../../images/dns-record-txt.png)
 
-![letsencrypt](../images/generate-ssl2.png)
+![letsencrypt](../../images/generate-ssl2.png)
 
 ### Configure Nginx
 
@@ -156,7 +156,7 @@ Go to browser and type `http://app1.devopspilot.tk`
 
 Now it will automatically redirect to `https://app1.devopspilot.tk`
 
-![letsencrypt](../images/app-ssl.png)
+![letsencrypt](../../images/app-ssl.png)
 
 Letsencrypt certificates will expire after 3 months.
 
@@ -174,6 +174,6 @@ Hurray! we have successfully configured the SSL/TLS certificate in nginx webserv
 
 ### Reference:
 
-- [How to install nginx](../webserver/nginx/how-to-install-nginx.md)
+- [How to install nginx](../../webserver/nginx/how-to-install-nginx.md)
 
-- [How to configure Free Let’s Encrypt SSL/TLS Certificates with NGINX](how-to-configure-free-letsencrypt-ssl-tls-certificates-with-nginx.md)
+- [How to configure Free Let’s Encrypt SSL/TLS Certificates with NGINX](../letsencrypt-nginx/index.md)
