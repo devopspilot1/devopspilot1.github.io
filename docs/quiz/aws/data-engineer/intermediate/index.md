@@ -215,7 +215,7 @@ Data Lakes grow indefinitely; lifecycle policies ensure you don't pay "Standard"
 ---
 
 ### 📚 Study Guides
-- [AWS Data Engineer Interview Questions](../../../../interview-questions/aws/data-engineer.md)
+- [AWS Data Engineer Interview Questions](../../../../interview-questions/aws/data-engineer/index.md)
 
 ---
 

@@ -215,7 +215,7 @@ Model selection is a trade-off between Intelligence vs Cost/Speed.
 ---
 
 ### 📚 Study Guides
-- [AWS GenAI Engineer Interview Questions](../../../../interview-questions/aws/gen-ai-engineer.md)
+- [AWS GenAI Engineer Interview Questions](../../../../interview-questions/aws/gen-ai-engineer/index.md)
 
 ---
 

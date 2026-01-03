@@ -215,7 +215,7 @@ How do you validate Terraform/CloudFormation templates before deployment?
 ---
 
 ### 📚 Study Guides
-- [AWS SRE Interview Questions](../../../../interview-questions/aws/sre.md)
+- [AWS SRE Interview Questions](../../../../interview-questions/aws/sre/index.md)
 
 ---
 

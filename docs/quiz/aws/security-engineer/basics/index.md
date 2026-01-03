@@ -215,7 +215,7 @@ Best practice: Secure the root user with MFA and lock it away. Use it only for b
 ---
 
 ### 📚 Study Guides
-- [AWS Security Engineer Interview Questions](../../../../interview-questions/aws/security-engineer.md)
+- [AWS Security Engineer Interview Questions](../../../../interview-questions/aws/security-engineer/index.md)
 
 ---
 

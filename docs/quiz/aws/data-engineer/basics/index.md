@@ -215,7 +215,7 @@ Migration of data between the lake and the warehouse is seamless in this archite
 ---
 
 ### 📚 Study Guides
-- [AWS Data Engineer Interview Questions](../../../../interview-questions/aws/data-engineer.md)
+- [AWS Data Engineer Interview Questions](../../../../interview-questions/aws/data-engineer/index.md)
 
 ---
 

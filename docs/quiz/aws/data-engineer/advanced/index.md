@@ -215,7 +215,7 @@ RA3 nodes decouple storage from compute, allowing you to store petabytes of data
 ---
 
 ### 📚 Study Guides
-- [AWS Data Engineer Interview Questions](../../../../interview-questions/aws/data-engineer.md)
+- [AWS Data Engineer Interview Questions](../../../../interview-questions/aws/data-engineer/index.md)
 
 ---
 

@@ -215,7 +215,7 @@ Critical for reliable systems that use retries.
 ---
 
 ### 📚 Study Guides
-- [AWS SRE Interview Questions](../../../../interview-questions/aws/sre.md)
+- [AWS SRE Interview Questions](../../../../interview-questions/aws/sre/index.md)
 
 ---
 

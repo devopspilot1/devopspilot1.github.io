@@ -215,7 +215,7 @@ Example: Deploying EC2s in an ASG to handle peak load *before* the peak, so you 
 ---
 
 ### 📚 Study Guides
-- [AWS SRE Interview Questions](../../../../interview-questions/aws/sre.md)
+- [AWS SRE Interview Questions](../../../../interview-questions/aws/sre/index.md)
 
 ---
 

@@ -215,7 +215,7 @@ Checkpoints are critical for Spot training to ensure you don't lose days of prog
 ---
 
 ### 📚 Study Guides
-- [AWS Machine Learning Engineer Interview Questions](../../../../interview-questions/aws/ml-engineer.md)
+- [AWS Machine Learning Engineer Interview Questions](../../../../interview-questions/aws/ml-engineer/index.md)
 
 ---
 

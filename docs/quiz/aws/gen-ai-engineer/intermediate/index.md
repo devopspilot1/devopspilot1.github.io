@@ -215,7 +215,7 @@ Good agent design includes the ability to say "I found multiple flights. Which t
 ---
 
 ### 📚 Study Guides
-- [AWS GenAI Engineer Interview Questions](../../../../interview-questions/aws/gen-ai-engineer.md)
+- [AWS GenAI Engineer Interview Questions](../../../../interview-questions/aws/gen-ai-engineer/index.md)
 
 ---
 

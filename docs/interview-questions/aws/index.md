@@ -15,35 +15,35 @@ Prepare for your AWS interview with our role-specific question banks. Each secti
 -   **[AWS DevOps Engineer](devops-engineer/index.md)**
     <br>CI/CD pipelines, Infrastructure as Code (Terraform/CloudFormation), and automation.
 
--   **[Solutions Architect](solutions-architect/index.md)**
+-   **[AWS Solutions Architect](solutions-architect/index.md)**
     <br>System design, high availability, disaster recovery, and cost optimization.
 
 -   **[AWS SysOps Administrator](sysops-admin/index.md)**
     <br>Operational excellence, monitoring (CloudWatch), and systems management.
 
--   **[AWS Site Reliability Engineer (SRE)](sre.md)**
+-   **[AWS Site Reliability Engineer (SRE)](sre/index.md)**
     <br>Observability, reliability engineering, incident response, and performance tuning.
 
 ## 💻 Development & Data
 
--   **[AWS Developer](developer.md)**
+-   **[AWS Developer](developer/index.md)**
     <br>Serverless (Lambda, API Gateway), SDKs, and application deployment.
 
--   **[AWS Data Engineer](data-engineer.md)**
+-   **[AWS Data Engineer](data-engineer/index.md)**
     <br>Big Data processing (Glue, EMR), Redshift, and data pipelines.
 
--   **[AWS Machine Learning Engineer](ml-engineer.md)**
+-   **[AWS Machine Learning Engineer](ml-engineer/index.md)**
     <br>SageMaker, model training, deployment, and MLOps.
 
--   **[AWS GenAI Engineer](gen-ai-engineer.md)**
+-   **[AWS GenAI Engineer](gen-ai-engineer/index.md)**
     <br>Bedrock, LLMs, prompt engineering, and vector databases.
 
 ## 🛡️ Security & Networking
 
--   **[AWS Security Engineer](security-engineer.md)**
+-   **[AWS Security Engineer](security-engineer/index.md)**
     <br>Identity federation, KMS, Shield, WAF, and compliance.
 
--   **[AWS Network Engineer](network-engineer.md)**
+-   **[AWS Network Engineer](network-engineer/index.md)**
     <br>Transit Gateways, Direct Connect, VPNs, and advanced VPC networking.
 
 ---

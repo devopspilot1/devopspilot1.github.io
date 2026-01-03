@@ -215,7 +215,7 @@ SAM simplifies defining serverless resources like Functions and APIs using short
 ---
 
 ### 📚 Study Guides
-- [AWS Developer Interview Questions](../../../../interview-questions/aws/developer.md)
+- [AWS Developer Interview Questions](../../../../interview-questions/aws/developer/index.md)
 
 ---
 

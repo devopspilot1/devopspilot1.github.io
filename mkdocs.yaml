@@ -263,13 +263,41 @@ nav:
         - Basics: interview-questions/aws/sysops-admin/basics/index.md
         - Intermediate: interview-questions/aws/sysops-admin/intermediate/index.md
         - Advanced: interview-questions/aws/sysops-admin/advanced/index.md
-      - SRE: interview-questions/aws/sre.md
-      - Developer: interview-questions/aws/developer.md
-      - Security Engineer: interview-questions/aws/security-engineer.md
-      - Data Engineer: interview-questions/aws/data-engineer.md
-      - ML Engineer: interview-questions/aws/ml-engineer.md
-      - Network Engineer: interview-questions/aws/network-engineer.md
-      - Generative AI Engineer: interview-questions/aws/gen-ai-engineer.md
+      - AWS Site Reliability Engineer (SRE):
+        - Overview: interview-questions/aws/sre/index.md
+        - Basics: interview-questions/aws/sre/basics/index.md
+        - Intermediate: interview-questions/aws/sre/intermediate/index.md
+        - Advanced: interview-questions/aws/sre/advanced/index.md
+      - AWS Developer:
+        - Overview: interview-questions/aws/developer/index.md
+        - Basics: interview-questions/aws/developer/basics/index.md
+        - Intermediate: interview-questions/aws/developer/intermediate/index.md
+        - Advanced: interview-questions/aws/developer/advanced/index.md
+      - AWS Security Engineer:
+        - Overview: interview-questions/aws/security-engineer/index.md
+        - Basics: interview-questions/aws/security-engineer/basics/index.md
+        - Intermediate: interview-questions/aws/security-engineer/intermediate/index.md
+        - Advanced: interview-questions/aws/security-engineer/advanced/index.md
+      - AWS Data Engineer:
+        - Overview: interview-questions/aws/data-engineer/index.md
+        - Basics: interview-questions/aws/data-engineer/basics/index.md
+        - Intermediate: interview-questions/aws/data-engineer/intermediate/index.md
+        - Advanced: interview-questions/aws/data-engineer/advanced/index.md
+      - AWS ML Engineer:
+        - Overview: interview-questions/aws/ml-engineer/index.md
+        - Basics: interview-questions/aws/ml-engineer/basics/index.md
+        - Intermediate: interview-questions/aws/ml-engineer/intermediate/index.md
+        - Advanced: interview-questions/aws/ml-engineer/advanced/index.md
+      - AWS Network Engineer:
+        - Overview: interview-questions/aws/network-engineer/index.md
+        - Basics: interview-questions/aws/network-engineer/basics/index.md
+        - Intermediate: interview-questions/aws/network-engineer/intermediate/index.md
+        - Advanced: interview-questions/aws/network-engineer/advanced/index.md
+      - AWS GenAI Engineer:
+        - Overview: interview-questions/aws/gen-ai-engineer/index.md
+        - Basics: interview-questions/aws/gen-ai-engineer/basics/index.md
+        - Intermediate: interview-questions/aws/gen-ai-engineer/intermediate/index.md
+        - Advanced: interview-questions/aws/gen-ai-engineer/advanced/index.md
   - Quiz:
     - Overview: quiz/index.md
     - Linux Commands:

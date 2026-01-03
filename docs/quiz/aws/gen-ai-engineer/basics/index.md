@@ -215,7 +215,7 @@ System prompts are critical for "steering" the behavior of the model securely.
 ---
 
 ### 📚 Study Guides
-- [AWS GenAI Engineer Interview Questions](../../../../interview-questions/aws/gen-ai-engineer.md)
+- [AWS GenAI Engineer Interview Questions](../../../../interview-questions/aws/gen-ai-engineer/index.md)
 
 ---
 

@@ -215,7 +215,7 @@ It allows IPv6 based outbound communication to the internet while preventing inb
 ---
 
 ### 📚 Study Guides
-- [AWS Network Engineer Interview Questions](../../../../interview-questions/aws/network-engineer.md)
+- [AWS Network Engineer Interview Questions](../../../../interview-questions/aws/network-engineer/index.md)
 
 ---
 

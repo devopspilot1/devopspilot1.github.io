@@ -215,7 +215,7 @@ What is the "PrincipalOrgID" condition key?
 ---
 
 ### 📚 Study Guides
-- [AWS Security Engineer Interview Questions](../../../../interview-questions/aws/security-engineer.md)
+- [AWS Security Engineer Interview Questions](../../../../interview-questions/aws/security-engineer/index.md)
 
 ---
 

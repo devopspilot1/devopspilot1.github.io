@@ -215,7 +215,7 @@ How do you debug a "Connection Timed Out" error?
 ---
 
 ### 📚 Study Guides
-- [AWS Network Engineer Interview Questions](../../../../interview-questions/aws/network-engineer.md)
+- [AWS Network Engineer Interview Questions](../../../../interview-questions/aws/network-engineer/index.md)
 
 ---
 

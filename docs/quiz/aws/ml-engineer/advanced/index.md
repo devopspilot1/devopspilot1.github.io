@@ -215,7 +215,7 @@ SageMaker ensures the new instances are healthy before shifting traffic and term
 ---
 
 ### 📚 Study Guides
-- [AWS Machine Learning Engineer Interview Questions](../../../../interview-questions/aws/ml-engineer.md)
+- [AWS Machine Learning Engineer Interview Questions](../../../../interview-questions/aws/ml-engineer/index.md)
 
 ---
 

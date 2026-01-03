@@ -215,7 +215,7 @@ To explicitly block a specific IP (blacklisting), you must use NACLs or WAF.
 ---
 
 ### 📚 Study Guides
-- [AWS Security Engineer Interview Questions](../../../../interview-questions/aws/security-engineer.md)
+- [AWS Security Engineer Interview Questions](../../../../interview-questions/aws/security-engineer/index.md)
 
 ---
 

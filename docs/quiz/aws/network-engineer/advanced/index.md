@@ -215,7 +215,7 @@ Hybrid resiliency requires careful BGP configuration to prefer the fast link (DX
 ---
 
 ### 📚 Study Guides
-- [AWS Network Engineer Interview Questions](../../../../interview-questions/aws/network-engineer.md)
+- [AWS Network Engineer Interview Questions](../../../../interview-questions/aws/network-engineer/index.md)
 
 ---
 

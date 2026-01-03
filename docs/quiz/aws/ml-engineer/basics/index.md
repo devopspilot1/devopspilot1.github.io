@@ -215,7 +215,7 @@ Local mode saves time and money by avoiding the spin-up overhead of a full train
 ---
 
 ### 📚 Study Guides
-- [AWS Machine Learning Engineer Interview Questions](../../../../interview-questions/aws/ml-engineer.md)
+- [AWS Machine Learning Engineer Interview Questions](../../../../interview-questions/aws/ml-engineer/index.md)
 
 ---
 

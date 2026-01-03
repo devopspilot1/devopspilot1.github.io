@@ -215,7 +215,7 @@ You cannot request strongly consistent reads from a Global Secondary Index (GSI)
 ---
 
 ### 📚 Study Guides
-- [AWS Developer Interview Questions](../../../../interview-questions/aws/developer.md)
+- [AWS Developer Interview Questions](../../../../interview-questions/aws/developer/index.md)
 
 ---
 
