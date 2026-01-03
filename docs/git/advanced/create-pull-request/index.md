@@ -4,30 +4,32 @@ title: "How to Create a Pull Request"
 
 # How to Create a Pull Request
 
-[← Back to Git](../../index.md)
+← [Back to Git](../../../index.md)
 
-### Reference
-* [How to create repository in Github](../../basics/create-github-account/index.md)
+---
 
-### What is Pull Request
-Pull Request is way of merging two branches from Github UI.
+## 🔀 Create a Pull Request
 
-It has lot of other features like,
-* Code approval
-* Code discussion
-* Viewing file changes
-* Deleting the source merge once merge is Done
-* Block the Merge, till your pipeline passed in feature branch.
-* Automatic Merge, when pipeline is succeeded in feature branch.
+A **Pull Request (PR)** is a way to merge changes from one branch to another via the GitHub UI.
 
-It is also called as Merge Request in GitLab
+### 📚 Features
+* **Code Approval**: Reviewers can approve or request changes.
+* **Discussion**: Comment on specific lines of code.
+* **Diff View**: See exactly what changed in files.
+* **Merge Strategy**: Delete source branch after merge, squash commits, etc.
+* **CI/CD Integration**: Block merge until tests pass.
 
-### Create Pull Request
+*Note: In GitLab, this is called a **Merge Request (MR)**.*
 
-Create a repo called `pullrequest`
+---
 
-Then create a file called `cat.txt` and paste the following content,
-```
+## 🛠️ Step-by-Step Guide
+
+### 1. Setup Repository
+Create a repo called `pullrequest`.
+
+Create a file `cat.txt` with the following content:
+```text
 1. In terms of development, the first year of a cat’s life is equal to the first 15 years of a human life. After its second year, a cat is 25 in human years. And after that, each year of a cat’s life is equal to about 7 human years.
 2. Cats can rotate their ears 180 degrees.
 3. The hearing of the average cat is at least five times keener than that of a human adult.
@@ -35,16 +37,18 @@ Then create a file called `cat.txt` and paste the following content,
 5. Domestic cats spend about 70 percent of the day sleeping. And 15 percent of the day grooming.
 ```
 
-![git](../../images/pullrequest/git-create-file.png)
+![Create File](../../../images/pullrequest/git-create-file.png)
 
-![git](../../images/pullrequest/git-files.png)
+![File List](../../../images/pullrequest/git-files.png)
 
-Create a new branch called `feature`
+### 2. Create Feature Branch
+Create a new branch called `feature`:
 
-![git](../../images/pullrequest/git-create-branch.png)
+![Create Branch](../../../images/pullrequest/git-create-branch.png)
 
-Add one more line in cat.txt in `feature` branch
-```
+### 3. Make Changes
+Add one more line to `cat.txt` in the `feature` branch:
+```text
 1. In terms of development, the first year of a cat’s life is equal to the first 15 years of a human life. After its second year, a cat is 25 in human years. And after that, each year of a cat’s life is equal to about 7 human years.
 2. Cats can rotate their ears 180 degrees.
 3. The hearing of the average cat is at least five times keener than that of a human adult.
@@ -53,34 +57,54 @@ Add one more line in cat.txt in `feature` branch
 6. I like cats
 ```
 
-![git](../../images/pullrequest/git-updated-file.png)
+![Updated File](../../../images/pullrequest/git-updated-file.png)
 
-After pushing your changes, you can see one Notification `Compare & pull request`
+### 4. Open Pull Request
+After pushing changes, you will see a **Compare & pull request** button. Click it.
 
-Click on `Compare & pull request`
+![Compare](../../../images/pullrequest/git-pull-request.png)
 
-![git](../../images/pullrequest/git-pull-request.png)
+Verify the **Source** (feature) and **Target** (master/main) branches.
 
-Verify the source branch and target branch
+![Comment](../../../images/pullrequest/git-pull-request-comment.png)
 
-![git](../../images/pullrequest/git-pull-request-comment.png)
+Scroll down to verify file diffs, then click **Create pull request**.
 
-Scroll down and see the file changes and click on `Create pull request`
+![Diff](../../../images/pullrequest/git-pull-request-diff.png)
 
-![git](../../images/pullrequest/git-pull-request-diff.png)
+### 5. Review & Merge
+The PR is now Open. Reviewers can comment and request changes. If changes are needed, push to the `feature` branch; the PR updates automatically.
 
-Now pull request is created and it is in `open` state
+To merge, click **Merge pull request** -> **Confirm merge**.
 
-If you need some more changes in that file, you can add those as a comment, so that devlopers will be notified and they will fix and push the new changes to `feature` branch and it will reflect in the same Pull request.
+![Merge Button](../../../images/pullrequest/git-pull-request-comments.png)
 
-Click on `Merge pull request` --> `Confirm merge`
+![Merged Status](../../../images/pullrequest/git-pull-request-merged.png)
 
-![git](../../images/pullrequest/git-pull-request-comments.png)
+Go to the `master` branch to confirm the changes are merged.
 
-![git](../../images/pullrequest/git-pull-request-merged.png)
+![Final View](../../../images/pullrequest/git-pull-request-final.png)
 
-Now you can go to `master` branch and  see the merged changes.
+---
 
-![git](../../images/pullrequest/git-pull-request-final.png)
+## 🧠 Quick Quiz — Pull Requests
+
+<quiz>
+What happens to a Pull Request if you push new commits to the source branch?
+- [ ] You must create a new PR.
+- [x] The PR automatically updates with the new commits.
+- [ ] The PR is closed.
+- [ ] The push is rejected.
+
+Pull Requests are dynamic views of a branch; updating the branch updates the PR.
+</quiz>
+
+---
+
+### 📝 Want More Practice?
+
+👉 **[Start Git Beginner Quiz (20 Questions)](../../../quiz/git/beginner/index.md)**
+
+---
 
 {% include-markdown "_partials/subscribe-guides.md" %}

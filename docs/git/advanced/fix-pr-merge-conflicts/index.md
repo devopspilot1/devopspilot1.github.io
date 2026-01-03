@@ -4,18 +4,23 @@ title: "How to Fix PR Merge Conflicts"
 
 # How to Fix PR Merge Conflicts
 
-[← Back to Git](../../index.md)
+← [Back to Git](../../../index.md)
 
-### Reference
-* [How to create repository in Github](../../basics/create-github-account/index.md)
-* [How to create pull request in Github](../../advanced/create-pull-request/index.md)
+---
 
-### Create Pull Request
+## ⚔️ How to Fix PR Merge Conflicts
 
-Create a repository called `pullrequest-conflict`
+Sometimes, when you raise a Pull Request (PR), GitHub may detect a conflict if the target branch has changed in a way that clashes with your feature branch.
 
-Then create a file called `cat.txt` and paste the following content,
-```
+### 📚 Features
+* **Scenario**: Two developers modify the same file/line.
+* **Resolution**: You must resolve conflicts before merging.
+
+### 1. Setup Conflict Scenario
+
+Create a repository `pullrequest-conflict`.
+Create `cat.txt` with initial content:
+```text
 1. In terms of development, the first year of a cat’s life is equal to the first 15 years of a human life. After its second year, a cat is 25 in human years. And after that, each year of a cat’s life is equal to about 7 human years.
 2. Cats can rotate their ears 180 degrees.
 3. The hearing of the average cat is at least five times keener than that of a human adult.
@@ -23,121 +28,135 @@ Then create a file called `cat.txt` and paste the following content,
 5. Domestic cats spend about 70 percent of the day sleeping. And 15 percent of the day grooming.
 ```
 
-![git](../../images/pullrequest-conflict/git-files.png)
+![File List](../../../images/pullrequest-conflict/git-files.png)
 
-Create a new branch called `feature` 
+Create a branch `feature`.
+Change line 2 angle to `150` in `feature` branch:
 
-Change the angle to `150` in second line of cat.txt in `feature` branch
+![Updated Feature](../../../images/pullrequest-conflict/git-updated-file-feature.png)
 
-![git](../../images/pullrequest-conflict/git-updated-file-feature.png)
+**Simulate Remote Change:**
+Go to GitHub, switch to `master`, edit `cat.txt`, and change angle to `200`. Commit.
 
-Assume, one more Developer has updated the angle to `200` in cat.txt raised the pull request and merged to `master` branch.
+![Master Update](../../../images/pullrequest-conflict/git-file-updated-master.png)
 
-Lets create this scenario, go to github, change the branch to `master` edit the `cat.txt` file and change the angle from `180` to `200` and commit the changes from Github UI
+### 2. Create PR & Detect Conflict
+Create a PR from `feature` to `master`.
 
-![git](../../images/pullrequest-conflict/git-file-updated-master.png)
+![Create PR](../../../images/pullrequest-conflict/git-create-pullrequest.png)
 
-Now create a pull request from `feature` to `master` branch and you will see merge conflict
+GitHub shows a conflict:
 
-Click on `Pull Requests` tab and then click on `compare & pull request`
+![Conflict UI](../../../images/pullrequest-conflict/git-pullrequest-conflict.png)
 
-![git](../../images/pullrequest-conflict/git-create-pullrequest.png)
+Click **Create pull request** to proceed anyway.
 
-Github clearly showing, it has conflict and it cannot merge automatically
+![PR Diff](../../../images/pullrequest-conflict/git-pullrequest-diff.png)
 
-![git](../../images/pullrequest-conflict/git-pullrequest-conflict.png)
+![PR Created](../../../images/pullrequest-conflict/git-pullrequest-created.png)
 
-This is because, we have updated angle to 150 in cat.txt in `feature` branch, similary one more developer has updated the angle to 200 in in cat.txt in `master` branch and pushed the changes to github.
+### 3. Fix Conflict Locally
+Clone the repo and switch to `feature`:
 
-While we are creating the pull request, git executes the **dry-run** to merge the line no 2 from remote cat.txt in `feature` branch to cat.txt file in `master` branch , but it is not able to merge, because cat.txt in `master` branch also has new changes(200).
-
-Lets complete the pull request creation and then we will fix the conflict.
-
-Click on `Create pull request`
-![git](../../images/pullrequest-conflict/git-pullrequest-diff.png)
-
-![git](../../images/pullrequest-conflict/git-pullrequest-created.png)
-
-To fix the conflict, clone the repository to local system, switch to `feature` branch
-
-```
+```bash
 git clone https://github.com/vigneshsweekaran/pullrequest-conflict.git
 cd pullrequest-conflict
 git checkout feature
 ```
 
-![git](../../images/pullrequest-conflict/git-clone.png)
+![Clone](../../../images/pullrequest-conflict/git-clone.png)
 
-Be clear, currently we are in `feature` branch.
+Pull `master` into `feature` to reproduce and fix the conflict:
 
-Pull the changes from `master` to fix the conflict
-```
+```bash
 git pull origin master
 ```
 
-We are trying to take the latest changes from `master` branch, so that we can clearly merge the `feature` branch to `master` branch.
+![Pull Master](../../../images/pullrequest-conflict/git-pull-master.png)
 
-![git](../../images/pullrequest-conflict/git-pull-master.png)
+Conflict detected:
 
-It has conflict, so automatic merge has failed.
+![Conflict Terminal](../../../images/pullrequest-conflict/git-before-fix.png)
 
-![git](../../images/pullrequest-conflict/git-before-fix.png)
+Resolve the conflict in `cat.txt` (e.g., keep 150):
 
-Update the cat.txt according to your need, I want to keep angle as `150`
+![Fixed File](../../../images/pullrequest-conflict/git-after-fix.png)
 
-![git](../../images/pullrequest-conflict/git-after-fix.png)
+Add, commit, and push the fix:
 
-Add and commit the Fix.
-```
+```bash
 git add .
 git commit
 ```
+![Commit Fix](../../../images/pullrequest-conflict/git-commit-after-fix.png)
 
-![git](../../images/pullrequest-conflict/git-commit-after-fix.png)
-
-Check the commit logs,
-```
+Check logs:
+```bash
 git log
 ```
+![Log](../../../images/pullrequest-conflict/git-log.png)
 
-![git](../../images/pullrequest-conflict/git-log.png)
-
-Lets push the latest commit to `feature` branch,
-```
+Push to `feature`:
+```bash
 git push origin feature
 ```
-![git](../../images/pullrequest-conflict/git-push.png)
+![Push Fix](../../../images/pullrequest-conflict/git-push.png)
 
-Go to Github click on `Pull requests` tab. Click on created pull request.
+### 4. Merge PR
+Go back to GitHub. The PR now shows as mergeable.
 
-Now we can see, the lastest push to `feature` branch has been updated here and conflict has been fixed now.
+Click **Merge pull request** -> **Confirm merge**.
 
-Click on `Merge pull request` --> `Confirm merge` to merge the `feature` branch with `master` branch
+![Merge Button](../../../images/pullrequest-conflict/git-merge-pullrequest.png)
 
-![git](../../images/pullrequest-conflict/git-merge-pullrequest.png)
+![Merged](../../../images/pullrequest-conflict/git-pullrequest-merged.png)
 
-![git](../../images/pullrequest-conflict/git-pullrequest-merged.png)
+---
 
-### How to fix pull request conflict from Github UI itself
+## 🖥️ Fix from GitHub UI (Alternative)
 
-Create a new pull request with merge conflict and Click on `Resolve conflicts`
+You can also resolve simple conflicts directly in the browser.
 
-![git](../../images/pullrequest-conflict/git-ui-pr-created.png)
+Create a conflicting PR and click **Resolve conflicts**:
 
-![git](../../images/pullrequest-conflict/git-ui-pr-conflict.png)
+![Resolve UI](../../../images/pullrequest-conflict/git-ui-pr-created.png)
 
-Fix the conflict and click on `Mark as resolved`
+![Conflict Editor](../../../images/pullrequest-conflict/git-ui-pr-conflict.png)
 
-![git](../../images/pullrequest-conflict/git-ui-pr-conflict-fixed.png)
+Edit the file to remove markers and click **Mark as resolved**.
 
-Click on `Commit merge`
+![Resolved](../../../images/pullrequest-conflict/git-ui-pr-conflict-fixed.png)
 
-![git](../../images/pullrequest-conflict/git-ui-pr-commit-merge.png)
+Commit the merge:
 
-Click on `Merge pull request` --> `Confirm merge`
+![Commit UI](../../../images/pullrequest-conflict/git-ui-pr-commit-merge.png)
 
-![git](../../images/pullrequest-conflict/git-ui-pr-merge.png)
+Merge the PR:
 
-![git](../../images/pullrequest-conflict/git-ui-pr-merged.png)
+![Merge UI](../../../images/pullrequest-conflict/git-ui-pr-merge.png)
+
+![Merged UI](../../../images/pullrequest-conflict/git-ui-pr-merged.png)
+
+---
+
+## 🧠 Quick Quiz — PR Conflicts
+
+<quiz>
+If your PR has a conflict with the base branch, what is the standard way to fix it?
+- [ ] Delete the PR and start over.
+- [ ] Force push to the base branch.
+- [x] Pull the base branch into your feature branch, resolve conflicts, and push.
+- [ ] Wait for the conflict to resolve itself.
+
+You must bring the new changes from the base branch into your feature branch and resolve the discrepancies.
+</quiz>
+
+---
+
+### 📝 Want More Practice?
+
+👉 **[Start Git Beginner Quiz (20 Questions)](../../../quiz/git/beginner/index.md)**
+
+---
 
 {% include-markdown "_partials/subscribe-guides.md" %}
