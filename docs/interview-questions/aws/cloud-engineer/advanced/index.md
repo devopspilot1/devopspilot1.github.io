@@ -15,6 +15,8 @@ description: "Top 20 Advanced AWS Cloud Engineer interview questions covering ar
     
     Tackle complex scenarios: Disaster Recovery, hybrid architectures, migrations, and deep internal mechanics.
 
+{% include-markdown "_partials/interview-expand-button.md" %}
+
 ??? question "1. How do you recover a lost Key Pair for an EC2 instance?"
     You cannot recover the old key. To regain access:
     1.  **Stop** the instance.

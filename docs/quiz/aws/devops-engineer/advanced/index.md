@@ -4,7 +4,7 @@ title: "AWS DevOps Engineer - Advanced Quiz (20 Questions)"
 
 # AWS DevOps Engineer - Advanced Quiz
 
-← [Back to Interview Questions](../../../../interview-questions/aws/devops-engineer.md) <br>
+← [Back to Interview Questions](../../../../interview-questions/aws/devops-engineer/index.md) <br>
 ← [Back to Quiz Home](../../../index.md)
 
 ---
@@ -216,7 +216,7 @@ Split-tunneling prevents bottlenecking your corporate network with users' person
 ---
 
 ### 📚 Study Guides
-- [AWS DevOps Engineer Interview Questions](../../../../interview-questions/aws/devops-engineer.md)
+- [AWS DevOps Engineer - Advanced Questions](../../../../interview-questions/aws/devops-engineer/advanced/index.md)
 
 ---
 

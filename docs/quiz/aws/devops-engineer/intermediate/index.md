@@ -4,7 +4,7 @@ title: "AWS DevOps Engineer - Intermediate Quiz (20 Questions)"
 
 # AWS DevOps Engineer - Intermediate Quiz
 
-← [Back to Interview Questions](../../../../interview-questions/aws/devops-engineer.md) <br>
+← [Back to Interview Questions](../../../../interview-questions/aws/devops-engineer/index.md) <br>
 ← [Back to Quiz Home](../../../index.md)
 
 ---
@@ -216,7 +216,7 @@ It involves codified rules that continuously monitor resource configuration for 
 ---
 
 ### 📚 Study Guides
-- [AWS DevOps Engineer Interview Questions](../../../../interview-questions/aws/devops-engineer.md)
+- [AWS DevOps Engineer - Intermediate Questions](../../../../interview-questions/aws/devops-engineer/intermediate/index.md)
 
 ---
 

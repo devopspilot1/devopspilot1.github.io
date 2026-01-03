@@ -12,7 +12,7 @@ Prepare for your AWS interview with our role-specific question banks. Each secti
 -   **[AWS Cloud Engineer](cloud-engineer/index.md)**
     <br>Focus on core services (EC2, S3, IAM), networking, and troubleshooting.
 
--   **[AWS DevOps Engineer](devops-engineer.md)**
+-   **[AWS DevOps Engineer](devops-engineer/index.md)**
     <br>CI/CD pipelines, Infrastructure as Code (Terraform/CloudFormation), and automation.
 
 -   **[AWS Solutions Architect](solutions-architect.md)**

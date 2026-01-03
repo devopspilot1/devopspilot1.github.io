@@ -19,6 +19,8 @@ theme:
 copyright:  Copyright &copy; 2021 - 2026 DevopsPilot
 extra_css:
   - stylesheets/extra.css
+extra_javascript:
+  - javascripts/interview-questions.js
 extra:
   analytics:
     provider: google
@@ -246,7 +248,11 @@ nav:
         - Basics: interview-questions/aws/cloud-engineer/basics/index.md
         - Intermediate: interview-questions/aws/cloud-engineer/intermediate/index.md
         - Advanced: interview-questions/aws/cloud-engineer/advanced/index.md
-      - AWS DevOps Engineer: interview-questions/aws/devops-engineer.md
+      - AWS DevOps Engineer: 
+        - Overview: interview-questions/aws/devops-engineer/index.md
+        - Basics: interview-questions/aws/devops-engineer/basics/index.md
+        - Intermediate: interview-questions/aws/devops-engineer/intermediate/index.md
+        - Advanced: interview-questions/aws/devops-engineer/advanced/index.md
       - Solutions Architect: interview-questions/aws/solutions-architect.md
       - SysOps Administrator: interview-questions/aws/sysops-admin.md
       - SRE: interview-questions/aws/sre.md

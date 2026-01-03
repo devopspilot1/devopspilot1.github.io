@@ -1,6 +1,7 @@
 ---
 title: "AWS Cloud Engineer Interview Questions - Intermediate"
 description: "Top 20 Intermediate AWS Cloud Engineer interview questions focusing on troubleshooting, optimization, and security."
+
 ---
 
 # Intermediate Questions
@@ -14,6 +15,8 @@ description: "Top 20 Intermediate AWS Cloud Engineer interview questions focusin
     🟡 **Troubleshooting & Optimization.**
     
     Focus on debugging scenarios, cost management, and deeper service configurations.
+
+{% include-markdown "_partials/interview-expand-button.md" %}
 
 ??? question "1. You cannot SSH into your EC2 instance. What could be the reasons?"
     Check the following layers in order:

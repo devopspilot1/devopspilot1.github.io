@@ -4,7 +4,7 @@ title: "AWS DevOps Engineer - Basics Quiz (20 Questions)"
 
 # AWS DevOps Engineer - Basics Quiz
 
-← [Back to Interview Questions](../../../../interview-questions/aws/devops-engineer.md) <br>
+← [Back to Interview Questions](../../../../interview-questions/aws/devops-engineer/index.md) <br>
 ← [Back to Quiz Home](../../../index.md)
 
 ---
@@ -216,7 +216,7 @@ CDK allows you to define cloud resources using modern programming languages and 
 ---
 
 ### 📚 Study Guides
-- [AWS DevOps Engineer Interview Questions](../../../../interview-questions/aws/devops-engineer.md)
+- [AWS DevOps Engineer - Basics Questions](../../../../interview-questions/aws/devops-engineer/basics/index.md)
 
 ---
 
