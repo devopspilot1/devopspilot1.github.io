@@ -35,30 +35,31 @@ Topics covered:
 
 ---
 
-### 🔹 Intermediate Level: Branching & Collaboration *(Coming Soon)*
+### 🔹 Intermediate Level: Branching & Collaboration
 Learn how teams work together using Git.
 
-🚧 **Coming soon**
+� **[Start Quiz – Git Intermediate Level](../../quiz/git/intermediate/index.md)**
 
-Planned topics:
+Topics covered:
 - `git branch`, `git checkout`, `git switch`
-- `git merge`, merge conflicts
-- `git pull`, `git push`
-- Working with remote repositories (GitHub)
+- `git merge` types (fast-forward vs merge commit)
+- `git stash` and `git restore`
+- `git clean` and `git blame`
+- Difference between `fetch` and `pull`
 
 ---
 
-### 🔹 Advanced Level: Rewriting History & Troubleshooting *(Coming Soon)*
+### 🔹 Advanced Level: Rewriting History & Internals
 Advanced Git usage for real-world scenarios.
 
-🚧 **Coming soon**
+� **[Start Quiz – Git Advanced Level](../../quiz/git/advanced/index.md)**
 
-Planned topics:
-- `git rebase`
-- `git cherry-pick`
-- `git reset` vs `git revert`
-- Fixing mistakes safely
-- Git best practices for DevOps teams
+Topics covered:
+- `git rebase` (interactive and standard)
+- `git cherry-pick` and `git bisect`
+- `git reflog` and detached HEAD
+- Git Internals (blobs, trees, refs)
+- Hooks and `git filter-repo`
 
 ---
 
