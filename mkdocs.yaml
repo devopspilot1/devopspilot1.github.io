@@ -232,7 +232,11 @@ nav:
     - How to configure free single Let’s Encrypt SSL/TLS wildcard Certificate with Nginx: ssl/how-to-configure-free-letsencrypt-ssl-tls-wildcard-certificates-with-nginx-for-subdomains.md
     - How to generate self signed certificate using openssl: ssl/self-signed-certificate-using-openssl.md
   - Interview Questions:
-    - Linux commands Interview Questions: interview-questions/linux-commands.md
+    - Linux Commands:
+        - Overview: interview-questions/linux-commands/index.md
+        - Basics: interview-questions/linux-commands/basics/index.md
+        - Intermediate: interview-questions/linux-commands/intermediate/index.md
+        - Advanced: interview-questions/linux-commands/advanced/index.md
     - Git:
         - Overview: interview-questions/git/index.md
         - Basics: interview-questions/git/basics/index.md
