@@ -134,7 +134,7 @@ description: "Top 20 Basic AWS Cloud Engineer interview questions covering EC2, 
     Example: `aws s3 ls` (Lists S3 buckets).
 
 ---
----
+
 
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS Cloud Engineer Basics Quiz](../../../../quiz/aws/cloud-engineer/basics/index.md)**

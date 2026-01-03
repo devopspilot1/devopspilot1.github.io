@@ -145,7 +145,7 @@ description: "Top 20 Advanced AWS Cloud Engineer interview questions covering ar
     *   **VPC**: If inside a VPC, does it have access to the resource (NAT Gateway present if calling internet)?
 
 ---
----
+
 
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS Cloud Engineer Advanced Quiz](../../../../quiz/aws/cloud-engineer/advanced/index.md)**

@@ -108,7 +108,7 @@ description: "Top 20 Advanced AWS DevOps Engineer interview questions covering C
     ✔ **Benefit:** Prevents bottlenecking the corporate VPN bandwidth.
 
 ---
----
+
 
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS DevOps Engineer Advanced Quiz](../../../../quiz/aws/devops-engineer/advanced/index.md)**

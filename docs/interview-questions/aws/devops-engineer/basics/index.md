@@ -108,7 +108,7 @@ description: "Top 20 Basic AWS DevOps Engineer interview questions covering CI/C
     CDK allows you to define cloud resources using modern programming languages and synthesizes them into CloudFormation templates.
 
 ---
----
+
 
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS DevOps Engineer Basics Quiz](../../../../quiz/aws/devops-engineer/basics/index.md)**

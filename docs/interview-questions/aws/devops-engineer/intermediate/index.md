@@ -108,7 +108,7 @@ description: "Top 20 Intermediate AWS DevOps Engineer interview questions coveri
     Example: A rule that checks if all EBS volumes are encrypted. If not, it can trigger an SSM document to encrypt them or notify the team.
 
 ---
----
+
 
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS DevOps Engineer Intermediate Quiz](../../../../quiz/aws/devops-engineer/intermediate/index.md)**
