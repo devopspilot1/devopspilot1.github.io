@@ -47,3 +47,7 @@ The final docker image is created from the second stage and first stage is throw
 ```
 docker build -t 2-stage:latest .
 ```
+
+---
+
+{% include-markdown "../../../_partials/subscribe-guides.md" %}

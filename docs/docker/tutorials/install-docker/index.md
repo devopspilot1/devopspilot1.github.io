@@ -12,3 +12,7 @@ sudo apt install docker.io
 ### Install docker in Ubuntu operating system using Docker official steps
 
 ### Install docker in Centos operating system using Docker official steps
+
+---
+
+{% include-markdown "../../../_partials/subscribe-guides.md" %}

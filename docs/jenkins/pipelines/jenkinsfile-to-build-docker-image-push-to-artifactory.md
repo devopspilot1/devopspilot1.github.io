@@ -148,4 +148,4 @@ sh "docker rm hello-world | true"
 
 - [How to create pipeline job in Jenkins](how-to-create-pipeline-job.md)
 
-- [How to write a dockerfile for running a java application (\*.war) in Apache tomcat webserver](../../docker/dockerfiles/how-to-write-a-dockerfile-for-running-war-file-in-tomcat.md)
+- [How to write a dockerfile for running a java application (\*.war) in Apache tomcat webserver](../../docker/dockerfiles/run-war-in-tomcat/index.md)

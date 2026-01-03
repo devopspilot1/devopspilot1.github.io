@@ -120,7 +120,7 @@ e482a35485c8   devopspilot1/html-app:v1.0   "/docker-entrypoint.…"   46 second
 
 Type localhost:80 or ip-address:80 in browser
 
-![html-app](../../images/html-app.png)
+![html-app](../../../images/html-app.png)
 
 ### Push the html-app docker image tag v1.0 to dockerhub
 
@@ -138,7 +138,7 @@ c6e34807c2d5: Mounted from devopspilot1/private-nginx
 v1.0: digest: sha256:29d082542e26e1550b12e9f4719711c45effc8e16b06395bad350f8a7acf030b size: 1985
 ```
 
-![html-app-dockerhub](../../images/html-app-dockerhub.png)
+![html-app-dockerhub](../../../images/html-app-dockerhub.png)
 
 ### Change the background color to green
 
@@ -213,7 +213,7 @@ CONTAINER ID   IMAGE                        COMMAND                  CREATED    
 
 Type localhost:80 or ip-address:80 in browser
 
-![html-app-green](../../images/html-app-green.png)
+![html-app-green](../../../images/html-app-green.png)
 
 ### Push the html-app docker image tag v2.0 to dockerhub
 
@@ -231,4 +231,8 @@ c6e34807c2d5: Layer already exists
 v2.0: digest: sha256:793d02597251f58c58ae71700f22b864f3c37f58f1130a89be595130ae687472 size: 1985
 ```
 
-![html-app-dockerhub-v2](../../images/html-app-dockerhub-v2.png)
+![html-app-dockerhub-v2](../../../images/html-app-dockerhub-v2.png)
+
+---
+
+{% include-markdown "../../../_partials/subscribe-guides.md" %}

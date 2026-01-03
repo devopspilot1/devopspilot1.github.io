@@ -79,9 +79,6 @@ nav:
       - What is Maven?: build-tools/maven/what-is-maven.md
       - Generate a sample java application using maven: build-tools/maven/generate-a-sample-java-application-using-maven.md
       - How to create a GitHub repository and push a Hello World Java 21 Maven Project: build-tools/maven/how-to-create-a-github-repository-and-push-a-sample-java-maven-project.md
-  - 3-Tier Architecture: 3-tier/index.md
-  - SonarQube:
-    - SonarQube Quality Gate: sonarqube/quality-gate/index.md
   - Web Server:
     - Nginx:
       - How to install nginx in Linux: webserver/nginx/how-to-install-nginx.md
@@ -129,17 +126,17 @@ nav:
   - Docker:
     - Overview: docker/index.md
     - Tutorials:
-      - What is Docker: docker/tutorials/what-is-docker.md
-      - How to install docker: docker/tutorials/how-to-install-docker.md
-      - Docker Images vs Docker Containers: docker/tutorials/docker-images-vs-containers.md
-      - Create docker image for nginx and html file: docker/tutorials/create-docker-image-nginx-html.md
-      - Pull nginx docker image from dockerhub, tag and push to your public repo in dockerhub account: docker/tutorials/pull-push-docker-image-to-public-repository.md
-      - Pull nginx docker image from dockerhub, tag and push to your private repository in dockerhub account: docker/tutorials/pull-push-docker-image-to-private-repository.md
+      - What is Docker: docker/tutorials/what-is-docker/index.md
+      - How to install docker: docker/tutorials/install-docker/index.md
+      - Docker Images vs Docker Containers: docker/tutorials/images-vs-containers/index.md
+      - Create docker image for nginx and html file: docker/tutorials/create-image-nginx/index.md
+      - Pull nginx docker image from dockerhub, tag and push to your public repo in dockerhub account: docker/tutorials/push-public-repo/index.md
+      - Pull nginx docker image from dockerhub, tag and push to your private repository in dockerhub account: docker/tutorials/push-private-repo/index.md
     - Dockerfile:
-      - How to write Dockerfile for installing packages: docker/dockerfiles/create-dockerfile-to-install-packages.md
-      - How to write a dockerfile for installing openjdk15: docker/dockerfiles/create-a-dockerfile-for-installing-openjdk15.md
-      - How to create a multi stage Dockerfile: docker/dockerfiles/create-multi-stage-dockerfile.md
-      - How to write a dockerfile for running a java application (*.war) in Apache tomcat webserver: docker/dockerfiles/how-to-write-a-dockerfile-for-running-war-file-in-tomcat.md
+      - How to write Dockerfile for installing packages: docker/dockerfiles/install-packages/index.md
+      - How to write a dockerfile for installing openjdk15: docker/dockerfiles/install-openjdk/index.md
+      - How to create a multi stage Dockerfile: docker/dockerfiles/multi-stage-build/index.md
+      - How to write a dockerfile for running a java application (*.war) in Apache tomcat webserver: docker/dockerfiles/run-war-in-tomcat/index.md
   - K8s:
     - Overview: kubernetes/index.md
     - Introduction:
@@ -187,7 +184,6 @@ nav:
     - VirtualBox: cloud/virtualbox/index.md
     - On Premise Cloud: cloud/on-premise/index.md
     - Types of OS: cloud/types-of-os/index.md
-
     - AWS:
       - Tutorials:
         - Deploy Flask API to AWS Lambda using Docker: cloud/aws/tutorials/deploy-flask-api-to-aws-lambda-using-docker.md
@@ -384,7 +380,7 @@ nav:
         - Intermediate: quiz/aws/network-engineer/intermediate/index.md
         - Advanced: quiz/aws/network-engineer/advanced/index.md
   - Architecture:
-    - 3 Tier Architecture: 3-tier/3-tier.md
+    - 3 Tier Architecture: 3-tier/index.md
   - Support: support/index.md
 
 markdown_extensions:

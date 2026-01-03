@@ -54,3 +54,7 @@ RUN mkdir /opt/gradle
     && unzip gradle-7.0.2-bin.zip -d /opt/gradle/ 
     && rm -f gradle-7.0.2-bin.zip
 ```
+
+---
+
+{% include-markdown "../../../_partials/subscribe-guides.md" %}

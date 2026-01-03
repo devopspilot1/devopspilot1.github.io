@@ -36,7 +36,7 @@ Run the following command to check the docker images available in local machine
 docker images
 ```
 
-![Docker Images](../../images/openjdk-15-approach-1-docker-images.png)
+![Docker Images](../../../images/openjdk-15-approach-1-docker-images.png)
 
 ##### Create a docker container from the created image and check the java version
 
@@ -44,7 +44,7 @@ docker images
 docker run --rm java:15 java -version
 ```
 
-![checking java version](../../images/openjdk-15-checking-java-version.png)
+![checking java version](../../../images/openjdk-15-checking-java-version.png)
 
 ### Approach 2 (Best Practice)
 
@@ -83,7 +83,7 @@ Run the following command to check the docker images available in local machine
 docker images
 ```
 
-![Docker](../../images/openjdk-15-reduced-docker-images.png)
+![Docker](../../../images/openjdk-15-reduced-docker-images.png)
 
 Now we can see, the size of the docker image is reduced.
 
@@ -93,7 +93,7 @@ Now we can see, the size of the docker image is reduced.
 docker run --rm java:15 java -version
 ```
 
-![checking java version](../../images/openjdk-15-reduced-checking-java-version.png)
+![checking java version](../../../images/openjdk-15-reduced-checking-java-version.png)
 
 ### Approach 3 (Best pratice)
 
@@ -155,6 +155,10 @@ docker build -t java-approach-4 .
 docker images
 ```
 
-![Docker](../../images/openjdk-15-approach-4-docker-images.png)
+![Docker](../../../images/openjdk-15-approach-4-docker-images.png)
 
 Now we can see, the size of the docker image is reduced very much.
+
+---
+
+{% include-markdown "../../../_partials/subscribe-guides.md" %}

@@ -9,7 +9,7 @@ ISO image file is a static file, when we install it to a Computer/Laptop, all th
 
 Similarly, Docker Image is a static package, when we create a container using that image, the applications packaged in the docker image will be running live inside docker container
 
-![Server-detail](../../images/iso.png)
+![Server-detail](../../../images/iso.png)
 
 Similar like downloading the ubuntu iso file from official ubuntu website.
 
@@ -99,3 +99,7 @@ PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-poli
 UBUNTU_CODENAME=mantic
 LOGO=ubuntu-logo
 ```
+
+---
+
+{% include-markdown "../../../_partials/subscribe-guides.md" %}
