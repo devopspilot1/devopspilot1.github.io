@@ -28,32 +28,32 @@ Create `cat.txt` with initial content:
 5. Domestic cats spend about 70 percent of the day sleeping. And 15 percent of the day grooming.
 ```
 
-![File List](../../images/pullrequest-conflict/git-files.png)
+![File List](/git/images/pullrequest-conflict/git-files.png)
 
 Create a branch `feature`.
 Change line 2 angle to `150` in `feature` branch:
 
-![Updated Feature](../../images/pullrequest-conflict/git-updated-file-feature.png)
+![Updated Feature](/git/images/pullrequest-conflict/git-updated-file-feature.png)
 
 **Simulate Remote Change:**
 Go to GitHub, switch to `master`, edit `cat.txt`, and change angle to `200`. Commit.
 
-![Master Update](../../images/pullrequest-conflict/git-file-updated-master.png)
+![Master Update](/git/images/pullrequest-conflict/git-file-updated-master.png)
 
 ### 2. Create PR & Detect Conflict
 Create a PR from `feature` to `master`.
 
-![Create PR](../../images/pullrequest-conflict/git-create-pullrequest.png)
+![Create PR](/git/images/pullrequest-conflict/git-create-pullrequest.png)
 
 GitHub shows a conflict:
 
-![Conflict UI](../../images/pullrequest-conflict/git-pullrequest-conflict.png)
+![Conflict UI](/git/images/pullrequest-conflict/git-pullrequest-conflict.png)
 
 Click **Create pull request** to proceed anyway.
 
-![PR Diff](../../images/pullrequest-conflict/git-pullrequest-diff.png)
+![PR Diff](/git/images/pullrequest-conflict/git-pullrequest-diff.png)
 
-![PR Created](../../images/pullrequest-conflict/git-pullrequest-created.png)
+![PR Created](/git/images/pullrequest-conflict/git-pullrequest-created.png)
 
 ### 3. Fix Conflict Locally
 Clone the repo and switch to `feature`:
@@ -64,7 +64,7 @@ cd pullrequest-conflict
 git checkout feature
 ```
 
-![Clone](../../images/pullrequest-conflict/git-clone.png)
+![Clone](/git/images/pullrequest-conflict/git-clone.png)
 
 Pull `master` into `feature` to reproduce and fix the conflict:
 
@@ -72,15 +72,15 @@ Pull `master` into `feature` to reproduce and fix the conflict:
 git pull origin master
 ```
 
-![Pull Master](../../images/pullrequest-conflict/git-pull-master.png)
+![Pull Master](/git/images/pullrequest-conflict/git-pull-master.png)
 
 Conflict detected:
 
-![Conflict Terminal](../../images/pullrequest-conflict/git-before-fix.png)
+![Conflict Terminal](/git/images/pullrequest-conflict/git-before-fix.png)
 
 Resolve the conflict in `cat.txt` (e.g., keep 150):
 
-![Fixed File](../../images/pullrequest-conflict/git-after-fix.png)
+![Fixed File](/git/images/pullrequest-conflict/git-after-fix.png)
 
 Add, commit, and push the fix:
 
@@ -88,28 +88,28 @@ Add, commit, and push the fix:
 git add .
 git commit
 ```
-![Commit Fix](../../images/pullrequest-conflict/git-commit-after-fix.png)
+![Commit Fix](/git/images/pullrequest-conflict/git-commit-after-fix.png)
 
 Check logs:
 ```bash
 git log
 ```
-![Log](../../images/pullrequest-conflict/git-log.png)
+![Log](/git/images/pullrequest-conflict/git-log.png)
 
 Push to `feature`:
 ```bash
 git push origin feature
 ```
-![Push Fix](../../images/pullrequest-conflict/git-push.png)
+![Push Fix](/git/images/pullrequest-conflict/git-push.png)
 
 ### 4. Merge PR
 Go back to GitHub. The PR now shows as mergeable.
 
 Click **Merge pull request** -> **Confirm merge**.
 
-![Merge Button](../../images/pullrequest-conflict/git-merge-pullrequest.png)
+![Merge Button](/git/images/pullrequest-conflict/git-merge-pullrequest.png)
 
-![Merged](../../images/pullrequest-conflict/git-pullrequest-merged.png)
+![Merged](/git/images/pullrequest-conflict/git-pullrequest-merged.png)
 
 ---
 
@@ -119,23 +119,23 @@ You can also resolve simple conflicts directly in the browser.
 
 Create a conflicting PR and click **Resolve conflicts**:
 
-![Resolve UI](../../images/pullrequest-conflict/git-ui-pr-created.png)
+![Resolve UI](/git/images/pullrequest-conflict/git-ui-pr-created.png)
 
-![Conflict Editor](../../images/pullrequest-conflict/git-ui-pr-conflict.png)
+![Conflict Editor](/git/images/pullrequest-conflict/git-ui-pr-conflict.png)
 
 Edit the file to remove markers and click **Mark as resolved**.
 
-![Resolved](../../images/pullrequest-conflict/git-ui-pr-conflict-fixed.png)
+![Resolved](/git/images/pullrequest-conflict/git-ui-pr-conflict-fixed.png)
 
 Commit the merge:
 
-![Commit UI](../../images/pullrequest-conflict/git-ui-pr-commit-merge.png)
+![Commit UI](/git/images/pullrequest-conflict/git-ui-pr-commit-merge.png)
 
 Merge the PR:
 
-![Merge UI](../../images/pullrequest-conflict/git-ui-pr-merge.png)
+![Merge UI](/git/images/pullrequest-conflict/git-ui-pr-merge.png)
 
-![Merged UI](../../images/pullrequest-conflict/git-ui-pr-merged.png)
+![Merged UI](/git/images/pullrequest-conflict/git-ui-pr-merged.png)
 
 ---
 
