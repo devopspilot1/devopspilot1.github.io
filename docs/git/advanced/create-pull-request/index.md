@@ -37,14 +37,14 @@ Create a file `cat.txt` with the following content:
 5. Domestic cats spend about 70 percent of the day sleeping. And 15 percent of the day grooming.
 ```
 
-![Create File](/git/images/pullrequest/git-create-file.png)
+![Create File](../../images/pullrequest/git-create-file.png)
 
-![File List](/git/images/pullrequest/git-files.png)
+![File List](../../images/pullrequest/git-files.png)
 
 ### 2. Create Feature Branch
 Create a new branch called `feature`:
 
-![Create Branch](/git/images/pullrequest/git-create-branch.png)
+![Create Branch](../../images/pullrequest/git-create-branch.png)
 
 ### 3. Make Changes
 Add one more line to `cat.txt` in the `feature` branch:
@@ -57,33 +57,33 @@ Add one more line to `cat.txt` in the `feature` branch:
 6. I like cats
 ```
 
-![Updated File](/git/images/pullrequest/git-updated-file.png)
+![Updated File](../../images/pullrequest/git-updated-file.png)
 
 ### 4. Open Pull Request
 After pushing changes, you will see a **Compare & pull request** button. Click it.
 
-![Compare](/git/images/pullrequest/git-pull-request.png)
+![Compare](../../images/pullrequest/git-pull-request.png)
 
 Verify the **Source** (feature) and **Target** (master/main) branches.
 
-![Comment](/git/images/pullrequest/git-pull-request-comment.png)
+![Comment](../../images/pullrequest/git-pull-request-comment.png)
 
 Scroll down to verify file diffs, then click **Create pull request**.
 
-![Diff](/git/images/pullrequest/git-pull-request-diff.png)
+![Diff](../../images/pullrequest/git-pull-request-diff.png)
 
 ### 5. Review & Merge
 The PR is now Open. Reviewers can comment and request changes. If changes are needed, push to the `feature` branch; the PR updates automatically.
 
 To merge, click **Merge pull request** -> **Confirm merge**.
 
-![Merge Button](/git/images/pullrequest/git-pull-request-comments.png)
+![Merge Button](../../images/pullrequest/git-pull-request-comments.png)
 
-![Merged Status](/git/images/pullrequest/git-pull-request-merged.png)
+![Merged Status](../../images/pullrequest/git-pull-request-merged.png)
 
 Go to the `master` branch to confirm the changes are merged.
 
-![Final View](/git/images/pullrequest/git-pull-request-final.png)
+![Final View](../../images/pullrequest/git-pull-request-final.png)
 
 ---
 

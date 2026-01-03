@@ -5,17 +5,9 @@ description: "Top 20 Basic AWS DevOps Engineer interview questions covering CI/C
 
 # Basics Questions
 
-!!! info "How to use these interview questions"
-    🧠 **Read each question carefully.**
-    
-    Try answering it yourself **before expanding** the answer to compare with the ideal response.
+{% include-markdown "../../../../_partials/interview-instruction.md" %}
 
-!!! success "Level: Basics"
-    🟢 **Foundational DevOps interview questions.**
-    
-    Focus on CI/CD pipeline components, definitions, and core AWS DevOps services.
-
-{% include-markdown "_partials/interview-expand-button.md" %}
+{% include-markdown "../../../../_partials/interview-level-basics.md" %}
 
 ??? question "1. Which AWS service is primarily used to orchestrate and model different stages of your software release process?"
     **AWS CodePipeline**.

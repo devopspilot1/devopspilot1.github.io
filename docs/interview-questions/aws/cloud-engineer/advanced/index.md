@@ -5,17 +5,9 @@ description: "Top 20 Advanced AWS Cloud Engineer interview questions covering ar
 
 # Advanced Questions
 
-!!! info "How to use these interview questions"
-    🧠 **Read each question carefully.**
-    
-    Try answering it yourself **before expanding** the answer to compare with the ideal response.
+{% include-markdown "../../../../_partials/interview-instruction.md" %}
 
-!!! failure "Level: Advanced"
-    🔴 **Architecture & Production Scenarios.**
-    
-    Tackle complex scenarios: Disaster Recovery, hybrid architectures, migrations, and deep internal mechanics.
-
-{% include-markdown "_partials/interview-expand-button.md" %}
+{% include-markdown "../../../../_partials/interview-level-advanced.md" %}
 
 ??? question "1. How do you recover a lost Key Pair for an EC2 instance?"
     You cannot recover the old key. To regain access:

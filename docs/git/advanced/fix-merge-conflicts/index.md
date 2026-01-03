@@ -18,7 +18,7 @@ Clone it:
 ```bash
 git clone https://github.com/vigneshsweekaran/mergeconflict.git
 ```
-![Clone](/images/git-clone.png)
+![Git Clone](../../../images/git-clone.png)
 
 Create `cat.txt` with initial content:
 ```text

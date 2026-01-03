@@ -5,17 +5,9 @@ description: "Top 20 Advanced AWS DevOps Engineer interview questions covering C
 
 # Advanced Questions
 
-!!! info "How to use these interview questions"
-    🧠 **Read each question carefully.**
-    
-    Try answering it yourself **before expanding** the answer to compare with the ideal response.
+{% include-markdown "../../../../_partials/interview-instruction.md" %}
 
-!!! danger "Level: Advanced"
-    🔴 **Complex architectural scenarios.**
-    
-    Focus on cross-account security, observability at scale (X-Ray), and hybrid cloud strategies.
-
-{% include-markdown "_partials/interview-expand-button.md" %}
+{% include-markdown "../../../../_partials/interview-level-advanced.md" %}
 
 ??? question "1. How can you securely access a private RDS database from a Lambda function running inside a VPC without hardcoding credentials?"
     Use **IAM Database Authentication**.
