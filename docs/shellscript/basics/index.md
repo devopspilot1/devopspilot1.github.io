@@ -1,11 +1,13 @@
 ---
-title: "Shellscript Part - 1"
+title: "Shell Scripting Basics & Error Handling"
 date: 2024-07-01
 ---
 
-### Youtube
+# Shell Scripting Basics & Error Handling
 
-[![Shellscript part-1](../images/shellscript-part-1.png)](https://www.youtube.com/watch?v=Ou9wESB2gDg)
+← [Back to Shell Scripting Guide](../../shellscript/index.md)
+
+[![Shellscript part-1](../../images/shellscript-part-1.png)](https://www.youtube.com/watch?v=Ou9wESB2gDg)
 
 In simple term, shell script is putting the linux commands in a file and executing the file. The commands will be executed in sequential order.
 
@@ -561,3 +563,4 @@ fi
 [opc@new-k8s part-1]$ ./8-check-file-double-bracket.sh 
 /etc/os-release exists.
 ```
+{% include-markdown "../../_partials/subscribe-guides.md" %}

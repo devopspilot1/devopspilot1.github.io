@@ -1,11 +1,13 @@
 ---
-title: "Shellscript Part - 4"
+title: "Shell Scripting Functions & Automation"
 date: 2024-07-01
 ---
 
-### Youtube
+# Shell Scripting Functions & Automation
 
-[![Shellscript part-4](../images/shellscript-part-4.png)](https://www.youtube.com/watch?v=NAm9xUOTubU)
+← [Back to Shell Scripting Guide](../../shellscript/index.md)
+
+[![Shellscript part-4](../../images/shellscript-part-4.png)](https://www.youtube.com/watch?v=NAm9xUOTubU)
 
 ### What is function ?
 
@@ -280,3 +282,4 @@ Created user manoj successfully !!!
 id: ‘devops’: no such user
 Created user devops successfully !!!
 ```
+{% include-markdown "../../_partials/subscribe-guides.md" %}

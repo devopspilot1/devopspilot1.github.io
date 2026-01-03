@@ -1,9 +1,11 @@
 ---
-title: "Shellscript Part - 3"
+title: "Shell Scripting While Loops & Conditionals"
 date: 2024-07-01
 ---
 
-### Youtube
+# Shell Scripting While Loops & Conditionals
+
+← [Back to Shell Scripting Guide](../../shellscript/index.md)
 
 [![Shellscript part-3](../images/shellscript-part-3.png)](https://www.youtube.com/watch?v=DipqrRNJX1c)
 
@@ -300,7 +302,7 @@ total 12
 
 when we set/hardcode the condition to true, the while loop continuously runs and it will not stop
 
-![While loop](../images/while-infinite-loop.png)
+![While loop](../../images/while-infinite-loop.png)
 
 To come out of the while loop, you have to run `break` command inside the while loop based on requirement to break the loop
 
@@ -353,7 +355,7 @@ done
            └─22421 /usr/sbin/httpd -DFOREGROUND
 ```
 
-![While loop](../images/breaking-while-loop.png)
+![While loop](../../images/breaking-while-loop.png)
 
 Here i have opened 2 terminals, in the first terminal, I execute the script.
 
@@ -371,3 +373,4 @@ Since the status code changes to 3, it enter the if condition and runs the break
      Docs: man:httpd(8)
            man:apachectl(8)
 ```
+{% include-markdown "../../_partials/subscribe-guides.md" %}

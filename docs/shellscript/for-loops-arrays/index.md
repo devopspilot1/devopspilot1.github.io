@@ -1,9 +1,11 @@
 ---
-title: "Shellscript Part - 2"
+title: "Shell Scripting For Loops & Arrays"
 date: 2024-07-01
 ---
 
-### Youtube
+# Shell Scripting For Loops & Arrays
+
+← [Back to Shell Scripting Guide](../../shellscript/index.md)
 
 [![Shellscript part-2](../images/shellscript-part-2.png)](https://www.youtube.com/watch?v=GIk1wW7Y-uo)
 
@@ -145,7 +147,7 @@ When we `cat` the first file, it has the timestamp, which we have written to the
 
 Array is a collection of items
 
-![array](../images/array.png)
+![array](../../images/array.png)
 
 ### Check the size of multiple directory using for loop
 
@@ -477,3 +479,4 @@ echo "$(jq --arg maven_version "$MAVEN_VERSION" '. += {"maven": $maven_version}'
   "maven": "3.0.5"
 }
 ```
+{% include-markdown "../../_partials/subscribe-guides.md" %}

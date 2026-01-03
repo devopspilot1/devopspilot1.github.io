@@ -41,11 +41,12 @@ nav:
     - Process & Service Management: linux-commands/linux-process-service-management/index.md
   - SSH:
     - Ssh: ssh/ssh.md
-  - Shellscript:
-    - Part 1: shellscript/part-1.md
-    - Part 2: shellscript/part-2.md
-    - Part 3: shellscript/part-3.md
-    - Part 4: shellscript/part-4.md
+  - Shell Scripting:
+    - Overview: shellscript/index.md
+    - Basics & Error Handling: shellscript/basics/index.md
+    - For Loops & Arrays: shellscript/for-loops-arrays/index.md
+    - While Loops & Conditionals: shellscript/while-loops-conditionals/index.md
+    - Functions & Automation: shellscript/functions-automation/index.md
   - Git:
     - Overview: git/index.md
     - Basics:
@@ -237,6 +238,11 @@ nav:
         - Basics: interview-questions/linux-commands/basics/index.md
         - Intermediate: interview-questions/linux-commands/intermediate/index.md
         - Advanced: interview-questions/linux-commands/advanced/index.md
+    - Shell Scripting:
+        - Overview: interview-questions/shellscript/index.md
+        - Basics: interview-questions/shellscript/basics/index.md
+        - Intermediate: interview-questions/shellscript/intermediate/index.md
+        - Advanced: interview-questions/shellscript/advanced/index.md
     - Git:
         - Overview: interview-questions/git/index.md
         - Basics: interview-questions/git/basics/index.md
@@ -319,6 +325,11 @@ nav:
       - Logs & Text Processing: quiz/linux-commands/linux-log-text-processing/index.md
       - Networking: quiz/linux-commands/linux-networking-commands/index.md
       - Process Management: quiz/linux-commands/linux-process-service-management/index.md
+    - Shell Scripting:
+      - Overview: quiz/shellscript/index.md
+      - Basics: quiz/shellscript/basics/index.md
+      - Intermediate: quiz/shellscript/intermediate/index.md
+      - Advanced: quiz/shellscript/advanced/index.md
     - Git:
       - Overview: quiz/git/index.md
       - Basics: quiz/git/basics/index.md
