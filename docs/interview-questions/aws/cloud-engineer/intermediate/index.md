@@ -5,6 +5,11 @@ description: "Top 20 Intermediate AWS Cloud Engineer interview questions focusin
 
 # Intermediate Questions
 
+!!! info "How to use these interview questions"
+    🧠 **Read each question carefully.**
+    
+    Try answering it yourself **before expanding** the answer to compare with the ideal response.
+
 !!! warning "Level: Intermediate"
     🟡 **Troubleshooting & Optimization.**
     
@@ -131,6 +136,6 @@ description: "Top 20 Intermediate AWS Cloud Engineer interview questions focusin
 ---
 
 ### 🧪 Ready to test yourself?
-👉 **[Take the AWS Cloud Engineer Intermediate Quiz](../../../quiz/aws/cloud-engineer/intermediate/index.md)**
+👉 **[Take the AWS Cloud Engineer Intermediate Quiz](../../../../quiz/aws/cloud-engineer/intermediate/index.md)**
 
-{% include-markdown "../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../../_partials/subscribe-guides.md" %}

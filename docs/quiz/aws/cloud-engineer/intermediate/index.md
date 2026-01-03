@@ -216,7 +216,7 @@ Target Tracking works like a thermostat—it automatically adds or removes capac
 ---
 
 ### 📚 Study Guides
-- [**AWS Cloud Engineer - Intermediate Questions**](../../../../interview-questions/aws/cloud-engineer/intermediate.md)
+- [**AWS Cloud Engineer - Intermediate Questions**](../../../../interview-questions/aws/cloud-engineer/intermediate/index.md)
 
 ---
 

@@ -216,7 +216,7 @@ Instance Store is physically attached to the host hardware. If the instance move
 ---
 
 ### 📚 Study Guides
-- [**AWS Cloud Engineer - Advanced Questions**](../../../../interview-questions/aws/cloud-engineer/advanced.md)
+- [**AWS Cloud Engineer - Advanced Questions**](../../../../interview-questions/aws/cloud-engineer/advanced/index.md)
 
 ---
 

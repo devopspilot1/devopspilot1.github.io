@@ -5,6 +5,11 @@ description: "Top 20 Advanced AWS Cloud Engineer interview questions covering ar
 
 # Advanced Questions
 
+!!! info "How to use these interview questions"
+    🧠 **Read each question carefully.**
+    
+    Try answering it yourself **before expanding** the answer to compare with the ideal response.
+
 !!! failure "Level: Advanced"
     🔴 **Architecture & Production Scenarios.**
     
@@ -146,6 +151,6 @@ description: "Top 20 Advanced AWS Cloud Engineer interview questions covering ar
 ---
 
 ### 🧪 Ready to test yourself?
-👉 **[Take the AWS Cloud Engineer Advanced Quiz](../../../quiz/aws/cloud-engineer/advanced/index.md)**
+👉 **[Take the AWS Cloud Engineer Advanced Quiz](../../../../quiz/aws/cloud-engineer/advanced/index.md)**
 
-{% include-markdown "../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../../_partials/subscribe-guides.md" %}

@@ -5,6 +5,11 @@ description: "Top 20 Basic AWS Cloud Engineer interview questions covering EC2, 
 
 # Basics Questions
 
+!!! info "How to use these interview questions"
+    🧠 **Read each question carefully.**
+    
+    Try answering it yourself **before expanding** the answer to compare with the ideal response.
+
 !!! success "Level: Basics"
     🟢 **Foundational AWS interview questions.**
     
@@ -135,6 +140,6 @@ description: "Top 20 Basic AWS Cloud Engineer interview questions covering EC2, 
 ---
 
 ### 🧪 Ready to test yourself?
-👉 **[Take the AWS Cloud Engineer Basics Quiz](../../../quiz/aws/cloud-engineer/basics/index.md)**
+👉 **[Take the AWS Cloud Engineer Basics Quiz](../../../../quiz/aws/cloud-engineer/basics/index.md)**
 
-{% include-markdown "../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../../_partials/subscribe-guides.md" %}

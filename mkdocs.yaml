@@ -243,9 +243,9 @@ nav:
       - Overview: interview-questions/aws/index.md
       - AWS Cloud Engineer:
         - Overview: interview-questions/aws/cloud-engineer/index.md
-        - Basics: interview-questions/aws/cloud-engineer/basics.md
-        - Intermediate: interview-questions/aws/cloud-engineer/intermediate.md
-        - Advanced: interview-questions/aws/cloud-engineer/advanced.md
+        - Basics: interview-questions/aws/cloud-engineer/basics/index.md
+        - Intermediate: interview-questions/aws/cloud-engineer/intermediate/index.md
+        - Advanced: interview-questions/aws/cloud-engineer/advanced/index.md
       - AWS DevOps Engineer: interview-questions/aws/devops-engineer.md
       - Solutions Architect: interview-questions/aws/solutions-architect.md
       - SysOps Administrator: interview-questions/aws/sysops-admin.md

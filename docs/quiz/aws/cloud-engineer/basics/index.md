@@ -216,7 +216,7 @@ Access control policies in IAM are written in JSON (JavaScript Object Notation).
 ---
 
 ### 📚 Study Guides
-- [**AWS Cloud Engineer - Basics Questions**](../../../../interview-questions/aws/cloud-engineer/basics.md)
+- [**AWS Cloud Engineer - Basics Questions**](../../../../interview-questions/aws/cloud-engineer/basics/index.md)
 
 ---
 
