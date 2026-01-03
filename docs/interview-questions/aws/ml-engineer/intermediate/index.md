@@ -5,9 +5,9 @@ description: "Top 20 Intermediate AWS Machine Learning Engineer interview questi
 
 # Intermediate Questions
 
-{% include-markdown "../../../../_partials/interview-instruction.md" %}
+{% include-markdown "../../../../.partials/interview-instruction.md" %}
 
-{% include-markdown "../../../../_partials/interview-level-intermediate.md" %}
+{% include-markdown "../../../../.partials/interview-level-intermediate.md" %}
 
 ??? question "1. What does "Data Drift" mean in the context of SageMaker Model Monitor?"
     **The statistical distribution of the input data in production has changed compared to the training data baseline**.
@@ -112,4 +112,4 @@ description: "Top 20 Intermediate AWS Machine Learning Engineer interview questi
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS ML Engineer Intermediate Quiz](../../../../quiz/aws/ml-engineer/intermediate/index.md)**
 
-{% include-markdown "../../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../../.partials/subscribe-guides.md" %}

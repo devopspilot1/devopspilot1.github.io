@@ -289,4 +289,4 @@ kubectl delete -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/con
 
 ---
 
-{% include-markdown "../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../.partials/subscribe-guides.md" %}

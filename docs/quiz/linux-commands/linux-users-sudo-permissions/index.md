@@ -224,4 +224,4 @@ Which command should be used to safely edit the sudoers file?
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

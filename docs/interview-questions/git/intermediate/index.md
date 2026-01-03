@@ -5,9 +5,9 @@ description: "Top 20 Intermediate Git interview questions covering branching, me
 
 # Intermediate Questions
 
-{% include-markdown "../../../_partials/interview-instruction.md" %}
+{% include-markdown "../../../.partials/interview-instruction.md" %}
 
-{% include-markdown "../../../_partials/interview-level-intermediate.md" %}
+{% include-markdown "../../../.partials/interview-level-intermediate.md" %}
 
 ??? question "1. What is the key difference between `git fetch` and `git pull`?"
     **`git fetch` only downloads new data from the remote; `git pull` downloads AND merges it**.
@@ -112,4 +112,4 @@ description: "Top 20 Intermediate Git interview questions covering branching, me
 ### 🧪 Ready to test yourself?
 👉 **[Take the Git Intermediate Quiz](../../../quiz/git/intermediate/index.md)**
 
-{% include-markdown "../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../.partials/subscribe-guides.md" %}

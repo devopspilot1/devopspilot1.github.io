@@ -5,9 +5,9 @@ description: "Top 20 Basic AWS SysOps Administrator interview questions covering
 
 # Basics Questions
 
-{% include-markdown "../../../../_partials/interview-instruction.md" %}
+{% include-markdown "../../../../.partials/interview-instruction.md" %}
 
-{% include-markdown "../../../../_partials/interview-level-basics.md" %}
+{% include-markdown "../../../../.partials/interview-level-basics.md" %}
 
 ??? question "1. What is the primary difference between CloudWatch Logs and CloudTrail?"
     **CloudWatch Logs captures application and system logs (what happened inside the OS/App); CloudTrail captures API calls made to the AWS account (who did what to the infrastructure)**.
@@ -112,4 +112,4 @@ description: "Top 20 Basic AWS SysOps Administrator interview questions covering
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS SysOps Administrator Basics Quiz](../../../../quiz/aws/sysops-admin/basics/index.md)**
 
-{% include-markdown "../../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../../.partials/subscribe-guides.md" %}

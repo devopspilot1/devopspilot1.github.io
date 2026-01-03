@@ -89,4 +89,4 @@ Git is the version control engine that runs on your computer, while GitHub is a 
 
 ---
 
-{% include-markdown "_partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

@@ -219,4 +219,4 @@ Migration of data between the lake and the warehouse is seamless in this archite
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

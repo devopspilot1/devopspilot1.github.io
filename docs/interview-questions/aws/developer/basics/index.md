@@ -5,9 +5,9 @@ description: "Top 20 Basic AWS Developer interview questions covering Lambda, AP
 
 # Basics Questions
 
-{% include-markdown "../../../../_partials/interview-instruction.md" %}
+{% include-markdown "../../../../.partials/interview-instruction.md" %}
 
-{% include-markdown "../../../../_partials/interview-level-basics.md" %}
+{% include-markdown "../../../../.partials/interview-level-basics.md" %}
 
 ??? question "1. What is a "Cold Start" in AWS Lambda?"
     **The latency experienced when Lambda initializes a new execution environment (container) to handle a request**.
@@ -112,4 +112,4 @@ description: "Top 20 Basic AWS Developer interview questions covering Lambda, AP
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS Developer Basics Quiz](../../../../quiz/aws/developer/basics/index.md)**
 
-{% include-markdown "../../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../../.partials/subscribe-guides.md" %}

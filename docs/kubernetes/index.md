@@ -112,4 +112,4 @@ Follow this order for best understanding 👇
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

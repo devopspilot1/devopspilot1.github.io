@@ -225,4 +225,4 @@ To strengthen your understanding and prepare for interviews, try the **full 20-q
 
 ---
 
-{% include-markdown "_partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

@@ -205,4 +205,4 @@ GitHub deprecated account passwords for command-line Git authentication; you mus
 
 ---
 
-{% include-markdown "_partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

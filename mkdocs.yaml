@@ -13,7 +13,7 @@ theme:
     - navigation.top
     - navigation.footer
     - navigation.expand
-    # - navigation.indexes
+    - navigation.indexes
     - toc.follow
     - content.code.copy
 copyright:  Copyright &copy; 2021 - 2026 DevopsPilot
@@ -73,56 +73,58 @@ nav:
       - Rebase: git/advanced/rebase/index.md
       - Visual Diff and Merge Tools: git/advanced/visual-diff-merge/index.md
   - Build Tools:
+    - Overview: build-tools/index.md
     - Maven:
-      - How to install Java and compile a single Java file: build-tools/maven/install-java-compile.md
-      - How to install Maven in Linux: build-tools/maven/install-maven.md
-      - What is Maven?: build-tools/maven/what-is-maven.md
-      - Generate a sample java application using maven: build-tools/maven/generate-a-sample-java-application-using-maven.md
-      - How to create a GitHub repository and push a Hello World Java 21 Maven Project: build-tools/maven/how-to-create-a-github-repository-and-push-a-sample-java-maven-project.md
+      - How to install Java and compile a single Java file: build-tools/maven/install-java-compile/index.md
+      - How to install Maven in Linux: build-tools/maven/install-maven/index.md
+      - What is Maven?: build-tools/maven/what-is-maven/index.md
+      - Generate a sample java application using maven: build-tools/maven/generate-sample-app/index.md
+      - How to create a GitHub repository and push a Hello World Java 21 Maven Project: build-tools/maven/create-github-repo/index.md
   - Web Server:
+    - Overview: webserver/index.md
     - Nginx:
-      - How to install nginx in Linux: webserver/nginx/how-to-install-nginx.md
+      - How to install nginx in Linux: webserver/nginx/install-nginx/index.md
     - Tomcat:
-      - How to install Tomcat: webserver/tomcat/installation.md
-      - How to manually deploy the java application to Tomcat 9 webserver: webserver/tomcat/how-to-manually-deploy-java-application-to-tomcat.md
-      - How to deploy the java application to Tomcat 9 webserver using Maven: webserver/tomcat/how-to-deploy-java-application-to-tomcat-using-maven.md
+      - How to install Tomcat: webserver/tomcat/installation/index.md
+      - How to manually deploy the java application to Tomcat 9 webserver: webserver/tomcat/manual-deploy/index.md
+      - How to deploy the java application to Tomcat 9 webserver using Maven: webserver/tomcat/maven-deploy/index.md
   - Jenkins:
     - Overview: jenkins/index.md
     - Tutorials:
-      - How to install Jenkins with Java 21 on Ubuntu 24.04: jenkins/tutorials/how-to-install-jenkins-with-java-21-on-ubuntu.md
-      - How to complete the initial setup after installing Jenkins: jenkins/tutorials/how-to-complete-the-initial-setup-after-installing-jenkins.md
-      - How to create a Freestyle project in Jenkins to build a Maven Java project: jenkins/tutorials/how-to-create-a-freestyle-project-to-build-a-maven-java-project.md
-      - How to install the Maven plugin in Jenkins: jenkins/tutorials/how-to-create-a-maven-project-in-jenkins-to-build-a-maven-java-project.md
-      - How to install Maven using Jenkins Tools: jenkins/tutorials/how-to-install-the-maven-plugin-in-jenkins.md
-      - How to create a Maven project in Jenkins to build a Maven Java project: jenkins/tutorials/how-to-install-maven-from-jenkins-tools.md
-      - How to store a Github Token safely in Jenkins Credentials: jenkins/tutorials/how-to-store-a-github-token-safely-in-jenkins-credentials.md
-      - How to create a Maven project in Jenkins with Private Github Repository: jenkins/tutorials/how-to-create-a-maven-project-in-jenkins-with-private-github-repository.md
-      - How to create a Pipeline in Jenkins using Pipeline Script: jenkins/tutorials/how-to-create-a-pipeline-in-jenkins.md
-      - How to write a Jenkinsfile: jenkins/tutorials/how-to-write-jenkinsfile.md
-      - How to create a Pipeline in Jenkins using Jenkinsfile: jenkins/tutorials/how-to-create-a-pipeline-in-jenkins-using-jenkinsfile.md
-      - Jenkinsfile to build a Java Maven Project: jenkins/tutorials/jenkinsfile-to-build-a-java-maven-project.md
-      - How to use the tools block in Jenkinsfile to refer to Maven: jenkins/tutorials/how-to-use-tools-block-in-jenkinsfile.md
-      - How to enable GitHub Webhook to trigger the Jenkins pipeline: jenkins/tutorials/how-to-enable-github-webhook-to-trigger-the-jenkins-pipeline.md
-      - Jenkinsfile to trigger the Jenkins Pipeline using Poll SCM: jenkins/tutorials/jenkinsfile-to-trigger-the-jenkins-pipeline-using-poll-scm.md
-      - Jenkinsfile to trigger the Jenkins Pipeline using Cron: jenkins/tutorials/jenkinsfile-to-trigger-the-jenkins-pipeline-using-cron.md
-      - Jenkinsfile to trigger the Pipeline from the Upstream Pipeline: jenkins/tutorials/jenkinsfile-to-trigger-the-pipeline-from-the-upstream-pipeline.md
-      - Jenkinsfile to trigger other Jenkins Pipeline from the stage: jenkins/tutorials/jenkinsfile-to-trigger-other-jenkins-pipeline-from-the-stage.md
-      - Generate the code for Jenkinsfile using Declarative Directive Generator: jenkins/tutorials/generate-the-code-for-jenkinsfile-using-declarative-directive-generator.md
-      - How to Replay the Jenkins Pipeline: jenkins/tutorials/how-to-replay-the-jenkins-pipeline.md
-      - How to use Options in Jenkinsfile: jenkins/tutorials/use-of-options-in-jenkinsfile.md
+      - How to install Jenkins with Java 21 on Ubuntu 24.04: jenkins/tutorials/install-jenkins-java21/index.md
+      - How to complete the initial setup after installing Jenkins: jenkins/tutorials/initial-setup/index.md
+      - How to create a Freestyle project in Jenkins to build a Maven Java project: jenkins/tutorials/freestyle-project-maven/index.md
+      - How to install the Maven plugin in Jenkins: jenkins/tutorials/install-maven-plugin/index.md
+      - How to install Maven using Jenkins Tools: jenkins/tutorials/install-maven-tools/index.md
+      - How to create a Maven project in Jenkins to build a Maven Java project: jenkins/tutorials/maven-project-plugin/index.md
+      - How to store a Github Token safely in Jenkins Credentials: jenkins/tutorials/github-token-credentials/index.md
+      - How to create a Maven project in Jenkins with Private Github Repository: jenkins/tutorials/maven-private-repo/index.md
+      - How to create a Pipeline in Jenkins using Pipeline Script: jenkins/tutorials/create-pipeline-script/index.md
+      - How to write a Jenkinsfile: jenkins/tutorials/write-jenkinsfile/index.md
+      - How to create a Pipeline in Jenkins using Jenkinsfile: jenkins/tutorials/create-pipeline-jenkinsfile/index.md
+      - Jenkinsfile to build a Java Maven Project: jenkins/tutorials/jenkinsfile-maven-project/index.md
+      - How to use the tools block in Jenkinsfile to refer to Maven: jenkins/tutorials/tools-block-jenkinsfile/index.md
+      - How to enable GitHub Webhook to trigger the Jenkins pipeline: jenkins/tutorials/github-webhook-trigger/index.md
+      - Jenkinsfile to trigger the Jenkins Pipeline using Poll SCM: jenkins/tutorials/poll-scm-trigger/index.md
+      - Jenkinsfile to trigger the Jenkins Pipeline using Cron: jenkins/tutorials/cron-trigger/index.md
+      - Jenkinsfile to trigger the Pipeline from the Upstream Pipeline: jenkins/tutorials/upstream-trigger/index.md
+      - Jenkinsfile to trigger other Jenkins Pipeline from the stage: jenkins/tutorials/trigger-other-pipeline/index.md
+      - Generate the code for Jenkinsfile using Declarative Directive Generator: jenkins/tutorials/declarative-generator/index.md
+      - How to Replay the Jenkins Pipeline: jenkins/tutorials/replay-pipeline/index.md
+      - How to use Options in Jenkinsfile: jenkins/tutorials/pipeline-options/index.md
     - Configuration:
-      - How to install plugins in Jenkins: jenkins/configuration/how-to-install-plugins.md
-      - Global Tool Configurations: jenkins/configuration/global-tool-configurations.md
-      - How to store credentials in Jenkins: jenkins/configuration/how-to-store-credentials-in-jenkins.md
-      - How to restore deleted job in Jenkins: jenkins/configuration/how-to-restore-deleted-job.md
+      - How to install plugins in Jenkins: jenkins/configuration/install-plugins/index.md
+      - Global Tool Configurations: jenkins/configuration/global-tools/index.md
+      - How to store credentials in Jenkins: jenkins/configuration/store-credentials/index.md
+      - How to restore deleted job in Jenkins: jenkins/configuration/restore-deleted-job/index.md
     - Pipelines:
-      - How to create pipeline job in Jenkins: jenkins/pipelines/how-to-create-pipeline-job.md
-      - How to write a Jenkinsfile to build a Maven project: jenkins/pipelines/jenkinsfile-to-build-maven-project.md
-      - How to write a Jenkinsfile to build a Maven project and deploy to Apache Tomcat webserver: jenkins/pipelines/jenkinsfile-to-build-maven-project-and-deploy-to-tomcat.md
-      - How to write a Jenkinsfile to build a Maven project, build and push docker image to Dockerhub and deploy the container to same server: jenkins/pipelines/jenkinsfile-to-build-docker-image-push-deploy-to-same-server.md
-      - How to write a Jenkinsfile to build a Maven project, build and push docker image to Jfrog artifactory and deploy the container to same server: jenkins/pipelines/jenkinsfile-to-build-docker-image-push-to-artifactory.md
+      - How to create pipeline job in Jenkins: jenkins/pipelines/create-pipeline-job/index.md
+      - How to write a Jenkinsfile to build a Maven project: jenkins/pipelines/jenkinsfile-maven-build/index.md
+      - How to write a Jenkinsfile to build a Maven project and deploy to Apache Tomcat webserver: jenkins/pipelines/jenkinsfile-maven-tomcat/index.md
+      - How to write a Jenkinsfile to build a Maven project, build and push docker image to Dockerhub and deploy the container to same server: jenkins/pipelines/jenkinsfile-docker-hub/index.md
+      - How to write a Jenkinsfile to build a Maven project, build and push docker image to Jfrog artifactory and deploy the container to same server: jenkins/pipelines/jenkinsfile-jfrog/index.md
     - Other Topics:
-      - How to create a Job automatically using Seed Jenkins plugin and Job DSL script: jenkins/other-topics/how-to-create-a-job-automatically-using-jobdsl.md
+      - How to create a Job automatically using Seed Jenkins plugin and Job DSL script: jenkins/other-topics/job-dsl/index.md
   - Docker:
     - Overview: docker/index.md
     - Tutorials:
@@ -168,37 +170,39 @@ nav:
     - Command Reference:
       - Imperative Commands: kubernetes/tutorials/imperative-commands/index.md
   - Helm:
+    - Overview: helm/index.md
     - Basics: helm/basics/index.md
     - Commands: helm/commands/index.md
   - Terraform:
     - Overview: terraform/index.md
     - AWS:
-      - Terraform script to create AWS Codebuild project: terraform/aws/codebuild-helloworld.md
-      - Terraform script to create AWS Codedeploy: terraform/aws/codedeploy-helloworld.md
-      - Terraform script to create AWS Codepipeline: terraform/aws/codepipeline-helloworld.md
+      - Terraform script to create AWS Codebuild project: terraform/aws/codebuild/index.md
+      - Terraform script to create AWS Codedeploy: terraform/aws/codedeploy/index.md
+      - Terraform script to create AWS Codepipeline: terraform/aws/codepipeline/index.md
     - GCP:
       - Projects:
-        - Deploy Python Flask App to Cloud Run: terraform/gcp/projects/cloud-run.md
-        - Apigee X with PSC to Cloud Run: terraform/gcp/projects/apigee-psc-cloud-run.md
+        - Deploy Python Flask App to Cloud Run: terraform/gcp/projects/cloud-run/index.md
+        - Apigee X with PSC to Cloud Run: terraform/gcp/projects/apigee-psc/index.md
   - Cloud:
+    - Overview: cloud/index.md
     - VirtualBox: cloud/virtualbox/index.md
     - On Premise Cloud: cloud/on-premise/index.md
     - Types of OS: cloud/types-of-os/index.md
     - AWS:
       - Tutorials:
-        - Deploy Flask API to AWS Lambda using Docker: cloud/aws/tutorials/deploy-flask-api-to-aws-lambda-using-docker.md
-        - Deploy FastAPI to AWS Lambda using Docker: cloud/aws/tutorials/deploy-fastapi-to-aws-lambda-using-docker.md
-        - Amazon SageMaker Guide: cloud/aws/tutorials/amazon-sagemaker-guide.md
-        - Amazon Bedrock AgentCore Guide: cloud/aws/tutorials/amazon-bedrock-agentcore-guide.md
+        - Deploy Flask API to AWS Lambda using Docker: cloud/aws/tutorials/deploy-flask-lambda/index.md
+        - Deploy FastAPI to AWS Lambda using Docker: cloud/aws/tutorials/deploy-fastapi-lambda/index.md
+        - Amazon SageMaker Guide: cloud/aws/tutorials/sagemaker/index.md
+        - Amazon Bedrock AgentCore Guide: cloud/aws/tutorials/bedrock-agentcore/index.md
     - GCP:
-      - What is GCP?: cloud/gcp/what-is-gcp.md
-      - How to create Cloud Run service using gcloud CLI: cloud/gcp/tutorials/create-cloud-run-using-gcloud-cli.md
-      - How to create Artifact Registry Docker Repository using gcloud CLI: cloud/gcp/tutorials/create-artifact-registry-using-gcloud-cli.md
-      - Build and Push Docker Image to Artifact Registry: cloud/gcp/tutorials/create-docker-image-push-to-artifact-registry.md
+      - What is GCP?: cloud/gcp/tutorials/intro/index.md
+      - How to create Cloud Run service using gcloud CLI: cloud/gcp/tutorials/create-cloud-run/index.md
+      - How to create Artifact Registry Docker Repository using gcloud CLI: cloud/gcp/tutorials/create-artifact-registry/index.md
+      - Build and Push Docker Image to Artifact Registry: cloud/gcp/tutorials/push-docker-artifact-registry/index.md
     - Projects:
-      - Deploy Python App to Cloud Run: cloud/gcp/projects/deploy-python-image-to-cloud-run.md
-      - Deploy Signed Image to Cloud Run with Binary Authorization: cloud/gcp/projects/deploy-signed-image-to-cloud-run-with-binary-authorization.md
-      - Apigee X with PSC to Cloud Run: cloud/gcp/projects/apigee-x-psc-cloudrun.md
+      - Deploy Python App to Cloud Run: cloud/gcp/projects/deploy-python-cloud-run/index.md
+      - Deploy Signed Image to Cloud Run with Binary Authorization: cloud/gcp/projects/deploy-signed-image/index.md
+      - Apigee X with PSC to Cloud Run: cloud/gcp/projects/apigee-psc-cloudrun/index.md
   # - Notebooks:
   #   - Overview: notebooks/index.md
   #   - AWS Bedrock AgentCore:
@@ -226,11 +230,13 @@ nav:
   #         - MCP Dynamic Client Registration:
   #           - Deploy DCR MCP AgentCore: https://raw.githubusercontent.com/awslabs/amazon-bedrock-agentcore-samples/refs/heads/main/01-tutorials/01-AgentCore-runtime/07-mcp-dynamic-client-registration/deploy_dcr_mcp_agentcore.ipynb
   - SSL:
+    - Overview: ssl/index.md
     - Self Signed Certificate: ssl/self-signed-certificate/index.md
     - Letsencrypt SSL with Nginx: ssl/letsencrypt-nginx/index.md
     - Letsencrypt SSL Wildcard Certificate: ssl/letsencrypt-wildcard-nginx/index.md
     - Letsencrypt SSL for Subdomains: ssl/letsencrypt-subdomains-nginx/index.md
   - Interview Questions:
+    - Overview: interview-questions/index.md
     - Linux Commands:
         - Overview: interview-questions/linux-commands/index.md
         - Basics: interview-questions/linux-commands/basics/index.md
@@ -248,11 +254,31 @@ nav:
         - Advanced: interview-questions/git/advanced/index.md
     # - Maven Interview Questions: interview-questions/
     # - Jenkins Interview Questions: interview-questions/
-    - Docker Interview Questions: interview-questions/docker.md
-    - Helm Interview Questions: interview-questions/helm.md
-    - Ansible Interview Questions: interview-questions/ansible.md
-    - Azure Interview Questions: interview-questions/azure.md
-    - GCP Interview Questions: interview-questions/gcp.md
+    - Docker Interview Questions:
+      - Overview: interview-questions/docker/index.md
+      - Basics: interview-questions/docker/basics/index.md
+      - Intermediate: interview-questions/docker/intermediate/index.md
+      - Advanced: interview-questions/docker/advanced/index.md
+    - Helm Interview Questions:
+      - Overview: interview-questions/helm/index.md
+      - Basics: interview-questions/helm/basics/index.md
+      - Intermediate: interview-questions/helm/intermediate/index.md
+      - Advanced: interview-questions/helm/advanced/index.md
+    - Ansible Interview Questions:
+      - Overview: interview-questions/ansible/index.md
+      - Basics: interview-questions/ansible/basics/index.md
+      - Intermediate: interview-questions/ansible/intermediate/index.md
+      - Advanced: interview-questions/ansible/advanced/index.md
+    - Azure Interview Questions:
+      - Overview: interview-questions/azure/index.md
+      - Basics: interview-questions/azure/basics/index.md
+      - Intermediate: interview-questions/azure/intermediate/index.md
+      - Advanced: interview-questions/azure/advanced/index.md
+    - GCP Interview Questions:
+      - Overview: interview-questions/gcp/index.md
+      - Basics: interview-questions/gcp/basics/index.md
+      - Intermediate: interview-questions/gcp/intermediate/index.md
+      - Advanced: interview-questions/gcp/advanced/index.md
     - AWS Interview Questions:
       - Overview: interview-questions/aws/index.md
       - AWS Cloud Engineer:

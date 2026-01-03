@@ -13,7 +13,7 @@ This track is designed for:
 *   Full Stack Engineers deploying on AWS
 *   Application Architects
 
-{% include-markdown "../../../_partials/interview-instruction.md" %}
+{% include-markdown "../../../.partials/interview-instruction.md" %}
 
 ## Choose Your Level
 

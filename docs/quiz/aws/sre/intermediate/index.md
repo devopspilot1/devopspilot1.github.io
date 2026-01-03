@@ -219,4 +219,4 @@ Example: Deploying EC2s in an ASG to handle peak load *before* the peak, so you 
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

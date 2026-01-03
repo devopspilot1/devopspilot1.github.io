@@ -219,4 +219,4 @@ System prompts are critical for "steering" the behavior of the model securely.
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

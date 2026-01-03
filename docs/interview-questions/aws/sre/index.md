@@ -13,7 +13,7 @@ This track is designed for:
 *   Platform Engineers
 *   DevOps Engineers focusing on reliability
 
-{% include-markdown "../../../_partials/interview-instruction.md" %}
+{% include-markdown "../../../.partials/interview-instruction.md" %}
 
 ## Choose Your Level
 

@@ -150,4 +150,4 @@ What does `git stash pop` do?
 
 ---
 
-{% include-markdown "_partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

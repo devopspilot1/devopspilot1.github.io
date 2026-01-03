@@ -219,4 +219,4 @@ It involves codified rules that continuously monitor resource configuration for 
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

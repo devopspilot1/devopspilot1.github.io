@@ -5,9 +5,9 @@ description: "Top 20 Advanced AWS SysOps Administrator interview questions cover
 
 # Advanced Questions
 
-{% include-markdown "../../../../_partials/interview-instruction.md" %}
+{% include-markdown "../../../../.partials/interview-instruction.md" %}
 
-{% include-markdown "../../../../_partials/interview-level-advanced.md" %}
+{% include-markdown "../../../../.partials/interview-level-advanced.md" %}
 
 ??? question "1. How can you automatically remediate a "Security Group allowing SSH from 0.0.0.0/0" finding?"
     **Use AWS Config to detect the violation and trigger an SSM Automation Document (Remediation Action) to remove the rule**.
@@ -112,4 +112,4 @@ description: "Top 20 Advanced AWS SysOps Administrator interview questions cover
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS SysOps Administrator Advanced Quiz](../../../../quiz/aws/sysops-admin/advanced/index.md)**
 
-{% include-markdown "../../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../../.partials/subscribe-guides.md" %}

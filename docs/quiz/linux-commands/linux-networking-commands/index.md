@@ -224,4 +224,4 @@ Which command is most useful for debugging service-to-service communication?
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

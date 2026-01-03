@@ -5,9 +5,9 @@ description: "Top 20 Advanced AWS Data Engineer interview questions covering CDC
 
 # Advanced Questions
 
-{% include-markdown "../../../../_partials/interview-instruction.md" %}
+{% include-markdown "../../../../.partials/interview-instruction.md" %}
 
-{% include-markdown "../../../../_partials/interview-level-advanced.md" %}
+{% include-markdown "../../../../.partials/interview-level-advanced.md" %}
 
 ??? question "1. Explain the AWS "Lake House" architecture benefit."
     **It enables you to query data across your Data Warehouse, Data Lake, and Operational Databases seamlessly without data movement**.
@@ -112,4 +112,4 @@ description: "Top 20 Advanced AWS Data Engineer interview questions covering CDC
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS Data Engineer Advanced Quiz](../../../../quiz/aws/data-engineer/advanced/index.md)**
 
-{% include-markdown "../../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../../.partials/subscribe-guides.md" %}

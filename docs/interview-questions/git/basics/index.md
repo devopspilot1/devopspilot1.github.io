@@ -5,9 +5,9 @@ description: "Top 20 Basic Git interview questions covering git init, commit, st
 
 # Basics Questions
 
-{% include-markdown "../../../_partials/interview-instruction.md" %}
+{% include-markdown "../../../.partials/interview-instruction.md" %}
 
-{% include-markdown "../../../_partials/interview-level-basics.md" %}
+{% include-markdown "../../../.partials/interview-level-basics.md" %}
 
 ??? question "1. Which command initializes a new Git repository?"
     **`git init`**.
@@ -112,4 +112,4 @@ description: "Top 20 Basic Git interview questions covering git init, commit, st
 ### 🧪 Ready to test yourself?
 👉 **[Take the Git Basics Quiz](../../../quiz/git/basics/index.md)**
 
-{% include-markdown "../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../.partials/subscribe-guides.md" %}

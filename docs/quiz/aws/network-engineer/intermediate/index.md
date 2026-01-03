@@ -219,4 +219,4 @@ How do you debug a "Connection Timed Out" error?
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

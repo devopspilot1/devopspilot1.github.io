@@ -64,4 +64,4 @@ The `README.md` file is automatically rendered on the main page of GitHub reposi
 
 ---
 
-{% include-markdown "_partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

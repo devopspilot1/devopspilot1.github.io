@@ -168,4 +168,4 @@ Hurray! we have successfully configured the SSL/TLS certificate in nginx webserv
 
 ### Reference:
 
-- [How to install nginx](../../webserver/nginx/how-to-install-nginx.md)
+- [How to install nginx](../../webserver/nginx/install-nginx/index.md)

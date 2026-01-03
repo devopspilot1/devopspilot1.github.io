@@ -224,4 +224,4 @@ Which command helps verify where you are in the filesystem?
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

@@ -220,4 +220,4 @@ Which low-level command resolves a reference to a SHA-1 hash?
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

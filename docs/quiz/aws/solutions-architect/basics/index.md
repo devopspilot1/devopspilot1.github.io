@@ -219,4 +219,4 @@ Latency routing directs traffic to the region that provides the lowest network l
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

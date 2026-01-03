@@ -222,4 +222,4 @@ Without a shebang, the script is interpreted by the current shell (e.g., `bash`,
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

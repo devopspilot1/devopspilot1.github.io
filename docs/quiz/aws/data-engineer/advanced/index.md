@@ -219,4 +219,4 @@ RA3 nodes decouple storage from compute, allowing you to store petabytes of data
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

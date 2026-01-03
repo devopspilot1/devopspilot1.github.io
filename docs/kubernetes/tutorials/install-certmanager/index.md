@@ -424,4 +424,4 @@ kubectl delete -f https://github.com/cert-manager/cert-manager/releases/download
 
 ---
 
-{% include-markdown "../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../.partials/subscribe-guides.md" %}

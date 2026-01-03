@@ -219,4 +219,4 @@ SAM simplifies defining serverless resources like Functions and APIs using short
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

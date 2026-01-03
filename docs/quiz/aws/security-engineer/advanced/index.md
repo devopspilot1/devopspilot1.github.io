@@ -219,4 +219,4 @@ What is the "PrincipalOrgID" condition key?
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

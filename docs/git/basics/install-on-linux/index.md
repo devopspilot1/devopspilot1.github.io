@@ -76,4 +76,4 @@ On Ubuntu and Debian systems, `apt` is the package manager used to install softw
 
 ---
 
-{% include-markdown "_partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

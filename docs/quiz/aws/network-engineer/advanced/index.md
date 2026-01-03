@@ -219,4 +219,4 @@ Hybrid resiliency requires careful BGP configuration to prefer the fast link (DX
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

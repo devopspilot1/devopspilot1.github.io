@@ -219,4 +219,4 @@ This is the classic "Elastic" pattern: ASG adds/removes compute, ELB distributes
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

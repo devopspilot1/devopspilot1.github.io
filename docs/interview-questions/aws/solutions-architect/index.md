@@ -15,7 +15,7 @@ This track is designed for:
 *   Technical Architects
 *   Cloud Engineers transitioning to Architecture roles
 
-{% include-markdown "../../../_partials/interview-instruction.md" %}
+{% include-markdown "../../../.partials/interview-instruction.md" %}
 
 ## Choose Your Level
 

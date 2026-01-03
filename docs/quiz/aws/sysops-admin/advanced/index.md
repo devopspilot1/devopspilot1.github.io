@@ -219,4 +219,4 @@ You can grow an attached volume while the OS is running and IO is happening.
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

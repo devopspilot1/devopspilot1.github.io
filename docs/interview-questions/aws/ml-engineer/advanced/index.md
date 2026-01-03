@@ -5,9 +5,9 @@ description: "Top 20 Advanced AWS Machine Learning Engineer interview questions 
 
 # Advanced Questions
 
-{% include-markdown "../../../../_partials/interview-instruction.md" %}
+{% include-markdown "../../../../.partials/interview-instruction.md" %}
 
-{% include-markdown "../../../../_partials/interview-level-advanced.md" %}
+{% include-markdown "../../../../.partials/interview-level-advanced.md" %}
 
 ??? question "1. How do you implement a "Serial Inference Pipeline" on SageMaker?"
     **Create a single PipelineModel that chains multiple containers (e.g., Preprocessing Container -> Prediction Container) on the same endpoint instance**.
@@ -112,4 +112,4 @@ description: "Top 20 Advanced AWS Machine Learning Engineer interview questions 
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS ML Engineer Advanced Quiz](../../../../quiz/aws/ml-engineer/advanced/index.md)**
 
-{% include-markdown "../../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../../.partials/subscribe-guides.md" %}

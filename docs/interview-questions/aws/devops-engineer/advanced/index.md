@@ -5,9 +5,9 @@ description: "Top 20 Advanced AWS DevOps Engineer interview questions covering C
 
 # Advanced Questions
 
-{% include-markdown "../../../../_partials/interview-instruction.md" %}
+{% include-markdown "../../../../.partials/interview-instruction.md" %}
 
-{% include-markdown "../../../../_partials/interview-level-advanced.md" %}
+{% include-markdown "../../../../.partials/interview-level-advanced.md" %}
 
 ??? question "1. How can you securely access a private RDS database from a Lambda function running inside a VPC without hardcoding credentials?"
     Use **IAM Database Authentication**.
@@ -113,4 +113,4 @@ description: "Top 20 Advanced AWS DevOps Engineer interview questions covering C
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS DevOps Engineer Advanced Quiz](../../../../quiz/aws/devops-engineer/advanced/index.md)**
 
-{% include-markdown "_partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

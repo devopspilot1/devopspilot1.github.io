@@ -5,9 +5,9 @@ description: "Top 20 Advanced AWS GenAI Engineer interview questions covering Pr
 
 # Advanced Questions
 
-{% include-markdown "../../../../_partials/interview-instruction.md" %}
+{% include-markdown "../../../../.partials/interview-instruction.md" %}
 
-{% include-markdown "../../../../_partials/interview-level-advanced.md" %}
+{% include-markdown "../../../../.partials/interview-level-advanced.md" %}
 
 ??? question "1. How do you prevent "Prompt Injection" attacks where a user tries to override the system instructions?"
     **Use delimiters (like XML tags) to separate user input from system instructions, and strictly validate input length/content**.
@@ -112,4 +112,4 @@ description: "Top 20 Advanced AWS GenAI Engineer interview questions covering Pr
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS GenAI Engineer Advanced Quiz](../../../../quiz/aws/gen-ai-engineer/advanced/index.md)**
 
-{% include-markdown "../../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../../.partials/subscribe-guides.md" %}

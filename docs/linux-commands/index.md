@@ -141,7 +141,7 @@ To become job-ready, combine Linux with:
 - [Git for DevOps](../git/index.md)
 - [Jenkins CI/CD](../jenkins/index.md)
 - [Kubernetes](../kubernetes/index.md)
-- [AWS for DevOps](../cloud/aws/tutorials/amazon-sagemaker-guide.md)
+- [AWS for DevOps](../cloud/aws/tutorials/sagemaker/index.md)
 
 ---
 
@@ -159,4 +159,4 @@ Happy Learning! 🚀
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

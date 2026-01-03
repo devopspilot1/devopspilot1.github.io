@@ -223,4 +223,4 @@ How do you break out of an infinite loop?
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

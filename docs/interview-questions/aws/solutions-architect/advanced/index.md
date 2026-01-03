@@ -5,9 +5,9 @@ description: "Top 20 Advanced AWS Solutions Architect interview questions coveri
 
 # Advanced Questions
 
-{% include-markdown "../../../../_partials/interview-instruction.md" %}
+{% include-markdown "../../../../.partials/interview-instruction.md" %}
 
-{% include-markdown "../../../../_partials/interview-level-advanced.md" %}
+{% include-markdown "../../../../.partials/interview-level-advanced.md" %}
 
 ??? question "1. You observe an API Gateway returning "504 Gateway Timeout" errors. The backend is a Lambda function. What is the most likely cause?"
     **The Lambda function is taking longer than 29 seconds to execute (API Gateway's hard timeout limit)**.
@@ -112,4 +112,4 @@ description: "Top 20 Advanced AWS Solutions Architect interview questions coveri
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS Solutions Architect Advanced Quiz](../../../../quiz/aws/solutions-architect/advanced/index.md)**
 
-{% include-markdown "../../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../../.partials/subscribe-guides.md" %}

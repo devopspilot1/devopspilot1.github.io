@@ -83,4 +83,4 @@ Follow this order for best understanding 👇
 
 ---
 
-{% include-markdown "_partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

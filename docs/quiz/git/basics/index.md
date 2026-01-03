@@ -220,4 +220,4 @@ How do you create a tag for a specific commit?
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

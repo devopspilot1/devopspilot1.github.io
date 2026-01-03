@@ -219,4 +219,4 @@ How do you validate Terraform/CloudFormation templates before deployment?
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

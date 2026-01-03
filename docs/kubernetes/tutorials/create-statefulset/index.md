@@ -503,4 +503,4 @@ kubectl get events --field-selector involvedObject.kind=StatefulSet
 
 ---
 
-{% include-markdown "../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../.partials/subscribe-guides.md" %}

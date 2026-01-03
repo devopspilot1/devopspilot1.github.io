@@ -132,4 +132,4 @@ vigneshsweekaran/nginx   latest    89da1fb6dcb9   12 hours ago   187MB
 
 ---
 
-{% include-markdown "../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../.partials/subscribe-guides.md" %}

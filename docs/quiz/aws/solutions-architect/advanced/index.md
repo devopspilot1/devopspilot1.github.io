@@ -219,4 +219,4 @@ It allows you to verify new services in production incrementally while the legac
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

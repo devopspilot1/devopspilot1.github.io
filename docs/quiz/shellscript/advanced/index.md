@@ -222,4 +222,4 @@ How can you process command-line arguments using a loop?
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

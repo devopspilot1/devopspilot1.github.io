@@ -353,4 +353,4 @@ kubectl auth can-i get configmaps
 
 ---
 
-{% include-markdown "../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../.partials/subscribe-guides.md" %}

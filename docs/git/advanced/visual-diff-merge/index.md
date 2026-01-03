@@ -77,5 +77,5 @@ Which command allows you to view changes using an external visual tool?
 
 ---
 
-{% include-markdown "_partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}
 

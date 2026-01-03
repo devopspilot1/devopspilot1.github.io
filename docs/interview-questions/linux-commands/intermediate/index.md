@@ -5,9 +5,9 @@ description: "Top 20 Intermediate Linux interview questions covering disk usage,
 
 # Intermediate Questions
 
-{% include-markdown "../../../_partials/interview-instruction.md" %}
+{% include-markdown "../../../.partials/interview-instruction.md" %}
 
-{% include-markdown "../../../_partials/interview-level-intermediate.md" %}
+{% include-markdown "../../../.partials/interview-level-intermediate.md" %}
 
 ??? question "1. Which command shows memory usage in Linux?"
     **`free -h`**.
@@ -113,4 +113,4 @@ description: "Top 20 Intermediate Linux interview questions covering disk usage,
 👉 **[Take the Linux System & Disk Quiz](../../../quiz/linux-commands/linux-system-disk-commands/index.md)**
 👉 **[Take the Linux Process Management Quiz](../../../quiz/linux-commands/linux-process-service-management/index.md)**
 
-{% include-markdown "../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../.partials/subscribe-guides.md" %}

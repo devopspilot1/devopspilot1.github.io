@@ -219,4 +219,4 @@ Model selection is a trade-off between Intelligence vs Cost/Speed.
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

@@ -5,9 +5,9 @@ description: "Top 20 Intermediate AWS Network Engineer interview questions cover
 
 # Intermediate Questions
 
-{% include-markdown "../../../../_partials/interview-instruction.md" %}
+{% include-markdown "../../../../.partials/interview-instruction.md" %}
 
-{% include-markdown "../../../../_partials/interview-level-intermediate.md" %}
+{% include-markdown "../../../../.partials/interview-level-intermediate.md" %}
 
 ??? question "1. What is a major limitation of VPC Peering that AWS Transit Gateway resolves?"
     **VPC Peering is not transitive (A connected to B and B connected to C does not mean A connects to C); Transit Gateway supports transitive routing in a hub-and-spoke model**.
@@ -112,4 +112,4 @@ description: "Top 20 Intermediate AWS Network Engineer interview questions cover
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS Network Engineer Intermediate Quiz](../../../../quiz/aws/network-engineer/intermediate/index.md)**
 
-{% include-markdown "../../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../../.partials/subscribe-guides.md" %}

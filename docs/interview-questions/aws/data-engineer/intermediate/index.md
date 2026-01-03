@@ -5,9 +5,9 @@ description: "Top 20 Intermediate AWS Data Engineer interview questions covering
 
 # Intermediate Questions
 
-{% include-markdown "../../../../_partials/interview-instruction.md" %}
+{% include-markdown "../../../../.partials/interview-instruction.md" %}
 
-{% include-markdown "../../../../_partials/interview-level-intermediate.md" %}
+{% include-markdown "../../../../.partials/interview-level-intermediate.md" %}
 
 ??? question "1. How do you optimize S3 performance for high request rates (thousands of PUT/GET per second)?"
     **Use multiple prefixes (folder paths) to parallelize the requests, as S3 scaling is partition-based per prefix**.
@@ -112,4 +112,4 @@ description: "Top 20 Intermediate AWS Data Engineer interview questions covering
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS Data Engineer Intermediate Quiz](../../../../quiz/aws/data-engineer/intermediate/index.md)**
 
-{% include-markdown "../../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../../.partials/subscribe-guides.md" %}

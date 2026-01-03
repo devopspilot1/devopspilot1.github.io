@@ -79,4 +79,4 @@ Which reset mode erases your file changes completely?
 
 ---
 
-{% include-markdown "_partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

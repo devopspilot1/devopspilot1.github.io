@@ -219,4 +219,4 @@ Good agent design includes the ability to say "I found multiple flights. Which t
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

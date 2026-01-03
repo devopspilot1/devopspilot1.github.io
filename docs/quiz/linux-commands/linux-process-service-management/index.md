@@ -225,4 +225,4 @@ Which command lists failed services?
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

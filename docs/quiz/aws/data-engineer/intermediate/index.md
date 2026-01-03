@@ -219,4 +219,4 @@ Data Lakes grow indefinitely; lifecycle policies ensure you don't pay "Standard"
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

@@ -219,4 +219,4 @@ It allows IPv6 based outbound communication to the internet while preventing inb
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

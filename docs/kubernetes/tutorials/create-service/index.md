@@ -512,4 +512,4 @@ Choose the appropriate service type based on your use case:
 
 ---
 
-{% include-markdown "../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../.partials/subscribe-guides.md" %}

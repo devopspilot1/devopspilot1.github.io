@@ -5,9 +5,9 @@ description: "Top 20 Advanced AWS Security Engineer interview questions covering
 
 # Advanced Questions
 
-{% include-markdown "../../../../_partials/interview-instruction.md" %}
+{% include-markdown "../../../../.partials/interview-instruction.md" %}
 
-{% include-markdown "../../../../_partials/interview-level-advanced.md" %}
+{% include-markdown "../../../../.partials/interview-level-advanced.md" %}
 
 ??? question "1. How can you conditionally grant access to a resource *only* if the request comes from a specific VPC Endpoint?"
     **Use the `aws:SourceVpce` condition key in the resource-based policy (e.g., S3 Bucket Policy)**.
@@ -112,4 +112,4 @@ description: "Top 20 Advanced AWS Security Engineer interview questions covering
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS Security Engineer Advanced Quiz](../../../../quiz/aws/security-engineer/advanced/index.md)**
 
-{% include-markdown "../../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../../.partials/subscribe-guides.md" %}

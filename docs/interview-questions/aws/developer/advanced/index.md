@@ -5,9 +5,9 @@ description: "Top 20 Advanced AWS Developer interview questions covering Serverl
 
 # Advanced Questions
 
-{% include-markdown "../../../../_partials/interview-instruction.md" %}
+{% include-markdown "../../../../.partials/interview-instruction.md" %}
 
-{% include-markdown "../../../../_partials/interview-level-advanced.md" %}
+{% include-markdown "../../../../.partials/interview-level-advanced.md" %}
 
 ??? question "1. How can you ensure "Idempotency" in a Lambda function handling payment requests?"
     **Use a persistence store (like DynamoDB) to check if the unique transaction ID has already been processed before executing logic**.
@@ -112,4 +112,4 @@ description: "Top 20 Advanced AWS Developer interview questions covering Serverl
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS Developer Advanced Quiz](../../../../quiz/aws/developer/advanced/index.md)**
 
-{% include-markdown "../../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../../.partials/subscribe-guides.md" %}

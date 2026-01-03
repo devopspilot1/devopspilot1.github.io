@@ -193,4 +193,4 @@ ssh -p 8222 username@ip_address
 
 ---
 
-{% include-markdown "../_partials/subscribe-guides.md" %}
+{% include-markdown "../.partials/subscribe-guides.md" %}

@@ -5,9 +5,9 @@ description: "Top 20 Advanced Shell Scripting interview questions covering funct
 
 # Advanced Questions
 
-{% include-markdown "../../../_partials/interview-instruction.md" %}
+{% include-markdown "../../../.partials/interview-instruction.md" %}
 
-{% include-markdown "../../../_partials/interview-level-advanced.md" %}
+{% include-markdown "../../../.partials/interview-level-advanced.md" %}
 
 ??? question "1. How do you define a function in Bash?"
     ```bash
@@ -113,4 +113,4 @@ description: "Top 20 Advanced Shell Scripting interview questions covering funct
 ### 🧪 Ready to test yourself?
 👉 **[Take the Advanced Shell Scripting Quiz](../../../quiz/shellscript/advanced/index.md)** (Coming Soon)
 
-{% include-markdown "../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../.partials/subscribe-guides.md" %}

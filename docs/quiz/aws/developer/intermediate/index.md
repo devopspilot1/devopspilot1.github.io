@@ -219,4 +219,4 @@ Lazy loading heavy SDK clients or DB connections is a best practice for high-per
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

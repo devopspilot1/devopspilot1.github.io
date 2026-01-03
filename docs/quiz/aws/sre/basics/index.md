@@ -219,4 +219,4 @@ Critical for reliable systems that use retries.
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

@@ -107,4 +107,4 @@ Follow this order for best results 👇
 
 ---
 
-{% include-markdown "_partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

@@ -149,4 +149,4 @@ Which command allows you to pick a **specific commit** from one branch and apply
 
 ---
 
-{% include-markdown "_partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

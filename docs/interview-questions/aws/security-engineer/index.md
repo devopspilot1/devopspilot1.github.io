@@ -13,7 +13,7 @@ This track is designed for:
 *   DevSecOps Engineers
 *   Compliance Officers
 
-{% include-markdown "../../../_partials/interview-instruction.md" %}
+{% include-markdown "../../../.partials/interview-instruction.md" %}
 
 ## Choose Your Level
 

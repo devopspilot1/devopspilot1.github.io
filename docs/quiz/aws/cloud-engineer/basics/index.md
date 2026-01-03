@@ -219,4 +219,4 @@ Access control policies in IAM are written in JSON (JavaScript Object Notation).
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

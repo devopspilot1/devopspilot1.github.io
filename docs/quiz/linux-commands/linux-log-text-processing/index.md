@@ -225,4 +225,4 @@ Which tool is most commonly used to filter logs in production?
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

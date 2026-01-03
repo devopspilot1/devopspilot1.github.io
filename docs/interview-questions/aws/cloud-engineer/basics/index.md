@@ -5,9 +5,9 @@ description: "Top 20 Basic AWS Cloud Engineer interview questions covering EC2, 
 
 # Basics Questions
 
-{% include-markdown "../../../../_partials/interview-instruction.md" %}
+{% include-markdown "../../../../.partials/interview-instruction.md" %}
 
-{% include-markdown "../../../../_partials/interview-level-basics.md" %}
+{% include-markdown "../../../../.partials/interview-level-basics.md" %}
 
 ??? question "1. What is the difference between EC2 and S3?"
     **EC2 (Elastic Compute Cloud)** is a web service that provides resizable compute capacity. It is a virtual server where you can run OS and applications.
@@ -139,4 +139,4 @@ description: "Top 20 Basic AWS Cloud Engineer interview questions covering EC2, 
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS Cloud Engineer Basics Quiz](../../../../quiz/aws/cloud-engineer/basics/index.md)**
 
-{% include-markdown "_partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

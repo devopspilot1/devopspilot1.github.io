@@ -128,4 +128,4 @@ Which command creates a new branch and switches to it in one step?
 
 ---
 
-{% include-markdown "_partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

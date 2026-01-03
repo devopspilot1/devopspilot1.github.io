@@ -5,9 +5,9 @@ description: "Top 20 Intermediate Shell Scripting interview questions covering l
 
 # Intermediate Questions
 
-{% include-markdown "../../../_partials/interview-instruction.md" %}
+{% include-markdown "../../../.partials/interview-instruction.md" %}
 
-{% include-markdown "../../../_partials/interview-level-intermediate.md" %}
+{% include-markdown "../../../.partials/interview-level-intermediate.md" %}
 
 ??? question "1. What is the syntax for a `for` loop in Bash?"
     **Method 1 (Range):**
@@ -119,4 +119,4 @@ description: "Top 20 Intermediate Shell Scripting interview questions covering l
 ### 🧪 Ready to test yourself?
 👉 **[Take the Intermediate Shell Scripting Quiz](../../../quiz/shellscript/intermediate/index.md)** (Coming Soon)
 
-{% include-markdown "../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../.partials/subscribe-guides.md" %}

@@ -5,9 +5,9 @@ description: "Top 20 Intermediate AWS GenAI Engineer interview questions coverin
 
 # Intermediate Questions
 
-{% include-markdown "../../../../_partials/interview-instruction.md" %}
+{% include-markdown "../../../../.partials/interview-instruction.md" %}
 
-{% include-markdown "../../../../_partials/interview-level-intermediate.md" %}
+{% include-markdown "../../../../.partials/interview-level-intermediate.md" %}
 
 ??? question "1. What is "Chunking" in the context of Knowledge Bases?"
     **Splitting large documents into smaller, manageable pieces (chunks) before embedding and storing them**.
@@ -112,4 +112,4 @@ description: "Top 20 Intermediate AWS GenAI Engineer interview questions coverin
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS GenAI Engineer Intermediate Quiz](../../../../quiz/aws/gen-ai-engineer/intermediate/index.md)**
 
-{% include-markdown "../../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../../.partials/subscribe-guides.md" %}

@@ -219,4 +219,4 @@ To explicitly block a specific IP (blacklisting), you must use NACLs or WAF.
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

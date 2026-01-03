@@ -5,9 +5,9 @@ description: "Top 20 Advanced AWS Site Reliability Engineer interview questions 
 
 # Advanced Questions
 
-{% include-markdown "../../../../_partials/interview-instruction.md" %}
+{% include-markdown "../../../../.partials/interview-instruction.md" %}
 
-{% include-markdown "../../../../_partials/interview-level-advanced.md" %}
+{% include-markdown "../../../../.partials/interview-level-advanced.md" %}
 
 ??? question "1. How can you systematically test if your application can withstand the loss of an entire Availability Zone?"
     **Use AWS Fault Injection Simulator (FIS) to simulate an AZ outage (e.g., stopping all instances in AZ-1 and blocking network traffic)**.
@@ -112,4 +112,4 @@ description: "Top 20 Advanced AWS Site Reliability Engineer interview questions 
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS SRE Advanced Quiz](../../../../quiz/aws/sre/advanced/index.md)**
 
-{% include-markdown "../../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../../.partials/subscribe-guides.md" %}

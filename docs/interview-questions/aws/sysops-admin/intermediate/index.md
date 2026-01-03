@@ -5,9 +5,9 @@ description: "Top 20 Intermediate AWS SysOps Administrator interview questions c
 
 # Intermediate Questions
 
-{% include-markdown "../../../../_partials/interview-instruction.md" %}
+{% include-markdown "../../../../.partials/interview-instruction.md" %}
 
-{% include-markdown "../../../../_partials/interview-level-intermediate.md" %}
+{% include-markdown "../../../../.partials/interview-level-intermediate.md" %}
 
 ??? question "1. How do you recover a lost Key Pair for a Linux EC2 instance?"
     **Stop the instance, detach the root volume, attach it to a helper instance, mount it, append your new public key to `~/.ssh/authorized_keys`, unmount, reattach, and start**.
@@ -112,4 +112,4 @@ description: "Top 20 Intermediate AWS SysOps Administrator interview questions c
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS SysOps Administrator Intermediate Quiz](../../../../quiz/aws/sysops-admin/intermediate/index.md)**
 
-{% include-markdown "../../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../../.partials/subscribe-guides.md" %}

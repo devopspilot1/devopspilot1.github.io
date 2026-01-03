@@ -219,4 +219,4 @@ Checkpoints are critical for Spot training to ensure you don't lose days of prog
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

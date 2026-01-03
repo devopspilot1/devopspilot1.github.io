@@ -5,9 +5,9 @@ description: "Top 20 Basic Shell Scripting interview questions covering shebang,
 
 # Basics Questions
 
-{% include-markdown "../../../_partials/interview-instruction.md" %}
+{% include-markdown "../../../.partials/interview-instruction.md" %}
 
-{% include-markdown "../../../_partials/interview-level-basics.md" %}
+{% include-markdown "../../../.partials/interview-level-basics.md" %}
 
 ??? question "1. What is a Shell Script?"
     **A text file containing a sequence of Linux commands**.
@@ -111,4 +111,4 @@ description: "Top 20 Basic Shell Scripting interview questions covering shebang,
 ### 🧪 Ready to test yourself?
 👉 **[Take the Basic Shell Scripting Quiz](../../../quiz/shellscript/basics/index.md)** (Coming Soon)
 
-{% include-markdown "../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../.partials/subscribe-guides.md" %}

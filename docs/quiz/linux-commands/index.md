@@ -151,4 +151,4 @@ Happy Learning 🚀
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

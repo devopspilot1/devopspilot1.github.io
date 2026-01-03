@@ -364,4 +364,4 @@ kubectl get events --field-selector involvedObject.kind=DaemonSet
 
 ---
 
-{% include-markdown "../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../.partials/subscribe-guides.md" %}

@@ -290,4 +290,4 @@ kubectl auth can-i create pods -n development
 
 ---
 
-{% include-markdown "../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../.partials/subscribe-guides.md" %}

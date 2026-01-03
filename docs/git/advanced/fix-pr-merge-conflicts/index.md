@@ -159,4 +159,4 @@ You must bring the new changes from the base branch into your feature branch and
 
 ---
 
-{% include-markdown "_partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

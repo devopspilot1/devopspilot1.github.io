@@ -104,4 +104,4 @@ What do the `<<<<<<< HEAD` markers indicate in a file?
 
 ---
 
-{% include-markdown "_partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

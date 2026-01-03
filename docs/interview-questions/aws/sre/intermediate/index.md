@@ -5,9 +5,9 @@ description: "Top 20 Intermediate AWS Site Reliability Engineer interview questi
 
 # Intermediate Questions
 
-{% include-markdown "../../../../_partials/interview-instruction.md" %}
+{% include-markdown "../../../../.partials/interview-instruction.md" %}
 
-{% include-markdown "../../../../_partials/interview-level-intermediate.md" %}
+{% include-markdown "../../../../.partials/interview-level-intermediate.md" %}
 
 ??? question "1. What is a "Cell-based Architecture"?"
     **Partitioning the system into isolated units (cells) where each cell contains a full independent stack (ALB, App, DB), minimizing the blast radius**.
@@ -112,4 +112,4 @@ description: "Top 20 Intermediate AWS Site Reliability Engineer interview questi
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS SRE Intermediate Quiz](../../../../quiz/aws/sre/intermediate/index.md)**
 
-{% include-markdown "../../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../../.partials/subscribe-guides.md" %}

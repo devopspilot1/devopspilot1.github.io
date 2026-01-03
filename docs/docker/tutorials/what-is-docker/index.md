@@ -67,4 +67,4 @@ Resources(Memory/cpu) in the virtual machine is shared across all containers
 
 ---
 
-{% include-markdown "../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../.partials/subscribe-guides.md" %}

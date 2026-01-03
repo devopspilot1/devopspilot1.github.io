@@ -219,4 +219,4 @@ Target Tracking works like a thermostat—it automatically adds or removes capac
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

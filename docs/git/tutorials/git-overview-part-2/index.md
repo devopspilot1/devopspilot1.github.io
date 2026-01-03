@@ -64,4 +64,4 @@ GitHub removed password authentication for Git over HTTPS in 2021, requiring tok
 
 ---
 
-{% include-markdown "_partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

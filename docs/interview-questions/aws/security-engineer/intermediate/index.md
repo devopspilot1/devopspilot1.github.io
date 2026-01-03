@@ -5,9 +5,9 @@ description: "Top 20 Intermediate AWS Security Engineer interview questions cove
 
 # Intermediate Questions
 
-{% include-markdown "../../../../_partials/interview-instruction.md" %}
+{% include-markdown "../../../../.partials/interview-instruction.md" %}
 
-{% include-markdown "../../../../_partials/interview-level-intermediate.md" %}
+{% include-markdown "../../../../.partials/interview-level-intermediate.md" %}
 
 ??? question "1. How can you securely share an AMI (Amazon Machine Image) with another AWS account?"
     **Modify the AMI permissions to add the target Account ID. If encrypted, you must also share the underlying KMS key/snapshot**.
@@ -112,4 +112,4 @@ description: "Top 20 Intermediate AWS Security Engineer interview questions cove
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS Security Engineer Intermediate Quiz](../../../../quiz/aws/security-engineer/intermediate/index.md)**
 
-{% include-markdown "../../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../../.partials/subscribe-guides.md" %}

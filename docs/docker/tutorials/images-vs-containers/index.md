@@ -102,4 +102,4 @@ LOGO=ubuntu-logo
 
 ---
 
-{% include-markdown "../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../.partials/subscribe-guides.md" %}

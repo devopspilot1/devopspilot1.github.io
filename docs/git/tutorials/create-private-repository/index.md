@@ -71,4 +71,4 @@ Private repositories restrict access to authorized users only.
 
 ---
 
-{% include-markdown "_partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

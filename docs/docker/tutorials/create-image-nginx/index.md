@@ -235,4 +235,4 @@ v2.0: digest: sha256:793d02597251f58c58ae71700f22b864f3c37f58f1130a89be595130ae6
 
 ---
 
-{% include-markdown "../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../.partials/subscribe-guides.md" %}

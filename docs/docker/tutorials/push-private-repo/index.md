@@ -131,4 +131,4 @@ devopspilot1/private-nginx   latest    89da1fb6dcb9   2 days ago   187MB
 
 ---
 
-{% include-markdown "../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../.partials/subscribe-guides.md" %}

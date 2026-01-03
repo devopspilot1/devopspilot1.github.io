@@ -219,4 +219,4 @@ SageMaker ensures the new instances are healthy before shifting traffic and term
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

@@ -219,4 +219,4 @@ Instance Store is physically attached to the host hardware. If the instance move
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

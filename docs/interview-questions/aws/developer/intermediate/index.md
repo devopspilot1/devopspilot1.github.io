@@ -5,9 +5,9 @@ description: "Top 20 Intermediate AWS Developer interview questions covering Dyn
 
 # Intermediate Questions
 
-{% include-markdown "../../../../_partials/interview-instruction.md" %}
+{% include-markdown "../../../../.partials/interview-instruction.md" %}
 
-{% include-markdown "../../../../_partials/interview-level-intermediate.md" %}
+{% include-markdown "../../../../.partials/interview-level-intermediate.md" %}
 
 ??? question "1. What is the difference between DynamoDB `Query` and `Scan`?"
     **Query finds items based on a Primary Key value and is efficient; Scan reads the entire table and filters results client-side (inefficient)**.
@@ -112,4 +112,4 @@ description: "Top 20 Intermediate AWS Developer interview questions covering Dyn
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS Developer Intermediate Quiz](../../../../quiz/aws/developer/intermediate/index.md)**
 
-{% include-markdown "../../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../../.partials/subscribe-guides.md" %}

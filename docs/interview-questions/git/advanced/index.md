@@ -5,9 +5,9 @@ description: "Top 20 Advanced Git interview questions covering rebase, cherry-pi
 
 # Advanced Questions
 
-{% include-markdown "../../../_partials/interview-instruction.md" %}
+{% include-markdown "../../../.partials/interview-instruction.md" %}
 
-{% include-markdown "../../../_partials/interview-level-advanced.md" %}
+{% include-markdown "../../../.partials/interview-level-advanced.md" %}
 
 ??? question "1. What is `git bisect` and when would you use it?"
     **A tool that uses binary search to find the specific commit that introduced a bug**.
@@ -112,4 +112,4 @@ description: "Top 20 Advanced Git interview questions covering rebase, cherry-pi
 ### 🧪 Ready to test yourself?
 👉 **[Take the Git Advanced Quiz](../../../quiz/git/advanced/index.md)**
 
-{% include-markdown "../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../.partials/subscribe-guides.md" %}

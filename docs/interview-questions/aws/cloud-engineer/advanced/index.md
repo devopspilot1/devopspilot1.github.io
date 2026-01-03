@@ -5,9 +5,9 @@ description: "Top 20 Advanced AWS Cloud Engineer interview questions covering ar
 
 # Advanced Questions
 
-{% include-markdown "../../../../_partials/interview-instruction.md" %}
+{% include-markdown "../../../../.partials/interview-instruction.md" %}
 
-{% include-markdown "../../../../_partials/interview-level-advanced.md" %}
+{% include-markdown "../../../../.partials/interview-level-advanced.md" %}
 
 ??? question "1. How do you recover a lost Key Pair for an EC2 instance?"
     You cannot recover the old key. To regain access:
@@ -150,4 +150,4 @@ description: "Top 20 Advanced AWS Cloud Engineer interview questions covering ar
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS Cloud Engineer Advanced Quiz](../../../../quiz/aws/cloud-engineer/advanced/index.md)**
 
-{% include-markdown "../../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../../.partials/subscribe-guides.md" %}

@@ -5,9 +5,9 @@ description: "Top 20 Basic Linux interview questions covering ls, cd, file permi
 
 # Basics Questions
 
-{% include-markdown "../../../_partials/interview-instruction.md" %}
+{% include-markdown "../../../.partials/interview-instruction.md" %}
 
-{% include-markdown "../../../_partials/interview-level-basics.md" %}
+{% include-markdown "../../../.partials/interview-level-basics.md" %}
 
 ??? question "1. Which command prints the current working directory?"
     **`pwd` (Print Working Directory)**.
@@ -112,4 +112,4 @@ description: "Top 20 Basic Linux interview questions covering ls, cd, file permi
 ### 🧪 Ready to test yourself?
 👉 **[Take the Basic Linux Commands Quiz](../../../quiz/linux-commands/basic-linux-commands/index.md)**
 
-{% include-markdown "../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../.partials/subscribe-guides.md" %}

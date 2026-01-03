@@ -224,4 +224,4 @@ Which permission setting prevents others from accessing a file?
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

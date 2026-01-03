@@ -5,9 +5,9 @@ description: "Top 20 Basic AWS GenAI Engineer interview questions covering Bedro
 
 # Basics Questions
 
-{% include-markdown "../../../../_partials/interview-instruction.md" %}
+{% include-markdown "../../../../.partials/interview-instruction.md" %}
 
-{% include-markdown "../../../../_partials/interview-level-basics.md" %}
+{% include-markdown "../../../../.partials/interview-level-basics.md" %}
 
 ??? question "1. What is Amazon Bedrock?"
     **A fully managed service that offers a choice of high-performing foundation models via a single API**.
@@ -112,4 +112,4 @@ description: "Top 20 Basic AWS GenAI Engineer interview questions covering Bedro
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS GenAI Engineer Basics Quiz](../../../../quiz/aws/gen-ai-engineer/basics/index.md)**
 
-{% include-markdown "../../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../../.partials/subscribe-guides.md" %}

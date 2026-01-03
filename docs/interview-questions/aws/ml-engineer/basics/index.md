@@ -5,9 +5,9 @@ description: "Top 20 Basic AWS Machine Learning Engineer interview questions cov
 
 # Basics Questions
 
-{% include-markdown "../../../../_partials/interview-instruction.md" %}
+{% include-markdown "../../../../.partials/interview-instruction.md" %}
 
-{% include-markdown "../../../../_partials/interview-level-basics.md" %}
+{% include-markdown "../../../../.partials/interview-level-basics.md" %}
 
 ??? question "1. What are the three main lifecycle stages managed by Amazon SageMaker?"
     **Build, Train, and Deploy**.
@@ -112,4 +112,4 @@ description: "Top 20 Basic AWS Machine Learning Engineer interview questions cov
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS ML Engineer Basics Quiz](../../../../quiz/aws/ml-engineer/basics/index.md)**
 
-{% include-markdown "../../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../../.partials/subscribe-guides.md" %}

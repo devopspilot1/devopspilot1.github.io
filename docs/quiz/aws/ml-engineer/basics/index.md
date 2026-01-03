@@ -219,4 +219,4 @@ Local mode saves time and money by avoiding the spin-up overhead of a full train
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

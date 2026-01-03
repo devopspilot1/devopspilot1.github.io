@@ -87,4 +87,4 @@ Project-based Terraform examples on GCP:
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

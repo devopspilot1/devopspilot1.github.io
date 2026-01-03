@@ -219,4 +219,4 @@ Best practice: Secure the root user with MFA and lock it away. Use it only for b
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

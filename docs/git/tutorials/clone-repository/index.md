@@ -56,4 +56,4 @@ Cloning creates a full local copy of the repo history and files.
 
 ---
 
-{% include-markdown "_partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

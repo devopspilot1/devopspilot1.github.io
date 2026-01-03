@@ -219,4 +219,4 @@ CDK allows you to define cloud resources using modern programming languages and 
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

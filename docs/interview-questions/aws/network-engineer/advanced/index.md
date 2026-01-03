@@ -5,9 +5,9 @@ description: "Top 20 Advanced AWS Network Engineer interview questions covering 
 
 # Advanced Questions
 
-{% include-markdown "../../../../_partials/interview-instruction.md" %}
+{% include-markdown "../../../../.partials/interview-instruction.md" %}
 
-{% include-markdown "../../../../_partials/interview-level-advanced.md" %}
+{% include-markdown "../../../../.partials/interview-level-advanced.md" %}
 
 ??? question "1. How does AWS Global Accelerator differ from CloudFront?"
     **Global Accelerator uses Layer 4 (TCP/UDP) Anycast IPs to route traffic over the AWS backbone to EC2/ALB endpoints; CloudFront is a Layer 7 Content Delivery Network (caches content)**.
@@ -112,4 +112,4 @@ description: "Top 20 Advanced AWS Network Engineer interview questions covering 
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS Network Engineer Advanced Quiz](../../../../quiz/aws/network-engineer/advanced/index.md)**
 
-{% include-markdown "../../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../../.partials/subscribe-guides.md" %}

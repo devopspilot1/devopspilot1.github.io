@@ -225,4 +225,4 @@ Which command helps a DevOps engineer quickly verify disk space issues?
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

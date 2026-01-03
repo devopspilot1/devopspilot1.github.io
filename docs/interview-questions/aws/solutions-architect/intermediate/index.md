@@ -5,9 +5,9 @@ description: "Top 20 Intermediate AWS Solutions Architect interview questions co
 
 # Intermediate Questions
 
-{% include-markdown "../../../../_partials/interview-instruction.md" %}
+{% include-markdown "../../../../.partials/interview-instruction.md" %}
 
-{% include-markdown "../../../../_partials/interview-level-intermediate.md" %}
+{% include-markdown "../../../../.partials/interview-level-intermediate.md" %}
 
 ??? question "1. What is a "Fan-out" architecture using SNS and SQS?"
     **A pattern where a single message published to an SNS topic is pushed to multiple SQS queues for parallel processing**.
@@ -112,4 +112,4 @@ description: "Top 20 Intermediate AWS Solutions Architect interview questions co
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS Solutions Architect Intermediate Quiz](../../../../quiz/aws/solutions-architect/intermediate/index.md)**
 
-{% include-markdown "../../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../../.partials/subscribe-guides.md" %}

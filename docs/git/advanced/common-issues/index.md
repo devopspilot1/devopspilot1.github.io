@@ -55,4 +55,4 @@ Git handles permissions via `update-index` as it tracks the executable bit.
 
 ---
 
-{% include-markdown "_partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

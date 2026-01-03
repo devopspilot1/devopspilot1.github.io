@@ -29,4 +29,4 @@ we no need to explicity define the `CMD` here, because `CMD` is already written 
 
 ---
 
-{% include-markdown "../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../.partials/subscribe-guides.md" %}

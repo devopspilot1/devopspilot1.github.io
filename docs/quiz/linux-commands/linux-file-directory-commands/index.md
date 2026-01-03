@@ -224,4 +224,4 @@ Which command helps visualize directory contents recursively?
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

@@ -219,4 +219,4 @@ Split-tunneling prevents bottlenecking your corporate network with users' person
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

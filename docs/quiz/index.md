@@ -118,4 +118,4 @@ Build skills. Not just notes.
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

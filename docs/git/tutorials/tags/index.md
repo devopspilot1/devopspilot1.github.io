@@ -85,4 +85,4 @@ Which command pushes **all** your local tags to the remote repository?
 
 ---
 
-{% include-markdown "_partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

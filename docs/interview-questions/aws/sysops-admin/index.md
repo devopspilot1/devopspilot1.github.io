@@ -15,7 +15,7 @@ This track is designed for:
 *   Cloud Operations Engineers
 *   SREs focusing on AWS operations
 
-{% include-markdown "../../../_partials/interview-instruction.md" %}
+{% include-markdown "../../../.partials/interview-instruction.md" %}
 
 ## Choose Your Level
 

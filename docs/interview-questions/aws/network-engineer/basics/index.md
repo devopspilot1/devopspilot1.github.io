@@ -5,9 +5,9 @@ description: "Top 20 Basic AWS Network Engineer interview questions covering VPC
 
 # Basics Questions
 
-{% include-markdown "../../../../_partials/interview-instruction.md" %}
+{% include-markdown "../../../../.partials/interview-instruction.md" %}
 
-{% include-markdown "../../../../_partials/interview-level-basics.md" %}
+{% include-markdown "../../../../.partials/interview-level-basics.md" %}
 
 ??? question "1. What is a VPC (Virtual Private Cloud)?"
     **A logically isolated section of the AWS Cloud where you can launch resources in a virtual network that you define**.
@@ -112,4 +112,4 @@ description: "Top 20 Basic AWS Network Engineer interview questions covering VPC
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS Network Engineer Basics Quiz](../../../../quiz/aws/network-engineer/basics/index.md)**
 
-{% include-markdown "../../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../../.partials/subscribe-guides.md" %}

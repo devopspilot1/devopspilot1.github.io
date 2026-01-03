@@ -5,9 +5,9 @@ description: "Top 20 Basic AWS Security Engineer interview questions covering IA
 
 # Basics Questions
 
-{% include-markdown "../../../../_partials/interview-instruction.md" %}
+{% include-markdown "../../../../.partials/interview-instruction.md" %}
 
-{% include-markdown "../../../../_partials/interview-level-basics.md" %}
+{% include-markdown "../../../../.partials/interview-level-basics.md" %}
 
 ??? question "1. What is an IAM Policy?"
     **A document that defines permissions (allow/deny) for an identity (User/Role) or resource**.
@@ -112,4 +112,4 @@ description: "Top 20 Basic AWS Security Engineer interview questions covering IA
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS Security Engineer Basics Quiz](../../../../quiz/aws/security-engineer/basics/index.md)**
 
-{% include-markdown "../../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../../.partials/subscribe-guides.md" %}

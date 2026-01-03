@@ -225,4 +225,4 @@ The shebang `#!/bin/bash` at the top of a script tells the system to execute the
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

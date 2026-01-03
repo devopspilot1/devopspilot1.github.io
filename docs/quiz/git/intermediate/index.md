@@ -220,4 +220,4 @@ Which command helps you switch to a specific commit (entering detached HEAD stat
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

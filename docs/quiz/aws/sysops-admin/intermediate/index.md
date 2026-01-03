@@ -219,4 +219,4 @@ Lifecycle policies are the primary mechanism for S3 cost optimization.
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

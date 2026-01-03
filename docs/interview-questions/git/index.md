@@ -13,7 +13,7 @@ This track is designed for:
 *   Software Developers
 *   Release Managers
 
-{% include-markdown "../../_partials/interview-instruction.md" %}
+{% include-markdown "../../.partials/interview-instruction.md" %}
 
 ## Choose Your Level
 

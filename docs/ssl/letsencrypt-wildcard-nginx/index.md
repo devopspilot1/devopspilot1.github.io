@@ -174,6 +174,6 @@ Hurray! we have successfully configured the SSL/TLS certificate in nginx webserv
 
 ### Reference:
 
-- [How to install nginx](../../webserver/nginx/how-to-install-nginx.md)
+- [How to install nginx](../../webserver/nginx/install-nginx/index.md)
 
 - [How to configure Free Let’s Encrypt SSL/TLS Certificates with NGINX](../letsencrypt-nginx/index.md)

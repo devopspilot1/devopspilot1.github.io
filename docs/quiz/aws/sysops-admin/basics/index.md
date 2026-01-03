@@ -219,4 +219,4 @@ Always use SecureString for passwords/keys to ensure they are encrypted at rest.
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

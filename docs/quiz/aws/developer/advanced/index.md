@@ -219,4 +219,4 @@ You cannot request strongly consistent reads from a Global Secondary Index (GSI)
 
 ---
 
-{% include-markdown "_partials/subscribe.md" %}
+{% include-markdown ".partials/subscribe.md" %}

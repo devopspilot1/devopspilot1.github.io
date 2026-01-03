@@ -107,4 +107,4 @@ Pull Requests are dynamic views of a branch; updating the branch updates the PR.
 
 ---
 
-{% include-markdown "_partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

@@ -5,9 +5,9 @@ description: "Top 20 Basic AWS Site Reliability Engineer interview questions cov
 
 # Basics Questions
 
-{% include-markdown "../../../../_partials/interview-instruction.md" %}
+{% include-markdown "../../../../.partials/interview-instruction.md" %}
 
-{% include-markdown "../../../../_partials/interview-level-basics.md" %}
+{% include-markdown "../../../../.partials/interview-level-basics.md" %}
 
 ??? question "1. What are the "Three Pillars of Observability"?"
     **Metrics, Logs, and Traces**.
@@ -112,4 +112,4 @@ description: "Top 20 Basic AWS Site Reliability Engineer interview questions cov
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS SRE Basics Quiz](../../../../quiz/aws/sre/basics/index.md)**
 
-{% include-markdown "../../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../../.partials/subscribe-guides.md" %}

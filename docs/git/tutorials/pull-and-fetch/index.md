@@ -71,4 +71,4 @@ Which command downloads changes but does **not** modify your working files?
 
 ---
 
-{% include-markdown "_partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

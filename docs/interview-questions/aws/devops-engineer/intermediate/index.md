@@ -5,9 +5,9 @@ description: "Top 20 Intermediate AWS DevOps Engineer interview questions coveri
 
 # Intermediate Questions
 
-{% include-markdown "../../../../_partials/interview-instruction.md" %}
+{% include-markdown "../../../../.partials/interview-instruction.md" %}
 
-{% include-markdown "../../../../_partials/interview-level-intermediate.md" %}
+{% include-markdown "../../../../.partials/interview-level-intermediate.md" %}
 
 ??? question "1. What is "Drift Detection" in AWS CloudFormation?"
     A feature that detects if a stack's actual configuration differs from its template.
@@ -113,4 +113,4 @@ description: "Top 20 Intermediate AWS DevOps Engineer interview questions coveri
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS DevOps Engineer Intermediate Quiz](../../../../quiz/aws/devops-engineer/intermediate/index.md)**
 
-{% include-markdown "_partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

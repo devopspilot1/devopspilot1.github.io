@@ -346,4 +346,4 @@ You first `add` to staging, then `commit` to local history, then `push` to remot
 
 ---
 
-{% include-markdown "_partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

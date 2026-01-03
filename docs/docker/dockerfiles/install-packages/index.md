@@ -57,4 +57,4 @@ RUN mkdir /opt/gradle
 
 ---
 
-{% include-markdown "../../../_partials/subscribe-guides.md" %}
+{% include-markdown "../../../.partials/subscribe-guides.md" %}
