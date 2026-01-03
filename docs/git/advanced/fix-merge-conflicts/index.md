@@ -34,37 +34,37 @@ Commit and push to GitHub.
 ### 2. Create Changes (Local & Remote)
 **Local Change**: Change line 2 angle from `180` to `150`. Commit locally.
 
-![Local Commit](/git/images/mergeconflict/git-commit-150.png)
+![Local Commit](../../images/mergeconflict/git-commit-150.png)
 
 **Remote Change**: On GitHub, change line 2 angle from `180` to `200`. Commit on GitHub.
 
-![Remote Edit](/git/images/mergeconflict/git-edit-200.png)
+![Remote Edit](../../images/mergeconflict/git-edit-200.png)
 
-![Remote Commit](/git/images/mergeconflict/git-commit-200.png)
+![Remote Commit](../../images/mergeconflict/git-commit-200.png)
 
 ### 3. Trigger Conflict
 Check local history:
 ```bash
 git log
 ```
-![Log Before](/git/images/mergeconflict/git-log-before-merge.png)
+![Log Before](../../images/mergeconflict/git-log-before-merge.png)
 
 Pull remote changes:
 ```bash
 git pull origin master
 ```
-![Pull Conflict](/git/images/mergeconflict/git-pull.png)
+![Pull Conflict](../../images/mergeconflict/git-pull.png)
 
 **Conflict!** Git failed to auto-merge because both sides changed line 2.
 
 ### 4. Resolve Conflict
 Open `cat.txt`. You will see conflict markers:
 
-![Conflict View](/git/images/mergeconflict/git-conflict.png)
+![Conflict View](../../images/mergeconflict/git-conflict.png)
 
 Decide which change to keep (e.g., `200`). Remove markers `<<<<<<<`, `=======`, `>>>>>>>`.
 
-![Fixed File](/git/images/mergeconflict/git-conflict-fixed-file.png)
+![Fixed File](../../images/mergeconflict/git-conflict-fixed-file.png)
 
 ### 5. Finalize Merge
 Add and commit the resolution:
@@ -72,10 +72,10 @@ Add and commit the resolution:
 git add cat.txt
 git commit
 ```
-![Commit Fix](/git/images/mergeconflict/git-conflict-fixed.png)
+![Commit Fix](../../images/mergeconflict/git-conflict-fixed.png)
 
 Check logs to see the merge commit:
-![Log After](/git/images/mergeconflict/git-log-after-merge.png)
+![Log After](../../images/mergeconflict/git-log-after-merge.png)
 
 Push to GitHub:
 ```bash

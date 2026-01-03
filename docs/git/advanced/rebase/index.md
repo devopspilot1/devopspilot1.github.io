@@ -22,28 +22,28 @@ In the current branch, the commits coming from the target branch will be placed 
 ### 📝 Example
 1. Create a branch called `feature-1` from `dev`. Make two commits.
 
-![Feature Commits](/git/images/rebase/rebase-feature-1-commits.PNG)
+![Feature Commits](../../images/rebase/rebase-feature-1-commits.PNG)
 
-![Feature Log](/git/images/rebase/rebase-feature-1-log.PNG)
+![Feature Log](../../images/rebase/rebase-feature-1-log.PNG)
 
 2. Go to `dev` branch and make two new commits there.
 
-![Dev Commits](/git/images/rebase/rebase-dev-commits.PNG)
+![Dev Commits](../../images/rebase/rebase-dev-commits.PNG)
 
-![Dev Log](/git/images/rebase/rebase-dev-log.PNG)
+![Dev Log](../../images/rebase/rebase-dev-log.PNG)
 
 3. Go to `feature-1` and rebase `dev` onto it (bring `dev` commits below `feature-1`):
 ```bash
 git rebase dev
 ```
 
-![Rebase Result](/git/images/rebase/rebase.PNG)
+![Rebase Result](../../images/rebase/rebase.PNG)
 
 4. If pushing `feature-1` for the first time, use:
 ```bash
 git push origin feature-1
 ```
-![Push](/git/images/rebase/rebase-feature-1-push.PNG)
+![Push](../../images/rebase/rebase-feature-1-push.PNG)
 
 5. If you have **already pushed** `feature-1` before, you must **force push** because history was rewritten:
 ```bash
