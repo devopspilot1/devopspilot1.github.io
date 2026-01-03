@@ -3,17 +3,14 @@ title: "SSH (Secure Shell)"
 date: 2024-07-01
 ---
 
-#### Youtube
 
-##### SSH Part-1
+# SSH (Secure Shell) Guide
 
-[![SSH part-1](../images/ssh-cover-1.png)](https://www.youtube.com/watch?v=7LSDaDutEFI)
+## 🎥 **Watch on YouTube:**
+[![SSH part-1](../images/ssh-cover-1.png){: style="max-width:100%; height:auto"}](https://www.youtube.com/watch?v=7LSDaDutEFI)
+[![SSH part-2](../images/ssh-cover-2.png){: style="max-width:100%; height:auto"}](https://www.youtube.com/watch?v=xHxdZEAhKJM)
 
-##### SSH Part-2
-
-[![SSH part-2](../images/ssh-cover-2.png)](https://www.youtube.com/watch?v=xHxdZEAhKJM)
-
-SSH(Secure Shell) is a command line tool to connect to another linux machine and to run some commands on it.
+SSH (Secure Shell) is a command line tool to connect to another linux machine and to run some commands on it.
 
 ![SSH](../images/ssh.png)
 
@@ -193,3 +190,7 @@ Try connecting to server using new port
 ```
 ssh -p 8222 username@ip_address
 ```
+
+---
+
+{% include-markdown "../_partials/subscribe-guides.md" %}
