@@ -61,7 +61,7 @@ The `README.md` file is automatically rendered on the main page of GitHub reposi
 
 ### 📝 Want More Practice?
 
-👉 **[Start Git Beginner Quiz (20 Questions)](../../../quiz/git/beginner/index.md)**
+👉 **[Start Git Intermediate Quiz (20 Questions)](../../../quiz/git/intermediate/index.md)**
 
 ---
 

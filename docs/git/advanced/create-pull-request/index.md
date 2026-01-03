@@ -103,7 +103,7 @@ Pull Requests are dynamic views of a branch; updating the branch updates the PR.
 
 ### 📝 Want More Practice?
 
-👉 **[Start Git Beginner Quiz (20 Questions)](../../../quiz/git/beginner/index.md)**
+👉 **[Start Git Advanced Quiz (20 Questions)](../../../quiz/git/advanced/index.md)**
 
 ---
 

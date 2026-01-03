@@ -53,7 +53,7 @@ Cloning creates a full local copy of the repo history and files.
 
 ### 📝 Want More Practice?
 
-👉 **[Start Git Beginner Quiz (20 Questions)](../../../quiz/git/beginner/index.md)**
+👉 **[Start Git Intermediate Quiz (20 Questions)](../../../quiz/git/intermediate/index.md)**
 
 ---
 

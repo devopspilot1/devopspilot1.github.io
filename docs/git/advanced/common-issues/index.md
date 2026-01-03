@@ -51,7 +51,7 @@ Git handles permissions via `update-index` as it tracks the executable bit.
 
 ### 📝 Want More Practice?
 
-👉 **[Start Git Beginner Quiz (20 Questions)](../../../quiz/git/beginner/index.md)**
+👉 **[Start Git Advanced Quiz (20 Questions)](../../../quiz/git/advanced/index.md)**
 
 ---
 

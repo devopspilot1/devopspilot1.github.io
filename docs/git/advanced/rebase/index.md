@@ -70,7 +70,7 @@ Rebase creates new commit hashes for the existing commits, so the local history 
 
 ### 📝 Want More Practice?
 
-👉 **[Start Git Beginner Quiz (20 Questions)](../../../quiz/git/beginner/index.md)**
+👉 **[Start Git Advanced Quiz (20 Questions)](../../../quiz/git/advanced/index.md)**
 
 ---
 

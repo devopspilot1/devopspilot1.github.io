@@ -59,7 +59,7 @@ GitHub removed password authentication for Git over HTTPS in 2021, requiring tok
 
 ### 📝 Want More Practice?
 
-👉 **[Start Git Beginner Quiz (20 Questions)](../../../quiz/git/beginner/index.md)**
+👉 **[Start Git Intermediate Quiz (20 Questions)](../../../quiz/git/intermediate/index.md)**
 
 ---
 

@@ -100,7 +100,7 @@ What do the `<<<<<<< HEAD` markers indicate in a file?
 
 ### 📝 Want More Practice?
 
-👉 **[Start Git Beginner Quiz (20 Questions)](../../../quiz/git/beginner/index.md)**
+👉 **[Start Git Advanced Quiz (20 Questions)](../../../quiz/git/advanced/index.md)**
 
 ---
 

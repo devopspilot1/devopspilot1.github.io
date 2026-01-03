@@ -155,7 +155,7 @@ You must bring the new changes from the base branch into your feature branch and
 
 ### 📝 Want More Practice?
 
-👉 **[Start Git Beginner Quiz (20 Questions)](../../../quiz/git/beginner/index.md)**
+👉 **[Start Git Advanced Quiz (20 Questions)](../../../quiz/git/advanced/index.md)**
 
 ---
 
