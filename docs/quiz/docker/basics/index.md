@@ -110,6 +110,106 @@ Where are Docker images usually stored?
 Images are stored in a Registry. Docker Hub is the default public registry.
 </quiz>
 
+<quiz>
+Which command builds an image from a Dockerfile in the current directory?
+- [x] docker build -t my-image .
+- [ ] docker create -t my-image .
+- [ ] docker make -t my-image .
+- [ ] docker compile -t my-image .
+
+`docker build` builds an image from a Dockerfile. The `.` specifies the build context (current directory).
+</quiz>
+
+<quiz>
+What is the default name of the Docker configuration file that defines a multi-container application?
+- [x] docker-compose.yml
+- [ ] Dockerfile
+- [ ] compose.json
+- [ ] docker-config.yaml
+
+`docker-compose.yml` is the default file used by Docker Compose.
+</quiz>
+
+<quiz>
+Which command is used to view the logs of a container?
+- [x] docker logs [container_id]
+- [ ] docker output [container_id]
+- [ ] docker show [container_id]
+- [ ] docker print [container_id]
+
+`docker logs` fetches the logs of a container.
+</quiz>
+
+<quiz>
+What does the `-v` flag do in `docker run`?
+- [x] Mounts a volume
+- [ ] Sets verbose mode
+- [ ] Verifies the image
+- [ ] Sets the version
+
+`-v` or `--volume` is used to mount a volume (bind mount or named volume) to the container.
+</quiz>
+
+<quiz>
+Which command lists all locally available images?
+- [x] docker images
+- [ ] docker list images
+- [ ] docker show images
+- [ ] docker ps -i
+
+`docker images` (or `docker image ls`) lists the images stored locally.
+</quiz>
+
+<quiz>
+How can you execute a command inside a running container?
+- [x] docker exec -it [container_id] [command]
+- [ ] docker run -it [container_id] [command]
+- [ ] docker attach [container_id]
+- [ ] docker enter [container_id]
+
+`docker exec` runs a new command in a running container. `-it` allows interactive access.
+</quiz>
+
+<quiz>
+What is a Docker Registry?
+- [x] A service for storing and distributing Docker images
+- [ ] A configuration file
+- [ ] A container runtime
+- [ ] A network driver
+
+A Docker Registry is a stateless, highly scalable server side application that stores and lets you distribute Docker images.
+</quiz>
+
+<quiz>
+Which command removes an image?
+- [x] docker rmi
+- [ ] docker rm
+- [ ] docker del
+- [ ] docker erase
+
+`docker rmi` (remove image) deletes an image from the local store.
+</quiz>
+
+<quiz>
+What is the purpose of the `EXPOSE` instruction in a Dockerfile?
+- [x] To inform Docker that the container listens on the specified network ports at runtime
+- [ ] To publish the port to the host
+- [ ] To open the firewall
+- [ ] To expose the container code
+
+`EXPOSE` functions as a type of documentation between the person who builds the image and the person who runs the container. It does not actually publish the port.
+</quiz>
+
+<quiz>
+Which flag automates the cleanup of the container after it exits?
+- [x] --rm
+- [ ] --clean
+- [ ] --delete
+- [ ] --tmp
+
+The `--rm` flag automatically removes the container when it exits.
+</quiz>
+
 <!-- mkdocs-quiz results -->
 
 ---

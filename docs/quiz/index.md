@@ -93,6 +93,19 @@ Includes:
 
 ---
 
+## 🏗️ Terraform Quiz
+
+Terraform is the industry standard for Infrastructure as Code.
+Test your HCL, state management, and module skills.
+
+👉 **[Go to Terraform Quiz](../quiz/terraform/index.md)**
+
+Includes:
+- Basics (HCL, CLI)
+- Intermediate (State, Modules)
+- Advanced (Workspaces, Security)
+
+---
 
 ## ☁️ AWS Cloud Quiz
 

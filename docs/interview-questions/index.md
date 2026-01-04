@@ -15,6 +15,7 @@ Prepare for your DevOps interviews with our comprehensive set of questions and a
 *   [Shell Scripting](shellscript/index.md)
 *   [Git](git/index.md)
 *   [Jenkins](jenkins/index.md)
+*   [Terraform](terraform/index.md)
 *   [Docker](docker/index.md)
 *   [Helm](helm/index.md)
 *   [Ansible](ansible/index.md)

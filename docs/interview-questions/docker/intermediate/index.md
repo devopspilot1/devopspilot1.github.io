@@ -132,3 +132,25 @@ description: "Intermediate Docker interview questions and answers."
 
 ---
 {% include-markdown ".partials/subscribe-guides.md" %}
+
+??? question "How do you view the logs of a container?"
+    `docker logs <container_id>`
+
+??? question "How do you restart a container?"
+    `docker restart <container_id>`
+
+??? question "How do you rename a container?"
+    `docker rename <old_name> <new_name>`
+
+??? question "How do you remove unused objects (prune)?"
+    `docker system prune`
+
+??? question "What is the command to login to a registry?"
+    `docker login [server]` (default is Docker Hub).
+
+??? question "How do you copy files between host and container?"
+    `docker cp <src> <dest>`
+
+??? question "How do you inspect container details (JSON)?"
+    `docker inspect <container_id>`
+

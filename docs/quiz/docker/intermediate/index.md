@@ -106,7 +106,107 @@ Which command creates a new volume?
 - [ ] docker add volume
 - [ ] docker new volume
 
-`docker volume create` manually creates a named volume.
+    `docker volume create` manually creates a named volume.
+</quiz>
+
+<quiz>
+Which command builds an image from a Dockerfile in the current directory?
+- [x] docker build -t my-image .
+- [ ] docker create -t my-image .
+- [ ] docker make -t my-image .
+- [ ] docker compile -t my-image .
+
+`docker build` builds an image from a Dockerfile. The `.` specifies the build context (current directory).
+</quiz>
+
+<quiz>
+What is the default name of the Docker configuration file that defines a multi-container application?
+- [x] docker-compose.yml
+- [ ] Dockerfile
+- [ ] compose.json
+- [ ] docker-config.yaml
+
+`docker-compose.yml` is the default file used by Docker Compose.
+</quiz>
+
+<quiz>
+In Docker Compose, which keyword defines the dependencies between services?
+- [x] depends_on
+- [ ] links
+- [ ] requires
+- [ ] after
+
+`depends_on` expresses dependency order (start order).
+</quiz>
+
+<quiz>
+Which network driver creates a distributed network among multiple Docker daemon hosts?
+- [x] overlay
+- [ ] bridge
+- [ ] host
+- [ ] macvlan
+
+The `overlay` network driver creates a distributed network among multiple Docker daemon hosts.
+</quiz>
+
+<quiz>
+How can you isolate a container from the host network stack?
+- [x] By default, it is isolated (bridge mode)
+- [ ] Use --network host
+- [ ] Use --isolation=hyperv
+- [ ] It's not possible
+
+Containers are isolated by default using the bridge driver.
+</quiz>
+
+<quiz>
+What command lists all networks?
+- [x] docker network ls
+- [ ] docker list networks
+- [ ] docker network show
+- [ ] docker net list
+
+`docker network ls` lists all networks.
+</quiz>
+
+<quiz>
+How do you inspect a specific network?
+- [x] docker network inspect [network-name]
+- [ ] docker inspect network [network-name]
+- [ ] docker show network [network-name]
+- [ ] docker network details [network-name]
+
+`docker network inspect` provides detailed information about a network.
+</quiz>
+
+<quiz>
+Which command removes all unused networks?
+- [x] docker network prune
+- [ ] docker network clean
+- [ ] docker rm networks
+- [ ] docker clean networks
+
+`docker network prune` removes all networks not used by at least one container.
+</quiz>
+
+<quiz>
+What is a Bind Mount?
+- [x] A file or directory on the host machine mounted into a container
+- [ ] A managed volume
+- [ ] A cloud storage mount
+- [ ] A temporary file system
+
+Bind mounts map a host file or directory to a container path.
+</quiz>
+
+<quiz>
+Which instruction in Dockerfile is used to copy files from the context to the image?
+- [x] COPY
+- [ ] LOAD
+- [ ] MOVE
+- [ ] PASTE
+
+`COPY` copies new files or directories from `<src>` and adds them to the filesystem of the container at the path `<dest>`.
 </quiz>
 
 <!-- mkdocs-quiz results -->

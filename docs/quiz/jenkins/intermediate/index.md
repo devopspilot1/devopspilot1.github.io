@@ -109,6 +109,106 @@ What is "Jenkins Configuration as Code" (JCasC)?
 JCasC allows defining the configuration of the Jenkins controller in a YAML file for reproducible setups.
 </quiz>
 
+<quiz>
+What is the `parallel` directive used for?
+- [x] To execute stages concurrently
+- [ ] To run on multiple agents
+- [ ] To duplicate the pipeline
+- [ ] To split the screen
+
+The `parallel` directive allows you to define a list of stages to run in parallel.
+</quiz>
+
+<quiz>
+How do you access Environment Variables in a Pipeline?
+- [x] ${env.VARIABLE_NAME}
+- [ ] $VARIABLE_NAME
+- [ ] %VARIABLE_NAME%
+- [ ] {{ VARIABLE_NAME }}
+
+Use `${env.VAR_NAME}` or simply `env.VAR_NAME` to access environment variables.
+</quiz>
+
+<quiz>
+Which step allows you to pause the pipeline for user approval?
+- [x] input
+- [ ] wait
+- [ ] pause
+- [ ] approve
+
+The `input` step pauses execution until a user manually approves or aborts.
+</quiz>
+
+<quiz>
+What is the `when` directive used for?
+- [x] To conditionally execute a stage
+- [ ] To loop a stage
+- [ ] To define a timestamp
+- [ ] To schedule the pipeline
+
+`when` allows you to control whether a stage should be run depending on criteria (e.g., branch name, environment variable).
+</quiz>
+
+<quiz>
+What is a Multibranch Pipeline?
+- [x] A pipeline that automatically creates jobs for each branch in a repo
+- [ ] A pipeline with multiple git repos
+- [ ] A pipeline that merges branches
+- [ ] A pipeline for master branch only
+
+It scans the SCM repository for branches and creates a Pipeline job for each branch containing a Jenkinsfile.
+</quiz>
+
+<quiz>
+How do you discard old builds automatically?
+- [x] Using `options { buildDiscarder(...) }`
+- [ ] Manually deleting them
+- [ ] Using a cron job
+- [ ] Restarting Jenkins
+
+The `buildDiscarder` option allows you to configure log rotation (e.g., keep last 5 builds).
+</quiz>
+
+<quiz>
+Which file works as an ignore list for the SCM checkout?
+- [x] .gitignore
+- [ ] .jenkinsignore
+- [ ] .scmingnore
+- [ ] .dockerignore
+
+Jenkins respects `.gitignore` during the checkout process if standard Git behavior is used, effectively ignoring files from being tracked.
+</quiz>
+
+<quiz>
+What is the `stash` step used for?
+- [x] To save files for use later in the same build (e.g., on another node)
+- [ ] To save artifacts permanently
+- [ ] To hide files
+- [ ] To encrypt files
+
+`stash` saves a set of files for use later in the same build, often to transfer workspace content between different agents.
+</quiz>
+
+<quiz>
+How do you set a timeout for a stage?
+- [x] options { timeout(time: 1, unit: 'HOURS') }
+- [ ] timeout 1h
+- [ ] wait { 1 hour }
+- [ ] limit 1h
+
+The `timeout` option aborts the stage/pipeline if it takes longer than the specified time.
+</quiz>
+
+<quiz>
+What is the `retry` option used for?
+- [x] To retry the block/stage a specified number of times on failure
+- [ ] To restart the controller
+- [ ] To retry the connection
+- [ ] To rollback
+
+`retry(3)` will retry the enclosed steps up to 3 times if they fail.
+</quiz>
+
 <!-- mkdocs-quiz results -->
 
 ---

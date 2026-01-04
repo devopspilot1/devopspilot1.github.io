@@ -155,3 +155,25 @@ description: "Advanced Docker interview questions and answers."
 
 ---
 {% include-markdown ".partials/subscribe-guides.md" %}
+
+??? question "What is `docker-compose`?"
+    A tool for defining and running multi-container Docker applications using a YAML file.
+
+??? question "How do you start services with compose?"
+    `docker-compose up -d`
+
+??? question "How do you stop compose services?"
+    `docker-compose down`
+
+??? question "How do you check compose logs?"
+    `docker-compose logs -f`
+
+??? question "What is a Docker Volume?"
+    A managed directory separate from the container filesystem, used for persistent data.
+
+??? question "What is a Docker Network?"
+    A layer that allows containers to communicate with each other and the outside world.
+
+??? question "What is the difference between ADD and COPY?"
+    `ADD` supports URLs and tar extraction. `COPY` only copies local files.
+

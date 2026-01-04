@@ -210,5 +210,38 @@ description: "Common Docker interview questions and answers for beginners."
     docker rename old_container_name new_container_name
     ```
 
+??? question "How do you view running containers?"
+    `docker ps` lists running containers.
+    `docker ps -a` lists all containers (including stopped ones).
+
+??? question "How do you stop a container?"
+    `docker stop <container_id>` sends a SIGTERM.
+    `docker kill <container_id>` sends a SIGKILL (immediate stop).
+
+??? question "What is the difference between an Image and a Container?"
+    - **Image:** A read-only template with code and dependencies.
+    - **Container:** A runnable instance of an image.
+
+??? question "How do you remove a stopped container?"
+    `docker rm <container_id>`
+
+??? question "How do you remove an image?"
+    `docker rmi <image_id>`
+
+??? question "How do you build an image?"
+    `docker build -t <tag_name> .`
+
+??? question "What is Docker Hub?"
+    A public registry to store and share Docker images.
+
+??? question "How do you pull an image?"
+    `docker pull <image_name>`
+
+??? question "How do you execute a command in a running container?"
+    `docker exec -it <container_id> <command>` (e.g., `/bin/bash`).
+
+??? question "What is a Dockerfile?"
+    A text file with instructions to build a Docker image.
+
 ---
 {% include-markdown ".partials/subscribe-guides.md" %}
