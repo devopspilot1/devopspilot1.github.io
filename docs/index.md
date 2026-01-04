@@ -306,7 +306,7 @@ hide:
     <span class="topic-icon">⚙️</span>
     <span class="topic-name">Jenkins</span>
   </a>
-  <a href="cloud/on-premise-cloud/" class="topic-card">
+  <a href="cloud/" class="topic-card">
     <span class="topic-icon">☁️</span>
     <span class="topic-name">Cloud</span>
   </a>

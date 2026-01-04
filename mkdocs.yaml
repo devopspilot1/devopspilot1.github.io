@@ -213,6 +213,7 @@ nav:
     - On Premise Cloud: cloud/on-premise/index.md
     - Types of OS: cloud/types-of-os/index.md
     - AWS:
+      - Overview: cloud/aws/index.md
       - Tutorials:
         - Overview: cloud/aws/tutorials/index.md
         - Deploy Flask API to AWS Lambda using Docker: cloud/aws/tutorials/deploy-flask-lambda/index.md
