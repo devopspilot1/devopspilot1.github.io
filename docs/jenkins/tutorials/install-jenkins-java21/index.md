@@ -1,89 +1,149 @@
 ---
-title: "How to install Jenkins with Java 21 on Ubuntu 24.04"
-date: 2024-07-06
+title: "How to Install Jenkins on Ubuntu 24.04 (Step-by-Step)"
+description: "Learn how to install Jenkins on Ubuntu 24.04 using Java 21. Complete step-by-step guide with official commands, service setup, and verification."
 ---
 
-### Install Java 21 (OpenJDK)
+# How to Install Jenkins on Ubuntu 24.04 (Step-by-Step)
 
-1\. Run the following commands to update and install Java 21
+← [Back to Jenkins](../../index.md)
+
+---
+
+Jenkins is one of the most popular **CI/CD automation servers** used to build, test, and deploy applications.
+
+In this guide, you’ll learn **how to install Jenkins on Ubuntu 24.04** using **Java 21 (OpenJDK)** with official and recommended steps.
+
+---
+
+## Prerequisites
+
+- Ubuntu 24.04 LTS
+- sudo privileges
+- Internet access
+
+---
+
+## Step 1: Install Java 21 (OpenJDK)
+
+Jenkins requires Java to run. Ubuntu 24.04 supports **OpenJDK 21**, which is the recommended version.
+
+Update packages and install Java:
 
 ```bash
 sudo apt update
-sudo apt install fontconfig openjdk-21-jre
+sudo apt install fontconfig openjdk-21-jre -y
 ```
 
-2\. Run the following commands to check the Java version
+Verify Java installation:
 
 ```bash
 java --version
 ```
 
-**Output:**
+**Expected Output:**
 
 ```
-ubuntu@jenkins-test:~$ java --version
 openjdk 21.0.3 2024-04-16
 OpenJDK Runtime Environment (build 21.0.3+9-Ubuntu-1ubuntu1)
 OpenJDK 64-Bit Server VM (build 21.0.3+9-Ubuntu-1ubuntu1, mixed mode, sharing)
 ```
 
-### Install Jenkins
+---
 
-1\. Go to Jenkins's official download page [click here](https://www.jenkins.io/doc/book/installing/)
+## Step 2: Add Jenkins Official Repository
 
-2\. Click on **Linux**
+Jenkins should always be installed from its **official repository** to get stable updates.
 
-![jenkins-install-official](../../../images/jenkins-install-official-1024x614.png)
-
-3\. Click on **Debian/Ubuntu**
-
-![](../../../images/jenkins-install-linux-1024x614.png)
-
-4\. Copy and run the commands in **Long** **Term Support release** section
-
-![](../../../images/jenkins-install-commnds-1024x611.png)
+Add the Jenkins GPG key:
 
 ```bash
-sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
-  https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
-echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
-  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
-  /etc/apt/sources.list.d/jenkins.list > /dev/null
-sudo apt-get update
-sudo apt-get install jenkins
+sudo wget -O /usr/share/keyrings/jenkins-keyring.asc https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
 ```
 
-5\. Run the following command to check the **Jenkins' running status**
+Add the Jenkins repository:
+
+```bash
+echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/" | sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null
+```
+
+---
+
+## Step 3: Install Jenkins
+
+Update package index and install Jenkins:
+
+```bash
+sudo apt update
+sudo apt install jenkins -y
+```
+
+---
+
+## Step 4: Start and Verify Jenkins Service
+
+Check Jenkins service status:
 
 ```bash
 sudo systemctl status jenkins
 ```
 
-**Output:**
+**Expected Output:**
 
 ```
-ubuntu@jenkins-test:~$ sudo systemctl status jenkins
 ● jenkins.service - Jenkins Continuous Integration Server
-     Loaded: loaded (/usr/lib/systemd/system/jenkins.service; enabled; preset: enabled)
-     Active: active (running) since Sat 2024-07-06 14:18:41 UTC; 22s ago
-   Main PID: 6539 (java)
-      Tasks: 50 (limit: 4627)
-     Memory: 1.1G (peak: 1.1G)
-        CPU: 37.256s
-     CGroup: /system.slice/jenkins.service
-             └─6539 /usr/bin/java -Djava.awt.headless=true -jar /usr/share/java/jenkins.war --webroot=/var/cache/jenkins/war --httpPor
+     Active: active (running)
 ```
 
-6\. Run the following command to enable Jenkins to start automatically after reboot
+If Jenkins is not running, start it manually:
+
+```bash
+sudo systemctl start jenkins
+```
+
+---
+
+## Step 5: Enable Jenkins at Boot
+
+Ensure Jenkins starts automatically after reboot:
 
 ```bash
 sudo systemctl enable jenkins
 ```
 
-**Output:**
+---
+
+## Step 6: Access Jenkins Web UI
+
+By default, Jenkins runs on port **8080**.
+
+Open in browser:
 
 ```
-ubuntu@jenkins-test:~$ sudo systemctl enable jenkins
-Synchronizing state of jenkins.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
-Executing: /usr/lib/systemd/systemd-sysv-install enable jenkins
+http://<your-server-ip>:8080
 ```
+
+---
+
+## FAQs
+
+### Which Java version is best for Jenkins on Ubuntu 24.04?
+Java 21 (OpenJDK) is the recommended and supported version.
+
+### What port does Jenkins use by default?
+Jenkins runs on port **8080**.
+
+### Where is Jenkins installed?
+- Binary: `/usr/share/java/jenkins.war`
+- Config: `/etc/default/jenkins`
+- Logs: `/var/log/jenkins/`
+
+---
+
+## Next Steps
+
+👉 [Initial Jenkins Setup Guide](../initial-setup/)  
+👉 [Create Your First Jenkins Freestyle Project](../freestyle-project-maven/)
+
+---
+
+{% include-markdown ".partials/subscribe-guides.md" %}

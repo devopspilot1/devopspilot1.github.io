@@ -33,7 +33,7 @@ Docker images are used as **blueprints** to create containers.
 
 All Docker images are stored in a **Docker registry**, most commonly **Docker Hub**.
 
-👉 Docker Hub: https://hub.docker.com
+👉 **Docker Hub**: [https://hub.docker.com](https://hub.docker.com)
 
 ---
 
