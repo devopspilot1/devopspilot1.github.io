@@ -14,6 +14,7 @@ Prepare for your DevOps interviews with our comprehensive set of questions and a
 *   [Linux Commands](linux-commands/index.md)
 *   [Shell Scripting](shellscript/index.md)
 *   [Git](git/index.md)
+*   [Jenkins](jenkins/index.md)
 *   [Docker](docker/index.md)
 *   [Helm](helm/index.md)
 *   [Ansible](ansible/index.md)

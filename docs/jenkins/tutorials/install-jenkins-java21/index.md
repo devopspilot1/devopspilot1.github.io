@@ -146,4 +146,28 @@ Jenkins runs on port **8080**.
 
 ---
 
+
+---
+
+## 🧠 Quick Quiz — Jenkins Setup
+
+<quiz>
+What is the default port that Jenkins runs on?
+- [x] 8080
+- [ ] 80
+- [ ] 443
+- [ ] 9090
+
+By default, Jenkins listens on port 8080. It can be changed in the configuration settings.
+</quiz>
+
+---
+
+### 📝 Want More Practice?
+
+👉 **[Test your knowledge – Take the Jenkins Basics Quiz](../../../quiz/jenkins/basics/index.md)**
+
+---
+
 {% include-markdown ".partials/subscribe-guides.md" %}
+

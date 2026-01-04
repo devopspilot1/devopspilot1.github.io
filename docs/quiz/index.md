@@ -62,6 +62,23 @@ More levels coming soon:
 
 ---
 
+
+---
+
+## 🤵‍♂️ Jenkins Quiz
+
+Jenkins is the most widely used CI/CD tool.
+Test your pipeline and automation skills.
+
+👉 **[Go to Jenkins Quiz](../quiz/jenkins/index.md)**
+
+Includes:
+- Basics (Jobs, Plugins)
+- Intermediate (Pipelines, Agents)
+- Advanced (Shared Libraries, Security)
+
+---
+
 ## 🐳 Docker Quiz
 
 Docker is the de facto standard for containerization.
