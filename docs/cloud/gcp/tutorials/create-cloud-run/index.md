@@ -67,4 +67,4 @@ You have successfully deployed a containerized application to Google Cloud Run u
 
 ---
 
-{% include-markdown "../../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

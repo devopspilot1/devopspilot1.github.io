@@ -112,4 +112,4 @@ description: "Top 20 Basic Git interview questions covering git init, commit, st
 ### 🧪 Ready to test yourself?
 👉 **[Take the Git Basics Quiz](../../../quiz/git/basics/index.md)**
 
-{% include-markdown "../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

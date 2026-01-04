@@ -112,4 +112,4 @@ description: "Top 20 Basic AWS SysOps Administrator interview questions covering
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS SysOps Administrator Basics Quiz](../../../../quiz/aws/sysops-admin/basics/index.md)**
 
-{% include-markdown "../../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

@@ -41,4 +41,4 @@ Default nginx configuration is located in /etc/nginx/nginx.conf file
 
 ---
 
-{% include-markdown "../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

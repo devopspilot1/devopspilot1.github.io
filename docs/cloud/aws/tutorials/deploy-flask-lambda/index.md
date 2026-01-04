@@ -1042,4 +1042,4 @@ Your Flask application is now running serverlessly on AWS Lambda with a public H
 
 ---
 
-{% include-markdown "../../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

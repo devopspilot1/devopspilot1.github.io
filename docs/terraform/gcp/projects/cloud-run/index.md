@@ -723,4 +723,4 @@ You now have a complete, production-ready workflow for deploying containerized P
 
 ---
 
-{% include-markdown "../../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

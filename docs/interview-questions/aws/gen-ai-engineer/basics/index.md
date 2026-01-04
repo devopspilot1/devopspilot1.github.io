@@ -112,4 +112,4 @@ description: "Top 20 Basic AWS GenAI Engineer interview questions covering Bedro
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS GenAI Engineer Basics Quiz](../../../../quiz/aws/gen-ai-engineer/basics/index.md)**
 
-{% include-markdown "../../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

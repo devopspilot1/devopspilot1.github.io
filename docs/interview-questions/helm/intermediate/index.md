@@ -15,4 +15,4 @@ description: "Intermediate Helm interview questions and answers."
     This is a placeholder for a intermediate question.
 
 ---
-{% include-markdown "../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

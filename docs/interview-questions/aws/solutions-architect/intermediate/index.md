@@ -112,4 +112,4 @@ description: "Top 20 Intermediate AWS Solutions Architect interview questions co
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS Solutions Architect Intermediate Quiz](../../../../quiz/aws/solutions-architect/intermediate/index.md)**
 
-{% include-markdown "../../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

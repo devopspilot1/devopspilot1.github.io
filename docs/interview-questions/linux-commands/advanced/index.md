@@ -127,4 +127,4 @@ description: "Top 20 Advanced Linux interview questions covering networking, gre
 👉 **[Take the Linux Networking Quiz](../../../quiz/linux-commands/linux-networking-commands/index.md)**
 👉 **[Take the Linux Log & Text Quiz](../../../quiz/linux-commands/linux-log-text-processing/index.md)**
 
-{% include-markdown "../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

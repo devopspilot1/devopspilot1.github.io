@@ -112,4 +112,4 @@ description: "Top 20 Intermediate AWS Developer interview questions covering Dyn
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS Developer Intermediate Quiz](../../../../quiz/aws/developer/intermediate/index.md)**
 
-{% include-markdown "../../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

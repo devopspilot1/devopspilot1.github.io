@@ -112,4 +112,4 @@ description: "Top 20 Intermediate AWS SysOps Administrator interview questions c
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS SysOps Administrator Intermediate Quiz](../../../../quiz/aws/sysops-admin/intermediate/index.md)**
 
-{% include-markdown "../../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

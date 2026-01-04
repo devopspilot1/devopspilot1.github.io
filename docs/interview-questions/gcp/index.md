@@ -21,4 +21,4 @@ Prepare for your **GCP** interview with our categorized questions.
     <br>Complex architectures and trouble-shooting.
 
 ---
-{% include-markdown "../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

@@ -112,4 +112,4 @@ description: "Top 20 Intermediate AWS Security Engineer interview questions cove
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS Security Engineer Intermediate Quiz](../../../../quiz/aws/security-engineer/intermediate/index.md)**
 
-{% include-markdown "../../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

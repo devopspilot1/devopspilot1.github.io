@@ -437,4 +437,4 @@ You have successfully deployed a serverless FastAPI application!
 - **API Gateway (HTTP API)**: Exposed the Lambda function to the internet via a regional endpoint.
 ---
 
-{% include-markdown "../../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

@@ -119,4 +119,4 @@ description: "Top 20 Intermediate Shell Scripting interview questions covering l
 ### 🧪 Ready to test yourself?
 👉 **[Take the Intermediate Shell Scripting Quiz](../../../quiz/shellscript/intermediate/index.md)** (Coming Soon)
 
-{% include-markdown "../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

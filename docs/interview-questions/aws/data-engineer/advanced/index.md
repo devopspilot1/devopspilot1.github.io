@@ -112,4 +112,4 @@ description: "Top 20 Advanced AWS Data Engineer interview questions covering CDC
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS Data Engineer Advanced Quiz](../../../../quiz/aws/data-engineer/advanced/index.md)**
 
-{% include-markdown "../../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

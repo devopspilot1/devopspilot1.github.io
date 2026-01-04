@@ -112,4 +112,4 @@ description: "Top 20 Advanced AWS Developer interview questions covering Serverl
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS Developer Advanced Quiz](../../../../quiz/aws/developer/advanced/index.md)**
 
-{% include-markdown "../../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

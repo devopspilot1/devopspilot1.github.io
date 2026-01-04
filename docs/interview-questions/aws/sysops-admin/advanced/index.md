@@ -112,4 +112,4 @@ description: "Top 20 Advanced AWS SysOps Administrator interview questions cover
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS SysOps Administrator Advanced Quiz](../../../../quiz/aws/sysops-admin/advanced/index.md)**
 
-{% include-markdown "../../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

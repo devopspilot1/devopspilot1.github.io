@@ -112,4 +112,4 @@ description: "Top 20 Intermediate AWS Data Engineer interview questions covering
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS Data Engineer Intermediate Quiz](../../../../quiz/aws/data-engineer/intermediate/index.md)**
 
-{% include-markdown "../../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

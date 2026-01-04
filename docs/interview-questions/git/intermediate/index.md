@@ -112,4 +112,4 @@ description: "Top 20 Intermediate Git interview questions covering branching, me
 ### 🧪 Ready to test yourself?
 👉 **[Take the Git Intermediate Quiz](../../../quiz/git/intermediate/index.md)**
 
-{% include-markdown "../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

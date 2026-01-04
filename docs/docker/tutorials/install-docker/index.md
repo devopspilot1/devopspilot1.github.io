@@ -15,4 +15,4 @@ sudo apt install docker.io
 
 ---
 
-{% include-markdown "../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

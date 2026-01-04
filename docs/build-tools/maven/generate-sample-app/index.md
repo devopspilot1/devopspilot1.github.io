@@ -72,4 +72,4 @@ It prints `Hello World!`
 
 ---
 
-{% include-markdown "../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

@@ -333,4 +333,4 @@ Check files are pushed to the GitHub repository
 
 ---
 
-{% include-markdown "../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

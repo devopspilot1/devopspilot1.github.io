@@ -151,4 +151,4 @@ mvn cargo:deploy -Dcargo.tomcat.manager.url="http://152.70.71.239:8080/manager/t
 
 ---
 
-{% include-markdown "../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

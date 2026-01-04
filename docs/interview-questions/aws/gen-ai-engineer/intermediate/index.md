@@ -112,4 +112,4 @@ description: "Top 20 Intermediate AWS GenAI Engineer interview questions coverin
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS GenAI Engineer Intermediate Quiz](../../../../quiz/aws/gen-ai-engineer/intermediate/index.md)**
 
-{% include-markdown "../../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

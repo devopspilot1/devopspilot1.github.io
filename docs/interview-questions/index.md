@@ -22,4 +22,4 @@ Prepare for your DevOps interviews with our comprehensive set of questions and a
 *   [AWS](aws/index.md)
 
 ---
-{% include-markdown "../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

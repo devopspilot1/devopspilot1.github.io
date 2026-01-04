@@ -406,4 +406,4 @@ You have successfully implemented a secure deployment pipeline with Binary Autho
 
 ---
 
-{% include-markdown "../../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

@@ -116,4 +116,4 @@ So the Java compiler will convert the Java code to machine understandable code
 
 ---
 
-{% include-markdown "../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

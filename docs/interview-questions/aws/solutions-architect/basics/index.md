@@ -112,4 +112,4 @@ description: "Top 20 Basic AWS Solutions Architect interview questions covering 
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS Solutions Architect Basics Quiz](../../../../quiz/aws/solutions-architect/basics/index.md)**
 
-{% include-markdown "../../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

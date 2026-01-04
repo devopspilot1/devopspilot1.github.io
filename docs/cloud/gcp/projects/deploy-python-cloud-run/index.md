@@ -174,4 +174,4 @@ You have successfully completed an end-to-end DevOps workflow: coding a Python a
 
 ---
 
-{% include-markdown "../../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

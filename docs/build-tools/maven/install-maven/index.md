@@ -46,4 +46,4 @@ OS name: "linux", version: "6.8.0-1010-azure", arch: "amd64", family: "unix"
 
 ---
 
-{% include-markdown "../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

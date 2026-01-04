@@ -137,4 +137,4 @@ description: "Top 20 Intermediate AWS Cloud Engineer interview questions focusin
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS Cloud Engineer Intermediate Quiz](../../../../quiz/aws/cloud-engineer/intermediate/index.md)**
 
-{% include-markdown "../../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

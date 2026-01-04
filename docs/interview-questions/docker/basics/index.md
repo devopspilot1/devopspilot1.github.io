@@ -236,4 +236,4 @@ docker rename old_container_name new_container_name
 ```
 
 ---
-{% include-markdown "../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

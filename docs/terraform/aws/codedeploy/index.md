@@ -31,4 +31,4 @@ Codedeploy deployment has to be triggered manually once the above resources are 
 
 ---
 
-{% include-markdown "../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

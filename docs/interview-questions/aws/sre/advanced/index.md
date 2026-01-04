@@ -112,4 +112,4 @@ description: "Top 20 Advanced AWS Site Reliability Engineer interview questions 
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS SRE Advanced Quiz](../../../../quiz/aws/sre/advanced/index.md)**
 
-{% include-markdown "../../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

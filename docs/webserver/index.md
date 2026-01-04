@@ -7,7 +7,6 @@ description: Overview of Web Server documentation
 
 Welcome to the Web Server documentation.
 
-{% include-markdown "../.partials/interview-instruction.md" %}
 
 ## Nginx
 
@@ -18,4 +17,4 @@ Welcome to the Web Server documentation.
 * [Install Tomcat](tomcat/installation/index.md)
 
 ---
-{% include-markdown "../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

@@ -112,4 +112,4 @@ description: "Top 20 Basic AWS Data Engineer interview questions covering S3 Dat
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS Data Engineer Basics Quiz](../../../../quiz/aws/data-engineer/basics/index.md)**
 
-{% include-markdown "../../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

@@ -112,4 +112,4 @@ description: "Top 20 Advanced AWS Machine Learning Engineer interview questions 
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS ML Engineer Advanced Quiz](../../../../quiz/aws/ml-engineer/advanced/index.md)**
 
-{% include-markdown "../../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

@@ -112,4 +112,4 @@ description: "Top 20 Basic AWS Developer interview questions covering Lambda, AP
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS Developer Basics Quiz](../../../../quiz/aws/developer/basics/index.md)**
 
-{% include-markdown "../../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

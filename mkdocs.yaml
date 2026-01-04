@@ -50,10 +50,12 @@ nav:
   - Git:
     - Overview: git/index.md
     - Basics:
+      - Overview: git/basics/index.md
       - Key Concepts: git/basics/git-key-concepts/index.md
       - Install on Linux: git/basics/install-on-linux/index.md
       - Create GitHub Account: git/basics/create-github-account/index.md
     - Tutorials:
+      - Overview: git/tutorials/index.md
       - Create Public Repository: git/tutorials/create-public-repository/index.md
       - Clone Repository: git/tutorials/clone-repository/index.md
       - Create Private Repository: git/tutorials/create-private-repository/index.md
@@ -66,6 +68,7 @@ nav:
       - Tags: git/tutorials/tags/index.md
       - Stash: git/tutorials/stash/index.md
     - Advanced:
+      - Overview: git/advanced/index.md
       - Common Issues: git/advanced/common-issues/index.md
       - Fix Merge Conflicts: git/advanced/fix-merge-conflicts/index.md
       - Create Pull Request: git/advanced/create-pull-request/index.md
@@ -75,6 +78,7 @@ nav:
   - Build Tools:
     - Overview: build-tools/index.md
     - Maven:
+      - Overview: build-tools/maven/index.md
       - How to install Java and compile a single Java file: build-tools/maven/install-java-compile/index.md
       - How to install Maven in Linux: build-tools/maven/install-maven/index.md
       - What is Maven?: build-tools/maven/what-is-maven/index.md
@@ -83,14 +87,17 @@ nav:
   - Web Server:
     - Overview: webserver/index.md
     - Nginx:
+      - Overview: webserver/nginx/index.md
       - How to install nginx in Linux: webserver/nginx/install-nginx/index.md
     - Tomcat:
+      - Overview: webserver/tomcat/index.md
       - How to install Tomcat: webserver/tomcat/installation/index.md
       - How to manually deploy the java application to Tomcat 9 webserver: webserver/tomcat/manual-deploy/index.md
       - How to deploy the java application to Tomcat 9 webserver using Maven: webserver/tomcat/maven-deploy/index.md
   - Jenkins:
     - Overview: jenkins/index.md
     - Tutorials:
+      - Overview: jenkins/tutorials/index.md
       - How to install Jenkins with Java 21 on Ubuntu 24.04: jenkins/tutorials/install-jenkins-java21/index.md
       - How to complete the initial setup after installing Jenkins: jenkins/tutorials/initial-setup/index.md
       - How to create a Freestyle project in Jenkins to build a Maven Java project: jenkins/tutorials/freestyle-project-maven/index.md
@@ -113,21 +120,25 @@ nav:
       - How to Replay the Jenkins Pipeline: jenkins/tutorials/replay-pipeline/index.md
       - How to use Options in Jenkinsfile: jenkins/tutorials/pipeline-options/index.md
     - Configuration:
+      - Overview: jenkins/configuration/index.md
       - How to install plugins in Jenkins: jenkins/configuration/install-plugins/index.md
       - Global Tool Configurations: jenkins/configuration/global-tools/index.md
       - How to store credentials in Jenkins: jenkins/configuration/store-credentials/index.md
       - How to restore deleted job in Jenkins: jenkins/configuration/restore-deleted-job/index.md
     - Pipelines:
+      - Overview: jenkins/pipelines/index.md
       - How to create pipeline job in Jenkins: jenkins/pipelines/create-pipeline-job/index.md
       - How to write a Jenkinsfile to build a Maven project: jenkins/pipelines/jenkinsfile-maven-build/index.md
       - How to write a Jenkinsfile to build a Maven project and deploy to Apache Tomcat webserver: jenkins/pipelines/jenkinsfile-maven-tomcat/index.md
       - How to write a Jenkinsfile to build a Maven project, build and push docker image to Dockerhub and deploy the container to same server: jenkins/pipelines/jenkinsfile-docker-hub/index.md
       - How to write a Jenkinsfile to build a Maven project, build and push docker image to Jfrog artifactory and deploy the container to same server: jenkins/pipelines/jenkinsfile-jfrog/index.md
     - Other Topics:
+      - Overview: jenkins/other-topics/index.md
       - How to create a Job automatically using Seed Jenkins plugin and Job DSL script: jenkins/other-topics/job-dsl/index.md
   - Docker:
     - Overview: docker/index.md
     - Tutorials:
+      - Overview: docker/tutorials/index.md
       - What is Docker: docker/tutorials/what-is-docker/index.md
       - How to install docker: docker/tutorials/install-docker/index.md
       - Docker Images vs Docker Containers: docker/tutorials/images-vs-containers/index.md
@@ -135,6 +146,7 @@ nav:
       - Pull nginx docker image from dockerhub, tag and push to your public repo in dockerhub account: docker/tutorials/push-public-repo/index.md
       - Pull nginx docker image from dockerhub, tag and push to your private repository in dockerhub account: docker/tutorials/push-private-repo/index.md
     - Dockerfile:
+      - Overview: docker/dockerfiles/index.md
       - How to write Dockerfile for installing packages: docker/dockerfiles/install-packages/index.md
       - How to write a dockerfile for installing openjdk15: docker/dockerfiles/install-openjdk/index.md
       - How to create a multi stage Dockerfile: docker/dockerfiles/multi-stage-build/index.md
@@ -142,33 +154,43 @@ nav:
   - Kubernetes:
     - Overview: kubernetes/index.md
     - Introduction:
-      - What is Kubernetes?: kubernetes/tutorials/what-is-kubernetes/index.md
+      - Overview: kubernetes/introduction/index.md
+      - What is Kubernetes?: kubernetes/introduction/what-is-kubernetes/index.md
     - Setup and Installation:
-      - Installing Minikube: kubernetes/tutorials/install-minikube/index.md
-      - Installing kubectl: kubernetes/tutorials/install-kubectl/index.md
+      - Overview: kubernetes/setup/index.md
+      - Installing Minikube: kubernetes/setup/install-minikube/index.md
+      - Installing kubectl: kubernetes/setup/install-kubectl/index.md
     - Core Concepts:
-      - Pods: kubernetes/tutorials/create-pod/index.md
+      - Overview: kubernetes/core-concepts/index.md
+      - Pods: kubernetes/core-concepts/create-pod/index.md
     - Workload Resources:
-      - ReplicaSets: kubernetes/tutorials/create-replicaset/index.md
-      - Deployments: kubernetes/tutorials/create-deployment/index.md
-      - DaemonSets: kubernetes/tutorials/create-daemonset/index.md
-      - StatefulSets: kubernetes/tutorials/create-statefulset/index.md
+      - Overview: kubernetes/workload-resources/index.md
+      - ReplicaSets: kubernetes/workload-resources/create-replicaset/index.md
+      - Deployments: kubernetes/workload-resources/create-deployment/index.md
+      - DaemonSets: kubernetes/workload-resources/create-daemonset/index.md
+      - StatefulSets: kubernetes/workload-resources/create-statefulset/index.md
     - Resource Organization:
-      - Namespaces: kubernetes/tutorials/create-namespace/index.md
+      - Overview: kubernetes/resource-organization/index.md
+      - Namespaces: kubernetes/resource-organization/create-namespace/index.md
     - Configuration:
-      - ConfigMaps: kubernetes/tutorials/create-configmap/index.md
-      - Secrets: kubernetes/tutorials/create-secret/index.md
+      - Overview: kubernetes/configuration/index.md
+      - ConfigMaps: kubernetes/configuration/create-configmap/index.md
+      - Secrets: kubernetes/configuration/create-secret/index.md
     - Service & Networking:
-      - Services: kubernetes/tutorials/create-service/index.md
-      - Ingress: kubernetes/tutorials/create-ingress/index.md
+      - Overview: kubernetes/service-networking/index.md
+      - Services: kubernetes/service-networking/create-service/index.md
+      - Ingress: kubernetes/service-networking/create-ingress/index.md
       - Ingress Controllers:
-        - Nginx Ingress Controller: kubernetes/tutorials/install-ingress-controller/index.md
+        - Nginx Ingress Controller: kubernetes/service-networking/install-ingress-controller/index.md
     - Storage:
-      - Storage Classes: kubernetes/tutorials/create-storage-class/index.md
+      - Overview: kubernetes/storage/index.md
+      - Storage Classes: kubernetes/storage/create-storage-class/index.md
     - Security:
-      - Cert Manager: kubernetes/tutorials/install-certmanager/index.md
+      - Overview: kubernetes/security/index.md
+      - Cert Manager: kubernetes/security/install-certmanager/index.md
     - Command Reference:
-      - Imperative Commands: kubernetes/tutorials/imperative-commands/index.md
+      - Overview: kubernetes/commands/index.md
+      - Imperative Commands: kubernetes/commands/imperative-commands/index.md
   - Helm:
     - Overview: helm/index.md
     - Basics: helm/basics/index.md
@@ -176,10 +198,12 @@ nav:
   - Terraform:
     - Overview: terraform/index.md
     - AWS:
+      - Overview: terraform/aws/index.md
       - Terraform script to create AWS Codebuild project: terraform/aws/codebuild/index.md
       - Terraform script to create AWS Codedeploy: terraform/aws/codedeploy/index.md
       - Terraform script to create AWS Codepipeline: terraform/aws/codepipeline/index.md
     - GCP:
+      - Overview: terraform/gcp/index.md
       - Projects:
         - Deploy Python Flask App to Cloud Run: terraform/gcp/projects/cloud-run/index.md
         - Apigee X with PSC to Cloud Run: terraform/gcp/projects/apigee-psc/index.md
@@ -190,19 +214,23 @@ nav:
     - Types of OS: cloud/types-of-os/index.md
     - AWS:
       - Tutorials:
+        - Overview: cloud/aws/tutorials/index.md
         - Deploy Flask API to AWS Lambda using Docker: cloud/aws/tutorials/deploy-flask-lambda/index.md
         - Deploy FastAPI to AWS Lambda using Docker: cloud/aws/tutorials/deploy-fastapi-lambda/index.md
         - Amazon SageMaker Guide: cloud/aws/tutorials/sagemaker/index.md
         - Amazon Bedrock AgentCore Guide: cloud/aws/tutorials/bedrock-agentcore/index.md
     - GCP:
-      - What is GCP?: cloud/gcp/tutorials/intro/index.md
-      - How to create Cloud Run service using gcloud CLI: cloud/gcp/tutorials/create-cloud-run/index.md
-      - How to create Artifact Registry Docker Repository using gcloud CLI: cloud/gcp/tutorials/create-artifact-registry/index.md
-      - Build and Push Docker Image to Artifact Registry: cloud/gcp/tutorials/push-docker-artifact-registry/index.md
-    - Projects:
-      - Deploy Python App to Cloud Run: cloud/gcp/projects/deploy-python-cloud-run/index.md
-      - Deploy Signed Image to Cloud Run with Binary Authorization: cloud/gcp/projects/deploy-signed-image/index.md
-      - Apigee X with PSC to Cloud Run: cloud/gcp/projects/apigee-psc-cloudrun/index.md
+      - Overview: cloud/gcp/index.md
+      - Tutorials:
+        - Overview: cloud/gcp/tutorials/index.md
+        - How to create Cloud Run service using gcloud CLI: cloud/gcp/tutorials/create-cloud-run/index.md
+        - How to create Artifact Registry Docker Repository using gcloud CLI: cloud/gcp/tutorials/create-artifact-registry/index.md
+        - Build and Push Docker Image to Artifact Registry: cloud/gcp/tutorials/push-docker-artifact-registry/index.md
+      - Projects:
+        - Overview: cloud/gcp/projects/index.md
+        - Deploy Python App to Cloud Run: cloud/gcp/projects/deploy-python-cloud-run/index.md
+        - Deploy Signed Image to Cloud Run with Binary Authorization: cloud/gcp/projects/deploy-signed-image/index.md
+        - Apigee X with PSC to Cloud Run: cloud/gcp/projects/apigee-psc-cloudrun/index.md
   # - Notebooks:
   #   - Overview: notebooks/index.md
   #   - AWS Bedrock AgentCore:
@@ -362,46 +390,57 @@ nav:
     - AWS:
       - Overview: quiz/aws/index.md
       - Cloud Engineer:
+        - Overview: quiz/aws/cloud-engineer/index.md
         - Basics: quiz/aws/cloud-engineer/basics/index.md
         - Intermediate: quiz/aws/cloud-engineer/intermediate/index.md
         - Advanced: quiz/aws/cloud-engineer/advanced/index.md
       - DevOps Engineer:
+        - Overview: quiz/aws/devops-engineer/index.md
         - Basics: quiz/aws/devops-engineer/basics/index.md
         - Intermediate: quiz/aws/devops-engineer/intermediate/index.md
         - Advanced: quiz/aws/devops-engineer/advanced/index.md
       - Solutions Architect:
+        - Overview: quiz/aws/solutions-architect/index.md
         - Basics: quiz/aws/solutions-architect/basics/index.md
         - Intermediate: quiz/aws/solutions-architect/intermediate/index.md
         - Advanced: quiz/aws/solutions-architect/advanced/index.md
       - SysOps Administrator:
+        - Overview: quiz/aws/sysops-admin/index.md
         - Basics: quiz/aws/sysops-admin/basics/index.md
         - Intermediate: quiz/aws/sysops-admin/intermediate/index.md
         - Advanced: quiz/aws/sysops-admin/advanced/index.md
       - SRE:
+        - Overview: quiz/aws/sre/index.md
         - Basics: quiz/aws/sre/basics/index.md
         - Intermediate: quiz/aws/sre/intermediate/index.md
         - Advanced: quiz/aws/sre/advanced/index.md
       - Developer:
+        - Overview: quiz/aws/developer/index.md
         - Basics: quiz/aws/developer/basics/index.md
         - Intermediate: quiz/aws/developer/intermediate/index.md
         - Advanced: quiz/aws/developer/advanced/index.md
       - Data Engineer:
+        - Overview: quiz/aws/data-engineer/index.md
         - Basics: quiz/aws/data-engineer/basics/index.md
         - Intermediate: quiz/aws/data-engineer/intermediate/index.md
         - Advanced: quiz/aws/data-engineer/advanced/index.md
       - ML Engineer:
+        - Overview: quiz/aws/ml-engineer/index.md
         - Basics: quiz/aws/ml-engineer/basics/index.md
         - Intermediate: quiz/aws/ml-engineer/intermediate/index.md
         - Advanced: quiz/aws/ml-engineer/advanced/index.md
       - GenAI Engineer:
+        - Overview: quiz/aws/gen-ai-engineer/index.md
         - Basics: quiz/aws/gen-ai-engineer/basics/index.md
         - Intermediate: quiz/aws/gen-ai-engineer/intermediate/index.md
         - Advanced: quiz/aws/gen-ai-engineer/advanced/index.md
       - Security Engineer:
+        - Overview: quiz/aws/security-engineer/index.md
         - Basics: quiz/aws/security-engineer/basics/index.md
         - Intermediate: quiz/aws/security-engineer/intermediate/index.md
         - Advanced: quiz/aws/security-engineer/advanced/index.md
       - Network Engineer:
+        - Overview: quiz/aws/network-engineer/index.md
         - Basics: quiz/aws/network-engineer/basics/index.md
         - Intermediate: quiz/aws/network-engineer/intermediate/index.md
         - Advanced: quiz/aws/network-engineer/advanced/index.md

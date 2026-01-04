@@ -7,7 +7,6 @@ description: Overview of Build Tools documentation
 
 Welcome to the Build Tools documentation.
 
-{% include-markdown "../.partials/interview-instruction.md" %}
 
 ## Maven
 
@@ -16,4 +15,4 @@ Welcome to the Build Tools documentation.
 * [What is Maven?](maven/what-is-maven/index.md)
 
 ---
-{% include-markdown "../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

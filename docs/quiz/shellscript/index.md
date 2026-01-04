@@ -1,79 +1,55 @@
 ---
-title: "Shell Scripting Quiz for DevOps Engineers"
+title: Shell Scripting Quiz
+description: Shell Scripting Quiz Overview
 ---
 
-# Shell Scripting Quiz for DevOps Engineers
+# Shell Scripting Quiz
 
-Shell Scripting is the **automation backbone for DevOps**.  
-This quiz series helps you **validate your scripting skills**, from basic syntax to advanced automation functions.
+Master shell scripting for automation and system administration.
 
-Each section contains a **20-question quiz**, designed for:
-- Interview preparation
-- Validating your automation skills
-- Troubleshooting practice
+These quizzes are designed to help you **practice, validate, and master Shell Scripting concepts** used in real-world environments.
 
 ---
 
-## 🧭 Shell Scripting Quiz Learning Path
+## 🧭 Learning Path
 
 Follow the quizzes in order for best results 👇
 
 ---
 
-### 🔹 Part 1: Basics & Error Handling
-Fundamental concepts, variables, and execution.
+### 🔹 Level 1: Basics
+Fundamental concepts and core knowledge.
 
-👉 **[Start Quiz – Shell Basics](../../shellscript/basics/index.md)**
-
-Topics:
-- Shebang and execution
-- Variables and Comments
-- `$?` and Error handling
+👉 **[Start Quiz – Basics](basics/index.md)**
 
 ---
 
-### 🔹 Part 2: For Loops, Arrays & Files
-Iterate over data and manage files.
+### 🔹 Level 2: Intermediate
+Deeper understanding and common scenarios.
 
-👉 **[Start Quiz – Loops & Arrays](../../quiz/shellscript/intermediate/index.md)**
-
-Topics:
-- `for` loop syntax
-- Array declarations
-- File iterations
+👉 **[Start Quiz – Intermediate](intermediate/index.md)**
 
 ---
 
-### 🔹 Part 3: Advanced Automation
-Functions, logical operators, and loops.
+### 🔹 Level 3: Advanced
+Complex scenarios, troubleshooting, and expert-level topics.
 
-👉 **[Start Quiz – Advanced Automation](../../quiz/shellscript/advanced/index.md)**
-
-Topics:
-- `while` loops & conditions
-- Functions and Arguments
-- Text processing
+👉 **[Start Quiz – Advanced](advanced/index.md)**
 
 ---
 
 ## 🎯 How to Use These Quizzes
 
-- Attempt quizzes **after reading the Shell Scripting Guide**
+- Attempt quizzes **after studying the related documentation**
 - Don’t guess — understand *why* an answer is correct
-- Use this series for **DevOps interview preparation**
+- Reattempt quizzes after a few days for retention
+- Use this series for **interview preparation**
 
 ---
 
 ## 🚀 Next Steps
 
-After mastering Shell Scripting, continue with:
-- **[Linux Commands](../linux-commands/index.md)**
-- **[Git & Version Control](../git/index.md)**
-
-👉 **[Back to Shell Scripting Guide](../../shellscript/index.md)**
-
-Happy Learning 🚀
+After mastering these quizzes, explore other topics in our **[Interview Questions](../../interview-questions/index.md)** section.
 
 ---
-
-{% include-markdown ".partials/subscribe.md" %}
+{% include-markdown "../../.partials/subscribe.md" %}

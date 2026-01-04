@@ -161,4 +161,4 @@ Now we can see, the size of the docker image is reduced very much.
 
 ---
 
-{% include-markdown "../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

@@ -1,91 +1,55 @@
 ---
-title: "Git Quiz for DevOps Engineers"
+title: Git Quiz
+description: Git Quiz Overview
 ---
 
-# Git Quiz for DevOps Engineers
+# Git Quiz
 
-Git is a **foundational skill for every DevOps engineer**.  
-From managing source code to collaborating in CI/CD pipelines, **Git is used daily in real-world projects**.
+Test your version control skills with Git.
 
-This quiz series is designed to help you:
-- Practice Git commands
-- Build strong fundamentals
-- Prepare for DevOps and Git interviews
-- Avoid common Git mistakes in production
+These quizzes are designed to help you **practice, validate, and master Git concepts** used in real-world environments.
 
 ---
 
-## 🧭 Git Quiz Learning Path
+## 🧭 Learning Path
 
 Follow the quizzes in order for best results 👇
 
 ---
 
-### 🔹 Basics Level: Git Basics
-Start here if you are new to Git or want to strengthen fundamentals.
+### 🔹 Level 1: Basics
+Fundamental concepts and core knowledge.
 
-👉 **[Start Quiz – Git Basics Level](../../quiz/git/basics/index.md)**
-
-Topics covered:
-- What is Git and why it is used
-- `git init`, `git status`, `git add`, `git commit`
-- Working directory, staging area, repository
-- Viewing commit history
-- Basic Git workflow
+👉 **[Start Quiz – Basics](basics/index.md)**
 
 ---
 
-### 🔹 Intermediate Level: Branching & Collaboration
-Learn how teams work together using Git.
+### 🔹 Level 2: Intermediate
+Deeper understanding and common scenarios.
 
-� **[Start Quiz – Git Intermediate Level](../../quiz/git/intermediate/index.md)**
-
-Topics covered:
-- `git branch`, `git checkout`, `git switch`
-- `git merge` types (fast-forward vs merge commit)
-- `git stash` and `git restore`
-- `git clean` and `git blame`
-- Difference between `fetch` and `pull`
+👉 **[Start Quiz – Intermediate](intermediate/index.md)**
 
 ---
 
-### 🔹 Advanced Level: Rewriting History & Internals
-Advanced Git usage for real-world scenarios.
+### 🔹 Level 3: Advanced
+Complex scenarios, troubleshooting, and expert-level topics.
 
-� **[Start Quiz – Git Advanced Level](../../quiz/git/advanced/index.md)**
-
-Topics covered:
-- `git rebase` (interactive and standard)
-- `git cherry-pick` and `git bisect`
-- `git reflog` and detached HEAD
-- Git Internals (blobs, trees, refs)
-- Hooks and `git filter-repo`
+👉 **[Start Quiz – Advanced](advanced/index.md)**
 
 ---
 
-## 🎯 How to Use These Git Quizzes
+## 🎯 How to Use These Quizzes
 
-- Read the Git documentation or tutorial first
-- Attempt quizzes **without guessing**
-- Revisit wrong answers and understand why
-- Retake quizzes after a few days for retention
-- Use this series for **DevOps interview preparation**
+- Attempt quizzes **after studying the related documentation**
+- Don’t guess — understand *why* an answer is correct
+- Reattempt quizzes after a few days for retention
+- Use this series for **interview preparation**
 
 ---
 
 ## 🚀 Next Steps
 
-After mastering Git basics, continue with:
-- Linux Commands
-- CI/CD with Jenkins
-- Kubernetes
-- Cloud (AWS / Azure)
-
-👉 **[Back to Linux Quiz Index](../../quiz/linux-commands/index.md)**  
-👉 **[Back to Git Commands Guide](../../git/index.md)**
-
-Happy Learning 🚀
+After mastering these quizzes, explore other topics in our **[Interview Questions](../../interview-questions/index.md)** section.
 
 ---
-
-{% include-markdown ".partials/subscribe.md" %}
+{% include-markdown "../../.partials/subscribe.md" %}

@@ -420,4 +420,4 @@ ansible-doc ping
     Most modules are idempotent, which means they only make changes if a change is needed. Idempotent modules can be run safely multiple times.
 
 ---
-{% include-markdown "../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

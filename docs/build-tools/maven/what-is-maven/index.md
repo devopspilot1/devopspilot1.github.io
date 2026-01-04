@@ -834,4 +834,4 @@ Maven is very useful in the CI/CD process to automate the building of applicatio
 
 ---
 
-{% include-markdown "../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

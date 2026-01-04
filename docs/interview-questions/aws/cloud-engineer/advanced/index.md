@@ -150,4 +150,4 @@ description: "Top 20 Advanced AWS Cloud Engineer interview questions covering ar
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS Cloud Engineer Advanced Quiz](../../../../quiz/aws/cloud-engineer/advanced/index.md)**
 
-{% include-markdown "../../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

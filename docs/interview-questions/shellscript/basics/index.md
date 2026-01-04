@@ -111,4 +111,4 @@ description: "Top 20 Basic Shell Scripting interview questions covering shebang,
 ### 🧪 Ready to test yourself?
 👉 **[Take the Basic Shell Scripting Quiz](../../../quiz/shellscript/basics/index.md)** (Coming Soon)
 
-{% include-markdown "../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

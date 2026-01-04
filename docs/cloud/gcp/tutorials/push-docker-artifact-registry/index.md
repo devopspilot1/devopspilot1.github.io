@@ -125,4 +125,4 @@ You have successfully containerized a Python application and pushed it to Google
 
 ---
 
-{% include-markdown "../../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

@@ -112,4 +112,4 @@ description: "Top 20 Basic Linux interview questions covering ls, cd, file permi
 ### 🧪 Ready to test yourself?
 👉 **[Take the Basic Linux Commands Quiz](../../../quiz/linux-commands/basic-linux-commands/index.md)**
 
-{% include-markdown "../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

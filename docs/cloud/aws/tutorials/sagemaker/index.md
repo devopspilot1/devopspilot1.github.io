@@ -646,4 +646,4 @@ Amazon SageMaker AI provides everything you need to build production-grade machi
 
 ---
 
-{% include-markdown "../../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

@@ -666,4 +666,4 @@ You now have a complete, production-ready workflow for deploying Apigee X with P
 
 ---
 
-{% include-markdown "../../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

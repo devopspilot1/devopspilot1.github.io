@@ -863,4 +863,4 @@ Amazon Bedrock AgentCore enables enterprises to build intelligent, autonomous ag
 
 ---
 
-{% include-markdown "../../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

@@ -15,4 +15,4 @@ description: "Advanced Ansible interview questions and answers."
     This is a placeholder for a advanced question.
 
 ---
-{% include-markdown "../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

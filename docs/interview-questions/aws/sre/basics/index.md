@@ -112,4 +112,4 @@ description: "Top 20 Basic AWS Site Reliability Engineer interview questions cov
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS SRE Basics Quiz](../../../../quiz/aws/sre/basics/index.md)**
 
-{% include-markdown "../../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

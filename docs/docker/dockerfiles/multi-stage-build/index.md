@@ -50,4 +50,4 @@ docker build -t 2-stage:latest .
 
 ---
 
-{% include-markdown "../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

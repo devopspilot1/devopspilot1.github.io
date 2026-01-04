@@ -112,4 +112,4 @@ description: "Top 20 Intermediate AWS Network Engineer interview questions cover
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS Network Engineer Intermediate Quiz](../../../../quiz/aws/network-engineer/intermediate/index.md)**
 
-{% include-markdown "../../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

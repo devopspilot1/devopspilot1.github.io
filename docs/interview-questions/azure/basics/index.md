@@ -12,4 +12,4 @@ description: "Common Azure interview questions and answers for beginners."
 
 
 ---
-{% include-markdown "../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

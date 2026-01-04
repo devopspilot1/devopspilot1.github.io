@@ -79,4 +79,4 @@ docker run --name tomcat9 -d --restart=always -p 8080:8080 -v tomcat9-volume:/us
 
 ---
 
-{% include-markdown "../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

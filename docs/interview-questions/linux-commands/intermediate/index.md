@@ -113,4 +113,4 @@ description: "Top 20 Intermediate Linux interview questions covering disk usage,
 👉 **[Take the Linux System & Disk Quiz](../../../quiz/linux-commands/linux-system-disk-commands/index.md)**
 👉 **[Take the Linux Process Management Quiz](../../../quiz/linux-commands/linux-process-service-management/index.md)**
 
-{% include-markdown "../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

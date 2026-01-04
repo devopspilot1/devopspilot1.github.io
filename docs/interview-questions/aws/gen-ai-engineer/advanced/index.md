@@ -112,4 +112,4 @@ description: "Top 20 Advanced AWS GenAI Engineer interview questions covering Pr
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS GenAI Engineer Advanced Quiz](../../../../quiz/aws/gen-ai-engineer/advanced/index.md)**
 
-{% include-markdown "../../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

@@ -112,4 +112,4 @@ description: "Top 20 Advanced AWS Solutions Architect interview questions coveri
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS Solutions Architect Advanced Quiz](../../../../quiz/aws/solutions-architect/advanced/index.md)**
 
-{% include-markdown "../../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

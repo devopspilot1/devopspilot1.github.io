@@ -257,4 +257,4 @@ helm upgrade --atomic --cleanup-on-fail mysql devopspilot/mysql
 ```
 
 ---
-{% include-markdown "../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

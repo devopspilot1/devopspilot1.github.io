@@ -7,7 +7,6 @@ description: Overview of SSL documentation
 
 Welcome to the SSL documentation.
 
-{% include-markdown "../.partials/interview-instruction.md" %}
 
 ## Guides
 
@@ -15,4 +14,4 @@ Welcome to the SSL documentation.
 * [Letsencrypt Nginx](letsencrypt-nginx/index.md)
 
 ---
-{% include-markdown "../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

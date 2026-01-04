@@ -112,4 +112,4 @@ description: "Top 20 Advanced AWS Network Engineer interview questions covering 
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS Network Engineer Advanced Quiz](../../../../quiz/aws/network-engineer/advanced/index.md)**
 
-{% include-markdown "../../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

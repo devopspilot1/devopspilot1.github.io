@@ -112,4 +112,4 @@ description: "Top 20 Advanced AWS Security Engineer interview questions covering
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS Security Engineer Advanced Quiz](../../../../quiz/aws/security-engineer/advanced/index.md)**
 
-{% include-markdown "../../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

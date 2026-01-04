@@ -112,4 +112,4 @@ description: "Top 20 Intermediate AWS Machine Learning Engineer interview questi
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS ML Engineer Intermediate Quiz](../../../../quiz/aws/ml-engineer/intermediate/index.md)**
 
-{% include-markdown "../../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

@@ -113,4 +113,4 @@ description: "Top 20 Advanced Shell Scripting interview questions covering funct
 ### 🧪 Ready to test yourself?
 👉 **[Take the Advanced Shell Scripting Quiz](../../../quiz/shellscript/advanced/index.md)** (Coming Soon)
 
-{% include-markdown "../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

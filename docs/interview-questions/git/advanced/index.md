@@ -112,4 +112,4 @@ description: "Top 20 Advanced Git interview questions covering rebase, cherry-pi
 ### 🧪 Ready to test yourself?
 👉 **[Take the Git Advanced Quiz](../../../quiz/git/advanced/index.md)**
 
-{% include-markdown "../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

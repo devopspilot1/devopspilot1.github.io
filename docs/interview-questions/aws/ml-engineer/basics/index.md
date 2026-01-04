@@ -112,4 +112,4 @@ description: "Top 20 Basic AWS Machine Learning Engineer interview questions cov
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS ML Engineer Basics Quiz](../../../../quiz/aws/ml-engineer/basics/index.md)**
 
-{% include-markdown "../../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

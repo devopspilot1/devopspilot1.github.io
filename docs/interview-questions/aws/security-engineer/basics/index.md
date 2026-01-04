@@ -112,4 +112,4 @@ description: "Top 20 Basic AWS Security Engineer interview questions covering IA
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS Security Engineer Basics Quiz](../../../../quiz/aws/security-engineer/basics/index.md)**
 
-{% include-markdown "../../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

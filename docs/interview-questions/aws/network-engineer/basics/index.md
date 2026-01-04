@@ -112,4 +112,4 @@ description: "Top 20 Basic AWS Network Engineer interview questions covering VPC
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS Network Engineer Basics Quiz](../../../../quiz/aws/network-engineer/basics/index.md)**
 
-{% include-markdown "../../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

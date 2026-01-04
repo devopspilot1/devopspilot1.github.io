@@ -112,4 +112,4 @@ description: "Top 20 Intermediate AWS Site Reliability Engineer interview questi
 ### 🧪 Ready to test yourself?
 👉 **[Take the AWS SRE Intermediate Quiz](../../../../quiz/aws/sre/intermediate/index.md)**
 
-{% include-markdown "../../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

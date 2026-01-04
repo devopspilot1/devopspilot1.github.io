@@ -121,4 +121,4 @@ If manager application is not opening, paste the following content in
 
 ---
 
-{% include-markdown "../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}
