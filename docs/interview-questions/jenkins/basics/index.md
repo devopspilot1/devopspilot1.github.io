@@ -5,9 +5,9 @@ description: "Common Jenkins interview questions and answers for beginners."
 
 # Jenkins Interview Questions - Basics
 
-{% include-markdown "../../../.partials/interview-instruction.md" %}
+{% include-markdown ".partials/interview-instruction.md" %}
 
-{% include-markdown "../../../.partials/interview-level-basics.md" %}
+{% include-markdown ".partials/interview-level-basics.md" %}
 
 #### What is Jenkins?
 

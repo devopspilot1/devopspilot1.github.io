@@ -5,9 +5,9 @@ description: "Intermediate Jenkins interview questions and answers."
 
 # Jenkins Interview Questions - Intermediate
 
-{% include-markdown "../../../.partials/interview-instruction.md" %}
+{% include-markdown ".partials/interview-instruction.md" %}
 
-{% include-markdown "../../../.partials/interview-level-intermediate.md" %}
+{% include-markdown ".partials/interview-level-intermediate.md" %}
 
 #### What is the difference between specific `agent` and `agent any`?
 

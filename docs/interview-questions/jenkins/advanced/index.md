@@ -5,9 +5,9 @@ description: "Advanced Jenkins interview questions and answers."
 
 # Jenkins Interview Questions - Advanced
 
-{% include-markdown "../../../.partials/interview-instruction.md" %}
+{% include-markdown ".partials/interview-instruction.md" %}
 
-{% include-markdown "../../../.partials/interview-level-advanced.md" %}
+{% include-markdown ".partials/interview-level-advanced.md" %}
 
 #### What are Jenkins Shared Libraries?
 
