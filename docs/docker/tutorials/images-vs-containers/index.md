@@ -1,105 +1,188 @@
 ---
-title: "Docker Images vs Docker Containers"
-date: 2024-07-01
+title: "Docker Image vs Container – Differences Explained with Examples"
+description: "Understand the difference between Docker images and Docker containers with simple explanations, real examples, and commands. Beginner-friendly guide."
 ---
 
-### ISO image and Docker image
+# Docker Image vs Docker Container – Differences with Examples
 
-ISO image file is a static file, when we install it to a Computer/Laptop, all the softwares/applications in the iso package will run lively when the system is powered on.
+← [Back to Docker](../../index.md)
 
-Similarly, Docker Image is a static package, when we create a container using that image, the applications packaged in the docker image will be running live inside docker container
+---
 
-![Server-detail](../../../images/iso.png)
+Docker images and Docker containers are core concepts every Docker beginner must understand.
 
-Similar like downloading the ubuntu iso file from official ubuntu website.
+In simple terms, a **Docker image** is a **read-only template**, while a **Docker container** is a **running instance created from that image**.
 
-All the docker images are stored in docker registry `Docker Hub` [https://hub.docker.com](https://hub.docker.com)
+In this guide, you’ll learn:
+- What a Docker image is
+- What a Docker container is
+- Key differences between images and containers
+- Real Docker examples using Ubuntu
 
-### Pulling the docker image from Docker hub
+---
 
-Lets check what are the images present in the server.
+## What is a Docker Image?
+
+A **Docker image** is a lightweight, immutable, read-only template that contains everything required to run an application:
+- Application code
+- Runtime
+- Libraries
+- Dependencies
+
+Docker images are used as **blueprints** to create containers.
+
+All Docker images are stored in a **Docker registry**, most commonly **Docker Hub**.
+
+👉 Docker Hub: https://hub.docker.com
+
+---
+
+## What is a Docker Container?
+
+A **Docker container** is a **running instance of a Docker image**.
+
+When a container is created:
+- The image stays unchanged (read-only)
+- A writable layer is added on top
+- The application starts running
+
+If the container stops, the image remains intact.
+
+---
+
+## Docker Image vs Docker Container – Comparison Table
+
+| Feature | Docker Image | Docker Container |
+|------|-------------|------------------|
+| Nature | Static | Dynamic |
+| State | Read-only | Read-write |
+| Purpose | Blueprint | Running application |
+| Created using | Dockerfile | docker run |
+| Stored in | Docker registry | Host system |
+| Lifecycle | Does not run | Can start, stop, restart |
+
+---
+
+## ISO Image vs Docker Image (Easy Analogy)
+
+An **ISO image** is a static installation file. Applications run only **after** the operating system is installed and started.
+
+Similarly:
+- A **Docker image** is a static package
+- A **Docker container** runs applications from that image
+
+![ISO vs Docker Image](../../../images/iso.png)
+
+---
+
+## Pulling Docker Images from Docker Hub
+
+Check existing images on the server:
+
+```bash
+docker image ls
+```
+
+Pull the Ubuntu image:
+
+```bash
+docker pull ubuntu
+```
+
+By default, Docker pulls the `latest` tag.
+
+---
+
+## Pulling a Specific Image Tag
+
+Docker images follow this format:
 
 ```
-azureuser@raghav:~$ docker image ls
-REPOSITORY   TAG       IMAGE ID   CREATED   SIZE
+IMAGE_NAME:TAG
 ```
 
-No docker images are present in the server.
+Example:
 
-Lets pull the ubuntu docker image from docker hub
-
-Docker image follows the format DOCKER\_IMAGE\_NAME:TAG
-
-By default if you are not passing the tag, it will pull the `latest` tag
-
-```
-azureuser@raghav:~$ docker pull ubuntu
-Using default tag: latest
-latest: Pulling from library/ubuntu
-6b851dcae6ca: Pull complete 
-Digest: sha256:6120be6a2b7ce665d0cbddc3ce6eae60fe94637c6a66985312d1f02f63cc0bcd
-Status: Downloaded newer image for ubuntu:latest
-docker.io/library/ubuntu:latest
+```bash
+docker pull ubuntu:23.10
 ```
 
-Now check the docker images in server
+Verify images:
 
-```
-azureuser@raghav:~$ docker images
-REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
-ubuntu       latest    99284ca6cea0   2 weeks ago   77.8MB
+```bash
+docker images
 ```
 
-Docker image with tag `latest` is pulled from the Docker hub.
+---
 
-Lets pull `ubuntu` docker image with tag `23.10`
+## Creating a Docker Container from an Image
 
-```
-azureuser@raghav:~$ docker pull ubuntu:23.10
-23.10: Pulling from library/ubuntu
-a3cc0ea50b9a: Pull complete 
-Digest: sha256:bd1e0eb3171a6e499c84211e73c4f5f5b2a585507256f772f5c4f4420a3d8591
-Status: Downloaded newer image for ubuntu:23.10
-docker.io/library/ubuntu:23.10
+Create a container using the Ubuntu image:
+
+```bash
+docker run -it ubuntu:23.10 bash
 ```
 
-```
-azureuser@raghav:~$ docker images
-REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
-ubuntu       23.10     ce0fd6ed554b   2 weeks ago   70.4MB
-ubuntu       latest    99284ca6cea0   2 weeks ago   77.8MB
+Inside the container:
+
+```bash
+pwd
+ls
+id
+cat /etc/os-release
 ```
 
-Now we have two `ubuntu` docker images in server, one with tag `latest` and another with tag `23.10`
+This confirms that the container is running Ubuntu **23.10** using the image.
 
-### Creating docker container using docker image
+---
 
-Lets create a docker container with image `ubuntu:23.10`
+## Image and Container Relationship
 
-```
-azureuser@raghav:~$ docker run -it ubuntu:23.10 bash
-root@fc9a74dbecbf:/# pwd
-/
-root@fc9a74dbecbf:/# ls
-bin  boot  dev  etc  home  lib  lib32  lib64  libx32  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
-root@fc9a74dbecbf:/# id
-uid=0(root) gid=0(root) groups=0(root)
-root@fc9a74dbecbf:/# cat /etc/os-release 
-PRETTY_NAME="Ubuntu Mantic Minotaur (development branch)"
-NAME="Ubuntu"
-VERSION_ID="23.10"
-VERSION="23.10 (Mantic Minotaur)"
-VERSION_CODENAME=mantic
-ID=ubuntu
-ID_LIKE=debian
-HOME_URL="https://www.ubuntu.com/"
-SUPPORT_URL="https://help.ubuntu.com/"
-BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
-PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
-UBUNTU_CODENAME=mantic
-LOGO=ubuntu-logo
-```
+- One image ➜ multiple containers
+- Containers can be stopped or removed
+- Images remain unchanged
+
+---
+
+## FAQs
+
+### Is a Docker container an image?
+No. A Docker container is created **from** an image and represents a running process.
+
+### Can one Docker image create multiple containers?
+Yes. A single image can be used to create multiple containers.
+
+### What happens when a container stops?
+The container stops running, but the image remains unchanged.
+
+---
+
+## Next Steps
+
+👉 [What is Docker?](../what-is-docker/)  
+👉 [How to Install Docker on Linux](../install-docker/)
+
+---
+
+## 🧠 Quick Quiz — Docker Image vs Container
+
+<quiz>
+Which of the following statements is true?
+- [x] A Docker image is read-only, and a container is the runnable instance.
+- [ ] A Docker container is read-only, and an image is the runnable instance.
+- [ ] Images and Containers are exactly the same thing.
+- [ ] You can edit a Docker image directly while it's running.
+
+The Docker image is the static, read-only template, while the container is the dynamic, running instance created from that image.
+</quiz>
+
+---
+
+### 📝 Want More Practice?
+
+👉 **[Test your knowledge – Take the Docker Basics Quiz](../../../quiz/docker/basics/index.md)**
 
 ---
 
 {% include-markdown ".partials/subscribe-guides.md" %}
+

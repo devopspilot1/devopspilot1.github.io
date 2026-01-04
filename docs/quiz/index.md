@@ -59,7 +59,23 @@ More levels coming soon:
 - Branching & collaboration
 - Advanced Git workflows
 
+
 ---
+
+## 🐳 Docker Quiz
+
+Docker is the de facto standard for containerization.
+Test your knowledge from basics to advanced orchestration.
+
+👉 **[Go to Docker Quiz](../quiz/docker/index.md)**
+
+Includes:
+- Basics (Images, Containers)
+- Intermediate (Compose, Networking, Volumes)
+- Advanced (Swarm, Security)
+
+---
+
 
 ## ☁️ AWS Cloud Quiz
 
