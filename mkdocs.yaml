@@ -194,6 +194,8 @@ nav:
   - Helm:
     - Overview: helm/index.md
     - Basics: helm/basics/index.md
+    - Intermediate: helm/intermediate/index.md
+    - Advanced: helm/advanced/index.md
     - Commands: helm/commands/index.md
   - Terraform:
     - Overview: terraform/index.md

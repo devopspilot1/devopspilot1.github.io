@@ -1,25 +1,27 @@
 ---
-title: "Helm Chart Basics"
-date: 2024-07-01
+title: Helm Chart Basics
+description: Guide to Helm repositories, dependencies, and chart structure
 ---
 
-### How to add a helm repository
+# Helm Chart Basics
 
-By default, helm will not have the repos added, we have to add the helm official repo like this
+## Helm Repositories
 
-```
+By default, Helm does not come with pre-configured repositories. You must add them manually.
+
+### Add Stable Repo
+```bash
 helm repo add stable https://charts.helm.sh/stable
 ```
 
-### How to define dependency charts
+## Chart Dependencies
 
-In Helm chart we can define the dependency helm charts, while installing the parent helm chart the dependencies are downloaded from repos and stored in charts/ folder. We can also manually download and put the chart.tgz in charts/ folder
+Dependencies allow a chart to build upon other charts. They are defined in `Chart.yaml` and stored in the `charts/` directory.
 
-Defining the dependency helm chart in parent Charts.yaml
-
-```
-# parentchart/Chart.yaml
-apiVesrion: v2
+### Defining Dependencies
+In `parentchart/Chart.yaml`:
+```yaml
+apiVersion: v2
 name: parentchart
 version: 1.0.0
 dependencies:
@@ -31,224 +33,96 @@ dependencies:
     repository: https://another.example.com/charts
 ```
 
-we can use "alias" option to rename the chart and store in /charts folder
-
-```
-### parentchart/Chart.yaml
-apiVesrion: v2
-name: parentchart
-version: 1.0.0
+### Using Aliases
+You can install the same chart multiple times with different names using `alias`.
+```yaml
 dependencies:
-  - name: subchart
-    repository: http://localhost:10191
-    version: 0.1.0
-    alias: new-subchart-1
-  - name: subchart
-    repository: http://localhost:10191
-    version: 0.1.0
-    alias: new-subchart-2
-  - name: subchart
-    repository: http://localhost:10191
-    version: 0.1.0
+  - name: redis
+    version: 1.0.0
+    repository: https://charts.bitnami.com/bitnami
+    alias: redis-cache
+  - name: redis
+    version: 1.0.0
+    repository: https://charts.bitnami.com/bitnami
+    alias: redis-queue
 ```
 
-### How to use tags and condition in chart.yaml
+## Tags and Conditions
 
-we can use "tags" and "condition" option to control the installation of dependency charts.
+You can control the installation of dependencies using `tags` and `condition` in `Chart.yaml`.
 
-- condition has higher preference than tags.
+*   **Condition**: Values path (e.g., `subchart.enabled`). First valid path wins.
+*   **Tags**: Group dependencies (e.g., `front-end`, `back-end`).
 
-- The first condition path that exists wins and subsequent ones for that chart are ignored.
+**Priority**: `condition` > `tags`.
 
-- If the "condition" values are not defined in the values.yaml, then the defined "condition" has no effect.
-
-- Tags and conditions values must be set in the top parent's values.
-
-- The tags: key in values must be a top level key. Globals and nested tags: tables are not currently supported.
-
-```
-# parentchart/Chart.yaml
+```yaml
+# Chart.yaml
 dependencies:
-  - name: subchart1
-    repository: http://localhost:10191
-    version: 0.1.0
-    condition: subchart1.enabled, global.subchart1.enabled
+  - name: frontend
+    condition: frontend.enabled
     tags:
-      - front-end
-      - subchart1
-  - name: subchart2
-    repository: http://localhost:10191
-    version: 0.1.0
-    condition: subchart2.enabled,global.subchart2.enabled
-    tags:
-      - back-end
-      - subchart2
+      - web-tier
+```
+```bash
+# Enable via CLI
+helm install myapp . --set frontend.enabled=false
 ```
 
-```
-# parentchart/values.yaml
-subchart2:
-  enabled: true
-tags:
-  front-end: false
-  back-end: true
-```
+## Passing Values to Subcharts
 
-### The --set parameter can be used as usual to alter tag and condition values.
-
-```
-helm install --set tags.front-end=true --set subchart2.enabled=false
-```
-
-### How to import values from child to parent
-
-we can get/import the values from child values.yaml to parent values.yaml. If the child values are already present in parent values.yaml, it will be overwritten in parent values.yaml [https://helm.sh/docs/topics/charts/#chart-dependencies](https://helm.sh/docs/topics/charts/#chart-dependencies)
-
-### Helm creates kubernetes resources in the following order and uninstall its in reverse order,
-
-```
-"Namespace",
-"NetworkPolicy",
-"ResourceQuota",
-"LimitRange",
-"PodSecurityPolicy",
-"PodDisruptionBudget",
-"Secret",
-"ConfigMap",
-"StorageClass",
-"PersistentVolume",
-"PersistentVolumeClaim",
-"ServiceAccount",
-"CustomResourceDefinition",
-"ClusterRole",
-"ClusterRoleList",
-"ClusterRoleBinding",
-"ClusterRoleBindingList",
-"Role",
-"RoleList",
-"RoleBinding",
-"RoleBindingList",
-"Service",
-"DaemonSet",
-"Pod",
-"ReplicationController",
-"ReplicaSet",
-"Deployment",
-"HorizontalPodAutoscaler",
-"StatefulSet",
-"Job",
-"CronJob",
-"Ingress",
-"APIService"
-```
-
-### The chart can be deprecated by specifying the "deprecated: true" in Charts.yaml
-
-### Predefined Values
-
-- Release.Name: The name of the release (not the chart)
-
-- Release.Namespace: The namespace the chart was released to.
-
-- Release.Service: The service that conducted the release.
-
-- Release.IsUpgrade: This is set to true if the current operation is an upgrade or rollback.
-
-- Release.IsInstall: This is set to true if the current operation is an install.
-
-- Chart: The contents of the Chart.yaml. Thus, the chart version is obtainable as Chart.Version and the maintainers are in Chart.Maintainers.
-
-### "global" is a special variable to pass the values to dependency charts.
-
-- By default dependency chart cannot read values from parent root values
-
-- we can pass values to dependency charts from parent values.yaml
-
-```
-title: "My WordPress Site" # Sent to the WordPress template
-
+### Global Values
+The `global` key in `values.yaml` is accessible by all charts (parent and subcharts).
+```yaml
 global:
   app: MyWordPress
-
-mysql: # Dependency chart name
-  max_connections: 100 # Sent to MySQL
-  password: "secret"
-
-apache: # Dependency chart name
-  port: 8080 # Passed to Apache  
 ```
 
-### Use of values.schema.json in helm chart
-
-The schema file "values.schema.json" in chart root folder is used the enforce the chart values, define a structure, make some values as required value (eg. string type for specific value in values.yaml)
-
+### Subchart Values
+Pass values to a specific subchart by using its name as a key.
+```yaml
+mysql:       # dependency name
+  auth:
+    rootPassword: secret
 ```
+
+## Value Validation (`values.schema.json`)
+
+You can modify `values.schema.json` to enforce types and required fields for your values.
+```json
 {
   "$schema": "https://json-schema.org/draft-07/schema#",
+  "required": ["image", "port"],
   "properties": {
-    "image": {
-      "description": "Container Image",
-      "properties": {
-        "repo": {
-          "type": "string"
-        },
-        "tag": {
-          "type": "string"
-        }
-      },
-      "type": "object"
-    },
-    "name": {
-      "description": "Service name",
-      "type": "string"
-    },
-    "port": {
-      "description": "Port",
-      "minimum": 0,
-      "type": "integer"
-    },
-    "protocol": {
-      "type": "string"
-    }
-  },
-  "required": [
-    "protocol",
-    "port"
-  ],
-  "title": "Values",
-  "type": "object"
+    "port": { "type": "integer" },
+    "image": { "type": "string" }
+  }
 }
 ```
 
-### "template directives" or templating feature not available for CRD yaml files defined in crds/ folder
+## Custom Resource Definitions (CRDs)
 
-```
-kind: CustomResourceDefinition
-metadata:
-  name: crontabs.stable.example.com
-spec:
-  group: stable.example.com
-  versions:
-    - name: v1
-      served: true
-      storage: true
-  scope: Namespaced
-  names:
-    plural: crontabs
-    singular: crontab
-    kind: CronTab
-```
+Helm has specific limitations for managing CRDs in the `crds/` folder:
 
-### Limitations on CRDs
+1.  **Install Only**: Helm installs them, but **never upgrades or deletes** them.
+2.  **Global Scope**: Deleting a CRD wipes data across all namespaces, so Helm avoids touching them for safety.
+3.  **No Templating**: Files in `crds/` are plain YAML; templating is not supported.
 
-- Unlike most objects in Kubernetes, CRDs are installed globally. For that reason, Helm takes a very cautious approach in managing CRDs. CRDs are subject to the following limitations:
+---
 
-- CRDs are never reinstalled. If Helm determines that the CRDs in the crds/ directory are already present (regardless of version), Helm will not attempt to install or upgrade.
+### 🧠 Quick Quiz
 
-- CRDs are never installed on upgrade or rollback. Helm will only create CRDs on installation operations.
+<quiz>
+Which command installs a chart?
+- [x] helm install
+- [ ] helm run
+- [ ] helm deploy
+- [ ] helm start
 
-- CRDs are never deleted. Deleting a CRD automatically deletes all of the CRD's contents across all namespaces in the cluster. Consequently, Helm will not delete CRDs.
+`helm install [release] [chart]` installs the chart.
+</quiz>
 
-### Chart Repositories
+👉 **[Take the Helm Basics Quiz](../../quiz/helm/basics/index.md)**
 
-A repository is characterized primarily by the presence of a special file called index.yaml that has a list of all of the packages supplied by the repository, together with metadata that allows retrieving and verifying those packages.
+---
+{% include-markdown ".partials/subscribe-guides.md" %}
