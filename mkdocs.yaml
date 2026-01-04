@@ -285,6 +285,11 @@ nav:
         - Advanced: interview-questions/git/advanced/index.md
     # - Maven Interview Questions: interview-questions/
     # - Jenkins Interview Questions: interview-questions/
+    - Jenkins Interview Questions:
+      - Overview: interview-questions/jenkins/index.md
+      - Basics: interview-questions/jenkins/basics/index.md
+      - Intermediate: interview-questions/jenkins/intermediate/index.md
+      - Advanced: interview-questions/jenkins/advanced/index.md
     - Docker Interview Questions:
       - Overview: interview-questions/docker/index.md
       - Basics: interview-questions/docker/basics/index.md
@@ -390,6 +395,16 @@ nav:
       - Basics: quiz/git/basics/index.md
       - Intermediate: quiz/git/intermediate/index.md
       - Advanced: quiz/git/advanced/index.md
+    - Jenkins:
+      - Overview: quiz/jenkins/index.md
+      - Basics: quiz/jenkins/basics/index.md
+      - Intermediate: quiz/jenkins/intermediate/index.md
+      - Advanced: quiz/jenkins/advanced/index.md
+    - Docker:
+      - Overview: quiz/docker/index.md
+      - Basics: quiz/docker/basics/index.md
+      - Intermediate: quiz/docker/intermediate/index.md
+      - Advanced: quiz/docker/advanced/index.md
     - AWS:
       - Overview: quiz/aws/index.md
       - Cloud Engineer:
