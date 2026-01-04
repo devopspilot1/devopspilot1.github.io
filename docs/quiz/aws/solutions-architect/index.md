@@ -5,6 +5,8 @@ description: AWS Solutions Architect Quiz Overview
 
 # AWS Solutions Architect Quiz
 
+← [Back to Quiz Home](../../index.md)
+
 Challenge your architectural knowledge of AWS services.
 
 These quizzes are designed to help you **practice, validate, and master AWS Solutions Architect concepts** used in real-world environments.

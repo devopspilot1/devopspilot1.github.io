@@ -5,6 +5,8 @@ description: AWS Developer Quiz Overview
 
 # AWS Developer Quiz
 
+← [Back to Quiz Home](../../index.md)
+
 Validate your ability to develop and deploy applications on AWS.
 
 These quizzes are designed to help you **practice, validate, and master AWS Developer concepts** used in real-world environments.

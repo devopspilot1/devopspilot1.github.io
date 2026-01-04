@@ -4,8 +4,6 @@ title: "Linux Process & Service Management Quiz (20 Questions)"
 
 # Linux Process & Service Management – Full Quiz
 
-← [Back to Process & Service Management](../../../linux-commands/linux-process-service-management/index.md) <br>
-← [Back to Linux Commands](../../../linux-commands/index.md) <br>
 ← [Back to Quiz Home](../../index.md)
 
 ---

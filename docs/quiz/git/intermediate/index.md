@@ -1,5 +1,7 @@
 # Git Intermediate Quiz
 
+← [Back to Quiz Home](../../index.md)
+
 Leveling up! 🌟
 You know the basics—now let's see if you can handle branching, merging, and stashing.
 

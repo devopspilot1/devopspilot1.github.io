@@ -5,6 +5,8 @@ description: AWS Security Engineer Quiz Overview
 
 # AWS Security Engineer Quiz
 
+← [Back to Quiz Home](../../index.md)
+
 Test your knowledge of AWS security, identity, and compliance.
 
 These quizzes are designed to help you **practice, validate, and master AWS Security Engineer concepts** used in real-world environments.

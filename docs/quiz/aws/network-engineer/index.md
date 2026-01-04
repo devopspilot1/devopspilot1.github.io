@@ -5,6 +5,8 @@ description: AWS Network Engineer Quiz Overview
 
 # AWS Network Engineer Quiz
 
+← [Back to Quiz Home](../../index.md)
+
 Validate your AWS networking and connectivity expertise.
 
 These quizzes are designed to help you **practice, validate, and master AWS Network Engineer concepts** used in real-world environments.

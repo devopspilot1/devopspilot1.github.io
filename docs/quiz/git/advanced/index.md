@@ -1,5 +1,7 @@
 # Git Advanced Quiz
 
+← [Back to Quiz Home](../../index.md)
+
 Expert Mode Activated! 🧠
 Ready to dive into the internals? This quiz challenges your knowledge of bisecting, reflogs, and commit manipulation.
 

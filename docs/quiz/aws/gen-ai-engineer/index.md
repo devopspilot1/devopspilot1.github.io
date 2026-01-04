@@ -5,6 +5,8 @@ description: AWS GenAI Engineer Quiz Overview
 
 # AWS GenAI Engineer Quiz
 
+← [Back to Quiz Home](../../index.md)
+
 Test your skills in Generative AI on AWS.
 
 These quizzes are designed to help you **practice, validate, and master AWS GenAI Engineer concepts** used in real-world environments.

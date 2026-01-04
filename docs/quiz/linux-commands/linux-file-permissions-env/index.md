@@ -4,8 +4,6 @@ title: "Linux File Permissions & Environment Variables Quiz (20 Questions)"
 
 # Linux File Permissions & Environment Variables – Full Quiz
 
-← [Back to File Permissions & Environment Variables](../../../linux-commands/linux-file-permissions-env/index.md) <br>
-← [Back to Linux Commands](../../../linux-commands/index.md) <br>
 ← [Back to Quiz Home](../../index.md)
 
 ---

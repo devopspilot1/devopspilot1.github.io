@@ -5,6 +5,8 @@ description: AWS SysOps Administrator Quiz Overview
 
 # AWS SysOps Administrator Quiz
 
+← [Back to Quiz Home](../../index.md)
+
 Verify your skills in AWS system operations and management.
 
 These quizzes are designed to help you **practice, validate, and master AWS SysOps Administrator concepts** used in real-world environments.

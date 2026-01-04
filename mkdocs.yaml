@@ -445,6 +445,11 @@ nav:
         - Basics: quiz/aws/network-engineer/basics/index.md
         - Intermediate: quiz/aws/network-engineer/intermediate/index.md
         - Advanced: quiz/aws/network-engineer/advanced/index.md
+    - Helm:
+      - Overview: quiz/helm/index.md
+      - Basics: quiz/helm/basics/index.md
+      - Intermediate: quiz/helm/intermediate/index.md
+      - Advanced: quiz/helm/advanced/index.md
   - Architecture:
     - 3 Tier Architecture: 3-tier/index.md
   - Support: support/index.md

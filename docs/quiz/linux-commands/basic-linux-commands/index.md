@@ -4,8 +4,6 @@ title: "Linux Basic Commands Quiz (20 Questions)"
 
 # Linux Basic Commands – Full Quiz
 
-← [Back to Basic Linux Commands](../../../linux-commands/basic-linux-commands/index.md) <br>
-← [Back to Linux Commands](../../../linux-commands/index.md) <br>
 ← [Back to Quiz Home](../../index.md)
 
 ---

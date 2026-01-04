@@ -5,6 +5,8 @@ description: AWS Data Engineer Quiz Overview
 
 # AWS Data Engineer Quiz
 
+← [Back to Quiz Home](../../index.md)
+
 Test your knowledge of AWS data analytics and processing services.
 
 These quizzes are designed to help you **practice, validate, and master AWS Data Engineer concepts** used in real-world environments.

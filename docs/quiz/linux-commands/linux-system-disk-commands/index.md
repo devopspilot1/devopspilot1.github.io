@@ -4,8 +4,6 @@ title: "Linux System & Disk Commands Quiz (20 Questions)"
 
 # Linux System & Disk Commands – Full Quiz
 
-← [Back to System & Disk Commands](../../../linux-commands/linux-system-disk-commands/index.md) <br>
-← [Back to Linux Commands](../../../linux-commands/index.md) <br>
 ← [Back to Quiz Home](../../index.md)
 
 ---

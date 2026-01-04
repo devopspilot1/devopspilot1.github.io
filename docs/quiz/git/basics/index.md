@@ -1,5 +1,7 @@
 # Git Basics Quiz
 
+← [Back to Quiz Home](../../index.md)
+
 Welcome! 🚀
 Test your fundamental Git knowledge with this quick quiz. Perfect for beginners starting their version control journey.
 
