@@ -6,6 +6,7 @@ theme:
   favicon: assets/favicon.ico
   palette:
     primary: custom
+  custom_dir: docs/overrides
   features:
     - navigation.tabs
     - navigation.tabs.sticky
@@ -16,7 +17,11 @@ theme:
     - navigation.indexes
     - toc.follow
     - content.code.copy
-copyright:  Copyright &copy; 2021 - 2026 DevopsPilot
+copyright: |
+  Copyright &copy; 2021 - 2026 DevopsPilot ·
+  <a href="/about/">About</a> ·
+  <a href="/privacy-policy/">Privacy Policy</a> ·
+  <a href="/support/">Support</a>
 extra_css:
   - stylesheets/extra.css
 extra_javascript:
@@ -25,6 +30,10 @@ extra:
   analytics:
     provider: google
     property: G-FG4SPPD5JY
+social:
+  - icon: fontawesome/brands/github
+    link: https://github.com/vigneshsweekaran
+    name: GitHub
 
 nav:
   - Home: index.md
