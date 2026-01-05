@@ -6,7 +6,7 @@ theme:
   favicon: assets/favicon.ico
   palette:
     primary: custom
-  custom_dir: docs/overrides
+  custom_dir: overrides
   features:
     - navigation.tabs
     - navigation.tabs.sticky
@@ -30,10 +30,10 @@ extra:
   analytics:
     provider: google
     property: G-FG4SPPD5JY
-social:
-  - icon: fontawesome/brands/github
-    link: https://github.com/vigneshsweekaran
-    name: GitHub
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/vigneshsweekaran
+      name: GitHub
 
 nav:
   - Home: index.md
@@ -493,7 +493,6 @@ nav:
       - Advanced: quiz/helm/advanced/index.md
   - Architecture:
     - 3 Tier Architecture: 3-tier/index.md
-  - Support: support/index.md
 
 markdown_extensions:
   - admonition
