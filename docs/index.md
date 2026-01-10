@@ -210,6 +210,30 @@ hide:
   </div>
 </div>
 
+<h2 class="section-title">Featured DevOps & Cloud Guides</h2>
+<p class="text-center" style="max-width: 700px; margin: 0 auto 3rem auto; color: var(--text-light); line-height: 1.6;">
+  Explore our in-depth, step-by-step tutorials designed for real-world DevOps and Cloud use cases. 
+  These practical guides help you master complex deployments and pipelines with ease.
+</p>
+
+<div class="grid-3">
+  <a href="cloud/gcp/projects/apigee-psc-cloudrun/" class="card" style="text-decoration: none;">
+    <span class="card-icon">☁️</span>
+    <h3>Apigee X with PSC</h3>
+    <p>Securely connect Apigee X to Cloud Run using Private Service Connect in Google Cloud.</p>
+  </a>
+  <a href="jenkins/tutorials/write-jenkinsfile/" class="card" style="text-decoration: none;">
+    <span class="card-icon">📜</span>
+    <h3>Master Jenkinsfile</h3>
+    <p>A comprehensive guide to writing Declarative Pipelines for robust CI/CD automation.</p>
+  </a>
+  <a href="cloud/aws/tutorials/deploy-fastapi-lambda/" class="card" style="text-decoration: none;">
+    <span class="card-icon">⚡</span>
+    <h3>FastAPI on Lambda</h3>
+    <p>Deploy a high-performance FastAPI application to AWS Lambda using Docker containers.</p>
+  </a>
+</div>
+
 <h2 class="section-title">Why DevopsPilot?</h2>
 
 <div class="grid-3">
