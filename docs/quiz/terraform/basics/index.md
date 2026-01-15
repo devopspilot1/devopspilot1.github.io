@@ -6,6 +6,7 @@ Welcome! 🚀
 Test your knowledge of basic Terraform concepts.
 
 **Instructions**:
+
 *   Select the best answer for each question.
 *   Your score will be shown at the end.
 

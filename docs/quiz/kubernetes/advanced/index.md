@@ -6,6 +6,7 @@ Welcome! ☸️
 Test your expertise on Security, Helm, Scheduling, and Troubleshooting.
 
 **Instructions**:
+
 *   Select the best answer for each question.
 *   Your score will be shown at the end.
 *   Aim for 100% to earn the Kubernetes Expert status!
