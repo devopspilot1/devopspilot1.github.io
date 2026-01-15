@@ -294,52 +294,48 @@ nav:
         - Advanced: interview-questions/git/advanced/index.md
     # - Maven Interview Questions: interview-questions/
     # - Jenkins Interview Questions: interview-questions/
-    - Terraform Interview Questions:
+    - Terraform:
       - Overview: interview-questions/terraform/index.md
       - Basics: interview-questions/terraform/basics/index.md
       - Intermediate: interview-questions/terraform/intermediate/index.md
       - Advanced: interview-questions/terraform/advanced/index.md
-    - Jenkins Interview Questions:
+    - Jenkins:
       - Overview: interview-questions/jenkins/index.md
       - Basics: interview-questions/jenkins/basics/index.md
       - Intermediate: interview-questions/jenkins/intermediate/index.md
       - Advanced: interview-questions/jenkins/advanced/index.md
-    - Terraform Interview Questions:
-      - Overview: interview-questions/terraform/index.md
-      - Basics: interview-questions/terraform/basics/index.md
-      - Intermediate: interview-questions/terraform/intermediate/index.md
-      - Advanced: interview-questions/terraform/advanced/index.md
-    - Docker Interview Questions:
+
+    - Docker:
       - Overview: interview-questions/docker/index.md
       - Basics: interview-questions/docker/basics/index.md
       - Intermediate: interview-questions/docker/intermediate/index.md
       - Advanced: interview-questions/docker/advanced/index.md
-    - Kubernetes Interview Questions:
+    - Kubernetes:
       - Overview: interview-questions/kubernetes/index.md
       - Basics: interview-questions/kubernetes/basics/index.md
       - Intermediate: interview-questions/kubernetes/intermediate/index.md
       - Advanced: interview-questions/kubernetes/advanced/index.md
-    - Helm Interview Questions:
+    - Helm:
       - Overview: interview-questions/helm/index.md
       - Basics: interview-questions/helm/basics/index.md
       - Intermediate: interview-questions/helm/intermediate/index.md
       - Advanced: interview-questions/helm/advanced/index.md
-    - Ansible Interview Questions:
+    - Ansible:
       - Overview: interview-questions/ansible/index.md
       - Basics: interview-questions/ansible/basics/index.md
       - Intermediate: interview-questions/ansible/intermediate/index.md
       - Advanced: interview-questions/ansible/advanced/index.md
-    - Azure Interview Questions:
+    - Azure:
       - Overview: interview-questions/azure/index.md
       - Basics: interview-questions/azure/basics/index.md
       - Intermediate: interview-questions/azure/intermediate/index.md
       - Advanced: interview-questions/azure/advanced/index.md
-    - GCP Interview Questions:
+    - GCP:
       - Overview: interview-questions/gcp/index.md
       - Basics: interview-questions/gcp/basics/index.md
       - Intermediate: interview-questions/gcp/intermediate/index.md
       - Advanced: interview-questions/gcp/advanced/index.md
-    - AWS Interview Questions:
+    - AWS:
       - Overview: interview-questions/aws/index.md
       - AWS Cloud Engineer:
         - Overview: interview-questions/aws/cloud-engineer/index.md
@@ -437,6 +433,8 @@ nav:
     - Kubernetes:
       - Overview: quiz/kubernetes/index.md
       - Basics: quiz/kubernetes/basics/index.md
+      - Intermediate: quiz/kubernetes/intermediate/index.md
+      - Advanced: quiz/kubernetes/advanced/index.md
     - AWS:
       - Overview: quiz/aws/index.md
       - Cloud Engineer:
