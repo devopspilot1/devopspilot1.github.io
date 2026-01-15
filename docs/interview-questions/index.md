@@ -15,7 +15,16 @@ Prepare for your DevOps interviews with our comprehensive set of questions and a
 *   [Shell Scripting](shellscript/index.md)
 *   [Git](git/index.md)
 *   [Jenkins](jenkins/index.md)
-*   [Terraform](terraform/index.md)
+* ## ☸️ Kubernetes (Coming Soon)
+
+Essential Kubernetes Q&A.  
+Covering Pods, Deployments, Services, Architecture, and Helm.
+
+👉 **[Go to Kubernetes Questions](./kubernetes/index.md)**
+
+---
+
+## 🏗️ Terraform (Coming Soon)
 *   [Docker](docker/index.md)
 *   [Helm](helm/index.md)
 *   [Ansible](ansible/index.md)

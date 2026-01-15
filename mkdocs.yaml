@@ -314,6 +314,11 @@ nav:
       - Basics: interview-questions/docker/basics/index.md
       - Intermediate: interview-questions/docker/intermediate/index.md
       - Advanced: interview-questions/docker/advanced/index.md
+    - Kubernetes Interview Questions:
+      - Overview: interview-questions/kubernetes/index.md
+      - Basics: interview-questions/kubernetes/basics/index.md
+      - Intermediate: interview-questions/kubernetes/intermediate/index.md
+      - Advanced: interview-questions/kubernetes/advanced/index.md
     - Helm Interview Questions:
       - Overview: interview-questions/helm/index.md
       - Basics: interview-questions/helm/basics/index.md
@@ -429,6 +434,9 @@ nav:
       - Basics: quiz/terraform/basics/index.md
       - Intermediate: quiz/terraform/intermediate/index.md
       - Advanced: quiz/terraform/advanced/index.md
+    - Kubernetes:
+      - Overview: quiz/kubernetes/index.md
+      - Basics: quiz/kubernetes/basics/index.md
     - AWS:
       - Overview: quiz/aws/index.md
       - Cloud Engineer:

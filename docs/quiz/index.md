@@ -107,6 +107,20 @@ Includes:
 
 ---
 
+## ☸️ Kubernetes Quiz
+
+Kubernetes is the standard for container orchestration.
+Test your pods, services, and deployment skills.
+
+👉 **[Go to Kubernetes Quiz](../quiz/kubernetes/index.md)**
+
+Includes:
+- Basics (Pods, Services)
+- Intermediate (Storage, Networking)
+- Advanced (Security, Helm)
+
+---
+
 ## ☁️ AWS Cloud Quiz
 
 AWS is the leading cloud provider.  
@@ -132,7 +146,6 @@ Popular Tracks:
 These will be added gradually:
 
 - Jenkins & CI/CD
-- Kubernetes
 - Terraform & Infrastructure as Code
 
 ---
