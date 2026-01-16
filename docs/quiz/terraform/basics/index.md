@@ -130,10 +130,10 @@ Which command creates a visual graph of Terraform resources?
 
 <quiz>
 How do you specify a comment in a `.tf` file?
-- [x] '# or //'
-- [ ] '--'
-- [ ] ';'
-- [ ] '<!-- -->'
+- [x] `# or //`
+- [ ] --
+- [ ] ;
+- [ ] <!-- -->
 
 Terraform supports `#` (shell style) and `//` (C++ style) for single-line comments.
 </quiz>

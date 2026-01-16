@@ -42,10 +42,10 @@ What is the purpose of the `archiveArtifacts` step?
 
 <quiz>
 Which cron syntax means "Run every 15 minutes"?
-- [x] 'H/15 * * * *'
-- [ ] '15 * * * *'
-- [ ] '* * * * 15'
-- [ ] '15 15 15 15 15'
+- [x] H/15 * * * *
+- [ ] 15 * * * *
+- [ ] `* * * * 15`
+- [ ] 15 15 15 15 15
 
 `H/15 * * * *` runs the job every 15 minutes. 'H' is used to spread load (hash).
 </quiz>
