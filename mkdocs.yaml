@@ -13,8 +13,8 @@ theme:
     - navigation.path
     - navigation.top
     - navigation.footer
-    - navigation.expand
     - navigation.indexes
+    - navigation.tracking
     - toc.follow
     - content.code.copy
 copyright: |
