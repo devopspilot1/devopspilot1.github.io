@@ -212,6 +212,8 @@ How do you update a running Endpoint without downtime?
 SageMaker ensures the new instances are healthy before shifting traffic and terminating the old ones.
 </quiz>
 
+<!-- mkdocs-quiz results -->
+
 ---
 
 ### 📚 Study Guides

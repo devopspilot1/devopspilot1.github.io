@@ -212,6 +212,8 @@ What is the "Lake House" architecture?
 Migration of data between the lake and the warehouse is seamless in this architecture.
 </quiz>
 
+<!-- mkdocs-quiz results -->
+
 ---
 
 ### 📚 Study Guides

@@ -497,6 +497,11 @@ nav:
       - Basics: quiz/helm/basics/index.md
       - Intermediate: quiz/helm/intermediate/index.md
       - Advanced: quiz/helm/advanced/index.md
+    - Ansible:
+      - Overview: quiz/ansible/index.md
+      - Basics: quiz/ansible/basics/index.md
+      - Intermediate: quiz/ansible/intermediate/index.md
+      - Advanced: quiz/ansible/advanced/index.md
   - Architecture:
     - 3 Tier Architecture: 3-tier/index.md
 

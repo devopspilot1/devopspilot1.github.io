@@ -212,6 +212,8 @@ Can Security Groups block traffic?
 To explicitly block a specific IP (blacklisting), you must use NACLs or WAF.
 </quiz>
 
+<!-- mkdocs-quiz results -->
+
 ---
 
 ### 📚 Study Guides

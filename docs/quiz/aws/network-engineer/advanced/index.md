@@ -212,6 +212,8 @@ What happens if your Direct Connect link fails and you have a Backup VPN Configu
 Hybrid resiliency requires careful BGP configuration to prefer the fast link (DX) over the slow link (VPN).
 </quiz>
 
+<!-- mkdocs-quiz results -->
+
 ---
 
 ### 📚 Study Guides

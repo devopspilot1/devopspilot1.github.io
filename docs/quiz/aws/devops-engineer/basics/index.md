@@ -212,6 +212,8 @@ Which tool allows you to treat your infrastructure as code using a familiar prog
 CDK allows you to define cloud resources using modern programming languages and synthesizes them into CloudFormation templates.
 </quiz>
 
+<!-- mkdocs-quiz results -->
+
 ---
 
 ### 📚 Study Guides

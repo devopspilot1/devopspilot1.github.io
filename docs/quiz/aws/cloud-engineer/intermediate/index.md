@@ -212,6 +212,8 @@ When creating an Auto Scaling Policy, what is "Target Tracking"?
 Target Tracking works like a thermostat—it automatically adds or removes capacity to keep a metric close to the target value.
 </quiz>
 
+<!-- mkdocs-quiz results -->
+
 ---
 
 ### 📚 Study Guides

@@ -212,6 +212,8 @@ What is an "Egress-Only Internet Gateway"?
 It allows IPv6 based outbound communication to the internet while preventing inbound connections.
 </quiz>
 
+<!-- mkdocs-quiz results -->
+
 ---
 
 ### 📚 Study Guides

@@ -212,6 +212,8 @@ What happens to data on an Instance Store volume when the EC2 instance is stoppe
 Instance Store is physically attached to the host hardware. If the instance moves (stop/start) or terminates, that data is wiped.
 </quiz>
 
+<!-- mkdocs-quiz results -->
+
 ---
 
 ### 📚 Study Guides

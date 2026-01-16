@@ -212,6 +212,8 @@ How can an Agent handle ambiguous user requests?
 Good agent design includes the ability to say "I found multiple flights. Which time do you prefer?"
 </quiz>
 
+<!-- mkdocs-quiz results -->
+
 ---
 
 ### 📚 Study Guides

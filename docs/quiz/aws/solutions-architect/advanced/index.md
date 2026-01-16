@@ -212,6 +212,8 @@ What is the "Strangler Fig" pattern used for?
 It allows you to verify new services in production incrementally while the legacy system continues to handle the rest.
 </quiz>
 
+<!-- mkdocs-quiz results -->
+
 ---
 
 ### 📚 Study Guides

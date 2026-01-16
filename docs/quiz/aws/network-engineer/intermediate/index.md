@@ -212,6 +212,8 @@ How do you debug a "Connection Timed Out" error?
 "Connection Refused" means the packet arrived but no process was listening. "Timed Out" means the packet was dropped (blocked).
 </quiz>
 
+<!-- mkdocs-quiz results -->
+
 ---
 
 ### 📚 Study Guides

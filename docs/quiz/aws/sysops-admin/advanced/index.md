@@ -212,6 +212,8 @@ How do you handle "Disk Full" on a Linux instance without stopping it?
 You can grow an attached volume while the OS is running and IO is happening.
 </quiz>
 
+<!-- mkdocs-quiz results -->
+
 ---
 
 ### 📚 Study Guides

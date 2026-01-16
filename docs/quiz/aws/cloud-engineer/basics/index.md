@@ -212,6 +212,8 @@ Which IAM policy document format is used to define permissions?
 Access control policies in IAM are written in JSON (JavaScript Object Notation).
 </quiz>
 
+<!-- mkdocs-quiz results -->
+
 ---
 
 ### 📚 Study Guides

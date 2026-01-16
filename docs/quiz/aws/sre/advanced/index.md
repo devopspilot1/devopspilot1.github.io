@@ -212,6 +212,8 @@ How do you validate Terraform/CloudFormation templates before deployment?
 "Shift Left" on infrastructure security.
 </quiz>
 
+<!-- mkdocs-quiz results -->
+
 ---
 
 ### 📚 Study Guides

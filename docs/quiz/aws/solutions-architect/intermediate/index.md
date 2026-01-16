@@ -212,6 +212,8 @@ Which architecture allows you to deploy and manage a fleet of EC2 instances that
 This is the classic "Elastic" pattern: ASG adds/removes compute, ELB distributes traffic to the healthy nodes.
 </quiz>
 
+<!-- mkdocs-quiz results -->
+
 ---
 
 ### 📚 Study Guides

@@ -212,6 +212,8 @@ How do you handle "Eventual Consistency" issues when reading from a DynamoDB sec
 You cannot request strongly consistent reads from a Global Secondary Index (GSI).
 </quiz>
 
+<!-- mkdocs-quiz results -->
+
 ---
 
 ### 📚 Study Guides

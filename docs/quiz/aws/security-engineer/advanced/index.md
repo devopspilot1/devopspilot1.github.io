@@ -212,6 +212,8 @@ What is the "PrincipalOrgID" condition key?
 `"Condition": {"StringEquals": {"aws:PrincipalOrgID": "o-12345"}}` is a best practice for internal sharing.
 </quiz>
 
+<!-- mkdocs-quiz results -->
+
 ---
 
 ### 📚 Study Guides

@@ -212,6 +212,8 @@ Why would you use "Claude 3 Haiku" over "Claude 3 Opus"?
 Model selection is a trade-off between Intelligence vs Cost/Speed.
 </quiz>
 
+<!-- mkdocs-quiz results -->
+
 ---
 
 ### 📚 Study Guides

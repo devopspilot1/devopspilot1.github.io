@@ -212,6 +212,8 @@ What is "S3 Lifecycle Policy"?
 Lifecycle policies are the primary mechanism for S3 cost optimization.
 </quiz>
 
+<!-- mkdocs-quiz results -->
+
 ---
 
 ### 📚 Study Guides

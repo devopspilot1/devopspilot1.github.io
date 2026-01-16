@@ -212,6 +212,8 @@ What is the root user in an AWS account?
 Best practice: Secure the root user with MFA and lock it away. Use it only for billing or account closure.
 </quiz>
 
+<!-- mkdocs-quiz results -->
+
 ---
 
 ### 📚 Study Guides

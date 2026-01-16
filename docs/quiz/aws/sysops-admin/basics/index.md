@@ -212,6 +212,8 @@ Which Parameter Store tier allows you to store secrets securely?
 Always use SecureString for passwords/keys to ensure they are encrypted at rest.
 </quiz>
 
+<!-- mkdocs-quiz results -->
+
 ---
 
 ### 📚 Study Guides

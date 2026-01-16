@@ -212,6 +212,8 @@ What is "Idempotency"?
 Critical for reliable systems that use retries.
 </quiz>
 
+<!-- mkdocs-quiz results -->
+
 ---
 
 ### 📚 Study Guides

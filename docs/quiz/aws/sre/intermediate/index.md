@@ -212,6 +212,8 @@ What is "Static Stability"?
 Example: Deploying EC2s in an ASG to handle peak load *before* the peak, so you don't rely on Auto Scaling API during the peak.
 </quiz>
 
+<!-- mkdocs-quiz results -->
+
 ---
 
 ### 📚 Study Guides

@@ -212,6 +212,8 @@ What is the "System Prompt"?
 System prompts are critical for "steering" the behavior of the model securely.
 </quiz>
 
+<!-- mkdocs-quiz results -->
+
 ---
 
 ### 📚 Study Guides

@@ -212,6 +212,8 @@ What is "Local Mode" in the SageMaker SDK?
 Local mode saves time and money by avoiding the spin-up overhead of a full training job during creating the script.
 </quiz>
 
+<!-- mkdocs-quiz results -->
+
 ---
 
 ### 📚 Study Guides

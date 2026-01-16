@@ -212,6 +212,8 @@ What is "Managed Spot Training" checkpoints?
 Checkpoints are critical for Spot training to ensure you don't lose days of progress upon interruption.
 </quiz>
 
+<!-- mkdocs-quiz results -->
+
 ---
 
 ### 📚 Study Guides

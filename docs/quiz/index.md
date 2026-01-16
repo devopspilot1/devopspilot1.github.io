@@ -141,14 +141,21 @@ Popular Tracks:
 
 ---
 
-## 🚀 Upcoming Quiz Tracks *(Planned)*
+## 🅰️ Ansible Quiz
 
-These will be added gradually:
+Ansible is the leading automation tool.
+Test your playbooks, roles, and automation skills.
 
-- Jenkins & CI/CD
-- Terraform & Infrastructure as Code
+👉 **[Go to Ansible Quiz](../quiz/ansible/index.md)**
+
+Includes:
+- Basics (Playbooks, Inventory)
+- Intermediate (Roles, Handlers)
+- Advanced (Optimization, Plugins)
 
 ---
+
+
 
 ## 🎯 How to Use These Quizzes
 

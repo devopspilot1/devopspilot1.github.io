@@ -212,6 +212,8 @@ Which Route 53 routing policy would you use to route traffic to the region with 
 Latency routing directs traffic to the region that provides the lowest network latency for the end user.
 </quiz>
 
+<!-- mkdocs-quiz results -->
+
 ---
 
 ### 📚 Study Guides

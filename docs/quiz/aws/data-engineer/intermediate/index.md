@@ -212,6 +212,8 @@ What is the purpose of "Lifecycle Policies" in S3 for a Data Lake?
 Data Lakes grow indefinitely; lifecycle policies ensure you don't pay "Standard" prices for data from 3 years ago.
 </quiz>
 
+<!-- mkdocs-quiz results -->
+
 ---
 
 ### 📚 Study Guides

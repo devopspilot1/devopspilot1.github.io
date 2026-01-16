@@ -212,6 +212,8 @@ Which scenario warrants using Redshift RA3 nodes (Managed Storage)?
 RA3 nodes decouple storage from compute, allowing you to store petabytes of data on S3-backed managed storage without paying for thousands of CPU nodes.
 </quiz>
 
+<!-- mkdocs-quiz results -->
+
 ---
 
 ### 📚 Study Guides

@@ -212,6 +212,8 @@ Why would you use "Lazy Loading" (initializing variables outside the handler) in
 Lazy loading heavy SDK clients or DB connections is a best practice for high-performance Lambda functions.
 </quiz>
 
+<!-- mkdocs-quiz results -->
+
 ---
 
 ### 📚 Study Guides

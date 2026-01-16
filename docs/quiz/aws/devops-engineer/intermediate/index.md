@@ -212,6 +212,8 @@ What is "Compliance as Code" using AWS Config?
 It involves codified rules that continuously monitor resource configuration for compliance with internal policies.
 </quiz>
 
+<!-- mkdocs-quiz results -->
+
 ---
 
 ### 📚 Study Guides

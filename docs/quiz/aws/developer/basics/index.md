@@ -212,6 +212,8 @@ What is the AWS Serverless Application Model (SAM)?
 SAM simplifies defining serverless resources like Functions and APIs using shorthand syntax.
 </quiz>
 
+<!-- mkdocs-quiz results -->
+
 ---
 
 ### 📚 Study Guides
