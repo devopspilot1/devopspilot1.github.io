@@ -133,7 +133,7 @@ How do you specify a comment in a `.tf` file?
 - [x] `# or //`
 - [ ] --
 - [ ] ;
-- [ ] <!-- -->
+- [ ] `<!-- -->`
 
 Terraform supports `#` (shell style) and `//` (C++ style) for single-line comments.
 </quiz>
