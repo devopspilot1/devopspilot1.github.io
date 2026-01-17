@@ -1,6 +1,6 @@
 !!! success "Level: Basics"
-    🟢 **Foundational AWS interview questions.**
+    🟢 **Foundational interview questions.**
     
-    Focus on core services, basic concepts, and definitions.
+    Focus on core concepts, definitions, and building blocks.
 
 {% include-markdown ".partials/interview-expand-button.md" %}

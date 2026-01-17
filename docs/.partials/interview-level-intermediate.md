@@ -1,6 +1,6 @@
 !!! warning "Level: Intermediate"
-    🟡 **Troubleshooting & Optimization.**
+    🟡 **Practical Applications & Troubleshooting.**
     
-    Focus on debugging scenarios, cost management, and deeper service configurations.
+    Focus on real-world scenarios, debugging, optimization, and deeper configuration.
 
 {% include-markdown ".partials/interview-expand-button.md" %}

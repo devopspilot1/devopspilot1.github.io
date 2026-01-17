@@ -1,6 +1,6 @@
 !!! failure "Level: Advanced"
-    🔴 **Architecture & Production Scenarios.**
+    🔴 **Complex Scenarios & Architecture.**
     
-    Tackle complex scenarios: Disaster Recovery, hybrid architectures, migrations, and deep internal mechanics.
+    Tackle high-level design, production-grade scaling, security, and advanced internals.
 
 {% include-markdown ".partials/interview-expand-button.md" %}
