@@ -1,5 +1,6 @@
 ---
 title: "AWS Developer Quiz – Basics"
+description: "Practice AWS Developer fundamentals with beginner-level quiz questions designed for students and early learners starting their DevOps journey."
 ---
 
 # AWS Developer - Basics Quiz

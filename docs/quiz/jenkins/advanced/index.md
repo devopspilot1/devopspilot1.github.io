@@ -1,5 +1,6 @@
 ---
 title: "Jenkins Quiz – Advanced"
+description: "Challenge your Jenkins expertise with advanced quiz questions focused on real-world scenarios, troubleshooting, and interview preparation."
 ---
 # Jenkins Advanced Quiz
 

@@ -1,5 +1,6 @@
 ---
 title: "AWS Solutions Architect Quiz – Basics"
+description: "Practice AWS Solutions Architect fundamentals with beginner-level quiz questions designed for students and early learners starting their DevOps journey."
 ---
 
 # AWS Solutions Architect - Basics Quiz

@@ -1,5 +1,6 @@
 ---
 title: "Kubernetes Quiz – Basics"
+description: "Practice Kubernetes fundamentals with beginner-level quiz questions designed for students and early learners starting their DevOps journey."
 ---
 # Kubernetes Basics Quiz
 

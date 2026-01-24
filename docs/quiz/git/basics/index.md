@@ -1,5 +1,6 @@
 ---
 title: "Git Quiz – Basics"
+description: "Practice Git fundamentals with beginner-level quiz questions designed for students and early learners starting their DevOps journey."
 ---
 # Git Basics Quiz
 

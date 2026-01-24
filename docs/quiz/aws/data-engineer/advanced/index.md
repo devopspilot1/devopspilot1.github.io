@@ -1,5 +1,6 @@
 ---
 title: "AWS Data Engineer Quiz – Advanced"
+description: "Challenge your AWS Data Engineer expertise with advanced quiz questions focused on real-world scenarios, troubleshooting, and interview preparation."
 ---
 
 # AWS Data Engineer - Advanced Quiz

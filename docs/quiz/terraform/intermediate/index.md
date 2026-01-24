@@ -1,5 +1,6 @@
 ---
 title: "Terraform Quiz – Intermediate"
+description: "Test your Terraform skills with intermediate quiz questions covering practical concepts, common workflows, and daily operational tasks."
 ---
 # Terraform Intermediate Quiz
 

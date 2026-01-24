@@ -1,5 +1,6 @@
 ---
 title: "Docker Quiz – Intermediate"
+description: "Test your Docker skills with intermediate quiz questions covering practical concepts, common workflows, and daily operational tasks."
 ---
 # Docker Intermediate Quiz
 

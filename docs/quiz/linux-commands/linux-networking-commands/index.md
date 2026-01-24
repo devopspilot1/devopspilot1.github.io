@@ -1,5 +1,6 @@
 ---
 title: "Linux Commands Quiz – Networking Commands"
+description: "Test your Linux Networking Command skills with intermediate quiz questions covering practical concepts, common workflows, and daily operational tasks."
 ---
 
 # Linux Networking Commands – Full Quiz

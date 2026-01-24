@@ -1,5 +1,6 @@
 ---
 title: "AWS GenAI Engineer Quiz – Intermediate"
+description: "Test your AWS GenAI Engineer skills with intermediate quiz questions covering practical concepts, common workflows, and daily operational tasks."
 ---
 
 # AWS GenAI Engineer - Intermediate Quiz

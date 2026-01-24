@@ -1,5 +1,6 @@
 ---
 title: "AWS Data Engineer Quiz – Basics"
+description: "Practice AWS Data Engineer fundamentals with beginner-level quiz questions designed for students and early learners starting their DevOps journey."
 ---
 
 # AWS Data Engineer - Basics Quiz

@@ -1,5 +1,6 @@
 ---
 title: "AWS Solutions Architect Quiz – Advanced"
+description: "Challenge your AWS Solutions Architect expertise with advanced quiz questions focused on real-world scenarios, troubleshooting, and interview preparation."
 ---
 
 # AWS Solutions Architect - Advanced Quiz

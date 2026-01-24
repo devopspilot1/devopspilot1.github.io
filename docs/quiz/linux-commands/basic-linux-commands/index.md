@@ -1,5 +1,6 @@
 ---
 title: "Linux Commands Quiz – Basic Linux Commands"
+description: "Practice Linux Commands fundamentals with beginner-level quiz questions designed for students and early learners starting their DevOps journey."
 ---
 
 # Linux Basic Commands – Full Quiz

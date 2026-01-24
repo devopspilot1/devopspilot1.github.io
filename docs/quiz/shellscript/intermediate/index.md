@@ -1,5 +1,6 @@
 ---
 title: "Shell Scripting Quiz – Intermediate"
+description: "Test your Shell Scripting skills with intermediate quiz questions covering practical concepts, common workflows, and daily operational tasks."
 ---
 
 # Shell Scripting Intermediate – Full Quiz

@@ -1,5 +1,6 @@
 ---
 title: "AWS Solutions Architect Quiz – Intermediate"
+description: "Test your AWS Solutions Architect skills with intermediate quiz questions covering practical concepts, common workflows, and daily operational tasks."
 ---
 
 # AWS Solutions Architect - Intermediate Quiz

@@ -1,5 +1,6 @@
 ---
 title: "AWS GenAI Engineer Quiz – Advanced"
+description: "Challenge your AWS GenAI Engineer expertise with advanced quiz questions focused on real-world scenarios, troubleshooting, and interview preparation."
 ---
 
 # AWS GenAI Engineer - Advanced Quiz

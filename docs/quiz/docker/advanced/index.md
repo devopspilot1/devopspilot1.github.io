@@ -1,5 +1,6 @@
 ---
 title: "Docker Quiz – Advanced"
+description: "Challenge your Docker expertise with advanced quiz questions focused on real-world scenarios, troubleshooting, and interview preparation."
 ---
 # Docker Advanced Quiz
 

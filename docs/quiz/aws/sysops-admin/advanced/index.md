@@ -1,5 +1,6 @@
 ---
 title: "AWS SysOps Administrator Quiz – Advanced"
+description: "Challenge your AWS SysOps Administrator expertise with advanced quiz questions focused on real-world scenarios, troubleshooting, and interview preparation."
 ---
 
 # AWS SysOps Administrator - Advanced Quiz

@@ -1,5 +1,6 @@
 ---
 title: "Jenkins Quiz – Intermediate"
+description: "Test your Jenkins skills with intermediate quiz questions covering practical concepts, common workflows, and daily operational tasks."
 ---
 # Jenkins Intermediate Quiz
 

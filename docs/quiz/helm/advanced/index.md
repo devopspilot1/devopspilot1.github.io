@@ -1,5 +1,6 @@
 ---
 title: "Helm Quiz – Advanced"
+description: "Challenge your Helm expertise with advanced quiz questions focused on real-world scenarios, troubleshooting, and interview preparation."
 ---
 # Helm Advanced Quiz
 

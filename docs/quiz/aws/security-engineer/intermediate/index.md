@@ -1,5 +1,6 @@
 ---
 title: "AWS Security Engineer Quiz – Intermediate"
+description: "Test your AWS Security Engineer skills with intermediate quiz questions covering practical concepts, common workflows, and daily operational tasks."
 ---
 
 # AWS Security Engineer - Intermediate Quiz

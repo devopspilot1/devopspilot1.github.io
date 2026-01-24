@@ -1,5 +1,6 @@
 ---
 title: "AWS DevOps Engineer Quiz – Basics"
+description: "Practice AWS DevOps Engineer fundamentals with beginner-level quiz questions designed for students and early learners starting their DevOps journey."
 ---
 
 # AWS DevOps Engineer - Basics Quiz

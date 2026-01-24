@@ -1,5 +1,6 @@
 ---
 title: "AWS Machine Learning Engineer Quiz – Advanced"
+description: "Challenge your AWS Machine Learning Engineer expertise with advanced quiz questions focused on real-world scenarios, troubleshooting, and interview preparation."
 ---
 
 # AWS Machine Learning Engineer - Advanced Quiz

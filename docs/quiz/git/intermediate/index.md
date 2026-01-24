@@ -1,5 +1,6 @@
 ---
 title: "Git Quiz – Intermediate"
+description: "Test your Git skills with intermediate quiz questions covering practical concepts, common workflows, and daily operational tasks."
 ---
 # Git Intermediate Quiz
 

@@ -1,5 +1,6 @@
 ---
 title: "Linux Commands Quiz – Users & Sudo Permissions"
+description: "Test your Linux User & Sudo Permission skills with intermediate quiz questions covering practical concepts, common workflows, and daily operational tasks."
 ---
 
 # Linux Users & Sudo Permissions – Full Quiz

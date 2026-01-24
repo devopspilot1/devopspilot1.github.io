@@ -1,5 +1,6 @@
 ---
 title: "Terraform Quiz – Advanced"
+description: "Challenge your Terraform expertise with advanced quiz questions focused on real-world scenarios, troubleshooting, and interview preparation."
 ---
 # Terraform Advanced Quiz
 

@@ -1,5 +1,6 @@
 ---
 title: "AWS Machine Learning Engineer Quiz – Intermediate"
+description: "Test your AWS Machine Learning Engineer skills with intermediate quiz questions covering practical concepts, common workflows, and daily operational tasks."
 ---
 
 # AWS Machine Learning Engineer - Intermediate Quiz

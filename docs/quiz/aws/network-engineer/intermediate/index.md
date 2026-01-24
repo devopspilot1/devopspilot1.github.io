@@ -1,5 +1,6 @@
 ---
 title: "AWS Network Engineer Quiz – Intermediate"
+description: "Test your AWS Network Engineer skills with intermediate quiz questions covering practical concepts, common workflows, and daily operational tasks."
 ---
 
 # AWS Network Engineer - Intermediate Quiz

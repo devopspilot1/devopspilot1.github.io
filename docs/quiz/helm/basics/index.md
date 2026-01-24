@@ -1,5 +1,6 @@
 ---
 title: "Helm Quiz – Basics"
+description: "Practice Helm fundamentals with beginner-level quiz questions designed for students and early learners starting their DevOps journey."
 ---
 # Helm Basics Quiz
 

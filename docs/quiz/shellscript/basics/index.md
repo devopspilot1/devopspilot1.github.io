@@ -1,5 +1,6 @@
 ---
 title: "Shell Scripting Quiz – Basics"
+description: "Practice Shell Scripting fundamentals with beginner-level quiz questions designed for students and early learners starting their DevOps journey."
 ---
 
 # Shell Scripting Basics – Full Quiz

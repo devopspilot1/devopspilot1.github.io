@@ -1,5 +1,6 @@
 ---
 title: "Linux Commands Quiz – File Permissions & Env"
+description: "Test your Linux File Permissions & Environment Variable skills with intermediate quiz questions covering practical concepts, common workflows, and daily operational tasks."
 ---
 
 # Linux File Permissions & Environment Variables – Full Quiz

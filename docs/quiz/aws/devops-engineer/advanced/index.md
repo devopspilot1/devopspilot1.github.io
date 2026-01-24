@@ -1,5 +1,6 @@
 ---
 title: "AWS DevOps Engineer Quiz – Advanced"
+description: "Challenge your AWS DevOps Engineer expertise with advanced quiz questions focused on real-world scenarios, troubleshooting, and interview preparation."
 ---
 
 # AWS DevOps Engineer - Advanced Quiz

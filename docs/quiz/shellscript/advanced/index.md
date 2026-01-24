@@ -1,5 +1,6 @@
 ---
 title: "Shell Scripting Quiz – Advanced"
+description: "Challenge your Shell Scripting expertise with advanced quiz questions focused on real-world scenarios, troubleshooting, and interview preparation."
 ---
 
 # Shell Scripting Advanced – Full Quiz

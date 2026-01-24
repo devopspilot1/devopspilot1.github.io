@@ -1,5 +1,6 @@
 ---
 title: "AWS Cloud Engineer Quiz – Advanced"
+description: "Challenge your AWS Cloud Engineer expertise with advanced quiz questions focused on real-world scenarios, troubleshooting, and interview preparation."
 ---
 
 # AWS Cloud Engineer - Advanced Quiz

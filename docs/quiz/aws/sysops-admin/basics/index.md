@@ -1,5 +1,6 @@
 ---
 title: "AWS SysOps Administrator Quiz – Basics"
+description: "Practice AWS SysOps Administrator fundamentals with beginner-level quiz questions designed for students and early learners starting their DevOps journey."
 ---
 
 # AWS SysOps Administrator - Basics Quiz

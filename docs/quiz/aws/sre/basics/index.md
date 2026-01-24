@@ -1,5 +1,6 @@
 ---
 title: "AWS Site Reliability Engineer Quiz – Basics"
+description: "Practice AWS Site Reliability Engineer fundamentals with beginner-level quiz questions designed for students and early learners starting their DevOps journey."
 ---
 
 # AWS Site Reliability Engineer (SRE) - Basics Quiz

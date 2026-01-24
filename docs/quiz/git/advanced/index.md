@@ -1,5 +1,6 @@
 ---
 title: "Git Quiz – Advanced"
+description: "Challenge your Git expertise with advanced quiz questions focused on real-world scenarios, troubleshooting, and interview preparation."
 ---
 # Git Advanced Quiz
 

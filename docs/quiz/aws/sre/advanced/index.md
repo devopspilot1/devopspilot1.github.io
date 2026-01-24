@@ -1,5 +1,6 @@
 ---
 title: "AWS Site Reliability Engineer Quiz – Advanced"
+description: "Challenge your AWS Site Reliability Engineer expertise with advanced quiz questions focused on real-world scenarios, troubleshooting, and interview preparation."
 ---
 
 # AWS Site Reliability Engineer (SRE) - Advanced Quiz

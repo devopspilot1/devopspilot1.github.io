@@ -1,5 +1,6 @@
 ---
 title: "Linux Commands Quiz – Shell, Env, Alias & Packages"
+description: "Test your Linux Shell, Environment, Alias & Package Management skills with intermediate quiz questions covering practical concepts and workflows."
 ---
 
 # Linux Shell, Environment Variables, PATH, Alias & Package Management – Full Quiz

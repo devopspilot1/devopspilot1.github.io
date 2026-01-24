@@ -1,5 +1,6 @@
 ---
 title: "Docker Quiz – Basics"
+description: "Practice Docker fundamentals with beginner-level quiz questions designed for students and early learners starting their DevOps journey."
 ---
 # Docker Basics Quiz
 

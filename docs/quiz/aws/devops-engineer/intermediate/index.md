@@ -1,5 +1,6 @@
 ---
 title: "AWS DevOps Engineer Quiz – Intermediate"
+description: "Test your AWS DevOps Engineer skills with intermediate quiz questions covering practical concepts, common workflows, and daily operational tasks."
 ---
 
 # AWS DevOps Engineer - Intermediate Quiz

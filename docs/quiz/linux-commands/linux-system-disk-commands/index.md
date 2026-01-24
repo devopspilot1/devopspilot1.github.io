@@ -1,5 +1,6 @@
 ---
 title: "Linux Commands Quiz – System & Disk Commands"
+description: "Test your Linux System & Disk Command skills with intermediate quiz questions covering practical concepts, common workflows, and daily operational tasks."
 ---
 
 # Linux System & Disk Commands – Full Quiz

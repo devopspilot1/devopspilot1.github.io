@@ -1,5 +1,6 @@
 ---
 title: "AWS SysOps Administrator Quiz – Intermediate"
+description: "Test your AWS SysOps Administrator skills with intermediate quiz questions covering practical concepts, common workflows, and daily operational tasks."
 ---
 
 # AWS SysOps Administrator - Intermediate Quiz

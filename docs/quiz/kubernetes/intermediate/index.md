@@ -1,5 +1,6 @@
 ---
 title: "Kubernetes Quiz – Intermediate"
+description: "Test your Kubernetes skills with intermediate quiz questions covering practical concepts, common workflows, and daily operational tasks."
 ---
 # Kubernetes Intermediate Quiz
 

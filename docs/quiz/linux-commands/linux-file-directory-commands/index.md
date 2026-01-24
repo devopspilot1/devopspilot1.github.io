@@ -1,5 +1,6 @@
 ---
 title: "Linux Commands Quiz – File & Directory Management"
+description: "Test your Linux File & Directory Management skills with intermediate quiz questions covering practical concepts, common workflows, and daily operational tasks."
 ---
 
 # Linux File & Directory Management – Full Quiz

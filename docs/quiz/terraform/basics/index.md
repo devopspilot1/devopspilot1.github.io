@@ -1,5 +1,6 @@
 ---
 title: "Terraform Quiz – Basics"
+description: "Practice Terraform fundamentals with beginner-level quiz questions designed for students and early learners starting their DevOps journey."
 ---
 # Terraform Basics Quiz
 

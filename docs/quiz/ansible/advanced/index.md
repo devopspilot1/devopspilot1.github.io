@@ -1,5 +1,6 @@
 ---
 title: "Ansible Quiz – Advanced"
+description: "Challenge your Ansible expertise with advanced quiz questions focused on real-world scenarios, troubleshooting, and interview preparation."
 ---
 # Ansible Advanced Quiz
 

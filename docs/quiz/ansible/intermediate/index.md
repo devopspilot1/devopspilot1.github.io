@@ -1,5 +1,6 @@
 ---
 title: "Ansible Quiz – Intermediate"
+description: "Test your Ansible skills with intermediate quiz questions covering practical concepts, common workflows, and daily operational tasks."
 ---
 # Ansible Intermediate Quiz
 

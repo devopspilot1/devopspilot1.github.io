@@ -1,5 +1,6 @@
 ---
 title: "Linux Commands Quiz – Log & Text Processing"
+description: "Test your Linux Log & Text Processing skills with intermediate quiz questions covering practical concepts, common workflows, and daily operational tasks."
 ---
 
 # Linux Log & Text Processing – Full Quiz

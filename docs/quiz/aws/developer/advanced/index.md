@@ -1,5 +1,6 @@
 ---
 title: "AWS Developer Quiz – Advanced"
+description: "Challenge your AWS Developer expertise with advanced quiz questions focused on real-world scenarios, troubleshooting, and interview preparation."
 ---
 
 # AWS Developer - Advanced Quiz

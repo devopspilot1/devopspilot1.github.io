@@ -1,5 +1,6 @@
 ---
 title: "Kubernetes Quiz – Advanced"
+description: "Challenge your Kubernetes expertise with advanced quiz questions focused on real-world scenarios, troubleshooting, and interview preparation."
 ---
 # Kubernetes Advanced Quiz
 

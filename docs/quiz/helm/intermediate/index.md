@@ -1,5 +1,6 @@
 ---
 title: "Helm Quiz – Intermediate"
+description: "Test your Helm skills with intermediate quiz questions covering practical concepts, common workflows, and daily operational tasks."
 ---
 # Helm Intermediate Quiz
 

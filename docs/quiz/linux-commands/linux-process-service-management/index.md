@@ -1,5 +1,6 @@
 ---
 title: "Linux Commands Quiz – Process & Service Management"
+description: "Test your Linux Process & Service Management skills with intermediate quiz questions covering practical concepts, common workflows, and daily operational tasks."
 ---
 
 # Linux Process & Service Management – Full Quiz

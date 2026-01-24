@@ -1,5 +1,6 @@
 ---
 title: "Jenkins Quiz – Basics"
+description: "Practice Jenkins fundamentals with beginner-level quiz questions designed for students and early learners starting their DevOps journey."
 ---
 # Jenkins Basics Quiz
 

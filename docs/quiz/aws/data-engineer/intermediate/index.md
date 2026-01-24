@@ -1,5 +1,6 @@
 ---
 title: "AWS Data Engineer Quiz – Intermediate"
+description: "Test your AWS Data Engineer skills with intermediate quiz questions covering practical concepts, common workflows, and daily operational tasks."
 ---
 
 # AWS Data Engineer - Intermediate Quiz
