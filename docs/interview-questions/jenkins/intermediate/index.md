@@ -1,6 +1,6 @@
 ---
-title: "Jenkins Interview Questions - Intermediate"
-description: "Intermediate Jenkins interview questions and answers."
+title: "Jenkins Interview Questions – Intermediate"
+description: "Top Jenkins Interview Questions – Intermediate covering Jenkins, Cron, are and Pipeline."
 ---
 
 # Jenkins Interview Questions - Intermediate

@@ -1,6 +1,6 @@
 ---
-title: "Git Interview Questions - Basics"
-description: "Top 20 Basic Git interview questions covering git init, commit, staging, and remotes."
+title: "Git Interview Questions – Basics"
+description: "Top Git Interview Questions – Basics covering Git, command, adds and creates."
 ---
 
 # Basics Questions

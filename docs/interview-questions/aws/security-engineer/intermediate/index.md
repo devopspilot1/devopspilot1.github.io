@@ -1,6 +1,6 @@
 ---
-title: "AWS Security Engineer Interview Questions - Intermediate"
-description: "Top 20 Intermediate AWS Security Engineer interview questions covering Cross-Account Access, GuardDuty, and IMDSv2."
+title: "AWS Security Engineer Interview Questions – Intermediate"
+description: "Top AWS Security Engineer Interview Questions – Intermediate covering AMI, Machine, Image) and AWS."
 ---
 
 # Intermediate Questions

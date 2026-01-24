@@ -1,6 +1,6 @@
 ---
-title: "AWS DevOps Engineer Interview Questions - Intermediate"
-description: "Top 20 Intermediate AWS DevOps Engineer interview questions covering Drift Detection, CodeDeploy strategies, EKS security from the intermediate quiz."
+title: "AWS DevOps Engineer Interview Questions – Intermediate"
+description: "Top AWS DevOps Engineer Interview Questions – Intermediate covering AWS, CodeBuild, When and Terraform."
 ---
 
 # Intermediate Questions

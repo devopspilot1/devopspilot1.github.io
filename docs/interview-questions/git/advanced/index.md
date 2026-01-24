@@ -1,6 +1,6 @@
 ---
-title: "Git Interview Questions - Advanced"
-description: "Top 20 Advanced Git interview questions covering rebase, cherry-pick, bisect, and internals."
+title: "Git Interview Questions – Advanced"
+description: "Top Git Interview Questions – Advanced covering `git, bisect`, cherry-pick` and reflog`."
 ---
 
 # Advanced Questions

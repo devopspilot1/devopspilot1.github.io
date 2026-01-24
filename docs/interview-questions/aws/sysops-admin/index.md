@@ -1,6 +1,6 @@
 ---
 title: "AWS SysOps Administrator Interview Questions"
-description: "Comprehensive AWS SysOps Administrator interview questions and answers, categorized by difficulty level."
+description: "Comprehensive AWS SysOps Administrator Interview Questions."
 ---
 
 # AWS SysOps Administrator Interview Questions

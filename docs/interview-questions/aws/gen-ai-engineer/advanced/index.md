@@ -1,6 +1,6 @@
 ---
-title: "AWS GenAI Engineer Interview Questions - Advanced"
-description: "Top 20 Advanced AWS GenAI Engineer interview questions covering Prompt Injection, Trainium, and Private GenAI Environments."
+title: "AWS GenAI Engineer Interview Questions – Advanced"
+description: "Top AWS GenAI Engineer Interview Questions – Advanced covering AWS, Trainium, Scenario and Your."
 ---
 
 # Advanced Questions

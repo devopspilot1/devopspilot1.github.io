@@ -1,6 +1,6 @@
 ---
-title: "Ansible Interview Questions - Advanced"
-description: "Top 20 Advanced Ansible interview questions covering custom modules, plugins, performance tuning, and automation platform."
+title: "Ansible Interview Questions – Advanced"
+description: "Top Ansible Interview Questions – Advanced covering Ansible, Action, Plugin and Module."
 ---
 
 # Ansible Interview Questions - Advanced

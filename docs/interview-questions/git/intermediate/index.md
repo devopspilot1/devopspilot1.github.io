@@ -1,6 +1,6 @@
 ---
-title: "Git Interview Questions - Intermediate"
-description: "Top 20 Intermediate Git interview questions covering branching, merging, stashing, and collaboration."
+title: "Git Interview Questions – Intermediate"
+description: "Top Git Interview Questions – Intermediate covering key, command, temporarily and `git."
 ---
 
 # Intermediate Questions

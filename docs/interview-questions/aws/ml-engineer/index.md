@@ -1,6 +1,6 @@
 ---
 title: "AWS Machine Learning Engineer Interview Questions"
-description: "Comprehensive AWS Machine Learning Engineer interview questions and answers, categorized by difficulty level."
+description: "Comprehensive AWS Machine Learning Engineer Interview Questions."
 ---
 
 # AWS Machine Learning Engineer Interview Questions

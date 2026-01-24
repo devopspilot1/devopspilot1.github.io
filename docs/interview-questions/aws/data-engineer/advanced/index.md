@@ -1,6 +1,6 @@
 ---
-title: "AWS Data Engineer Interview Questions - Advanced"
-description: "Top 20 Advanced AWS Data Engineer interview questions covering CDC, Lake Formation, Kinesis Processing, and Redshift Optimization."
+title: "AWS Data Engineer Interview Questions – Advanced"
+description: "Top AWS Data Engineer Interview Questions – Advanced covering AWS, Change, Data and Capture."
 ---
 
 # Advanced Questions

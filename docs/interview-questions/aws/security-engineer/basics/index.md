@@ -1,6 +1,6 @@
 ---
-title: "AWS Security Engineer Interview Questions - Basics"
-description: "Top 20 Basic AWS Security Engineer interview questions covering IAM, KMS, WAF, and Shield."
+title: "AWS Security Engineer Interview Questions – Basics"
+description: "Top AWS Security Engineer Interview Questions – Basics covering IAM, Policy, SQL and Injection."
 ---
 
 # Basics Questions

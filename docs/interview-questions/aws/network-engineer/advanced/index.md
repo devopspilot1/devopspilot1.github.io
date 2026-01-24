@@ -1,6 +1,6 @@
 ---
-title: "AWS Network Engineer Interview Questions - Advanced"
-description: "Top 20 Advanced AWS Network Engineer interview questions covering Global Accelerator, BGP, Direct Connect, and Network Security."
+title: "AWS Network Engineer Interview Questions – Advanced"
+description: "Top AWS Network Engineer Interview Questions – Advanced covering AWS, Global, Accelerator and CloudFront."
 ---
 
 # Advanced Questions

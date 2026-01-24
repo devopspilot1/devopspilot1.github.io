@@ -1,6 +1,6 @@
 ---
 title: "AWS Interview Questions"
-description: "Comprehensive collection of AWS interview questions for various roles including Cloud Engineer, DevOps, Solutions Architect, and more."
+description: "Comprehensive AWS Interview Questions."
 ---
 
 # AWS Interview Questions

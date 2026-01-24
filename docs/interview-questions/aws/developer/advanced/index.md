@@ -1,6 +1,6 @@
 ---
-title: "AWS Developer Interview Questions - Advanced"
-description: "Top 20 Advanced AWS Developer interview questions covering Serverless best practices, Idempotency, Kinesis Streaming, and Cost Optimization."
+title: "AWS Developer Interview Questions – Advanced"
+description: "Top AWS Developer Interview Questions – Advanced covering can, Kinesis, Data and Stream."
 ---
 
 # Advanced Questions

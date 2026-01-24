@@ -1,6 +1,6 @@
 ---
 title: "Shell Scripting Interview Questions"
-description: "Comprehensive Shell Scripting interview questions and answers, categorized by difficulty level."
+description: "Comprehensive Shell Scripting Interview Questions."
 ---
 
 # Shell Scripting Interview Questions

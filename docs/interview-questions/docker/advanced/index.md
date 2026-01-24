@@ -1,6 +1,6 @@
 ---
-title: "Docker Interview Questions - Advanced"
-description: "Advanced Docker interview questions and answers."
+title: "Docker Interview Questions – Advanced"
+description: "Top Docker Interview Questions – Advanced covering Docker, Swarm, Kubernetes and Namespaces."
 ---
 
 # Docker Interview Questions - Advanced

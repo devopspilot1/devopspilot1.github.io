@@ -1,6 +1,6 @@
 ---
-title: "AWS Network Engineer Interview Questions - Intermediate"
-description: "Top 20 Intermediate AWS Network Engineer interview questions covering Transit Gateway, Traffic Mirroring, and Advanced Load Balancing."
+title: "AWS Network Engineer Interview Questions – Intermediate"
+description: "Top AWS Network Engineer Interview Questions – Intermediate covering VPC, Peering, AWS and Transit."
 ---
 
 # Intermediate Questions

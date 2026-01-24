@@ -1,6 +1,6 @@
 ---
-title: "Shell Scripting Interview Questions - Intermediate"
-description: "Top 20 Intermediate Shell Scripting interview questions covering loops, arrays, files, and conditionals."
+title: "Shell Scripting Interview Questions – Intermediate"
+description: "Top Shell Scripting Interview Questions – Intermediate covering Bash, command and substitution."
 ---
 
 # Intermediate Questions

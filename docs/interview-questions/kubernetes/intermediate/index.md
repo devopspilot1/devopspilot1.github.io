@@ -1,6 +1,6 @@
 ---
-title: "Kubernetes Interview Questions - Intermediate"
-description: "Intermediate Kubernetes interview questions covering controllers, storage, and networking."
+title: "Kubernetes Interview Questions – Intermediate"
+description: "Top Kubernetes Interview Questions – Intermediate covering Deployment, StatefulSet, DaemonSet and Job."
 ---
 
 # Kubernetes Interview Questions - Intermediate

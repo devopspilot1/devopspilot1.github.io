@@ -1,6 +1,6 @@
 ---
-title: "Ansible Interview Questions - Intermediate"
-description: "Top 20 Intermediate Ansible interview questions covering roles, variables, loops, and error handling."
+title: "Ansible Interview Questions – Intermediate"
+description: "Top Ansible Interview Questions – Intermediate covering Ansible, Galaxy, Role and `delegate_to`."
 ---
 
 # Ansible Interview Questions - Intermediate

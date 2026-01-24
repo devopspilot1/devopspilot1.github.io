@@ -1,6 +1,6 @@
 ---
-title: "Linux Interview Questions - Intermediate"
-description: "Top 20 Intermediate Linux interview questions covering disk usage, user management, processes, and packages."
+title: "Linux Commands Interview Questions – Intermediate"
+description: "Top Linux Commands Interview Questions – Intermediate covering Linux, command, checks and displays."
 ---
 
 # Intermediate Questions

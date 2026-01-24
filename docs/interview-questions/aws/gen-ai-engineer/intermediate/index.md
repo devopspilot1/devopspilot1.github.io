@@ -1,6 +1,6 @@
 ---
-title: "AWS GenAI Engineer Interview Questions - Intermediate"
-description: "Top 20 Intermediate AWS GenAI Engineer interview questions covering Agents, RAG, and CoT Prompting."
+title: "AWS GenAI Engineer Interview Questions – Intermediate"
+description: "Top AWS GenAI Engineer Interview Questions – Intermediate covering chunking, strategy, Agents and Amazon."
 ---
 
 # Intermediate Questions

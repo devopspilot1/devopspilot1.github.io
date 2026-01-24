@@ -1,6 +1,6 @@
 ---
 title: "Ansible Interview Questions"
-description: "Comprehensive list of Ansible interview questions."
+description: "Comprehensive Ansible Interview Questions."
 ---
 
 # Ansible Interview Questions

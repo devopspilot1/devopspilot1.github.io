@@ -1,6 +1,6 @@
 ---
 title: "Terraform Interview Questions"
-description: "Comprehensive Terraform interview questions and answers."
+description: "Comprehensive Terraform Interview Questions."
 ---
 
 # Terraform Interview Questions

@@ -1,6 +1,6 @@
 ---
-title: "AWS Cloud Engineer Interview Questions - Basics"
-description: "Top 20 Basic AWS Cloud Engineer interview questions covering EC2, S3, IAM, and Networking fundamentals."
+title: "AWS Cloud Engineer Interview Questions – Basics"
+description: "Top AWS Cloud Engineer Interview Questions – Basics covering EC2, S3, VPC and Private."
 ---
 
 # Basics Questions

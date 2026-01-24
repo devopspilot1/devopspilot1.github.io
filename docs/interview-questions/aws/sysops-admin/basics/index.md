@@ -1,6 +1,6 @@
 ---
-title: "AWS SysOps Administrator Interview Questions - Basics"
-description: "Top 20 Basic AWS SysOps Administrator interview questions covering Systems Manager, CloudWatch, and Patching."
+title: "AWS SysOps Administrator Interview Questions – Basics"
+description: "Top AWS SysOps Administrator Interview Questions – Basics covering CloudWatch, Logs, CloudTrail and AWS."
 ---
 
 # Basics Questions

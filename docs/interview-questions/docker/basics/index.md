@@ -1,6 +1,6 @@
 ---
-title: "Docker Interview Questions - Basics"
-description: "Common Docker interview questions and answers for beginners."
+title: "Docker Interview Questions – Basics"
+description: "Top Docker Interview Questions – Basics covering can, Jfrog, Can and Why."
 ---
 
 # Docker Interview Questions - Basics

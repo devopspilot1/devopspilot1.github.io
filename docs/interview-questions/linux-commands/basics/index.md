@@ -1,6 +1,6 @@
 ---
-title: "Linux Interview Questions - Basics"
-description: "Top 20 Basic Linux interview questions covering ls, cd, file permissions, and directory management."
+title: "Linux Commands Interview Questions – Basics"
+description: "Top Linux Commands Interview Questions – Basics covering command, prints, lists and Linux."
 ---
 
 # Basics Questions

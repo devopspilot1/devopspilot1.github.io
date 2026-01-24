@@ -1,6 +1,6 @@
 ---
-title: "AWS DevOps Engineer Interview Questions - Basics"
-description: "Top 20 Basic AWS DevOps Engineer interview questions covering CI/CD, CodePipeline, CodeBuild, and Infrastructure as Code."
+title: "AWS DevOps Engineer Interview Questions – Basics"
+description: "Top AWS DevOps Engineer Interview Questions – Basics covering AWS, CodeBuild, CodeDeploy and does."
 ---
 
 # Basics Questions

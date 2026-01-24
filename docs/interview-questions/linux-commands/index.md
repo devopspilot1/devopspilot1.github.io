@@ -1,6 +1,6 @@
 ---
 title: "Linux Interview Questions"
-description: "Comprehensive Linux interview questions and answers, categorized by difficulty level."
+description: "Comprehensive Linux Interview Questions."
 ---
 
 # Linux Interview Questions

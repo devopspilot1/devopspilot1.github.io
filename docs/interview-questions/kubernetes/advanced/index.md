@@ -1,6 +1,6 @@
 ---
-title: "Kubernetes Interview Questions - Advanced"
-description: "Advanced Kubernetes interview questions scenarios, security, and architecture."
+title: "Kubernetes Interview Questions – Advanced"
+description: "Top Kubernetes Interview Questions – Advanced covering Control, Plane, Components and does."
 ---
 
 # Kubernetes Interview Questions - Advanced

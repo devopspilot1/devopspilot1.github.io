@@ -1,6 +1,6 @@
 ---
-title: "AWS Machine Learning Engineer Interview Questions - Advanced"
-description: "Top 20 Advanced AWS Machine Learning Engineer interview questions covering Serial Pipelines, Hyperparameter Tuning, and Model Parallelism."
+title: "AWS Machine Learning Engineer Interview Questions – Advanced"
+description: "Top AWS Machine Learning Engineer Interview Questions – Advanced covering benefit, does, GPU-based and SageMaker."
 ---
 
 # Advanced Questions

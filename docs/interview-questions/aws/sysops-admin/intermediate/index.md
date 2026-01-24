@@ -1,6 +1,6 @@
 ---
-title: "AWS SysOps Administrator Interview Questions - Intermediate"
-description: "Top 20 Intermediate AWS SysOps Administrator interview questions covering Troubleshooting, Billing, and S3 Storage Classes."
+title: "AWS SysOps Administrator Interview Questions – Intermediate"
+description: "Top AWS SysOps Administrator Interview Questions – Intermediate covering Key, Pair, Linux and EC2."
 ---
 
 # Intermediate Questions

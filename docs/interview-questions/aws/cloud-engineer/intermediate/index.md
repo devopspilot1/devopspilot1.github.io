@@ -1,7 +1,6 @@
 ---
-title: "AWS Cloud Engineer Interview Questions - Intermediate"
-description: "Top 20 Intermediate AWS Cloud Engineer interview questions focusing on troubleshooting, optimization, and security."
-
+title: "AWS Cloud Engineer Interview Questions – Intermediate"
+description: "Top AWS Cloud Engineer Interview Questions – Intermediate covering SSH, EC2, S3 and Application."
 ---
 
 # Intermediate Questions

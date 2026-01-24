@@ -1,6 +1,6 @@
 ---
-title: "AWS DevOps Engineer Interview Questions - Advanced"
-description: "Top 20 Advanced AWS DevOps Engineer interview questions covering Cross-Account pipelines, X-Ray debugging, and EKS Anywhere."
+title: "AWS DevOps Engineer Interview Questions – Advanced"
+description: "Top AWS DevOps Engineer Interview Questions – Advanced covering RDS, Lambda, VPC and need."
 ---
 
 # Advanced Questions

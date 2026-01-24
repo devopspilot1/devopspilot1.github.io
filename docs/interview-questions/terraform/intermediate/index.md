@@ -1,6 +1,6 @@
 ---
-title: "Terraform Interview Questions - Intermediate"
-description: "Intermediate Terraform interview questions and answers."
+title: "Terraform Interview Questions – Intermediate"
+description: "Top Terraform Interview Questions – Intermediate covering Terraform, Modules, Input and Variables."
 ---
 
 # Terraform Interview Questions - Intermediate

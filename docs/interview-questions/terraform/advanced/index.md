@@ -1,6 +1,6 @@
 ---
-title: "Terraform Interview Questions - Advanced"
-description: "Advanced Terraform interview questions and answers."
+title: "Terraform Interview Questions – Advanced"
+description: "Top Terraform Interview Questions – Advanced covering State, Locking, are and 'Workspaces'."
 ---
 
 # Terraform Interview Questions - Advanced

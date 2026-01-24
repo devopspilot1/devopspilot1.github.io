@@ -1,6 +1,10 @@
 ---
-title: "Kubernetes Interview Questions - Basics"
-description: "Common Kubernetes interview questions and answers for beginners."
+title: "Kubernetes Interview Questions – Basics"
+description: "Top Kubernetes Interview Questions – Basics covering Kubernetes, Architecture, Pod and Container."
+---
+title: "Kubernetes Interview Questions – Basics"
+description: "Prepare for your Kubernetes interview with beginner-level questions covering fundamentals, core concepts, and essential commands for freshers."
+---
 ---
 
 # Kubernetes Interview Questions - Basics

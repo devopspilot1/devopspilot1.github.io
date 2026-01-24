@@ -1,6 +1,6 @@
 ---
-title: "Helm Interview Questions - Basics"
-description: "Top 20 Basic Helm interview questions covering architecture, charts, and basic commands."
+title: "Helm Interview Questions – Basics"
+description: "Top Helm Interview Questions – Basics covering Helm, Chart, role and Release."
 ---
 
 # Helm Basics Questions

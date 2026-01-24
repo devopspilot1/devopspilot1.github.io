@@ -1,6 +1,6 @@
 ---
-title: "Shell Scripting Interview Questions - Advanced"
-description: "Top 20 Advanced Shell Scripting interview questions covering functions, text processing, and regex."
+title: "Shell Scripting Interview Questions – Advanced"
+description: "Top Shell Scripting Interview Questions – Advanced covering Bash, scope, `nohup` and `eval`."
 ---
 
 # Advanced Questions

@@ -1,6 +1,6 @@
 ---
-title: "AWS Cloud Engineer Interview Questions - Advanced"
-description: "Top 20 Advanced AWS Cloud Engineer interview questions covering architecture, disaster recovery, and production scenarios."
+title: "AWS Cloud Engineer Interview Questions – Advanced"
+description: "Top AWS Cloud Engineer Interview Questions – Advanced covering Key, Pair, EC2 and AWS."
 ---
 
 # Advanced Questions

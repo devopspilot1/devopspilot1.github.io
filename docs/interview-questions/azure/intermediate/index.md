@@ -1,6 +1,6 @@
 ---
-title: "Azure Interview Questions - Intermediate"
-description: "Intermediate Azure interview questions and answers."
+title: "Azure Interview Questions – Intermediate"
+description: "Top Azure Interview Questions – Intermediate covering Placeholder, Question and Azure."
 ---
 
 # Azure Interview Questions - Intermediate

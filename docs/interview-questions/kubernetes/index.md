@@ -1,6 +1,6 @@
 ---
 title: "Kubernetes Interview Questions (2024)"
-description: "Top Kubernetes interview questions and answers for DevOps Engineers. Covers Pods, Services, Deployments, Architecture, and Troubleshooting."
+description: "Comprehensive Kubernetes Interview Questions (2024)."
 ---
 
 # Kubernetes Interview Questions

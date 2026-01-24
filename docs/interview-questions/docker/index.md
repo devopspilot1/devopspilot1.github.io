@@ -1,6 +1,6 @@
 ---
 title: "Docker Interview Questions"
-description: "Comprehensive list of Docker interview questions."
+description: "Comprehensive Docker Interview Questions."
 ---
 
 # Docker Interview Questions

@@ -1,6 +1,6 @@
 ---
-title: "AWS SysOps Administrator Interview Questions - Advanced"
-description: "Top 20 Advanced AWS SysOps Administrator interview questions covering EventBridge, X-Ray, Control Tower, and Automated Remediation."
+title: "AWS SysOps Administrator Interview Questions – Advanced"
+description: "Top AWS SysOps Administrator Interview Questions – Advanced covering can, Auto, Scaling and Group."
 ---
 
 # Advanced Questions

@@ -1,6 +1,6 @@
 ---
-title: "AWS GenAI Engineer Interview Questions - Basics"
-description: "Top 20 Basic AWS GenAI Engineer interview questions covering Bedrock, RAG, and Prompt Engineering."
+title: "AWS GenAI Engineer Interview Questions – Basics"
+description: "Top AWS GenAI Engineer Interview Questions – Basics covering Amazon, Bedrock, Titan and does."
 ---
 
 # Basics Questions

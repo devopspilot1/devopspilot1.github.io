@@ -1,6 +1,6 @@
 ---
-title: "AWS SRE Interview Questions - Basics"
-description: "Top 20 Basic AWS Site Reliability Engineer interview questions covering Observability, Error Budgets, and Golden Signals."
+title: "AWS Site Reliability Engineer Interview Questions – Basics"
+description: "Top AWS Site Reliability Engineer Interview Questions – Basics covering are, AWS, does and Golden."
 ---
 
 # Basics Questions

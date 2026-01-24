@@ -1,6 +1,6 @@
 ---
-title: "AWS Machine Learning Engineer Interview Questions - Basics"
-description: "Top 20 Basic AWS Machine Learning Engineer interview questions covering SageMaker, Textract, Rekognition, and Training Lifecycles."
+title: "AWS Machine Learning Engineer Interview Questions – Basics"
+description: "Top AWS Machine Learning Engineer Interview Questions – Basics covering Amazon, SageMaker, service and effectively."
 ---
 
 # Basics Questions

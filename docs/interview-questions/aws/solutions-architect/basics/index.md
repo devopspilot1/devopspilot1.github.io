@@ -1,6 +1,6 @@
 ---
-title: "AWS Solutions Architect Interview Questions - Basics"
-description: "Top 20 Basic AWS Solutions Architect interview questions covering Well-Architected Framework, HA, and Storage."
+title: "AWS Solutions Architect Interview Questions – Basics"
+description: "Top AWS Solutions Architect Interview Questions – Basics covering AWS, Well-Architected, Framework and service."
 ---
 
 # Basics Questions

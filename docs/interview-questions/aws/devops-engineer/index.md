@@ -1,6 +1,6 @@
 ---
 title: "AWS DevOps Engineer Interview Questions"
-description: "Comprehensive AWS DevOps Engineer interview questions and answers, categorized by difficulty level."
+description: "Comprehensive AWS DevOps Engineer Interview Questions."
 ---
 
 # AWS DevOps Engineer Interview Questions

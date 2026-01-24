@@ -1,6 +1,6 @@
 ---
-title: "GCP Interview Questions - Basics"
-description: "Common GCP interview questions and answers for beginners."
+title: "Google Cloud Platform Interview Questions – Basics"
+description: "Comprehensive Google Cloud Platform Interview Questions – Basics."
 ---
 
 # GCP Interview Questions - Basics

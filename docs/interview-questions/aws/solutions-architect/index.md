@@ -1,6 +1,6 @@
 ---
 title: "AWS Solutions Architect Interview Questions"
-description: "Comprehensive AWS Solutions Architect interview questions and answers, categorized by difficulty level."
+description: "Comprehensive AWS Solutions Architect Interview Questions."
 ---
 
 # AWS Solutions Architect Interview Questions

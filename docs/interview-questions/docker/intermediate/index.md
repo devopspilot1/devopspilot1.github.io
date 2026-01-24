@@ -1,6 +1,6 @@
 ---
-title: "Docker Interview Questions - Intermediate"
-description: "Intermediate Docker interview questions and answers."
+title: "Docker Interview Questions – Intermediate"
+description: "Top Docker Interview Questions – Intermediate covering Docker, Compose, Volumes and Bind."
 ---
 
 # Docker Interview Questions - Intermediate

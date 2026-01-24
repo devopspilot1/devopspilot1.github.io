@@ -1,6 +1,6 @@
 ---
-title: "GCP Interview Questions - Intermediate"
-description: "Intermediate GCP interview questions and answers."
+title: "Google Cloud Platform Interview Questions – Intermediate"
+description: "Top Google Cloud Platform Interview Questions – Intermediate covering Placeholder, Question and GCP."
 ---
 
 # GCP Interview Questions - Intermediate

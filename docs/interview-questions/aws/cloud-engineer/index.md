@@ -1,6 +1,6 @@
 ---
 title: "AWS Cloud Engineer Interview Questions"
-description: "Comprehensive AWS Cloud Engineer interview questions and answers, categorized by difficulty level."
+description: "Comprehensive AWS Cloud Engineer Interview Questions."
 ---
 
 # AWS Cloud Engineer Interview Questions

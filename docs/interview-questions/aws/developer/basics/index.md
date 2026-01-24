@@ -1,6 +1,6 @@
 ---
-title: "AWS Developer Interview Questions - Basics"
-description: "Top 20 Basic AWS Developer interview questions covering Lambda, API Gateway, DynamoDB, and SDK basics."
+title: "AWS Developer Interview Questions – Basics"
+description: "Top AWS Developer Interview Questions – Basics covering service, would, SQS and SNS."
 ---
 
 # Basics Questions

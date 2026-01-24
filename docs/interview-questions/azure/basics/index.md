@@ -1,6 +1,6 @@
 ---
-title: "Azure Interview Questions - Basics"
-description: "Common Azure interview questions and answers for beginners."
+title: "Azure Interview Questions – Basics"
+description: "Comprehensive Azure Interview Questions – Basics."
 ---
 
 # Azure Interview Questions - Basics

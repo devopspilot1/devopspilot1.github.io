@@ -1,6 +1,6 @@
 ---
-title: "AWS Developer Interview Questions - Intermediate"
-description: "Top 20 Intermediate AWS Developer interview questions covering DynamoDB access patterns, SAM, and Error Handling."
+title: "AWS Developer Interview Questions – Intermediate"
+description: "Top AWS Developer Interview Questions – Intermediate covering DynamoDB, Lambda, `sam and local."
 ---
 
 # Intermediate Questions

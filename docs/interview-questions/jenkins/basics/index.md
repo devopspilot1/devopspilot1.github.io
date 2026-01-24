@@ -1,6 +1,10 @@
 ---
-title: "Jenkins Interview Questions - Basics"
-description: "Common Jenkins interview questions and answers for beginners."
+title: "Jenkins Interview Questions – Basics"
+description: "Top Jenkins Interview Questions – Basics covering Jenkins, CI/CD, Pipeline and Pipelines."
+---
+title: "Jenkins Interview Questions – Basics"
+description: "Prepare for your Jenkins interview with beginner-level questions covering fundamentals, core concepts, and essential commands for freshers."
+---
 ---
 
 # Jenkins Interview Questions - Basics

@@ -1,6 +1,6 @@
 ---
 title: "AWS GenAI Engineer Interview Questions"
-description: "Comprehensive AWS Generative AI Engineer interview questions and answers, categorized by difficulty level."
+description: "Comprehensive AWS GenAI Engineer Interview Questions."
 ---
 
 # AWS GenAI Engineer Interview Questions

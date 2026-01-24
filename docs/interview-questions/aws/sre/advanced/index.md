@@ -1,6 +1,6 @@
 ---
-title: "AWS SRE Interview Questions - Advanced"
-description: "Top 20 Advanced AWS Site Reliability Engineer interview questions covering Distributed Systems, Concurrency Control, and Advanced Monitoring."
+title: "AWS Site Reliability Engineer Interview Questions – Advanced"
+description: "Top AWS Site Reliability Engineer Interview Questions – Advanced covering Availability, Zone, implies and can."
 ---
 
 # Advanced Questions

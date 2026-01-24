@@ -1,6 +1,6 @@
 ---
-title: "AWS Data Engineer Interview Questions - Basics"
-description: "Top 20 Basic AWS Data Engineer interview questions covering S3 Data Lakes, Glue, Redshift, and Athena."
+title: "AWS Data Engineer Interview Questions – Basics"
+description: "Top AWS Data Engineer Interview Questions – Basics covering AWS, ETL, Transform and Load)."
 ---
 
 # Basics Questions

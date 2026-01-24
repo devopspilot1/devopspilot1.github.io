@@ -1,6 +1,6 @@
 ---
 title: "AWS Security Engineer Interview Questions"
-description: "Comprehensive AWS Security Engineer interview questions and answers, categorized by difficulty level."
+description: "Comprehensive AWS Security Engineer Interview Questions."
 ---
 
 # AWS Security Engineer Interview Questions

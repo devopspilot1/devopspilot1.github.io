@@ -1,6 +1,6 @@
 ---
-title: "AWS Security Engineer Interview Questions - Advanced"
-description: "Top 20 Advanced AWS Security Engineer interview questions covering Forensics, Config Remediation, and ABAC."
+title: "AWS Security Engineer Interview Questions – Advanced"
+description: "Top AWS Security Engineer Interview Questions – Advanced covering VPC, Endpoint, AWS and Config."
 ---
 
 # Advanced Questions

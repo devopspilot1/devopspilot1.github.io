@@ -1,6 +1,6 @@
 ---
-title: "AWS Network Engineer Interview Questions - Basics"
-description: "Top 20 Basic AWS Network Engineer interview questions covering VPC, Subnets, Routing, and Load Balancing."
+title: "AWS Network Engineer Interview Questions – Basics"
+description: "Top AWS Network Engineer Interview Questions – Basics covering VPC, Private, Cloud) and component."
 ---
 
 # Basics Questions

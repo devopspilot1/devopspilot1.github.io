@@ -1,6 +1,6 @@
 ---
-title: "Linux Interview Questions - Advanced"
-description: "Top 20 Advanced Linux interview questions covering networking, grep/awk/sed, shell scripting, and crontab."
+title: "Linux Commands Interview Questions – Advanced"
+description: "Top Linux Commands Interview Questions – Advanced covering command, HTTP, `grep` and used."
 ---
 
 # Advanced Questions

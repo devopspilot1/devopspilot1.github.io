@@ -1,6 +1,6 @@
 ---
 title: "AWS Network Engineer Interview Questions"
-description: "Comprehensive AWS Network Engineer interview questions and answers, categorized by difficulty level."
+description: "Comprehensive AWS Network Engineer Interview Questions."
 ---
 
 # AWS Network Engineer Interview Questions

@@ -1,6 +1,6 @@
 ---
 title: "Git Interview Questions"
-description: "Comprehensive Git interview questions and answers, categorized by difficulty level."
+description: "Comprehensive Git Interview Questions."
 ---
 
 # Git Interview Questions

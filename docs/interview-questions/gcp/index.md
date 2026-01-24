@@ -1,6 +1,6 @@
 ---
 title: "GCP Interview Questions"
-description: "Comprehensive list of GCP interview questions."
+description: "Comprehensive GCP Interview Questions."
 ---
 
 # GCP Interview Questions

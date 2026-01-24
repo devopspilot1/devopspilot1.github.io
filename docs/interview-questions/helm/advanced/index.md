@@ -1,6 +1,6 @@
 ---
-title: "Helm Interview Questions - Advanced"
-description: "Top 20 Advanced Helm interview questions covering library charts, security, OCI registries, and performance."
+title: "Helm Interview Questions – Advanced"
+description: "Top Helm Interview Questions – Advanced covering Library, Chart, Helm and OCI."
 ---
 
 # Helm Advanced Questions

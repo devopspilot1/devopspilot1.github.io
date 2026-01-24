@@ -1,6 +1,6 @@
 ---
 title: "AWS Data Engineer Interview Questions"
-description: "Comprehensive AWS Data Engineer interview questions and answers, categorized by difficulty level."
+description: "Comprehensive AWS Data Engineer Interview Questions."
 ---
 
 # AWS Data Engineer Interview Questions

@@ -1,6 +1,6 @@
 ---
-title: "Azure Interview Questions - Advanced"
-description: "Advanced Azure interview questions and answers."
+title: "Azure Interview Questions – Advanced"
+description: "Top Azure Interview Questions – Advanced covering Placeholder, Question and Azure."
 ---
 
 # Azure Interview Questions - Advanced

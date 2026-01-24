@@ -1,6 +1,10 @@
 ---
-title: "Terraform Interview Questions - Basics"
-description: "Basic Terraform interview questions and answers."
+title: "Terraform Interview Questions – Basics"
+description: "Top Terraform Interview Questions – Basics covering Terraform, Provider, State and `terraform."
+---
+title: "Terraform Interview Questions – Basics"
+description: "Prepare for your Terraform interview with beginner-level questions covering fundamentals, core concepts, and essential commands for freshers."
+---
 ---
 
 # Terraform Interview Questions - Basics

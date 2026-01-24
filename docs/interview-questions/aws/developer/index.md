@@ -1,6 +1,6 @@
 ---
 title: "AWS Developer Interview Questions"
-description: "Comprehensive AWS Developer interview questions and answers, categorized by difficulty level."
+description: "Comprehensive AWS Developer Interview Questions."
 ---
 
 # AWS Developer Interview Questions

@@ -1,6 +1,6 @@
 ---
-title: "AWS Solutions Architect Interview Questions - Intermediate"
-description: "Top 20 Intermediate AWS Solutions Architect interview questions covering Decoupling, Disaster Recovery, and VPC Endpoints."
+title: "AWS Solutions Architect Interview Questions – Intermediate"
+description: "Top AWS Solutions Architect Interview Questions – Intermediate covering Disaster, Recovery, Interface and Endpoint."
 ---
 
 # Intermediate Questions

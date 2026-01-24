@@ -1,6 +1,6 @@
 ---
-title: "GCP Interview Questions - Advanced"
-description: "Advanced GCP interview questions and answers."
+title: "Google Cloud Platform Interview Questions – Advanced"
+description: "Top Google Cloud Platform Interview Questions – Advanced covering Placeholder, Question and GCP."
 ---
 
 # GCP Interview Questions - Advanced

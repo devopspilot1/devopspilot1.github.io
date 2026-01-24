@@ -1,6 +1,6 @@
 ---
-title: "AWS SRE Interview Questions - Intermediate"
-description: "Top 20 Intermediate AWS Site Reliability Engineer interview questions covering Cell-based Architecture, Rate Limiting, and S3 Consistency."
+title: "AWS Site Reliability Engineer Interview Questions – Intermediate"
+description: "Top AWS Site Reliability Engineer Interview Questions – Intermediate covering Why, can, AWS and Shield."
 ---
 
 # Intermediate Questions

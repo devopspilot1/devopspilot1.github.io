@@ -1,6 +1,6 @@
 ---
-title: "Shell Scripting Interview Questions - Basics"
-description: "Top 20 Basic Shell Scripting interview questions covering shebang, variables, execution, and error handling."
+title: "Shell Scripting Interview Questions – Basics"
+description: "Top Shell Scripting Interview Questions – Basics covering Shell, Script, Shebang and Bash."
 ---
 
 # Basics Questions

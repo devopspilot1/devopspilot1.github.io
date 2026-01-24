@@ -1,6 +1,6 @@
 ---
-title: "Jenkins Interview Questions - Advanced"
-description: "Advanced Jenkins interview questions and answers."
+title: "Jenkins Interview Questions – Advanced"
+description: "Top Jenkins Interview Questions – Advanced covering Jenkins, Shared, Libraries and Kubernetes."
 ---
 
 # Jenkins Interview Questions - Advanced

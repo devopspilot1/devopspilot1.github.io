@@ -1,6 +1,6 @@
 ---
-title: "AWS Machine Learning Engineer Interview Questions - Intermediate"
-description: "Top 20 Intermediate AWS Machine Learning Engineer interview questions covering Model Drift, Feature Store, and Pipelines."
+title: "AWS Machine Learning Engineer Interview Questions – Intermediate"
+description: "Top AWS Machine Learning Engineer Interview Questions – Intermediate covering does, B), SageMaker and Endpoint."
 ---
 
 # Intermediate Questions

@@ -1,6 +1,6 @@
 ---
-title: "Ansible Interview Questions - Basics"
-description: "Top 20 Basic Ansible interview questions covering playbooks, modules, inventory, and configuration."
+title: "Ansible Interview Questions – Basics"
+description: "Top Ansible Interview Questions – Basics covering Ansible, Where, Host and Key."
 ---
 
 # Ansible Interview Questions - Basics

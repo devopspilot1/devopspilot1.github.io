@@ -1,6 +1,6 @@
 ---
-title: "Helm Interview Questions - Intermediate"
-description: "Top 20 Intermediate Helm interview questions covering templating, hooks, and release strategies."
+title: "Helm Interview Questions – Intermediate"
+description: "Top Helm Interview Questions – Intermediate covering Go, Helm, Hook and purpose."
 ---
 
 # Helm Intermediate Questions

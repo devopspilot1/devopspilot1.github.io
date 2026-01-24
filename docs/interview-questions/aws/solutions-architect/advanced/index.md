@@ -1,6 +1,6 @@
 ---
-title: "AWS Solutions Architect Interview Questions - Advanced"
-description: "Top 20 Advanced AWS Solutions Architect interview questions covering complex migration patterns, performance tuning, and hybrid architectures."
+title: "AWS Solutions Architect Interview Questions – Advanced"
+description: "Top AWS Solutions Architect Interview Questions – Advanced covering API, Gateway, can and architecture."
 ---
 
 # Advanced Questions

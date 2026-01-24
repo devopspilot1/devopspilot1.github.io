@@ -1,6 +1,6 @@
 ---
-title: "AWS Data Engineer Interview Questions - Intermediate"
-description: "Top 20 Intermediate AWS Data Engineer interview questions covering S3 Optimization, Partitioning, and Redshift Distribution Styles."
+title: "AWS Data Engineer Interview Questions – Intermediate"
+description: "Top AWS Data Engineer Interview Questions – Intermediate covering S3, PUT/GET, When and Amazon."
 ---
 
 # Intermediate Questions

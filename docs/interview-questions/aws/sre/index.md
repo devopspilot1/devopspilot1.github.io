@@ -1,6 +1,6 @@
 ---
 title: "AWS SRE Interview Questions"
-description: "Comprehensive AWS Site Reliability Engineer (SRE) interview questions and answers, categorized by difficulty level."
+description: "Comprehensive AWS SRE Interview Questions."
 ---
 
 # AWS SRE (Site Reliability Engineer) Interview Questions

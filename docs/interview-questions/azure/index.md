@@ -1,6 +1,6 @@
 ---
 title: "Azure Interview Questions"
-description: "Comprehensive list of Azure interview questions."
+description: "Comprehensive Azure Interview Questions."
 ---
 
 # Azure Interview Questions
