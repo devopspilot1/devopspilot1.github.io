@@ -1,5 +1,5 @@
 ---
-title: "AWS Data Engineer - Intermediate Quiz (20 Questions)"
+title: "AWS Data Engineer Quiz – Intermediate"
 ---
 
 # AWS Data Engineer - Intermediate Quiz

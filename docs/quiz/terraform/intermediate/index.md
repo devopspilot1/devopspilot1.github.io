@@ -1,3 +1,6 @@
+---
+title: "Terraform Quiz – Intermediate"
+---
 # Terraform Intermediate Quiz
 
 ← [Back to Quiz Home](../../index.md)

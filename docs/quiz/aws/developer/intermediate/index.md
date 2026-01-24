@@ -1,5 +1,5 @@
 ---
-title: "AWS Developer - Intermediate Quiz (20 Questions)"
+title: "AWS Developer Quiz – Intermediate"
 ---
 
 # AWS Developer - Intermediate Quiz

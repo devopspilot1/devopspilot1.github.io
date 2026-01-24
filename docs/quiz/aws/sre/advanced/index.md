@@ -1,5 +1,5 @@
 ---
-title: "AWS Site Reliability Engineer (SRE) - Advanced Quiz (20 Questions)"
+title: "AWS Site Reliability Engineer Quiz – Advanced"
 ---
 
 # AWS Site Reliability Engineer (SRE) - Advanced Quiz

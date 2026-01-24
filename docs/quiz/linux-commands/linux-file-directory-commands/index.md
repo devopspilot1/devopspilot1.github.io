@@ -1,5 +1,5 @@
 ---
-title: "Linux File & Directory Management Quiz (20 Questions)"
+title: "Linux Commands Quiz – File & Directory Management"
 ---
 
 # Linux File & Directory Management – Full Quiz

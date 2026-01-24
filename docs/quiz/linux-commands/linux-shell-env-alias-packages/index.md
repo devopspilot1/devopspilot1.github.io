@@ -1,5 +1,5 @@
 ---
-title: "Linux Shell, Environment Variables, PATH, Alias & Package Management Quiz (20 Questions)"
+title: "Linux Commands Quiz – Shell, Env, Alias & Packages"
 ---
 
 # Linux Shell, Environment Variables, PATH, Alias & Package Management – Full Quiz

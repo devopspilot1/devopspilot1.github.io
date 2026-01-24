@@ -1,5 +1,5 @@
 ---
-title: "AWS SysOps Administrator - Basics Quiz (20 Questions)"
+title: "AWS SysOps Administrator Quiz – Basics"
 ---
 
 # AWS SysOps Administrator - Basics Quiz

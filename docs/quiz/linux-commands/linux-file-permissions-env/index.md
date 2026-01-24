@@ -1,5 +1,5 @@
 ---
-title: "Linux File Permissions & Environment Variables Quiz (20 Questions)"
+title: "Linux Commands Quiz – File Permissions & Env"
 ---
 
 # Linux File Permissions & Environment Variables – Full Quiz

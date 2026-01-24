@@ -1,5 +1,5 @@
 ---
-title: "Shell Scripting Basics Quiz (20 Questions)"
+title: "Shell Scripting Quiz – Basics"
 ---
 
 # Shell Scripting Basics – Full Quiz

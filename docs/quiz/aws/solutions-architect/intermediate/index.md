@@ -1,5 +1,5 @@
 ---
-title: "AWS Solutions Architect - Intermediate Quiz (20 Questions)"
+title: "AWS Solutions Architect Quiz – Intermediate"
 ---
 
 # AWS Solutions Architect - Intermediate Quiz

@@ -1,5 +1,5 @@
 ---
-title: "Linux Networking Commands Quiz (20 Questions)"
+title: "Linux Commands Quiz – Networking Commands"
 ---
 
 # Linux Networking Commands – Full Quiz

@@ -1,5 +1,5 @@
 ---
-title: "AWS GenAI Engineer - Advanced Quiz (20 Questions)"
+title: "AWS GenAI Engineer Quiz – Advanced"
 ---
 
 # AWS GenAI Engineer - Advanced Quiz

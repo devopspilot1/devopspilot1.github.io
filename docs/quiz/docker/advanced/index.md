@@ -1,3 +1,6 @@
+---
+title: "Docker Quiz – Advanced"
+---
 # Docker Advanced Quiz
 
 ← [Back to Quiz Home](../../index.md)

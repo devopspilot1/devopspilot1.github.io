@@ -1,5 +1,5 @@
 ---
-title: "Linux System & Disk Commands Quiz (20 Questions)"
+title: "Linux Commands Quiz – System & Disk Commands"
 ---
 
 # Linux System & Disk Commands – Full Quiz

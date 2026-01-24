@@ -1,3 +1,6 @@
+---
+title: "Kubernetes Quiz – Advanced"
+---
 # Kubernetes Advanced Quiz
 
 ← [Back to Kubernetes Quiz](../index.md)

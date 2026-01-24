@@ -1,3 +1,6 @@
+---
+title: "Kubernetes Quiz – Basics"
+---
 # Kubernetes Basics Quiz
 
 ← [Back to Kubernetes Quiz](../index.md)

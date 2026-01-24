@@ -1,3 +1,6 @@
+---
+title: "Helm Quiz – Intermediate"
+---
 # Helm Intermediate Quiz
 
 ← [Back to Quiz Home](../../index.md)

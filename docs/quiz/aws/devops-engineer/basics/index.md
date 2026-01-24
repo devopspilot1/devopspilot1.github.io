@@ -1,5 +1,5 @@
 ---
-title: "AWS DevOps Engineer - Basics Quiz (20 Questions)"
+title: "AWS DevOps Engineer Quiz – Basics"
 ---
 
 # AWS DevOps Engineer - Basics Quiz

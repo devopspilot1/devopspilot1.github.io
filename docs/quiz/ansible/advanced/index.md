@@ -1,7 +1,6 @@
 ---
-title: "Ansible Advanced Quiz (20 Questions)"
+title: "Ansible Quiz – Advanced"
 ---
-
 # Ansible Advanced Quiz
 
 ← [Back to Quiz Home](../index.md)

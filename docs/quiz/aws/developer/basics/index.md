@@ -1,5 +1,5 @@
 ---
-title: "AWS Developer - Basics Quiz (20 Questions)"
+title: "AWS Developer Quiz – Basics"
 ---
 
 # AWS Developer - Basics Quiz

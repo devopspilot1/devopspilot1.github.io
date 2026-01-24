@@ -1,5 +1,5 @@
 ---
-title: "Linux Process & Service Management Quiz (20 Questions)"
+title: "Linux Commands Quiz – Process & Service Management"
 ---
 
 # Linux Process & Service Management – Full Quiz

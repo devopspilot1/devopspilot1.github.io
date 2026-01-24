@@ -1,5 +1,5 @@
 ---
-title: "AWS DevOps Engineer - Advanced Quiz (20 Questions)"
+title: "AWS DevOps Engineer Quiz – Advanced"
 ---
 
 # AWS DevOps Engineer - Advanced Quiz

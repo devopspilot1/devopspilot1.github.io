@@ -1,5 +1,5 @@
 ---
-title: "Linux Log & Text Processing Quiz (20 Questions)"
+title: "Linux Commands Quiz – Log & Text Processing"
 ---
 
 # Linux Log & Text Processing – Full Quiz

@@ -1,5 +1,5 @@
 ---
-title: "AWS Cloud Engineer - Advanced Quiz (20 Questions)"
+title: "AWS Cloud Engineer Quiz – Advanced"
 ---
 
 # AWS Cloud Engineer - Advanced Quiz

@@ -1,5 +1,5 @@
 ---
-title: "AWS Solutions Architect - Basics Quiz (20 Questions)"
+title: "AWS Solutions Architect Quiz – Basics"
 ---
 
 # AWS Solutions Architect - Basics Quiz

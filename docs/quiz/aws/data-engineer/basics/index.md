@@ -1,5 +1,5 @@
 ---
-title: "AWS Data Engineer - Basics Quiz (20 Questions)"
+title: "AWS Data Engineer Quiz – Basics"
 ---
 
 # AWS Data Engineer - Basics Quiz

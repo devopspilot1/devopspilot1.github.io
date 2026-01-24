@@ -1,3 +1,6 @@
+---
+title: "Docker Quiz – Intermediate"
+---
 # Docker Intermediate Quiz
 
 ← [Back to Quiz Home](../../index.md)

@@ -1,5 +1,5 @@
 ---
-title: "AWS SysOps Administrator - Intermediate Quiz (20 Questions)"
+title: "AWS SysOps Administrator Quiz – Intermediate"
 ---
 
 # AWS SysOps Administrator - Intermediate Quiz

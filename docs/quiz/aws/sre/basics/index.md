@@ -1,5 +1,5 @@
 ---
-title: "AWS Site Reliability Engineer (SRE) - Basics Quiz (20 Questions)"
+title: "AWS Site Reliability Engineer Quiz – Basics"
 ---
 
 # AWS Site Reliability Engineer (SRE) - Basics Quiz

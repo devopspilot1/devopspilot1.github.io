@@ -1,3 +1,6 @@
+---
+title: "Helm Quiz – Basics"
+---
 # Helm Basics Quiz
 
 ← [Back to Quiz Home](../../index.md)

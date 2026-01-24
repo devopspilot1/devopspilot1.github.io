@@ -1,5 +1,5 @@
 ---
-title: "AWS Machine Learning Engineer - Advanced Quiz (20 Questions)"
+title: "AWS Machine Learning Engineer Quiz – Advanced"
 ---
 
 # AWS Machine Learning Engineer - Advanced Quiz

@@ -1,5 +1,5 @@
 ---
-title: "AWS Developer - Advanced Quiz (20 Questions)"
+title: "AWS Developer Quiz – Advanced"
 ---
 
 # AWS Developer - Advanced Quiz

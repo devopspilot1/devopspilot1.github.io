@@ -1,3 +1,6 @@
+---
+title: "Docker Quiz – Basics"
+---
 # Docker Basics Quiz
 
 ← [Back to Quiz Home](../../index.md)

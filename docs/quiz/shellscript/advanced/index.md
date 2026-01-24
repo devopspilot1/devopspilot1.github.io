@@ -1,5 +1,5 @@
 ---
-title: "Shell Scripting Advanced Quiz (20 Questions)"
+title: "Shell Scripting Quiz – Advanced"
 ---
 
 # Shell Scripting Advanced – Full Quiz

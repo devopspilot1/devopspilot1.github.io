@@ -1,7 +1,6 @@
 ---
-title: "Ansible Basics Quiz (20 Questions)"
+title: "Ansible Quiz – Basics"
 ---
-
 # Ansible Basics Quiz
 
 ← [Back to Quiz Home](../index.md)

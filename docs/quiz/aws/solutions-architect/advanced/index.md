@@ -1,5 +1,5 @@
 ---
-title: "AWS Solutions Architect - Advanced Quiz (20 Questions)"
+title: "AWS Solutions Architect Quiz – Advanced"
 ---
 
 # AWS Solutions Architect - Advanced Quiz

@@ -1,5 +1,5 @@
 ---
-title: "AWS Cloud Engineer - Intermediate Quiz (20 Questions)"
+title: "AWS Cloud Engineer Quiz – Intermediate"
 ---
 
 # AWS Cloud Engineer - Intermediate Quiz

@@ -1,5 +1,5 @@
 ---
-title: "AWS Security Engineer - Advanced Quiz (20 Questions)"
+title: "AWS Security Engineer Quiz – Advanced"
 ---
 
 # AWS Security Engineer - Advanced Quiz

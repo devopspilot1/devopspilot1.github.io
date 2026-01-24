@@ -1,5 +1,5 @@
 ---
-title: "Linux Users & Sudo Permissions Quiz (20 Questions)"
+title: "Linux Commands Quiz – Users & Sudo Permissions"
 ---
 
 # Linux Users & Sudo Permissions – Full Quiz

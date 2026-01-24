@@ -1,5 +1,5 @@
 ---
-title: "AWS Machine Learning Engineer - Basics Quiz (20 Questions)"
+title: "AWS Machine Learning Engineer Quiz – Basics"
 ---
 
 # AWS Machine Learning Engineer - Basics Quiz

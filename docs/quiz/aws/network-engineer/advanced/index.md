@@ -1,5 +1,5 @@
 ---
-title: "AWS Network Engineer - Advanced Quiz (20 Questions)"
+title: "AWS Network Engineer Quiz – Advanced"
 ---
 
 # AWS Network Engineer - Advanced Quiz

@@ -1,5 +1,5 @@
 ---
-title: "AWS DevOps Engineer - Intermediate Quiz (20 Questions)"
+title: "AWS DevOps Engineer Quiz – Intermediate"
 ---
 
 # AWS DevOps Engineer - Intermediate Quiz

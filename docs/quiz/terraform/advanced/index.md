@@ -1,3 +1,6 @@
+---
+title: "Terraform Quiz – Advanced"
+---
 # Terraform Advanced Quiz
 
 ← [Back to Quiz Home](../../index.md)

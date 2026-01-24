@@ -1,3 +1,6 @@
+---
+title: "Kubernetes Quiz – Intermediate"
+---
 # Kubernetes Intermediate Quiz
 
 ← [Back to Kubernetes Quiz](../index.md)

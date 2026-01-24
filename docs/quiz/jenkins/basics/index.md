@@ -1,3 +1,6 @@
+---
+title: "Jenkins Quiz – Basics"
+---
 # Jenkins Basics Quiz
 
 ← [Back to Quiz Home](../../index.md)

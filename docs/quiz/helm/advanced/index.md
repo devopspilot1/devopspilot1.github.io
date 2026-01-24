@@ -1,3 +1,6 @@
+---
+title: "Helm Quiz – Advanced"
+---
 # Helm Advanced Quiz
 
 ← [Back to Quiz Home](../../index.md)

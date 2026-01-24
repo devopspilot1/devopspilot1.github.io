@@ -1,5 +1,5 @@
 ---
-title: "AWS Site Reliability Engineer (SRE) - Intermediate Quiz (20 Questions)"
+title: "AWS Site Reliability Engineer Quiz – Intermediate"
 ---
 
 # AWS Site Reliability Engineer (SRE) - Intermediate Quiz

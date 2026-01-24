@@ -1,3 +1,6 @@
+---
+title: "Jenkins Quiz – Intermediate"
+---
 # Jenkins Intermediate Quiz
 
 ← [Back to Quiz Home](../../index.md)

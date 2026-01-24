@@ -1,7 +1,6 @@
 ---
-title: "Ansible Intermediate Quiz (20 Questions)"
+title: "Ansible Quiz – Intermediate"
 ---
-
 # Ansible Intermediate Quiz
 
 ← [Back to Quiz Home](../index.md)

@@ -1,5 +1,5 @@
 ---
-title: "Linux Basic Commands Quiz (20 Questions)"
+title: "Linux Commands Quiz – Basic Linux Commands"
 ---
 
 # Linux Basic Commands – Full Quiz

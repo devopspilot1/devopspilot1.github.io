@@ -1,5 +1,5 @@
 ---
-title: "Shell Scripting Intermediate Quiz (20 Questions)"
+title: "Shell Scripting Quiz – Intermediate"
 ---
 
 # Shell Scripting Intermediate – Full Quiz

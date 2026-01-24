@@ -1,3 +1,6 @@
+---
+title: "Jenkins Quiz – Advanced"
+---
 # Jenkins Advanced Quiz
 
 ← [Back to Quiz Home](../../index.md)

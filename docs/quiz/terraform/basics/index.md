@@ -1,3 +1,6 @@
+---
+title: "Terraform Quiz – Basics"
+---
 # Terraform Basics Quiz
 
 ← [Back to Quiz Home](../../index.md)

@@ -1,5 +1,5 @@
 ---
-title: "AWS Security Engineer - Intermediate Quiz (20 Questions)"
+title: "AWS Security Engineer Quiz – Intermediate"
 ---
 
 # AWS Security Engineer - Intermediate Quiz
