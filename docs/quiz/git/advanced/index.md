@@ -1,3 +1,6 @@
+---
+title: "Git Quiz – Advanced"
+---
 # Git Advanced Quiz
 
 ← [Back to Quiz Home](../../index.md)

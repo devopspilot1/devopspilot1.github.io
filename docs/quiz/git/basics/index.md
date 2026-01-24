@@ -1,3 +1,6 @@
+---
+title: "Git Quiz – Basics"
+---
 # Git Basics Quiz
 
 ← [Back to Quiz Home](../../index.md)

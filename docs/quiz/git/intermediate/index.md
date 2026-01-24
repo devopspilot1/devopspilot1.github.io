@@ -1,3 +1,6 @@
+---
+title: "Git Quiz – Intermediate"
+---
 # Git Intermediate Quiz
 
 ← [Back to Quiz Home](../../index.md)
