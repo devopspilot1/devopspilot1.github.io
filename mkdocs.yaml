@@ -269,6 +269,7 @@ nav:
         - How to create Cloud Run service using gcloud CLI: cloud/gcp/tutorials/create-cloud-run/index.md
         - How to create Artifact Registry Docker Repository using gcloud CLI: cloud/gcp/tutorials/create-artifact-registry/index.md
         - Build and Push Docker Image to Artifact Registry: cloud/gcp/tutorials/push-docker-artifact-registry/index.md
+        - Create CloudSQL Postgres 17 with PSC: cloud/gcp/tutorials/create-cloudsql-psc/index.md
       - Projects:
         - Overview: cloud/gcp/projects/index.md
         - Deploy Python App to Cloud Run: cloud/gcp/projects/deploy-python-cloud-run/index.md
