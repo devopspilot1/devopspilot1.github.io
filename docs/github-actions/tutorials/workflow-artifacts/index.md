@@ -64,4 +64,4 @@ jobs:
 *   The artifact is downloaded to the current working directory by default.
 
 ---
-{% include-markdown "../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

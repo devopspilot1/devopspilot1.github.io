@@ -38,4 +38,4 @@ jobs:
 3.  **Maven Build**: Runs `mvn clean package` to build the JAR/WAR file.
 
 ---
-{% include-markdown "../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

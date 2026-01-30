@@ -35,4 +35,4 @@ steps:
 *   You cannot read secrets in a workflow triggered by a `pull_request` from a fork.
 
 ---
-{% include-markdown "../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

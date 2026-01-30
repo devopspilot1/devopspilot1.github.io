@@ -60,4 +60,4 @@ jobs:
 *   **`docker/build-push-action`**: Builds and pushes the image using Buildx.
 
 ---
-{% include-markdown "../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

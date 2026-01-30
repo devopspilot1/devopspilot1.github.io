@@ -56,4 +56,4 @@ jobs:
 *   **Plugins**: Jenkins relies heavily on plugins installed on the controller. GitHub Actions uses "Actions" which are often referenced directly from the Marketplace relative to the repo.
 
 ---
-{% include-markdown "../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

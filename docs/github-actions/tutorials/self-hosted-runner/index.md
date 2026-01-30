@@ -44,4 +44,4 @@ This label tells GitHub Actions to send this job to a runner that has the `self-
 *   **Cost**: No per-minute billing from GitHub (you pay for your own infrastructure).
 
 ---
-{% include-markdown "../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

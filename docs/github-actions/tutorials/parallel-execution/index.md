@@ -65,4 +65,4 @@ No special configuration is needed for parallel execution. Since no `needs` keyw
 **Note**: If one job fails, the others will continue running by default unless you cancel the workflow specific configuration.
 
 ---
-{% include-markdown "../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

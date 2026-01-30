@@ -53,4 +53,4 @@ jobs:
 **Note**: In this basic example, credentials are passed directly in the `env` variable `CARGO_ARGS`. For production, **always use secrets**.
 
 ---
-{% include-markdown "../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

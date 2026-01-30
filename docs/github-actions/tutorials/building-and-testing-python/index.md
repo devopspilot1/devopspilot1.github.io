@@ -40,4 +40,4 @@ jobs:
 3.  **Test**: Runs tests using `pytest` (or any other test runner you prefer).
 
 ---
-{% include-markdown "../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

@@ -52,4 +52,4 @@ Specifies that this job should run on the latest available Ubuntu runner provide
     *   **`pwd`**: Prints the current working directory.
 
 ---
-{% include-markdown "../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

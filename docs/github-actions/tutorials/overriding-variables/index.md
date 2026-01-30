@@ -67,4 +67,4 @@ jobs:
 *   Step "Copying war file to /opt folder" uses `/opt` (from step env overrides).
 
 ---
-{% include-markdown "../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

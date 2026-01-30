@@ -47,4 +47,4 @@ jobs:
 *   **`health-cmd`**: Ensuring the service is ready before the steps start.
 
 ---
-{% include-markdown "../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

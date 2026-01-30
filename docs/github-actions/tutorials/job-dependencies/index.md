@@ -68,4 +68,4 @@ This single line in the `check-war-file-size` job tells GitHub Actions to wait f
 *   `check-war-file-size` will wait for `build`.
 
 ---
-{% include-markdown "../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

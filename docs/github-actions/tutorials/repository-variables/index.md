@@ -55,4 +55,4 @@ jobs:
 Access them using `${{ vars.VARIABLE_NAME }}`.
 
 ---
-{% include-markdown "../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

@@ -36,4 +36,4 @@ jobs:
 4.  **npm test**: Runs the test script.
 
 ---
-{% include-markdown "../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

@@ -53,4 +53,4 @@ jobs:
 The step `mv settings.xml ${{ env.MVN_SETTINGS_PATH }}` moves a local `settings.xml` file (checked out from the repo) to the user's `.m2` directory, allowing Maven to pick up custom configurations during the `deploy` phase.
 
 ---
-{% include-markdown "../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

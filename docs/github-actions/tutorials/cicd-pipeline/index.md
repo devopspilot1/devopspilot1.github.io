@@ -59,4 +59,4 @@ jobs:
     *   Starts a new container with the new image tag.
 
 ---
-{% include-markdown "../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

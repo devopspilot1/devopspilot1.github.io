@@ -54,4 +54,4 @@ jobs:
 This action writes the content of the `MAVEN_SETTINGS` secret (which contains the full XML content of `settings.xml`) to `~/.m2/settings.xml` on the runner. This ensures that the file exists only during the job execution and contains the correct credentials.
 
 ---
-{% include-markdown "../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

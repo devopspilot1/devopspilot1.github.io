@@ -43,4 +43,4 @@ jobs:
 Your workflow will now run every time you push a change to the repository.
 
 ---
-{% include-markdown "../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

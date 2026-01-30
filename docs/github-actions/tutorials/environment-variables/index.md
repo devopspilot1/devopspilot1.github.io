@@ -59,4 +59,4 @@ They can be defined at:
 3.  **Step level**: Available only to that specific step.
 
 ---
-{% include-markdown "../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

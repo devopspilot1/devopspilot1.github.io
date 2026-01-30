@@ -203,4 +203,4 @@ To test the connection, we will create a VM in the same VPC and connect using `p
     ```
 
 ---
-{% include-markdown "../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

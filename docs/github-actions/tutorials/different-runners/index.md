@@ -63,4 +63,4 @@ jobs:
 This tells GitHub to provision a Windows Server VM for this job. Note that shell commands might differ between OSes (e.g., `ls` vs `dir`), although Git Bash is often available on Windows runners which supports many Linux commands.
 
 ---
-{% include-markdown "../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

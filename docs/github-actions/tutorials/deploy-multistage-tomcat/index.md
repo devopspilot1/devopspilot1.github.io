@@ -69,4 +69,4 @@ jobs:
     *   **Deploy**: Deploys the downloaded artifact.
 
 ---
-{% include-markdown "../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

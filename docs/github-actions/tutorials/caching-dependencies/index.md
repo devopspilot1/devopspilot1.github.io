@@ -51,4 +51,4 @@ jobs:
 **Note**: If the cache key changes (e.g., if you base it on a hash of `pom.xml`), a new cache will be created.
 
 ---
-{% include-markdown "../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

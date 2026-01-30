@@ -40,4 +40,4 @@ jobs:
 *   **`GITHUB_WORKSPACE`**: The default working directory for steps and the default location of your repository when using the `checkout` action.
 
 ---
-{% include-markdown "../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}
