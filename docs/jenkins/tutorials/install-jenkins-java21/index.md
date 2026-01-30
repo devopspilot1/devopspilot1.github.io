@@ -141,8 +141,8 @@ Jenkins runs on port **8080**.
 
 ## Next Steps
 
-👉 [Initial Jenkins Setup Guide](../initial-setup/)  
-👉 [Create Your First Jenkins Freestyle Project](../freestyle-project-maven/)
+👉 [Initial Jenkins Setup Guide](../initial-setup/index.md)  
+👉 [Create Your First Jenkins Freestyle Project](../freestyle-project-maven/index.md)
 
 ---
 

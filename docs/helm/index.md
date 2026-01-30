@@ -11,14 +11,14 @@ It helps you manage Kubernetes applications — Helm Charts help you define, ins
 
 ## 📚 Topics
 
-### 🔹 Level 1: Foundation
+### 🔹 Level 1: Foundation {: #basics }
 *   **[Helm Basics](basics/index.md)**: Understanding Repositories, Dependencies, and Chart structure.
 *   **[Helm Commands](commands/index.md)**: A quick reference cheat sheet for common Helm CLI operations.
 
-### 🔹 Level 2: Core Concepts
+### 🔹 Level 2: Core Concepts {: #intermediate }
 *   **[Helm Intermediate](intermediate/index.md)**: Master the Templating Engine, Flow Control, Hooks, and Debugging.
 
-### 🔹 Level 3: Expert Scenarios
+### 🔹 Level 3: Expert Scenarios {: #advanced }
 *   **[Helm Advanced](advanced/index.md)**: Library Charts, OCI Registries, Security, and Post-Rendering.
 
 ---

@@ -239,6 +239,9 @@ nav:
     - Commands: helm/commands/index.md
   - Terraform:
     - Overview: terraform/index.md
+    - Basics: terraform/basics/index.md
+    - Intermediate: terraform/intermediate/index.md
+    - Advanced: terraform/advanced/index.md
     - AWS:
       - Overview: terraform/aws/index.md
       - Terraform script to create AWS Codebuild project: terraform/aws/codebuild/index.md

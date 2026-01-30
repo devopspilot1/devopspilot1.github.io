@@ -159,8 +159,8 @@ The container stops running, but the image remains unchanged.
 
 ## Next Steps
 
-👉 [What is Docker?](../what-is-docker/)  
-👉 [How to Install Docker on Linux](../install-docker/)
+👉 [What is Docker?](../what-is-docker/index.md)  
+👉 [How to Install Docker on Linux](../install-docker/index.md)
 
 ---
 

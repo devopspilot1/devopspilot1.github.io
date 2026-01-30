@@ -17,21 +17,21 @@ Follow the questions in order for best results 👇
 
 ---
 
-### 🔹 Level 1: Basics
+### 🔹 Level 1: Basics {: #basics }
 Fundamental concepts, architecture, and core commands.
 
 👉 **[Start Questions – Basics](basics/index.md)**
 
 ---
 
-### 🔹 Level 2: Intermediate
+### 🔹 Level 2: Intermediate {: #intermediate }
 Templating, hooks, dependencies, and release management.
 
 👉 **[Start Questions – Intermediate](intermediate/index.md)**
 
 ---
 
-### 🔹 Level 3: Advanced
+### 🔹 Level 3: Advanced {: #advanced }
 Library charts, OCI, security, and performance.
 
 👉 **[Start Questions – Advanced](advanced/index.md)**
