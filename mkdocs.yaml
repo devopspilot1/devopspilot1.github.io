@@ -144,6 +144,37 @@ nav:
     - Other Topics:
       - Overview: jenkins/other-topics/index.md
       - How to create a Job automatically using Seed Jenkins plugin and Job DSL script: jenkins/other-topics/job-dsl/index.md
+  - GitHub Actions:
+    - Overview: github-actions/index.md
+    - Tutorials:
+      - Overview: github-actions/tutorials/index.md
+      - Quickstart: github-actions/tutorials/quickstart/index.md
+      - Workflow Syntax: github-actions/tutorials/workflow-syntax/index.md
+      - First Pipeline: github-actions/tutorials/first-pipeline/index.md
+      - Job Dependencies: github-actions/tutorials/job-dependencies/index.md
+      - Parallel Execution: github-actions/tutorials/parallel-execution/index.md
+      - Runners: github-actions/tutorials/different-runners/index.md
+      - Self-Hosted Runners: github-actions/tutorials/self-hosted-runner/index.md
+      - Predefined Variables: github-actions/tutorials/predefined-variables/index.md
+      - Environment Variables: github-actions/tutorials/environment-variables/index.md
+      - Repository Variables: github-actions/tutorials/repository-variables/index.md
+      - Overriding Variables: github-actions/tutorials/overriding-variables/index.md
+      - Encrypted Secrets: github-actions/tutorials/encrypted-secrets/index.md
+      - Java with Maven: github-actions/tutorials/building-and-testing-java-maven/index.md
+      - Python: github-actions/tutorials/building-and-testing-python/index.md
+      - Node.js: github-actions/tutorials/building-and-testing-nodejs/index.md
+      - Caching Dependencies: github-actions/tutorials/caching-dependencies/index.md
+      - Workflow Artifacts: github-actions/tutorials/workflow-artifacts/index.md
+      - Tomcat Deployment (Basic): github-actions/tutorials/deploy-to-tomcat-basic/index.md
+      - Tomcat with Custom Settings: github-actions/tutorials/deploy-to-tomcat-custom-settings/index.md
+      - Secure Tomcat Deployment: github-actions/tutorials/deploy-to-tomcat-secrets/index.md
+      - Multi-Stage Deployment: github-actions/tutorials/deploy-multistage-tomcat/index.md
+      - Full CI/CD Pipeline: github-actions/tutorials/cicd-pipeline/index.md
+      - Publishing Docker Images: github-actions/tutorials/publishing-docker-images/index.md
+      - Service Containers: github-actions/tutorials/service-containers/index.md
+      - Authentication: github-actions/tutorials/authentication-in-a-workflow/index.md
+      - Composite Actions: github-actions/tutorials/creating-a-composite-action/index.md
+      - Migration Guide: github-actions/tutorials/migrating-from-jenkins-to-github-actions/index.md
   - Docker:
     - Overview: docker/index.md
     - Tutorials:
