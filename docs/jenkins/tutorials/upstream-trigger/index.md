@@ -128,3 +128,18 @@ index 0e3fd6f..707de7e 100644
 ### Reference:
 
 - [GitHub Repository](https://github.com/vigneshsweekaran/hello-world)
+
+---
+
+## 🧠 Quick Quiz — Upstream Triggers
+
+<quiz>
+Which trigger allows a pipeline to start automatically **after** another specific pipeline completes?
+- [ ] cron
+- [x] upstream
+- [ ] githubPush
+- [ ] pollSCM
+
+The `upstream` trigger (or "Build after other projects are built") configures the pipeline to listen for the completion of a specified "upstream" project.
+</quiz>
+

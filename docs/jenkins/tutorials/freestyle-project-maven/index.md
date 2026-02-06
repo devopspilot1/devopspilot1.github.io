@@ -173,3 +173,18 @@ Next its executing the command **mvn clean package** which you have given in the
 Once the build is completed, it creates a war file in the path **/var/lib/jenkins/workspace/freestyle-project-maven/target/hello-world-1.0-SNAPSHOT.war**
 
 ![](../../../images/jenkins-freestyle-log-end-1024x507.png)
+
+---
+
+## 🧠 Quick Quiz — Freestyle Projects
+
+<quiz>
+Where does Jenkins store the workspace for a Freestyle project (e.g., named "demo") by default on a Linux controller?
+- [ ] /tmp/demo
+- [x] /var/lib/jenkins/workspace/demo
+- [ ] /home/ubuntu/demo
+- [ ] /opt/jenkins/demo
+
+By default, Jenkins workspaces are created under `$JENKINS_HOME/workspace/<project-name>`. On standard Linux installs, `$JENKINS_HOME` is `/var/lib/jenkins`.
+</quiz>
+

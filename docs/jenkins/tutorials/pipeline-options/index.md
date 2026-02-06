@@ -200,3 +200,18 @@ Trigger the Pipeline, it will timeout in 20 seconds
 ![](../../../images/jenkins-hw-j-10-timeout-cancelled.png)
 
 Like this you can configure many configurations for Pipeline from Jenkinsfile.
+
+---
+
+## 🧠 Quick Quiz — Options
+
+<quiz>
+Which option in the `options { ... }` block prevents multiple instances of the same pipeline project from running simultaneously?
+- [ ] disableResume()
+- [x] disableConcurrentBuilds()
+- [ ] buildDiscarder()
+- [ ] timeout()
+
+`disableConcurrentBuilds()` ensures that if a new build is triggered while one is already running, it will wait in the queue until the previous one finishes.
+</quiz>
+

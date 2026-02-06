@@ -128,3 +128,18 @@ Like this, you can debug and fix many issues in real-time.
 ### Reference:
 
 - [GitHub Repository](https://github.com/vigneshsweekaran/hello-world)
+
+---
+
+## 🧠 Quick Quiz — Replay
+
+<quiz>
+What is the primary advantage of the **Replay** feature in Jenkins Pipelines?
+- [ ] It runs the pipeline faster.
+- [x] It allows testing Jenkinsfile changes without committing to SCM.
+- [ ] It automatically fixes bugs.
+- [ ] It deletes old build logs.
+
+Replay allows you to edit the Jenkinsfile of a previous build directly in the UI and run it again, which is perfect for rapid debugging and testing fixes.
+</quiz>
+

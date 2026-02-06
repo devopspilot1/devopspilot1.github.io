@@ -18,3 +18,18 @@ Click on **Available plugins** -> Enter **maven** -> Select **Maven Integration*
 **Maven Integration** plugin is installed, click on **Go back to the top page**
 
 ![](../../../images/jenkins-plugins-maven-installed-1024x366.png)
+
+---
+
+## 🧠 Quick Quiz — Plugin Management
+
+<quiz>
+Which menu option in "Manage Jenkins" is used to install new plugins?
+- [ ] Configure System
+- [ ] Tools
+- [x] Plugins
+- [ ] Nodes
+
+The **Plugins** (or "Manage Plugins" in older versions) section allows you to search for, install, and update Jenkins plugins.
+</quiz>
+

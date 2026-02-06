@@ -227,3 +227,18 @@ OS name: "linux", version: "6.8.0-1010-azure", arch: "amd64", family: "unix"
 ```
 
 Like this, you can configure different versions based on your needs.
+
+---
+
+## 🧠 Quick Quiz — Tools Block
+
+<quiz>
+What is the purpose of the `tools` block in a Jenkinsfile?
+- [x] To auto-install and configure tools (like Maven, JDK) defined in "Manage Jenkins > Tools".
+- [ ] To download plugins.
+- [ ] To configure the agent's operating system.
+- [ ] To manage Jenkins user permissions.
+
+The `tools` block tells Jenkins to install the specified tool (if not present) and add it to the PATH for that pipeline run.
+</quiz>
+

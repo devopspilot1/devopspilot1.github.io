@@ -203,3 +203,18 @@ In the **08-hello-world-parent-pipeline** pipeline logs, you can see, that it ha
 ### Reference:
 
 - [GitHub Repository](https://github.com/vigneshsweekaran/hello-world)
+
+---
+
+## 🧠 Quick Quiz — Triggering Jobs
+
+<quiz>
+In the `build` step, which parameter ensures the parent pipeline pauses and waits for the downstream job to complete?
+- [ ] wait: false
+- [x] wait: true
+- [ ] async: false
+- [ ] sync: true
+
+Setting `wait: true` (which is the default if omitted, but good to be explicit) causes the pipeline step to block until the triggered job finishes.
+</quiz>
+

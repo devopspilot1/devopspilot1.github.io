@@ -75,3 +75,18 @@ Then it executes the maven goal you passed **`clean package`**
 Once the build is completed, the war file is created in Maven project Workspace **/var/lib/jenkins/workspace/hello-world-maven-project/target/hello-world-1.0-SNAPSHOT.war**
 
 ![](../../../images/jenkins-maven-project-build-success-1024x503.png)
+
+---
+
+## 🧠 Quick Quiz — Maven Projects
+
+<quiz>
+When configuring a "Maven project" job (not a Pipeline), why do you only enter goals like `clean package` instead of `mvn clean package`?
+- [ ] Because it's an alias.
+- [x] Because the "Maven project" type automatically handles the `mvn` command execution.
+- [ ] Because `mvn` is deprecated.
+- [ ] Because you are running it on Windows.
+
+The "Maven project" job type is designed specifically for Maven, so it invokes the configured Maven tool for you; you only need to specify the goals.
+</quiz>
+

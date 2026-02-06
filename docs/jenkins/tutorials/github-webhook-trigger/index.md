@@ -165,3 +165,18 @@ Push the changes to your GitHub repository
 ### Reference:
 
 - [GitHub Repository](https://github.com/vigneshsweekaran/hello-world)
+
+---
+
+## 🧠 Quick Quiz — Webhooks
+
+<quiz>
+Which specific trigger function in a Declarative Jenkinsfile enables the GitHub Webhook integration?
+- [ ] pollSCM()
+- [x] githubPush()
+- [ ] cron()
+- [ ] webhook()
+
+The `githubPush()` trigger enables the "GitHub hook trigger for GITScm polling" option, allowing Jenkins to run the pipeline immediately when GitHub sends a webhook event.
+</quiz>
+

@@ -41,3 +41,18 @@ Click on **Create**
 Credential is created and the GitHub token is safely stored for use in Jenkins pipelines
 
 ![](../../../images/jenkins-cred-github-created-1024x299.png)
+
+---
+
+## 🧠 Quick Quiz — Credentials
+
+<quiz>
+Which "Kind" of credential should you use to store a GitHub Username and Personal Access Token?
+- [ ] Secret text
+- [x] Username with password
+- [ ] Secret file
+- [ ] SSH Username with private key
+
+In Jenkins, a **Username with password** credential type is used to store a username/token pair for services like GitHub, Docker Hub, etc.
+</quiz>
+

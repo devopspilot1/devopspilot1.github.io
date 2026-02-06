@@ -116,3 +116,18 @@ index 0e3fd6f..24c5856 100644
 ### Reference:
 
 - [GitHub Repository](https://github.com/vigneshsweekaran/hello-world)
+
+---
+
+## 🧠 Quick Quiz — Cron Trigger
+
+<quiz>
+Which trigger option allows you to run a Jenkins pipeline on a schedule (e.g., every night)?
+- [ ] pollSCM
+- [x] cron
+- [ ] upstream
+- [ ] webhook
+
+The `cron` trigger accepts a cron-syntax string (e.g., `0 18 * * *`) to execute the pipeline at specific times.
+</quiz>
+

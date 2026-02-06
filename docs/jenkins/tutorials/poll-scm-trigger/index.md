@@ -132,3 +132,18 @@ Push the changes to your GitHub repository
 Manually **Build** the pipeline once and check the pipeline configuration now **Poll SCM** should be enabled with Schedule details
 
 ![](../../../images/jenkins-hw-j-05-pollscm-enabled-1024x568.png)
+
+---
+
+## 🧠 Quick Quiz — Poll SCM
+
+<quiz>
+What is the key difference between **Poll SCM** and **GitHub Webhook** triggers?
+- [ ] Poll SCM is faster.
+- [x] Poll SCM periodically asks GitHub for changes, while Webhook waits for GitHub to notify Jenkins.
+- [ ] Webhooks cannot trigger pipelines.
+- [ ] Poll SCM requires no configuration.
+
+**Poll SCM** is a "pull" mechanism where Jenkins checks for changes on a schedule, whereas **Webhooks** are a "push" mechanism where GitHub notifies Jenkins immediately.
+</quiz>
+

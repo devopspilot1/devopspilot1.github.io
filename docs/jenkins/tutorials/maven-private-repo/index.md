@@ -33,3 +33,18 @@ Enter the GitHub branch name **`main`** under **Branch Specifier** and then clic
 Build the Maven project and check the logs in Console Output, you can see the credential **`github-credential`** is used to clone the **Private** Github repository
 
 ![](../../../images/jenkins-maven-project-private-build-1024x438.png)
+
+---
+
+## 🧠 Quick Quiz — Private Repos
+
+<quiz>
+Why might a build fail with an authentication error when cloning a Git repository?
+- [ ] The repository is empty.
+- [x] The credentials are missing or incorrect for a Private Repository.
+- [ ] Jenkins requires a restart.
+- [ ] The branch name is "main".
+
+For private repositories, valid credentials (like Username/Password or SSH Key) must be configured in the Source Code Management section to authenticate the clone operation.
+</quiz>
+

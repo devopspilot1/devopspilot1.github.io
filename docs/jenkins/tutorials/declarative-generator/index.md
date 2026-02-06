@@ -103,3 +103,18 @@ build '01-hello-world-java'
 ```
 
 Like this you can generate the Jenkinsfile code snippet for most of the plugin use cases
+
+---
+
+## 🧠 Quick Quiz — Generator
+
+<quiz>
+Which URL path is used to access the **Declarative Directive Generator** in Jenkins?
+- [ ] /pipeline-syntax
+- [x] /directive-generator
+- [ ] /snippet-generator
+- [ ] /declarative-syntax
+
+The **/directive-generator** path takes you to the tool specifically designed for generating Declarative Pipeline directives like `triggers`, `tools`, and `options`.
+</quiz>
+

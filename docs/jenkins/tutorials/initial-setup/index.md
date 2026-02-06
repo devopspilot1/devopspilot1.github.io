@@ -50,3 +50,18 @@ Click on **Start using Jenkins**
 Jenkins initial setup is complete, you should see the Jenkins Dashboard now
 
 ![](../../../images/jenkins-dashboard-1024x611.png)
+
+---
+
+## 🧠 Quick Quiz — Initial Setup
+
+<quiz>
+Where is the **initialAdminPassword** file located on a standard Linux Jenkins installation?
+- [ ] /var/log/jenkins/initialAdminPassword
+- [x] /var/lib/jenkins/secrets/initialAdminPassword
+- [ ] /etc/jenkins/secrets/initialAdminPassword
+- [ ] /tmp/initialAdminPassword
+
+This file contains the automatically generated password required for the first-time login to unlock Jenkins.
+</quiz>
+
