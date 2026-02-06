@@ -47,3 +47,18 @@ Then the **`mvn clean package`** command is executed
 Finally, Jenkins creates a **hello-world-1.0-SNAPSHOT.war** file in the **/var/lib/jenkins/workspace/02-hello-world-maven/target** folder.
 
 ![](../../../images/jenkins-hw-j-02-maven-war-1024x491.png)
+
+---
+
+## 🧠 Quick Quiz — Maven Build
+
+<quiz>
+Which Maven command is used in the Jenkinsfile to build the project in this tutorial?
+- [ ] mvn clean install
+- [x] mvn clean package
+- [ ] mvn build
+- [ ] mvn compile
+
+The tutorial uses `mvn clean package` to clean the target directory and package the code into a JAR/WAR file.
+</quiz>
+
