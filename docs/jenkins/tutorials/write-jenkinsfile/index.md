@@ -3,6 +3,30 @@ title: "How to write a Jenkinsfile"
 date: 2024-07-01
 ---
 
+
+In this tutorial, I explain:
+- What a Jenkinsfile is and why it’s important
+- Where the Jenkinsfile should be stored
+- Basic structure of a Jenkinsfile
+- How stages and steps are defined
+- Why Jenkinsfile is preferred over UI-based configuration
+
+## What is a Jenkinsfile?
+
+**Jenkinsfile** is a text file that contains the definition of a Jenkins Pipeline and is checked into version control (SCM).
+
+It implements the concept of **Pipeline-as-Code**, treating the CD pipeline as a part of the application to be versioned and reviewed like any other code.
+
+### Why use Jenkinsfile (vs UI)?
+
+Creating a Jenkinsfile and storing it in Source Control offers several advantages over the UI-based "Pipeline Script":
+
+- **Code Review/Iteration**: Changes to the pipeline can be reviewed by the team.
+- **Audit Trail**: You can track who changed what and when (via Git history).
+- **Single Source of Truth**: The code dictates the build process, reducing manual configuration drift.
+
+---
+
 In the Jenkins pipeline, we have two ways of writing **Jenkinsfile**,
 
 - **Scripted** - The Older way of writing Jenkinsfile, we have to write a lot of logic using Groovy
@@ -340,3 +364,18 @@ pipeline {
 ```
 
 If environment block is defined **within the stage block**, then those environment variables will be **accessible only within that stage**.
+
+---
+
+## 🧠 Quick Quiz — Jenkinsfile
+
+<quiz>
+Where should the Jenkinsfile be stored?
+- [ ] On the Jenkins Controller local disk only
+- [x] In the Source Control Management (e.g., Git)
+- [ ] In an S3 bucket
+- [ ] On the agent's temporary folder
+
+Jenkinsfile involves **Pipeline-as-Code**, which means it should be stored in SCM and versioned along with your application code.
+</quiz>
+
