@@ -1,3 +1,8 @@
+---
+title: Build and Push Docker Image to Artifact Registry
+description: Guide on building and pushing Docker images to Google Artifact Registry.
+---
+
 # How to Build and Push a Python Docker Image to Google Artifact Registry
 
 In this tutorial, we will create a simple Python "Hello World" application, containerize it using Docker, and push the image to the Google Cloud Artifact Registry repository we created in the previous step.

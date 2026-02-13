@@ -1,3 +1,8 @@
+---
+title: Create Cloud Run Service using gcloud CLI
+description: Step-by-step guide to deploying a containerized application to Google Cloud Run.
+---
+
 # How to create Cloud Run service using gcloud CLI
 
 Cloud Run is a managed compute platform that enables you to run containers that are invocable via requests or events. It is serverless, meaning you don't have to manage the infrastructure.
