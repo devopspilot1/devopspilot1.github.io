@@ -1,6 +1,6 @@
 ---
 title: "How to create pipeline job in Jenkins"
-date: 2024-07-01
+description: "Learn how to create a Jenkins pipeline job using both the inline pipeline editor and a Jenkinsfile from a SCM repository."
 ---
 
 #### Approach 1: Jenkins pipeline script(Declarative pipeline) in Jenkins editor itself
@@ -96,3 +96,17 @@ From the **Console Output** first line, we can see first it fetches the **cicd/0
 Echo commands from stages are printed to console output
 
 ![Jenkins](../../../images/jenkins-pipeline-echo-hello-world.png)
+
+## 🧠 Quick Quiz — Pipeline Creation
+
+<quiz>
+Which method of defining a Jenkins pipeline is recommended for real production projects?
+- [x] Pipeline script from SCM (Jenkinsfile)
+- [ ] Pipeline script in Web UI
+- [ ] Freestyle project
+- [ ] Copy from another job
+
+Pipeline script from SCM allows you to version control your pipeline definition along with your application code, which is a best practice for production.
+</quiz>
+
+{% include-markdown ".partials/subscribe-guides.md" %}

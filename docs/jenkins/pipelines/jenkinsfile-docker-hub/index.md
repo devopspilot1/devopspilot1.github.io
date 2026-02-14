@@ -1,6 +1,6 @@
 ---
 title: "How to write a Jenkinsfile to build a Maven project, build and push docker image to Dockerhub and deploy the container to same server"
-date: 2024-07-01
+description: "Learn how to build a Maven project, create a Docker image, push it to Docker Hub, and deploy the container using a Jenkins Declarative Pipeline."
 ---
 
 #### Prerequisites
@@ -168,3 +168,17 @@ sudo systemctl restart jenkins
 - [How to create pipeline job in Jenkins](../create-pipeline-job/index.md)
 
 - [How to write a dockerfile for running a java application (\*.war) in Apache tomcat webserver](../../../docker/dockerfiles/run-war-in-tomcat/index.md)
+
+## 🧠 Quick Quiz — Docker Integration
+
+<quiz>
+Which method is used in the Docker Pipeline plugin to authenticate with Docker Hub (or other registries) and perform image operations?
+- [x] `docker.withRegistry()`
+- [ ] `docker.login()`
+- [ ] `docker.authenticate()`
+- [ ] `docker.credentials()`
+
+`docker.withRegistry()` accepts the registry URL and credential ID, wrapping the code block to authenticate and push/pull images within that context.
+</quiz>
+
+{% include-markdown ".partials/subscribe-guides.md" %}

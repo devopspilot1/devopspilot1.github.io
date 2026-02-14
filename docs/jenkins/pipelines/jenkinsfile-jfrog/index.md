@@ -1,6 +1,6 @@
 ---
 title: "How to write a Jenkinsfile to build a Maven project, build and push docker image to JFrog Artifactory and deploy the container to same server"
-date: 2024-07-01
+description: "Learn how to build a Maven project, push a Docker image to JFrog Artifactory, and deploy it using a Jenkins Declarative Pipeline."
 ---
 
 #### Prerequisites
@@ -138,15 +138,16 @@ sh "docker rm hello-world | true"
 - [How to create pipeline job in Jenkins](../create-pipeline-job/index.md)
 - [How to write a dockerfile for running a java application (*.war) in Apache tomcat webserver](../../../docker/dockerfiles/run-war-in-tomcat/index.md)
 
-<quiz>
 ## 🧠 Quick Quiz — Jfrog Artifactory Integration
 
 <quiz>
 Which Jenkins pipeline method is used to authenticate with a custom Docker registry like JFrog Artifactory?
-- [x] docker.withRegistry()
-- [ ] docker.registry()
-- [ ] docker.authenticate()
-- [ ] docker.login()
+- [x] `docker.withRegistry()`
+- [ ] `docker.registry()`
+- [ ] `docker.authenticate()`
+- [ ] `docker.login()`
 
 `docker.withRegistry()` is the standard method in the Docker Pipeline plugin to provide registry URL and credentials.
 </quiz>
+
+{% include-markdown ".partials/subscribe-guides.md" %}

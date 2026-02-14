@@ -1,6 +1,6 @@
 ---
 title: "How to write a Jenkinsfile to build a Maven project and deploy to Apache Tomcat webserver"
-date: 2024-07-01
+description: "Learn how to create a Jenkinsfile that builds a Maven project and deploys the resulting WAR file to an Apache Tomcat web server using the `Deploy to container` plugin."
 ---
 
 #### Prerequisites
@@ -119,3 +119,17 @@ Parameters passed to `Deploy to container` plugin definition.
 - [How to manually deploy the java application to Tomcat 9 webserver](../../../webserver/tomcat/manual-deploy/index.md)
 
 - [How to deploy the java application to Tomcat 9 webserver using maven](../../../webserver/tomcat/maven-deploy/index.md)
+
+## 🧠 Quick Quiz — Tomcat Deployment
+
+<quiz>
+Which plugin is commonly used in Jenkins to deploy a WAR file to a Tomcat container?
+- [x] Deploy to container
+- [ ] Tomcat Deployer
+- [ ] Publish Over SSH
+- [ ] Copy Artifact
+
+The `Deploy to container` plugin allowed Jenkins to deploy a WAR file to a running Tomcat container (though modern approaches often prefer Docker/Kubernetes).
+</quiz>
+
+{% include-markdown ".partials/subscribe-guides.md" %}

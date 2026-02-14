@@ -1,6 +1,6 @@
 ---
 title: "How to write a Jenkinsfile to build a Maven project"
-date: 2024-07-01
+description: "Learn how to write a declarative Jenkinsfile to build, compile, and package a Maven project using the `maven` tool definition."
 ---
 
 #### Prerequisites
@@ -20,9 +20,6 @@ Jenkinsfile
 ```
 pipeline {
   agent any
-  tools {
-    maven 'maven-3.6.3' 
-  }
   stages {
     stage ('Build') {
       steps {
@@ -48,3 +45,17 @@ It will compile the java code and generate the package in **targets** folder.
 - [How to configure maven in Global Tool Configuration](../../configuration/global-tools/index.md)
 
 - [How to create pipeline job in Jenkins](../create-pipeline-job/index.md)
+
+## 🧠 Quick Quiz — Maven Build
+
+<quiz>
+Which block in a declarative pipeline is used to auto-install and configure tools like Maven?
+- [x] `tools`
+- [ ] `environment`
+- [ ] `options`
+- [ ] `parameters`
+
+The `tools` directive in the Declarative Pipeline allows you to automatically install and put tools like Maven, JDK, etc., on the PATH.
+</quiz>
+
+{% include-markdown ".partials/subscribe-guides.md" %}
