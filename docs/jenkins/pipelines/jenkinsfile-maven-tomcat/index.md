@@ -11,7 +11,7 @@ description: "Learn how to create a Jenkinsfile that builds a Maven project and 
 
 I have a sample hello-world maven project in github [hello-world](https://github.com/vigneshsweekaran/hello-world)
 
-Fork this project [hello-world](https://github.com/vigneshsweekaran/hello-world) and update the required fields in the Jenkinsfile `03-Jenkinsfile-deploy-to-tomcat`
+Fork this project [hello-world](https://github.com/vigneshsweekaran/hello-world) and update the required fields in the Jenkinsfile [`15-Jenkinsfile-deploy-to-tomcat`](https://github.com/vigneshsweekaran/hello-world/blob/main/cicd/15-Jenkinsfile-deploy-to-tomcat)
 
 Maven is a build tool used to compile, test and package the application developed using Java programming language.
 
@@ -20,6 +20,12 @@ Jenkinsfile
 ```
 pipeline {
   agent any
+  options {
+    disableConcurrentBuilds()
+    disableResume()
+    buildDiscarder(logRotator(numToKeepStr: '10'))
+    timeout(time: 1, unit: 'HOURS')
+  }
   tools {
     maven 'maven-3.6.3' 
   }
@@ -32,9 +38,14 @@ pipeline {
     stage ('Deploy') {
       steps {
         script {
-          deploy adapters: [tomcat9(credentialsId: 'tomcat_credential', path: '', url: 'http://dayal-test.letspractice.tk:8081')], contextPath: '/pipeline', onFailure: false, war: 'webapp/target/*.war' 
+          deploy adapters: [tomcat9(credentialsId: 'tomcat_credential', path: '', url: 'http://20.197.20.20:8080')], contextPath: '/helloworld', onFailure: false, war: 'webapp/target/*.war' 
         }
       }
+    }
+  }
+  post {
+    always {
+      deleteDir()
     }
   }
 }

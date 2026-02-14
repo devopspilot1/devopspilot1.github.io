@@ -131,6 +131,7 @@ nav:
       - How to clean up the workspace after the build in Jenkinsfile: jenkins/tutorials/clean-workspace/index.md
       - How to use String build parameters in Jenkinsfile: jenkins/tutorials/build-parameters-string/index.md
       - How to use Choice build parameters in Jenkinsfile: jenkins/tutorials/build-parameters-choice/index.md
+      - Using Predefined Environment Variables: jenkins/tutorials/predefined-environment-variables/index.md
     - Configuration:
       - Overview: jenkins/configuration/index.md
       - How to install plugins in Jenkins: jenkins/configuration/install-plugins/index.md
@@ -144,6 +145,10 @@ nav:
       - How to write a Jenkinsfile to build a Maven project and deploy to Apache Tomcat webserver: jenkins/pipelines/jenkinsfile-maven-tomcat/index.md
       - How to write a Jenkinsfile to build a Maven project, build and push docker image to Dockerhub and deploy the container to same server: jenkins/pipelines/jenkinsfile-docker-hub/index.md
       - How to write a Jenkinsfile to build a Maven project, build and push docker image to Jfrog artifactory and deploy the container to same server: jenkins/pipelines/jenkinsfile-jfrog/index.md
+      - Deploy to Multiple Environments: jenkins/pipelines/deploy-to-tomcat-multiple-environments/index.md
+      - Deploy with 'when' Condition: jenkins/pipelines/deploy-to-tomcat-when-condition/index.md
+      - Deploy with Environment Variables: jenkins/pipelines/deploy-to-tomcat-environment-variables/index.md
+      - Deploy docker image to Multiple Environments: jenkins/pipelines/jenkinsfile-docker/index.md
     - Other Topics:
       - Overview: jenkins/other-topics/index.md
       - How to create a Job automatically using Seed Jenkins plugin and Job DSL script: jenkins/other-topics/job-dsl/index.md
