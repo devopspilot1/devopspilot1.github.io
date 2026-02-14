@@ -128,6 +128,9 @@ nav:
       - Generate the code for Jenkinsfile using Declarative Directive Generator: jenkins/tutorials/declarative-generator/index.md
       - How to Replay the Jenkins Pipeline: jenkins/tutorials/replay-pipeline/index.md
       - How to use Options in Jenkinsfile: jenkins/tutorials/pipeline-options/index.md
+      - How to clean up the workspace after the build in Jenkinsfile: jenkins/tutorials/clean-workspace/index.md
+      - How to use String build parameters in Jenkinsfile: jenkins/tutorials/build-parameters-string/index.md
+      - How to use Choice build parameters in Jenkinsfile: jenkins/tutorials/build-parameters-choice/index.md
     - Configuration:
       - Overview: jenkins/configuration/index.md
       - How to install plugins in Jenkins: jenkins/configuration/install-plugins/index.md
