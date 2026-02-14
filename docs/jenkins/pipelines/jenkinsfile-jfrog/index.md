@@ -139,10 +139,14 @@ sh "docker rm hello-world | true"
 - [How to write a dockerfile for running a java application (*.war) in Apache tomcat webserver](../../../docker/dockerfiles/run-war-in-tomcat/index.md)
 
 <quiz>
-<question>
+## 🧠 Quick Quiz — Jfrog Artifactory Integration
+
+<quiz>
 Which Jenkins pipeline method is used to authenticate with a custom Docker registry like JFrog Artifactory?
-</question>
-<answer>
-`docker.withRegistry()`
-</answer>
+- [x] docker.withRegistry()
+- [ ] docker.registry()
+- [ ] docker.authenticate()
+- [ ] docker.login()
+
+`docker.withRegistry()` is the standard method in the Docker Pipeline plugin to provide registry URL and credentials.
 </quiz>
