@@ -76,8 +76,8 @@ We verify the payload structure before sending it:
 -   `status: "promoting"`: A status label added to the build info.
 
 ### Important Tips
-> [!IMPORTANT]
-> This job uses the **Build Info** (Build Name and Build Number) to find the artifacts, not the Docker tag directly. This is why publishing build info in the previous step was mandatory.
+!!! important
+    This job uses the **Build Info** (Build Name and Build Number) to find the artifacts, not the Docker tag directly. This is why publishing build info in the previous step was mandatory.
 
 [Next Step: SonarQube Integration](../sonarqube-docker-build-push-deploy/index.md)
 

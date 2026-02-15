@@ -42,11 +42,11 @@ Now pipeline is fully enabled and we can run the pipeline now.
 
 ## Important Tips
 
-> [!TIP]
-> **Plugin Requirement**: This feature is NOT available in Jenkins out-of-the-box. You MUST install the "Job Configuration History" plugin. Without it, once a job is deleted, it's gone for good (unless you have backups).
+!!! tip
+    **Plugin Requirement**: This feature is NOT available in Jenkins out-of-the-box. You MUST install the "Job Configuration History" plugin. Without it, once a job is deleted, it's gone for good (unless you have backups).
 
-> [!NOTE]
-> **Config History**: This plugin also tracks changes to job configurations. If you break a build by changing a setting, you can revert to the previous working configuration using the same plugin.
+!!! note
+    **Config History**: This plugin also tracks changes to job configurations. If you break a build by changing a setting, you can revert to the previous working configuration using the same plugin.
 
 ## 🧠 Quick Quiz — Restoring Jobs
 

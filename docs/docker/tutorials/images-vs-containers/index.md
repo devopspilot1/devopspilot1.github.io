@@ -200,11 +200,11 @@ A single image can act as a blueprint to launch any number of identical containe
 
 ## Important Tips
 
-> [!TIP]
-> **Immutability**: Think of Docker images like a CD-ROM or a read-only ISO file. You can't change the data on it once it's burned (built). To change the application, you must build a *new* image.
+!!! tip
+    **Immutability**: Think of Docker images like a CD-ROM or a read-only ISO file. You can't change the data on it once it's burned (built). To change the application, you must build a *new* image.
 
-> [!NOTE]
-> **Layers**: Docker uses a layered file system. When you start a container, Docker simply adds a thin, writable layer on top of the read-only image layers. This makes starting containers extremely fast and storage-efficient.
+!!! note
+    **Layers**: Docker uses a layered file system. When you start a container, Docker simply adds a thin, writable layer on top of the read-only image layers. This makes starting containers extremely fast and storage-efficient.
 
 ---
 

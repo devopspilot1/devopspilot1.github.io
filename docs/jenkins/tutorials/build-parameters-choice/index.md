@@ -70,11 +70,11 @@ If you select `package`, the command executed will be `mvn clean package`.
 
 ## Important Tips
 
-> [!TIP]
-> **Validation**: Choice parameters are excellent for preventing user error. Instead of asking a user to type "prod" (and risking them typing "production" or "Prod"), a dropdown ensures only valid values are passed to the pipeline.
+!!! tip
+    **Validation**: Choice parameters are excellent for preventing user error. Instead of asking a user to type "prod" (and risking them typing "production" or "Prod"), a dropdown ensures only valid values are passed to the pipeline.
 
-> [!NOTE]
-> **Default Value**: The first value in the `choices` list is always the default value selected in the UI.
+!!! note
+    **Default Value**: The first value in the `choices` list is always the default value selected in the UI.
 
 ## 🧠 Quick Quiz — Choice Parameters
 

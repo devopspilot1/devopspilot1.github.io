@@ -48,11 +48,11 @@ Click on **Add Credentials** Select **kind** as **Secret text** enter the token,
 
 ## Important Tips
 
-> [!TIP]
-> **Use IDs**: Always assign a meaningful **ID** (e.g., `dockerhub-auth`) to your credentials. If you leave it blank, Jenkins assigns a random UUID, making your Jenkinsfiles hard to read and debug.
+!!! tip
+    **Use IDs**: Always assign a meaningful **ID** (e.g., `dockerhub-auth`) to your credentials. If you leave it blank, Jenkins assigns a random UUID, making your Jenkinsfiles hard to read and debug.
 
-> [!IMPORTANT]
-> **Scope**: "Global" credentials are available everywhere. For tighter security, consider using "Folder" scoped credentials if you have organized your jobs into folders, restricting access to specific teams.
+!!! important
+    **Scope**: "Global" credentials are available everywhere. For tighter security, consider using "Folder" scoped credentials if you have organized your jobs into folders, restricting access to specific teams.
 
 ## 🧠 Quick Quiz — Credentials
 

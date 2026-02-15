@@ -63,8 +63,8 @@ pipeline {
 - If you need to change how the build works, you update the library *once*, and all pipelines using it are updated automatically.
 
 ### Important Tips
-> [!TIP]
-> Use Shared Libraries for logic that is repeated across many different pipelines to reduce code duplication and maintenance burden.
+!!! tip
+    Use Shared Libraries for logic that is repeated across many different pipelines to reduce code duplication and maintenance burden.
 
 
 ## Quick Quiz

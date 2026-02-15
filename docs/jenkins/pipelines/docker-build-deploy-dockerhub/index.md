@@ -142,11 +142,11 @@ The deployment stages (Dev, QA, Prod) use the `ssh-agent` or `ssh-steps` plugin 
 
 ## Important Tips
 
-> [!TIP]
-> **Docker Tagging**: We effectively tag the image twice: once with `latest` (implicitly, if not specified in the build) or the specific version, and then re-tag it with the registry username prefix before pushing. This is required for Docker Hub.
+!!! tip
+    **Docker Tagging**: We effectively tag the image twice: once with `latest` (implicitly, if not specified in the build) or the specific version, and then re-tag it with the registry username prefix before pushing. This is required for Docker Hub.
 
-> [!IMPORTANT]
-> **SSH Command Security**: The `sshCommand` executes raw shell commands on the remote server. Ensure that the user account used for SSH (`test` in this example) has restricted permissions, only enough to run the necessary Docker commands.
+!!! important
+    **SSH Command Security**: The `sshCommand` executes raw shell commands on the remote server. Ensure that the user account used for SSH (`test` in this example) has restricted permissions, only enough to run the necessary Docker commands.
 
 ## Quick Quiz
 

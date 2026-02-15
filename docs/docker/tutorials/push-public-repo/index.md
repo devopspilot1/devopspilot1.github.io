@@ -135,11 +135,11 @@ vigneshsweekaran/nginx   latest    89da1fb6dcb9   12 hours ago   187MB
 
 ## Important Tips
 
-> [!TIP]
-> **Naming Convention**: To push an image to Docker Hub, it MUST be tagged as `username/image:tag`. Docker uses the `username` to identify which account the image belongs to.
+!!! tip
+    **Naming Convention**: To push an image to Docker Hub, it MUST be tagged as `username/image:tag`. Docker uses the `username` to identify which account the image belongs to.
 
-> [!WARNING]
-> **Public Access**: Images pushed to a public repository are accessible to everyone on the internet. Never include sensitive data (passwords, keys, tokens) in public images.
+!!! warning
+    **Public Access**: Images pushed to a public repository are accessible to everyone on the internet. Never include sensitive data (passwords, keys, tokens) in public images.
 
 ## 🧠 Quick Quiz — Public Repositories
 

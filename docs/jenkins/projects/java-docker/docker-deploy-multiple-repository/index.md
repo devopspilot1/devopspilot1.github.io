@@ -19,8 +19,8 @@ Before deploying to QA or Prod using this pipeline, you must manually promote th
 6.  In the "Target Repository" field, select the destination repository (e.g., `docker-helloworld-qa-local` for QA or `docker-helloworld-prod-local` for Prod).
 7.  Click **Copy** to confirm.
 
-> [!NOTE]
-> Later in this project (Step 6), we will automate this using the Artifactory REST API. For now, we do it manually to understand the concept of artifact flow.
+!!! note
+    Later in this project (Step 6), we will automate this using the Artifactory REST API. For now, we do it manually to understand the concept of artifact flow.
 
 ## Jenkinsfile
 
@@ -144,8 +144,8 @@ Unlike the global `environment` block, these variables are scoped only to a spec
 This powerful feature allows you to reuse the exact same deployment logic/commands (using `$DOCKER_REPOSITORY`) while dynamically changing the source repository based on the environment.
 
 ### Important Tips
-> [!TIP]
-> This pattern enforces **Artifact Promotion**. You cannot deploy to QA unless the artifact has been physically moved (promoted) to the `qa-local` repository in Artifactory.
+!!! tip
+    This pattern enforces **Artifact Promotion**. You cannot deploy to QA unless the artifact has been physically moved (promoted) to the `qa-local` repository in Artifactory.
 
 [Next Step: Using JFrog CLI](../docker-build-push-jf-cli/index.md)
 

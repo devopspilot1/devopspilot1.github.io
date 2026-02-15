@@ -134,11 +134,11 @@ devopspilot1/private-nginx   latest    89da1fb6dcb9   2 days ago   187MB
 
 ## Important Tips
 
-> [!TIP]
-> **Authentication**: You MUST run `docker login` to push to or pull from a private repository. The credentials are stored locally in `~/.docker/config.json`.
+!!! tip
+    **Authentication**: You MUST run `docker login` to push to or pull from a private repository. The credentials are stored locally in `~/.docker/config.json`.
 
-> [!NOTE]
-> **Free Tier**: Docker Hub's free tier allows for one private repository. If you need more, you'll need to upgrade or use another registry (like ECR, GCR, or ACR).
+!!! note
+    **Free Tier**: Docker Hub's free tier allows for one private repository. If you need more, you'll need to upgrade or use another registry (like ECR, GCR, or ACR).
 
 ## 🧠 Quick Quiz — Private Repositories
 

@@ -98,11 +98,11 @@ This ensures that only the selected environment receives the deployment, skippin
 
 ## Important Tips
 
-> [!TIP]
-> **Skipped Stages**: When a stage is skipped due to a `when` condition evaluating to false, Jenkins will display it as "Skipped" in the UI (often greyed out), and the build status will remains "Success" (unless a different stage failed).
+!!! tip
+    **Skipped Stages**: When a stage is skipped due to a `when` condition evaluating to false, Jenkins will display it as "Skipped" in the UI (often greyed out), and the build status will remains "Success" (unless a different stage failed).
 
-> [!NOTE]
-> **Before Agent**: You can use `beforeAgent true` in the `when` block if you want to evaluate the condition *before* entering the agent. This saves resources if the stage is going to be skipped anyway.
+!!! note
+    **Before Agent**: You can use `beforeAgent true` in the `when` block if you want to evaluate the condition *before* entering the agent. This saves resources if the stage is going to be skipped anyway.
 
 ## Quick Quiz
 

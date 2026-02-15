@@ -56,11 +56,11 @@ Click on **Availabe** tab and type the plugin name in search box, select the plu
 
 ## Important Tips
 
-> [!TIP]
-> **Restarting**: While many plugins can be installed "without restart", some core plugins or updates require a restart to fully initialize. If a plugin acts weirdly after install, try `http://YOUR_JENKINS_URL/safeRestart`.
+!!! tip
+    **Restarting**: While many plugins can be installed "without restart", some core plugins or updates require a restart to fully initialize. If a plugin acts weirdly after install, try `http://YOUR_JENKINS_URL/safeRestart`.
 
-> [!NOTE]
-> **Dependencies**: Jenkins handles plugin dependencies automatically. If you install "Blue Ocean", it will automatically pull in dozens of other required plugins.
+!!! note
+    **Dependencies**: Jenkins handles plugin dependencies automatically. If you install "Blue Ocean", it will automatically pull in dozens of other required plugins.
 
 ## 🧠 Quick Quiz — Plugin Management
 

@@ -133,11 +133,11 @@ Like this, you can debug and fix many issues in real-time.
 
 ## Important Tips
 
-> [!TIP]
-> **Availability**: Replay is only available for pipelines that have already run at least once (even if they failed). You cannot "Replay" a pipeline that has never run.
+!!! tip
+    **Availability**: Replay is only available for pipelines that have already run at least once (even if they failed). You cannot "Replay" a pipeline that has never run.
 
-> [!NOTE]
-> **Audit Trail**: Replayed builds are marked in the build history. However, the changes you make in Replay are ephemeral and NOT saved to your Git repository. Always commit your fixes to Git after verifying them.
+!!! note
+    **Audit Trail**: Replayed builds are marked in the build history. However, the changes you make in Replay are ephemeral and NOT saved to your Git repository. Always commit your fixes to Git after verifying them.
 
 ## 🧠 Quick Quiz — Replay
 

@@ -67,11 +67,11 @@ These variables are extremely useful for tagging Docker images, creating unique 
 
 ## Important Tips
 
-> [!TIP]
-> **Shallow Clone**: If you use `git` in your pipeline options with `shallow: true`, some variables related to git changesets might not be available or accurate.
+!!! tip
+    **Shallow Clone**: If you use `git` in your pipeline options with `shallow: true`, some variables related to git changesets might not be available or accurate.
 
-> [!NOTE]
-> **Env Command**: To see *all* available environment variables in your specific agent/executor, you can simply run `sh 'printenv'` (Linux) or `bat 'set'` (Windows) in a pipeline step.
+!!! note
+    **Env Command**: To see *all* available environment variables in your specific agent/executor, you can simply run `sh 'printenv'` (Linux) or `bat 'set'` (Windows) in a pipeline step.
 
 ## 🧠 Quick Quiz — Build Information
 

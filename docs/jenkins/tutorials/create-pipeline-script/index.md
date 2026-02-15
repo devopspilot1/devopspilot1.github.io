@@ -83,11 +83,11 @@ The better way is to write the **pipeline script** in **Jenkinsfile** and store 
 
 ## Important Tips
 
-> [!TIP]
-> **Sandbox**: Inline scripts run in a Groovy Sandbox to prevent malicious code execution. Some advanced Groovy methods might require administrator approval via "In-process Script Approval".
+!!! tip
+    **Sandbox**: Inline scripts run in a Groovy Sandbox to prevent malicious code execution. Some advanced Groovy methods might require administrator approval via "In-process Script Approval".
 
-> [!NOTE]
-> **Limitations**: Inline scripts are hard to review and verify since they are part of the Jenkins configuration, not git. Use them only for quick prototypes or very simple administrative tasks.
+!!! note
+    **Limitations**: Inline scripts are hard to review and verify since they are part of the Jenkins configuration, not git. Use them only for quick prototypes or very simple administrative tasks.
 
 ## 🧠 Quick Quiz — Pipeline Script
 

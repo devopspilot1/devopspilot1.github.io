@@ -12,8 +12,8 @@ sudo apt install docker.io
 
 ### Install docker in Ubuntu operating system using Docker official steps
 
-> [!TIP]
-> **Official Script**: For production, it's often better to use the official convenience script or repository from Docker, as distro repositories (like `apt install docker.io`) might lag behind the latest versions.
+!!! tip
+    **Official Script**: For production, it's often better to use the official convenience script or repository from Docker, as distro repositories (like `apt install docker.io`) might lag behind the latest versions.
 
 ```
 # Add Docker's official GPG key:

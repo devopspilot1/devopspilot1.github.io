@@ -23,11 +23,11 @@ Click on **Available plugins** -> Enter **maven** -> Select **Maven Integration*
 
 ## Important Tips
 
-> [!TIP]
-> **Restart**: Many plugins require a Jenkins restart to fully activate. You can trigger a safe restart by visiting `YOUR_JENKINS_URL/safeRestart`.
+!!! tip
+    **Restart**: Many plugins require a Jenkins restart to fully activate. You can trigger a safe restart by visiting `YOUR_JENKINS_URL/safeRestart`.
 
-> [!NOTE]
-> **Dependencies**: When you install a plugin like "Maven Integration", Jenkins effectively manages dependencies and will automatically install other required plugins.
+!!! note
+    **Dependencies**: When you install a plugin like "Maven Integration", Jenkins effectively manages dependencies and will automatically install other required plugins.
 
 ## 🧠 Quick Quiz — Plugin Management
 

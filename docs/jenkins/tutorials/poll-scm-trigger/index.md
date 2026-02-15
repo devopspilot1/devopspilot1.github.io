@@ -137,11 +137,11 @@ Manually **Build** the pipeline once and check the pipeline configuration now 
 
 ## Important Tips
 
-> [!TIP]
-> **Performance**: Polling is resource-intensive because Jenkins has to wake up and check git every few minutes. Use **Webhooks** whenever possible, as they are cleaner and instant.
+!!! tip
+    **Performance**: Polling is resource-intensive because Jenkins has to wake up and check git every few minutes. Use **Webhooks** whenever possible, as they are cleaner and instant.
 
-> [!IMPORTANT]
-> **Rate Limits**: If you poll too frequently (e.g., every minute) against a public service like GitHub, you might hit API rate limits and get temporarily blocked.
+!!! important
+    **Rate Limits**: If you poll too frequently (e.g., every minute) against a public service like GitHub, you might hit API rate limits and get temporarily blocked.
 
 ## 🧠 Quick Quiz — Poll SCM
 

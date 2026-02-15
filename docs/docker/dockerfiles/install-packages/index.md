@@ -60,11 +60,11 @@ RUN mkdir /opt/gradle
 
 ## Important Tips
 
-> [!TIP]
-> **Clean Up**: Always clean up package manager caches (e.g., `rm -rf /var/lib/apt/lists/*`, `yum clean all`) in the same `RUN` instruction to keep the image size small.
+!!! tip
+    **Clean Up**: Always clean up package manager caches (e.g., `rm -rf /var/lib/apt/lists/*`, `yum clean all`) in the same `RUN` instruction to keep the image size small.
 
-> [!NOTE]
-> **No Cache**: For Alpine Linux, use `apk add --no-cache`. This installs the package and cleans up the cache in a single step, eliminating the need for a separate `rm` command.
+!!! note
+    **No Cache**: For Alpine Linux, use `apk add --no-cache`. This installs the package and cleans up the cache in a single step, eliminating the need for a separate `rm` command.
 
 ## 🧠 Quick Quiz — Package Management
 

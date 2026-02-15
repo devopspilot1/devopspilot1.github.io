@@ -91,8 +91,8 @@ pipeline {
     - **`abortPipeline: true`**: If SonarQube says "FAILED" (e.g., too many bugs), the pipeline stops immediately.
 
 ### Important Tips
-> [!WARNING]
-> Ensure you have configured the webhook in SonarQube pointing back to Jenkins (`http://jenkins-url/sonarqube-webhook/`), otherwise `waitForQualityGate` will hang until it times out.
+!!! warning
+    Ensure you have configured the webhook in SonarQube pointing back to Jenkins (`http://jenkins-url/sonarqube-webhook/`), otherwise `waitForQualityGate` will hang until it times out.
 
 [Next Step: Anchore Security Scanning](../sonarqube-docker-build-push-anchore-deploy/index.md)
 

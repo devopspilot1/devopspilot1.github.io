@@ -121,11 +121,11 @@ index 0e3fd6f..24c5856 100644
 
 ## Important Tips
 
-> [!TIP]
-> **Timezone**: Jenkins Cron uses the time zone of the Jenkins controller by default. You can specify a timezone by prepending `TZ=Zone/City` in the cron string (e.g., `TZ=Asia/Kolkata 0 18 * * *`).
+!!! tip
+    **Timezone**: Jenkins Cron uses the time zone of the Jenkins controller by default. You can specify a timezone by prepending `TZ=Zone/City` in the cron string (e.g., `TZ=Asia/Kolkata 0 18 * * *`).
 
-> [!NOTE]
-> **H Syntax**: Jenkins supports a hash symbol `H` (e.g., `H 18 * * *`) to distribute the load. `H` tells Jenkins to pick a random minute within the hour, preventing all jobs from starting at the exact same second.
+!!! note
+    **H Syntax**: Jenkins supports a hash symbol `H` (e.g., `H 18 * * *`) to distribute the load. `H` tells Jenkins to pick a random minute within the hour, preventing all jobs from starting at the exact same second.
 
 ## 🧠 Quick Quiz — Cron Trigger
 

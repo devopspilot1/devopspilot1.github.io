@@ -70,11 +70,11 @@ If you enter `package`, the command executed will be `mvn clean package`. If you
 
 ## Important Tips
 
-> [!TIP]
-> **Trimming**: When using string parameters, users might accidentally copy-paste whitespace. You can use `.trim()` in your Groovy script (e.g., `params.MY_PARAM.trim()`) to sanitize input.
+!!! tip
+    **Trimming**: When using string parameters, users might accidentally copy-paste whitespace. You can use `.trim()` in your Groovy script (e.g., `params.MY_PARAM.trim()`) to sanitize input.
 
-> [!IMPORTANT]
-> **Secrets**: Do NOT use `string` parameters for passwords or API keys. Use the `password` parameter type or (even better) Jenkins Credentials, as string parameters are visible in plain text in build logs.
+!!! important
+    **Secrets**: Do NOT use `string` parameters for passwords or API keys. Use the `password` parameter type or (even better) Jenkins Credentials, as string parameters are visible in plain text in build logs.
 
 ## 🧠 Quick Quiz — String Parameters
 

@@ -205,11 +205,11 @@ Like this you can configure many configurations for Pipeline from Jenkinsfile.
 
 ## Important Tips
 
-> [!TIP]
-> **Resource Management**: Using `buildDiscarder` is crucial. Without it, Jenkins keeps build history forever, eventually consuming all disk space and crashing the server.
+!!! tip
+    **Resource Management**: Using `buildDiscarder` is crucial. Without it, Jenkins keeps build history forever, eventually consuming all disk space and crashing the server.
 
-> [!NOTE]
-> **Concurrency**: For CD pipelines (deploying to environments), always use `disableConcurrentBuilds()` to prevent race conditions where an older build might overwrite a newer one.
+!!! note
+    **Concurrency**: For CD pipelines (deploying to environments), always use `disableConcurrentBuilds()` to prevent race conditions where an older build might overwrite a newer one.
 
 ## 🧠 Quick Quiz — Options
 

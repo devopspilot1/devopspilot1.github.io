@@ -38,11 +38,11 @@ Build the Maven project and check the logs in Console Output, you can see the cr
 
 ## Important Tips
 
-> [!TIP]
-> **SSH vs HTTPS**: While this tutorial uses HTTPS with a Personal Access Token (PAT), using SSH keys (`git@github.com...`) is often preferred in production environments as it avoids managing token expiration.
+!!! tip
+    **SSH vs HTTPS**: While this tutorial uses HTTPS with a Personal Access Token (PAT), using SSH keys (`git@github.com...`) is often preferred in production environments as it avoids managing token expiration.
 
-> [!NOTE]
-> **Credential Scope**: Ensure your credentials have "Global" scope (or specific folder scope) so they are visible to your Jenkins project.
+!!! note
+    **Credential Scope**: Ensure your credentials have "Global" scope (or specific folder scope) so they are visible to your Jenkins project.
 
 ## 🧠 Quick Quiz — Private Repos
 

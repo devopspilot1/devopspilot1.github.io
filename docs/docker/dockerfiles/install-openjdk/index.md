@@ -164,11 +164,11 @@ Now we can see, the size of the docker image is reduced very much.
 
 ## Important Tips
 
-> [!TIP]
-> **Combine Commands**: To reduce image size, combine related commands into a single `RUN` instruction (using `&&`). This prevents temporary files from persisting in intermediate layers.
+!!! tip
+    **Combine Commands**: To reduce image size, combine related commands into a single `RUN` instruction (using `&&`). This prevents temporary files from persisting in intermediate layers.
 
-> [!NOTE]
-> **Base Image**: Choosing a smaller base image (like `alpine`) is the most effective way to reduce the final image size.
+!!! note
+    **Base Image**: Choosing a smaller base image (like `alpine`) is the most effective way to reduce the final image size.
 
 ## 🧠 Quick Quiz — Docker Optimization
 

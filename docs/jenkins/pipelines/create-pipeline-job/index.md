@@ -99,11 +99,11 @@ Echo commands from stages are printed to console output
 
 ## Important Tips
 
-> [!TIP]
-> **Use Jenkinsfile**: Always prefer "Pipeline script from SCM" (Jenkinsfile) over "Pipeline script" (Inline). This allows you to version control your pipeline code just like your application code.
+!!! tip
+    **Use Jenkinsfile**: Always prefer "Pipeline script from SCM" (Jenkinsfile) over "Pipeline script" (Inline). This allows you to version control your pipeline code just like your application code.
 
-> [!NOTE]
-> **Declarative vs. Scripted**: We are using Declarative Pipeline syntax (starts with `pipeline {}`) which is newer, more structured, and easier to learn than Scripted Pipeline (starts with `node {}`).
+!!! note
+    **Declarative vs. Scripted**: We are using Declarative Pipeline syntax (starts with `pipeline {}`) which is newer, more structured, and easier to learn than Scripted Pipeline (starts with `node {}`).
 
 ## Quick Quiz
 

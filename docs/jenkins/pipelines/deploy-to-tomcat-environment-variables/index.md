@@ -104,11 +104,11 @@ This makes it easy to change the context path or war file location in one place 
 
 ## Important Tips
 
-> [!TIP]
-> **Global vs. Local**: Variables defined in the top-level `environment` block are global. You can also define an `environment` block inside a specific `stage` if the variable is only needed there.
+!!! tip
+    **Global vs. Local**: Variables defined in the top-level `environment` block are global. You can also define an `environment` block inside a specific `stage` if the variable is only needed there.
 
-> [!IMPORTANT]
-> **Credential Security**: Never hardcode passwords or sensitive data in `environment` variables. Use the `credentials()` helper within the environment block or `withCredentials` step for handling secrets securely.
+!!! important
+    **Credential Security**: Never hardcode passwords or sensitive data in `environment` variables. Use the `credentials()` helper within the environment block or `withCredentials` step for handling secrets securely.
 
 ## Quick Quiz
 

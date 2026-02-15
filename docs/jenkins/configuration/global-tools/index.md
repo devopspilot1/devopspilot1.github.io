@@ -88,11 +88,11 @@ From the next build it will use the nodejs from that folder, it won't download e
 
 ## Important Tips
 
-> [!TIP]
-> **Name Consistency**: The **Name** you assign to a tool in Global Configuration (e.g., `maven-3.6.3`) is the **KEY**. You must use this exact string in your Jenkinsfile's `tools` block. A typo here will cause the pipeline to fail with a "Tool not found" error.
+!!! tip
+    **Name Consistency**: The **Name** you assign to a tool in Global Configuration (e.g., `maven-3.6.3`) is the **KEY**. You must use this exact string in your Jenkinsfile's `tools` block. A typo here will cause the pipeline to fail with a "Tool not found" error.
 
-> [!NOTE]
-> **Disk Space**: Each tool version is downloaded to every agent that runs a job requiring it. If you have many agents and many tool versions, this can consume significant disk space over time.
+!!! note
+    **Disk Space**: Each tool version is downloaded to every agent that runs a job requiring it. If you have many agents and many tool versions, this can consume significant disk space over time.
 
 ## 🧠 Quick Quiz — Global Tools
 

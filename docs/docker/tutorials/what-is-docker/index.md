@@ -70,11 +70,11 @@ Resources(Memory/cpu) in the virtual machine is shared across all containers
 
 ## Important Tips
 
-> [!TIP]
-> **Efficiency**: Containers are much more lightweight than Virtual Machines because they share the host OS kernel, whereas each VM requires its own full OS.
+!!! tip
+    **Efficiency**: Containers are much more lightweight than Virtual Machines because they share the host OS kernel, whereas each VM requires its own full OS.
 
-> [!NOTE]
-> **Portability**: "Build once, run anywhere." A Docker container runs exactly the same on your laptop, a testing server, or a production cloud instance, eliminating "it works on my machine" issues.
+!!! note
+    **Portability**: "Build once, run anywhere." A Docker container runs exactly the same on your laptop, a testing server, or a production cloud instance, eliminating "it works on my machine" issues.
 
 ## 🧠 Quick Quiz — Docker Concepts
 

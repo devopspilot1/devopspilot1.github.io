@@ -133,11 +133,11 @@ Parameters passed to `Deploy to container` plugin definition.
 
 ## Important Tips
 
-> [!TIP]
-> **Legacy Plugin**: The "Deploy to container" plugin is an older method of deployment. In modern CI/CD, creating a Docker image of your application (like in the next tutorials) is often preferred over deploying WAR files directly to a standalone Tomcat server.
+!!! tip
+    **Legacy Plugin**: The "Deploy to container" plugin is an older method of deployment. In modern CI/CD, creating a Docker image of your application (like in the next tutorials) is often preferred over deploying WAR files directly to a standalone Tomcat server.
 
-> [!IMPORTANT]
-> **Tomcat Credentials**: Ensure the credentials used have the `manager-script` role in Tomcat's `tomcat-users.xml`. The plugin relies on the Tomcat Manager App's text interface to perform the deployment.
+!!! important
+    **Tomcat Credentials**: Ensure the credentials used have the `manager-script` role in Tomcat's `tomcat-users.xml`. The plugin relies on the Tomcat Manager App's text interface to perform the deployment.
 
 ## Quick Quiz
 

@@ -123,8 +123,8 @@ Each stage (Dev, QA, Prod) works identically but targets a different server IP:
     -   Logs out for security.
 
 ### Important Tips
-> [!TIP]
-> Notice how we use `|| true` after `docker rm`. This prevents the pipeline from failing if the container doesn't exist (e.g., on the very first deployment).
+!!! tip
+    Notice how we use `|| true` after `docker rm`. This prevents the pipeline from failing if the container doesn't exist (e.g., on the very first deployment).
 
 [Next Step: Trigger Downstream Jobs](../docker-build-push-dev-repository-trigger-dev-deploy/index.md)
 

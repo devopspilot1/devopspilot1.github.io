@@ -238,11 +238,11 @@ v2.0: digest: sha256:793d02597251f58c58ae71700f22b864f3c37f58f1130a89be595130ae6
 
 ## Important Tips
 
-> [!TIP]
-> **Base Images**: Always choose a specific tag for your base image (e.g., `nginx:1.25-alpine`) instead of `latest`. This ensures reproducible builds and keeps image sizes small.
+!!! tip
+    **Base Images**: Always choose a specific tag for your base image (e.g., `nginx:1.25-alpine`) instead of `latest`. This ensures reproducible builds and keeps image sizes small.
 
-> [!NOTE]
-> **COPY vs ADD**: Use `COPY` for local files. `ADD` has extra features like unzipping archives and downloading URLS, which can sometimes lead to unexpected behavior if not careful.
+!!! note
+    **COPY vs ADD**: Use `COPY` for local files. `ADD` has extra features like unzipping archives and downloading URLS, which can sometimes lead to unexpected behavior if not careful.
 
 ## 🧠 Quick Quiz — Dockerfile Basics
 

@@ -74,8 +74,8 @@ pipeline {
 - **`ssh ... 'kubectl apply ...'`**: Connects to the remote host and executes the `kubectl` command to apply the configuration.
 
 ### Important Tips
-> [!NOTE]
-> This pattern (SSHing to a jump host) is common, but advanced setups often use the `Kubernetes` plugin to deploy directly from the Jenkins slave (if it's inside the cluster) or use a GitOps operator like ArgoCD.
+!!! note
+    This pattern (SSHing to a jump host) is common, but advanced setups often use the `Kubernetes` plugin to deploy directly from the Jenkins slave (if it's inside the cluster) or use a GitOps operator like ArgoCD.
 
 [Next Step: Shared Libraries](../docker-build-push-to-artifactory-condition-shared-library/index.md)
 

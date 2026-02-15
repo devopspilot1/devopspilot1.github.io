@@ -232,11 +232,11 @@ Like this, you can configure different versions based on your needs.
 
 ## Important Tips
 
-> [!TIP]
-> **Global Config**: Before you can refer to a tool like `maven-3.6.3` in your Jenkinsfile, an administrator MUST configure it under "Manage Jenkins" -> "Tools" with that exact name.
+!!! tip
+    **Global Config**: Before you can refer to a tool like `maven-3.6.3` in your Jenkinsfile, an administrator MUST configure it under "Manage Jenkins" -> "Tools" with that exact name.
 
-> [!IMPORTANT]
-> **PATH Updates**: When you use the `tools` block, Jenkins prepends the tool's binary path to the `PATH` environment variable for the duration of the pipeline.
+!!! important
+    **PATH Updates**: When you use the `tools` block, Jenkins prepends the tool's binary path to the `PATH` environment variable for the duration of the pipeline.
 
 ## 🧠 Quick Quiz — Tools Block
 

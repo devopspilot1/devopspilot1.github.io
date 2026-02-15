@@ -72,8 +72,8 @@ The `environment` block defines global variables accessible by all stages.
 - **Docker Push**: Authenticates with JFrog using `jfrog-credential` and pushes the tagged image.
 
 ### Important Tips
-> [!TIP]
-> Always use a unique tag (like `$BUILD_NUMBER`) for your docker images. Using `latest` makes it hard to rollback or know exactly what code is running.
+!!! tip
+    Always use a unique tag (like `$BUILD_NUMBER`) for your docker images. Using `latest` makes it hard to rollback or know exactly what code is running.
 
 [Next Step: Deploy to Environments](../docker-deploy-jfrog/index.md)
 

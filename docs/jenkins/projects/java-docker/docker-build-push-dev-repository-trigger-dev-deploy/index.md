@@ -75,8 +75,8 @@ We specifically target the `docker-helloworld-dev-local` repository here. This e
 - **`parameters`**: We pass the `IMAGE_TAG` (the version we just built) to the deploy job, ensuring it deploys exactly what we just built.
 
 ### Important Tips
-> [!TIP]
-> Passing parameters between jobs is crucial for maintaining artifact consistency. Never rely on "latest" when triggering downstream jobs.
+!!! tip
+    Passing parameters between jobs is crucial for maintaining artifact consistency. Never rely on "latest" when triggering downstream jobs.
 
 [Next Step: Deploy from Multiple Repos](../docker-deploy-multiple-repository/index.md)
 

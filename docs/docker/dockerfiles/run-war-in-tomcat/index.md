@@ -32,11 +32,11 @@ we no need to explicity define the `CMD` here, because `CMD` is already written 
 
 ## Important Tips
 
-> [!TIP]
-> **War File Placement**: Tomcat automatically deploys any `.war` file placed in the `webapps` directory. If you rename your file to `ROOT.war`, it will be deployed as the root application (accessible at `http://localhost:8080/` instead of `http://localhost:8080/app-name`).
+!!! tip
+    **War File Placement**: Tomcat automatically deploys any `.war` file placed in the `webapps` directory. If you rename your file to `ROOT.war`, it will be deployed as the root application (accessible at `http://localhost:8080/` instead of `http://localhost:8080/app-name`).
 
-> [!NOTE]
-> **Base Image**: Using a specific version tag (e.g., `tomcat:9.0-jdk11`) is recommended over `latest` to ensure your build is reproducible and stable.
+!!! note
+    **Base Image**: Using a specific version tag (e.g., `tomcat:9.0-jdk11`) is recommended over `latest` to ensure your build is reproducible and stable.
 
 ## 🧠 Quick Quiz — Tomcat in Docker
 

@@ -53,11 +53,11 @@ docker build -t 2-stage:latest .
 
 ## Important Tips
 
-> [!TIP]
-> **Naming Stages**: Give your stages names (e.g., `AS builder`) so you can easily reference them in `COPY --from=builder` commands. This makes the Dockerfile much more readable than using `COPY --from=0`.
+!!! tip
+    **Naming Stages**: Give your stages names (e.g., `AS builder`) so you can easily reference them in `COPY --from=builder` commands. This makes the Dockerfile much more readable than using `COPY --from=0`.
 
-> [!NOTE]
-> **Security**: Multi-stage builds improve security by ensuring that build tools, source code, and secrets used during the build process are not included in the final production image.
+!!! note
+    **Security**: Multi-stage builds improve security by ensuring that build tools, source code, and secrets used during the build process are not included in the final production image.
 
 ## 🧠 Quick Quiz — Multi-Stage Builds
 

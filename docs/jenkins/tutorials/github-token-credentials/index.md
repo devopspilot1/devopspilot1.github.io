@@ -46,11 +46,11 @@ Credential is created and the GitHub token is safely stored for use in Jenkins p
 
 ## Important Tips
 
-> [!TIP]
-> **Least Privilege**: When creating a Personal Access Token (PAT) in GitHub, select only the scopes necessary. For checking out code, `repo` scope is usually sufficient. Avoid giving full `admin` access.
+!!! tip
+    **Least Privilege**: When creating a Personal Access Token (PAT) in GitHub, select only the scopes necessary. For checking out code, `repo` scope is usually sufficient. Avoid giving full `admin` access.
 
-> [!NOTE]
-> **Credentials ID**: Choose a meaningful ID (e.g., `github-token-devopspilot`) instead of the auto-generated UUID. This makes your Jenkinsfiles readable and easier to debug.
+!!! note
+    **Credentials ID**: Choose a meaningful ID (e.g., `github-token-devopspilot`) instead of the auto-generated UUID. This makes your Jenkinsfiles readable and easier to debug.
 
 ## 🧠 Quick Quiz — Credentials
 

@@ -48,11 +48,11 @@ It will compile the java code and generate the package in **targets** folder.
 
 ## Important Tips
 
-> [!TIP]
-> **Tool Auto-Installation**: The `tools { maven '...' }` block is powerful. It ensures that the specified version of Maven is installed and available in the path *before* any steps run, so you don't have to manually configuration paths on agents.
+!!! tip
+    **Tool Auto-Installation**: The `tools { maven '...' }` block is powerful. It ensures that the specified version of Maven is installed and available in the path *before* any steps run, so you don't have to manually configuration paths on agents.
 
-> [!NOTE]
-> **Workspace Cleaning**: Ideally, you should often start with a clean workspace. The `mvn clean` command handles this at the build tool level, but Jenkins also has `deleteDir()` (usually in `post { always { ... } }`) to clean the agent's workspace.
+!!! note
+    **Workspace Cleaning**: Ideally, you should often start with a clean workspace. The `mvn clean` command handles this at the build tool level, but Jenkins also has `deleteDir()` (usually in `post { always { ... } }`) to clean the agent's workspace.
 
 ## Quick Quiz
 

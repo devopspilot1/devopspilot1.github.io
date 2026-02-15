@@ -95,8 +95,8 @@ pipeline {
     - `bailOnFail: false`: This setting allows the pipeline to *continue* even if vulnerabilities are found. If set to `true`, the build would stop immediately if it detects critical issues (High/Critical CVEs).
 
 ### Important Tips
-> [!TIP]
-> In a real production pipeline, you should set `bailOnFail: true` to prevent deploying vulnerable images. We use `false` here for demonstration purposes so the tutorial pipeline finishes.
+!!! tip
+    In a real production pipeline, you should set `bailOnFail: true` to prevent deploying vulnerable images. We use `false` here for demonstration purposes so the tutorial pipeline finishes.
 
 [Next Step: Deploy to Kubernetes](../sonarqube-docker-build-push-anchore-deploy-to-kubernetes/index.md)
 

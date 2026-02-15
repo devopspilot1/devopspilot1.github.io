@@ -170,11 +170,11 @@ Push the changes to your GitHub repository
 
 ## Important Tips
 
-> [!TIP]
-> **Security**: In the GitHub webhook settings, you can set a "Secret". You can verify this secret in Jenkins to run validation, ensuring that the webhook request actually came from GitHub and not an imposter.
+!!! tip
+    **Security**: In the GitHub webhook settings, you can set a "Secret". You can verify this secret in Jenkins to run validation, ensuring that the webhook request actually came from GitHub and not an imposter.
 
-> [!IMPORTANT]
-> **Firewalls**: For webhooks to work, GitHub must be able to reach your Jenkins URL over the internet. If your Jenkins is behind a corporate firewall, you might need to whitelist GitHub's IP addresses or use a relay service like Smee.io.
+!!! important
+    **Firewalls**: For webhooks to work, GitHub must be able to reach your Jenkins URL over the internet. If your Jenkins is behind a corporate firewall, you might need to whitelist GitHub's IP addresses or use a relay service like Smee.io.
 
 ## 🧠 Quick Quiz — Webhooks
 
