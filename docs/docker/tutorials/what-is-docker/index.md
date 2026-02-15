@@ -1,5 +1,6 @@
 ---
 title: "What is Docker"
+description: "An introduction to Docker, explaining how it differs from traditional virtualization and the benefits of containerization."
 date: 2024-07-01
 ---
 
@@ -66,5 +67,45 @@ Resources(Memory/cpu) in the virtual machine is shared across all containers
 ![cicd-server](../../../images/docker-containers.png)
 
 ---
+
+## Important Tips
+
+> [!TIP]
+> **Efficiency**: Containers are much more lightweight than Virtual Machines because they share the host OS kernel, whereas each VM requires its own full OS.
+
+> [!NOTE]
+> **Portability**: "Build once, run anywhere." A Docker container runs exactly the same on your laptop, a testing server, or a production cloud instance, eliminating "it works on my machine" issues.
+
+## 🧠 Quick Quiz — Docker Concepts
+
+<quiz>
+What is the primary difference between a Virtual Machine (VM) and a Docker Container?
+- [x] VMs have their own OS kernel; Containers share the host OS kernel.
+- [ ] VMs are faster than containers.
+- [ ] Containers are only for Linux; VMs are only for Windows.
+- [ ] There is no difference.
+
+Because containers share the kernel, they start up in seconds and use much less memory than VMs.
+</quiz>
+
+<quiz>
+What problem does Docker solve?
+- [x] Dependency isolation and "it works on my machine" issues.
+- [ ] It creates physical servers.
+- [ ] It replaces the need for an Operating System.
+- [ ] It creates infinite RAM.
+
+Docker packages the application with all its dependencies, ensuring consistent behavior across different environments.
+</quiz>
+
+<quiz>
+What needs to be installed on the host machine to run Docker containers?
+- [x] Docker Engine / Runtime.
+- [ ] A hypervisor like VMware or VirtualBox.
+- [ ] Java and Python.
+- [ ] A specific IDE.
+
+You only need the Docker runtime installed. You don't need to install the application's dependencies (like Java or Node.js) on the host itself.
+</quiz>
 
 {% include-markdown ".partials/subscribe-guides.md" %}

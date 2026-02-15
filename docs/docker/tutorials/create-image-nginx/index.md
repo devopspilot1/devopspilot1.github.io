@@ -1,5 +1,6 @@
 ---
 title: "Create docker image for nginx and html file"
+description: "Learn how to create a custom Docker image using Nginx and a static HTML file, build it, run it, and push it to Docker Hub."
 date: 2024-07-01
 ---
 
@@ -234,5 +235,45 @@ v2.0: digest: sha256:793d02597251f58c58ae71700f22b864f3c37f58f1130a89be595130ae6
 ![html-app-dockerhub-v2](../../../images/html-app-dockerhub-v2.png)
 
 ---
+
+## Important Tips
+
+> [!TIP]
+> **Base Images**: Always choose a specific tag for your base image (e.g., `nginx:1.25-alpine`) instead of `latest`. This ensures reproducible builds and keeps image sizes small.
+
+> [!NOTE]
+> **COPY vs ADD**: Use `COPY` for local files. `ADD` has extra features like unzipping archives and downloading URLS, which can sometimes lead to unexpected behavior if not careful.
+
+## 🧠 Quick Quiz — Dockerfile Basics
+
+<quiz>
+Which instruction specifies the base image for the build?
+- [x] `FROM`
+- [ ] `BASE`
+- [ ] `START`
+- [ ] `IMPORT`
+
+Every Dockerfile must start with a `FROM` instruction (except for comments, parser directives, and globally scoped ARGs).
+</quiz>
+
+<quiz>
+How do you copy files from your host machine into the Docker image?
+- [ ] `MOVE` or `INSERT`
+- [x] `COPY` or `ADD`
+- [ ] `CP` or `SCP`
+- [ ] `TRANSFER`
+
+`COPY` is preferred for local files. `ADD` offers additional features like tar extraction.
+</quiz>
+
+<quiz>
+How do you build a Docker image with a custom tag?
+- [ ] `docker create --name image:tag .`
+- [x] `docker build -t image:tag .`
+- [ ] `docker compile -t image:tag .`
+- [ ] `docker make image:tag .`
+
+The `-t` (or `--tag`) flag labels the image, making it easy to reference later (e.g., `docker run image:tag`).
+</quiz>
 
 {% include-markdown ".partials/subscribe-guides.md" %}

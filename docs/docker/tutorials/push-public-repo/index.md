@@ -1,5 +1,6 @@
 ---
-title: "Pull nginx docker image from dockerhub, tag and push to your public repo in dockerhub account"
+title: "Push Docker Image to Public Repository"
+description: "Learn how to tag and push your Docker images to a public Docker Hub repository for global access."
 date: 2024-07-01
 ---
 
@@ -131,5 +132,45 @@ vigneshsweekaran/nginx   latest    89da1fb6dcb9   12 hours ago   187MB
 ```
 
 ---
+
+## Important Tips
+
+> [!TIP]
+> **Naming Convention**: To push an image to Docker Hub, it MUST be tagged as `username/image:tag`. Docker uses the `username` to identify which account the image belongs to.
+
+> [!WARNING]
+> **Public Access**: Images pushed to a public repository are accessible to everyone on the internet. Never include sensitive data (passwords, keys, tokens) in public images.
+
+## 🧠 Quick Quiz — Public Repositories
+
+<quiz>
+If you push an image tagged `my-app:v1` (without a username prefix) to Docker Hub, what happens?
+- [x] Access denied / You must log in. (Docker tries to push to library/my-app).
+- [ ] It creates a new public repo called `my-app`.
+- [ ] It pushes to your personal account automatically.
+- [ ] It pushes to `localhost`.
+
+Docker interprets single-name images as belonging to the official library (e.g., like `nginx` or `python`). Since you don't own the official library, the push fails.
+</quiz>
+
+<quiz>
+Do others need to log in to `docker pull` your public images?
+- [ ] Yes, they need your password.
+- [x] No, public images are accessible to everyone anonymously.
+- [ ] Yes, but they can use any account.
+- [ ] Only if they are in your "Friends" list.
+
+Public repositories are open to the world. `docker pull` works without authentication for public images (subject to rate limits).
+</quiz>
+
+<quiz>
+How do you remove your saved credentials from the local machine?
+- [x] `docker logout`
+- [ ] `docker disconnect`
+- [ ] `docker signout`
+- [ ] Delete Docker.
+
+`docker logout` removes the authentication token from `~/.docker/config.json`.
+</quiz>
 
 {% include-markdown ".partials/subscribe-guides.md" %}

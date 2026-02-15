@@ -1,5 +1,6 @@
 ---
-title: "How to create a multi stage Dockerfile"
+title: "Multi-Stage Docker Builds"
+description: "Master the art of multi-stage Docker builds to create smaller, more secure, and efficient Docker images by separating build and runtime environments."
 date: 2024-07-01
 ---
 
@@ -49,5 +50,45 @@ docker build -t 2-stage:latest .
 ```
 
 ---
+
+## Important Tips
+
+> [!TIP]
+> **Naming Stages**: Give your stages names (e.g., `AS builder`) so you can easily reference them in `COPY --from=builder` commands. This makes the Dockerfile much more readable than using `COPY --from=0`.
+
+> [!NOTE]
+> **Security**: Multi-stage builds improve security by ensuring that build tools, source code, and secrets used during the build process are not included in the final production image.
+
+## 🧠 Quick Quiz — Multi-Stage Builds
+
+<quiz>
+What is the main benefit of multi-stage builds?
+- [x] drastically reduced final image size.
+- [ ] faster build times.
+- [ ] ability to run multiple apps in one container.
+- [ ] it allows you to use Windows and Linux together.
+
+By copying only the necessary artifacts (compiled binaries, static files) from the build stage to the runtime stage, you discard all the heavy build tools and source code.
+</quiz>
+
+<quiz>
+How do you copy a file from a previous stage named `builder`?
+- [x] `COPY --from=builder /source /dest`
+- [ ] `CP builder:/source /dest`
+- [ ] `FROM builder COPY /source /dest`
+- [ ] `IMPORT /source FROM builder`
+
+The `--from` flag in the `COPY` instruction specifies the source stage.
+</quiz>
+
+<quiz>
+Which stage determines the final image?
+- [x] The last stage in the Dockerfile.
+- [ ] The first stage.
+- [ ] All stages are combined.
+- [ ] The one with the `FINAL` instruction.
+
+Docker executes instructions from top to bottom. The image resulting from the final `FROM` instruction is the one that gets tagged and saved.
+</quiz>
 
 {% include-markdown ".partials/subscribe-guides.md" %}

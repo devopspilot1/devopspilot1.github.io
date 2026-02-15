@@ -53,25 +53,33 @@ This architecture ensures:
 2.  **No CIDR Conflicts**: Since there is no VPC peering, you don't need to worry about IP range overlaps.
 3.  **Security**: You explicitly allow which projects can connect to your CloudSQL instance.
 
-```mermaid
-graph LR
-    subgraph Consumer_Project [Consumer Project (Your Project)]
-        subgraph VPC [Your VPC Network]
-            Client[Client VM]
-            PSC_Endpoint[PSC Endpoint <br/>(Forwarding Rule) <br/> 10.0.0.5]
-        end
-    end
-
-    subgraph Producer_Project [Google Managed Project (Producer)]
-        subgraph Producer_VPC [Producer VPC]
-            Service_Attachment[Service Attachment]
-            CloudSQL[CloudSQL Instance <br/> (Postgres 17)]
-        end
-    end
-
-    Client -->|Connects to IP| PSC_Endpoint
-    PSC_Endpoint -.->|PSC Connection| Service_Attachment
-    Service_Attachment --> CloudSQL
+```
+                    ┌──────────────────────┐
+                    │      Client VM       │
+                    │   (In Consumer VPC)  │
+                    └──────────┬───────────┘
+                               │
+                               │ (1) Connect to IP
+                               ▼
+                    ┌──────────────────────┐
+                    │    PSC Endpoint      │
+                    │  (Forwarding Rule)   │
+                    │      10.0.0.5        │
+                    └──────────┬───────────┘
+                               │
+                               │ (2) PSC Connection
+                               ▼
+                    ┌──────────────────────┐
+                    │  Service Attachment  │
+                    │    (In Producer)     │
+                    └──────────┬───────────┘
+                               │
+                               │ (3) Traffic Forwarded
+                               ▼
+                    ┌──────────────────────┐
+                    │  CloudSQL Instance   │
+                    │    (Postgres 17)     │
+                    └──────────────────────┘
 ```
 
 ## Step 1: Network Setup

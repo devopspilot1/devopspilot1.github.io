@@ -71,6 +71,15 @@ Follow this order for best results 👇
 * Push images to DockerHub / Artifactory
 * Deploy applications using Jenkins pipelines
 
+### 🟤 Real-World Projects
+
+* **Java Docker Project**: A complete end-to-end CI/CD pipeline journey.
+    * Build & Test Java App
+    * Dockerize & Push to Registry
+    * Deploy to Dev/QA/Prod
+    * Integrate SonarQube & Anchore
+    * Deploy to Kubernetes
+
 ### 🔴 Advanced Topics
 
 * Replaying pipelines

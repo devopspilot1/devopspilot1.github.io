@@ -1,5 +1,6 @@
 ---
-title: "Pull nginx docker image from dockerhub, tag and push to your private repository in dockerhub account"
+title: "Push Docker Image to Private Repository"
+description: "A step-by-step guide on how to tag and push a Docker image to a private repository on Docker Hub."
 date: 2024-07-01
 ---
 
@@ -130,5 +131,45 @@ devopspilot1/private-nginx   latest    89da1fb6dcb9   2 days ago   187MB
 ```
 
 ---
+
+## Important Tips
+
+> [!TIP]
+> **Authentication**: You MUST run `docker login` to push to or pull from a private repository. The credentials are stored locally in `~/.docker/config.json`.
+
+> [!NOTE]
+> **Free Tier**: Docker Hub's free tier allows for one private repository. If you need more, you'll need to upgrade or use another registry (like ECR, GCR, or ACR).
+
+## 🧠 Quick Quiz — Private Repositories
+
+<quiz>
+What command creates a link between a local image and a remote repository?
+- [x] `docker tag`
+- [ ] `docker link`
+- [ ] `docker connect`
+- [ ] `docker bind`
+
+`docker tag source_image:tag target_image:tag` creates an alias/tag that points to the same image ID.
+</quiz>
+
+<quiz>
+Why do you need to rename/tag your image as `username/repo:tag` before pushing to Docker Hub?
+- [x] Docker Hub uses the `username` to route the image to the correct account.
+- [ ] It's just a convention, not a requirement.
+- [ ] To encrypt the image.
+- [ ] To compress the image.
+
+Without the `username/` prefix, Docker assumes it's an official library image (like `nginx` or `ubuntu`) and will deny the push as you don't own those.
+</quiz>
+
+<quiz>
+What happens if you try to `docker pull` a private image without logging in?
+- [x] Access Denied / Image not found.
+- [ ] It downloads but you can't run it.
+- [ ] It asks for a password immediately.
+- [ ] It pulls an older public version.
+
+Docker treats private repositories as non-existent to unauthorized users, often returning "manifest unknown" or "not found" errors.
+</quiz>
 
 {% include-markdown ".partials/subscribe-guides.md" %}

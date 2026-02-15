@@ -1,5 +1,6 @@
 ---
-title: "How to write a dockerfile for installing openjdk15"
+title: "Install OpenJDK in Docker"
+description: "Learn multiple approaches to installing OpenJDK 15 in a Docker image, from basic installation to optimized multi-stage builds."
 date: 2024-07-01
 ---
 
@@ -160,5 +161,45 @@ docker images
 Now we can see, the size of the docker image is reduced very much.
 
 ---
+
+## Important Tips
+
+> [!TIP]
+> **Combine Commands**: To reduce image size, combine related commands into a single `RUN` instruction (using `&&`). This prevents temporary files from persisting in intermediate layers.
+
+> [!NOTE]
+> **Base Image**: Choosing a smaller base image (like `alpine`) is the most effective way to reduce the final image size.
+
+## 🧠 Quick Quiz — Docker Optimization
+
+<quiz>
+Why is it better to download and extract a file in a single `RUN` command rather than two separate ones?
+- [x] Docker creates a layer for each command. Even if you verify delete the file in the next layer, the space is still consumed in the previous layer history.
+- [ ] It makes the build slower.
+- [ ] It uses less CPU.
+- [ ] It is required by law.
+
+Deleting a file in a subsequent layer only "hides" it from the final view; the data remains in the underlying image layer, increasing the total size.
+</quiz>
+
+<quiz>
+Which base image is known for being extremely lightweight and security-focused?
+- [x] Alpine Linux
+- [ ] Ubuntu
+- [ ] CentOS
+- [ ] Fedora
+
+Alpine Linux images are typically around 5MB, compared to 100MB+ for others, making them ideal for containerization.
+</quiz>
+
+<quiz>
+What instruction sets the environment variable `PATH` in a Dockerfile?
+- [x] `ENV`
+- [ ] `SET`
+- [ ] `EXPORT`
+- [ ] `VAR`
+
+The `ENV` instruction sets environment variables that persist when a container is run from the image.
+</quiz>
 
 {% include-markdown ".partials/subscribe-guides.md" %}

@@ -176,6 +176,36 @@ Which of the following statements is true?
 The Docker image is the static, read-only template, while the container is the dynamic, running instance created from that image.
 </quiz>
 
+<quiz>
+When you delete a Docker container, what happens to the image it was created from?
+- [x] Nothing, the image remains unchanged.
+- [ ] The image is also deleted.
+- [ ] The image becomes corrupted.
+- [ ] The image is moved to the Trash.
+
+Images are immutable templates. Deleting a running instance (container) does not affect the template (image) used to create it.
+</quiz>
+
+<quiz>
+Can you create multiple containers from a single Docker image?
+- [x] Yes, as many as your system resources allow.
+- [ ] No, only one container per image.
+- [ ] Yes, but only up to 3 instances.
+- [ ] No, you must clone the image first.
+
+A single image can act as a blueprint to launch any number of identical containers, just like a single class can instantiate multiple objects in programming.
+</quiz>
+
+---
+
+## Important Tips
+
+> [!TIP]
+> **Immutability**: Think of Docker images like a CD-ROM or a read-only ISO file. You can't change the data on it once it's burned (built). To change the application, you must build a *new* image.
+
+> [!NOTE]
+> **Layers**: Docker uses a layered file system. When you start a container, Docker simply adds a thin, writable layer on top of the read-only image layers. This makes starting containers extremely fast and storage-efficient.
+
 ---
 
 ### 📝 Want More Practice?
