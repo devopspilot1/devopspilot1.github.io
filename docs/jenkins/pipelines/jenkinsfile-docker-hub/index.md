@@ -169,7 +169,7 @@ sudo systemctl restart jenkins
 
 - [How to write a dockerfile for running a java application (\*.war) in Apache tomcat webserver](../../../docker/dockerfiles/run-war-in-tomcat/index.md)
 
-## 🧠 Quick Quiz — Docker Integration
+## Quick Quiz
 
 <quiz>
 Which method is used in the Docker Pipeline plugin to authenticate with Docker Hub (or other registries) and perform image operations?
@@ -179,6 +179,26 @@ Which method is used in the Docker Pipeline plugin to authenticate with Docker H
 - [ ] `docker.credentials()`
 
 `docker.withRegistry()` accepts the registry URL and credential ID, wrapping the code block to authenticate and push/pull images within that context.
+</quiz>
+
+<quiz>
+How can you push an image with a specific tag (e.g., "latest") using the Docker plugin?
+- [x] `docker.image("name:tag").push("latest")`
+- [ ] `docker push name:latest`
+- [ ] `image.tag("latest").push()`
+- [ ] `docker.latest()`
+
+The `.push("tag")` method on the image object allows you to push the same image with a different tag, such as "latest".
+</quiz>
+
+<quiz>
+What is a common reason for "permission denied" errors when Jenkins tries to connect to the Docker daemon?
+- [x] The `jenkins` user is not part of the `docker` group
+- [ ] Docker is not installed
+- [ ] Jenkins is down
+- [ ] The network is disconnected
+
+By default, the Docker daemon socket is owned by `root`. Adding the `jenkins` user to the `docker` group grants it permission to interact with the daemon.
 </quiz>
 
 {% include-markdown ".partials/subscribe-guides.md" %}

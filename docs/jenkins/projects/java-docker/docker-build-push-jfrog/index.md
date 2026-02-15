@@ -59,11 +59,57 @@ pipeline {
 }
 ```
 
-## Key Concepts
+## Detailed Explanation
 
--   **`docker.build`**: Builds the image tagged with the full registry path.
--   **`docker.withRegistry`**: Handles authentication to JFrog Artifactory using the credentials stored in Jenkins.
+### Environment Block
+The `environment` block defines global variables accessible by all stages.
+- `DOCKER_REGISTRY`: The URL of your JFrog Artifactory registry.
+- `IMAGE_TAG`: A unique tag for each build (`1.${BUILD_NUMBER}`) to ensure traceability.
+
+### Stages
+- **Build**: Compiles the Java application using Maven.
+- **Docker Build**: Uses the Docker Pipeline plugin to build the image.
+- **Docker Push**: Authenticates with JFrog using `jfrog-credential` and pushes the tagged image.
+
+### Important Tips
+> [!TIP]
+> Always use a unique tag (like `$BUILD_NUMBER`) for your docker images. Using `latest` makes it hard to rollback or know exactly what code is running.
 
 [Next Step: Deploy to Environments](../docker-deploy-jfrog/index.md)
+
+
+## Quick Quiz
+
+## Quick Quiz
+
+<quiz>
+Which Docker Pipeline plugin method is used to build a Docker image?
+- [x] `docker.build()`
+- [ ] `docker.create()`
+- [ ] `docker.run()`
+- [ ] `docker.compile()`
+
+`docker.build()` is the specific method provided by the Docker Pipeline plugin to build an image from a Dockerfile.
+</quiz>
+
+<quiz>
+Which Docker Pipeline plugin method is used to authenticate with a Docker registry?
+- [x] `docker.withRegistry()`
+- [ ] `docker.login()`
+- [ ] `docker.auth()`
+- [ ] `withCredentials()`
+
+`docker.withRegistry()` handles authentication to a specified registry (like Docker Hub or Artifactory) using Jenkins credentials.
+</quiz>
+
+<quiz>
+What does the `docker.image("image:tag").push()` method do?
+- [x] Pushes the Docker image to the registry
+- [ ] Builds the image
+- [ ] Deletes the image
+- [ ] Runs the image
+
+This method pushes the specific image and tag to the configured registry.
+</quiz>
 
 {% include-markdown ".partials/subscribe-guides.md" %}

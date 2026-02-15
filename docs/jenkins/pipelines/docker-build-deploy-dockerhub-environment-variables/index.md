@@ -135,7 +135,7 @@ By using these variables (e.g., `${IMAGE_NAME}`), we avoid hardcoding values in 
 
 In the `sh` steps, we reference these variables using the standard Groovy string interpolation `${VARIABLE_NAME}`.
 
-## 🧠 Quick Quiz — Environment Variables
+## Quick Quiz
 
 <quiz>
 What is the primary benefit of using the `environment` block in a Jenkinsfile?
@@ -145,6 +145,26 @@ What is the primary benefit of using the `environment` block in a Jenkinsfile?
 - [ ] To define the agent type
 
 The `environment` block allows you to define variables in one place and reuse them throughout the pipeline, making it easier to manage and update configurations.
+</quiz>
+
+<quiz>
+How do you interpolate a variable in a Groovy string (double quotes)?
+- [x] `${VARIABLE}`
+- [ ] `$(VARIABLE)`
+- [ ] `%VARIABLE%`
+- [ ] `{{VARIABLE}}`
+
+Groovy GStrings allow variable interpolation using the `${}` syntax (not to be confused with shell variable expansion `$VAR`).
+</quiz>
+
+<quiz>
+What is the scope of variables defined in the top-level `environment` block?
+- [x] Global to the entire pipeline
+- [ ] Local to the first stage only
+- [ ] Local to the agent
+- [ ] Only available in the post block
+
+Variables defined at the top level of the `pipeline` block are accessible in all stages and steps within that pipeline.
 </quiz>
 
 {% include-markdown ".partials/subscribe-guides.md" %}

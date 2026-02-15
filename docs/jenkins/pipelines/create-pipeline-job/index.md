@@ -97,7 +97,7 @@ Echo commands from stages are printed to console output
 
 ![Jenkins](../../../images/jenkins-pipeline-echo-hello-world.png)
 
-## 🧠 Quick Quiz — Pipeline Creation
+## Quick Quiz
 
 <quiz>
 Which method of defining a Jenkins pipeline is recommended for real production projects?
@@ -107,6 +107,26 @@ Which method of defining a Jenkins pipeline is recommended for real production p
 - [ ] Copy from another job
 
 Pipeline script from SCM allows you to version control your pipeline definition along with your application code, which is a best practice for production.
+</quiz>
+
+<quiz>
+Which file name is standard for a declarative pipeline script in the root of your repository?
+- [x] Jenkinsfile
+- [ ] pipeline.groovy
+- [ ] build.jenkins
+- [ ] Jenkins.yaml
+
+Jenkins looks for a file named `Jenkinsfile` by default when configuring a "Pipeline script from SCM".
+</quiz>
+
+<quiz>
+What is a key advantage of "Pipeline as Code"?
+- [x] It allows the build process to be versioned and reviewed like any other code
+- [ ] It makes the UI look better
+- [ ] It requires less memory
+- [ ] It runs faster than freestyle jobs
+
+Treating infrastructure and build logic as code brings the benefits of version control, code review, and audit trails to your CI/CD process.
 </quiz>
 
 {% include-markdown ".partials/subscribe-guides.md" %}

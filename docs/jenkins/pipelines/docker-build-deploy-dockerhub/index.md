@@ -140,7 +140,7 @@ The deployment stages (Dev, QA, Prod) use the `ssh-agent` or `ssh-steps` plugin 
 -   [Jenkins Pipeline Docker Global Variable](https://www.jenkins.io/doc/book/pipeline/docker/)
 -   [SSH Steps Plugin](https://plugins.jenkins.io/ssh-steps/)
 
-## 🧠 Quick Quiz — Docker Push
+## Quick Quiz
 
 <quiz>
 Why is it recommended to use `docker.withRegistry()` or `withCredentials` when pushing Docker images in a pipeline?
@@ -150,6 +150,26 @@ Why is it recommended to use `docker.withRegistry()` or `withCredentials` when p
 - [ ] To validate the Dockerfile
 
 Using these methods ensures that sensitive credentials (username and password) are injected securely into the build context and masked in the logs, preventing them from being exposed.
+</quiz>
+
+<quiz>
+Which command is used to authenticate with a Docker registry via the command line?
+- [x] `docker login`
+- [ ] `docker auth`
+- [ ] `docker signin`
+- [ ] `docker connect`
+
+`docker login` reads credentials from stdin (when used with `--password-stdin`) or a config file to authenticate with a registry.
+</quiz>
+
+<quiz>
+Why includes `docker logout` at the end of the script?
+- [x] To remove the cached credentials from the agent, improving security
+- [ ] To stop the docker daemon
+- [ ] To remove the image
+- [ ] To fail the build
+
+Logging out ensures that the authentication token/credentials are removed from the `~/.docker/config.json` on the build agent, preventing unauthorized access in subsequent builds.
 </quiz>
 
 {% include-markdown ".partials/subscribe-guides.md" %}

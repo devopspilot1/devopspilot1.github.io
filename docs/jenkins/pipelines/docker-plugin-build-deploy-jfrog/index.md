@@ -143,7 +143,7 @@ This pipeline demonstrates a complete workflow:
 
 This approach ensures that the exact same artifact (Docker image) that was built and verified is what gets deployed to all environments.
 
-## 🧠 Quick Quiz — Artifact Consistency
+## Quick Quiz
 
 <quiz>
 Why is it important to use the same Docker image tag across all stages of the pipeline?
@@ -153,6 +153,26 @@ Why is it important to use the same Docker image tag across all stages of the pi
 - [ ] It is required by Docker
 
 Using a unique tag for each build (like `1.${BUILD_NUMBER}`) allows you to trace exactly which version of the code is running in any environment.
+</quiz>
+
+<quiz>
+In this pipeline, where are the Docker images stored?
+- [x] JFrog Artifactory
+- [ ] Docker Hub
+- [ ] Amazon ECR
+- [ ] Google Container Registry
+
+The pipeline is configured to push images to a JFrog Artifactory registry (`vigneshsweekaran.jfrog.io`).
+</quiz>
+
+<quiz>
+When using `docker.withRegistry(url, credentialsId)`, what does the second argument represent?
+- [x] The ID of the credentials stored in Jenkins
+- [ ] The username
+- [ ] The password
+- [ ] The API key
+
+It refers to the unique ID assigned to the credential object within Jenkins' credential store, which allows the plugin to retrieve the actual username/password securely.
 </quiz>
 
 {% include-markdown ".partials/subscribe-guides.md" %}

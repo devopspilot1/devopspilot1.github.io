@@ -138,7 +138,7 @@ sh "docker rm hello-world | true"
 - [How to create pipeline job in Jenkins](../create-pipeline-job/index.md)
 - [How to write a dockerfile for running a java application (*.war) in Apache tomcat webserver](../../../docker/dockerfiles/run-war-in-tomcat/index.md)
 
-## 🧠 Quick Quiz — Jfrog Artifactory Integration
+## Quick Quiz
 
 <quiz>
 Which Jenkins pipeline method is used to authenticate with a custom Docker registry like JFrog Artifactory?
@@ -148,6 +148,26 @@ Which Jenkins pipeline method is used to authenticate with a custom Docker regis
 - [ ] `docker.login()`
 
 `docker.withRegistry()` is the standard method in the Docker Pipeline plugin to provide registry URL and credentials.
+</quiz>
+
+<quiz>
+What is the purpose of tagging an image with `${BUILD_NUMBER}`?
+- [x] To create a unique identifier for each build artifact, enabling traceability
+- [ ] To make the image smaller
+- [ ] To encrypt the image
+- [ ] To speed up the build
+
+Unique tags prevent overwriting previous build artifacts and allow you to deploy specific versions of your application.
+</quiz>
+
+<quiz>
+Where do you configure the JFrog credentials that are used in the pipeline?
+- [x] Jenkins Credentials Store
+- [ ] Use `environment` block to hardcode password
+- [ ] Dockerfile
+- [ ] Agent node
+
+Credentials should always be stored securely in the Jenkins Credentials subsystem and referenced by their ID to avoid exposing secrets in the Jenkinsfile.
 </quiz>
 
 {% include-markdown ".partials/subscribe-guides.md" %}

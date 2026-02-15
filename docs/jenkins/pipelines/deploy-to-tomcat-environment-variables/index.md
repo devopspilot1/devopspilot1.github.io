@@ -102,7 +102,7 @@ This makes it easy to change the context path or war file location in one place 
 
 -   [Jenkins Pipeline environment Directive](https://www.jenkins.io/doc/book/pipeline/syntax/#environment)
 
-## 🧠 Quick Quiz — Environment Variables
+## Quick Quiz
 
 <quiz>
 How do you access a custom environment variable defined in the `environment` block within a pipeline script?
@@ -112,6 +112,26 @@ How do you access a custom environment variable defined in the `environment` blo
 - [ ] `env.VARIABLE_NAME`
 
 While `$VARIABLE_NAME` often works in shell scripts, `${env.VARIABLE_NAME}` is the robust, standard way to access Groovy variables injected into the environment map in a declarative pipeline.
+</quiz>
+
+<quiz>
+Where do you define global environment variables that are accessible to all stages in a declarative pipeline?
+- [x] In the `environment` block at the top level of the `pipeline`
+- [ ] In the `parameters` block
+- [ ] Inside each `stage`
+- [ ] In the `options` block
+
+Variables defined in the top-level `environment` block are global and available to all steps and stages in the pipeline.
+</quiz>
+
+<quiz>
+Why is it beneficial to use environment variables for paths and credentials in a Jenkinsfile?
+- [x] It prevents hardcoding, making the pipeline cleaner, easier to maintain, and more secure
+- [ ] It makes the pipeline run faster
+- [ ] It is required by Java
+- [ ] It allows you to use more plugins
+
+Decoupling configuration data from logic via environment variables improves maintainability and allows for easier changes without modifying the core pipeline logic.
 </quiz>
 
 {% include-markdown ".partials/subscribe-guides.md" %}

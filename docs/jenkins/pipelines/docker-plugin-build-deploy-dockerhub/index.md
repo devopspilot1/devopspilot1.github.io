@@ -132,7 +132,7 @@ pipeline {
 
 Using these methods provides better readability and abstraction than raw shell commands.
 
-## 🧠 Quick Quiz — Docker Plugin
+## Quick Quiz
 
 <quiz>
 Which method is used to authenticate with a Docker registry using the Docker Pipeline plugin?
@@ -142,6 +142,26 @@ Which method is used to authenticate with a Docker registry using the Docker Pip
 - [ ] `docker.credentials()`
 
 `docker.withRegistry(url, credentialsId)` is the standard method to wrap Docker operations that require authentication.
+</quiz>
+
+<quiz>
+What kind of object does `docker.build("image:tag")` return?
+- [x] A DockerImage object that allows further operations like pushing
+- [ ] A boolean indicating success
+- [ ] A string containing the image ID
+- [ ] Nothing (void)
+
+It returns a wrapper object (typically assigned to a variable) that has methods like `.push()` to interact with that specific built image.
+</quiz>
+
+<quiz>
+How do you push an image using the Docker plugin?
+- [x] `image.push()`
+- [ ] `docker push image`
+- [ ] `push(image)`
+- [ ] `image.upload()`
+
+Once you have an image object from `docker.build` or `docker.image`, you call its `.push()` method, typically inside a `withRegistry` block.
 </quiz>
 
 {% include-markdown ".partials/subscribe-guides.md" %}

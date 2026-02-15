@@ -46,7 +46,7 @@ It will compile the java code and generate the package in **targets** folder.
 
 - [How to create pipeline job in Jenkins](../create-pipeline-job/index.md)
 
-## 🧠 Quick Quiz — Maven Build
+## Quick Quiz
 
 <quiz>
 Which block in a declarative pipeline is used to auto-install and configure tools like Maven?
@@ -56,6 +56,26 @@ Which block in a declarative pipeline is used to auto-install and configure tool
 - [ ] `parameters`
 
 The `tools` directive in the Declarative Pipeline allows you to automatically install and put tools like Maven, JDK, etc., on the PATH.
+</quiz>
+
+<quiz>
+What Maven command is commonly used to clean the target directory and package the application?
+- [x] `mvn clean package`
+- [ ] `mvn build`
+- [ ] `mvn create`
+- [ ] `mvn install package`
+
+`mvn clean` removes the `target` directory, and `package` compiles the code and bundles it into its distributable format (e.g., JAR/WAR).
+</quiz>
+
+<quiz>
+In a declarative pipeline, inside which block are shell commands (like `sh`) executed?
+- [x] `steps`
+- [ ] `stages`
+- [ ] `tools`
+- [ ] `agent`
+
+The `steps` block defines the actual tasks to be executed within a `stage`.
 </quiz>
 
 {% include-markdown ".partials/subscribe-guides.md" %}

@@ -131,7 +131,7 @@ Parameters passed to `Deploy to container` plugin definition.
 
 - [How to deploy the java application to Tomcat 9 webserver using maven](../../../webserver/tomcat/maven-deploy/index.md)
 
-## 🧠 Quick Quiz — Tomcat Deployment
+## Quick Quiz
 
 <quiz>
 Which plugin is commonly used in Jenkins to deploy a WAR file to a Tomcat container?
@@ -141,6 +141,26 @@ Which plugin is commonly used in Jenkins to deploy a WAR file to a Tomcat contai
 - [ ] Copy Artifact
 
 The `Deploy to container` plugin allowed Jenkins to deploy a WAR file to a running Tomcat container (though modern approaches often prefer Docker/Kubernetes).
+</quiz>
+
+<quiz>
+What user role is typically required in Tomcat's `tomcat-users.xml` for the deployer user?
+- [x] `manager-script`
+- [ ] `admin`
+- [ ] `root`
+- [ ] `user`
+
+The `manager-script` role allows the user to access the text-based manager interface, which the plugin uses to deploy applications.
+</quiz>
+
+<quiz>
+What does the `contextPath` parameter define in the deployment step?
+- [x] The URL path where the application will be accessible (e.g., /myapp)
+- [ ] The file path on the server
+- [ ] The database connection string
+- [ ] The Jenkins workspace path
+
+The context path determines the URL endpoint for the deployed web application (e.g., `http://server:8080/contextPath`).
 </quiz>
 
 {% include-markdown ".partials/subscribe-guides.md" %}

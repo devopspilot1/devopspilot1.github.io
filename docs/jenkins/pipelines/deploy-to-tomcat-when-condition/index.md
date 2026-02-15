@@ -96,7 +96,7 @@ This ensures that only the selected environment receives the deployment, skippin
 -   [Jenkins Pipeline when Directive](https://www.jenkins.io/doc/book/pipeline/syntax/#when)
 -   [Jenkins Pipeline Parameters](https://www.jenkins.io/doc/book/pipeline/syntax/#parameters)
 
-## 🧠 Quick Quiz — Conditional Execution
+## Quick Quiz
 
 <quiz>
 Which directive is used to skip a stage unless a specific condition is met?
@@ -106,6 +106,26 @@ Which directive is used to skip a stage unless a specific condition is met?
 - [ ] `validate`
 
 The `when` directive allows you to define conditions that must be met for the stage to execute; otherwise, the stage is skipped.
+</quiz>
+
+<quiz>
+Which parameter type allows users to select a value from a pre-defined list in Jenkins?
+- [x] `choice`
+- [ ] `string`
+- [ ] `boolean`
+- [ ] `list`
+
+The `choice` parameter renders a dropdown menu in the "Build with Parameters" screen, restricting user input to valid options.
+</quiz>
+
+<quiz>
+If the condition specified in the `when` block evaluates to false, what happens to the stage?
+- [x] The stage is skipped, and the pipeline continues to the next stage
+- [ ] The pipeline fails immediately
+- [ ] The pipeline waits until the condition becomes true
+- [ ] The stage runs anyway but produces a warning
+
+When a stage is skipped due to a `when` condition, Jenkins marks it as "Skipped" (often greyed out in the UI) and proceeds to execute the rest of the pipeline.
 </quiz>
 
 {% include-markdown ".partials/subscribe-guides.md" %}

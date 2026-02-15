@@ -88,7 +88,7 @@ The `post` block with `always` ensures that `deleteDir()` is called after the pi
 -   [Jenkins Pipeline Options](https://www.jenkins.io/doc/book/pipeline/syntax/#options)
 -   [Deploy to container Plugin](https://plugins.jenkins.io/deploy/)
 
-## 🧠 Quick Quiz — Pipeline Stages
+## Quick Quiz
 
 <quiz>
 In a declarative pipeline, how are stages executed by default?
@@ -98,6 +98,26 @@ In a declarative pipeline, how are stages executed by default?
 - [ ] Reverse order
 
 Unless `parallel` is explicitly used, stages in a declarative pipeline are executed one after another in the order they are defined.
+</quiz>
+
+<quiz>
+Which `options` directive limits the total time a build can run before being aborted?
+- [x] `timeout`
+- [ ] `limit`
+- [ ] `duration`
+- [ ] `wait`
+
+The `timeout(time: ..., unit: ...)` option ensures that a build doesn't hang indefinitely by terminating it after the specified duration.
+</quiz>
+
+<quiz>
+What is the purpose of the `post { always { ... } }` block?
+- [x] To execute steps regardless of the build's success or failure (e.g., cleanup)
+- [ ] To run steps only if the build succeeds
+- [ ] To run steps only if the build fails
+- [ ] To run steps before the build starts
+
+The `always` condition in the `post` section guarantees that its steps (like `deleteDir()`) run at the end of the pipeline run, no matter what happened during the build.
 </quiz>
 
 {% include-markdown ".partials/subscribe-guides.md" %}
