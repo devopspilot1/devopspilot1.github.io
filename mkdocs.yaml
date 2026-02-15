@@ -300,6 +300,7 @@ nav:
         - Regional External Application Load Balancer with Cloud Run: cloud/gcp/tutorials/regional-external-lb-cloudrun/index.md
         - Regional External LB with Private Cloud Run and SSL: cloud/gcp/tutorials/regional-lb-cloudrun-private-ssl/index.md
         - Python Flask CRUD with CloudSQL PSC and IAM: cloud/gcp/tutorials/cloudrun-python-cloudsql-psc-iam/index.md
+        - Create Private GKE Autopilot Cluster: cloud/gcp/tutorials/create-gke-autopilot-private/index.md
       - Projects:
         - Overview: cloud/gcp/projects/index.md
         - Deploy Python App to Cloud Run: cloud/gcp/projects/deploy-python-cloud-run/index.md
