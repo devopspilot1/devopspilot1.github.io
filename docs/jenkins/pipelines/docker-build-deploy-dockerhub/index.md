@@ -7,7 +7,7 @@ In this tutorial, we will create a Jenkins declarative pipeline that builds a Ja
 
 ## Jenkinsfile
 
-Here is the complete Jenkinsfile. You can find the source code in the [GitHub repository](https://github.com/vigneshsweekaran/hello-world/blob/main/cicd/20-Jenkinsfile-docker).
+Here is the complete Jenkinsfile. You can find the source code in the [GitHub repository](https://github.com/vigneshsweekaran/hello-world/blob/main/cicd/20-Jenkinsfile-docker-build-deploy-dockerhub).
 
 ```groovy
 pipeline {

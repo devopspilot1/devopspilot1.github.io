@@ -148,7 +148,23 @@ nav:
       - Deploy to Multiple Environments: jenkins/pipelines/deploy-to-tomcat-multiple-environments/index.md
       - Deploy with 'when' Condition: jenkins/pipelines/deploy-to-tomcat-when-condition/index.md
       - Deploy with Environment Variables: jenkins/pipelines/deploy-to-tomcat-environment-variables/index.md
-      - Deploy docker image to Multiple Environments: jenkins/pipelines/jenkinsfile-docker/index.md
+      - Deploy docker image to Multiple Environments: jenkins/pipelines/docker-build-deploy-dockerhub/index.md
+      - Docker with Environment Variables: jenkins/pipelines/docker-build-deploy-dockerhub-environment-variables/index.md
+      - Using Docker Pipeline Plugin: jenkins/pipelines/docker-plugin-build-deploy-dockerhub/index.md
+      - Build, Push to JFrog & Deploy: jenkins/pipelines/docker-plugin-build-deploy-jfrog/index.md
+    - Projects:
+      - Java Docker Project:
+        - Overview: jenkins/projects/java-docker/index.md
+        - Step 1 - Build & Push: jenkins/projects/java-docker/docker-build-push-jfrog/index.md
+        - Step 2 - Deploy Environments: jenkins/projects/java-docker/docker-deploy-jfrog/index.md
+        - Step 3 - Trigger Deployment: jenkins/projects/java-docker/docker-build-push-dev-repository-trigger-dev-deploy/index.md
+        - Step 4 - Multiple Repos: jenkins/projects/java-docker/docker-deploy-multiple-repository/index.md
+        - Step 5 - JFrog CLI: jenkins/projects/java-docker/docker-build-push-jf-cli/index.md
+        - Step 6 - Promotion: jenkins/projects/java-docker/docker-promotion-build-info/index.md
+        - Step 7 - SonarQube: jenkins/projects/java-docker/sonarqube-docker-build-push-deploy/index.md
+        - Step 8 - Anchore: jenkins/projects/java-docker/sonarqube-docker-build-push-anchore-deploy/index.md
+        - Step 9 - Kubernetes: jenkins/projects/java-docker/sonarqube-docker-build-push-anchore-deploy-to-kubernetes/index.md
+        - Step 10 - Shared Library: jenkins/projects/java-docker/docker-build-push-to-artifactory-condition-shared-library/index.md
     - Other Topics:
       - Overview: jenkins/other-topics/index.md
       - How to create a Job automatically using Seed Jenkins plugin and Job DSL script: jenkins/other-topics/job-dsl/index.md
