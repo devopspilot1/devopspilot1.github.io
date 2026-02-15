@@ -1,5 +1,6 @@
 ---
 title: "How to install plugins in Jenkins"
+description: "A guide on installing Jenkins plugins and a list of commonly used plugins for DevOps workflows."
 date: 2024-07-01
 ---
 
@@ -50,3 +51,25 @@ Click on **Availabe** tab and type the plugin name in search box, select the plu
 ![Jenkins](../../../images/jenkins-plugin-installation.png)
 
 ![Jenkins](../../../images/jenkins-plugin-install-success.png)
+
+---
+
+## Important Tips
+
+> [!TIP]
+> **Restarting**: While many plugins can be installed "without restart", some core plugins or updates require a restart to fully initialize. If a plugin acts weirdly after install, try `http://YOUR_JENKINS_URL/safeRestart`.
+
+> [!NOTE]
+> **Dependencies**: Jenkins handles plugin dependencies automatically. If you install "Blue Ocean", it will automatically pull in dozens of other required plugins.
+
+## 🧠 Quick Quiz — Plugin Management
+
+<quiz>
+How do you typically install a new plugin in Jenkins?
+- [ ] By manually copying `.hpi` files to the server's `plugins` folder (though possible, it's not the standard way).
+- [x] via "Manage Jenkins" -> "Plugins" -> "Available plugins" -> Search and Install.
+- [ ] By running `apt-get install jenkins-plugin-name`.
+- [ ] By editing the `config.xml` file directly.
+
+The standard and safest way is using the built-in Plugin Manager in the Web UI, which handles dependencies and updates for you.
+</quiz>

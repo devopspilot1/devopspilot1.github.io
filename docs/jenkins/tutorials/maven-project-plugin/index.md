@@ -78,6 +78,14 @@ Once the build is completed, the war file is created in Maven project Workspace 
 
 ---
 
+## Important Tips
+
+> [!TIP]
+> **Legacy Type**: The "Maven Project" job type is considered "legacy" by many in the Jenkins community. It is tightly coupled to Maven. For flexibility and modern best practices, prefer using "Pipeline" jobs (Jenkinsfile).
+
+> [!IMPORTANT]
+> **Settings.xml**: If your project requires a custom `settings.xml` (e.g., for a private Nexus/Artifactory), you can configure it in the "Build" section under "Advanced" settings.
+
 ## 🧠 Quick Quiz — Maven Projects
 
 <quiz>

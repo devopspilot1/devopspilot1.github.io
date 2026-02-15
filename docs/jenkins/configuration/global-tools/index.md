@@ -1,5 +1,6 @@
 ---
 title: "Global Tool Configurations"
+description: "Learn how to configure multiple versions of tools like Maven, JDK, and NodeJS in Jenkins Global Tool Configuration and usage in Jenkinsfile."
 date: 2024-07-01
 ---
 
@@ -35,7 +36,7 @@ Add the name and select the version 3.8.1 and click on save
 
 #### How to define maven in Jenkinsfile
 
-```
+```groovy
 tools {
     maven 'maven-3.6.3'
 }
@@ -67,7 +68,7 @@ Now click on **Add NodeJs** once again, give the name and select the required ve
 
 #### How to use nodejs in Jenkinsfile
 
-```
+```groovy
 tools {
     nodejs "nodejs-10.0.0"
 }
@@ -82,3 +83,25 @@ From the next build it will use the nodejs from that folder, it won't download e
 ![Jenkins](../../../images/jenkins-nodejs-installation.png)
 
 ![Jenkins](../../../images/jenkins-nodejs-installation-path.png)
+
+---
+
+## Important Tips
+
+> [!TIP]
+> **Name Consistency**: The **Name** you assign to a tool in Global Configuration (e.g., `maven-3.6.3`) is the **KEY**. You must use this exact string in your Jenkinsfile's `tools` block. A typo here will cause the pipeline to fail with a "Tool not found" error.
+
+> [!NOTE]
+> **Disk Space**: Each tool version is downloaded to every agent that runs a job requiring it. If you have many agents and many tool versions, this can consume significant disk space over time.
+
+## 🧠 Quick Quiz — Global Tools
+
+<quiz>
+What happens when you define a tool (like `maven 'maven-3.6.3'`) in the `tools` block of a Jenkinsfile?
+- [ ] Jenkins checks if Maven is installed on the agent's OS (e.g., `/usr/bin/maven`).
+- [x] Jenkins looks up the tool configuration by name, installs it (if missing), and adds it to the PATH for that build.
+- [ ] Jenkins ignores it if the agent is a Docker container.
+- [ ] Jenkins upgrades the controller's Maven version.
+
+The `tools` block is a powerful feature that allows Jenkins to auto-install and configure specific tool versions for a build, regardless of what is installed globally on the agent's OS.
+</quiz>

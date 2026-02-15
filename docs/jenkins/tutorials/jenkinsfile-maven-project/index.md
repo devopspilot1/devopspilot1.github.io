@@ -50,6 +50,14 @@ Finally, Jenkins creates a **hello-world-1.0-SNAPSHOT.war** file in the **/var/l
 
 ---
 
+## Important Tips
+
+> [!TIP]
+> **Workspace Cleanup**: Jenkins does not automatically clean the workspace after a build. The `target/` directory from a previous build might persist. Always use `mvn clean` to ensure a fresh build.
+
+> [!NOTE]
+> **Tool Availability**: This example assumes `mvn` is in the PATH of the agent. In a real-world pipeline, you should use the `tools` block to explicitly define which Maven version to use.
+
 ## 🧠 Quick Quiz — Maven Build
 
 <quiz>

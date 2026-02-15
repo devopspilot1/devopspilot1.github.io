@@ -367,6 +367,14 @@ If environment block is defined **within the stage block**, then those environme
 
 ---
 
+## Important Tips
+
+> [!TIP]
+> **Linter**: You can validate your Declarative Jenkinsfile syntax without running it by using the "Pipeline Linter" (SSHD or HTTP API) or the "Validate" button if you have the VS Code Jenkins Extension.
+
+> [!NOTE]
+> **Groovy**: While Declarative Pipelines use a simplified syntax, they are still Groovy under the hood. You can use `script { ... }` blocks to write raw Groovy code for complex logic if needed.
+
 ## 🧠 Quick Quiz — Jenkinsfile
 
 <quiz>

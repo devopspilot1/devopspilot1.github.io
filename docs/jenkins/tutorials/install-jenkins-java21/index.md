@@ -149,6 +149,14 @@ Jenkins runs on port **8080**.
 
 ---
 
+## Important Tips
+
+> [!TIP]
+> **LTS Version**: For production environments, always verify you are installing the LTS (Long Term Support) release of Jenkins, as it is more stable than the weekly release.
+
+> [!NOTE]
+> **Firewall**: If you cannot access Jenkins on port 8080, check if `ufw` (Uncomplicated Firewall) is enabled. You might need to run `sudo ufw allow 8080`.
+
 ## 🧠 Quick Quiz — Jenkins Setup
 
 <quiz>

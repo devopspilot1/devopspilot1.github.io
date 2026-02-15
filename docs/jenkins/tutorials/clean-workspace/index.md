@@ -59,6 +59,14 @@ This ensures that the next build run will have to check out a fresh copy of the 
 
 - [GitHub Repository](https://github.com/vigneshsweekaran/hello-world/blob/main/cicd/12-Jenkinsfile-maven-post-cleanup)
 
+## Important Tips
+
+> [!TIP]
+> **Disk Space**: If you don't clean the workspace, artifacts from previous builds (like large WAR files or Docker images) can accumulate and fill up the disk, causing the Jenkins node to crash.
+
+> [!NOTE]
+> **Troubleshooting**: Sometimes you might want to *keep* the workspace upon failure to debug issues. In that case, move `deleteDir()` to `success` block or wrap it in a condition.
+
 ## 🧠 Quick Quiz — Workspace Cleanup
 
 <quiz>

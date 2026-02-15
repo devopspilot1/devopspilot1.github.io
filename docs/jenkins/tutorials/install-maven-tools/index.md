@@ -20,6 +20,14 @@ Maven will be automatically installed on the Jenkins server in the first build
 
 ---
 
+## Important Tips
+
+> [!TIP]
+> **Tool Name**: The "Name" you give here (e.g., `maven-3.8.8`) is the exact string you must use in your Jenkinsfile `tools` block. If they don't match, the pipeline will fail.
+
+> [!IMPORTANT]
+> **Auto-Install**: The "Install automatically" checkbox is very powerful. It downloads Maven from Apache's servers on the fly. However, in restricted environments (no internet), you might need to point to a local path where Maven is pre-installed.
+
 ## 🧠 Quick Quiz — Global Tools
 
 <quiz>

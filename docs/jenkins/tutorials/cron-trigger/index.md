@@ -3,7 +3,7 @@ title: "Jenkinsfile to trigger the Jenkins Pipeline using Cron"
 date: 2024-07-20
 ---
 
-In Software Development, you want to execute the Integration test on a Nightly or weekly basis. To facilitate this requirement Jenkins has the Cron expression to trigger the pipeline on Specific Time and you can pass the CRON expression from Jenkinsfile
+In software development, integration tests are often executed on a nightly or weekly basis. Jenkins supports this requirement via Cron expressions, allowing you to schedule pipeline triggers at specific times directly from your Jenkinsfile.
 
 You can define the CRON syntax like **0 18 \* \* \*** which will trigger the Jenkins Pipeline at **6 PM daily**
 
@@ -118,6 +118,14 @@ index 0e3fd6f..24c5856 100644
 - [GitHub Repository](https://github.com/vigneshsweekaran/hello-world)
 
 ---
+
+## Important Tips
+
+> [!TIP]
+> **Timezone**: Jenkins Cron uses the time zone of the Jenkins controller by default. You can specify a timezone by prepending `TZ=Zone/City` in the cron string (e.g., `TZ=Asia/Kolkata 0 18 * * *`).
+
+> [!NOTE]
+> **H Syntax**: Jenkins supports a hash symbol `H` (e.g., `H 18 * * *`) to distribute the load. `H` tells Jenkins to pick a random minute within the hour, preventing all jobs from starting at the exact same second.
 
 ## 🧠 Quick Quiz — Cron Trigger
 

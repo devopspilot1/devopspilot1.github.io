@@ -176,6 +176,14 @@ Once the build is completed, it creates a war file in the path **/var/lib/jenkin
 
 ---
 
+## Important Tips
+
+> [!TIP]
+> **Agent Labels**: In a real-world scenario, you often restrict where the project runs using "Restrict where this project can be run" and filtering by label (e.g., `linux`, `java21`), similar to `agent { label 'linux' }` in Pipelines.
+
+> [!IMPORTANT]
+> **Freestyle Limitations**: Freestyle projects are hard to version control and audit compared to Pipelines (Jenkinsfile). They are generally not recommended for complex CD workflows anymore.
+
 ## 🧠 Quick Quiz — Freestyle Projects
 
 <quiz>

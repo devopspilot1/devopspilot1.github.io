@@ -53,6 +53,14 @@ Jenkins initial setup is complete, you should see the Jenkins Dashboard now
 
 ---
 
+## Important Tips
+
+> [!TIP]
+> **Suggested Plugins**: For beginners, always choose "Install suggested plugins". It installs the most commonly used plugins (Git, Pipeline, Ant, Gradle, Mailer, etc.) which covers 90% of use cases.
+
+> [!IMPORTANT]
+> **Admin User**: Do not lose the password for the first admin user you create. If you skip user creation and continue as "admin", the password remains the initial temporary password found in the log/file.
+
 ## 🧠 Quick Quiz — Initial Setup
 
 <quiz>

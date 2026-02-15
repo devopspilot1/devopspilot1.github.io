@@ -1,5 +1,6 @@
 ---
 title: "How to store credentials in Jenkins"
+description: "Learn how to securely store usernames, passwords, SSH keys, and tokens in Jenkins Credentials Manager."
 date: 2024-07-01
 ---
 
@@ -42,3 +43,25 @@ Click on **Add Credentials** Select **kind** as **SSH Username with private key*
 Click on **Add Credentials** Select **kind** as **Secret text** enter the token, id and click on **OK**
 
 ![Jenkins](../../../images/jenkins-token-credential.png)
+
+---
+
+## Important Tips
+
+> [!TIP]
+> **Use IDs**: Always assign a meaningful **ID** (e.g., `dockerhub-auth`) to your credentials. If you leave it blank, Jenkins assigns a random UUID, making your Jenkinsfiles hard to read and debug.
+
+> [!IMPORTANT]
+> **Scope**: "Global" credentials are available everywhere. For tighter security, consider using "Folder" scoped credentials if you have organized your jobs into folders, restricting access to specific teams.
+
+## 🧠 Quick Quiz — Credentials
+
+<quiz>
+Why should you store passwords and tokens in Jenkins Credentials instead of plain text in your pipeline script?
+- [ ] Because it looks professional.
+- [x] To prevent sensitive data from being exposed in source control and build logs.
+- [ ] Because Jenkins runs faster with stored credentials.
+- [ ] Because GitHub requires it.
+
+Storing secrets in Credentials Manager ensures they are encrypted at rest and masked in build logs (e.g., as `****`), preventing accidental leaks.
+</quiz>

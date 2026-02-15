@@ -131,6 +131,14 @@ index 0e3fd6f..707de7e 100644
 
 ---
 
+## Important Tips
+
+> [!TIP]
+> **Fan-out/Fan-in**: You can trigger multiple downstream jobs from one upstream job (Fan-out), or have one job wait for multiple upstream jobs (Fan-in) using valid syntax.
+
+> [!IMPORTANT]
+> **Loop Prevention**: Jenkins has built-in mechanisms to detect and prevent infinite loops where Job A triggers Job B, and Job B triggers Job A.
+
 ## 🧠 Quick Quiz — Upstream Triggers
 
 <quiz>

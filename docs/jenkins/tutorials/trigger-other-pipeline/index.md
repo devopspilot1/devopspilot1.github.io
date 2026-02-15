@@ -206,6 +206,14 @@ In the **08-hello-world-parent-pipeline** pipeline logs, you can see, that it ha
 
 ---
 
+## Important Tips
+
+> [!TIP]
+> **Parameters**: You can pass parameters to the downstream job using the `parameters` option: `build job: 'child-job', parameters: [string(name: 'ENV', value: 'prod')]`.
+
+> [!NOTE]
+> **Deadlocks**: Be careful when chaining too many jobs with `wait: true`. If you exhaust all available executors waiting for downstream jobs, you might create a deadlock where nothing can run.
+
 ## 🧠 Quick Quiz — Triggering Jobs
 
 <quiz>

@@ -106,6 +106,14 @@ Like this you can generate the Jenkinsfile code snippet for most of the plugin u
 
 ---
 
+## Important Tips
+
+> [!TIP]
+> **Syntax Validation**: The generator ensures that the syntax is correct for the installed version of your plugins. It's much safer than copying code from old StackOverflow answers.
+
+> [!NOTE]
+> **DIRECTIVE vs SNIPPET**: Use "Directive Generator" for structural blocks like `triggers`, `options`, `tools`. Use "Snippet Generator" for individual steps inside a `steps { ... }` block (like `sh`, `git`, `junit`).
+
 ## 🧠 Quick Quiz — Generator
 
 <quiz>

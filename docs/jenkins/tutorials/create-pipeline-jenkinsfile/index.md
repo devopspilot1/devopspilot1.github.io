@@ -209,6 +209,14 @@ When you clicked **Build Now**:
 
 ---
 
+## Important Tips
+
+> [!TIP]
+> **Single Source of Truth**: Storing the pipeline in SCM means your build logic is versioned alongside your application code. This allows you to roll back build logic just like you roll back code changes.
+
+> [!IMPORTANT]
+> **Branching**: When using "Pipeline script from SCM", Jenkins will check out the specific branch you configured. If you are using Multibranch Pipelines (advanced), Jenkins can automatically discover Jenkinsfiles in all branches.
+
 ## 🧠 Quick Quiz — Pipeline from SCM
 
 <quiz>

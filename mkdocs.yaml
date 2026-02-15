@@ -107,31 +107,31 @@ nav:
     - Overview: jenkins/index.md
     - Tutorials:
       - Overview: jenkins/tutorials/index.md
-      - How to install Jenkins with Java 21 on Ubuntu 24.04: jenkins/tutorials/install-jenkins-java21/index.md
-      - How to complete the initial setup after installing Jenkins: jenkins/tutorials/initial-setup/index.md
-      - How to create a Freestyle project in Jenkins to build a Maven Java project: jenkins/tutorials/freestyle-project-maven/index.md
-      - How to install the Maven plugin in Jenkins: jenkins/tutorials/install-maven-plugin/index.md
-      - How to install Maven using Jenkins Tools: jenkins/tutorials/install-maven-tools/index.md
-      - How to create a Maven project in Jenkins to build a Maven Java project: jenkins/tutorials/maven-project-plugin/index.md
-      - How to store a Github Token safely in Jenkins Credentials: jenkins/tutorials/github-token-credentials/index.md
-      - How to create a Maven project in Jenkins with Private Github Repository: jenkins/tutorials/maven-private-repo/index.md
-      - How to create a Pipeline in Jenkins using Pipeline Script: jenkins/tutorials/create-pipeline-script/index.md
-      - How to write a Jenkinsfile: jenkins/tutorials/write-jenkinsfile/index.md
-      - How to create a Pipeline in Jenkins using Jenkinsfile: jenkins/tutorials/create-pipeline-jenkinsfile/index.md
-      - Jenkinsfile to build a Java Maven Project: jenkins/tutorials/jenkinsfile-maven-project/index.md
-      - How to use the tools block in Jenkinsfile to refer to Maven: jenkins/tutorials/tools-block-jenkinsfile/index.md
-      - How to enable GitHub Webhook to trigger the Jenkins pipeline: jenkins/tutorials/github-webhook-trigger/index.md
-      - Jenkinsfile to trigger the Jenkins Pipeline using Poll SCM: jenkins/tutorials/poll-scm-trigger/index.md
-      - Jenkinsfile to trigger the Jenkins Pipeline using Cron: jenkins/tutorials/cron-trigger/index.md
-      - Jenkinsfile to trigger the Pipeline from the Upstream Pipeline: jenkins/tutorials/upstream-trigger/index.md
-      - Jenkinsfile to trigger other Jenkins Pipeline from the stage: jenkins/tutorials/trigger-other-pipeline/index.md
-      - Generate the code for Jenkinsfile using Declarative Directive Generator: jenkins/tutorials/declarative-generator/index.md
-      - How to Replay the Jenkins Pipeline: jenkins/tutorials/replay-pipeline/index.md
-      - How to use Options in Jenkinsfile: jenkins/tutorials/pipeline-options/index.md
-      - How to clean up the workspace after the build in Jenkinsfile: jenkins/tutorials/clean-workspace/index.md
-      - How to use String build parameters in Jenkinsfile: jenkins/tutorials/build-parameters-string/index.md
-      - How to use Choice build parameters in Jenkinsfile: jenkins/tutorials/build-parameters-choice/index.md
-      - Using Predefined Environment Variables: jenkins/tutorials/predefined-environment-variables/index.md
+      - Install Jenkins (Java 21): jenkins/tutorials/install-jenkins-java21/index.md
+      - Initial Setup: jenkins/tutorials/initial-setup/index.md
+      - Freestyle Project for Maven: jenkins/tutorials/freestyle-project-maven/index.md
+      - Install Maven Plugin: jenkins/tutorials/install-maven-plugin/index.md
+      - Install Maven (Global Tools): jenkins/tutorials/install-maven-tools/index.md
+      - Maven Project Type: jenkins/tutorials/maven-project-plugin/index.md
+      - GitHub Token Credentials: jenkins/tutorials/github-token-credentials/index.md
+      - Maven with Private Repo: jenkins/tutorials/maven-private-repo/index.md
+      - Create Pipeline (Script): jenkins/tutorials/create-pipeline-script/index.md
+      - Write a Jenkinsfile: jenkins/tutorials/write-jenkinsfile/index.md
+      - Create Pipeline (Jenkinsfile): jenkins/tutorials/create-pipeline-jenkinsfile/index.md
+      - Jenkinsfile for Maven: jenkins/tutorials/jenkinsfile-maven-project/index.md
+      - Tools Block in Jenkinsfile: jenkins/tutorials/tools-block-jenkinsfile/index.md
+      - GitHub Webhook Trigger: jenkins/tutorials/github-webhook-trigger/index.md
+      - Poll SCM Trigger: jenkins/tutorials/poll-scm-trigger/index.md
+      - Cron Trigger: jenkins/tutorials/cron-trigger/index.md
+      - Upstream Trigger: jenkins/tutorials/upstream-trigger/index.md
+      - Trigger Other Pipeline: jenkins/tutorials/trigger-other-pipeline/index.md
+      - Declarative Generator: jenkins/tutorials/declarative-generator/index.md
+      - Replay Pipeline: jenkins/tutorials/replay-pipeline/index.md
+      - Pipeline Options: jenkins/tutorials/pipeline-options/index.md
+      - Clean Workspace: jenkins/tutorials/clean-workspace/index.md
+      - String Build Parameters: jenkins/tutorials/build-parameters-string/index.md
+      - Choice Build Parameters: jenkins/tutorials/build-parameters-choice/index.md
+      - Predefined Env Variables: jenkins/tutorials/predefined-environment-variables/index.md
     - Configuration:
       - Overview: jenkins/configuration/index.md
       - How to install plugins in Jenkins: jenkins/configuration/install-plugins/index.md
@@ -140,11 +140,9 @@ nav:
       - How to restore deleted job in Jenkins: jenkins/configuration/restore-deleted-job/index.md
     - Pipelines:
       - Overview: jenkins/pipelines/index.md
-      - How to create pipeline job in Jenkins: jenkins/pipelines/create-pipeline-job/index.md
-      - How to write a Jenkinsfile to build a Maven project: jenkins/pipelines/jenkinsfile-maven-build/index.md
-      - How to write a Jenkinsfile to build a Maven project and deploy to Apache Tomcat webserver: jenkins/pipelines/jenkinsfile-maven-tomcat/index.md
-      - How to write a Jenkinsfile to build a Maven project, build and push docker image to Dockerhub and deploy the container to same server: jenkins/pipelines/jenkinsfile-docker-hub/index.md
-      - How to write a Jenkinsfile to build a Maven project, build and push docker image to Jfrog artifactory and deploy the container to same server: jenkins/pipelines/jenkinsfile-jfrog/index.md
+      - Create Pipeline Job: jenkins/pipelines/create-pipeline-job/index.md
+      - Build Maven Project: jenkins/pipelines/jenkinsfile-maven-build/index.md
+      - Build Maven & Deploy to Tomcat: jenkins/pipelines/jenkinsfile-maven-tomcat/index.md
       - Deploy to Multiple Environments: jenkins/pipelines/deploy-to-tomcat-multiple-environments/index.md
       - Deploy with 'when' Condition: jenkins/pipelines/deploy-to-tomcat-when-condition/index.md
       - Deploy with Environment Variables: jenkins/pipelines/deploy-to-tomcat-environment-variables/index.md
