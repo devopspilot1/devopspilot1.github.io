@@ -102,6 +102,14 @@ This makes it easy to change the context path or war file location in one place 
 
 -   [Jenkins Pipeline environment Directive](https://www.jenkins.io/doc/book/pipeline/syntax/#environment)
 
+## Important Tips
+
+> [!TIP]
+> **Global vs. Local**: Variables defined in the top-level `environment` block are global. You can also define an `environment` block inside a specific `stage` if the variable is only needed there.
+
+> [!IMPORTANT]
+> **Credential Security**: Never hardcode passwords or sensitive data in `environment` variables. Use the `credentials()` helper within the environment block or `withCredentials` step for handling secrets securely.
+
 ## Quick Quiz
 
 <quiz>

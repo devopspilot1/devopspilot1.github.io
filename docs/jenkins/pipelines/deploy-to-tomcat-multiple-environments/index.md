@@ -88,6 +88,14 @@ The `post` block with `always` ensures that `deleteDir()` is called after the pi
 -   [Jenkins Pipeline Options](https://www.jenkins.io/doc/book/pipeline/syntax/#options)
 -   [Deploy to container Plugin](https://plugins.jenkins.io/deploy/)
 
+## Important Tips
+
+> [!TIP]
+> **Sequential Execution**: By default, stages run sequentially. If one stage fails (e.g., Deploy to Dev), the subsequent stages (QA, Prod) will not run, which is the desired behavior for a promotion pipeline.
+
+> [!NOTE]
+> **Workspace Cleanup**: The `deleteDir()` step in the `always` block is crucial. Without it, your Jenkins workspace can fill up with old artifacts and build files, potentially causing disk space issues.
+
 ## Quick Quiz
 
 <quiz>

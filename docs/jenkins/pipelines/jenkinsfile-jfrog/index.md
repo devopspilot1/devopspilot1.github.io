@@ -138,6 +138,14 @@ sh "docker rm hello-world | true"
 - [How to create pipeline job in Jenkins](../create-pipeline-job/index.md)
 - [How to write a dockerfile for running a java application (*.war) in Apache tomcat webserver](../../../docker/dockerfiles/run-war-in-tomcat/index.md)
 
+## Important Tips
+
+> [!TIP]
+> **Registry URL**: When working with private registries like Artifactory, always specify the full registry URL in `docker.withRegistry`. This ensures the plugin knows exactly where to authenticate and push images.
+
+> [!IMPORTANT]
+> **Container Name Conflicts**: The command `docker rm -f hello-world || true` is critical. It ensures that any old container with the same name is removed before starting a new one, preventing "name already in use" errors.
+
 ## Quick Quiz
 
 <quiz>

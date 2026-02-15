@@ -143,6 +143,14 @@ This pipeline demonstrates a complete workflow:
 
 This approach ensures that the exact same artifact (Docker image) that was built and verified is what gets deployed to all environments.
 
+## Important Tips
+
+> [!TIP]
+> **Private Registries**: Unlike Docker Hub, private registries (like Artifactory) require authentication for both pulling and pushing. Ensure your deployment servers (Dev, QA, Prod) have the necessary credentials to pull the image.
+
+> [!NOTE]
+> **Image Promotion**: In a more advanced setup, you would "promote" an image (move it from a dev repo to a prod repo) instead of rebuilding/re-pushing. This tutorial focuses on the "Build once, deploy everywhere" principle using the same image artifact.
+
 ## Quick Quiz
 
 <quiz>

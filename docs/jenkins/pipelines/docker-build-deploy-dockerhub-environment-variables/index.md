@@ -135,6 +135,14 @@ By using these variables (e.g., `${IMAGE_NAME}`), we avoid hardcoding values in 
 
 In the `sh` steps, we reference these variables using the standard Groovy string interpolation `${VARIABLE_NAME}`.
 
+## Important Tips
+
+> [!TIP]
+> **Single Source of Truth**: By defining `IMAGE_TAG` in the environment block (e.g., `1.${BUILD_NUMBER}`), you guarantee that the same version tag is used for building, pushing, and deploying across all stages.
+
+> [!NOTE]
+> **Shell Interpolation**: When using `sh` steps, use double quotes `"` if you want Jenkins to interpolate variables (like `${IMAGE_NAME}`). Use single quotes `'` if you want the shell to handle the variable (like `$PATH`).
+
 ## Quick Quiz
 
 <quiz>

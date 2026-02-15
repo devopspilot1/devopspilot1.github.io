@@ -132,6 +132,14 @@ pipeline {
 
 Using these methods provides better readability and abstraction than raw shell commands.
 
+## Important Tips
+
+> [!TIP]
+> **Plugin Abstraction**: The `docker` global variable (provided by the Docker Pipeline plugin) handles many low-level details for you, such as checking for the image existence or handling login/logout logic securely.
+
+> [!IMPORTANT]
+> **Registry URL**: When generic `docker.withRegistry` is used without a URL argument, it defaults to Docker Hub. However, explicit is better than implicit—always specifying the registry URL is a good practice.
+
 ## Quick Quiz
 
 <quiz>

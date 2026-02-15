@@ -140,6 +140,14 @@ The deployment stages (Dev, QA, Prod) use the `ssh-agent` or `ssh-steps` plugin 
 -   [Jenkins Pipeline Docker Global Variable](https://www.jenkins.io/doc/book/pipeline/docker/)
 -   [SSH Steps Plugin](https://plugins.jenkins.io/ssh-steps/)
 
+## Important Tips
+
+> [!TIP]
+> **Docker Tagging**: We effectively tag the image twice: once with `latest` (implicitly, if not specified in the build) or the specific version, and then re-tag it with the registry username prefix before pushing. This is required for Docker Hub.
+
+> [!IMPORTANT]
+> **SSH Command Security**: The `sshCommand` executes raw shell commands on the remote server. Ensure that the user account used for SSH (`test` in this example) has restricted permissions, only enough to run the necessary Docker commands.
+
 ## Quick Quiz
 
 <quiz>

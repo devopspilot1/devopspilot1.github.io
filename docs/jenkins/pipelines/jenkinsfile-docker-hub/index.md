@@ -169,6 +169,14 @@ sudo systemctl restart jenkins
 
 - [How to write a dockerfile for running a java application (\*.war) in Apache tomcat webserver](../../../docker/dockerfiles/run-war-in-tomcat/index.md)
 
+## Important Tips
+
+> [!TIP]
+> **Pipeline Structure**: Notice how the pipeline is structured with `agent`, `tools`, `environment`, and `stages`. This declarative syntax is standard and makes the pipeline easy to read and maintain.
+
+> [!IMPORTANT]
+> **Docker Daemon Access**: If you see "permission denied" errors when running Docker commands, ensure the `jenkins` user is added to the `docker` group on the Jenkins server (`sudo usermod -aG docker jenkins`).
+
 ## Quick Quiz
 
 <quiz>
