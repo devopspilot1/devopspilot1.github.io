@@ -107,6 +107,9 @@ Create the cluster with private nodes.
 *   `--enable-private-nodes`: Nodes have only internal IPs.
 *   `--master-ipv4-cidr`: A `/28` range for the control plane (must not overlap with other ranges).
 
+!!! info "Autopilot Mode"
+    The command `gcloud container clusters create-auto` automatically creates an **Autopilot** cluster. If you were using the standard `create` command, you would need to pass the `--enable-autopilot` flag to enable this mode.
+
 ```bash
 export CLUSTER_NAME=my-private-autopilot
 
@@ -117,23 +120,68 @@ gcloud container clusters create-auto $CLUSTER_NAME \
     --cluster-secondary-range-name=pods \
     --services-secondary-range-name=services \
     --enable-private-nodes \
+    --enable-private-endpoint \
+    --master-authorized-networks=10.0.0.0/24 \
     --master-ipv4-cidr=172.16.0.0/28
 ```
 
-!!! warning "Public Endpoint Access"
-    By default, `--enable-private-endpoint` is **false**. This means the control plane (master) has a public endpoint, allowing you to run `kubectl` from your local machine.
+*   `--enable-private-endpoint`: The control plane has **only** a private IP address. It is not accessible from the public internet.
+*   `--master-authorized-networks`: Restricts access to the control plane to specific IP ranges. We allow the subnet range (`10.0.0.0/24`) where our Bastion Host will reside.
 
-    If you set `--enable-private-endpoint=true`, the control plane will **only** be accessible from within the VPC. You would need a **Jump Host/Bastion VM** or VPN/Interconnect to access the cluster.
+!!! info "Understanding Private Cluster Flags"
+    *   **Private Cluster (`--enable-private-nodes`)**: Makes the **Worker Nodes** private (no public IPs). This is the main requirement for a "Private Cluster".
+    *   **Private Endpoint (`--enable-private-endpoint`)**: Makes the **Control Plane** private. If omitted (defaults to false), the Control Plane remains accessible via a Public Endpoint.
 
-## Step 3: Configure kubectl Access
+## Step 3: Create Bastion Host
 
-Get credentials to access the cluster.
+Since the cluster control plane is private, we need a **Bastion Host** (a VM inside the VPC) to run `kubectl` commands.
 
-```bash
-gcloud container clusters get-credentials $CLUSTER_NAME --region $REGION
-```
+1.  **Create the VM**:
+    ```bash
+    gcloud compute instances create gke-bastion \
+        --zone=${REGION}-a \
+        --network=$NETWORK_NAME \
+        --subnet=$SUBNET_NAME \
+        --machine-type=e2-micro \
+        --tags=bastion
+    ```
 
-## Step 4: Verify Cluster
+2.  **Allow SSH Access**:
+    Create a firewall rule to allow SSH (port 22) into the Bastion Host (via IAP).
+    ```bash
+    gcloud compute firewall-rules create allow-ssh-bastion \
+        --network=$NETWORK_NAME \
+        --allow=tcp:22 \
+        --source-ranges=35.235.240.0/20 \
+        --target-tags=bastion
+    ```
+    *   `35.235.240.0/20`: The IP range used by Identity-Aware Proxy (IAP) for TCP forwarding.
+
+## Step 4: Access the Cluster
+
+Now, we will log in to the Bastion Host and access the cluster.
+
+1.  **SSH into Bastion**:
+    ```bash
+    gcloud compute ssh gke-bastion --zone=${REGION}-a --tunnel-through-iap
+    ```
+
+2.  **Install kubectl and Auth Plugin** (Inside the Bastion):
+    ```bash
+    sudo apt-get update
+    sudo apt-get install -y kubectl google-cloud-sdk-gke-gcloud-auth-plugin
+    ```
+
+3.  **Get Credentials**:
+    ```bash
+    export CLUSTER_NAME=my-private-autopilot
+    export REGION=us-central1
+    
+    gcloud container clusters get-credentials $CLUSTER_NAME --region $REGION --internal-ip
+    ```
+    *   `--internal-ip`: Tells `kubectl` to communicate with the cluster's private IP address.
+
+## Step 5: Verify Cluster (From Bastion)
 
 1.  **Check Nodes**:
     ```bash

@@ -304,6 +304,7 @@ nav:
           - Overview: cloud/gcp/tutorials/gke/index.md
           - What is GKE?: cloud/gcp/tutorials/gke/gke-overview/index.md
           - Create Private GKE Autopilot Cluster: cloud/gcp/tutorials/gke/create-gke-autopilot-private/index.md
+          - Create Private GKE Standard Cluster: cloud/gcp/tutorials/gke/create-gke-standard-private/index.md
       - Projects:
         - Overview: cloud/gcp/projects/index.md
         - Deploy Python App to Cloud Run: cloud/gcp/projects/deploy-python-cloud-run/index.md
@@ -570,6 +571,10 @@ nav:
       - Advanced: quiz/ansible/advanced/index.md
   - Architecture:
     - 3 Tier Architecture: 3-tier/index.md
+  - Legal:
+    - About: about/index.md
+    - Privacy Policy: privacy-policy/index.md
+    - Support: support/index.md
 
 markdown_extensions:
   - admonition
