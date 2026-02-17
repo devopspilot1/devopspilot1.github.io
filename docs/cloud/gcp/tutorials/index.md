@@ -16,7 +16,7 @@ Welcome to the GCP Tutorials section.
 * [CloudSQL Postgres 18 with PSC and IAM Authentication](cloudsql-psc-iam/index.md)
 * [Regional External Load Balancer with Private Cloud Run and SSL](regional-lb-cloudrun-private-ssl/index.md)
 * [Python Flask CRUD with CloudSQL PSC and IAM](cloudrun-python-cloudsql-psc-iam/index.md)
-* [Create Private GKE Autopilot Cluster](create-gke-autopilot-private/index.md)
+* [Google Kubernetes Engine (GKE) Tutorials](gke/index.md)
 
 ---
 {% include-markdown ".partials/subscribe-guides.md" %}
