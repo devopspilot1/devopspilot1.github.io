@@ -104,7 +104,9 @@ Which GKE mode requires you to manage the versions and upgrades of the worker no
 - [ ] Neither
 
 In GKE Standard, the user is responsible for managing node pools and their upgrades. In Autopilot, Google manages the entire cluster infrastructure, including nodes.
+</quiz>
 
+<quiz>
 Which availability type provides the highest resilience against a zone failure?
 - [x] Regional Cluster
 - [ ] Zonal Cluster
@@ -112,7 +114,9 @@ Which availability type provides the highest resilience against a zone failure?
 - [ ] Private Cluster
 
 A Regional Cluster replicates the control plane and nodes across multiple zones, ensuring the cluster remains available even if a single zone fails.
+</quiz>
 
+<quiz>
 How is GKE Autopilot priced?
 - [x] Per Pod (vCPU/Memory requested)
 - [ ] Per Node (VM instance size)
