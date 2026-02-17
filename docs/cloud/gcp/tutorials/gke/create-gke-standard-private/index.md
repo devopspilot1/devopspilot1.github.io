@@ -171,6 +171,16 @@ In GKE Standard, who is responsible for upgrading the worker nodes?
 In GKE Standard, the user manages node pools and their versions, although GKE offers auto-upgrade features that can be configured.
 </quiz>
 
+<quiz>
+What is the effect of setting `--enable-private-endpoint`?
+- [x] The Control Plane is accessible only via private IP within the VPC.
+- [ ] The Worker Nodes get private IPs only.
+- [ ] It enables Alias IPs for pods.
+- [ ] It creates a Bastion Host automatically.
+
+`--enable-private-endpoint` disables the public access to the Kubernetes API server (control plane), requiring you to access it from within the cluster's network.
+</quiz>
+
 ## Cleanup
 
 ```bash

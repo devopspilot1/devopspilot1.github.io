@@ -216,6 +216,26 @@ In a Private GKE Cluster, what does the `--enable-private-nodes` flag ensure?
 `--enable-private-nodes` ensures that the underlying Compute Engine VMs for the nodes do not have public IP addresses, isolating them from the internet.
 </quiz>
 
+<quiz>
+Which flag is required to make the GKE Control Plane private (accessible only within the VPC)?
+- [x] --enable-private-endpoint
+- [ ] --private-control-plane
+- [ ] --disable-public-access
+- [ ] --enable-private-master
+
+The `--enable-private-endpoint` flag disables the public endpoint for the control plane, making it accessible only via its private IP within the VPC.
+</quiz>
+
+<quiz>
+How can you access a GKE cluster that has a private control plane?
+- [x] Via a Bastion Host or VPN/Interconnect
+- [ ] Directly from your local machine over the internet
+- [ ] Using Cloud Shell (default mode)
+- [ ] You cannot access it at all
+
+Since the control plane has no public endpoint, you must be inside the VPC network (e.g., using a Bastion VM) or connected to it via VPN/Interconnect to run `kubectl` commands.
+</quiz>
+
 ## Cleanup
 
 ```bash
