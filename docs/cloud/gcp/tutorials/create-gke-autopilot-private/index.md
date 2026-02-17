@@ -13,6 +13,11 @@ This tutorial guides you through creating a **Private**, **VPC-native** GKE Auto
 
 It adheres to Kubernetes best practices and offers a hands-off experience, allowing you to focus on your applications rather than cluster management.
 
+!!! note "Pod Isolation vs. AWS Fargate"
+    In **GKE Autopilot**, pods run on shared nodes (VMs) by default, similar to standard Kubernetes. They share the same kernel. This is different from **AWS Fargate** for EKS, where each pod runs in its own isolated micro-VM.
+
+    If you need stronger isolation (sandbox), you can use GKE Sandbox (gVisor), but standard Autopilot pods are not VM-isolated from each other on the same node.
+
 ## GKE Autopilot vs. Standard
 
 | Feature | GKE Autopilot | GKE Standard |
