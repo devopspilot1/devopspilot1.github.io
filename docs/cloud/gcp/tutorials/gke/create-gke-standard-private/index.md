@@ -182,23 +182,78 @@ Now, we will log in to the Bastion Host and access the cluster.
     *   `--internal-ip`: Tells `kubectl` to communicate with the cluster's private IP address.
     *   This command updates your local `kubeconfig` file with the cluster's authentication details and endpoint information.
 
-## Step 5: Verify Cluster (From Bastion)
+## Step 5: Configure Artifact Registry (Remote Repo)
+
+Since the cluster is private (no internet access for nodes), we need a way to pull images. We will create a **Remote Artifact Registry** repository that acts as a pull-through cache for Docker Hub.
+
+1.  **Enable Artifact Registry API**:
+    ```bash
+    gcloud services enable artifactregistry.googleapis.com
+    ```
+
+2.  **Create Remote Repository**:
+    ```bash
+    gcloud artifacts repositories create docker-hub-remote \
+        --project=$PROJECT_ID \
+        --repository-format=docker \
+        --location=$REGION \
+        --mode=remote-repository \
+        --remote-repo-config-desc="Docker Hub" \
+        --remote-docker-repo=DOCKER_HUB
+    ```
+
+## Step 6: Verify Cluster (From Bastion)
 
 1.  **Check Nodes**:
     ```bash
     kubectl get nodes -o wide
     ```
-    You should see the nodes you provisioned. Using `e2-medium` usually means you are responsible for fitting your pods within the allocatable resources.
+    You should see nodes with `INTERNAL-IP` but no `EXTERNAL-IP`.
 
-2.  **Deploy a Test App**:
+2.  **Deploy a Test App (Using Remote Repo)**:
+    Refer to the image using the Artifact Registry path.
     ```bash
-    kubectl create deployment nginx --image=nginx
+    # Format: LOCATION-docker.pkg.dev/PROJECT-ID/REPOSITORY-ID/IMAGE
+    IMAGE_PATH=${REGION}-docker.pkg.dev/${PROJECT_ID}/docker-hub-remote/nginx
+    
+    kubectl create deployment nginx --image=$IMAGE_PATH --port=80
     ```
+
+    !!! info "Regional Load Balancer Controller"
+        The **GKE Ingress Controller** (`ingress-gce`) is installed by default.
 
 3.  **Check Pods**:
     ```bash
     kubectl get pods -w
     ```
+
+4.  **Expose via Regional External Load Balancer**:
+    Create a `Service` and `Ingress` to expose the app.
+    ```bash
+    # Create the Service
+    kubectl expose deployment nginx --type=NodePort --target-port=80 --port=80
+
+    # Create the Ingress
+    # 1. Save the following manifest as ingress.yaml
+    cat <<EOF > ingress.yaml
+    apiVersion: networking.k8s.io/v1
+    kind: Ingress
+    metadata:
+      name: nginx-ingress
+      annotations:
+        kubernetes.io/ingress.class: "gce-regional-external"
+    spec:
+      defaultBackend:
+        service:
+          name: nginx
+          port:
+            number: 80
+    EOF
+
+    # 2. Apply the manifest
+    kubectl apply -f ingress.yaml
+    ```
+    *   `kubernetes.io/ingress.class: "gce-regional-external"`: Tells GKE to provision a Regional External HTTP(S) Load Balancer.
 
 ## Quiz
 
