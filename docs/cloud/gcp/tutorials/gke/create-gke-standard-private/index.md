@@ -32,7 +32,6 @@ When planning your network, keep these constraints in mind:
 | **Nodes (Primary)** | `/24` (256 IPs) | `/29` (8 IPs) | `/20` (4096 IPs) | Can overlap with other subnets in the VPC if they are not peered. Must be large enough for max node count + upgrade surge. |
 | **Pods (Secondary)** | `/14` - `/21` | `/21` | `/9` | Determines the max number of pods and nodes. Pod CIDRs are allocated to nodes in blocks (e.g., `/24` per node). |
 | **Services (Secondary)** | `/20` | `/27` | `/16` | Used for ClusterIPs. A `/20` provides 4096 Service IPs. |
-| **Control Plane** | `/28` | `/28` | `/28` | **Mandatory for Private Clusters**. Used for the hosted control plane VPC peering. Must not overlap with any VPC subnet. |
 
 !!! question "Do Pod/Service ranges *have* to be secondary ranges?"
     **Yes, for VPC-native clusters (recommended).**
@@ -75,9 +74,11 @@ Create the cluster with private nodes.
 
 *   `--enable-private-nodes`: Nodes have only internal IPs.
 *   `--enable-ip-alias`: Enables VPC-native traffic (creates Alias IPs for pods).
-*   `--master-ipv4-cidr`: a `/28` range for the control plane.
 *   `--num-nodes`: Number of nodes *per zone*.
 *   `--machine-type`: The Compute Engine machine type for the nodes.
+
+!!! info "Control Plane IP Allocation"
+    With Private Service Connect (PSC), the **Control Plane endpoint** takes an IP address from your Subnet's **Primary Range**.
 
 ```bash
 export CLUSTER_NAME=my-private-standard
@@ -93,7 +94,6 @@ gcloud container clusters create $CLUSTER_NAME \
     --enable-private-endpoint \
     --enable-master-authorized-networks \
     --master-authorized-networks=10.0.0.0/24 \
-    --master-ipv4-cidr=10.0.1.0/28 \
     --num-nodes=1 \
     --machine-type=e2-medium
 ```
