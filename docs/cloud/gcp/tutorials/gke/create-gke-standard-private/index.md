@@ -23,6 +23,26 @@ We will create a **VPC-native** cluster, which is the recommended network mode.
 *   **Pod Secondary Range**: `/14` (Allows for many pods per node).
 *   **Service Secondary Range**: `/20`.
 
+### CIDR Ranges and Limits
+
+When planning your network, keep these constraints in mind:
+
+| Component | Recommended CIDR | Minimum CIDR | Maximum CIDR | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| **Nodes (Primary)** | `/24` (256 IPs) | `/29` (8 IPs) | `/20` (4096 IPs) | Can overlap with other subnets in the VPC if they are not peered. Must be large enough for max node count + upgrade surge. |
+| **Pods (Secondary)** | `/14` - `/21` | `/21` | `/9` | Determines the max number of pods and nodes. Pod CIDRs are allocated to nodes in blocks (e.g., `/24` per node). |
+| **Services (Secondary)** | `/20` | `/24` | `/16` | Used for ClusterIPs. A `/20` provides 4096 Service IPs. |
+| **Control Plane** | `/28` | `/28` | `/28` | **Mandatory for Private Clusters**. Used for the hosted control plane VPC peering. Must not overlap with any VPC subnet. |
+
+!!! question "Do Pod/Service ranges *have* to be secondary ranges?"
+    **Yes, for VPC-native clusters (recommended).**
+    
+    In a VPC-native cluster, Pod and Service IP ranges must be defined as **secondary IP ranges** on the *same subnet* used by the cluster nodes.
+    
+    *   **Nodes**: Use the Subnet's **Primary** CIDR range.
+    *   **Pods**: Use a **Secondary** CIDR range on that subnet.
+    *   **Services**: Use another **Secondary** CIDR range on that subnet.
+
 ## Step 1: Network Setup
 
 Create a dedicated VPC and Subnet.
