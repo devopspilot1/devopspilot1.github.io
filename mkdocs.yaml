@@ -305,6 +305,7 @@ nav:
           - What is GKE?: cloud/gcp/tutorials/gke/gke-overview/index.md
           - Create Private GKE Autopilot Cluster: cloud/gcp/tutorials/gke/create-gke-autopilot-private/index.md
           - Create Private GKE Standard Cluster: cloud/gcp/tutorials/gke/create-gke-standard-private/index.md
+          - GKE Standard Autoscaling: cloud/gcp/tutorials/gke/gke-standard-autoscaling/index.md
       - Projects:
         - Overview: cloud/gcp/projects/index.md
         - Deploy Python App to Cloud Run: cloud/gcp/projects/deploy-python-cloud-run/index.md

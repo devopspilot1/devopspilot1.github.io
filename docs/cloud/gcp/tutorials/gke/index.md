@@ -12,6 +12,7 @@ Welcome to the GKE Tutorials section. Here you will find guides and tutorials fo
 *   [What is Google Kubernetes Engine (GKE)?](gke-overview/index.md)
 *   [Create Private GKE Autopilot Cluster](create-gke-autopilot-private/index.md)
 *   [Create Private GKE Standard Cluster](create-gke-standard-private/index.md)
+*   [GKE Standard Autoscaling](gke-standard-autoscaling/index.md)
 
 ---
 {% include-markdown ".partials/subscribe-guides.md" %}

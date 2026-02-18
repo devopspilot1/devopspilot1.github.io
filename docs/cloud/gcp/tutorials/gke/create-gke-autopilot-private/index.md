@@ -171,6 +171,13 @@ Now, we will log in to the Bastion Host and access the cluster.
     sudo apt-get update
     sudo apt-get install -y kubectl google-cloud-sdk-gke-gcloud-auth-plugin
     ```
+    *   **Note**: The `gcloud` CLI is pre-installed on standard Google Cloud VM images. We only need to install `kubectl` and the auth plugin.
+
+    !!! tip "Other Installation Methods"
+        If your Bastion is not Debian/Ubuntu, or you are running this locally:
+        
+        *   **Using gcloud components** (Recommended): `gcloud components install gke-gcloud-auth-plugin`
+        *   **Red Hat/CentOS**: `sudo yum install google-cloud-sdk-gke-gcloud-auth-plugin`
 
 3.  **Get Credentials**:
     ```bash
@@ -180,6 +187,7 @@ Now, we will log in to the Bastion Host and access the cluster.
     gcloud container clusters get-credentials $CLUSTER_NAME --region $REGION --internal-ip
     ```
     *   `--internal-ip`: Tells `kubectl` to communicate with the cluster's private IP address.
+    *   This command updates your local `kubeconfig` file with the cluster's authentication details and endpoint information.
 
 ## Step 5: Verify Cluster (From Bastion)
 
