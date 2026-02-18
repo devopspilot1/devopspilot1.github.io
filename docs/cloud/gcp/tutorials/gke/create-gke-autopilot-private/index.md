@@ -71,7 +71,7 @@ When planning your network, keep these constraints in mind:
 | :--- | :--- | :--- | :--- | :--- |
 | **Nodes (Primary)** | `/24` (256 IPs) | `/29` (8 IPs) | `/20` (4096 IPs) | Can overlap with other subnets in the VPC if they are not peered. Must be large enough for max node count + upgrade surge. |
 | **Pods (Secondary)** | `/14` - `/21` | `/21` | `/9` | Determines the max number of pods and nodes. Pod CIDRs are allocated to nodes in blocks (e.g., `/24` per node). |
-| **Services (Secondary)** | `/20` | `/24` | `/16` | Used for ClusterIPs. A `/20` provides 4096 Service IPs. |
+| **Services (Secondary)** | `/20` | `/27` | `/16` | Used for ClusterIPs. A `/20` provides 4096 Service IPs. |
 | **Control Plane** | `/28` | `/28` | `/28` | **Mandatory for Private Clusters**. Used for the hosted control plane VPC peering. Must not overlap with any VPC subnet. |
 
 !!! question "Do Pod/Service ranges *have* to be secondary ranges?"
@@ -104,12 +104,14 @@ Create a dedicated VPC and Subnet.
     gcloud compute networks subnets create $SUBNET_NAME \
         --network=$NETWORK_NAME \
         --region=$REGION \
-        --range=10.0.0.0/24 \
-        --secondary-range=pods=10.1.0.0/21,services=10.2.0.0/20 \
+        --range=10.0.0.0/25 \
+        --secondary-range=pods=10.1.0.0/21,services=10.0.0.128/25 \
         --enable-private-ip-google-access
     ```
-
-    *   `--enable-private-ip-google-access`: Required for private nodes to reach Google APIs (like Artifact Registry).
+    *   **Primary Range (`10.0.0.0/25`)**: 128 IPs (Nodes).
+    *   **pods (`10.1.0.0/21`)**: 2048 IPs.
+    *   **services (`10.0.0.128/25`)**: 128 IPs.
+    *   `--enable-private-ip-google-access`: Required for private nodes to reach Google APIs.
 
 3.  **Create Firewall Rule (Optional)**:
     Allow internal communication (useful for testing later).
@@ -143,7 +145,7 @@ gcloud container clusters create-auto $CLUSTER_NAME \
     --enable-private-endpoint \
     --enable-master-authorized-networks \
     --master-authorized-networks=10.0.0.0/24 \
-    --master-ipv4-cidr=172.16.0.0/28
+    --master-ipv4-cidr=10.0.1.0/28
 ```
 
 !!! tip "Optional: Public Endpoint for Testing"
@@ -161,6 +163,7 @@ gcloud container clusters create-auto $CLUSTER_NAME \
         --services-secondary-range-name=services \
         --enable-private-nodes
     ```
+
     *   **Note**: We simply omitted `--enable-private-endpoint`.
 
 *   `--enable-private-endpoint`: The control plane has **only** a private IP address. It is not accessible from the public internet.
