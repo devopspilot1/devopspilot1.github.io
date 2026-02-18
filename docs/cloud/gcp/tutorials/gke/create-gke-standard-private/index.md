@@ -91,11 +91,32 @@ gcloud container clusters create $CLUSTER_NAME \
     --enable-private-nodes \
     --enable-ip-alias \
     --enable-private-endpoint \
+    --enable-master-authorized-networks \
     --master-authorized-networks=10.0.0.0/24 \
     --master-ipv4-cidr=172.16.0.32/28 \
     --num-nodes=1 \
     --machine-type=e2-medium
 ```
+
+!!! tip "Optional: Public Endpoint for Testing"
+    If you want to access the cluster from outside the VPC (e.g., from your local machine) for testing, remove the `--enable-private-endpoint` flag.
+    
+    *   **Private Nodes**: Yes (Nodes have internal IPs only).
+    *   **Master Access**: Public (Open to internet).
+    
+    ```bash
+    gcloud container clusters create $CLUSTER_NAME \
+        --region=$REGION \
+        --network=$NETWORK_NAME \
+        --subnetwork=$SUBNET_NAME \
+        --cluster-secondary-range-name=pods \
+        --services-secondary-range-name=services \
+        --enable-private-nodes \
+        --enable-ip-alias \
+        --num-nodes=1 \
+        --machine-type=e2-medium
+    ```
+    *   **Note**: We simply omitted `--enable-private-endpoint`.
 
 *   `--enable-private-endpoint`: The control plane has **only** a private IP address. It is not accessible from the public internet.
 *   `--master-authorized-networks`: Restricts access to the control plane to specific IP ranges. We allow the subnet range (`10.0.0.0/24`) where our Bastion Host will reside.
