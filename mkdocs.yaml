@@ -311,6 +311,7 @@ nav:
         - Deploy Python App to Cloud Run: cloud/gcp/projects/deploy-python-cloud-run/index.md
         - Deploy Signed Image to Cloud Run with Binary Authorization: cloud/gcp/projects/deploy-signed-image/index.md
         - Apigee X with PSC to Cloud Run: cloud/gcp/projects/apigee-psc-cloudrun/index.md
+        - Host Prefect Server & Worker on Cloud Run: cloud/gcp/projects/prefect-cloudrun-cloudsql/index.md
   # - Notebooks:
   #   - Overview: notebooks/index.md
   #   - AWS Bedrock AgentCore:
