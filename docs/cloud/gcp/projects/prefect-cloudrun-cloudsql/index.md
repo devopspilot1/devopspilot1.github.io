@@ -133,6 +133,10 @@ gcloud compute forwarding-rules create prefect-db-endpoint \
 
 For PostgreSQL 15 and later, the `public` schema is not writable by default. We need to grant permissions to our IAM user. Since we are using PSC, we can spin up a temporary Cloud Run Job to execute the SQL command.
 
+Choose one of the following options:
+
+#### Option 1: Cloud Run Job (CLI)
+
 1. Set a temporary password for the `postgres` user:
     ```bash
     gcloud sql users set-password postgres \
@@ -152,6 +156,37 @@ For PostgreSQL 15 and later, the `public` schema is not writable by default. We 
         --args="-c","PGPASSWORD='TempPassword123!' psql -h 10.0.0.5 -U postgres -d $DB_NAME -c 'ALTER SCHEMA public OWNER TO \"$DB_USER@$PROJECT_ID.iam\";'"
 
     gcloud run jobs execute grant-perms-job --region=$REGION --wait
+    ```
+
+#### Option 2: CloudSQL Studio (Browser)
+
+CloudSQL Studio is a built-in SQL editor in the Google Cloud Console that lets you run queries directly against your database without any network setup.
+
+1. Set a temporary password for the `postgres` user (if not already done):
+    ```bash
+    gcloud sql users set-password postgres \
+        --instance=$DB_INSTANCE_NAME \
+        --password='TempPassword123!'
+    ```
+
+2. Open the [Cloud Console](https://console.cloud.google.com/sql/instances) and navigate to **SQL → your instance (`prefect-db`) → CloudSQL Studio**.
+
+3. Log in with the following credentials:
+    - **Database**: `prefect`
+    - **User**: `postgres`
+    - **Password**: `TempPassword123!`
+
+4. In the query editor, run the following SQL to grant ownership of the `public` schema to your IAM service account user:
+    ```sql
+    ALTER SCHEMA public OWNER TO "prefect-sa@YOUR_PROJECT_ID.iam";
+    ```
+    Replace `YOUR_PROJECT_ID` with your actual GCP project ID.
+
+5. Once done, reset or clear the temporary password:
+    ```bash
+    gcloud sql users set-password postgres \
+        --instance=$DB_INSTANCE_NAME \
+        --password=''
     ```
 
 
