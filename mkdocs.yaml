@@ -571,12 +571,38 @@ nav:
       - Basics: quiz/ansible/basics/index.md
       - Intermediate: quiz/ansible/intermediate/index.md
       - Advanced: quiz/ansible/advanced/index.md
+  - JFrog:
+    - Overview: jfrog/index.md
+    - Tutorials:
+      - Overview: jfrog/tutorials/index.md
+      - What is JFrog Artifactory?: jfrog/tutorials/what-is-jfrog/index.md
+      - Key Concepts (Local, Remote, Virtual): jfrog/tutorials/key-concepts/index.md
+      - Getting Started with JFrog SaaS: jfrog/tutorials/getting-started-saas/index.md
+      - Maven Repositories: jfrog/tutorials/maven-repositories/index.md
+      - Docker Repositories: jfrog/tutorials/docker-repositories/index.md
+      - npm Repositories: jfrog/tutorials/npm-repositories/index.md
+      - PyPI Repositories: jfrog/tutorials/pypi-repositories/index.md
+      - Helm Repositories: jfrog/tutorials/helm-repositories/index.md
+      - Gradle Repositories: jfrog/tutorials/gradle-repositories/index.md
+      - Terraform Repositories: jfrog/tutorials/terraform-repositories/index.md
+      - Generic Repositories: jfrog/tutorials/generic-repositories/index.md
+      - JFrog CLI Basics: jfrog/tutorials/jfrog-cli/index.md
+      - Permissions & Users: jfrog/tutorials/permissions-users/index.md
+      - Build Info & Promotion: jfrog/tutorials/build-info-promotion/index.md
+    - AI & ML:
+      - Overview: jfrog/ai-ml/index.md
+      - ML Model Repositories: jfrog/ai-ml/ml-model-repositories/index.md
+      - MLOps Pipeline with JFrog: jfrog/ai-ml/mlops-pipeline/index.md
+      - AI/ML Security with Xray: jfrog/ai-ml/ai-security/index.md
+      - Curating AI/ML Packages: jfrog/ai-ml/curation-ai-packages/index.md
+    - Certifications:
+      - Overview: jfrog/certifications/index.md
+      - Associate Artifactory Certification: jfrog/certifications/associate-artifactory/index.md
+      - Associate HA & DR Certification: jfrog/certifications/associate-ha-dr/index.md
+      - Associate Security Certification: jfrog/certifications/associate-security/index.md
+    - Academy: jfrog/academy/index.md
   - Architecture:
     - 3 Tier Architecture: 3-tier/index.md
-  - Legal:
-    - About: about/index.md
-    - Privacy Policy: privacy-policy/index.md
-    - Support: support/index.md
 
 markdown_extensions:
   - admonition

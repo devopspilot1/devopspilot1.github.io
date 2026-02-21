@@ -182,64 +182,195 @@ gcloud artifacts repositories create $REPO_NAME \
 
 ### 2. Create Custom Image for IAM Auth
 
-To connect to CloudSQL using IAM authentication without a sidecar, we'll create a custom startup script. This script fetches the IAM token and configuring the database connection string environment variable before starting the Prefect server.
+To connect to CloudSQL using IAM authentication without a sidecar, we create a custom startup script. This script fetches an IAM token, starts Prefect Server, and **rotates the token every 55 minutes** by gracefully restarting the Prefect subprocess before the 60-minute token TTL expires.
+
+!!! warning "Prefect does not natively support Cloud SQL IAM authentication"
+    Prefect uses SQLAlchemy internally and reads its database connection from the `PREFECT_API_DATABASE_CONNECTION_URL` environment variable as a plain connection string. There is **no built-in extension point** in Prefect to inject a custom SQLAlchemy `creator` function or a Cloud SQL Python Connector instance.
+
+    This means we cannot use the [Cloud SQL Python Connector](https://github.com/GoogleCloudPlatform/cloud-sql-python-connector) (which provides automatic token refresh via a background thread) directly — because Prefect builds its own SQLAlchemy engine from the URL string, bypassing any custom connection logic we define outside it.
+
+    The production-safe workaround is to embed the IAM token into the connection URL and **rotate it proactively** by restarting the Prefect server subprocess before the token expires, which is what the `entrypoint.py` below implements.
+
+!!! info "Why not Cloud SQL Auth Proxy as a sidecar?"
+    Cloud SQL Auth Proxy handles token refresh transparently but requires either a Unix socket (not supported by asyncpg on Cloud Run) or a TCP localhost proxy. Adding a sidecar manages proxy lifecycle complexity. The `entrypoint.py` approach avoids an extra process while keeping the security model equivalent: IAM credentials, no static passwords, private VPC connectivity.
 
 Create a directory `prefect-server-image` and add the following files:
 
 **`requirements.txt`**:
 ```text
 google-auth
-pg8000
+google-auth-httplib2
 asyncpg
 greenlet
 ```
 
 **`entrypoint.py`**:
 ```python
+import logging
 import os
+import signal
 import subprocess
 import sys
-from google.auth import default
+import threading
+import time
+
+import google.auth
 from google.auth.transport.requests import Request
 
-def get_db_url():
-    # Fetch the IAM token
-    credentials, _ = default(scopes=["https://www.googleapis.com/auth/sqlservice.admin"])
-    credentials.refresh(Request())
-    token = credentials.token
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s %(levelname)s %(message)s",
+    stream=sys.stdout,
+)
+log = logging.getLogger(__name__)
 
-    # Construct the connection URL
-    # Format: postgresql+asyncpg://<User>:<Token>@<IP>:5432/<DB>
-    db_user = os.environ.get("DB_USER")
-    db_ip = os.environ.get("DB_IP")
-    db_name = os.environ.get("DB_NAME")
-    
+# IAM tokens are valid for ~60 minutes. Refresh at 55 minutes to avoid
+# connection failures from tokens that expire mid-request.
+TOKEN_REFRESH_INTERVAL_SECONDS = 55 * 60
+
+_REQUIRED_ENV_VARS = ("DB_USER", "DB_IP", "DB_NAME")
+
+# Shared reference to the running Prefect subprocess, protected by a lock.
+_prefect_process: subprocess.Popen | None = None
+_process_lock = threading.Lock()
+
+
+def _validate_env() -> None:
+    """Fail fast if required environment variables are missing."""
+    missing = [v for v in _REQUIRED_ENV_VARS if not os.environ.get(v)]
+    if missing:
+        log.error("Missing required environment variables: %s", ", ".join(missing))
+        sys.exit(1)
+
+
+def _get_iam_token() -> str:
+    """
+    Obtain a short-lived IAM OAuth2 access token using Application Default
+    Credentials (ADC). On Cloud Run the ADC resolves to the Cloud Run service
+    account automatically — no key file required.
+
+    Scope: cloud-platform is the minimal scope required for Cloud SQL IAM
+    database authentication and is narrower than the previously used
+    sqlservice.admin scope.
+    """
+    credentials, _ = google.auth.default(
+        scopes=["https://www.googleapis.com/auth/cloud-platform"]
+    )
+    credentials.refresh(Request())
+    log.info("IAM token obtained successfully (valid for ~60 minutes)")
+    return credentials.token
+
+
+def _build_db_url(token: str) -> str:
+    """Build the asyncpg-compatible PostgreSQL connection URL."""
+    db_user = os.environ["DB_USER"]
+    db_ip = os.environ["DB_IP"]
+    db_name = os.environ["DB_NAME"]
+    # The IAM token is used as the password for Cloud SQL IAM auth.
+    # The token is NOT logged — only the connection metadata is.
+    log.info("Building DB URL for user=%s host=%s db=%s", db_user, db_ip, db_name)
     return f"postgresql+asyncpg://{db_user}:{token}@{db_ip}:5432/{db_name}"
 
-if __name__ == "__main__":
+
+def _start_prefect(token: str) -> subprocess.Popen:
+    """Launch the Prefect Server as a child process with the refreshed DB URL."""
+    port = os.environ.get("PORT", "8080")
+    env = os.environ.copy()
+    env["PREFECT_API_DATABASE_CONNECTION_URL"] = _build_db_url(token)
+    log.info("Starting Prefect Server on 0.0.0.0:%s", port)
+    return subprocess.Popen(
+        ["prefect", "server", "start", "--host", "0.0.0.0", "--port", port],
+        env=env,
+    )
+
+def _token_refresh_loop() -> None:
+    """
+    Background daemon thread that proactively rotates the IAM token.
+
+    Every TOKEN_REFRESH_INTERVAL_SECONDS it:
+      1. Fetches a fresh IAM token.
+      2. Sends SIGTERM to Prefect for a graceful shutdown (Prefect drains
+         in-flight requests before exiting).
+      3. Waits up to 30 s for a clean exit, then SIGKILL if needed.
+      4. Restarts Prefect with the new token embedded in the DB URL.
+
+    Cloud Run health checks will observe a brief (sub-second) unavailability
+    during restart. Configure a liveness probe with an initial delay ≥ 30 s
+    and a failure threshold ≥ 3 to avoid false-positive restarts.
+    """
+    global _prefect_process
+    while True:
+        time.sleep(TOKEN_REFRESH_INTERVAL_SECONDS)
+        log.info("Token refresh cycle — obtaining new IAM token...")
+
+        try:
+            new_token = _get_iam_token()
+        except Exception as exc:
+            log.error(
+                "Failed to refresh IAM token: %s. "
+                "Server continues with the existing token until the next cycle.",
+                exc,
+            )
+            continue
+
+        with _process_lock:
+            proc = _prefect_process
+            if proc and proc.poll() is None:
+                log.info("Sending SIGTERM to Prefect Server for graceful restart...")
+                proc.send_signal(signal.SIGTERM)
+                try:
+                    proc.wait(timeout=30)
+                    log.info("Prefect Server exited cleanly.")
+                except subprocess.TimeoutExpired:
+                    log.warning(
+                        "Prefect did not exit within 30 s — sending SIGKILL."
+                    )
+                    proc.kill()
+                    proc.wait()
+
+            log.info("Restarting Prefect Server with fresh IAM token.")
+            _prefect_process = _start_prefect(new_token)
+
+
+def main() -> None:
+    global _prefect_process
+
+    _validate_env()
+
     try:
-        print("Fetching IAM token and configuring connection...")
-        db_url = get_db_url()
-        
-        # Set the environment variable for Prefect
-        env = os.environ.copy()
-        env["PREFECT_API_DATABASE_CONNECTION_URL"] = db_url
-        
-        # Cloud Run provides PORT; bind explicitly so health checks pass
-        port = os.environ.get("PORT", "8080")
-
-        print(f"Starting Prefect Server on 0.0.0.0:{port}...")
-        sys.stdout.flush()
-        subprocess.run(
-            ["prefect", "server", "start", "--host", "0.0.0.0", "--port", port],
-            env=env,
-            check=True
-        )
-
-    except Exception as e:
-        print(f"Failed to start server: {e}")
+        initial_token = _get_iam_token()
+    except Exception as exc:
+        log.error("Failed to obtain initial IAM token: %s", exc)
         sys.exit(1)
+
+    with _process_lock:
+        _prefect_process = _start_prefect(initial_token)
+
+    # Daemon thread: exits automatically when the main process exits.
+    refresher = threading.Thread(target=_token_refresh_loop, name="token-refresher", daemon=True)
+    refresher.start()
+    log.info("Token refresh thread started (interval: %d s).", TOKEN_REFRESH_INTERVAL_SECONDS)
+
+    # Block until Prefect exits. If it exits unexpectedly (crash), propagate
+    # the return code so Cloud Run detects the failure and restarts the container.
+    with _process_lock:
+        proc = _prefect_process
+    return_code = proc.wait()
+    if return_code != 0:
+        log.error("Prefect Server exited unexpectedly with code %d.", return_code)
+    sys.exit(return_code)
+
+
+if __name__ == "__main__":
+    main()
 ```
+
+!!! info "Where does the 60-minute limit come from?"
+    Google OAuth2 **access tokens** — including those issued to service accounts via Application Default Credentials (ADC) — have a maximum lifetime of **3600 seconds (60 minutes)**. This is a hard limit enforced by Google's IAM/OAuth2 infrastructure and cannot be extended.
+
+    When Cloud SQL IAM database authentication is used, the IAM token is passed as the PostgreSQL password. Once the token expires, the database server rejects it with an authentication error. Any new connection attempt after the 60-minute mark will fail until a fresh token is obtained.
+
+    We refresh at **55 minutes** (not 60) to provide a 5-minute safety margin, ensuring in-flight connections complete before the token becomes invalid.
 
 **`Dockerfile`**:
 ```dockerfile
@@ -417,23 +548,33 @@ gcloud alpha run worker-pools deploy $WORKER_SERVICE \
 ## Quiz
 
 <quiz>
-1. Which Cloud Run feature is used to connect to the CloudSQL PSC Endpoint securely?
+Which Cloud Run feature is used to connect to the CloudSQL PSC Endpoint securely?
 - [x] VPC Connector (or Direct VPC Egress)
 - [ ] Cloud NAT
 - [ ] Identity-Aware Proxy
 - [ ] Cloud CDN
 
-2. In this setup, where is the IAM authentication token for Cloud SQL generated?
-- [x] In the `entrypoint.py` script at startup
-- [ ] By the Cloud SQL Auth Proxy sidecar
-- [ ] It is hardcoded in the Dockerfile
-- [ ] It is not used
+VPC Connector or Direct VPC Egress routes Cloud Run traffic through a VPC, allowing it to reach the CloudSQL PSC endpoint on a private IP.
+</quiz>
 
-3. How does the Prefect Worker discover the Prefect Server?
+<quiz>
+In this setup, how does the production `entrypoint.py` handle the 60-minute IAM token expiry?
+- [ ] It restarts the Cloud Run container on a schedule
+- [ ] It uses the Cloud SQL Python Connector's built-in refresh
+- [x] A background daemon thread fetches a new token and gracefully restarts the Prefect subprocess every 55 minutes
+- [ ] It does not handle expiry — the token is valid indefinitely
+
+Because Prefect manages its own SQLAlchemy engine from the `PREFECT_API_DATABASE_CONNECTION_URL` string, there is no injection point for automatic token refresh. The entrypoint runs a background thread that proactively rotates the token before it expires by sending SIGTERM to Prefect and restarting it with a fresh token-embedded URL.
+</quiz>
+
+<quiz>
+How does the Prefect Worker discover the Prefect Server?
 - [x] Via the `PREFECT_API_URL` environment variable pointing to the Cloud Run Service URL
 - [ ] By querying the Cloud SQL database directly
 - [ ] Multicast DNS
 - [ ] It must be deployed in the same container
+
+The Prefect Worker reads `PREFECT_API_URL` at startup to locate the Prefect Server's API endpoint, which is the public Cloud Run service URL of the Prefect Server deployment.
 </quiz>
 
 ## Verification Steps
