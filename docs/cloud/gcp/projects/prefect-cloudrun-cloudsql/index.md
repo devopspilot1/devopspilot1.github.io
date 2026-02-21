@@ -90,7 +90,6 @@ gcloud beta sql instances create $DB_INSTANCE_NAME \
     --no-assign-ip \
     --database-flags=cloudsql.iam_authentication=on
 ```
-*Note: Using `POSTGRES_15` as a placeholder if 18 isn't in your `gcloud` version yet, but the steps are identical.*
 
 Create the database:
 
@@ -153,7 +152,7 @@ Choose one of the following options:
         --subnet=prefect-subnet \
         --vpc-egress=private-ranges-only \
         --command="/bin/sh" \
-        --args="-c","PGPASSWORD='TempPassword123!' psql -h 10.0.0.5 -U postgres -d $DB_NAME -c 'ALTER SCHEMA public OWNER TO \"$DB_USER@$PROJECT_ID.iam\";'"
+        --args="-c","PGPASSWORD='TempPassword123!' psql -h 10.0.0.5 -U postgres -d $DB_NAME -c 'GRANT ALL ON SCHEMA public TO \"$DB_USER@$PROJECT_ID.iam\"; GRANT CREATE ON DATABASE $DB_NAME TO \"$DB_USER@$PROJECT_ID.iam\";'"
 
     gcloud run jobs execute grant-perms-job --region=$REGION --wait
     ```
@@ -176,11 +175,18 @@ CloudSQL Studio is a built-in SQL editor in the Google Cloud Console that lets y
     - **User**: `postgres`
     - **Password**: `TempPassword123!`
 
-4. In the query editor, run the following SQL to grant ownership of the `public` schema to your IAM service account user:
+4. In the query editor, run the following SQL statements to grant the necessary permissions to your IAM service account user:
     ```sql
-    ALTER SCHEMA public OWNER TO "prefect-sa@YOUR_PROJECT_ID.iam";
+    GRANT ALL ON SCHEMA public TO "prefect-sa@YOUR_PROJECT_ID.iam";
+    GRANT CREATE ON DATABASE prefect TO "prefect-sa@YOUR_PROJECT_ID.iam";
     ```
     Replace `YOUR_PROJECT_ID` with your actual GCP project ID.
+
+    !!! warning "Why not `ALTER SCHEMA ... OWNER TO`?"
+        In Cloud SQL, the `postgres` user is **not a true superuser**. Running `ALTER SCHEMA public OWNER TO <role>` requires the executor to be a member of the target role (`SET ROLE`), which CloudSQL's `postgres` user cannot do for IAM service accounts. `GRANT ALL ON SCHEMA public TO` achieves the same result (giving the IAM user `CREATE` and `USAGE` on the schema) without needing role membership.
+
+    !!! info "Why is `GRANT CREATE ON DATABASE` also needed?"
+        Prefect's database migration installs the `pg_trgm` extension (used for partial name match indexes). Creating an extension requires `CREATE` privilege on the **database** itself, which is separate from schema privileges. Without this grant, the migration fails with `permission denied to create extension "pg_trgm"`.
 
 5. Once done, reset or clear the temporary password:
     ```bash
@@ -189,21 +195,19 @@ CloudSQL Studio is a built-in SQL editor in the Google Cloud Console that lets y
         --password=''
     ```
 
-
 !!! info "Why is this needed?"
 
     In PostgreSQL 15 and later, the `public` schema is no longer writable by all users by default for security reasons. Prefect needs to create tables in the `public` schema during its initial migration.
 
     **Production Best Practice:**
-    In a production environment, instead of granting `ALL` or modifying the `public` schema, you should create a dedicated schema for Prefect:
+    In a production environment, instead of granting `ALL` on the `public` schema, you should create a dedicated schema for Prefect:
     ```sql
-    CREATE SCHEMA prefect AUTHORIZATION "prefect-sa@PROJECT_ID.iam";
+    CREATE SCHEMA prefect;
+    GRANT ALL ON SCHEMA prefect TO "prefect-sa@PROJECT_ID.iam";
     ```
     And configure Prefect to use this schema (e.g., via search path in the connection string `?options=-csearch_path%3Dprefect`).
 
-    For this tutorial, granting `ALL` (creates and usage) on `public` is sufficient.
-
-
+    For this tutorial, `GRANT ALL ON SCHEMA public` is sufficient.
 
 ## Step 3: Prefect Server (Cloud Run)
 
@@ -236,7 +240,6 @@ Create a directory `prefect-server-image` and add the following files:
 google-auth
 google-auth-httplib2
 asyncpg
-greenlet
 ```
 
 **`entrypoint.py`**:
@@ -519,10 +522,14 @@ if __name__ == "__main__":
 #!/bin/bash
 set -e
 
-# 1. Register the Deployment
+# 1. Create the Work Pool
+prefect work-pool create "cloud-run-pool" --type "process" || true
+sleep 5
+
+# 2. Register the Deployment
 python flow.py
 
-# 2. Start the Worker
+# 3. Start the Worker
 prefect worker start --pool "cloud-run-pool"
 ```
 
