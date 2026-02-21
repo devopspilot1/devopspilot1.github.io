@@ -91,6 +91,7 @@ git merge <source_branch> --no-ff
 
 ### Merge Conflicts
 If the same line in the same file was modified in both branches, Git cannot auto-merge.
+
 1. Git pauses the merge and marks the conflict in the file.
 2. Manually edit the file to resolve changes.
 3. Add and commit the resolved file.

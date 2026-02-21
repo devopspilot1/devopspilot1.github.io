@@ -72,6 +72,7 @@ nav:
       - Git Overview Part 1: git/tutorials/git-overview-part-1/index.md
       - Git Overview Part 2: git/tutorials/git-overview-part-2/index.md
       - Branching and Merging: git/tutorials/branching-and-merging/index.md
+      - Branching Strategies: git/tutorials/branching-strategies/index.md
       - Pull and Fetch: git/tutorials/pull-and-fetch/index.md
       - Reset: git/tutorials/reset/index.md
       - Tags: git/tutorials/tags/index.md

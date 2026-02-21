@@ -586,7 +586,6 @@ gcloud alpha run worker-pools deploy $WORKER_SERVICE \
     - Update image: `gcloud alpha run worker-pools deploy $WORKER_SERVICE --image=... --region=$REGION`
     - Delete: `gcloud alpha run worker-pools delete $WORKER_SERVICE --region=$REGION`
 
-
 ## Quiz
 
 <quiz>
