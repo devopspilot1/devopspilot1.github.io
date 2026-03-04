@@ -217,3 +217,6 @@ The `--max-nodes` flag sets a hard limit. CA will not scale beyond this. You mus
 ```bash
 gcloud container clusters delete $CLUSTER_NAME --region $REGION --quiet
 ```
+
+---
+{% include-markdown ".partials/subscribe-guides.md" %}

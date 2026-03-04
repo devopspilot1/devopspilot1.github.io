@@ -13,6 +13,7 @@ Welcome to the GKE Tutorials section. Here you will find guides and tutorials fo
 *   [Create Private GKE Autopilot Cluster](create-gke-autopilot-private/index.md)
 *   [Create Private GKE Standard Cluster](create-gke-standard-private/index.md)
 *   [GKE Standard Autoscaling](gke-standard-autoscaling/index.md)
+*   [GKE Workload Identity Federation](gke-workload-identity-gcp-service-account/index.md)
 
 ---
 {% include-markdown ".partials/subscribe-guides.md" %}

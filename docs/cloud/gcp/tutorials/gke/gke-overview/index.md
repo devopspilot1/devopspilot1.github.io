@@ -127,4 +127,4 @@ Autopilot charges for the resources (vCPU, Memory, Storage) requested by your ru
 </quiz>
 
 ---
-{% include-markdown "../../../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}

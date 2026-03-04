@@ -296,4 +296,4 @@ gcloud compute networks delete $NETWORK_NAME --quiet
 ```
 
 ---
-{% include-markdown "../../../../../.partials/subscribe-guides.md" %}
+{% include-markdown ".partials/subscribe-guides.md" %}
