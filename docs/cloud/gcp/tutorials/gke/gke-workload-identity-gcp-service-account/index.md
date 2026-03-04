@@ -105,11 +105,25 @@ To test the setup, we can run a pod that uses the KSA and verify its access to G
 1.  **Run a test pod**:
     
     ```bash
-    kubectl run workload-identity-test \
-      --image=google/cloud-sdk:slim \
-      --serviceaccount=$KSA_NAME \
-      --namespace=$NAMESPACE \
-      --command -- sleep infinity
+    cat <<EOF | kubectl apply -f -
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      name: workload-identity-test
+      namespace: $NAMESPACE
+    spec:
+      serviceAccountName: $KSA_NAME
+      containers:
+      - name: sdk
+        image: google/cloud-sdk:slim
+        command: ["sleep", "infinity"]
+    EOF
+    ```
+
+    Wait for the pod to be `Running`:
+    
+    ```bash
+    kubectl get pod workload-identity-test --namespace=$NAMESPACE
     ```
 
 2.  **Verify the active identity**:
