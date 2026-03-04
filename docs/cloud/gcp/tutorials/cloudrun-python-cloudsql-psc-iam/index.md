@@ -9,7 +9,7 @@ This tutorial guides you through deploying a Python Flask application to Cloud R
 
 ## Prerequisites
 
-1.  **CloudSQL Instance**: Created in [CloudSQL PSC Tutorial](../create-cloudsql-psc/index.md) and configured with [IAM Authentication](../cloudsql-psc-iam/index.md).
+1.  **CloudSQL Instance**: Created in [CloudSQL PSC Tutorial](../cloudsql/create-cloudsql-psc/index.md) and configured with [IAM Authentication](../cloudsql/cloudsql-psc-iam/index.md).
 2.  **Artifact Registry**: A repository to store your Docker images.
 3.  **PSC Endpoint**: The IP address of the PSC Endpoint pointing to your CloudSQL instance.
 

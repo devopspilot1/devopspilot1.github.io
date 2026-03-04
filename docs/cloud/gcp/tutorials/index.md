@@ -13,7 +13,7 @@ Welcome to the GCP Tutorials section.
 * [How to create Artifact Registry Docker Repository using gcloud CLI](create-artifact-registry/index.md)
 * [Build and Push Docker Image to Artifact Registry](push-docker-artifact-registry/index.md)
 * [Regional External Application Load Balancer with Cloud Run](regional-external-lb-cloudrun/index.md)
-* [CloudSQL Postgres 18 with PSC and IAM Authentication](cloudsql-psc-iam/index.md)
+* [CloudSQL Postgres 18 with PSC and IAM Authentication](cloudsql/cloudsql-psc-iam/index.md)
 * [Regional External Load Balancer with Private Cloud Run and SSL](regional-lb-cloudrun-private-ssl/index.md)
 * [Python Flask CRUD with CloudSQL PSC and IAM](cloudrun-python-cloudsql-psc-iam/index.md)
 * [Google Kubernetes Engine (GKE) Tutorials](gke/index.md)

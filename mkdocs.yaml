@@ -296,8 +296,10 @@ nav:
         - How to create Cloud Run service using gcloud CLI: cloud/gcp/tutorials/create-cloud-run/index.md
         - How to create Artifact Registry Docker Repository using gcloud CLI: cloud/gcp/tutorials/create-artifact-registry/index.md
         - Build and Push Docker Image to Artifact Registry: cloud/gcp/tutorials/push-docker-artifact-registry/index.md
-        - Create CloudSQL Postgres 17 with PSC: cloud/gcp/tutorials/create-cloudsql-psc/index.md
-        - CloudSQL Postgres 18 with PSC and IAM Auth: cloud/gcp/tutorials/cloudsql-psc-iam/index.md
+        - CloudSQL:
+          - Overview: cloud/gcp/tutorials/cloudsql/index.md
+          - Create CloudSQL Postgres 17 with PSC: cloud/gcp/tutorials/cloudsql/create-cloudsql-psc/index.md
+          - CloudSQL Postgres 18 with PSC and IAM Auth: cloud/gcp/tutorials/cloudsql/cloudsql-psc-iam/index.md
         - Regional External Application Load Balancer with Cloud Run: cloud/gcp/tutorials/regional-external-lb-cloudrun/index.md
         - Regional External LB with Private Cloud Run and SSL: cloud/gcp/tutorials/regional-lb-cloudrun-private-ssl/index.md
         - Python Flask CRUD with CloudSQL PSC and IAM: cloud/gcp/tutorials/cloudrun-python-cloudsql-psc-iam/index.md

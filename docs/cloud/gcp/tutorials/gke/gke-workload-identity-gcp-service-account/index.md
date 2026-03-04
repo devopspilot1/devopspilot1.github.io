@@ -35,12 +35,28 @@ First, set some environment variables to make the commands easier to copy and pa
 
 ```bash
 export PROJECT_ID=$(gcloud config get-value project)
+export REGION=us-central1
 export GSA_NAME="my-gcp-service-account"
 export KSA_NAME="my-k8s-service-account"
 export NAMESPACE="default"
+export BUCKET_NAME="wif-test-bucket-${PROJECT_ID}"
 ```
 
-## Step 2: Create a Google Cloud Service Account (GSA)
+## Step 2: Create a Cloud Storage Bucket
+
+Create a bucket to use as a concrete test for access verification.
+
+```bash
+gcloud storage buckets create gs://${BUCKET_NAME} --location=$REGION
+```
+
+Add a small test file so there is something to list:
+
+```bash
+echo "Workload Identity test" | gcloud storage cp - gs://${BUCKET_NAME}/test.txt
+```
+
+## Step 3: Create a Google Cloud Service Account (GSA)
 
 Create the Identity and Access Management (IAM) service account that your application will act as.
 
@@ -50,18 +66,18 @@ gcloud iam service-accounts create $GSA_NAME \
     --display-name="GSA for Workload Identity"
 ```
 
-Next, grant this GSA the permissions it needs to access Google Cloud resources. For example, let's give it read-only access to Cloud Storage:
+Grant this GSA read-only access on the bucket we just created:
 
 ```bash
-gcloud projects add-iam-policy-binding $PROJECT_ID \
+gcloud storage buckets add-iam-policy-binding gs://${BUCKET_NAME} \
     --member="serviceAccount:${GSA_NAME}@${PROJECT_ID}.iam.gserviceaccount.com" \
     --role="roles/storage.objectViewer"
 ```
 
 !!! tip "Follow Least Privilege"
-    Grant the GSA only the minimum IAM roles required for the workload. Avoid broad roles like `roles/editor` or `roles/owner`. Use predefined roles (e.g., `roles/storage.objectViewer`, `roles/cloudsql.client`) or create a custom role for fine-grained control.
+    Granting IAM roles on the **bucket** instead of the whole project is more secure. `roles/storage.objectViewer` on a bucket allows listing and reading objects inside it, without exposing any other bucket or resource.
 
-## Step 3: Create a Kubernetes Service Account (KSA)
+## Step 4: Create a Kubernetes Service Account (KSA)
 
 Create the Kubernetes Service Account inside your GKE cluster.
 
@@ -70,7 +86,7 @@ kubectl create serviceaccount $KSA_NAME \
     --namespace $NAMESPACE
 ```
 
-## Step 4: Bind the KSA to the GSA
+## Step 5: Bind the KSA to the GSA
 
 This is the core of Workload Identity. You need to create an IAM policy binding that explicitly allows the KSA to impersonate the GSA.
 
@@ -85,7 +101,7 @@ gcloud iam service-accounts add-iam-policy-binding ${GSA_NAME}@${PROJECT_ID}.iam
 !!! tip "One GSA per Workload"
     It is best practice to create a **separate GSA for each application or workload** rather than sharing one GSA across multiple services. This gives you fine-grained IAM control and limits the blast radius if one service is compromised.
 
-## Step 5: Annotate the KSA (Optional but Recommended)
+## Step 6: Annotate the KSA (Optional but Recommended)
 
 Annotate the Kubernetes Service Account with the email address of the Google Cloud Service Account. This makes it easier for the Google Cloud client libraries to automatically find the correct GSA to impersonate.
 
@@ -98,7 +114,7 @@ kubectl annotate serviceaccount $KSA_NAME \
 !!! tip "Annotation is Required for Client Libraries"
     While the annotation is technically optional for some tools, it is **required** for Google Cloud client libraries (Python, Go, Java, etc.) to automatically discover the identity via Application Default Credentials (ADC). Always annotate the KSA to ensure a seamless developer experience.
 
-## Step 6: Verify Workload Identity in a Pod
+## Step 7: Verify Workload Identity in a Pod
 
 To test the setup, we can run a pod that uses the KSA and verify its access to Google Cloud APIs. We'll use the official `google/cloud-sdk` image to run `gcloud` commands from inside the pod.
 
@@ -138,12 +154,19 @@ To test the setup, we can run a pod that uses the KSA and verify its access to G
 
 3.  **Test resource access**:
     
-    Since we granted the `roles/storage.objectViewer` role earlier, the pod should be able to list storage buckets.
+    List objects in the bucket to confirm the GSA can access Cloud Storage:
     
     ```bash
-    kubectl exec -it workload-identity-test --namespace=$NAMESPACE -- gcloud storage ls
+    kubectl exec -it workload-identity-test --namespace=$NAMESPACE -- \
+        gcloud storage ls gs://${BUCKET_NAME}/
     ```
-
+    
+    Expected output:
+    ```
+    gs://wif-test-bucket-<PROJECT_ID>/test.txt
+    ```
+    
+    A successful listing confirms Workload Identity is fully working end-to-end.
 ## Cleanup
 
 To clean up the resources created during this tutorial:
@@ -154,6 +177,9 @@ kubectl delete pod workload-identity-test --namespace=$NAMESPACE
 
 # Delete the Kubernetes Service Account
 kubectl delete serviceaccount $KSA_NAME --namespace=$NAMESPACE
+
+# Delete the Google Cloud Storage Bucket
+gcloud storage rm -r gs://${BUCKET_NAME}
 
 # Delete the Google Cloud Service Account
 gcloud iam service-accounts delete ${GSA_NAME}@${PROJECT_ID}.iam.gserviceaccount.com --quiet
