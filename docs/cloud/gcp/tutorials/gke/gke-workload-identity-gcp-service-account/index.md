@@ -1,5 +1,5 @@
 ---
-title: GKE Workload Identity Federation: Access GCP Services Using Kubernetes Service Account
+title: "GKE Workload Identity Federation: Access GCP Services Using Kubernetes Service Account"
 description: Learn how to use GCP Service Accounts with Kubernetes Service Accounts using Workload Identity Federation in Google Kubernetes Engine (GKE).
 ---
 
