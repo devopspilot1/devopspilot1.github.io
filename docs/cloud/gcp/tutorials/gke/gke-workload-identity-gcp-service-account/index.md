@@ -1,9 +1,9 @@
 ---
-title: "GKE Workload Identity Federation: Access GCP Services Using Kubernetes Service Account"
+title: "GKE Workload Identity Federation - Access GCP Services Using Kubernetes Service Account"
 description: Learn how to use GCP Service Accounts with Kubernetes Service Accounts using Workload Identity Federation in Google Kubernetes Engine (GKE).
 ---
 
-# GKE Workload Identity with GCP Service Account
+# GKE Workload Identity Federation - Access GCP Services Using Kubernetes Service Account
 
 This tutorial guides you through configuring and using **Workload Identity Federation** in Google Kubernetes Engine (GKE). Workload Identity allows Kubernetes Service Accounts (KSAs) to act as Google Cloud Service Accounts (GSAs), providing your pods with secure, least-privilege access to Google Cloud APIs.
 
