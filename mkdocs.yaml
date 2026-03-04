@@ -293,16 +293,22 @@ nav:
       - Overview: cloud/gcp/index.md
       - Tutorials:
         - Overview: cloud/gcp/tutorials/index.md
-        - How to create Cloud Run service using gcloud CLI: cloud/gcp/tutorials/create-cloud-run/index.md
-        - How to create Artifact Registry Docker Repository using gcloud CLI: cloud/gcp/tutorials/create-artifact-registry/index.md
-        - Build and Push Docker Image to Artifact Registry: cloud/gcp/tutorials/push-docker-artifact-registry/index.md
+        - Artifact Registry:
+          - Overview: cloud/gcp/tutorials/artifact-registry/index.md
+          - Create Artifact Registry Docker Repository: cloud/gcp/tutorials/artifact-registry/create-artifact-registry/index.md
+          - Build and Push Docker Image to Artifact Registry: cloud/gcp/tutorials/artifact-registry/push-docker-artifact-registry/index.md
+        - Cloud Run:
+          - Overview: cloud/gcp/tutorials/cloudrun/index.md
+          - Create Cloud Run Service: cloud/gcp/tutorials/cloudrun/create-cloud-run/index.md
+          - Python Flask CRUD with CloudSQL PSC and IAM: cloud/gcp/tutorials/cloudrun/cloudrun-python-cloudsql-psc-iam/index.md
         - CloudSQL:
           - Overview: cloud/gcp/tutorials/cloudsql/index.md
           - Create CloudSQL Postgres 17 with PSC: cloud/gcp/tutorials/cloudsql/create-cloudsql-psc/index.md
           - CloudSQL Postgres 18 with PSC and IAM Auth: cloud/gcp/tutorials/cloudsql/cloudsql-psc-iam/index.md
-        - Regional External Application Load Balancer with Cloud Run: cloud/gcp/tutorials/regional-external-lb-cloudrun/index.md
-        - Regional External LB with Private Cloud Run and SSL: cloud/gcp/tutorials/regional-lb-cloudrun-private-ssl/index.md
-        - Python Flask CRUD with CloudSQL PSC and IAM: cloud/gcp/tutorials/cloudrun-python-cloudsql-psc-iam/index.md
+        - Load Balancing:
+          - Overview: cloud/gcp/tutorials/load-balancing/index.md
+          - Regional External Application LB with Cloud Run: cloud/gcp/tutorials/load-balancing/regional-external-lb-cloudrun/index.md
+          - Regional External LB with Private Cloud Run and SSL: cloud/gcp/tutorials/load-balancing/regional-lb-cloudrun-private-ssl/index.md
         - Google Kubernetes Engine (GKE):
           - Overview: cloud/gcp/tutorials/gke/index.md
           - What is GKE?: cloud/gcp/tutorials/gke/gke-overview/index.md
@@ -310,6 +316,7 @@ nav:
           - Create Private GKE Standard Cluster: cloud/gcp/tutorials/gke/create-gke-standard-private/index.md
           - GKE Standard Autoscaling: cloud/gcp/tutorials/gke/gke-standard-autoscaling/index.md
           - GKE Workload Identity: cloud/gcp/tutorials/gke/gke-workload-identity-gcp-service-account/index.md
+          - GKE Gateway API with Path-Based Routing: cloud/gcp/tutorials/gke/gke-gateway-api-path-routing/index.md
       - Projects:
         - Overview: cloud/gcp/projects/index.md
         - Deploy Python App to Cloud Run: cloud/gcp/projects/deploy-python-cloud-run/index.md
