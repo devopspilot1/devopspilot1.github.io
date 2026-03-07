@@ -42,6 +42,7 @@ Internet → Regional External LB → Gateway
 ```bash
 export PROJECT_ID=$(gcloud config get-value project)
 export REGION=us-central1
+export NETWORK_NAME=gke-private-std-net #If you want to use default network - use "default"
 export CLUSTER_NAME=my-private-autopilot   # or my-private-standard
 ```
 
@@ -98,7 +99,29 @@ We will deploy two microservices using **Google's official sample images** hoste
 
     Wait until both pods are in `Running` state.
 
-## Step 4: Create the Gateway
+## Step 4: Create the Proxy-Only Subnet
+
+The `gke-l7-regional-external-managed` GatewayClass uses **Envoy-based proxies** to terminate HTTP connections. These proxies run inside Google's infrastructure and require a dedicated **proxy-only subnet** in the same region and VPC as your cluster. Without it, the Gateway will fail with:
+
+```
+An active proxy-only subnetwork is required in the same region and VPC as the forwarding rule.
+```
+
+Create the proxy-only subnet:
+
+```bash
+gcloud compute networks subnets create proxy-only-subnet \
+    --purpose=REGIONAL_MANAGED_PROXY \
+    --role=ACTIVE \
+    --region=$REGION \
+    --network=$NETWORK_NAME \
+    --range=10.1.1.0/26
+```
+
+!!! note
+    The range `10.1.1.0/26` (64 addresses) is reserved exclusively for proxy use — it is **not** used by your workloads. A `/26` is the minimum recommended size. Choose any non-overlapping CIDR from your `$NETWORK_NAME` VPC's available address space.
+
+## Step 5: Create the Gateway
 
 Create a `Gateway` resource that provisions a Regional External Load Balancer.
 
@@ -132,7 +155,7 @@ export GATEWAY_IP=$(kubectl get gateway external-gateway \
 echo "Gateway IP: $GATEWAY_IP"
 ```
 
-## Step 5: Create the HTTPRoute with Path-Based Routing
+## Step 6: Create the HTTPRoute with Path-Based Routing
 
 Create an `HTTPRoute` that routes traffic based on the URL path:
 
@@ -167,7 +190,7 @@ spec:
 EOF
 ```
 
-## Step 6: Verify Path-Based Routing
+## Step 7: Verify Path-Based Routing
 
 Test that requests reach the correct microservice based on the path:
 
