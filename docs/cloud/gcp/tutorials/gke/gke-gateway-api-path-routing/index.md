@@ -31,10 +31,26 @@ In GKE, the `gke-l7-regional-external-managed` GatewayClass provisions a **Regio
 
 ## Architecture
 
-```
-Internet → Regional External LB → Gateway
-                                      ├── /api/orders  → orders-service (port 8080)
-                                      └── /api/products → products-service (port 8080)
+```mermaid
+graph TD
+    Client["Client"] --> GW["GKE Gateway<br/>(External Load Balancer)"]
+    GW --> HR["HTTPRoute"]
+    HR -->|"/api/orders"| SVC1["Orders Service"]
+    HR -->|"/api/products"| SVC2["Products Service"]
+    SVC1 --> POD1["Orders Pods"]
+    SVC2 --> POD2["Products Pods"]
+
+    classDef client   fill:#dbeafe,stroke:#93c5fd,color:#1e3a5f
+    classDef gateway  fill:#ede9fe,stroke:#a78bfa,color:#3b1f6e
+    classDef route    fill:#fef9c3,stroke:#fbbf24,color:#78350f
+    classDef service  fill:#dcfce7,stroke:#86efac,color:#14532d
+    classDef pods     fill:#ffedd5,stroke:#fdba74,color:#7c2d12
+
+    class Client client
+    class GW gateway
+    class HR route
+    class SVC1,SVC2 service
+    class POD1,POD2 pods
 ```
 
 ## Step 1: Set Environment Variables

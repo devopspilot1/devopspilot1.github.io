@@ -26,6 +26,7 @@ extra_css:
   - stylesheets/extra.css
 extra_javascript:
   - javascripts/interview-questions.js
+  - https://unpkg.com/mermaid@11/dist/mermaid.min.js
 extra:
   analytics:
     provider: google
@@ -629,7 +630,11 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.mark
   - pymdownx.smartsymbols
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.tasklist:
