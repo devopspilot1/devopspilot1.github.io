@@ -24,5 +24,4 @@ A comprehensive journey that takes a simple Java application and evolves its CI/
 
 [Start the Java Docker Project 👉](java-docker/index.md)
 
----
 {% include-markdown ".partials/subscribe-guides.md" %}

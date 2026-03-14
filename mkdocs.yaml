@@ -152,6 +152,8 @@ nav:
       - Docker with Environment Variables: jenkins/pipelines/docker-build-deploy-dockerhub-environment-variables/index.md
       - Using Docker Pipeline Plugin: jenkins/pipelines/docker-plugin-build-deploy-dockerhub/index.md
       - Build, Push to JFrog & Deploy: jenkins/pipelines/docker-plugin-build-deploy-jfrog/index.md
+      - Real-World Helm Pipeline: jenkins/pipelines/helm-pipeline/index.md
+      - Terraform Infrastructure Pipeline: jenkins/pipelines/terraform-pipeline/index.md
     - Projects:
       - Overview: jenkins/projects/index.md
       - Java Docker Project:

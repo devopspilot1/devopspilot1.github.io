@@ -14,13 +14,20 @@ Pipelines allow you to define your entire build process as code (`Jenkinsfile`),
 
 ## 📂 What's Inside?
 
-We provide ready-to-use pipeline examples for:
+We provide ready-to-use pipeline examples for various use cases:
 
-*   **Java & Maven**: Building, testing, and deploying Java applications.
-*   **Docker**: Building Docker images, tagging them, and pushing to registries (Docker Hub, Artifactory).
-*   **Tomcat Deployment**: Automating deployments to Tomcat servers across different environments (Dev, QA, Prod).
-*   **Conditional Logic**: using `when` conditions to run stages only when specific criteria are met.
-*   **Environment Variables**: Managing credentials and environment-specific configurations securely.
+*   **[Create Pipeline Job](create-pipeline-job/index.md)**: Basics of creating a new Jenkins Pipeline.
+*   **[Build Maven Project](jenkinsfile-maven-build/index.md)**: Compiling and packaging Java applications.
+*   **[Build Maven & Deploy to Tomcat](jenkinsfile-maven-tomcat/index.md)**: Full flow from code to running application server.
+*   **[Deploy to Multiple Environments](deploy-to-tomcat-multiple-environments/index.md)**: Handling staging, QA, and Production.
+*   **[Deploy with 'when' Condition](deploy-to-tomcat-when-condition/index.md)**: Running stages only when specific criteria are met.
+*   **[Deploy with Environment Variables](deploy-to-tomcat-environment-variables/index.md)**: Managing deployment configurations securely.
+*   **[Deploy Docker Image to Multiple Environments](docker-build-deploy-dockerhub/index.md)**: Building and pushing Docker images to registries.
+*   **[Docker with Environment Variables](docker-build-deploy-dockerhub-environment-variables/index.md)**: Dynamic variables in Docker builds.
+*   **[Using Docker Pipeline Plugin](docker-plugin-build-deploy-dockerhub/index.md)**: Leveraging Jenkins Docker integrations natively.
+*   **[Build, Push to JFrog & Deploy](docker-plugin-build-deploy-jfrog/index.md)**: Complete lifecycle with Artifactory.
+*   **[Real-World Helm Pipeline](helm-pipeline/index.md)**: Deploying charts to Kubernetes across environments safely.
+*   **[Terraform Infrastructure Pipeline](terraform-pipeline/index.md)**: Orchestrating infrastructure as code with plan files and manual approval.
 
 ## 🛠 How to Use These Examples
 1.  **Copy the Jenkinsfile**: detailed explanations are provided for each block.
