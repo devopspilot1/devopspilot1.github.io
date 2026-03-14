@@ -13,19 +13,19 @@ Here is the high-level flow of our Terraform automation pipeline:
 
 ```mermaid
 flowchart LR
-    Jenkins["<img src='https://upload.wikimedia.org/wikipedia/commons/e/e9/Jenkins_logo.svg' width='30' /> Jenkins"] --> P[Pipeline]
+    Jenkins["<img src='https://upload.wikimedia.org/wikipedia/commons/e/e9/Jenkins_logo.svg' width='20' height='20' /> Jenkins"] --> P[Pipeline]
     
-    P --> Init["<img src='https://upload.wikimedia.org/wikipedia/commons/0/04/Terraform_Logo.svg' width='30' /> Terraform Init"]
+    P --> Init["<img src='https://upload.wikimedia.org/wikipedia/commons/0/04/Terraform_Logo.svg' width='20' height='20' /> Terraform Init"]
     
-    Init -->|plan| Plan["<img src='https://upload.wikimedia.org/wikipedia/commons/0/04/Terraform_Logo.svg' width='30' /> Terraform Plan"]
+    Init -->|plan| Plan["<img src='https://upload.wikimedia.org/wikipedia/commons/0/04/Terraform_Logo.svg' width='20' height='20' /> Terraform Plan"]
     
     Plan --> Approval{Manual Approval}
     
-    Approval -->|Approved| Apply["<img src='https://upload.wikimedia.org/wikipedia/commons/0/04/Terraform_Logo.svg' width='30' /> Terraform Apply/Destroy"]
+    Approval -->|Approved| Apply["<img src='https://upload.wikimedia.org/wikipedia/commons/0/04/Terraform_Logo.svg' width='20' height='20' /> Terraform Apply/Destroy"]
 ```
 
-> [!TIP]
-> **Important:** Always include a manual `Approval` stage before executing `terraform apply` or `destroy` in a CI/CD environment to prevent accidental infrastructure modifications or deletions!
+!!! tip "Important"
+    Always include a manual `Approval` stage before executing `terraform apply` or `destroy` in a CI/CD environment to prevent accidental infrastructure modifications or deletions!
 
 ---
 
@@ -84,8 +84,8 @@ pipeline {
 - **`init -reconfigure`**: Ensures the backend is safely initialized, preventing state locking issues across parallel jobs or when switching configurations.
 - **`-out=tfplan`**: Exports the plan to a binary file. This guarantees that the exact changes reviewed during the plan phase will be identical to what is applied.
 
-> [!TIP]
-> We always execute commands by first `cd`ing into the `TF_DIR` (e.g., `cd ${TF_DIR}`) since Jenkins starts executing from the root of the workspace.
+!!! tip
+    We always execute commands by first `cd`ing into the `TF_DIR` (e.g., `cd ${TF_DIR}`) since Jenkins starts executing from the root of the workspace.
 
 ### 3. Manual Approval Gateway
 

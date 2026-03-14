@@ -13,18 +13,18 @@ Here is the high-level flow of our Helm deployment pipeline:
 
 ```mermaid
 flowchart LR
-    Jenkins["<img src='https://upload.wikimedia.org/wikipedia/commons/e/e9/Jenkins_logo.svg' width='30' /> Jenkins"] --> P[Pipeline]
-    P -->|dev| H1["<img src='https://helm.sh/img/helm.svg' width='30' /> Helm (Dev)"]
-    P -->|qa| H2["<img src='https://helm.sh/img/helm.svg' width='30' /> Helm (QA)"]
-    P -->|prod| H3["<img src='https://helm.sh/img/helm.svg' width='30' /> Helm (Prod)"]
+    Jenkins["<img src='https://upload.wikimedia.org/wikipedia/commons/e/e9/Jenkins_logo.svg' width='20' height='20' /> Jenkins"] --> P[Pipeline]
+    P -->|dev| H1["<img src='https://helm.sh/img/helm.svg' width='20' height='20' /> Helm (Dev)"]
+    P -->|qa| H2["<img src='https://helm.sh/img/helm.svg' width='20' height='20' /> Helm (QA)"]
+    P -->|prod| H3["<img src='https://helm.sh/img/helm.svg' width='20' height='20' /> Helm (Prod)"]
     
-    H1 --> K1["<img src='https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg' width='30' /> K8s"]
-    H2 --> K2["<img src='https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg' width='30' /> K8s"]
-    H3 --> K3["<img src='https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg' width='30' /> K8s"]
+    H1 --> K1["<img src='https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg' width='20' height='20' /> K8s"]
+    H2 --> K2["<img src='https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg' width='20' height='20' /> K8s"]
+    H3 --> K3["<img src='https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg' width='20' height='20' /> K8s"]
 ```
 
-> [!TIP]
-> **Prerequisites:** Ensure that the Helm CLI is installed on the underlying Jenkins agent and correctly configured in your system's `PATH`.
+!!! tip
+    **Prerequisites:** Ensure that the Helm CLI is installed on the underlying Jenkins agent and correctly configured in your system's `PATH`.
 
 ---
 
@@ -90,8 +90,8 @@ The pipeline utilizes `when` conditions to strictly execute only the stage corre
 - **`-f values-dev.yaml`**: Injects environment-specific configuration values (like replica counts or specific DB URLs).
 - **`--set image.tag`**: Overrides the image tag dynamically during the pipeline run using our input parameter.
 
-> [!TIP]
-> Always use `upgrade --install` in CI/CD pipelines as it securely handles both first-time deployments and subsequent updates without failing.
+!!! tip
+    Always use `upgrade --install` in CI/CD pipelines as it securely handles both first-time deployments and subsequent updates without failing.
 
 ### 4. Post Cleanup
 
