@@ -1,6 +1,6 @@
 ---
 title: "Linux System and Disk Commands for DevOps Engineers"
-date: 2024-07-01
+description: "Master linux system and disk commands for devops engineers with standard to advanced techniques for DevOps engineering."
 ---
 
 # Linux System and Disk Commands for DevOps Engineers
@@ -71,47 +71,39 @@ tmpfs            97M  4.0K   97M   1% /run/user/1001
 
 ---
 
-## Other Common Linux Utility Commands
+## `lsblk` – List Block Devices
 
-### `which`
-Find the location of a command.
-
-```bash
-which kubectl
-```
-
-### `man`
-View the manual page of a command.
+Use `lsblk` to view all attached block storage devices, hard drives, and partitions. It provides a clean, tree-like structure of disks.
 
 ```bash
-man df
+ubuntu@manikandan:~$ lsblk
+NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda       8:0    0   50G  0 disk 
+├─sda1    8:1    0 49.9G  0 part /
+└─sda15   8:15   0  106M  0 part /boot/efi
 ```
 
-### `id`
-Display user and group information.
+## `uptime` – Server Load & Active Time
+
+The `uptime` command quickly tells you how long the system has been running, how many users are logged in, and the system load averages for the past 1, 5, and 15 minutes.
 
 ```bash
-id
+ubuntu@manikandan:~$ uptime
+ 14:22:38 up 45 days,  2:11,  1 user,  load average: 0.12, 0.08, 0.05
 ```
 
-### `hostname`
-Check the system hostname.
+## `top` and `htop` – Interactive Process Monitoring
+
+While `ps` captures a static snapshot, `top` provides a dynamic, real-time view of system processes, CPU utilization, and memory consumption. 
+
+*(Note: Many modern servers use `htop` instead, offering a more visually friendly, color-coded structure).*
 
 ```bash
-hostname
+ubuntu@manikandan:~$ top
+top - 14:25:01 up 45 days,  2:13,  1 user,  load average: 0.03, 0.06, 0.04
+Tasks: 104 total,   1 running, 103 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.3 us,  0.0 sy,  0.0 ni, 99.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
 ```
-
----
-
-## Directory Navigation Shortcuts
-
-- `cd ..` → Move one directory up  
-- `cd ../..` → Move two directories up  
-- `cd` → Go to home directory  
-- `cd ~` → Go to home directory explicitly  
-- `cd -` → Switch to previous directory  
-
----
 
 ## Practice Tasks
 

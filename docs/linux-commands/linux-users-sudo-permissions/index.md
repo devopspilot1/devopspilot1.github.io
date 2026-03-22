@@ -1,6 +1,6 @@
 ---
 title: "Linux Users, Groups, and Sudo Permissions"
-date: 2024-07-01
+description: "Master linux users, groups, and sudo permissions with standard to advanced techniques for DevOps engineering."
 ---
 
 # Linux Users, Groups, and Sudo Permissions

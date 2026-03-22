@@ -1,6 +1,6 @@
 ---
 title: "Linux File Viewing, Permissions, and Environment Variables"
-date: 2024-07-01
+description: "Master linux file viewing, permissions, and environment variables with standard to advanced techniques for DevOps engineering."
 ---
 
 # Linux File Viewing, Permissions, and Environment Variables
@@ -10,88 +10,6 @@ date: 2024-07-01
 ---
 
 This section covers **file viewing commands, Linux permissions, ownership, and environment variables** — all heavily used by DevOps engineers for log analysis, access control, and runtime debugging.
-
----
-
-## `head` – View First Lines of a File
-
-Prints the first **10 lines** of a file by default.
-
-```bash
-[opc@new-k8s ~]$ head fruits.txt
-Apple
-Apricot
-Avocado
-Banana
-Bilberry
-Blackberry
-Blackcurrant
-Blueberry
-Boysenberry
-Currant
-```
-
-### View First N Lines
-
-```bash
-[opc@new-k8s ~]$ head -n 15 fruits.txt
-Apple
-Apricot
-Avocado
-Banana
-Bilberry
-Blackberry
-Blackcurrant
-Blueberry
-Boysenberry
-Currant
-Cherry
-Cherimoya
-Chico fruit
-Cloudberry
-Coconut
-```
-
----
-
-## `tail` – View Last Lines of a File
-
-Prints the last **10 lines** of a file by default.
-
-```bash
-[opc@new-k8s ~]$ tail fruits.txt
-Salak
-Satsuma
-Soursop
-Star fruit
-Solanum quitoense
-Strawberry
-Tamarillo
-Tamarind
-Ugli fruit
-Yuzu
-```
-
-### View Last N Lines
-
-```bash
-[opc@new-k8s ~]$ tail -n 15 fruits.txt
-Raspberry
-Salmonberry
-Rambutan
-Redcurrant
-Salal berry
-Salak
-Satsuma
-Soursop
-Star fruit
-Solanum quitoense
-Strawberry
-Tamarillo
-Tamarind
-Ugli fruit
-Yuzu
-```
 
 ---
 
@@ -157,47 +75,37 @@ drwxrwxr-x. 4 opc vignesh 100 Apr 13 12:46 test
 
 ---
 
-## `date` – Check Date and Time
+## Advanced Permissions: `umask`
+
+The `umask` (user file-creation mode mask) automatically sets the default permissions for any newly created file or directory. 
+- Default file permission is **666**
+- Default directory permission is **777**
+
+If the system `umask` is `0022`, a new file will be initialized with `644` (666 - 022 = 644).
 
 ```bash
-[opc@new-k8s test]$ date
-Sat Apr 15 04:39:46 GMT 2023
+[opc@new-k8s ~]$ umask
+0022
 ```
 
----
+## Special Permissions: SUID, SGID, and Sticky Bit
 
-## Environment Variables
+For advanced security architectures, DevOps engineers must be familiar with special permissions beyond the standard Read/Write/Execute bits.
 
-### View All Environment Variables Using `env`
+### SUID (Set User ID)
+When the SUID bit is set on an executable file, any user running that file executes it with the privileges of the file's **owner** (e.g., executing a binary as `root` without actually being root).
+- Denoted by an `s` in the owner execute space (e.g., `-rwsr-xr-x`).
+- Applied via `chmod u+s /path/to/file` or `chmod 4755`.
 
-```bash
-[opc@new-k8s test]$ env
-HOSTNAME=new-k8s
-USER=opc
-PWD=/home/opc/test
-PATH=/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/opc/.local/bin:/home/opc/bin
-...
-```
+### SGID (Set Group ID)
+When the SGID bit is set on a directory, any files created inside it forcefully inherit the group ownership of the directory itself, rather than the primary group of the user who created it. This is heavily used for shared collaboration folders.
+- Denoted by an `s` in the group execute space (e.g., `drwxrwsr-x`).
+- Applied via `chmod g+s /path/to/folder` or `chmod 2775`.
 
-### View All Environment Variables Using `printenv`
-
-```bash
-[opc@new-k8s test]$ printenv
-HOSTNAME=new-k8s
-USER=opc
-PWD=/home/opc/test
-PATH=/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/opc/.local/bin:/home/opc/bin
-...
-```
-
-### View a Single Environment Variable
-
-```bash
-[opc@new-k8s test]$ echo $PATH
-/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/opc/.local/bin:/home/opc/bin
-```
-
----
+### Sticky Bit
+When the Sticky Bit is applied to a universally shared directory (like `/tmp`), it prevents users from deleting or renaming files owned by *other* users within that directory, even if the directory gives write `w` access to everyone.
+- Denoted by a `t` at the end of the permission block (e.g., `drwxrwxrwt`).
+- Applied via `chmod +t /path/to/folder` or `chmod 1777`.
 
 ## Practice Tasks
 

@@ -1,6 +1,6 @@
 ---
 title: "Linux Shell Variables, Environment Variables, PATH, Aliases & Package Management"
-date: 2024-07-01
+description: "Master linux shell variables, environment variables, path, aliases & package management with standard to advanced techniques for DevOps engineering."
 ---
 
 # Linux Shell Variables, Environment Variables, PATH, Aliases & Package Management
@@ -393,6 +393,144 @@ Executing busybox-1.35.0-r29.trigger
 OK: 7 MiB in 15 packages
 / # tree
 sh: tree: not found
+```
+
+## Environment Variables
+
+### View All Environment Variables Using `env`
+
+```bash
+[opc@new-k8s test]$ env
+HOSTNAME=new-k8s
+USER=opc
+PWD=/home/opc/test
+PATH=/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/opc/.local/bin:/home/opc/bin
+...
+```
+
+### View All Environment Variables Using `printenv`
+
+```bash
+[opc@new-k8s test]$ printenv
+HOSTNAME=new-k8s
+USER=opc
+PWD=/home/opc/test
+PATH=/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/opc/.local/bin:/home/opc/bin
+...
+```
+
+### View a Single Environment Variable
+
+```bash
+[opc@new-k8s test]$ echo $PATH
+/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/opc/.local/bin:/home/opc/bin
+```
+
+---
+
+## Types of Shell
+
+- sh
+- bash (Bourne Again Shell)
+- zsh
+- ksh (Korn Shell)
+- csh
+
+Reference: [https://www.shiksha.com/online-courses/articles/introduction-to-types-of-shell/](https://www.shiksha.com/online-courses/articles/introduction-to-types-of-shell/)
+
+## Redirection
+
+```
+>  Overwrites the file content, if the file already exists
+>> Appends the content to the existing content in the file
+```
+
+In both cases, if the file is not present, it will create the file and write the content to it.
+
+By default, the `echo` command prints the output to the screen. But if we use redirection arrows, it can store the output to files.
+
+```
+[opc@new-k8s ~]$ mkdir redirection
+[opc@new-k8s ~]$ cd redirection/
+[opc@new-k8s redirection]$ pwd
+/home/opc/redirection
+[opc@new-k8s redirection]$ ll
+total 0
+[opc@new-k8s redirection]$ echo "hello devops" > hello.txt
+[opc@new-k8s redirection]$ ll
+total 4
+-rw-rw-r--. 1 opc opc 13 Apr 17 14:11 hello.txt
+[opc@new-k8s redirection]$ cat hello.txt
+hello devops
+[opc@new-k8s redirection]$ echo "I am learning devops" > hello.txt
+[opc@new-k8s redirection]$ ll
+total 4
+-rw-rw-r--. 1 opc opc 21 Apr 17 14:11 hello.txt
+[opc@new-k8s redirection]$ cat hello.txt
+I am learning devops
+```
+
+```
+[opc@new-k8s redirection]$ pwd
+/home/opc/redirection
+[opc@new-k8s redirection]$ ll
+total 0
+[opc@new-k8s redirection]$ echo "I eat fruits daily" >> double-arrow.txt
+[opc@new-k8s redirection]$ ll
+total 4
+-rw-rw-r--. 1 opc opc 19 Apr 17 14:13 double-arrow.txt
+[opc@new-k8s redirection]$ cat double-arrow.txt
+I eat fruits daily
+[opc@new-k8s redirection]$ echo "I love banana" >> double-arrow.txt
+[opc@new-k8s redirection]$ echo "I also like apples" >> double-arrow.txt
+[opc@new-k8s redirection]$ ll
+total 4
+-rw-rw-r--. 1 opc opc 52 Apr 17 14:13 double-arrow.txt
+[opc@new-k8s redirection]$ cat double-arrow.txt
+I eat fruits daily
+I love banana
+I also like apples
+```
+
+## Pipe (|)
+
+A pipe (`|`) is used to pass the output from one command/program to the input for another command.
+
+```
+[opc@new-k8s test]$ pwd
+/home/opc/test
+[opc@new-k8s test]$ ll
+total 8
+drwxrwxr-x. 2 opc opc 27 Mar 17 14:03 client
+-rw-rw-r--. 1 opc opc 77 Apr 12 12:26 Dockerfile
+-rw-rw-r--. 1 opc opc  0 Apr 12 12:54 hello.txt
+-rw-rw-r--. 1 opc opc 23 Apr 12 12:56 mani.txt
+-rw-rw-r--. 1 opc opc  0 Mar 17 14:03 server
+drwxrwxr-x. 3 opc opc 18 Apr 13 12:46 vignesh
+[opc@new-k8s test]$ ll | wc -l
+7
+```
+
+## Exit Codes ($?)
+
+`$?` is a special variable which holds the status code of the last executed command.
+
+In Linux, `0` means success, any other value indicates failure.
+
+```
+[opc@new-k8s ~]$ ll
+total 3072008
+-rw-rw-r--. 1 opc  opc         852 Apr 15 03:15 fruits.txt
+-rwxrwxr-x. 1 opc  opc          81 Apr 15 13:27 newtest
+drwxrwxr-x. 2 opc  opc          25 Nov 26  2021 prometheus
+-rw-r--r--. 1 root root 3145728000 Jan 11  2022 swapfile
+drwxrwxr-x. 4 opc  opc         100 Apr 15 13:04 test
+[opc@new-k8s ~]$ echo $?
+0
+[opc@new-k8s ~]$ ddhghg
+-bash: ddhghg: command not found
+[opc@new-k8s ~]$ echo $?
+127
 ```
 
 ## 🧠 Quick Quiz — Shell, Environment Variables & PATH

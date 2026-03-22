@@ -1,6 +1,6 @@
 ---
 title: "Basic Linux Commands for DevOps Engineers (With Examples)"
-date: 2024-07-01
+description: "Master basic linux commands for devops engineers (with examples) with standard to advanced techniques for DevOps engineering."
 ---
 
 # Basic Linux Commands for DevOps Engineers
@@ -187,6 +187,57 @@ ls -la → List including hidden files and folders
 ll → Alias of `ls -la`  
 cd → Change directory  
 cat → Print file content  
+
+---
+
+## Other Common Linux Utility Commands
+
+### `which`
+Find the location of a command.
+
+```bash
+which kubectl
+```
+
+### `man`
+View the manual page of a command.
+
+```bash
+man df
+```
+
+### `id`
+Display user and group information.
+
+```bash
+id
+```
+
+### `hostname`
+Check the system hostname.
+
+```bash
+hostname
+```
+
+---
+
+## Directory Navigation Shortcuts
+
+- `cd ..` → Move one directory up  
+- `cd ../..` → Move two directories up  
+- `cd` → Go to home directory  
+- `cd ~` → Go to home directory explicitly  
+- `cd -` → Switch to previous directory  
+
+---
+
+## `date` – Check Date and Time
+
+```bash
+[opc@new-k8s test]$ date
+Sat Apr 15 04:39:46 GMT 2023
+```
 
 ---
 

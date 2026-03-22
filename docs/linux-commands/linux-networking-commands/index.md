@@ -1,6 +1,6 @@
 ---
 title: "Linux Networking Commands for DevOps Engineers"
-date: 2024-07-01
+description: "Master linux networking commands for devops engineers with standard to advanced techniques for DevOps engineering."
 ---
 
 # Linux Networking Commands for DevOps Engineers
@@ -14,467 +14,125 @@ inspect network interfaces, and debug service-to-service communication in produc
 
 ---
 
-## Pipe (|)
+## wget Command
 
-A pipe (`|`) is used to pass the output from one command/program to the input for another command.
-
-```
-[opc@new-k8s test]$ pwd
-/home/opc/test
-[opc@new-k8s test]$ ll
-total 8
-drwxrwxr-x. 2 opc opc 27 Mar 17 14:03 client
--rw-rw-r--. 1 opc opc 77 Apr 12 12:26 Dockerfile
--rw-rw-r--. 1 opc opc  0 Apr 12 12:54 hello.txt
--rw-rw-r--. 1 opc opc 23 Apr 12 12:56 mani.txt
--rw-rw-r--. 1 opc opc  0 Mar 17 14:03 server
-drwxrwxr-x. 3 opc opc 18 Apr 13 12:46 vignesh
-[opc@new-k8s test]$ ll | wc -l
-7
-```
-
-## jq Command
-
-Used to read JSON data or files.
+The `wget` command is used to download binary or large files (e.g., zip, tar, tar.gz files).
 
 ```
 [opc@new-k8s ~]$ pwd
 /home/opc
-[opc@new-k8s ~]$ ll
-total 3072012
--rw-rw-r--. 1 opc  opc         852 Apr 15 03:15 fruits.txt
-drwxrwxr-x. 2 opc  opc          39 Apr 15 12:46 myprogram
--rwxrwxr-x. 1 opc  opc          81 Apr 15 13:27 newtest
--rw-rw-r--. 1 opc  opc        2026 Apr 18 11:39 output.json
-drwxrwxr-x. 2 opc  opc          25 Nov 26  2021 prometheus
--rw-r--r--. 1 root root 3145728000 Jan 11  2022 swapfile
-drwxrwxr-x. 4 opc  opc         100 Apr 15 13:04 test
-[opc@new-k8s ~]$ cat output.json | jq .
-{
-  "url": "https://api.github.com/repos/vigneshsweekaran/hello-world/releases/43010389",
-  "assets_url": "https://api.github.com/repos/vigneshsweekaran/hello-world/releases/43010389/assets",
-  "upload_url": "https://uploads.github.com/repos/vigneshsweekaran/hello-world/releases/43010389/assets{?name,label}",
-  "html_url": "https://github.com/vigneshsweekaran/hello-world/releases/tag/clean",
-  "id": 43010389,
-  "author": {
-    "login": "vigneshsweekaran",
-    "id": 40670015,
-    "node_id": "MDQ6VXNlcjQwNjcwMDE1",
-    "avatar_url": "https://avatars.githubusercontent.com/u/40670015?v=4",
-    "gravatar_id": "",
-    "url": "https://api.github.com/users/vigneshsweekaran",
-    "html_url": "https://github.com/vigneshsweekaran",
-    "followers_url": "https://api.github.com/users/vigneshsweekaran/followers",
-    "following_url": "https://api.github.com/users/vigneshsweekaran/following{/other_user}",
-    "gists_url": "https://api.github.com/users/vigneshsweekaran/gists{/gist_id}",
-    "starred_url": "https://api.github.com/users/vigneshsweekaran/starred{/owner}{/repo}",
-    "subscriptions_url": "https://api.github.com/users/vigneshsweekaran/subscriptions",
-    "organizations_url": "https://api.github.com/users/vigneshsweekaran/orgs",
-    "repos_url": "https://api.github.com/users/vigneshsweekaran/repos",
-    "events_url": "https://api.github.com/users/vigneshsweekaran/events{/privacy}",
-    "received_events_url": "https://api.github.com/users/vigneshsweekaran/received_events",
-    "type": "User",
-    "site_admin": false
-  },
-  "node_id": "MDc6UmVsZWFzZTQzMDEwMzg5",
-  "tag_name": "clean",
-  "target_commitish": "master",
-  "name": "Clean repo with maven application",
-  "draft": false,
-  "prerelease": false,
-  "created_at": "2021-05-16T06:18:49Z",
-  "published_at": "2021-05-16T06:26:47Z",
-  "assets": [],
-  "tarball_url": "https://api.github.com/repos/vigneshsweekaran/hello-world/tarball/clean",
-  "zipball_url": "https://api.github.com/repos/vigneshsweekaran/hello-world/zipball/clean",
-  "body": ""
-}
+[opc@new-k8s ~]$ mkdir wget-examples
+[opc@new-k8s ~]$ cd wget-examples/
+[opc@new-k8s wget-examples]$ pwd
+/home/opc/wget-examples
+[opc@new-k8s wget-examples]$ ll
+total 0
+[opc@new-k8s wget-examples]$ wget https://dlcdn.apache.org/maven/maven-3/3.9.1/binaries/apache-maven-3.9.1-bin.zip
+--2023-04-17 13:27:27-- https://dlcdn.apache.org/maven/maven-3/3.9.1/binaries/apache-maven-3.9.1-bin.zip
+Resolving dlcdn.apache.org (dlcdn.apache.org)... 151.101.2.132, 2a04:4e42::644
+Connecting to dlcdn.apache.org (dlcdn.apache.org)|151.101.2.132|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 9143026 (8.7M) [application/zip]
+Saving to: ‘apache-maven-3.9.1-bin.zip’
+
+100%[=========================================================================================================================>] 9,143,026   24.9MB/s   in 0.4s
+
+2023-04-17 13:27:28 (24.9 MB/s) - ‘apache-maven-3.9.1-bin.zip’ saved [9143026/9143026]
+
+[opc@new-k8s wget-examples]$ ll
+total 8932
+-rw-rw-r--. 1 opc opc 9143026 Mar 15 10:00 apache-maven-3.9.1-bin.zip
 ```
 
-### Piping curl output to jq
+### wget - Quiet Mode
+
+**-q or --quiet** --> Quiet mode, will not show any logs or progress bar.
 
 ```
-[opc@new-k8s ~]$ curl https://api.github.com/repos/vigneshsweekaran/hello-world/releases/latest | jq .
+[opc@new-k8s wget-examples]$ wget -q https://dlcdn.apache.org/maven/maven-3/3.9.1/binaries/apache-maven-3.9.1-bin.tar.gz
+[opc@new-k8s wget-examples]$ ll -h
+total 18M
+-rw-rw-r--. 1 opc opc 8.7M Mar 15 10:00 apache-maven-3.9.1-bin.tar.gz
+-rw-rw-r--. 1 opc opc 8.8M Mar 15 10:00 apache-maven-3.9.1-bin.zip
+```
+
+## curl Command
+
+```
+[opc@new-k8s ~]$ mkdir curl-examples
+[opc@new-k8s ~]$ cd curl-examples/
+[opc@new-k8s curl-examples]$ pwd
+/home/opc/curl-examples
+[opc@new-k8s curl-examples]$ ll
+total 0
+[opc@new-k8s curl-examples]$ curl https://dlcdn.apache.org/maven/maven-3/3.9.1/binaries/apache-maven-3.9.1-bin.zip -o apache-maven-3.9.1-bin.zip
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-100  2026  100  2026    0     0   3455      0 --:--:-- --:--:-- --:--:-- 3463
-{
-  "url": "https://api.github.com/repos/vigneshsweekaran/hello-world/releases/43010389",
-  "assets_url": "https://api.github.com/repos/vigneshsweekaran/hello-world/releases/43010389/assets",
-  "upload_url": "https://uploads.github.com/repos/vigneshsweekaran/hello-world/releases/43010389/assets{?name,label}",
-  "html_url": "https://github.com/vigneshsweekaran/hello-world/releases/tag/clean",
-  "id": 43010389,
-  "author": {
-    "login": "vigneshsweekaran",
-    "id": 40670015,
-    "node_id": "MDQ6VXNlcjQwNjcwMDE1",
-    "avatar_url": "https://avatars.githubusercontent.com/u/40670015?v=4",
-    "gravatar_id": "",
-    "url": "https://api.github.com/users/vigneshsweekaran",
-    "html_url": "https://github.com/vigneshsweekaran",
-    "followers_url": "https://api.github.com/users/vigneshsweekaran/followers",
-    "following_url": "https://api.github.com/users/vigneshsweekaran/following{/other_user}",
-    "gists_url": "https://api.github.com/users/vigneshsweekaran/gists{/gist_id}",
-    "starred_url": "https://api.github.com/users/vigneshsweekaran/starred{/owner}{/repo}",
-    "subscriptions_url": "https://api.github.com/users/vigneshsweekaran/subscriptions",
-    "organizations_url": "https://api.github.com/users/vigneshsweekaran/orgs",
-    "repos_url": "https://api.github.com/users/vigneshsweekaran/repos",
-    "events_url": "https://api.github.com/users/vigneshsweekaran/events{/privacy}",
-    "received_events_url": "https://api.github.com/users/vigneshsweekaran/received_events",
-    "type": "User",
-    "site_admin": false
-  },
-  "node_id": "MDc6UmVsZWFzZTQzMDEwMzg5",
-  "tag_name": "clean",
-  "target_commitish": "master",
-  "name": "Clean repo with maven application",
-  "draft": false,
-  "prerelease": false,
-  "created_at": "2021-05-16T06:18:49Z",
-  "published_at": "2021-05-16T06:26:47Z",
-  "assets": [],
-  "tarball_url": "https://api.github.com/repos/vigneshsweekaran/hello-world/tarball/clean",
-  "zipball_url": "https://api.github.com/repos/vigneshsweekaran/hello-world/zipball/clean",
-  "body": ""
-}
+100 8928k  100 8928k    0     0  13.4M      0 --:--:-- --:--:-- --:--:-- 13.4M
+[opc@new-k8s curl-examples]$ ll
+total 8932
+-rw-rw-r--. 1 opc opc 9143026 Apr 17 13:35 apache-maven-3.9.1-bin.zip
 ```
 
-### Reading specific data with jq
+### curl - Silent Mode
+
+-s or --silent --> Will not show the logs or progress bar.
 
 ```
-[opc@new-k8s ~]$ cat output.json | jq .url
-"https://api.github.com/repos/vigneshsweekaran/hello-world/releases/43010389"
+[opc@new-k8s curl-examples]$ curl -s https://dlcdn.apache.org/maven/maven-3/3.9.1/source/apache-maven-3.9.1-src.tar.gz -o apache-maven-3.9.1-src.tar.gz
+[opc@new-k8s curl-examples]$ ll -h
+total 12M
+-rw-rw-r--. 1 opc opc 8.8M Apr 17 13:35 apache-maven-3.9.1-bin.zip
+-rw-rw-r--. 1 opc opc 2.7M Apr 17 13:38 apache-maven-3.9.1-src.tar.gz
 ```
 
-### Reading raw output with jq
+## `ping` Command
 
-```
-[opc@new-k8s ~]$ cat output.json | jq -r .url
-https://api.github.com/repos/vigneshsweekaran/hello-world/releases/43010389
-```
+The `ping` command is the foundational tool for verifying network connectivity to a host using ICMP ECHO_REQUEST packets.
 
-### Reading nested values with jq
+```bash
+[opc@new-k8s ~]$ ping -c 4 google.com
+PING google.com (142.250.190.46) 56(84) bytes of data.
+64 bytes from ord38s28-in-f14.1e100.net (142.250.190.46): icmp_seq=1 ttl=115 time=1.85 ms
+64 bytes from ord38s28-in-f14.1e100.net (142.250.190.46): icmp_seq=2 ttl=115 time=1.84 ms
 
-```
-[opc@new-k8s ~]$ cat output.json | jq .
-{
-  "url": "https://api.github.com/repos/vigneshsweekaran/hello-world/releases/43010389",
-  "assets_url": "https://api.github.com/repos/vigneshsweekaran/hello-world/releases/43010389/assets",
-  "upload_url": "https://uploads.github.com/repos/vigneshsweekaran/hello-world/releases/43010389/assets{?name,label}",
-  "html_url": "https://github.com/vigneshsweekaran/hello-world/releases/tag/clean",
-  "id": 43010389,
-  "author": {
-    "login": "vigneshsweekaran",
-    "id": 40670015,
-    "node_id": "MDQ6VXNlcjQwNjcwMDE1",
-    "avatar_url": "https://avatars.githubusercontent.com/u/40670015?v=4",
-    "gravatar_id": "",
-    "url": "https://api.github.com/users/vigneshsweekaran",
-    "html_url": "https://github.com/vigneshsweekaran",
-    "followers_url": "https://api.github.com/users/vigneshsweekaran/followers",
-    "following_url": "https://api.github.com/users/vigneshsweekaran/following{/other_user}",
-    "gists_url": "https://api.github.com/users/vigneshsweekaran/gists{/gist_id}",
-    "starred_url": "https://api.github.com/users/vigneshsweekaran/starred{/owner}{/repo}",
-    "subscriptions_url": "https://api.github.com/users/vigneshsweekaran/subscriptions",
-    "organizations_url": "https://api.github.com/users/vigneshsweekaran/orgs",
-    "repos_url": "https://api.github.com/users/vigneshsweekaran/repos",
-    "events_url": "https://api.github.com/users/vigneshsweekaran/events{/privacy}",
-    "received_events_url": "https://api.github.com/users/vigneshsweekaran/received_events",
-    "type": "User",
-    "site_admin": false
-  },
-  "node_id": "MDc6UmVsZWFzZTQzMDEwMzg5",
-  "tag_name": "clean",
-  "target_commitish": "master",
-  "name": "Clean repo with maven application",
-  "draft": false,
-  "prerelease": false,
-  "created_at": "2021-05-16T06:18:49Z",
-  "published_at": "2021-05-16T06:26:47Z",
-  "assets": [],
-  "tarball_url": "https://api.github.com/repos/vigneshsweekaran/hello-world/tarball/clean",
-  "zipball_url": "https://api.github.com/repos/vigneshsweekaran/hello-world/zipball/clean",
-  "body": ""
-}
-[opc@new-k8s ~]$ cat output.json | jq .author.login
-"vigneshsweekaran"
+--- google.com ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3004ms
 ```
 
-## Exit Codes ($?)
+## `ip` Command
 
-`$?` is a special variable which holds the status code of the last executed command.
+The `ip` command replaces legacy tools like `ifconfig` for modern network interface management, IP addresses, and routing.
 
-In Linux, `0` means success, any other value indicates failure.
-
-```
-[opc@new-k8s ~]$ ll
-total 3072008
--rw-rw-r--. 1 opc  opc         852 Apr 15 03:15 fruits.txt
--rwxrwxr-x. 1 opc  opc          81 Apr 15 13:27 newtest
-drwxrwxr-x. 2 opc  opc          25 Nov 26  2021 prometheus
--rw-r--r--. 1 root root 3145728000 Jan 11  2022 swapfile
-drwxrwxr-x. 4 opc  opc         100 Apr 15 13:04 test
-[opc@new-k8s ~]$ echo $?
-0
-[opc@new-k8s ~]$ ddhghg
--bash: ddhghg: command not found
-[opc@new-k8s ~]$ echo $?
-127
+```bash
+# Check all IP addresses assigned to this machine
+[opc@new-k8s ~]$ ip addr show
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9001 qdisc mq state UP group default qlen 1000
+    inet 10.0.0.15/24 brd 10.0.0.255 scope global dynamic eth0
 ```
 
-## grep Command
+## `ss` Command
 
-The `grep` command is used to search for a word and print the matching lines.
+The `ss` command is the modern replacement for `netstat`. It dumps socket statistics and allows DevOps engineers to trace open ports and active connections.
 
-```
-[opc@new-k8s ~]$ cat /etc/passwd | grep bash
-root:x:0:0:root:/root:/bin/bash
-opc:x:1000:1000:Oracle Public Cloud User:/home/opc:/bin/bash
-vignesh:x:1001:1001::/home/vignesh:/bin/bash
-```
-
-### grep - Ignore Case
-
--i --> Used to ignore case sensitivity.
-
-```
-[opc@new-k8s ~]$ cat /etc/passwd | grep BASH
-[opc@new-k8s ~]$ cat /etc/passwd | grep -i BASH
-root:x:0:0:root:/root:/bin/bash
-opc:x:1000:1000:Oracle Public Cloud User:/home/opc:/bin/bash
-vignesh:x:1001:1001::/home/vignesh:/bin/bash
+```bash
+# List all active listening TCP ports along with the processes using them
+[opc@new-k8s ~]$ sudo ss -tulpn
+Netid  State   Recv-Q  Send-Q    Local Address:Port      Peer Address:Port  Process
+tcp    LISTEN  0       128       0.0.0.0:22              0.0.0.0:*          users:(("sshd",pid=1024,fd=3))
+tcp    LISTEN  0       511       *:80                    *:*                users:(("nginx",pid=2048,fd=6))
 ```
 
-### grep - Print Lines After Match
+## `dig` Command
 
--A n --> Argument used to print the next `n` lines after the match.
+The `dig` (Domain Information Groper) command is an advanced DNS lookup utility used to query DNS nameservers and troubleshoot routing records.
 
-```
-[opc@new-k8s ~]$ cat states.txt | grep -i tamil
-Tamil Nadu
-[opc@new-k8s ~]$ cat states.txt | grep -i -A5 tamil
-Tamil Nadu
-Tripura
-Telangana
-Uttar Pradesh
-Uttarakhand
-West Bengal
-```
-
-### grep - Print Lines Before Match
-
--B n --> Argument used to print `n` lines before the match.
-
-```
-[opc@new-k8s ~]$ cat states.txt | grep -i tamil
-Tamil Nadu
-[opc@new-k8s ~]$ cat states.txt | grep -i -B5 tamil
-Nagaland
-Odisha
-Punjab
-Rajasthan
-Sikkim
-Tamil Nadu
-```
-
-## awk Command
-
-The `awk` command is used to print specific columns from the output.
-
-It has a lot of features to operate on text.
-
-```
-[opc@new-k8s ~]$ ll
-total 3072024
--rw-rw-r--. 1 opc  opc         852 Apr 15 03:15 fruits.txt
--rw-rw-r--. 1 opc  opc        9943 Apr 19 11:16 india.txt
--rwxrwxr-x. 1 opc  opc          81 Apr 15 13:27 newtest
-drwxrwxr-x. 2 opc  opc          25 Nov 26  2021 prometheus
--rw-rw-r--. 1 opc  opc         282 Apr 19 11:22 states.txt
--rw-r--r--. 1 root root 3145728000 Jan 11  2022 swapfile
-drwxrwxr-x. 4 opc  opc         100 Apr 15 13:04 test
-[opc@new-k8s ~]$ ll | awk '{print $9}'
-
-fruits.txt
-india.txt
-newtest
-prometheus
-states.txt
-swapfile
-test
-```
-
-### awk - Customizing Output
-
-```
-[opc@new-k8s ~]$ ll
-total 3072024
--rw-rw-r--. 1 opc  opc         852 Apr 15 03:15 fruits.txt
--rw-rw-r--. 1 opc  opc        9943 Apr 19 11:16 india.txt
--rwxrwxr-x. 1 opc  opc          81 Apr 15 13:27 newtest
-drwxrwxr-x. 2 opc  opc          25 Nov 26  2021 prometheus
--rw-rw-r--. 1 opc  opc         282 Apr 19 11:22 states.txt
--rw-r--r--. 1 root root 3145728000 Jan 11  2022 swapfile
-drwxrwxr-x. 4 opc  opc         100 Apr 15 13:04 test
-[opc@new-k8s ~]$ ll | awk '{print $1 "t" $9}'
-total
--rw-rw-r--.     fruits.txt
--rw-rw-r--.     india.txt
--rwxrwxr-x.     newtest
-drwxrwxr-x.     prometheus
--rw-rw-r--.     states.txt
--rw-r--r--.     swapfile
-drwxrwxr-x.     test
-```
-
-## cut Command
-
-The `cut` command can be used to print specific columns.
--d --> delimiter
--f --> field number
-
-```
-[opc@new-k8s ~]$ ll
-total 3072024
--rw-rw-r--. 1 opc  opc         852 Apr 15 03:15 fruits.txt
--rw-rw-r--. 1 opc  opc        9943 Apr 19 11:16 india.txt
--rwxrwxr-x. 1 opc  opc          81 Apr 15 13:27 newtest
-drwxrwxr-x. 2 opc  opc          25 Nov 26  2021 prometheus
--rw-rw-r--. 1 opc  opc         282 Apr 19 11:22 states.txt
--rw-r--r--. 1 root root 3145728000 Jan 11  2022 swapfile
-drwxrwxr-x. 4 opc  opc         100 Apr 15 13:04 test
-[opc@new-k8s ~]$ ll | cut -d " " -f 1
-total
--rw-rw-r--.
--rw-rw-r--.
--rwxrwxr-x.
-drwxrwxr-x.
--rw-rw-r--.
--rw-r--r--.
-drwxrwxr-x.
-```
-
-### cut - Custom Delimiter
-
-`cat /etc/passwd | cut -d ":" -f 1`
-
-```
-[opc@new-k8s ~]$ cat /etc/passwd
-root:x:0:0:root:/root:/bin/bash
-bin:x:1:1:bin:/bin:/sbin/nologin
-daemon:x:2:2:daemon:/sbin:/sbin/nologin
-adm:x:3:4:adm:/var/adm:/sbin/nologin
-lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
-sync:x:5:0:sync:/sbin:/bin/sync
-shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
-halt:x:7:0:halt:/sbin:/sbin/halt
-mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
-operator:x:11:0:operator:/root:/sbin/nologin
-games:x:12:100:games:/usr/games:/sbin/nologin
-ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
-nobody:x:99:99:Nobody:/:/sbin/nologin
-systemd-network:x:192:192:systemd Network Management:/:/sbin/nologin
-dbus:x:81:81:System message bus:/:/sbin/nologin
-polkitd:x:999:998:User for polkitd:/:/sbin/nologin
-libstoragemgmt:x:998:997:daemon account for libstoragemgmt:/var/run/lsm:/sbin/nologin
-rpc:x:32:32:Rpcbind Daemon:/var/lib/rpcbind:/sbin/nologin
-abrt:x:173:173::/etc/abrt:/sbin/nologin
-rpcuser:x:29:29:RPC Service User:/var/lib/nfs:/sbin/nologin
-nfsnobody:x:65534:65534:Anonymous NFS User:/var/lib/nfs:/sbin/nologin
-sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
-postfix:x:89:89::/var/spool/postfix:/sbin/nologin
-chrony:x:997:994::/var/lib/chrony:/sbin/nologin
-ntp:x:38:38::/etc/ntp:/sbin/nologin
-tcpdump:x:72:72::/:/sbin/nologin
-oracle-cloud-agent:x:996:993:Oracle Cloud Agent Service User:/var/lib/oracle-cloud-agent:/usr/sbin/nologin
-oracle-cloud-agent-updater:x:995:993:Oracle Cloud Agent Updater Service User:/var/lib/oracle-cloud-agent:/usr/sbin/nologin
-ocarun:x:994:993:Oracle Cloud Agent Runcommand Service User:/var/lib/ocarun:/usr/sbin/nologin
-opc:x:1000:1000:Oracle Public Cloud User:/home/opc:/bin/bash
-jenkins:x:993:991:Jenkins Automation Server:/var/lib/jenkins:/bin/false
-vignesh:x:1001:1001::/home/vignesh:/bin/bash
-[opc@new-k8s ~]$ cat /etc/passwd | cut -d ":" -f 1
-root
-bin
-daemon
-adm
-lp
-sync
-shutdown
-halt
-mail
-operator
-games
-ftp
-nobody
-systemd-network
-dbus
-polkitd
-libstoragemgmt
-rpc
-abrt
-rpcuser
-nfsnobody
-sshd
-postfix
-chrony
-ntp
-tcpdump
-oracle-cloud-agent
-oracle-cloud-agent-updater
-ocarun
-opc
-jenkins
-vignesh
-```
-
-## sed Command
-
-The `sed` command can be used to replace words.
-
-By default, the `sed` command replaces the **first** occurrence of the pattern in each line. It won’t replace the second, third, etc. occurrence in the line.
-
-It prints the modified content to the screen by default.
-
-```
-[opc@new-k8s ~]$ cat hello.txt
-hello world
-hello world world my world
-[opc@new-k8s ~]$ sed "s/world/devops/" hello.txt
-hello devops
-hello devops world my world
-```
-
-### sed - Global Replacement
-
-g --> replace all matches in a line
-
-```
-[opc@new-k8s ~]$ cat hello.txt
-hello world
-hello world world my world
-[opc@new-k8s ~]$ sed "s/world/devops/g" hello.txt
-hello devops
-hello devops devops my devops
-```
-
-### sed - Edit File in Place
-
--i --> argument used to save the change to the actual file
-
-```
-[opc@new-k8s ~]$ cat hello.txt
-hello world
-hello world world my world
-[opc@new-k8s ~]$ sed "s/world/devops/g" hello.txt
-hello devops
-hello devops devops my devops
-[opc@new-k8s ~]$ cat hello.txt
-hello world
-hello world world my world
-[opc@new-k8s ~]$ sed -i "s/world/devops/g" hello.txt
-[opc@new-k8s ~]$ cat hello.txt
-hello devops
-hello devops devops my devops
+```bash
+[opc@new-k8s ~]$ dig +short A google.com
+142.250.190.46
 ```
 
 ## 🧠 Quick Quiz — Networking Commands
