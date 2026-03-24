@@ -13,14 +13,13 @@ Here is the high-level flow of our Helm deployment pipeline:
 
 ```mermaid
 flowchart LR
-    Jenkins["<img src='https://upload.wikimedia.org/wikipedia/commons/e/e9/Jenkins_logo.svg' width='20' height='20' /> Jenkins"] --> P[Pipeline]
-    P -->|dev| H1["<img src='https://helm.sh/img/helm.svg' width='20' height='20' /> Helm (Dev)"]
-    P -->|qa| H2["<img src='https://helm.sh/img/helm.svg' width='20' height='20' /> Helm (QA)"]
-    P -->|prod| H3["<img src='https://helm.sh/img/helm.svg' width='20' height='20' /> Helm (Prod)"]
-    
-    H1 --> K1["<img src='https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg' width='20' height='20' /> K8s"]
-    H2 --> K2["<img src='https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg' width='20' height='20' /> K8s"]
-    H3 --> K3["<img src='https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg' width='20' height='20' /> K8s"]
+    Jenkins([🤖 Jenkins]) --> P[Pipeline]
+    P -->|dev| H1([Helm (Dev)])
+    P -->|qa| H2([Helm (QA)])
+    P -->|prod| H3([Helm (Prod)])
+    H1 --> K1([K8s])
+    H2 --> K2([K8s])
+    H3 --> K3([K8s])
 ```
 
 !!! tip

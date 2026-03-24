@@ -45,6 +45,9 @@ description: SEO friendly description
 ← [Back to Linux Commands](../index.md)
 
 ---
+[INTRO]
+
+[Architecture Diagram using mermaid mkdocs compatible if applicable for that tutorial]
 
 [Quality Content goes here]
 

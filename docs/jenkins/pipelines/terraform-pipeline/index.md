@@ -13,15 +13,11 @@ Here is the high-level flow of our Terraform automation pipeline:
 
 ```mermaid
 flowchart LR
-    Jenkins["<img src='https://upload.wikimedia.org/wikipedia/commons/e/e9/Jenkins_logo.svg' width='20' height='20' /> Jenkins"] --> P[Pipeline]
-    
-    P --> Init["<img src='https://upload.wikimedia.org/wikipedia/commons/0/04/Terraform_Logo.svg' width='20' height='20' /> Terraform Init"]
-    
-    Init -->|plan| Plan["<img src='https://upload.wikimedia.org/wikipedia/commons/0/04/Terraform_Logo.svg' width='20' height='20' /> Terraform Plan"]
-    
+    Jenkins([🤖 Jenkins]) --> P[Pipeline]
+    P --> Init([Terraform Init])
+    Init -->|plan| Plan([Terraform Plan])
     Plan --> Approval{Manual Approval}
-    
-    Approval -->|Approved| Apply["<img src='https://upload.wikimedia.org/wikipedia/commons/0/04/Terraform_Logo.svg' width='20' height='20' /> Terraform Apply/Destroy"]
+    Approval -->|Approved| Apply([Terraform Apply/Destroy])
 ```
 
 !!! tip "Important"
@@ -46,119 +42,73 @@ pipeline {
   }
   parameters {
     choice(name: 'ENVIRONMENT', choices: ['dev', 'qa', 'prod'], description: 'Choose Environment to deploy')
-    choice(name: 'ACTION', choices: ['plan', 'apply', 'destroy'], description: 'Terraform action to execute')
   }
-```
-
-- **Parameters**: 
-  - `ENVIRONMENT` determines the target scope for the `.tfvars` file (e.g., development or production).
-  - `ACTION` controls whether the pipeline will only generate a plan, apply it, or destroy the resources entirely.
-
-### 2. Initialization & Plan Stages
-
-```groovy
   environment {
     TF_DIR = "deployment/terraform"
   }
   stages {
-    stage('Terraform Init') {
-      steps {
-        sh """
-          cd ${TF_DIR}
-          terraform init -reconfigure
-        """
-      }
-    }
-
-    stage('Plan Dev') {
-      when { environment name: 'ENVIRONMENT', value: 'dev' }
-      steps {
-        sh """
-          cd ${TF_DIR}
-          terraform plan -var-file=dev.tfvars -out=tfplan
-        """
-      }
-    }
-```
-
-- **`init -reconfigure`**: Ensures the backend is safely initialized, preventing state locking issues across parallel jobs or when switching configurations.
-- **`-out=tfplan`**: Exports the plan to a binary file. This guarantees that the exact changes reviewed during the plan phase will be identical to what is applied.
-
-!!! tip
-    We always execute commands by first `cd`ing into the `TF_DIR` (e.g., `cd ${TF_DIR}`) since Jenkins starts executing from the root of the workspace.
-
-### 3. Manual Approval Gateway
-
-```groovy
-    stage('Approval') {
+    stage('Deploy to Dev') {
       when {
-        expression { params.ACTION in ['apply', 'destroy'] }
+        environment name: 'ENVIRONMENT', value: 'dev'
       }
       steps {
-        input message: "Approve Terraform ${params.ACTION} for ${params.ENVIRONMENT}?", ok: 'Proceed'
+        terraformPipeline('dev')
       }
     }
-```
-
-This acts as a safety barrier. The pipeline will pause here, waiting for a human administrator to click "Proceed" inside the Jenkins UI before any real infrastructure is fundamentally altered.
-
-### 4. Apply / Destroy Stage
-
-```groovy
-    stage('Apply / Destroy Dev') {
+    stage('Deploy to QA') {
       when {
-        allOf {
-          environment name: 'ENVIRONMENT', value: 'dev'
-          expression { params.ACTION in ['apply', 'destroy'] }
-        }
+        environment name: 'ENVIRONMENT', value: 'qa'
       }
       steps {
-        sh """
-          cd ${TF_DIR}
-          if [ "${params.ACTION}" = "destroy" ]; then
-            terraform destroy -var-file=dev.tfvars -auto-approve
-          else
-            terraform apply tfplan
-          fi
-        """
+        terraformPipeline('qa')
       }
     }
+    stage('Deploy to Prod') {
+      when {
+        environment name: 'ENVIRONMENT', value: 'prod'
+      }
+      steps {
+        terraformPipeline('prod')
+      }
+    }
+  }
+  post {
+    always {
+      deleteDir()
+    }
+  }
+}
+
+def terraformPipeline(envName) {
+  def tfvars = "${envName}.tfvars"
+  dir(env.TF_DIR) {
+    sh 'terraform init -reconfigure'
+    sh "terraform plan -var-file=${tfvars} -out=tfplan"
+    input message: "Approve Terraform apply for ${envName}?", ok: 'Proceed'
+    sh 'terraform apply tfplan'
+  }
+}
 ```
 
-Based on the initial parameter provided, it will seamlessly pivot between completely removing the stack (`destroy -auto-approve`) or rolling out the changes (`apply tfplan`).
+- **Parameterization:** Choose the environment at build time.
+- **Centralized Logic:** The `terraformPipeline` method handles all Terraform steps for each environment.
+- **Approval:** Manual approval is required before applying changes.
+- **No Destroy Option:** The pipeline only supports plan and apply for safety.
 
 ---
 
-## 🧠 Knowledge Check
+## How it Works
+1. **Select Environment:** User chooses `dev`, `qa`, or `prod` when triggering the pipeline.
+2. **Terraform Flow:**
+   - `terraform init -reconfigure` ensures backend is always fresh.
+   - `terraform plan` creates a plan file for the selected environment.
+   - Manual approval is required before applying.
+   - `terraform apply tfplan` applies the exact plan.
+3. **Workspace Cleanup:** Jenkins workspace is cleaned after every run.
 
-<quiz>
-Why do we use the `-out=tfplan` flag during `terraform plan`?
-- [ ] It speeds up the initialization phase.
-- [ ] It skips the human approval stage.
-- [x] It guarantees the `apply` command executes exactly what was previewed.
-- [ ] It automatically pushes the state file to an S3 bucket.
+---
 
-Saving a plan file ensures you safely apply the exact changes you reviewed, preventing any "drifting" if someone else modified the infrastructure immediately after your plan.
-</quiz>
+## Reference
+- [Jenkinsfile on GitHub](https://github.com/vigneshsweekaran/hello-world/blob/main/cicd/45-Jenkinsfile-terraform)
 
-<quiz>
-What does the `allOf { }` block do in the declarative pipeline's `when` statement?
-- [ ] It fails the build if any test fails.
-- [x] It requires multiple nested conditions to all evaluate to true before executing the stage.
-- [ ] It triggers a deployment to Dev, QA, and Prod simultaneously.
-- [ ] It automatically approves the manual input step.
-
-Like a logical `AND` operator, `allOf` ensures that multiple conditions (such as matching the correct `ENVIRONMENT` and the correct `ACTION`) must be met to enter the deployment stage.
-</quiz>
-
-<quiz>
-Which Terraform command is used to completely tear down all provisioned resources?
-- [ ] `terraform delete`
-- [ ] `terraform remove`
-- [ ] `terraform plan -down`
-- [x] `terraform destroy`
-
-`terraform destroy` removes all resources defined in your configuration, and using the `-auto-approve` flag allows it to bypass interactive prompts in CI/CD.
-</quiz>
-
-{% include-markdown ".partials/subscribe-guides.md" %}
+*Follow the [AI Image Engineering Guidelines](../../../AGENTS.md) for best practices on runtime environments.*
