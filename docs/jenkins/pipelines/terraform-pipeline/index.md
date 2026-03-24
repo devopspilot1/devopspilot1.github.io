@@ -5,7 +5,7 @@ description: Step-by-step guide for a Jenkins pipeline that provisions infrastru
 
 # Infrastructure as Code with Terraform & Jenkins 🌍
 
-This tutorial walks through a declarative Jenkins pipeline (`45-Jenkinsfile-terraform`) that orchestrates the provisioning and teardown of infrastructure using Terraform across different environments (`dev`, `qa`, `prod`).
+This tutorial walks through a declarative Jenkins pipeline (`45-Jenkinsfile-terraform`) that orchestrates the provisioning of infrastructure using Terraform across different environments (`dev`, `qa`, `prod`).
 
 ## 📊 Pipeline Overview
 
@@ -17,11 +17,11 @@ flowchart LR
     P --> Init([Terraform Init])
     Init -->|plan| Plan([Terraform Plan])
     Plan --> Approval{Manual Approval}
-    Approval -->|Approved| Apply([Terraform Apply/Destroy])
+    Approval -->|Approved| Apply([Terraform Apply])
 ```
 
-!!! tip "Important"
-    Always include a manual `Approval` stage before executing `terraform apply` or `destroy` in a CI/CD environment to prevent accidental infrastructure modifications or deletions!
+!!! tip "Why Manual Approval?"
+    Manual approval before `terraform apply` ensures that infrastructure changes are always reviewed and intentional, reducing the risk of accidental modifications in production.
 
 ---
 
@@ -95,6 +95,9 @@ def terraformPipeline(envName) {
 - **Approval:** Manual approval is required before applying changes.
 - **No Destroy Option:** The pipeline only supports plan and apply for safety.
 
+!!! tip "Why -reconfigure?"
+    The `-reconfigure` flag in `terraform init` ensures the backend is always freshly initialized, which is important for CI/CD pipelines to avoid state or configuration drift.
+
 ---
 
 ## How it Works
@@ -111,4 +114,38 @@ def terraformPipeline(envName) {
 ## Reference
 - [Jenkinsfile on GitHub](https://github.com/vigneshsweekaran/hello-world/blob/main/cicd/45-Jenkinsfile-terraform)
 
-*Follow the [AI Image Engineering Guidelines](../../../AGENTS.md) for best practices on runtime environments.*
+---
+
+## 🧠 Knowledge Check
+
+<quiz>
+Why is manual approval included before `terraform apply` in this pipeline?
+- [ ] To speed up the deployment process
+- [x] To ensure infrastructure changes are reviewed and intentional
+- [ ] To automatically rollback on failure
+- [ ] To skip the plan phase
+
+Manual approval acts as a safeguard, ensuring that only reviewed and approved changes are applied to your infrastructure.
+</quiz>
+
+<quiz>
+What does the `terraformPipeline` method do in this Jenkinsfile?
+- [ ] Only runs `terraform destroy`
+- [ ] Only runs `terraform plan`
+- [x] Handles init, plan, approval, and apply for the selected environment
+- [ ] Runs tests on the Terraform code
+
+The method encapsulates the full Terraform workflow for each environment, including approval before apply.
+</quiz>
+
+<quiz>
+What is the purpose of the `-reconfigure` flag in `terraform init`?
+- [ ] To skip backend initialization
+- [ ] To delete all resources
+- [x] To force reinitialization of the backend configuration
+- [ ] To run Terraform in dry-run mode
+
+`-reconfigure` ensures the backend is always set up fresh, which is important for reliable CI/CD automation.
+</quiz>
+
+{% include-markdown ".partials/subscribe-guides.md" %}
