@@ -103,6 +103,7 @@ def terraformPipeline(envName) {
 ## How it Works
 1. **Select Environment:** User chooses `dev`, `qa`, or `prod` when triggering the pipeline.
 2. **Terraform Flow:**
+
    - `terraform init -reconfigure` ensures backend is always fresh.
    - `terraform plan` creates a plan file for the selected environment.
    - Manual approval is required before applying.

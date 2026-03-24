@@ -104,6 +104,7 @@ pipeline {
 ### 1. Jenkinsfile Structure & Parameters
 
 The pipeline uses a declarative syntax for clarity and maintainability. It defines:
+
 - **Global options** to control concurrency, build retention, and timeouts.
 - **Parameters** for environment selection (`dev`, `qa`, `prod`) and the Docker image tag to deploy.
 - **Environment variables** for the Helm chart path and release name, making the script reusable and easy to update.
@@ -114,6 +115,7 @@ The pipeline uses a declarative syntax for clarity and maintainability. It defin
 ### 2. Helm Deployment Stages
 
 Each environment (Dev, QA, Prod) has its own stage. The `when` condition ensures only the selected environment's stage runs. The deployment step uses:
+
 - `helm upgrade --install` to create or update the release.
 - The appropriate `values-<env>.yaml` file for environment-specific configuration.
 - The `--set image.tag` flag to inject the Docker image tag dynamically.
