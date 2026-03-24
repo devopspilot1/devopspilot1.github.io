@@ -12,26 +12,24 @@ This tutorial walks through a declarative Jenkins pipeline (`40-Jenkinsfile-helm
 Here is the high-level flow of our Helm deployment pipeline:
 
 ```mermaid
-flowchart LR
-    Jenkins([🤖 Jenkins]) --> P[Pipeline]
-    P -->|dev| H1([Helm (Dev)])
-    P -->|qa| H2([Helm (QA)])
-    P -->|prod| H3([Helm (Prod)])
-    H1 --> K1([K8s])
-    H2 --> K2([K8s])
-    H3 --> K3([K8s])
+flowchart TD
+    Jenkins["🤖 Jenkins"] --> Pipeline
+    Pipeline -->|dev| HelmDev["Helm (Dev)"]
+    Pipeline -->|qa| HelmQA["Helm (QA)"]
+    Pipeline -->|prod| HelmProd["Helm (Prod)"]
+    HelmDev --> K8sDev["K8s"]
+    HelmQA --> K8sQA["K8s"]
+    HelmProd --> K8sProd["K8s"]
 ```
 
-!!! tip
-    **Prerequisites:** Ensure that the Helm CLI is installed on the underlying Jenkins agent and correctly configured in your system's `PATH`.
+!!! tip "Prerequisites"
+    Ensure that the Helm CLI is installed on the underlying Jenkins agent and correctly configured in your system's `PATH`.
 
 ---
 
-## 🛠️ Step-by-Step Breakdown
+## 📝 Full Jenkinsfile Example
 
-### 1. Configuration & Parameters
-
-The pipeline begins by defining global options and the parameters required to trigger the build.
+[View on GitHub](https://github.com/vigneshsweekaran/hello-world/blob/main/cicd/40-Jenkinsfile-helm)
 
 ```groovy
 pipeline {
@@ -46,32 +44,15 @@ pipeline {
     choice(name: 'ENVIRONMENT', choices: ['dev', 'qa', 'prod'], description: 'Choose Environment to deploy')
     string(name: 'IMAGE_TAG', defaultValue: '1.0', description: 'Docker image tag to deploy')
   }
-```
-
-- **`disableConcurrentBuilds()`**: Prevents multiple jobs from running simultaneously, avoiding race conditions during deployment.
-- **Parameters**: 
-  - `ENVIRONMENT` determines the target deployment destination.
-  - `IMAGE_TAG` specifies which version of the Docker container should be deployed in the Helm chart.
-
-### 2. Environment Variables
-
-```groovy
   environment {
     HELM_CHART_PATH = "deployment/helm-chart"
     RELEASE_NAME    = "hello-world"
   }
-```
-
-Defining these as global variables ensures that we have a single source of truth for the chart's path and release name, making maintaining the script much easier.
-
-### 3. Deployment Stages
-
-The pipeline utilizes `when` conditions to strictly execute only the stage corresponding to the selected environment parameter.
-
-```groovy
   stages {
     stage('Deploy to Dev') {
-      when { environment name: 'ENVIRONMENT', value: 'dev' }
+      when {
+        environment name: 'ENVIRONMENT', value: 'dev'
+      }
       steps {
         sh """
           helm upgrade --install ${RELEASE_NAME} ${HELM_CHART_PATH} \
@@ -81,20 +62,33 @@ The pipeline utilizes `when` conditions to strictly execute only the stage corre
         """
       }
     }
-    // (Similar stages exist for QA and Prod)
+    stage('Deploy to QA') {
+      when {
+        environment name: 'ENVIRONMENT', value: 'qa'
+      }
+      steps {
+        sh """
+          helm upgrade --install ${RELEASE_NAME} ${HELM_CHART_PATH} \
+            -f ${HELM_CHART_PATH}/values-qa.yaml \
+            --set image.tag=${params.IMAGE_TAG} \
+            --namespace qa --create-namespace
+        """
+      }
+    }
+    stage('Deploy to Prod') {
+      when {
+        environment name: 'ENVIRONMENT', value: 'prod'
+      }
+      steps {
+        sh """
+          helm upgrade --install ${RELEASE_NAME} ${HELM_CHART_PATH} \
+            -f ${HELM_CHART_PATH}/values-prod.yaml \
+            --set image.tag=${params.IMAGE_TAG} \
+            --namespace prod --create-namespace
+        """
+      }
+    }
   }
-```
-
-- **`helm upgrade --install`**: This crucial command installs the chart if it doesn't exist, and upgrades it if it does.
-- **`-f values-dev.yaml`**: Injects environment-specific configuration values (like replica counts or specific DB URLs).
-- **`--set image.tag`**: Overrides the image tag dynamically during the pipeline run using our input parameter.
-
-!!! tip
-    Always use `upgrade --install` in CI/CD pipelines as it securely handles both first-time deployments and subsequent updates without failing.
-
-### 4. Post Cleanup
-
-```groovy
   post {
     always {
       deleteDir()
@@ -103,7 +97,37 @@ The pipeline utilizes `when` conditions to strictly execute only the stage corre
 }
 ```
 
-The `always` block ensures that the Jenkins workspace is wiped clean after every run, avoiding disk bloat or residual state.
+---
+
+## 🛠️ Step-by-Step Breakdown
+
+### 1. Jenkinsfile Structure & Parameters
+
+The pipeline uses a declarative syntax for clarity and maintainability. It defines:
+- **Global options** to control concurrency, build retention, and timeouts.
+- **Parameters** for environment selection (`dev`, `qa`, `prod`) and the Docker image tag to deploy.
+- **Environment variables** for the Helm chart path and release name, making the script reusable and easy to update.
+
+!!! tip "Why use parameters?"
+    Parameters allow you to promote the same pipeline to multiple environments and versions without changing the code.
+
+### 2. Helm Deployment Stages
+
+Each environment (Dev, QA, Prod) has its own stage. The `when` condition ensures only the selected environment's stage runs. The deployment step uses:
+- `helm upgrade --install` to create or update the release.
+- The appropriate `values-<env>.yaml` file for environment-specific configuration.
+- The `--set image.tag` flag to inject the Docker image tag dynamically.
+- The `--namespace` and `--create-namespace` flags to target the correct Kubernetes namespace.
+
+!!! tip "Why upgrade --install?"
+    This command ensures the pipeline works for both first-time deployments and updates, making it safe for CI/CD automation.
+
+### 3. Post Actions
+
+After deployment, the `post` block always cleans up the Jenkins workspace to avoid disk bloat and ensure a fresh environment for each run.
+
+!!! tip "Workspace hygiene"
+    Cleaning up after each run prevents issues with leftover files and makes builds more reliable.
 
 ---
 
