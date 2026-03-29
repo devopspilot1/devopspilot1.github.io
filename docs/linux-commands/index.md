@@ -26,21 +26,9 @@ Follow this order for best results 👇
 Start here if you are new to Linux.
 
 Topics covered:
-- `ls`, `cd`, `pwd`
-- Hidden files and directories
-- Relative vs absolute paths
-- Reading files using `cat`, `head`, `tail`
-
----
-
-### 👉 [System & Disk Commands](./linux-system-disk-commands/index.md)
-Understand memory and disk usage on Linux servers.
-
-Topics covered:
-- `free`, `df`
-- Disk and memory usage
-- Hostname and system information
-- Directory navigation shortcuts
+- `pwd`, `ls`, `cd`, `cat`
+- `which`, `id`, `hostname`, `date`
+- Hidden files and absolute vs relative paths
 
 ---
 
@@ -49,9 +37,9 @@ Learn how files and directories are managed in Linux.
 
 Topics covered:
 - `mkdir`, `rm`, `cp`, `mv`
-- `touch`, `tree`
+- `touch`, `tree`, `find`, `locate`
+- `tar`, `zip`, `unzip`
 - Editing files using `vi`
-- File organization basics
 
 ---
 
@@ -93,8 +81,8 @@ DevOps engineers spend a lot of time analyzing logs.
 
 Topics covered:
 - `grep`, `awk`, `sed`
-- `cut`, `sort`, `uniq`
-- Log filtering and pattern matching
+- `head`, `tail`, `jq`
+- `cut`, `sort`, `uniq`, `journalctl`
 - Production log debugging
 
 ---
@@ -107,6 +95,17 @@ Topics covered:
 - `ss`, `netstat`
 - `ping`, `curl`, `wget`
 - DNS and port troubleshooting
+
+---
+
+### 👉 [System & Disk Commands](./linux-system-disk-commands/index.md)
+Understand memory and disk usage on Linux servers.
+
+Topics covered:
+- `free`, `df`, `lscpu`
+- Disk and memory usage
+- CPU architecture and system info
+- Directory navigation shortcuts
 
 ---
 

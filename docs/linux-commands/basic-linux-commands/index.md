@@ -239,18 +239,30 @@ hostname
 Sat Apr 15 04:39:46 GMT 2023
 ```
 
+To display the date in a specific format like `YYYYMMDD`:
+
+```bash
+[opc@new-k8s test]$ date +%Y%m%d
+20230415
+```
+
 ---
 
 ## Practice Tasks
 
-1. Check the current folder name  
-2. Check the files and folders present in current directory  
-3. Check normal and hidden files in current directory  
-4. Go to `/etc/ssh` and verify the path  
-5. List files in `/etc/ssh`  
-6. Go to `/tmp` and check hidden files  
-7. Go to `/etc` and verify `os-release` file  
-8. Print the content of `os-release`
+1. Check the current folder name using `pwd`
+2. Check the files and folders present in the current directory using `ls`
+3. Check normal and hidden files in the current directory using `ls -la`
+4. Navigate to `/etc/ssl` and verify the path
+5. List the files in the SSL directory using `ls -l`
+6. Navigate up one directory level
+7. Go to `/tmp` and list all hidden files
+8. Go to `/etc` and verify the existence of the `os-release` file
+9. Print the content of the `os-release` file
+10. Find the location of the `pwd` binary using `which`
+11. Check your current user identity using `id`
+12. Check the system hostname
+13. Print the current date, then print it in `YYYYMMDD` format
 
 ---
 

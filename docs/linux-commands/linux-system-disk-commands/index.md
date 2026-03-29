@@ -71,16 +71,20 @@ tmpfs            97M  4.0K   97M   1% /run/user/1001
 
 ---
 
-## `lsblk` – List Block Devices
+## `lscpu` – Check CPU Architecture
 
-Use `lsblk` to view all attached block storage devices, hard drives, and partitions. It provides a clean, tree-like structure of disks.
+The `lscpu` command provides detailed information about the system's processing units. It is essential for capacity planning and understanding the hardware limits of your server.
 
 ```bash
-ubuntu@manikandan:~$ lsblk
-NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
-sda       8:0    0   50G  0 disk 
-├─sda1    8:1    0 49.9G  0 part /
-└─sda15   8:15   0  106M  0 part /boot/efi
+ubuntu@manikandan:~$ lscpu | head -n 10
+Architecture:            x86_64
+  CPU op-mode(s):        32-bit, 64-bit
+  Address sizes:         48 bits physical, 48 bits virtual
+  Byte Order:            Little Endian
+CPU(s):                  2
+  On-line CPU(s) list:   0,1
+Vendor ID:               AuthenticAMD
+  Model name:            AMD EPYC 7J13 64-Core Processor
 ```
 
 ## `uptime` – Server Load & Active Time
@@ -107,11 +111,13 @@ Tasks: 104 total,   1 running, 103 sleeping,   0 stopped,   0 zombie
 
 ## Practice Tasks
 
-1. Check memory usage using `free` and `free -h`
-2. Check disk usage using `df -h`
-3. Identify which partition is mounted on `/`
-4. Check the hostname of your server
-5. Switch between two directories using `cd -`
+1. Check all system information using `uname -a`
+2. View how long the system has been running using `uptime`
+3. Check human-readable disk usage using `df -h`
+4. Check the size of the `/etc` directory using `sudo du -sh /etc`
+5. Check memory usage in megabytes using `free -m`
+6. View detailed CPU information using `lscpu`
+7. Indicate completion by creating a `system_checked.txt` file
 
 ---
 
