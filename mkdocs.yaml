@@ -620,10 +620,8 @@ nav:
 
 markdown_extensions:
   - admonition
-  - pymdownx.highlight:
-      anchor_linenums: true
-      line_spans: __span
-      pygments_lang_class: true
+  - codehilite:
+      guess_lang: false
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences:
