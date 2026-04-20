@@ -620,12 +620,12 @@ nav:
 
 markdown_extensions:
   - admonition
-  - codehilite:
-      guess_lang: false
-  - fenced_code
-  - footnotes
-  - attr_list
-  - def_list
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
@@ -635,7 +635,9 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
       clickable_checkbox: true
-  - pymdownx.snippets
+  - footnotes
+  - attr_list
+  - def_list
   - tables
   - toc:
       permalink: true
