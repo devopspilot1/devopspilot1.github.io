@@ -622,6 +622,7 @@ markdown_extensions:
   - admonition
   - codehilite:
       guess_lang: false
+  - fenced_code
   - footnotes
   - attr_list
   - def_list
@@ -632,11 +633,7 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.mark
   - pymdownx.smartsymbols
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_div_format
+  - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.tasklist:
