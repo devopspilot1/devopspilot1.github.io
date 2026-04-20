@@ -620,8 +620,10 @@ nav:
 
 markdown_extensions:
   - admonition
-  - codehilite:
-      guess_lang: false
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
   - footnotes
   - attr_list
   - def_list
