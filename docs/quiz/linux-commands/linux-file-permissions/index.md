@@ -1,16 +1,16 @@
 ---
-title: "Linux Commands Quiz – File Permissions & Env"
-description: "Test your Linux File Permissions & Environment Variable skills with intermediate quiz questions covering practical concepts, common workflows, and daily operational tasks."
+title: "Linux Commands Quiz – File Permissions"
+description: "Test your Linux File Permissions skills with intermediate quiz questions covering practical concepts, common workflows, and daily operational tasks."
 ---
 
-# Linux File Permissions & Environment Variables – Full Quiz
+# Linux File Permissions – Full Quiz
 
 ← [Back to Quiz Home](../../index.md)
 
 ---
 
-This quiz contains **20 questions** covering Linux file permissions and environment variables.
-It helps DevOps engineers understand **security, access control, and runtime configuration** on Linux systems.
+This quiz contains **20 questions** covering Linux file permissions.
+It helps DevOps engineers understand **security and access control** on Linux systems.
 
 ---
 
@@ -144,35 +144,6 @@ Which option with `chown` applies ownership recursively?
 The `-R` flag applies the ownership change to the directory and all files/subdirectories inside it.
 </quiz>
 
-<quiz>
-Which command prints all environment variables?
-- [x] env
-- [ ] echo
-- [ ] pwd
-- [ ] export
-
-The `env` command (or `printenv`) lists all current environment variables.
-</quiz>
-
-<quiz>
-Which command prints a single environment variable?
-- [ ] env
-- [x] echo $VAR
-- [ ] print
-- [ ] set
-
-Using `echo` with `$VARIABLE_NAME` prints the value of that specific variable.
-</quiz>
-
-<quiz>
-Which command exports a shell variable to child processes?
-- [ ] set
-- [x] export
-- [ ] env
-- [ ] source
-
-The `export` command makes a variable available to child processes created from the shell.
-</quiz>
 
 <quiz>
 Which file permission allows entering a directory?
@@ -184,25 +155,6 @@ Which file permission allows entering a directory?
 The execute (`x`) permission on a directory is required to `cd` into it or access files within it.
 </quiz>
 
-<quiz>
-Which command displays environment variables in key=value format?
-- [x] printenv
-- [ ] env -a
-- [ ] export
-- [ ] set
-
-`printenv` prints the values of the specified environment variables or all of them if no name is specified.
-</quiz>
-
-<quiz>
-Which command is used to view the current PATH?
-- [ ] env PATH
-- [x] echo $PATH
-- [ ] print PATH
-- [ ] show PATH
-
-`echo $PATH` displays the list of directories that the shell searches for executable files.
-</quiz>
 
 <quiz>
 Which permission setting prevents others from accessing a file?
@@ -219,7 +171,7 @@ Which permission setting prevents others from accessing a file?
 ---
 
 ### 📚 Study Guides
-- [Linux File Viewing, Permissions, and Environment Variables](../../../linux-commands/linux-file-permissions-env/index.md)
+- [Linux File Viewing and Permissions](../../../linux-commands/linux-file-permissions/index.md)
 
 ---
 

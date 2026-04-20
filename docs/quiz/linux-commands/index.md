@@ -68,15 +68,15 @@ Topics:
 
 ---
 
-### 🔹 Part 5: File Permissions & Environment Variables
-Linux security and runtime configuration.
+### 🔹 Part 5: File Permissions
+Understand Linux security and access control.
 
-👉 **[Start Quiz – File Permissions & Environment Variables](../../linux-commands/linux-file-permissions-env/index.md)**
+👉 **[Start Quiz – File Permissions](../../linux-commands/linux-file-permissions/index.md)**
 
 Topics:
 - `chmod`, `chown`
 - Permission numbers
-- `env`, `printenv`
+- Special permissions: SUID, SGID, and Sticky Bit
 
 ---
 

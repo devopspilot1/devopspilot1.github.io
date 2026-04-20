@@ -54,14 +54,13 @@ Topics covered:
 
 ---
 
-### 👉 [File Permissions & Environment Variables](./linux-file-permissions-env/index.md)
-Understand Linux security and environment configuration.
+### 👉 [File Permissions](./linux-file-permissions/index.md)
+Understand Linux security and access control.
 
 Topics covered:
 - `chmod`, `chown`
 - Permission numbers (600, 644, 755)
-- Environment variables
-- `env`, `printenv`, `echo $VAR`
+- Special permissions: SUID, SGID, and Sticky Bit
 
 ---
 
