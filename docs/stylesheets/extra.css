@@ -38,3 +38,10 @@
     padding-right: 1rem !important;
   }
 }
+
+/* Fix for collapsing code blocks when no language is specified */
+.codehilite pre, 
+.highlight pre {
+  white-space: pre !important;
+  overflow-x: auto;
+}
