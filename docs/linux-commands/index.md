@@ -64,18 +64,27 @@ Topics covered:
 
 ---
 
-### 👉 [Shell, Env, Alias & Package Management](./linux-shell-env-alias-packages/index.md)
+### 👉 [Shell Basics & Environment](./linux-shell-env-alias/index.md)
 Learn how Linux behaves interactively and during automation.
 
 Topics covered:
-- Shell vs environment variables
+- Variables, Redirection, Pipes & Aliases
 - `PATH` variable
-- Aliases and `.bashrc`
-- Package managers: `yum`, `apt`, `apk`
+- Exit Codes (`$?`) and `.bashrc`
 
 ---
 
-### 👉 [Log & Text Processing Commands](./linux-log-text-processing/index.md)
+### 👉 [Package Management](./linux-package-management/index.md)
+Learn how to install and manage software across different Linux distributions.
+
+Topics covered:
+- Packages and Repositories
+- Package managers: `yum`, `apt`, `apk`
+- Installing, removing, and searching for software
+
+---
+
+### 👉 [Logs & Text Processing](./linux-log-text-processing/index.md)
 DevOps engineers spend a lot of time analyzing logs.
 
 Topics covered:
@@ -108,7 +117,7 @@ Topics covered:
 
 ---
 
-### 👉 [Process & Service Management](./linux-process-service-management/index.md)
+### 👉 [Process Management](./linux-process-service-management/index.md)
 Learn how Linux runs applications and services.
 
 Topics covered:

@@ -1,16 +1,16 @@
 ---
-title: "Linux Commands Quiz – Shell, Env, Alias & Packages"
-description: "Test your Linux Shell, Environment, Alias & Package Management skills with intermediate quiz questions covering practical concepts and workflows."
+title: "Linux Commands Quiz – Shell Basics & Environment"
+description: "Test your skills in Linux shell mastery, including variables, redirection, pipes, and aliases."
 ---
 
-# Linux Shell, Environment Variables, PATH, Alias & Package Management – Full Quiz
+# Linux Shell Basics & Environment – Full Quiz
 
 ← [Back to Quiz Home](../../index.md)
 
 ---
 
-This quiz contains **20 questions** focused on shell variables, environment variables,
-PATH configuration, aliases, and Linux package management.
+This quiz contains **15 questions** focused on shell variables, environment variables,
+PATH configuration, and aliases.
 These concepts are heavily used by DevOps engineers in daily operations.
 
 ---
@@ -145,65 +145,7 @@ Which command removes an alias?
 The `unalias` command removes a previously defined alias.
 </quiz>
 
-<quiz>
-Which package manager is used in RHEL / CentOS / Oracle Linux?
-- [ ] apt
-- [x] yum
-- [ ] apk
-- [ ] dnf
 
-`yum` (or `dnf` in newer versions) is the standard package manager for Red Hat-based distributions.
-</quiz>
-
-<quiz>
-Which package manager is used in Ubuntu / Debian?
-- [x] apt
-- [ ] yum
-- [ ] apk
-- [ ] rpm
-
-`apt` (Advanced Package Tool) is the package management system used by Debian and its derivatives like Ubuntu.
-</quiz>
-
-<quiz>
-Which package manager is used in Alpine Linux?
-- [ ] yum
-- [ ] apt
-- [x] apk
-- [ ] pacman
-
-`apk` (Alpine Package Keeper) is the lightweight package manager for Alpine Linux.
-</quiz>
-
-<quiz>
-Which command installs a package using yum?
-- [ ] yum remove tree
-- [x] yum install tree
-- [ ] yum add tree
-- [ ] yum get tree
-
-`yum install <package_name>` is the command to download and install a package.
-</quiz>
-
-<quiz>
-Which command removes a package using apt?
-- [ ] apt delete tree
-- [x] apt remove tree
-- [ ] apt uninstall tree
-- [ ] apt clean tree
-
-`apt remove <package_name>` uninstalls the package but typically leaves configuration files.
-</quiz>
-
-<quiz>
-Which command checks if a package command exists?
-- [ ] locate
-- [x] which
-- [ ] where
-- [ ] find
-
-`which` searches the `PATH` for the executable file associated with the given command name.
-</quiz>
 
 <quiz>
 Which file interpreter is defined by the shebang?
@@ -215,12 +157,62 @@ Which file interpreter is defined by the shebang?
 The shebang `#!/bin/bash` at the top of a script tells the system to execute the file using the Bash shell.
 </quiz>
 
+<quiz>
+Which command is the default shell for most Linux distributions?
+- [ ] sh
+- [x] bash
+- [ ] zsh
+- [ ] ksh
+
+Bash (Bourne Again SHell) is the most common default shell in Linux environments.
+</quiz>
+
+<quiz>
+Which operator redirects output and **overwrites** the existing file?
+- [x] >
+- [ ] >>
+- [ ] |
+- [ ] <
+
+The single arrow `>` redirects the output of a command to a file, replacing any existing content.
+</quiz>
+
+<quiz>
+Which operator **appends** output to the end of a file without deleting its content?
+- [ ] >
+- [x] >>
+- [ ] |
+- [ ] &
+
+The double arrow `>>` appends the command output to the existing content of a file.
+</quiz>
+
+<quiz>
+Which operator is used to pass the output of one command as input to another?
+- [ ] >
+- [ ] >>
+- [x] |
+- [ ] $
+
+The pipe operator `|` connects the standard output of the first command to the standard input of the second.
+</quiz>
+
+<quiz>
+Which special variable holds the exit status of the last executed command?
+- [ ] $!
+- [ ] $$
+- [x] $?
+- [ ] $*
+
+The `$?` variable stores the exit code (0 for success, non-zero for failure) of the most recent command.
+</quiz>
+
 <!-- mkdocs-quiz results -->
 
 ---
 
 ### 📚 Study Guides
-- [Linux Shell Variables, Environment Variables, PATH, Aliases & Package Management](../../../linux-commands/linux-shell-env-alias-packages/index.md)
+- [Linux Shell Variables, Environment Variables, PATH & Aliases](../../../linux-commands/linux-shell-env-alias/index.md)
 
 ---
 

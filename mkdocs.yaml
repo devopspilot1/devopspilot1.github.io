@@ -44,11 +44,12 @@ nav:
     - File & Directory Management: linux-commands/linux-file-directory-commands/index.md
     - Users & Sudo Permissions: linux-commands/linux-users-sudo-permissions/index.md
     - File Permissions: linux-commands/linux-file-permissions/index.md
-    - Shell, Env, Alias & Package Management: linux-commands/linux-shell-env-alias-packages/index.md
-    - Log & Text Processing Commands: linux-commands/linux-log-text-processing/index.md
+    - Shell Basics & Environment: linux-commands/linux-shell-env-alias/index.md
+    - Package Management: linux-commands/linux-package-management/index.md
+    - Logs & Text Processing: linux-commands/linux-log-text-processing/index.md
     - Networking Commands: linux-commands/linux-networking-commands/index.md
     - System & Disk Commands: linux-commands/linux-system-disk-commands/index.md
-    - Process & Service Management: linux-commands/linux-process-service-management/index.md
+    - Process Management: linux-commands/linux-process-service-management/index.md
   - SSH:
     - Overview: ssh/index.md
   - Shell Scripting:
@@ -483,7 +484,8 @@ nav:
       - File & Directory Management: quiz/linux-commands/linux-file-directory-commands/index.md
       - Users & Sudo Permissions: quiz/linux-commands/linux-users-sudo-permissions/index.md
       - File Permissions: quiz/linux-commands/linux-file-permissions/index.md
-      - Shell & Packages: quiz/linux-commands/linux-shell-env-alias-packages/index.md
+      - Shell Basics & Environment: quiz/linux-commands/linux-shell-env-alias/index.md
+      - Package Management: quiz/linux-commands/linux-package-management/index.md
       - Logs & Text Processing: quiz/linux-commands/linux-log-text-processing/index.md
       - Networking: quiz/linux-commands/linux-networking-commands/index.md
       - System & Disk Commands: quiz/linux-commands/linux-system-disk-commands/index.md
