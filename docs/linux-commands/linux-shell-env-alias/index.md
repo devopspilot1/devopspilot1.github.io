@@ -99,6 +99,19 @@ Environment variables are accessible to child processes as well.
 Raghav
 [opc@new-k8s ~]$ printenv NEW_NAME
 Raghav
+[opc@new-k8s ~]$ env | grep NEW_NAME
+NEW_NAME=Raghav
+
+### 🧪 Proving Global Scope (Subshells)
+Unlike local shell variables, environment variables are inherited by child processes.
+
+```bash
+[opc@new-k8s ~]$ export APP_STAGE="production"
+[opc@new-k8s ~]$ bash                # Enter a new child shell
+[opc@new-k8s ~]$ echo $APP_STAGE     # Read inherited variable
+production                           # (Variable IS available)
+[opc@new-k8s ~]$ exit                # Return to parent shell
+```
 ```
 
 ### 2. Viewing Environment Variables
