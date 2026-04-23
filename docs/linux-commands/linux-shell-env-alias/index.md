@@ -23,6 +23,16 @@ The shell is a command-line interpreter that acts as an interface between the us
 - **ksh (Korn Shell)**: A powerful shell often used in enterprise environments.
 - **csh**: A C-like syntax shell.
 
+### 🔍 Pro-Tip: Identifying Available Shells
+You can list all valid login shells installed on your system by inspecting the `/etc/shells` file:
+```bash
+[opc@new-k8s ~]$ cat /etc/shells
+/bin/sh
+/bin/bash
+/usr/bin/sh
+/usr/bin/bash
+```
+
 Reference: [https://www.shiksha.com/online-courses/articles/introduction-to-types-of-shell/](https://www.shiksha.com/online-courses/articles/introduction-to-types-of-shell/)
 
 ---
@@ -54,11 +64,26 @@ Shell variables are only accessible within the current shell session.
 [opc@new-k8s ~]$ NAME="vignesh"
 [opc@new-k8s ~]$ echo $NAME
 vignesh
-[opc@new-k8s ~]$ printenv NAME
+[opc@new-k8s ~]$ printenv NAME      # Returns nothing
+[opc@new-k8s ~]$ env | grep NAME    # Returns nothing
+```
 
-printenv NAME   -- doesn't show anything, since it's not an environment variable
+Local variables are strictly session-bound and are **not** part of the system environment. Therefore, commands like `env` or `printenv` will not display them.
 
-Even in env, printenv command the NAME variable will not been shown
+### 🧪 Proving Local Scope (Subshells)
+A powerful way to prove that shell variables are local is to start a new "child" shell session. The child will not inherit the parent's local variables.
+
+```bash
+[opc@new-k8s ~]$ MY_ROLE="DevOps"
+[opc@new-k8s ~]$ echo $MY_ROLE
+DevOps
+[opc@new-k8s ~]$ bash                # Enter a new child shell
+[opc@new-k8s ~]$ echo $MY_ROLE       # Attempt to read variable
+                                     # (Output is empty)
+[opc@new-k8s ~]$ exit                # Return to parent shell
+[opc@new-k8s ~]$ echo $MY_ROLE
+DevOps
+```
 ```
 
 ---
