@@ -228,7 +228,9 @@ HOME=/home/opc
 
 ## 📜 Creating a Shell Script and Exporting to PATH
 
-Create a script named `sysinfo.sh` that prints the current date and user by running `echo -e '#!/bin/bash\ndate\nwhoami' > sysinfo.sh`.
+Create a script named `sysinfo.sh` that prints the current date and user.
+
+Run `echo -e '#!/bin/bash\ndate\nwhoami' > sysinfo.sh`.
 
 Verify the file creation and content:
 ```bash
