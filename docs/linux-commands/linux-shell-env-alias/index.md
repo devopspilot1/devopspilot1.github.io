@@ -217,28 +217,27 @@ I also like apples
 A pipe (`|`) is used to pass the output from one command/program to the input for another command. This is essential for filtering long lists of information.
 
 ### Example: Searching for Environment Variables
-If you run `env` alone, the output is often dozens of lines long. To find a specific variable like your current shell, you can pipe the output to `grep`.
+If you run `env` alone, the output is often dozens of lines long. To find a specific variable like your home directory, you can pipe the output to `grep`.
 
 ```bash
-[opc@new-k8s test]$ env | grep SHELL
-SHELL=/bin/bash
+[opc@new-k8s test]$ env | grep HOME
+HOME=/home/opc
 ```
 
 ---
 
 ## 📜 Creating a Shell Script and Exporting to PATH
 
-We will create a shell script to print the username, hostname, date, present working directory, and the files in that directory.
+Create a script named `sysinfo.sh` that prints the current date and user by running `echo -e '#!/bin/bash\ndate\nwhoami' > sysinfo.sh`.
 
-**Filename:** `myinfo`
+Verify the file creation and content:
 ```bash
+[opc@new-k8s ~]$ ls -l sysinfo.sh
+-rw-rw-r--. 1 opc opc 24 Apr 27 12:00 sysinfo.sh
+[opc@new-k8s ~]$ cat sysinfo.sh
 #!/bin/bash
-
-echo $USER
-hostname
 date
-pwd
-ls -l
+whoami
 ```
 
 ### Making it Executable and Testing PATH
@@ -251,37 +250,15 @@ drwxrwxr-x. 2 opc  opc             25 Nov 26  2021 prometheus
 -rw-rw----. 1 opc  vignesh          0 Apr 15 04:19 random.txt
 -rw-r--r--. 1 root root    3145728000 Jan 11  2022 swapfile
 drwxrwxr-x. 4 opc  vignesh        100 Apr 13 12:46 test
-[opc@new-k8s ~]$ cat myinfo
+[opc@new-k8s ~]$ cat sysinfo.sh
 #!/bin/bash
-
-echo $USER
-hostname
 date
-pwd
-ls -l
-[opc@new-k8s ~]$ chmod +x myinfo
-[opc@new-k8s ~]$ ll
-total 3072008
--rw-rw-r--. 1 opc  opc            852 Apr 15 03:15 fruits.txt
--rwxrwxr-x. 1 opc  opc             48 Apr 15 10:56 myinfo
-drwxrwxr-x. 2 opc  opc             25 Nov 26  2021 prometheus
--rw-rw----. 1 opc  vignesh          0 Apr 15 04:19 random.txt
--rw-r--r--. 1 root root    3145728000 Jan 11  2022 swapfile
-drwxrwxr-x. 4 opc  vignesh        100 Apr 13 12:46 test
-[opc@new-k8s ~]$ myinfo
-bash: myinfo: command not found
-[opc@new-k8s ~]$ ./myinfo
-opc
-new-k8s
-Sat Apr 15 10:56:49 GMT 2023
-/home/opc
-total 3072008
--rw-rw-r--. 1 opc  opc            852 Apr 15 03:15 fruits.txt
--rwxrwxr-x. 1 opc  opc             48 Apr 15 10:56 myinfo
-drwxrwxr-x. 2 opc  opc             25 Nov 26  2021 prometheus
--rw-rw----. 1 opc  vignesh          0 Apr 15 04:19 random.txt
--rw-r--r--. 1 root root    3145728000 Jan 11  2022 swapfile
-drwxrwxr-x. 4 opc  vignesh        100 Apr 13 12:46 test
+whoami
+[opc@new-k8s ~]$ ls -l sysinfo.sh
+-rw-rw-r--. 1 opc opc 24 Apr 27 12:00 sysinfo.sh
+[opc@new-k8s ~]$ chmod +x sysinfo.sh
+[opc@new-k8s ~]$ ls -l sysinfo.sh
+-rwxrwxr-x. 1 opc opc 24 Apr 27 12:05 sysinfo.sh
 [opc@new-k8s ~]$ pwd
 /home/opc
 [opc@new-k8s ~]$ echo $PATH
@@ -289,9 +266,10 @@ drwxrwxr-x. 4 opc  vignesh        100 Apr 13 12:46 test
 [opc@new-k8s ~]$ export PATH=$PATH:/home/opc
 [opc@new-k8s ~]$
 [opc@new-k8s ~]$
-[opc@new-k8s ~]$ myinfo
+[opc@new-k8s ~]$ sysinfo.sh
 opc
 new-k8s
+Sat Apr 27 12:10:00 GMT 2026
 Sat Apr 15 10:57:54 GMT 2023
 /home/opc
 total 3072008
@@ -327,24 +305,46 @@ drwx------. 3 root root   17 Mar 27 20:01 systemd-private-c60b800098604975be26db
 ---
 
 ## ⚡ Alias Command
-
-Aliases allow you to create shortcut commands. We will create a command named `myls` which will print the current date and list files.
+An alias is a shortcut for a long command.
 
 ```bash
-[opc@new-k8s tmp]$ alias myls="date && ls -l"
-[opc@new-k8s tmp]$ myls
-Sat Apr 15 11:01:37 GMT 2023
-dhclient-exit-hooksRZi.log                                               systemd-private-c60b800098604975be26dbbb3215bd47-unified-monitoring-agent.service-561YDH
-systemd-private-c60b800098604975be26dbbb3215bd47-chronyd.service-ZzaKpF  vignesh.txt
+[opc@new-k8s ~]$ alias pcheck="pwd"
+[opc@new-k8s ~]$ pcheck
+/home/opc
+```
+
+#### 🧪 Proving Local Scope
+Manual aliases are not inherited by child processes.
+
+```bash
+[opc@new-k8s ~]$ bash          # Enter child shell
+[opc@new-k8s ~]$ pcheck        # Shortcut FAILS in new shell
+bash: pcheck: command not found
+[opc@new-k8s ~]$ exit          # Return to parent
 ```
 
 ---
 
 ## 💾 Persisting Environment Variables and Aliases (.bashrc)
 
-Manually exported environment variables and aliases will be lost once the terminal session is closed. The `.bashrc` file in the user's home directory is executed every time a new terminal session is started. By placing commands in the `.bashrc` file, they will be automatically executed for every new session.
+### 📜 Persisting Aliases in .bashrc
+Manual aliases are lost when you close your terminal. To make them permanent, add them to your `~/.bashrc` file.
 
-### .bashrc file
+```bash
+[opc@new-k8s ~]$ echo 'alias pcheck="pwd"' >> ~/.bashrc
+[opc@new-k8s ~]$ source ~/.bashrc   # Apply changes immediately
+```
+
+#### 🧪 Proving Persistence
+To verify the alias is now permanent, enter a new child shell.
+
+```bash
+[opc@new-k8s ~]$ bash          # Enter child shell
+[opc@new-k8s ~]$ pcheck        # Shortcut works in new shell!
+/home/opc
+[opc@new-k8s ~]$ exit          # Return to parent
+```
+
 ```bash
 [opc@new-k8s ~]$ clear
 [opc@new-k8s ~]$ pwd
@@ -408,20 +408,20 @@ Raghav
 
 `$?` is a special variable which holds the status code of the last executed command. In Linux, `0` means success, any other value indicates failure.
 
+## ❓ Exit Status Code ($?)
+Every command returns an exit status code after execution.
+*   `0`: Success
+*   Non-zero: Error (usually 1-255)
+
 ```bash
-[opc@new-k8s ~]$ ll
-total 3072008
--rw-rw-r--. 1 opc  opc         852 Apr 15 03:15 fruits.txt
--rwxrwxr-x. 1 opc  opc          81 Apr 15 13:27 newtest
-drwxrwxr-x. 2 opc  opc          25 Nov 26  2021 prometheus
--rw-r--r--. 1 root root 3145728000 Jan 11  2022 swapfile
-drwxrwxr-x. 4 opc  opc         100 Apr 15 13:04 test
-[opc@new-k8s ~]$ echo $?
+[opc@new-k8s ~]$ ls
+sysinfo.sh
+[opc@new-k8s ~]$ echo $?      # Success code
 0
-[opc@new-k8s ~]$ ddhghg
--bash: ddhghg: command not found
-[opc@new-k8s ~]$ echo $?
-127
+[opc@new-k8s ~]$ ls /fake-dir
+ls: cannot access '/fake-dir': No such file or directory
+[opc@new-k8s ~]$ echo $?      # Error code
+2
 ```
 
 ---
