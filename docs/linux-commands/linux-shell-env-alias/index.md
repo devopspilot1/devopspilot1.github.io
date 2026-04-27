@@ -84,7 +84,6 @@ DevOps
 [opc@new-k8s ~]$ echo $MY_ROLE
 DevOps
 ```
-```
 
 ---
 
@@ -93,6 +92,7 @@ DevOps
 Environment variables are accessible to child processes as well.
 
 ### 1. Creating an Environment Variable
+
 ```
 [opc@new-k8s ~]$ export NEW_NAME="Raghav"
 [opc@new-k8s ~]$ echo $NEW_NAME
@@ -101,6 +101,7 @@ Raghav
 Raghav
 [opc@new-k8s ~]$ env | grep NEW_NAME
 NEW_NAME=Raghav
+```
 
 ### 🧪 Proving Global Scope (Subshells)
 Unlike local shell variables, environment variables are inherited by child processes.
@@ -111,7 +112,6 @@ Unlike local shell variables, environment variables are inherited by child proce
 [opc@new-k8s ~]$ echo $APP_STAGE     # Read inherited variable
 production                           # (Variable IS available)
 [opc@new-k8s ~]$ exit                # Return to parent shell
-```
 ```
 
 ### 2. Viewing Environment Variables
@@ -339,7 +339,7 @@ drwx------. 3 root root   17 Mar 27 20:01 systemd-private-c60b800098604975be26db
 
 Aliases allow you to create shortcut commands. We will create a command named `myls` which will print the current date and list files.
 
-```
+```bash
 [opc@new-k8s tmp]$ alias myls="date && ls -l"
 [opc@new-k8s tmp]$ myls
 Sat Apr 15 11:01:37 GMT 2023
@@ -354,7 +354,7 @@ systemd-private-c60b800098604975be26dbbb3215bd47-chronyd.service-ZzaKpF  vignesh
 Manually exported environment variables and aliases will be lost once the terminal session is closed. The `.bashrc` file in the user's home directory is executed every time a new terminal session is started. By placing commands in the `.bashrc` file, they will be automatically executed for every new session.
 
 ### .bashrc file
-```
+```bash
 [opc@new-k8s ~]$ clear
 [opc@new-k8s ~]$ pwd
 /home/opc
@@ -395,6 +395,9 @@ fi
 
 export NEW_NAME="Raghav"
 alias myls="date && ls -l"
+```
+
+```bash
 [opc@new-k8s ~]$ myls
 Sat Apr 15 11:21:19 GMT 2023
 total 3072008
@@ -414,7 +417,7 @@ Raghav
 
 `$?` is a special variable which holds the status code of the last executed command. In Linux, `0` means success, any other value indicates failure.
 
-```
+```bash
 [opc@new-k8s ~]$ ll
 total 3072008
 -rw-rw-r--. 1 opc  opc         852 Apr 15 03:15 fruits.txt
