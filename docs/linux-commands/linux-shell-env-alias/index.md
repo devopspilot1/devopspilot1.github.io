@@ -175,16 +175,14 @@ In both cases, if the file is not present, it will create the file and write the
 /home/opc/redirection
 [opc@new-k8s redirection]$ ll
 total 0
-[opc@new-k8s redirection]$ echo "hello devops" > hello.txt
-[opc@new-k8s redirection]$ ll
-total 4
--rw-rw-r--. 1 opc opc 13 Apr 17 14:11 hello.txt
+[opc@new-k8s redirection]$ pwd
+/home/opc/redirection
+[opc@new-k8s redirection]$ echo "hello devops"    # Prints to terminal
+hello devops
+[opc@new-k8s redirection]$ echo "hello devops" > hello.txt   # Redirects to file
 [opc@new-k8s redirection]$ cat hello.txt
 hello devops
 [opc@new-k8s redirection]$ echo "I am learning devops" > hello.txt
-[opc@new-k8s redirection]$ ll
-total 4
--rw-rw-r--. 1 opc opc 21 Apr 17 14:11 hello.txt
 [opc@new-k8s redirection]$ cat hello.txt
 I am learning devops
 ```
@@ -216,21 +214,14 @@ I also like apples
 
 ## 🔗 Shell Operators: Pipe (`|`)
 
-A pipe (`|`) is used to pass the output from one command/program to the input for another command.
+A pipe (`|`) is used to pass the output from one command/program to the input for another command. This is essential for filtering long lists of information.
 
-```
-[opc@new-k8s test]$ pwd
-/home/opc/test
-[opc@new-k8s test]$ ll
-total 8
-drwxrwxr-x. 2 opc opc 27 Mar 17 14:03 client
--rw-rw-r--. 1 opc opc 77 Apr 12 12:26 Dockerfile
--rw-rw-r--. 1 opc opc  0 Apr 12 12:54 hello.txt
--rw-rw-r--. 1 opc opc 23 Apr 12 12:56 mani.txt
--rw-rw-r--. 1 opc opc  0 Mar 17 14:03 server
-drwxrwxr-x. 3 opc opc 18 Apr 13 12:46 vignesh
-[opc@new-k8s test]$ ll | wc -l
-7
+### Example: Searching for Environment Variables
+If you run `env` alone, the output is often dozens of lines long. To find a specific variable like your current shell, you can pipe the output to `grep`.
+
+```bash
+[opc@new-k8s test]$ env | grep SHELL
+SHELL=/bin/bash
 ```
 
 ---
