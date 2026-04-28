@@ -44,7 +44,8 @@ nav:
     - File & Directory Management: linux-commands/linux-file-directory-commands/index.md
     - Users & Sudo Permissions: linux-commands/linux-users-sudo-permissions/index.md
     - File Permissions: linux-commands/linux-file-permissions/index.md
-    - Shell Basics & Environment: linux-commands/linux-shell-env-alias/index.md
+    - Shell Basics & Environment: linux-commands/linux-shell-basics-env/index.md
+    - Aliases & Shell Productivity: linux-commands/linux-shell-shortcuts-alias/index.md
     - Package Management: linux-commands/linux-package-management/index.md
     - Logs & Text Processing: linux-commands/linux-log-text-processing/index.md
     - Networking Commands: linux-commands/linux-networking-commands/index.md
@@ -484,7 +485,8 @@ nav:
       - File & Directory Management: quiz/linux-commands/linux-file-directory-commands/index.md
       - Users & Sudo Permissions: quiz/linux-commands/linux-users-sudo-permissions/index.md
       - File Permissions: quiz/linux-commands/linux-file-permissions/index.md
-      - Shell Basics & Environment: quiz/linux-commands/linux-shell-env-alias/index.md
+      - Shell Basics & Environment: quiz/linux-commands/linux-shell-basics-env/index.md
+      - Aliases & Shell Productivity: quiz/linux-commands/linux-shell-shortcuts-alias/index.md
       - Package Management: quiz/linux-commands/linux-package-management/index.md
       - Logs & Text Processing: quiz/linux-commands/linux-log-text-processing/index.md
       - Networking: quiz/linux-commands/linux-networking-commands/index.md

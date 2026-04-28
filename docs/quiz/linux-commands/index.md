@@ -80,19 +80,31 @@ Topics:
 
 ---
 
-### 🔹 Part 6: Shell, Environment & Aliases
-Shell behavior, variables, and shortcuts.
+### 🔹 Part 6: Shell Basics & Environment
+Shell behavior, variables, and execution paths.
 
-👉 **[Start Quiz – Shell & Aliases](../../quiz/linux-commands/linux-shell-env-alias/index.md)**
+👉 **[Start Quiz – Shell Basics & Environment](../../quiz/linux-commands/linux-shell-basics-env/index.md)**
 
 Topics:
-- Shell vs environment variables
-- `PATH`, aliases
-- `.bashrc`
+- Shell vs Environment variables
+- `PATH`, redirection, and pipes
+- `.bashrc` and Exit Codes
 
 ---
 
-### 🔹 Part 7: Package Management
+### 🔹 Part 7: Aliases & Shell Productivity
+Speed up your workflow with shortcuts and history.
+
+👉 **[Start Quiz – Aliases & Shell Productivity](../../quiz/linux-commands/linux-shell-shortcuts-alias/index.md)**
+
+Topics:
+- Command Aliases
+- `history` and `!` shortcuts
+- `cd -` and Reverse Search
+
+---
+
+### 🔹 Part 8: Package Management
 Software installation and management across distributions.
 
 👉 **[Start Quiz – Package Management](../../quiz/linux-commands/linux-package-management/index.md)**
@@ -104,7 +116,7 @@ Topics:
 
 ---
 
-### 🔹 Part 8: Log & Text Processing
+### 🔹 Part 9: Log & Text Processing
 Log analysis and text filtering.
 
 👉 **[Start Quiz – Log & Text Processing](../../quiz/linux-commands/linux-log-text-processing/index.md)**
@@ -116,7 +128,7 @@ Topics:
 
 ---
 
-### 🔹 Part 9: Networking Commands
+### 🔹 Part 10: Networking Commands
 Network troubleshooting on Linux servers.
 
 👉 **[Start Quiz – Networking Commands](../../quiz/linux-commands/linux-networking-commands/index.md)**
@@ -128,7 +140,7 @@ Topics:
 
 ---
 
-### 🔹 Part 10: Process & Service Management
+### 🔹 Part 11: Process & Service Management
 Managing running processes and services.
 
 👉 **[Start Quiz – Process & Service Management](../../quiz/linux-commands/linux-process-service-management/index.md)**

@@ -1,6 +1,6 @@
 ---
 title: "Linux Commands Quiz – Shell Basics & Environment"
-description: "Test your skills in Linux shell mastery, including variables, redirection, pipes, and aliases."
+description: "Test your skills in Linux shell basics, including variables, redirection, pipes, and PATH."
 ---
 
 # Linux Shell Basics & Environment – Full Quiz
@@ -10,7 +10,7 @@ description: "Test your skills in Linux shell mastery, including variables, redi
 ---
 
 This quiz contains **15 questions** focused on shell variables, environment variables,
-PATH configuration, and aliases.
+PATH configuration, and redirection.
 These concepts are heavily used by DevOps engineers in daily operations.
 
 ---
@@ -116,36 +116,14 @@ Which file is executed when a new terminal session starts?
 </quiz>
 
 <quiz>
-Which file is used to persist aliases and environment variables?
+Which file is used to persist environment variables?
 - [ ] ~/.bash_history
 - [x] ~/.bashrc
 - [ ] ~/.vimrc
 - [ ] /etc/passwd
 
-Adding aliases or `export` commands to `~/.bashrc` ensures they are available in every new shell session.
+Adding `export` commands to `~/.bashrc` ensures they are available in every new shell session.
 </quiz>
-
-<quiz>
-Which command creates a shortcut command?
-- [ ] export
-- [ ] set
-- [x] alias
-- [ ] shortcut
-
-The `alias` command allows you to define a shortcut or abbreviation for a longer command.
-</quiz>
-
-<quiz>
-Which command removes an alias?
-- [ ] alias -d
-- [x] unalias
-- [ ] delalias
-- [ ] removealias
-
-The `unalias` command removes a previously defined alias.
-</quiz>
-
-
 
 <quiz>
 Which file interpreter is defined by the shebang?
@@ -212,7 +190,7 @@ The `$?` variable stores the exit code (0 for success, non-zero for failure) of 
 ---
 
 ### 📚 Study Guides
-- [Linux Shell Variables, Environment Variables, PATH & Aliases](../../../linux-commands/linux-shell-env-alias/index.md)
+- [Linux Shell Basics: Variables, Redirection & PATH](../../../linux-commands/linux-shell-basics-env/index.md)
 
 ---
 

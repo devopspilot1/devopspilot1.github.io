@@ -1,9 +1,9 @@
 ---
-title: "Linux Shell Mastery: Variables, Redirection, Pipes & Aliases"
-description: "Master Linux shell variables, environment variables, PATH, aliases, redirection, and pipes for DevOps engineering."
+title: "Linux Shell Basics: Variables, Redirection, Pipes & PATH"
+description: "Master Linux shell variables, environment variables, PATH, redirection, and pipes for DevOps engineering."
 ---
 
-# Linux Shell Mastery: Variables, Redirection, Pipes & Aliases
+# Linux Shell Basics: Variables, Redirection, Pipes & PATH
 
 ← [Back to Linux Commands](../index.md)
 
@@ -32,8 +32,6 @@ You can list all valid login shells installed on your system by inspecting the `
 /usr/bin/sh
 /usr/bin/bash
 ```
-
-Reference: [https://www.shiksha.com/online-courses/articles/introduction-to-types-of-shell/](https://www.shiksha.com/online-courses/articles/introduction-to-types-of-shell/)
 
 ---
 
@@ -242,137 +240,80 @@ date
 whoami
 ```
 
-### Making it Executable and Testing PATH
+### Making it Executable and Running Locally
+After creating the script, you need to give it execute permissions.
+
 ```bash
-[opc@new-k8s ~]$ ll
-total 3072008
--rw-rw-r--. 1 opc  opc            852 Apr 15 03:15 fruits.txt
--rw-rw-r--. 1 opc  opc             48 Apr 15 10:56 myinfo
-drwxrwxr-x. 2 opc  opc             25 Nov 26  2021 prometheus
--rw-rw----. 1 opc  vignesh          0 Apr 15 04:19 random.txt
--rw-r--r--. 1 root root    3145728000 Jan 11  2022 swapfile
-drwxrwxr-x. 4 opc  vignesh        100 Apr 13 12:46 test
-[opc@new-k8s ~]$ cat sysinfo.sh
-#!/bin/bash
-date
-whoami
-[opc@new-k8s ~]$ ls -l sysinfo.sh
--rw-rw-r--. 1 opc opc 24 Apr 27 12:00 sysinfo.sh
 [opc@new-k8s ~]$ chmod +x sysinfo.sh
 [opc@new-k8s ~]$ ls -l sysinfo.sh
 -rwxrwxr-x. 1 opc opc 24 Apr 27 12:05 sysinfo.sh
-[opc@new-k8s ~]$ pwd
-/home/opc
-[opc@new-k8s ~]$ echo $PATH
-/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/opc/.local/bin:/home/opc/bin
-[opc@new-k8s ~]$ export PATH=$PATH:/home/opc
-[opc@new-k8s ~]$
-[opc@new-k8s ~]$
+```
+
+Now, try to run the script by just typing its name:
+```bash
 [opc@new-k8s ~]$ sysinfo.sh
-opc
-new-k8s
+bash: sysinfo.sh: command not found...
+```
+It fails! This is because the current directory (`.`) is not in your `PATH`. To run it from the current directory, you must specify the path explicitly using `./`:
+
+```bash
+[opc@new-k8s ~]$ ./sysinfo.sh
 Sat Apr 27 12:10:00 GMT 2026
-Sat Apr 15 10:57:54 GMT 2023
-/home/opc
-total 3072008
--rw-rw-r--. 1 opc  opc            852 Apr 15 03:15 fruits.txt
--rwxrwxr-x. 1 opc  opc             48 Apr 15 10:56 myinfo
-drwxrwxr-x. 2 opc  opc             25 Nov 26  2021 prometheus
--rw-rw----. 1 opc  vignesh          0 Apr 15 04:19 random.txt
--rw-r--r--. 1 root root    3145728000 Jan 11  2022 swapfile
-drwxrwxr-x. 4 opc  vignesh        100 Apr 13 12:46 test
-[opc@new-k8s ~]$
-[opc@new-k8s ~]$
-[opc@new-k8s ~]$ cd /tmp
-[opc@new-k8s tmp]$ pwd
-/tmp
-[opc@new-k8s tmp]$ ll
-total 4
--rw-------. 1 root root 1097 Apr 15 10:02 dhclient-exit-hooksRZi.log
-drwx------. 3 root root   17 Jul  4  2021 systemd-private-c60b800098604975be26dbbb3215bd47-chronyd.service-ZzaKpF
-drwx------. 3 root root   17 Mar 27 20:01 systemd-private-c60b800098604975be26dbbb3215bd47-unified-monitoring-agent.service-561YDH
--rw-rw-r--. 1 opc  opc     0 Apr 12 12:30 vignesh.txt
-[opc@new-k8s tmp]$ myinfo
 opc
-new-k8s
-Sat Apr 15 10:58:09 GMT 2023
-/tmp
-total 4
--rw-------. 1 root root 1097 Apr 15 10:02 dhclient-exit-hooksRZi.log
-drwx------. 3 root root   17 Jul  4  2021 systemd-private-c60b800098604975be26dbbb3215bd47-chronyd.service-ZzaKpF
-drwx------. 3 root root   17 Mar 27 20:01 systemd-private-c60b800098604975be26dbbb3215bd47-unified-monitoring-agent.service-561YDH
--rw-rw-r--. 1 opc  opc     0 Apr 12 12:30 vignesh.txt
+```
+
+### Making the Script Globally Accessible (PATH)
+If you want to run `sysinfo.sh` from any directory without typing `./`, you must add its directory to the `PATH` environment variable.
+
+First, let's move to a different directory and see it fail again:
+```bash
+[opc@new-k8s ~]$ cd /tmp
+[opc@new-k8s tmp]$ sysinfo.sh
+bash: sysinfo.sh: command not found...
+```
+
+Now, let's check the current `PATH` and add `/home/opc` to it:
+```bash
+[opc@new-k8s tmp]$ echo $PATH
+/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/opc/.local/bin:/home/opc/bin
+
+[opc@new-k8s tmp]$ export PATH=$PATH:/home/opc
+
+[opc@new-k8s tmp]$ echo $PATH
+/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/opc/.local/bin:/home/opc/bin:/home/opc
+```
+
+Now that the directory is in the `PATH`, the script can be executed from anywhere:
+```bash
+[opc@new-k8s tmp]$ sysinfo.sh
+Sat Apr 27 12:12:00 GMT 2026
+opc
 ```
 
 ---
 
-## ⚡ Alias Command
-An alias is a shortcut for a long command.
+## 💾 Persisting Environment Variables (.bashrc)
+
+Manual changes to environment variables are lost when you close your terminal. To make them permanent, add them to your `~/.bashrc` file.
+
+### 📜 Adding Variables to .bashrc
 
 ```bash
-[opc@new-k8s ~]$ alias pcheck="pwd"
-[opc@new-k8s ~]$ pcheck
-/home/opc
-```
-
-#### 🧪 Proving Local Scope
-Manual aliases are not inherited by child processes.
-
-```bash
-[opc@new-k8s ~]$ bash          # Enter child shell
-[opc@new-k8s ~]$ pcheck        # Shortcut FAILS in new shell
-bash: pcheck: command not found
-[opc@new-k8s ~]$ exit          # Return to parent
-```
-
----
-
-## 💾 Persisting Environment Variables and Aliases (.bashrc)
-
-### 📜 Persisting Aliases in .bashrc
-Manual aliases are lost when you close your terminal. To make them permanent, add them to your `~/.bashrc` file.
-
-```bash
-[opc@new-k8s ~]$ echo 'alias pcheck="pwd"' >> ~/.bashrc
+[opc@new-k8s ~]$ echo 'export APP_STAGE="production"' >> ~/.bashrc
 [opc@new-k8s ~]$ source ~/.bashrc   # Apply changes immediately
 ```
 
 #### 🧪 Proving Persistence
-To verify the alias is now permanent, enter a new child shell.
+To verify the variable is now permanent, enter a new child shell.
 
 ```bash
-[opc@new-k8s ~]$ bash          # Enter child shell
-[opc@new-k8s ~]$ pcheck        # Shortcut works in new shell!
-/home/opc
-[opc@new-k8s ~]$ exit          # Return to parent
+[opc@new-k8s ~]$ bash                # Enter child shell
+[opc@new-k8s ~]$ echo $APP_STAGE     # Variable is available!
+production
+[opc@new-k8s ~]$ exit                # Return to parent
 ```
 
 ```bash
-[opc@new-k8s ~]$ clear
-[opc@new-k8s ~]$ pwd
-/home/opc
-[opc@new-k8s ~]$ ls -lart
-total 3072064
--rw-r--r--.  1 opc  opc            193 Nov 22  2019 .bash_profile
--rw-r--r--.  1 opc  opc             18 Nov 22  2019 .bash_logout
--rw-r--r--.  1 opc  opc            172 Apr  2  2020 .kshrc
-drwxr-xr-x.  3 opc  docker          33 Jul  4  2021 .kube
-drwxrw----.  3 opc  opc             19 Jul  4  2021 .pki
-drwxrwxr-x.  4 opc  opc             30 Nov 26  2021 .config
-drwxrwxr-x.  4 opc  opc             30 Nov 26  2021 .cache
-drwxrwxr-x.  2 opc  opc             25 Nov 26  2021 prometheus
--rw-r--r--.  1 root root    3145728000 Jan 11  2022 swapfile
-drwxrwxr-x.  4 opc  opc             82 Jan 11  2022 .docker
-drwx------.  2 opc  opc             80 May 26  2022 .ssh
-drwxr-xr-x.  4 root root            32 Apr 13 12:25 ..
-drwxrwxr-x.  4 opc  vignesh        100 Apr 13 12:46 test
--rw-rw-r--.  1 opc  opc            852 Apr 15 03:15 fruits.txt
--rw-rw----.  1 opc  vignesh          0 Apr 15 04:19 random.txt
--rwxrwxr-x.  1 opc  opc             48 Apr 15 10:56 myinfo
--rw-r--r--.  1 opc  opc            285 Apr 15 11:19 .bashrc
--rw-------.  1 opc  opc           6596 Apr 15 11:19 .viminfo
-drwxr-x---. 10 opc  opc           4096 Apr 15 11:19 .
--rw-------.  1 opc  opc          26674 Apr 15 11:19 .bash_history
 [opc@new-k8s ~]$ cat .bashrc
 # .bashrc
 
@@ -381,13 +322,10 @@ if [ -f /etc/bashrc ]; then
         . /etc/bashrc
 fi
 
-# Uncomment the following line if you don't like systemctl's auto-paging feature:
-# export SYSTEMD_PAGER=
-
 # User specific aliases and functions
 
+export APP_STAGE="production"
 export NEW_NAME="Raghav"
-alias myls="date && ls -l"
 ```
 
 ```bash

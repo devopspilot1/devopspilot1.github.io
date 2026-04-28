@@ -64,13 +64,24 @@ Topics covered:
 
 ---
 
-### 👉 [Shell Basics & Environment](./linux-shell-env-alias/index.md)
-Learn how Linux behaves interactively and during automation.
+### 👉 [Shell Basics & Environment](./linux-shell-basics-env/index.md)
+Learn how the Linux shell behaves, including variables, redirection, pipes, and execution paths.
 
 Topics covered:
-- Variables, Redirection, Pipes & Aliases
-- `PATH` variable
+- Variables, Redirection & Pipes
+- Executing scripts (`./`) and the `PATH` variable
 - Exit Codes (`$?`) and `.bashrc`
+
+---
+
+### 👉 [Aliases & Shell Productivity](./linux-shell-shortcuts-alias/index.md)
+Speed up your Linux workflow with shortcuts and history tricks.
+
+Topics covered:
+- Command Aliases and Persistence
+- `history` and `!` shortcuts
+- Navigation shortcuts (`cd -`, `cd ~`)
+- Reverse Search (`Ctrl+R`)
 
 ---
 
