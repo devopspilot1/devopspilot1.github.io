@@ -21,18 +21,18 @@ An alias is a custom shortcut for a long command. It allows you to replace a com
 You can create an alias by using the `alias` command.
 
 ```bash
-[opc@new-k8s ~]$ alias pcheck="pwd"
-[opc@new-k8s ~]$ pcheck
-/home/opc
+[opc@new-k8s ~]$ alias c="clear"
+[opc@new-k8s ~]$ c
+# (Terminal screen clears)
 ```
 
 ### 2. Listing and Removing Aliases
 To see all active aliases, run `alias` without arguments. To remove an alias, use `unalias`.
 
 ```bash
-[opc@new-k8s ~]$ unalias pcheck
-[opc@new-k8s ~]$ pcheck
-bash: pcheck: command not found
+[opc@new-k8s ~]$ unalias c
+[opc@new-k8s ~]$ c
+bash: c: command not found
 ```
 
 ---
@@ -42,11 +42,11 @@ bash: pcheck: command not found
 Manual aliases are lost when you close your terminal. To make them permanent, add them to your `~/.bashrc` file.
 
 ```bash
-[opc@new-k8s ~]$ echo 'alias myls="ls -lart"' >> ~/.bashrc
+[opc@new-k8s ~]$ echo 'alias c="clear"' >> ~/.bashrc
 [opc@new-k8s ~]$ source ~/.bashrc   # Apply changes immediately
 ```
 
-Now, `myls` will work in every new terminal session.
+Now, `c` will work in every new terminal session.
 
 ---
 
@@ -97,8 +97,8 @@ Typing `cd` without any arguments or `cd ~` always returns you to your home dire
 Instead of scrolling through history with arrow keys, you can search for a previous command by typing part of it.
 
 1. Press `Ctrl + R`.
-2. Start typing the command (e.g., `git`).
-3. The shell will find the most recent matching command.
+2. Start typing the command (e.g., `alias`).
+3. The shell will find the most recent matching command (like `alias c="clear"`).
 4. Press `Enter` to run it or use arrow keys to edit it.
 
 ---
