@@ -328,30 +328,11 @@ export APP_STAGE="production"
 export NEW_NAME="Raghav"
 ```
 
-```bash
-[opc@new-k8s ~]$ myls
-Sat Apr 15 11:21:19 GMT 2023
-total 3072008
--rw-rw-r--. 1 opc  opc            852 Apr 15 03:15 fruits.txt
--rwxrwxr-x. 1 opc  opc             48 Apr 15 10:56 myinfo
-drwxrwxr-x. 2 opc  opc             25 Nov 26  2021 prometheus
--rw-rw----. 1 opc  vignesh          0 Apr 15 04:19 random.txt
--rw-r--r--. 1 root root    3145728000 Jan 11  2022 swapfile
-drwxrwxr-x. 4 opc  vignesh        100 Apr 13 12:46 test
-[opc@new-k8s ~]$ echo $NEW_NAME
-Raghav
-```
-
 ---
 
-## 🚦 Exit Codes (`$?`)
+## 🚦 Exit Codes ($?)
 
-`$?` is a special variable which holds the status code of the last executed command. In Linux, `0` means success, any other value indicates failure.
-
-## ❓ Exit Status Code ($?)
-Every command returns an exit status code after execution.
-*   `0`: Success
-*   Non-zero: Error (usually 1-255)
+Every command returns an exit status code after execution. This is stored in the special variable `$?`. In Linux, `0` means success, and any other value (usually 1-255) indicates an error.
 
 ```bash
 [opc@new-k8s ~]$ ls
