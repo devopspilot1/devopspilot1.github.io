@@ -63,23 +63,23 @@ apk update
 ### 2. Search for a Package
 If you're not sure of the exact name:
 ```bash
-# Ubuntu/Debian
-apt search tree
+# Ubuntu/Debian (using --names-only to filter results)
+apt search --names-only figlet
 
 # Red Hat/CentOS
-yum search tree
+yum search figlet
 ```
 
 ### 3. Install a Package
 ```bash
 # Ubuntu/Debian
-sudo apt install tree -y
+sudo apt install figlet -y
 
 # Red Hat/CentOS
-sudo yum install tree -y
+sudo yum install figlet -y
 
 # Alpine
-apk add tree
+apk add figlet
 ```
 !!! note
     The `-y` flag stands for "Yes," which automatically accepts the installation without asking for confirmation.
@@ -92,14 +92,17 @@ When you no longer need a program, you can remove it easily.
 
 ```bash
 # Ubuntu/Debian
-sudo apt remove tree
+sudo apt remove figlet
 
 # Red Hat/CentOS
-sudo yum remove tree
+sudo yum remove figlet
 
 # Alpine
-apk del tree
+apk del figlet
 ```
+
+!!! tip "Why do I see 'No such file or directory'?"
+    After removing a program, if you try to run it again in the same shell session, you might see `bash: /usr/bin/figlet: No such file or directory` instead of `command not found`. This is because the shell "remembers" (hashes) the path to the program. Since the file is gone but the memory remains, it gives this specific error. You can clear this memory by running `hash -r`.
 
 ---
 
@@ -107,21 +110,23 @@ apk del tree
 
 ### Using `yum` (Oracle Linux / CentOS)
 ```bash
-[opc@new-k8s ~]$ sudo yum install -y tree
+[opc@new-k8s ~]$ sudo yum install -y figlet
 Complete!
 
-[opc@new-k8s ~]$ tree
-.
-├── fruits.txt
-└── myinfo
+[opc@new-k8s ~]$ figlet DevOps
+ ____                 ___               
+|  _ \  _____   _____|  _ \ ___  ___    
+| | | |/ _ \ \ / / _ \ |_) / _ \/ __|   
+| |_| |  __/\ V / (_) |  __/ (_) \__ \   
+|____/ \___| \_/ \___/|_|   \___/|___/   
 ```
 
 ### Using `apt` (Ubuntu)
 ```bash
 root@ubuntu:/# apt update
-root@ubuntu:/# apt install tree
-root@ubuntu:/# tree --version
-tree v2.0.2
+root@ubuntu:/# apt install figlet
+root@ubuntu:/# figlet --version
+FIGlet Copyright (C) 1991-2012 by Glenn Chappell and Ian Chai
 ```
 
 ---
@@ -132,9 +137,10 @@ Beyond basic installation, you often need to manage where software comes from. T
 
 ### 🐧 Debian/Ubuntu (APT) Repositories
 
-APT stores its configuration in two main places:
-1.  **/etc/apt/sources.list**: The primary file containing default repositories.
-2.  **/etc/apt/sources.list.d/**: A directory for adding third-party repositories. Each file must end in `.list`.
+APT stores its configuration in the **/etc/apt/** directory. In modern Ubuntu versions, the primary repository list has moved from the legacy `sources.list` file to a newer, more structured format:
+
+1.  **/etc/apt/sources.list.d/ubuntu.sources**: The primary file containing default repositories (uses the **DEB822** format).
+2.  **/etc/apt/sources.list.d/**: A directory for third-party repositories. Modern configurations use the `.sources` extension, while legacy ones use `.list`.
 
 **The Problem: Package Not Found**
 If you try to install a tool like Docker or Ansible on a fresh system, you will likely see an error because they aren't in the default "catalog":
@@ -145,14 +151,38 @@ E: Unable to locate package docker-ce
 ```
 
 **The Solution: Add the Repository**
-The easiest way is using the `add-apt-repository` command:
+There are two main ways to add a repository to your system:
+
+**Method A: Using `add-apt-repository` (Convenient)**
+The easiest way is using the automated command, which handles both the key and the source:
 ```bash
 # Add a PPA (Personal Package Archive) - e.g., Latest Ansible for automation
 sudo add-apt-repository ppa:ansible/ansible
-
-# Add a standard remote repository - e.g., Docker for containerization
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 ```
+
+**Method B: Manual Configuration (DEB822 Format)**
+Modern Linux distributions recommend adding repositories manually. This involves two steps: adding a security key (GPG) and defining the source in the **DEB822** format.
+
+```bash
+# 1. Download the security key and store it in a trusted keyring
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+# 2. Create the repository configuration file
+cat <<EOF | sudo tee /etc/apt/sources.list.d/docker.sources
+Types: deb
+URIs: https://download.docker.com/linux/ubuntu
+Suites: $(lsb_release -cs)
+Components: stable
+Signed-By: /usr/share/keyrings/docker-archive-keyring.gpg
+EOF
+```
+
+This newer format uses multi-line blocks with specific fields:
+*   **Types**: Usually `deb` for binary packages.
+*   **URIs**: The web address where the software is downloaded from.
+*   **Suites**: Your specific Linux version (e.g., `noble`) or update channels.
+*   **Components**: Categories like `main` (official), `universe` (community), or `multiverse`.
+*   **Signed-By**: The path to the GPG key used to verify the software.
 
 **After: Successful Installation**
 Once the repo is added and the index is updated, you can install the tools:
