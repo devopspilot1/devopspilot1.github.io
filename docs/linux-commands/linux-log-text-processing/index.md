@@ -179,6 +179,8 @@ Boysenberry
 Currant
 ```
 
+It prints the first 10 lines of the file by default.
+
 ### View First N Lines
 
 ```bash
@@ -200,6 +202,8 @@ Cloudberry
 Coconut
 ```
 
+It prints the first 15 lines of the file.
+
 ---
 
 ## `tail` – View Last Lines of a File
@@ -219,6 +223,8 @@ Tamarind
 Ugli fruit
 Yuzu
 ```
+
+It prints the last 10 lines of the file by default.
 
 ### View Last N Lines
 
@@ -241,13 +247,15 @@ Ugli fruit
 Yuzu
 ```
 
+It prints the last 15 lines of the file.
+
 ---
 
 ## grep Command
 
 The `grep` command is used to search for a word and print the matching lines.
 
-```
+```bash
 [opc@new-k8s ~]$ cat /etc/passwd | grep bash
 root:x:0:0:root:/root:/bin/bash
 opc:x:1000:1000:Oracle Public Cloud User:/home/opc:/bin/bash
@@ -258,7 +266,7 @@ vignesh:x:1001:1001::/home/vignesh:/bin/bash
 
 -i --> Used to ignore case sensitivity.
 
-```
+```bash
 [opc@new-k8s ~]$ cat /etc/passwd | grep BASH
 [opc@new-k8s ~]$ cat /etc/passwd | grep -i BASH
 root:x:0:0:root:/root:/bin/bash
@@ -270,7 +278,7 @@ vignesh:x:1001:1001::/home/vignesh:/bin/bash
 
 -A n --> Argument used to print the next `n` lines after the match.
 
-```
+```bash
 [opc@new-k8s ~]$ cat states.txt | grep -i tamil
 Tamil Nadu
 [opc@new-k8s ~]$ cat states.txt | grep -i -A5 tamil
@@ -282,11 +290,13 @@ Uttarakhand
 West Bengal
 ```
 
+It prints the next 5 lines after finding the match for the word `tamil`.
+
 ### grep - Print Lines Before Match
 
 -B n --> Argument used to print `n` lines before the match.
 
-```
+```bash
 [opc@new-k8s ~]$ cat states.txt | grep -i tamil
 Tamil Nadu
 [opc@new-k8s ~]$ cat states.txt | grep -i -B5 tamil
@@ -298,9 +308,11 @@ Sikkim
 Tamil Nadu
 ```
 
+It prints the previous 5 lines before finding the match for the word `tamil`.
+
 ## sort Command
 
-```
+```bash
 [opc@new-k8s ~]$ cat states.txt
 Andhra Pradesh
 Arunachal Pradesh
@@ -332,7 +344,7 @@ West Bengal
 Goa
 ```
 
-```
+```bash
 [opc@new-k8s ~]$ cat states.txt | sort
 Andhra Pradesh
 Arunachal Pradesh
@@ -364,9 +376,11 @@ Uttar Pradesh
 West Bengal
 ```
 
+It sorts the contents of the file alphabetically.
+
 ## uniq Command
 
-```
+```bash
 [opc@new-k8s ~]$ cat names.txt
 I love devops.
 I love devops.
@@ -387,21 +401,27 @@ I love movies.
       2 I love movies.
 ```
 
+It removes consecutive duplicate lines, and the `-c` argument counts the occurrences of each line.
+
 Lines which are repeated only
 
-```
+```bash
 [opc@new-k8s ~]$ uniq -d names.txt
 I love devops.
 I love movies.
 ```
 
+It prints only the duplicate lines.
+
 Lines which are uniq
 
-```
+```bash
 [opc@new-k8s ~]$ uniq -u names.txt
 
 I love music.
 ```
+
+It prints only the unique lines.
 
 ## cut Command
 
@@ -409,7 +429,7 @@ The `cut` command can be used to print specific columns.
 -d --> delimiter
 -f --> field number
 
-```
+```bash
 [opc@new-k8s ~]$ ll
 total 3072024
 -rw-rw-r--. 1 opc  opc         852 Apr 15 03:15 fruits.txt
@@ -430,11 +450,13 @@ drwxrwxr-x.
 drwxrwxr-x.
 ```
 
+It prints only the first column of the output, using a space as the delimiter.
+
 ### cut - Custom Delimiter
 
 `cat /etc/passwd | cut -d ":" -f 1`
 
-```
+```bash
 [opc@new-k8s ~]$ cat /etc/passwd
 root:x:0:0:root:/root:/bin/bash
 bin:x:1:1:bin:/bin:/sbin/nologin
@@ -503,13 +525,15 @@ jenkins
 vignesh
 ```
 
+It extracts the first column (usernames) from the `/etc/passwd` file using a colon `:` as the delimiter.
+
 ## awk Command
 
 The `awk` command is used to print specific columns from the output.
 
 It has a lot of features to operate on text.
 
-```
+```bash
 [opc@new-k8s ~]$ ll
 total 3072024
 -rw-rw-r--. 1 opc  opc         852 Apr 15 03:15 fruits.txt
@@ -530,9 +554,11 @@ swapfile
 test
 ```
 
+It prints the 9th column (the filename) from the long listing output.
+
 ### awk - Customizing Output
 
-```
+```bash
 [opc@new-k8s ~]$ ll
 total 3072024
 -rw-rw-r--. 1 opc  opc         852 Apr 15 03:15 fruits.txt
@@ -542,7 +568,7 @@ drwxrwxr-x. 2 opc  opc          25 Nov 26  2021 prometheus
 -rw-rw-r--. 1 opc  opc         282 Apr 19 11:22 states.txt
 -rw-r--r--. 1 root root 3145728000 Jan 11  2022 swapfile
 drwxrwxr-x. 4 opc  opc         100 Apr 15 13:04 test
-[opc@new-k8s ~]$ ll | awk '{print $1 "t" $9}'
+[opc@new-k8s ~]$ ll | awk '{print $1 "\t" $9}'
 total
 -rw-rw-r--.     fruits.txt
 -rw-rw-r--.     india.txt
@@ -553,6 +579,8 @@ drwxrwxr-x.     prometheus
 drwxrwxr-x.     test
 ```
 
+It prints the 1st column (permissions) and the 9th column (filename) separated by a tab.
+
 ## sed Command
 
 The `sed` command can be used to replace words.
@@ -561,7 +589,7 @@ By default, the `sed` command replaces the **first** occurrence of the pattern i
 
 It prints the modified content to the screen by default.
 
-```
+```bash
 [opc@new-k8s ~]$ cat hello.txt
 hello world
 hello world world my world
@@ -570,11 +598,13 @@ hello devops
 hello devops world my world
 ```
 
+It replaces the first occurrence of "world" with "devops" in each line.
+
 ### sed - Global Replacement
 
 g --> replace all matches in a line
 
-```
+```bash
 [opc@new-k8s ~]$ cat hello.txt
 hello world
 hello world world my world
@@ -583,11 +613,13 @@ hello devops
 hello devops devops my devops
 ```
 
+It replaces all occurrences of "world" with "devops" globally in each line.
+
 ### sed - Edit File in Place
 
 -i --> argument used to save the change to the actual file
 
-```
+```bash
 [opc@new-k8s ~]$ cat hello.txt
 hello world
 hello world world my world
@@ -603,38 +635,23 @@ hello devops
 hello devops devops my devops
 ```
 
+It saves the replacement changes directly to the file.
+
 ## journalctl Command
 
 The `journalctl` command is used to check the logs of a service.
 
 `journalctl -u service_name`
 
-```
+```bash
 [opc@new-k8s ~]$ journalctl -u httpd
 -- Logs begin at Tue 2023-04-18 15:19:48 GMT, end at Fri 2023-04-21 00:24:03 GMT. --
 Apr 21 00:02:49 new-k8s systemd[1]: Starting The Apache HTTP Server...
 Apr 21 00:02:49 new-k8s systemd[1]: Started The Apache HTTP Server.
-Apr 21 00:04:11 new-k8s systemd[1]: Stopping The Apache HTTP Server...
-Apr 21 00:04:12 new-k8s systemd[1]: Stopped The Apache HTTP Server.
-Apr 21 00:05:06 new-k8s systemd[1]: Starting The Apache HTTP Server...
-Apr 21 00:05:06 new-k8s systemd[1]: Started The Apache HTTP Server.
-Apr 21 00:06:16 new-k8s systemd[1]: Stopping The Apache HTTP Server...
-Apr 21 00:06:17 new-k8s systemd[1]: Stopped The Apache HTTP Server.
-Apr 21 00:06:17 new-k8s systemd[1]: Starting The Apache HTTP Server...
-Apr 21 00:06:17 new-k8s systemd[1]: Started The Apache HTTP Server.
-Apr 21 00:06:58 new-k8s systemd[1]: Stopping The Apache HTTP Server...
-Apr 21 00:06:59 new-k8s systemd[1]: Stopped The Apache HTTP Server.
-Apr 21 00:06:59 new-k8s systemd[1]: Starting The Apache HTTP Server...
-Apr 21 00:06:59 new-k8s systemd[1]: Started The Apache HTTP Server.
-Apr 21 00:19:45 new-k8s systemd[1]: Stopping The Apache HTTP Server...
-Apr 21 00:19:46 new-k8s systemd[1]: Stopped The Apache HTTP Server.
-Apr 21 00:20:25 new-k8s systemd[1]: Starting The Apache HTTP Server...
-Apr 21 00:20:25 new-k8s systemd[1]: Started The Apache HTTP Server.
-Apr 21 00:21:57 new-k8s systemd[1]: Stopping The Apache HTTP Server...
-Apr 21 00:21:58 new-k8s systemd[1]: Stopped The Apache HTTP Server.
-Apr 21 00:21:58 new-k8s systemd[1]: Starting The Apache HTTP Server...
-Apr 21 00:21:58 new-k8s systemd[1]: Started The Apache HTTP Server.
+...
 ```
+
+It displays the system logs specifically for the `httpd` service.
 
 ## JSON Basics
 
@@ -642,7 +659,7 @@ JSON file contains key-value pairs.
 
 A JSON file name ends with the extension ".json" (e.g., `output.json`).
 
-```
+```bash
 {
   "name": "john",
   "age": "30",
@@ -653,7 +670,7 @@ A JSON file name ends with the extension ".json" (e.g., `output.json`).
 
 or
 
-```
+```bash
 {"name":"John", "age":30, "car":null, "games": ["cricket", "basketball", "badminton"]}
 ```
 
@@ -667,7 +684,7 @@ In most cases, the response data will be in JSON format.
 
 Actual Data in GUI : [https://github.com/vigneshsweekaran/hello-world/releases/tag/clean](https://github.com/vigneshsweekaran/hello-world/releases/tag/clean)
 
-```
+```bash
 [opc@new-k8s redirection]$ curl https://api.github.com/repos/vigneshsweekaran/hello-world/releases/latest
 {
   "url": "https://api.github.com/repos/vigneshsweekaran/hello-world/releases/43010389",
@@ -714,7 +731,7 @@ Actual Data in GUI : [https://github.com/vigneshsweekaran/hello-world/releases/t
 
 ### Saving API Response to File
 
-```
+```bash
 [opc@new-k8s ~]$ mkdir json-response
 [opc@new-k8s ~]$ cd json-response/
 [opc@new-k8s json-response]$ ll
@@ -776,7 +793,7 @@ total 4
 
 Used to read JSON data or files.
 
-```
+```bash
 [opc@new-k8s ~]$ pwd
 /home/opc
 [opc@new-k8s ~]$ ll
@@ -832,7 +849,7 @@ drwxrwxr-x. 4 opc  opc         100 Apr 15 13:04 test
 
 ### Piping curl output to jq
 
-```
+```bash
 [opc@new-k8s ~]$ curl https://api.github.com/repos/vigneshsweekaran/hello-world/releases/latest | jq .
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -880,21 +897,25 @@ drwxrwxr-x. 4 opc  opc         100 Apr 15 13:04 test
 
 ### Reading specific data with jq
 
-```
+```bash
 [opc@new-k8s ~]$ cat output.json | jq .url
 "https://api.github.com/repos/vigneshsweekaran/hello-world/releases/43010389"
 ```
 
+It extracts and prints the value of the `url` key from the JSON file.
+
 ### Reading raw output with jq
 
-```
+```bash
 [opc@new-k8s ~]$ cat output.json | jq -r .url
 https://api.github.com/repos/vigneshsweekaran/hello-world/releases/43010389
 ```
 
+It prints the raw value of the `url` key without quotes.
+
 ### Reading nested values with jq
 
-```
+```bash
 [opc@new-k8s ~]$ cat output.json | jq .
 {
   "url": "https://api.github.com/repos/vigneshsweekaran/hello-world/releases/43010389",
@@ -938,6 +959,8 @@ https://api.github.com/repos/vigneshsweekaran/hello-world/releases/43010389
 [opc@new-k8s ~]$ cat output.json | jq .author.login
 "vigneshsweekaran"
 ```
+
+It extracts the nested value from the `author` object's `login` key.
 
 ## 🧠 Quick Quiz — Log & Text Processing
 
