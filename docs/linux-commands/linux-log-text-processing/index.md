@@ -163,7 +163,6 @@ EOF
 
 ## `head` – View First Lines of a File
 
-Prints the first **10 lines** of a file by default.
 
 ```bash
 [opc@new-k8s ~]$ head fruits.txt
@@ -208,7 +207,6 @@ It prints the first 15 lines of the file.
 
 ## `tail` – View Last Lines of a File
 
-Prints the last **10 lines** of a file by default.
 
 ```bash
 [opc@new-k8s ~]$ tail fruits.txt
@@ -407,7 +405,7 @@ I love movies.
 
 It removes consecutive duplicate lines, and the `-c` argument counts the occurrences of each line.
 
-Lines which are repeated only
+
 
 ```bash
 [opc@new-k8s ~]$ uniq -d names.txt
@@ -417,7 +415,7 @@ I love movies.
 
 It prints only the duplicate lines.
 
-Lines which are uniq
+
 
 ```bash
 [opc@new-k8s ~]$ uniq -u names.txt
