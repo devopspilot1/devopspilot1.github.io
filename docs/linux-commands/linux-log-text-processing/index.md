@@ -34,75 +34,15 @@ Blueberry
 Boysenberry
 Currant
 Cherry
-Cherimoya
-Chico fruit
-Cloudberry
 Coconut
 Cranberry
-Cucumber
-Damson
 Date
 Dragonfruit
 Durian
-Elderberry
-Feijoa
 Fig
-Goji berry
-Gooseberry
 Grape
-Raisin
-Grapefruit
 Guava
-Honeyberry
-Huckleberry
-Jabuticaba
-Jackfruit
-Jambul
-Jujube
-Juniper berry
-Kiwifruit
-Kumquat
-Lemon
-Lime
-Loquat
-Longan
-Lychee
-Mango
-Mangosteen
-Marionberry
-Melon
-Cantaloupe
-Honeydew
-Watermelon
-Miracle fruit
-Mulberry
-Nectarine
-Nance
-Olive
-Orange
-Blood orange
-Clementine
-Mandarin
-Tangerine
-Papaya
-Passionfruit
-Peach
-Pear
-Persimmon
-Physalis
-Plantain
-Plum
-Prune
-Pineapple
-Plumcot
-Pomegranate
-Pomelo
-Quince
-Raspberry
-Salmonberry
-Rambutan
-Redcurrant
-Salal berry
+Kiwi
 Salak
 Satsuma
 Soursop
@@ -215,10 +155,10 @@ Blueberry
 Boysenberry
 Currant
 Cherry
-Cherimoya
-Chico fruit
-Cloudberry
 Coconut
+Cranberry
+Date
+Dragonfruit
 ```
 
 By using the `-n 15` flag, we have extended the output to include the first 15 lines of the file.
@@ -251,11 +191,11 @@ To view the last 15 lines of a file, run the `tail` command with the `-n` flag:
 
 ```bash
 [opc@new-k8s ~]$ tail -n 15 fruits.txt
-Raspberry
-Salmonberry
-Rambutan
-Redcurrant
-Salal berry
+Durian
+Fig
+Grape
+Guava
+Kiwi
 Salak
 Satsuma
 Soursop
@@ -680,8 +620,8 @@ JSON data can be represented in a formatted (multi-line) structure for better re
 
 ```bash
 {
-  "name": "vignesh",
-  "age": 30,
+  "name": "Alex",
+  "age": 23,
   "car": "BMW",
   "games": ["cricket", "basketball", "badminton"]
 }
@@ -690,7 +630,7 @@ JSON data can be represented in a formatted (multi-line) structure for better re
 It can also be represented as a single line:
 
 ```bash
-{"name": "vignesh", "age": 23, "car": "BMW", "games": ["cricket", "basketball", "badminton"]}
+{"name": "Alex", "age": 23, "car": "BMW", "games": ["cricket", "basketball", "badminton"]}
 ```
 
 ### Create a Sample JSON File
@@ -700,15 +640,15 @@ To practice the `jq` commands below, let's create a sample JSON file named `outp
 ```bash
 cat <<EOF > output.json
 {
-  "name": "vignesh",
+  "name": "Alex",
   "age": 23,
   "car": "BMW",
   "languages": ["English", "Tamil", "French"],
   "author": {
-    "login": "vigneshsweekaran",
+    "login": "alexdevops",
     "id": 40670015
   },
-  "url": "https://api.github.com/repos/vigneshsweekaran/hello-world"
+  "url": "https://api.github.com/repos/alexdevops/hello-world"
 }
 EOF
 ```
@@ -723,7 +663,7 @@ To read and format (pretty-print) JSON data for better readability, use the `jq`
 ```bash
 [opc@new-k8s ~]$ cat output.json | jq .
 {
-  "name": "vignesh",
+  "name": "Alex",
   "age": 23,
   "car": "BMW",
   "languages": [
@@ -732,10 +672,10 @@ To read and format (pretty-print) JSON data for better readability, use the `jq`
     "French"
   ],
   "author": {
-    "login": "vigneshsweekaran",
+    "login": "alexdevops",
     "id": 40670015
   },
-  "url": "https://api.github.com/repos/vigneshsweekaran/hello-world"
+  "url": "https://api.github.com/repos/alexdevops/hello-world"
 }
 ```
 
@@ -748,7 +688,7 @@ To extract a specific key (e.g., `url`) from the JSON data, use the following sy
 
 ```bash
 [opc@new-k8s ~]$ cat output.json | jq .url
-"https://api.github.com/repos/vigneshsweekaran/hello-world"
+"https://api.github.com/repos/alexdevops/hello-world"
 ```
 
 The output shows only the value associated with the `url` key, still enclosed in quotes.
@@ -760,7 +700,7 @@ To print a raw value without quotes, use the `-r` flag:
 
 ```bash
 [opc@new-k8s ~]$ cat output.json | jq -r .url
-https://api.github.com/repos/vigneshsweekaran/hello-world
+https://api.github.com/repos/alexdevops/hello-world
 ```
 
 Using the `-r` flag removes the quotes, providing a clean string that is easier to use in scripts or other commands.
@@ -770,7 +710,7 @@ Using the `-r` flag removes the quotes, providing a clean string that is easier 
 
 ```bash
 [opc@new-k8s ~]$ cat output.json | jq .author.login
-"vigneshsweekaran"
+"alexdevops"
 ```
 This demonstrates how dot notation is used to traverse the JSON object hierarchy to retrieve specific nested data.
 
