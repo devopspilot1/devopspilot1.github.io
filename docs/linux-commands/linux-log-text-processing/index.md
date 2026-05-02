@@ -262,6 +262,8 @@ opc:x:1000:1000:Oracle Public Cloud User:/home/opc:/bin/bash
 vignesh:x:1001:1001::/home/vignesh:/bin/bash
 ```
 
+It searches for the word "bash" in the `/etc/passwd` file and prints the matching lines.
+
 ### grep - Ignore Case
 
 -i --> Used to ignore case sensitivity.
@@ -273,6 +275,8 @@ root:x:0:0:root:/root:/bin/bash
 opc:x:1000:1000:Oracle Public Cloud User:/home/opc:/bin/bash
 vignesh:x:1001:1001::/home/vignesh:/bin/bash
 ```
+
+It searches for the word "BASH" while ignoring case sensitivity using the `-i` flag.
 
 ### grep - Print Lines After Match
 
@@ -729,6 +733,8 @@ Actual Data in GUI : [https://github.com/vigneshsweekaran/hello-world/releases/t
 }
 ```
 
+It fetches the latest release information from the GitHub API in JSON format.
+
 ### Saving API Response to File
 
 ```bash
@@ -789,6 +795,8 @@ total 4
 }
 ```
 
+It fetches the JSON data and saves it into a file named `output.json` using redirection.
+
 ## jq Command
 
 Used to read JSON data or files.
@@ -847,6 +855,8 @@ drwxrwxr-x. 4 opc  opc         100 Apr 15 13:04 test
 }
 ```
 
+It reads the JSON file and formats it (pretty-prints) for better readability.
+
 ### Piping curl output to jq
 
 ```bash
@@ -894,6 +904,8 @@ drwxrwxr-x. 4 opc  opc         100 Apr 15 13:04 test
   "body": ""
 }
 ```
+
+It fetches the JSON data directly from the URL and pipes it to `jq` for pretty-printing.
 
 ### Reading specific data with jq
 
