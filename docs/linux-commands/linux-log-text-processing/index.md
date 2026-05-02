@@ -163,6 +163,7 @@ EOF
 
 ## `head` – View First Lines of a File
 
+When you run the `head` command, it displays the first 10 lines of the file by default:
 
 ```bash
 [opc@new-k8s ~]$ head fruits.txt
@@ -178,9 +179,10 @@ Boysenberry
 Currant
 ```
 
-It prints the first 10 lines of the file by default.
+The output shows the first 10 lines of the `fruits.txt` file, starting from "Apple" and ending with "Currant".
 
-### View First N Lines
+
+To view a specific number of lines (e.g., 15 lines), use the `-n` flag:
 
 ```bash
 [opc@new-k8s ~]$ head -n 15 fruits.txt
@@ -201,12 +203,14 @@ Cloudberry
 Coconut
 ```
 
-It prints the first 15 lines of the file.
+By using the `-n 15` flag, we have extended the output to include the first 15 lines of the file.
+
 
 ---
 
 ## `tail` – View Last Lines of a File
 
+When you run the `tail` command, it displays the last 10 lines of the file by default:
 
 ```bash
 [opc@new-k8s ~]$ tail fruits.txt
@@ -222,9 +226,10 @@ Ugli fruit
 Yuzu
 ```
 
-It prints the last 10 lines of the file by default.
+The output displays the final 10 lines of the file, which in this case ends with "Yuzu".
 
-### View Last N Lines
+
+To view the last 15 lines of a file, run the `tail` command with the `-n` flag:
 
 ```bash
 [opc@new-k8s ~]$ tail -n 15 fruits.txt
@@ -245,13 +250,14 @@ Ugli fruit
 Yuzu
 ```
 
-It prints the last 15 lines of the file.
+This command specifically retrieves the last 15 lines, providing a larger window into the end of the file.
+
 
 ---
 
 ## grep Command
 
-The `grep` command is used to search for a word and print the matching lines.
+To search for a specific word (e.g., "bash") in a file and print the matching lines, use the `grep` command:
 
 ```bash
 [opc@new-k8s ~]$ cat /etc/passwd | grep bash
@@ -260,11 +266,9 @@ opc:x:1000:1000:Oracle Public Cloud User:/home/opc:/bin/bash
 vignesh:x:1001:1001::/home/vignesh:/bin/bash
 ```
 
-It searches for the word "bash" in the `/etc/passwd` file and prints the matching lines.
+The command filtered the `/etc/passwd` file and only displayed the lines containing the word "bash".
 
-### grep - Ignore Case
-
--i --> Used to ignore case sensitivity.
+To ignore case sensitivity during a search, use the `-i` flag:
 
 ```bash
 [opc@new-k8s ~]$ cat /etc/passwd | grep BASH
@@ -274,11 +278,9 @@ opc:x:1000:1000:Oracle Public Cloud User:/home/opc:/bin/bash
 vignesh:x:1001:1001::/home/vignesh:/bin/bash
 ```
 
-It searches for the word "BASH" while ignoring case sensitivity using the `-i` flag.
+Even though we searched for "BASH" in uppercase, the `-i` flag allowed the command to match the lowercase "bash" entries.
 
-### grep - Print Lines After Match
-
--A n --> Argument used to print the next `n` lines after the match.
+To print a specific number of lines *after* the match (e.g., 5 lines), use the `-A` flag:
 
 ```bash
 [opc@new-k8s ~]$ cat states.txt | grep -i tamil
@@ -292,11 +294,9 @@ Uttarakhand
 West Bengal
 ```
 
-It prints the next 5 lines after finding the match for the word `tamil`.
+Notice that after finding "Tamil Nadu", the command also printed the next 5 states from the file.
 
-### grep - Print Lines Before Match
-
--B n --> Argument used to print `n` lines before the match.
+To print a specific number of lines *before* the match (e.g., 5 lines), use the `-B` flag:
 
 ```bash
 [opc@new-k8s ~]$ cat states.txt | grep -i tamil
@@ -310,7 +310,7 @@ Sikkim
 Tamil Nadu
 ```
 
-It prints the previous 5 lines before finding the match for the word `tamil`.
+Similarly, the `-B` flag printed the 5 lines preceding "Tamil Nadu", giving us the context before the match.
 
 ## sort Command
 
@@ -346,6 +346,8 @@ West Bengal
 Goa
 ```
 
+To sort the contents of a file alphabetically, use the `sort` command:
+
 ```bash
 [opc@new-k8s ~]$ cat states.txt | sort
 Andhra Pradesh
@@ -378,9 +380,11 @@ Uttar Pradesh
 West Bengal
 ```
 
-It sorts the contents of the file alphabetically.
+The states are now rearranged in alphabetical order, making it easier to locate specific entries.
 
 ## uniq Command
+
+To remove consecutive duplicate lines from a file, use the `uniq` command:
 
 ```bash
 [opc@new-k8s ~]$ cat names.txt
@@ -403,9 +407,9 @@ I love movies.
       2 I love movies.
 ```
 
-It removes consecutive duplicate lines, and the `-c` argument counts the occurrences of each line.
+The duplicate "I love devops." lines were merged into one. With the `-c` flag, we can see exactly how many times each line appeared.
 
-
+To print only the duplicate lines, use the `-d` flag:
 
 ```bash
 [opc@new-k8s ~]$ uniq -d names.txt
@@ -413,9 +417,9 @@ I love devops.
 I love movies.
 ```
 
-It prints only the duplicate lines.
+This filtered output only shows the lines that had duplicates, excluding the unique "I love music." line.
 
-
+To print only the unique lines, use the `-u` flag:
 
 ```bash
 [opc@new-k8s ~]$ uniq -u names.txt
@@ -423,13 +427,12 @@ It prints only the duplicate lines.
 I love music.
 ```
 
-It prints only the unique lines.
+In this case, only the line that appeared once ("I love music.") is displayed.
 
 ## cut Command
 
-The `cut` command can be used to print specific columns.
--d --> delimiter
--f --> field number
+
+To print only the first column of the output using a space as the delimiter, run the following:
 
 ```bash
 [opc@new-k8s ~]$ ll
@@ -452,11 +455,9 @@ drwxrwxr-x.
 drwxrwxr-x.
 ```
 
-It prints only the first column of the output, using a space as the delimiter.
+The command successfully stripped away the file details, leaving only the file permissions column.
 
-### cut - Custom Delimiter
-
-`cat /etc/passwd | cut -d ":" -f 1`
+To extract the first column (usernames) from the `/etc/passwd` file using a colon `:` as the delimiter, use the following:
 
 ```bash
 [opc@new-k8s ~]$ cat /etc/passwd
@@ -527,13 +528,11 @@ jenkins
 vignesh
 ```
 
-It extracts the first column (usernames) from the `/etc/passwd` file using a colon `:` as the delimiter.
+By using the colon as a separator, we isolated the usernames from the rest of the user data.
 
 ## awk Command
 
-The `awk` command is used to print specific columns from the output.
-
-It has a lot of features to operate on text.
+To print a specific column (e.g., the 9th column for filenames) from a long listing, use the `awk` command:
 
 ```bash
 [opc@new-k8s ~]$ ll
@@ -556,9 +555,10 @@ swapfile
 test
 ```
 
-It prints the 9th column (the filename) from the long listing output.
+Awk automatically handles variable spacing between columns and extracts exactly the column we requested.
 
-### awk - Customizing Output
+
+To print multiple columns separated by a tab (e.g., permissions and filename), use the following syntax:
 
 ```bash
 [opc@new-k8s ~]$ ll
@@ -581,15 +581,12 @@ drwxrwxr-x.     prometheus
 drwxrwxr-x.     test
 ```
 
-It prints the 1st column (permissions) and the 9th column (filename) separated by a tab.
+This formatted output provides a cleaner view by combining specific columns with custom spacing.
+
 
 ## sed Command
 
-The `sed` command can be used to replace words.
-
-By default, the `sed` command replaces the **first** occurrence of the pattern in each line. It won’t replace the second, third, etc. occurrence in the line.
-
-It prints the modified content to the screen by default.
+When you run the `sed` command, it replaces only the first occurrence of a word in each line by default. For example, let's replace the word "world" with "devops" in the `hello.txt` file:
 
 ```bash
 [opc@new-k8s ~]$ cat hello.txt
@@ -600,11 +597,12 @@ hello devops
 hello devops world my world
 ```
 
-It replaces the first occurrence of "world" with "devops" in each line.
+As shown in the output, only the first instance of "world" on each line was changed to "devops", while the others remained the same.
+
 
 ### sed - Global Replacement
 
-g --> replace all matches in a line
+To replace all occurrences of a word globally in each line, use the `g` flag:
 
 ```bash
 [opc@new-k8s ~]$ cat hello.txt
@@ -615,11 +613,12 @@ hello devops
 hello devops devops my devops
 ```
 
-It replaces all occurrences of "world" with "devops" globally in each line.
+By adding the global `g` flag, every occurrence of the word on each line has been replaced.
+
 
 ### sed - Edit File in Place
 
--i --> argument used to save the change to the actual file
+To save replacement changes directly to the file, use the `-i` flag:
 
 ```bash
 [opc@new-k8s ~]$ cat hello.txt
@@ -637,13 +636,12 @@ hello devops
 hello devops devops my devops
 ```
 
-It saves the replacement changes directly to the file.
+By using the `-i` flag, the changes have been permanently written to the `hello.txt` file instead of just being displayed on the screen.
+
 
 ## journalctl Command
 
-The `journalctl` command is used to check the logs of a service.
-
-`journalctl -u service_name`
+To view the system logs for a specific service (e.g., `httpd`, `nginx`, or `jenkins`), use the `journalctl` command:
 
 ```bash
 [opc@new-k8s ~]$ journalctl -u httpd
@@ -653,324 +651,111 @@ Apr 21 00:02:49 new-k8s systemd[1]: Started The Apache HTTP Server.
 ...
 ```
 
-It displays the system logs specifically for the `httpd` service.
+This command filters the vast system journal to show only the logs related to the Apache web server (`httpd`).
+
 
 ## JSON Basics
 
-JSON file contains key-value pairs.
+JSON files contain data in key-value pairs and typically end with the `.json` extension (e.g., `output.json`).
 
-A JSON file name ends with the extension ".json" (e.g., `output.json`).
+JSON data can be represented in a formatted (multi-line) structure for better readability:
 
 ```bash
 {
-  "name": "john",
-  "age": "30",
+  "name": "vignesh",
+  "age": 30,
   "car": "BMW",
-  "games": ["cricket", "basketball", "badminton"]  
+  "games": ["cricket", "basketball", "badminton"]
 }
 ```
 
-or
+It can also be represented as a single line:
 
 ```bash
-{"name":"John", "age":30, "car":null, "games": ["cricket", "basketball", "badminton"]}
+{"name": "vignesh", "age": 23, "car": "BMW", "games": ["cricket", "basketball", "badminton"]}
 ```
 
-## Processing JSON with curl
+### Create a Sample JSON File
 
-Most of the time, the `curl` command is used for calling a REST API.
-
-In simple terms, a REST API is a URL (e.g., [https://example.com](https://example.com)). When we call that URL, we get response data.
-
-In most cases, the response data will be in JSON format.
-
-Actual Data in GUI : [https://github.com/vigneshsweekaran/hello-world/releases/tag/clean](https://github.com/vigneshsweekaran/hello-world/releases/tag/clean)
+To practice the `jq` commands below, let's create a sample JSON file named `output.json` using a heredoc:
 
 ```bash
-[opc@new-k8s redirection]$ curl https://api.github.com/repos/vigneshsweekaran/hello-world/releases/latest
+cat <<EOF > output.json
 {
-  "url": "https://api.github.com/repos/vigneshsweekaran/hello-world/releases/43010389",
-  "assets_url": "https://api.github.com/repos/vigneshsweekaran/hello-world/releases/43010389/assets",
-  "upload_url": "https://uploads.github.com/repos/vigneshsweekaran/hello-world/releases/43010389/assets{?name,label}",
-  "html_url": "https://github.com/vigneshsweekaran/hello-world/releases/tag/clean",
-  "id": 43010389,
+  "name": "vignesh",
+  "age": 23,
+  "car": "BMW",
+  "languages": ["English", "Tamil", "French"],
   "author": {
     "login": "vigneshsweekaran",
-    "id": 40670015,
-    "node_id": "MDQ6VXNlcjQwNjcwMDE1",
-    "avatar_url": "https://avatars.githubusercontent.com/u/40670015?v=4",
-    "gravatar_id": "",
-    "url": "https://api.github.com/users/vigneshsweekaran",
-    "html_url": "https://github.com/vigneshsweekaran",
-    "followers_url": "https://api.github.com/users/vigneshsweekaran/followers",
-    "following_url": "https://api.github.com/users/vigneshsweekaran/following{/other_user}",
-    "gists_url": "https://api.github.com/users/vigneshsweekaran/gists{/gist_id}",
-    "starred_url": "https://api.github.com/users/vigneshsweekaran/starred{/owner}{/repo}",
-    "subscriptions_url": "https://api.github.com/users/vigneshsweekaran/subscriptions",
-    "organizations_url": "https://api.github.com/users/vigneshsweekaran/orgs",
-    "repos_url": "https://api.github.com/users/vigneshsweekaran/repos",
-    "events_url": "https://api.github.com/users/vigneshsweekaran/events{/privacy}",
-    "received_events_url": "https://api.github.com/users/vigneshsweekaran/received_events",
-    "type": "User",
-    "site_admin": false
+    "id": 40670015
   },
-  "node_id": "MDc6UmVsZWFzZTQzMDEwMzg5",
-  "tag_name": "clean",
-  "target_commitish": "master",
-  "name": "Clean repo with maven application",
-  "draft": false,
-  "prerelease": false,
-  "created_at": "2021-05-16T06:18:49Z",
-  "published_at": "2021-05-16T06:26:47Z",
-  "assets": [
-
-  ],
-  "tarball_url": "https://api.github.com/repos/vigneshsweekaran/hello-world/tarball/clean",
-  "zipball_url": "https://api.github.com/repos/vigneshsweekaran/hello-world/zipball/clean",
-  "body": ""
+  "url": "https://api.github.com/repos/vigneshsweekaran/hello-world"
 }
+EOF
 ```
 
-It fetches the latest release information from the GitHub API in JSON format.
+This command creates a structured JSON file that we will use in the following examples.
 
-### Saving API Response to File
-
-```bash
-[opc@new-k8s ~]$ mkdir json-response
-[opc@new-k8s ~]$ cd json-response/
-[opc@new-k8s json-response]$ ll
-total 0
-[opc@new-k8s json-response]$ pwd
-/home/opc/json-response
-[opc@new-k8s json-response]$ curl https://api.github.com/repos/vigneshsweekaran/hello-world/releases/latest > output.json
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100  2026  100  2026    0     0   2809      0 --:--:-- --:--:-- --:--:-- 2809
-[opc@new-k8s json-response]$ ll
-total 4
--rw-rw-r--. 1 opc opc 2026 Apr 17 14:23 output.json
-[opc@new-k8s json-response]$ cat output.json
-{
-  "url": "https://api.github.com/repos/vigneshsweekaran/hello-world/releases/43010389",
-  "assets_url": "https://api.github.com/repos/vigneshsweekaran/hello-world/releases/43010389/assets",
-  "upload_url": "https://uploads.github.com/repos/vigneshsweekaran/hello-world/releases/43010389/assets{?name,label}",
-  "html_url": "https://github.com/vigneshsweekaran/hello-world/releases/tag/clean",
-  "id": 43010389,
-  "author": {
-    "login": "vigneshsweekaran",
-    "id": 40670015,
-    "node_id": "MDQ6VXNlcjQwNjcwMDE1",
-    "avatar_url": "https://avatars.githubusercontent.com/u/40670015?v=4",
-    "gravatar_id": "",
-    "url": "https://api.github.com/users/vigneshsweekaran",
-    "html_url": "https://github.com/vigneshsweekaran",
-    "followers_url": "https://api.github.com/users/vigneshsweekaran/followers",
-    "following_url": "https://api.github.com/users/vigneshsweekaran/following{/other_user}",
-    "gists_url": "https://api.github.com/users/vigneshsweekaran/gists{/gist_id}",
-    "starred_url": "https://api.github.com/users/vigneshsweekaran/starred{/owner}{/repo}",
-    "subscriptions_url": "https://api.github.com/users/vigneshsweekaran/subscriptions",
-    "organizations_url": "https://api.github.com/users/vigneshsweekaran/orgs",
-    "repos_url": "https://api.github.com/users/vigneshsweekaran/repos",
-    "events_url": "https://api.github.com/users/vigneshsweekaran/events{/privacy}",
-    "received_events_url": "https://api.github.com/users/vigneshsweekaran/received_events",
-    "type": "User",
-    "site_admin": false
-  },
-  "node_id": "MDc6UmVsZWFzZTQzMDEwMzg5",
-  "tag_name": "clean",
-  "target_commitish": "master",
-  "name": "Clean repo with maven application",
-  "draft": false,
-  "prerelease": false,
-  "created_at": "2021-05-16T06:18:49Z",
-  "published_at": "2021-05-16T06:26:47Z",
-  "assets": [
-
-  ],
-  "tarball_url": "https://api.github.com/repos/vigneshsweekaran/hello-world/tarball/clean",
-  "zipball_url": "https://api.github.com/repos/vigneshsweekaran/hello-world/zipball/clean",
-  "body": ""
-}
-```
-
-It fetches the JSON data and saves it into a file named `output.json` using redirection.
 
 ## jq Command
 
-Used to read JSON data or files.
+To read and format (pretty-print) JSON data for better readability, use the `jq` command:
 
 ```bash
-[opc@new-k8s ~]$ pwd
-/home/opc
-[opc@new-k8s ~]$ ll
-total 3072012
--rw-rw-r--. 1 opc  opc         852 Apr 15 03:15 fruits.txt
-drwxrwxr-x. 2 opc  opc          39 Apr 15 12:46 myprogram
--rwxrwxr-x. 1 opc  opc          81 Apr 15 13:27 newtest
--rw-rw-r--. 1 opc  opc        2026 Apr 18 11:39 output.json
-drwxrwxr-x. 2 opc  opc          25 Nov 26  2021 prometheus
--rw-r--r--. 1 root root 3145728000 Jan 11  2022 swapfile
-drwxrwxr-x. 4 opc  opc         100 Apr 15 13:04 test
 [opc@new-k8s ~]$ cat output.json | jq .
 {
-  "url": "https://api.github.com/repos/vigneshsweekaran/hello-world/releases/43010389",
-  "assets_url": "https://api.github.com/repos/vigneshsweekaran/hello-world/releases/43010389/assets",
-  "upload_url": "https://uploads.github.com/repos/vigneshsweekaran/hello-world/releases/43010389/assets{?name,label}",
-  "html_url": "https://github.com/vigneshsweekaran/hello-world/releases/tag/clean",
-  "id": 43010389,
+  "name": "vignesh",
+  "age": 23,
+  "car": "BMW",
+  "languages": [
+    "English",
+    "Tamil",
+    "French"
+  ],
   "author": {
     "login": "vigneshsweekaran",
-    "id": 40670015,
-    "node_id": "MDQ6VXNlcjQwNjcwMDE1",
-    "avatar_url": "https://avatars.githubusercontent.com/u/40670015?v=4",
-    "gravatar_id": "",
-    "url": "https://api.github.com/users/vigneshsweekaran",
-    "html_url": "https://github.com/vigneshsweekaran",
-    "followers_url": "https://api.github.com/users/vigneshsweekaran/followers",
-    "following_url": "https://api.github.com/users/vigneshsweekaran/following{/other_user}",
-    "gists_url": "https://api.github.com/users/vigneshsweekaran/gists{/gist_id}",
-    "starred_url": "https://api.github.com/users/vigneshsweekaran/starred{/owner}{/repo}",
-    "subscriptions_url": "https://api.github.com/users/vigneshsweekaran/subscriptions",
-    "organizations_url": "https://api.github.com/users/vigneshsweekaran/orgs",
-    "repos_url": "https://api.github.com/users/vigneshsweekaran/repos",
-    "events_url": "https://api.github.com/users/vigneshsweekaran/events{/privacy}",
-    "received_events_url": "https://api.github.com/users/vigneshsweekaran/received_events",
-    "type": "User",
-    "site_admin": false
+    "id": 40670015
   },
-  "node_id": "MDc6UmVsZWFzZTQzMDEwMzg5",
-  "tag_name": "clean",
-  "target_commitish": "master",
-  "name": "Clean repo with maven application",
-  "draft": false,
-  "prerelease": false,
-  "created_at": "2021-05-16T06:18:49Z",
-  "published_at": "2021-05-16T06:26:47Z",
-  "assets": [],
-  "tarball_url": "https://api.github.com/repos/vigneshsweekaran/hello-world/tarball/clean",
-  "zipball_url": "https://api.github.com/repos/vigneshsweekaran/hello-world/zipball/clean",
-  "body": ""
+  "url": "https://api.github.com/repos/vigneshsweekaran/hello-world"
 }
 ```
 
-It reads the JSON file and formats it (pretty-prints) for better readability.
+By piping the output to `jq .`, the raw JSON has been formatted with proper indentation and colors, making it significantly easier to read.
 
-### Piping curl output to jq
-
-```bash
-[opc@new-k8s ~]$ curl https://api.github.com/repos/vigneshsweekaran/hello-world/releases/latest | jq .
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100  2026  100  2026    0     0   3455      0 --:--:-- --:--:-- --:--:-- 3463
-{
-  "url": "https://api.github.com/repos/vigneshsweekaran/hello-world/releases/43010389",
-  "assets_url": "https://api.github.com/repos/vigneshsweekaran/hello-world/releases/43010389/assets",
-  "upload_url": "https://uploads.github.com/repos/vigneshsweekaran/hello-world/releases/43010389/assets{?name,label}",
-  "html_url": "https://github.com/vigneshsweekaran/hello-world/releases/tag/clean",
-  "id": 43010389,
-  "author": {
-    "login": "vigneshsweekaran",
-    "id": 40670015,
-    "node_id": "MDQ6VXNlcjQwNjcwMDE1",
-    "avatar_url": "https://avatars.githubusercontent.com/u/40670015?v=4",
-    "gravatar_id": "",
-    "url": "https://api.github.com/users/vigneshsweekaran",
-    "html_url": "https://github.com/vigneshsweekaran",
-    "followers_url": "https://api.github.com/users/vigneshsweekaran/followers",
-    "following_url": "https://api.github.com/users/vigneshsweekaran/following{/other_user}",
-    "gists_url": "https://api.github.com/users/vigneshsweekaran/gists{/gist_id}",
-    "starred_url": "https://api.github.com/users/vigneshsweekaran/starred{/owner}{/repo}",
-    "subscriptions_url": "https://api.github.com/users/vigneshsweekaran/subscriptions",
-    "organizations_url": "https://api.github.com/users/vigneshsweekaran/orgs",
-    "repos_url": "https://api.github.com/users/vigneshsweekaran/repos",
-    "events_url": "https://api.github.com/users/vigneshsweekaran/events{/privacy}",
-    "received_events_url": "https://api.github.com/users/vigneshsweekaran/received_events",
-    "type": "User",
-    "site_admin": false
-  },
-  "node_id": "MDc6UmVsZWFzZTQzMDEwMzg5",
-  "tag_name": "clean",
-  "target_commitish": "master",
-  "name": "Clean repo with maven application",
-  "draft": false,
-  "prerelease": false,
-  "created_at": "2021-05-16T06:18:49Z",
-  "published_at": "2021-05-16T06:26:47Z",
-  "assets": [],
-  "tarball_url": "https://api.github.com/repos/vigneshsweekaran/hello-world/tarball/clean",
-  "zipball_url": "https://api.github.com/repos/vigneshsweekaran/hello-world/zipball/clean",
-  "body": ""
-}
-```
-
-It fetches the JSON data directly from the URL and pipes it to `jq` for pretty-printing.
 
 ### Reading specific data with jq
 
+To extract a specific key (e.g., `url`) from the JSON data, use the following syntax:
+
 ```bash
 [opc@new-k8s ~]$ cat output.json | jq .url
-"https://api.github.com/repos/vigneshsweekaran/hello-world/releases/43010389"
+"https://api.github.com/repos/vigneshsweekaran/hello-world"
 ```
 
-It extracts and prints the value of the `url` key from the JSON file.
+The output shows only the value associated with the `url` key, still enclosed in quotes.
+
 
 ### Reading raw output with jq
 
+To print a raw value without quotes, use the `-r` flag:
+
 ```bash
 [opc@new-k8s ~]$ cat output.json | jq -r .url
-https://api.github.com/repos/vigneshsweekaran/hello-world/releases/43010389
+https://api.github.com/repos/vigneshsweekaran/hello-world
 ```
 
-It prints the raw value of the `url` key without quotes.
+Using the `-r` flag removes the quotes, providing a clean string that is easier to use in scripts or other commands.
+
 
 ### Reading nested values with jq
 
 ```bash
-[opc@new-k8s ~]$ cat output.json | jq .
-{
-  "url": "https://api.github.com/repos/vigneshsweekaran/hello-world/releases/43010389",
-  "assets_url": "https://api.github.com/repos/vigneshsweekaran/hello-world/releases/43010389/assets",
-  "upload_url": "https://uploads.github.com/repos/vigneshsweekaran/hello-world/releases/43010389/assets{?name,label}",
-  "html_url": "https://github.com/vigneshsweekaran/hello-world/releases/tag/clean",
-  "id": 43010389,
-  "author": {
-    "login": "vigneshsweekaran",
-    "id": 40670015,
-    "node_id": "MDQ6VXNlcjQwNjcwMDE1",
-    "avatar_url": "https://avatars.githubusercontent.com/u/40670015?v=4",
-    "gravatar_id": "",
-    "url": "https://api.github.com/users/vigneshsweekaran",
-    "html_url": "https://github.com/vigneshsweekaran",
-    "followers_url": "https://api.github.com/users/vigneshsweekaran/followers",
-    "following_url": "https://api.github.com/users/vigneshsweekaran/following{/other_user}",
-    "gists_url": "https://api.github.com/users/vigneshsweekaran/gists{/gist_id}",
-    "starred_url": "https://api.github.com/users/vigneshsweekaran/starred{/owner}{/repo}",
-    "subscriptions_url": "https://api.github.com/users/vigneshsweekaran/subscriptions",
-    "organizations_url": "https://api.github.com/users/vigneshsweekaran/orgs",
-    "repos_url": "https://api.github.com/users/vigneshsweekaran/repos",
-    "events_url": "https://api.github.com/users/vigneshsweekaran/events{/privacy}",
-    "received_events_url": "https://api.github.com/users/vigneshsweekaran/received_events",
-    "type": "User",
-    "site_admin": false
-  },
-  "node_id": "MDc6UmVsZWFzZTQzMDEwMzg5",
-  "tag_name": "clean",
-  "target_commitish": "master",
-  "name": "Clean repo with maven application",
-  "draft": false,
-  "prerelease": false,
-  "created_at": "2021-05-16T06:18:49Z",
-  "published_at": "2021-05-16T06:26:47Z",
-  "assets": [],
-  "tarball_url": "https://api.github.com/repos/vigneshsweekaran/hello-world/tarball/clean",
-  "zipball_url": "https://api.github.com/repos/vigneshsweekaran/hello-world/zipball/clean",
-  "body": ""
-}
 [opc@new-k8s ~]$ cat output.json | jq .author.login
 "vigneshsweekaran"
 ```
+This demonstrates how dot notation is used to traverse the JSON object hierarchy to retrieve specific nested data.
 
-It extracts the nested value from the `author` object's `login` key.
 
 ## 🧠 Quick Quiz — Log & Text Processing
 
