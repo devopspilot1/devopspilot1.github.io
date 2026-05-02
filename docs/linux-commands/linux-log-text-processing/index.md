@@ -14,9 +14,12 @@ You will learn how DevOps engineers search, filter, and extract useful informati
 
 ---
 
-## Prerequisites: Create a Sample File
+## Prerequisites: Create Sample Files
 
-To practice the commands below, you need a sample file. Create a file named `fruits.txt` using the following command:
+To practice the commands below, you need to create a few sample files. Run the following commands in your terminal:
+
+### 1. Create `fruits.txt`
+This file contains a list of various fruits, which we will use to explore `head` and `tail` commands.
 
 ```bash
 cat <<EOF > fruits.txt
@@ -111,7 +114,12 @@ Tamarind
 Ugli fruit
 Yuzu
 EOF
+```
 
+### 2. Create `states.txt`
+This file contains a list of Indian states, useful for practicing `grep` and `sort` commands.
+
+```bash
 cat <<EOF > states.txt
 Andhra Pradesh
 Arunachal Pradesh
@@ -142,7 +150,12 @@ Uttarakhand
 West Bengal
 Goa
 EOF
+```
 
+### 3. Create `names.txt`
+This file contains duplicate lines, perfect for exploring the `uniq` command.
+
+```bash
 cat <<EOF > names.txt
 I love devops.
 I love devops.
@@ -152,7 +165,12 @@ I love music.
 I love movies.
 I love movies.
 EOF
+```
 
+### 4. Create `hello.txt`
+A simple text file used to demonstrate find-and-replace operations with `sed`.
+
+```bash
 cat <<EOF > hello.txt
 hello world
 hello world world my world
