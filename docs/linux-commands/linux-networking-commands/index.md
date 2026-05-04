@@ -47,6 +47,7 @@ PING google.com (142.250.190.46) 56(84) bytes of data.
 The `dig` (Domain Information Groper) command is an advanced DNS lookup utility used to query DNS nameservers and troubleshoot routing records.
 
 **Common Options:**
+
 *   **`+short`** --> Only shows the result (IP address), hiding verbose technical details.
 *   **`A`** --> Queries for the IPv4 Address record.
 
