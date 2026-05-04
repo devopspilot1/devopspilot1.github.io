@@ -9,7 +9,7 @@ description: "Test your Linux Networking Command skills with intermediate quiz q
 
 ---
 
-This quiz contains **20 questions** focused on Linux networking commands.
+This quiz contains **22 questions** focused on Linux networking commands.
 These commands are essential for **cloud servers, Docker, Kubernetes, and production troubleshooting**.
 
 ---
@@ -212,6 +212,26 @@ Which command is most useful for debugging service-to-service communication?
 - [ ] cd
 
 `curl` allows you to simulate requests between services to verify connectivity and API responses.
+</quiz>
+
+<quiz>
+Which command is a simple way to test if a specific port is open on a remote host?
+- [ ] ping
+- [ ] ip
+- [x] telnet
+- [ ] ss
+
+`telnet <host> <port>` is a classic method for verifying port connectivity.
+</quiz>
+
+<quiz>
+Which command combination is used to find which service is using a specific port (e.g., 80)?
+- [ ] ping | grep 80
+- [ ] ip addr | grep 80
+- [x] sudo netstat -tulpn | grep :80
+- [ ] dig google.com | grep 80
+
+Combining `netstat -tulpn` with `grep` allows you to filter for a specific port and see the associated process name and PID.
 </quiz>
 
 <!-- mkdocs-quiz results -->
