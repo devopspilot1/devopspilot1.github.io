@@ -92,11 +92,11 @@ Goa
 EOF
 ```
 
-### 3. Create `names.txt`
+### 3. Create `notes.txt`
 This file contains duplicate lines, perfect for exploring the `uniq` command.
 
 ```bash
-cat <<EOF > names.txt
+cat <<EOF > notes.txt
 I love devops.
 I love devops.
 I love devops.
@@ -138,6 +138,18 @@ Currant
 ```
 
 The output shows the first 10 lines of the `fruits.txt` file, starting from "Apple" and ending with "Currant".
+### 5. Create `marks.txt`
+This file contains a list of students and their marks, which we will use to explore numeric and field-based sorting.
+
+```bash
+cat <<EOF > marks.txt
+vignesh 85
+alex 92
+zoya 78
+kumar 95
+bob 88
+EOF
+```
 
 
 To view a specific number of lines (e.g., 15 lines), use the `-n` flag:
@@ -338,14 +350,103 @@ Uttar Pradesh
 West Bengal
 ```
 
-The states are now rearranged in alphabetical order, making it easier to locate specific entries.
+The states are now rearranged in alphabetical order.
+
+
+### Reverse Sort
+
+To sort the contents in reverse alphabetical order, use the `-r` flag:
+
+```bash
+[opc@new-k8s ~]$ cat states.txt | sort -r
+West Bengal
+Uttar Pradesh
+Uttarakhand
+Tripura
+Telangana
+Tamil Nadu
+Sikkim
+Rajasthan
+Punjab
+Odisha
+Nagaland
+Mizoram
+Meghalaya
+Manipur
+Maharashtra
+Madhya Pradesh
+Kerala
+Karnataka
+Jharkhand
+Himachal Pradesh
+Haryana
+Gujarat
+Goa
+Chhattisgarh
+Bihar
+Assam
+Arunachal Pradesh
+Andhra Pradesh
+```
+
+
+### Numeric Sort
+
+By default, `sort` treats everything as text. First, let's view the content of `marks.txt`:
+
+```bash
+[opc@new-k8s ~]$ cat marks.txt
+vignesh 85
+alex 92
+zoya 78
+kumar 95
+bob 88
+```
+
+You can sort by a specific column (e.g., the second column for marks) using the `-k` flag:
+
+```bash
+[opc@new-k8s ~]$ cat marks.txt | sort -k 2
+zoya 78
+vignesh 85
+bob 88
+alex 92
+kumar 95
+```
+
+By default, `sort` treats numbers as text. To sort them correctly according to their numeric value, use the `-n` flag. This ensures that a value like `10` is correctly placed after `2`, rather than before it.
+
+
+### Sorting by Specific Fields (Columns)
+
+The `-k` flag allows you to specify which column to use for sorting. For example, to sort `marks.txt` by the student names (column 1):
+
+```bash
+[opc@new-k8s ~]$ cat marks.txt | sort -k 1
+alex 92
+bob 88
+kumar 95
+vignesh 85
+zoya 78
+```
+
+To sort by marks in descending order (highest first), you can combine `-k`, `-n`, and `-r`:
+
+```bash
+[opc@new-k8s ~]$ cat marks.txt | sort -k 2 -nr
+kumar 95
+alex 92
+bob 88
+vignesh 85
+zoya 78
+```
 
 ## uniq Command
 
 To remove consecutive duplicate lines from a file, use the `uniq` command:
 
 ```bash
-[opc@new-k8s ~]$ cat names.txt
+[opc@new-k8s ~]$ cat notes.txt
 I love devops.
 I love devops.
 I love devops.
@@ -353,12 +454,12 @@ I love devops.
 I love music.
 I love movies.
 I love movies.
-[opc@new-k8s ~]$ cat names.txt | uniq
+[opc@new-k8s ~]$ cat notes.txt | uniq
 I love devops.
 
 I love music.
 I love movies.
-[opc@new-k8s ~]$ cat names.txt | uniq -c
+[opc@new-k8s ~]$ cat notes.txt | uniq -c
       3 I love devops.
       1
       1 I love music.
@@ -370,7 +471,7 @@ The duplicate "I love devops." lines were merged into one. With the `-c` flag, w
 To print only the duplicate lines, use the `-d` flag:
 
 ```bash
-[opc@new-k8s ~]$ uniq -d names.txt
+[opc@new-k8s ~]$ uniq -d notes.txt
 I love devops.
 I love movies.
 ```
@@ -380,7 +481,7 @@ This filtered output only shows the lines that had duplicates, excluding the uni
 To print only the unique lines, use the `-u` flag:
 
 ```bash
-[opc@new-k8s ~]$ uniq -u names.txt
+[opc@new-k8s ~]$ uniq -u notes.txt
 
 I love music.
 ```
@@ -415,42 +516,23 @@ drwxrwxr-x.
 
 The command successfully stripped away the file details, leaving only the file permissions column.
 
-To extract the first column (usernames) from the `/etc/passwd` file using a colon `:` as the delimiter, use the following:
+
+### Extracting Specific Fields
+
+First, let's view the content of the `/etc/passwd` file to see its structure:
 
 ```bash
 [opc@new-k8s ~]$ cat /etc/passwd
 root:x:0:0:root:/root:/bin/bash
 bin:x:1:1:bin:/bin:/sbin/nologin
 daemon:x:2:2:daemon:/sbin:/sbin/nologin
-adm:x:3:4:adm:/var/adm:/sbin/nologin
-lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
-sync:x:5:0:sync:/sbin:/bin/sync
-shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
-halt:x:7:0:halt:/sbin:/sbin/halt
-mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
-operator:x:11:0:operator:/root:/sbin/nologin
-games:x:12:100:games:/usr/games:/sbin/nologin
-ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
-nobody:x:99:99:Nobody:/:/sbin/nologin
-systemd-network:x:192:192:systemd Network Management:/:/sbin/nologin
-dbus:x:81:81:System message bus:/:/sbin/nologin
-polkitd:x:999:998:User for polkitd:/:/sbin/nologin
-libstoragemgmt:x:998:997:daemon account for libstoragemgmt:/var/run/lsm:/sbin/nologin
-rpc:x:32:32:Rpcbind Daemon:/var/lib/rpcbind:/sbin/nologin
-abrt:x:173:173::/etc/abrt:/sbin/nologin
-rpcuser:x:29:29:RPC Service User:/var/lib/nfs:/sbin/nologin
-nfsnobody:x:65534:65534:Anonymous NFS User:/var/lib/nfs:/sbin/nologin
-sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
-postfix:x:89:89::/var/spool/postfix:/sbin/nologin
-chrony:x:997:994::/var/lib/chrony:/sbin/nologin
-ntp:x:38:38::/etc/ntp:/sbin/nologin
-tcpdump:x:72:72::/:/sbin/nologin
-oracle-cloud-agent:x:996:993:Oracle Cloud Agent Service User:/var/lib/oracle-cloud-agent:/usr/sbin/nologin
-oracle-cloud-agent-updater:x:995:993:Oracle Cloud Agent Updater Service User:/var/lib/oracle-cloud-agent:/usr/sbin/nologin
-ocarun:x:994:993:Oracle Cloud Agent Runcommand Service User:/var/lib/ocarun:/usr/sbin/nologin
 opc:x:1000:1000:Oracle Public Cloud User:/home/opc:/bin/bash
-jenkins:x:993:991:Jenkins Automation Server:/var/lib/jenkins:/bin/false
 vignesh:x:1001:1001::/home/vignesh:/bin/bash
+```
+
+To extract the first column (usernames) from the `/etc/passwd` file using a colon `:` as the delimiter, use the following:
+
+```bash
 [opc@new-k8s ~]$ cat /etc/passwd | cut -d ":" -f 1
 root
 bin
@@ -458,35 +540,50 @@ daemon
 adm
 lp
 sync
-shutdown
-halt
-mail
-operator
-games
-ftp
-nobody
-systemd-network
-dbus
-polkitd
-libstoragemgmt
-rpc
-abrt
-rpcuser
-nfsnobody
-sshd
-postfix
-chrony
-ntp
-tcpdump
-oracle-cloud-agent
-oracle-cloud-agent-updater
-ocarun
-opc
-jenkins
-vignesh
 ```
 
 By using the colon as a separator, we isolated the usernames from the rest of the user data.
+
+You can also extract multiple specific fields by separating them with a comma:
+
+```bash
+[opc@new-k8s ~]$ cat /etc/passwd | cut -d ":" -f 1,6,7
+root:/root:/bin/bash
+bin:/bin:/sbin/nologin
+daemon:/sbin:/sbin/nologin
+opc:/home/opc:/bin/bash
+vignesh:/home/vignesh:/bin/bash
+```
+
+To extract a range of consecutive fields, use a hyphen:
+
+```bash
+[opc@new-k8s ~]$ cat /etc/passwd | cut -d ":" -f 1-3
+root:x:0
+bin:x:1
+daemon:x:2
+```
+
+
+### Extracting by Character Position
+
+Sometimes data isn't separated by delimiters but follows a fixed-width format. In such cases, use the `-c` flag to extract characters by their position:
+
+```bash
+[opc@new-k8s ~]$ head -n 5 fruits.txt
+Apple
+Banana
+Cherry
+Date
+Elderberry
+[opc@new-k8s ~]$ head -n 5 fruits.txt | cut -c 1-3
+App
+Ban
+Che
+Dat
+Eld
+```
+In this example, we extracted the first 3 characters of each line.
 
 ## awk Command
 
@@ -599,17 +696,24 @@ By using the `-i` flag, the changes have been permanently written to the `hello.
 
 ## journalctl Command
 
-To view the system logs for a specific service (e.g., `httpd`, `nginx`, or `jenkins`), use the `journalctl` command:
+To view system logs, you first need a running service that generates them. For example, you can install the Nginx web server:
 
 ```bash
-[opc@new-k8s ~]$ journalctl -u httpd
+[opc@new-k8s ~]$ sudo apt update && sudo apt install -y nginx
+[opc@new-k8s ~]$ sudo systemctl start nginx
+```
+
+Once a service is running, use the `journalctl` command to view its logs:
+
+```bash
+[opc@new-k8s ~]$ journalctl -u nginx
 -- Logs begin at Tue 2023-04-18 15:19:48 GMT, end at Fri 2023-04-21 00:24:03 GMT. --
-Apr 21 00:02:49 new-k8s systemd[1]: Starting The Apache HTTP Server...
-Apr 21 00:02:49 new-k8s systemd[1]: Started The Apache HTTP Server.
+Apr 21 00:02:49 new-k8s systemd[1]: Starting The nginx HTTP and reverse proxy server...
+Apr 21 00:02:49 new-k8s systemd[1]: Started The nginx HTTP and reverse proxy server.
 ...
 ```
 
-This command filters the vast system journal to show only the logs related to the Apache web server (`httpd`).
+This command filters the vast system journal to show only the logs related to the Nginx service (`nginx`).
 
 
 ## JSON Basics
