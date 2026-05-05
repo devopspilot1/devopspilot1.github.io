@@ -75,4 +75,5 @@ To strengthen your understanding and prepare for interviews, try the **full 20-q
 {% include-markdown ".partials/subscribe-guides.md" %}
 ```
 
-  
+### 8. Markdown Formatting Rules
+- **List Rendering:** Always add an extra blank line after a bold heading (e.g., `**Common Options:**`) before starting a bulleted list. This ensures the list renders correctly as a collection of bullet points in MkDocs Material rather than a single line of text.

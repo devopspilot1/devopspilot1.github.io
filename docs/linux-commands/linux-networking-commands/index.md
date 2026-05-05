@@ -110,13 +110,13 @@ Connection closed.
 The `curl` command is a versatile tool used to transfer data from or to a server, supporting a wide range of protocols including HTTP, HTTPS, FTP, and more. It is essential for testing APIs and web services.
 
 ```bash
-[opc@new-k8s ~]$ curl https://dlcdn.apache.org/maven/maven-3/3.9.1/binaries/apache-maven-3.9.1-bin.zip -o apache-maven-3.9.1-bin.zip
+[opc@new-k8s ~]$ curl -L https://dlcdn.apache.org/maven/maven-3/3.9.15/binaries/apache-maven-3.9.15-bin.zip -o apache-maven-3.9.15-bin.zip
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100 8928k  100 8928k    0     0  13.4M      0 --:--:-- --:--:-- --:--:-- 13.4M
 [opc@new-k8s curl-examples]$ ll
 total 8932
--rw-rw-r--. 1 opc opc 9143026 Apr 17 13:35 apache-maven-3.9.1-bin.zip
+-rw-rw-r--. 1 opc opc 9143026 Apr 17 13:35 apache-maven-3.9.15-bin.zip
 ```
 
 ### curl - Silent Mode
@@ -124,33 +124,34 @@ total 8932
 -s or --silent --> Will not show the logs or progress bar.
 
 ```bash
-[opc@new-k8s ~]$ curl -s https://dlcdn.apache.org/maven/maven-3/3.9.1/source/apache-maven-3.9.1-src.tar.gz -o apache-maven-3.9.1-src.tar.gz
+[opc@new-k8s ~]$ curl -s https://dlcdn.apache.org/maven/maven-3/3.9.15/binaries/apache-maven-3.9.15-bin.tar.gz -o apache-maven-3.9.15-bin.tar.gz
 [opc@new-k8s curl-examples]$ ll -h
 total 12M
--rw-rw-r--. 1 opc opc 8.8M Apr 17 13:35 apache-maven-3.9.1-bin.zip
--rw-rw-r--. 1 opc opc 2.7M Apr 17 13:38 apache-maven-3.9.1-src.tar.gz
+-rw-rw-r--. 1 opc opc 8.8M Apr 17 13:35 apache-maven-3.9.15-bin.zip
+-rw-rw-r--. 1 opc opc 8.7M Apr 17 13:38 apache-maven-3.9.15-bin.tar.gz
 ```
+
 
 ## wget Command
 
 The `wget` command is used to download binary or large files (e.g., zip, tar, tar.gz files) from the web.
 
 ```bash
-[opc@new-k8s ~]$ wget https://dlcdn.apache.org/maven/maven-3/3.9.1/binaries/apache-maven-3.9.1-bin.zip
---2023-04-17 13:27:27-- https://dlcdn.apache.org/maven/maven-3/3.9.1/binaries/apache-maven-3.9.1-bin.zip
+[opc@new-k8s ~]$ wget https://dlcdn.apache.org/maven/maven-3/3.9.15/source/apache-maven-3.9.15-src.zip
+--2023-04-17 13:27:27-- https://dlcdn.apache.org/maven/maven-3/3.9.15/source/apache-maven-3.9.15-src.zip
 Resolving dlcdn.apache.org (dlcdn.apache.org)... 151.101.2.132, 2a04:4e42::644
 Connecting to dlcdn.apache.org (dlcdn.apache.org)|151.101.2.132|:443... connected.
 HTTP request sent, awaiting response... 200 OK
-Length: 9143026 (8.7M) [application/zip]
-Saving to: ‘apache-maven-3.9.1-bin.zip’
+Length: 2843026 (2.7M) [application/zip]
+Saving to: ‘apache-maven-3.9.15-src.zip’
 
-100%[=========================================================================================================================>] 9,143,026   24.9MB/s   in 0.4s
+100%[=========================================================================================================================>] 2,843,026   12.4MB/s   in 0.2s
 
-2023-04-17 13:27:28 (24.9 MB/s) - ‘apache-maven-3.9.1-bin.zip’ saved [9143026/9143026]
+2023-04-17 13:27:28 (12.4 MB/s) - ‘apache-maven-3.9.15-src.zip’ saved [2843026/2843026]
 
 [opc@new-k8s wget-examples]$ ll
-total 8932
--rw-rw-r--. 1 opc opc 9143026 Mar 15 10:00 apache-maven-3.9.1-bin.zip
+total 2848
+-rw-rw-r--. 1 opc opc 2843026 Mar 15 10:00 apache-maven-3.9.15-src.zip
 ```
 
 ### wget - Quiet Mode
@@ -158,11 +159,11 @@ total 8932
 **-q or --quiet** --> Quiet mode, will not show any logs or progress bar.
 
 ```bash
-[opc@new-k8s ~]$ wget -q https://dlcdn.apache.org/maven/maven-3/3.9.1/binaries/apache-maven-3.9.1-bin.tar.gz
+[opc@new-k8s ~]$ wget -q https://dlcdn.apache.org/maven/maven-3/3.9.15/source/apache-maven-3.9.15-src.tar.gz
 [opc@new-k8s wget-examples]$ ll -h
-total 18M
--rw-rw-r--. 1 opc opc 8.7M Mar 15 10:00 apache-maven-3.9.1-bin.tar.gz
--rw-rw-r--. 1 opc opc 8.8M Mar 15 10:00 apache-maven-3.9.1-bin.zip
+total 5.5M
+-rw-rw-r--. 1 opc opc 2.7M Mar 15 10:00 apache-maven-3.9.15-src.tar.gz
+-rw-rw-r--. 1 opc opc 2.7M Mar 15 10:00 apache-maven-3.9.15-src.zip
 ```
 
 ## 🧠 Quick Quiz — Networking Commands
