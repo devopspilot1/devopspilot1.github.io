@@ -12,11 +12,22 @@ description: "Master the Linux ip route command. Learn to view routing tables, a
 Routing is the process by which a Linux kernel determines where to send network packets. Whether a packet is destined for a local server or a remote website, the **Routing Table** acts as the system's internal map. In modern Linux, the `ip route` utility is the primary tool for inspecting and manipulating this map.
 
 ```mermaid
-graph LR
-    A[Linux Server] --> B{Routing Table}
-    B -- Match Found --> C[Specific Gateway/Interface]
-    B -- No Match --> D[Default Gateway]
-    D --> E((External Internet))
+graph TD
+    User([Linux Server]) --> RT{Routing Table}
+    RT -- "Match found" --> GW[Specific Gateway/Interface]
+    RT -- "No match" --> Default[Default Gateway]
+    Default --> Ext((External Internet))
+
+    classDef client   fill:#dbeafe,stroke:#93c5fd,color:#1e3a5f
+    classDef gateway  fill:#ede9fe,stroke:#a78bfa,color:#3b1f6e
+    classDef route    fill:#fef9c3,stroke:#fbbf24,color:#78350f
+    classDef external fill:#f1f5f9,stroke:#94a3b8,color:#1e293b
+
+    class User client
+    class RT gateway
+    class GW external
+    class Default route
+    class Ext external
 ```
 
 ---

@@ -85,7 +85,7 @@ Before concluding any task, you MUST perform a comprehensive audit against these
 
 1. **Build Verification:** You MUST activate the virtual environment (`source .venv/bin/activate`) and execute `mkdocs build`. You are strictly responsible for resolving all new warnings and fatal errors introduced by your changes.
 2. **Frontmatter Syntax:** Ensure the `title` and `description` in the YAML frontmatter are wrapped in double quotes if they contain special characters (especially colons `:`) to avoid parsing failures.
-3. **Mermaid Diagrams:** Verify that all Mermaid diagrams follow standard syntax and are properly enclosed in ` ```mermaid ` blocks.
+3. **Mermaid Diagrams:** All Mermaid diagrams MUST follow the strict standards in [diagram-standards.md](file:///.agents/workflows/diagram-standards.md). They must use `graph TD`, include the mandatory `classDef` color palette, and follow the specific node-to-class mapping guide.
 4. **MkDocs Quiz Syntax:** Quizzes must strictly use the standard markdown list format (`- [ ]` for incorrect and `- [x]` for correct answers) inside the `<quiz>` tags. XML-style `<answer>` tags are NOT supported.
 5. **Material Admonitions:** Always use MkDocs Material syntax (`!!! tip` or `!!! important`) with a 4-space indentation for the content. Do NOT use GitHub-style blockquote admonitions (`> [!TIP]`).
 6. **Navigation Alignment:** Verify that new chapters are correctly registered in `mkdocs.yaml` within their semantically correct parent category and maintain the progressive Beginner-to-Advanced learning flow.

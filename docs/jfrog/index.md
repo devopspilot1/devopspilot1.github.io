@@ -12,28 +12,21 @@ description: "Comprehensive JFrog Artifactory tutorials covering repositories, C
 JFrog Artifactory is the world's leading **universal artifact repository manager**, trusted by thousands of organizations to manage, secure, and distribute software artifacts across the entire software supply chain.
 
 ```mermaid
-graph LR
-    subgraph "External Sources"
-    Registry[Public Registries]
-    end
-    
-    subgraph "JFrog Platform (SaaS)"
-    Artifactory[Artifactory]
-    Xray[Xray Security]
-    end
-    
-    subgraph "Internal Consumers"
-    CI[CI/CD Pipelines]
-    Dev[Developers]
-    end
-    
-    Registry --> Artifactory
-    Artifactory <--> Xray
-    Artifactory --> CI
-    Artifactory --> Dev
-    
-    style Artifactory fill:#e1f5fe,stroke:#01579b,stroke-width:2px
-    style Xray fill:#fffde7,stroke:#fbc02d
+graph TD
+    Registry[Public Registries] --> Artifactory[JFrog Artifactory]
+    Artifactory <--> Xray[JFrog Xray]
+    Artifactory --> CI[CI/CD Pipelines]
+    Artifactory --> Dev[Developers]
+
+    classDef client   fill:#dbeafe,stroke:#93c5fd,color:#1e3a5f
+    classDef gateway  fill:#ede9fe,stroke:#a78bfa,color:#3b1f6e
+    classDef service  fill:#dcfce7,stroke:#86efac,color:#14532d
+    classDef external fill:#f1f5f9,stroke:#94a3b8,color:#1e293b
+
+    class Dev,CI client
+    class Artifactory gateway
+    class Xray service
+    class Registry external
 ```
 
 This tutorial series covers everything from creating your first repository on **JFrog SaaS** to advanced topics like ML model storage, build promotion, and certification preparation.

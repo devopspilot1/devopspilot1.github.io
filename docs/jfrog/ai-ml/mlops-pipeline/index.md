@@ -17,31 +17,28 @@ A robust MLOps pipeline ensures that every model going to production is **versio
 
 ## MLOps Pipeline Architecture
 
-```
-┌─────────────────────────────────────────────────────────┐
-│                    Data Scientists                       │
-│  Train model → experiment tracking (MLflow/Weights&B)   │
-└──────────────────────────┬──────────────────────────────┘
-                           │ Commit training code
-                           ▼
-┌─────────────────────────────────────────────────────────┐
-│                   CI/CD Pipeline                        │
-│  (GitHub Actions / Jenkins)                             │
-│  1. Pull training code + dataset reference              │
-│  2. Train model (or trigger training job)               │
-│  3. Evaluate metrics (accuracy, F1, loss)               │
-│  4. Upload model to JFrog (ml-models-staging-local)     │
-│  5. Publish Build Info to JFrog                         │
-│  6. Run security scan (Xray)                            │
-│  7. If approved → promote to ml-models-prod-local       │
-└──────────────────────────┬──────────────────────────────┘
-                           │ Deployment trigger
-                           ▼
-┌─────────────────────────────────────────────────────────┐
-│              Inference Service / Kubernetes             │
-│  Pull model from ml-models-prod-local                   │
-│  Serve predictions                                      │
-└─────────────────────────────────────────────────────────┘
+```mermaid
+graph TD
+    DS[Data Scientists] -- "Commit training code" --> CI[CI/CD Pipeline]
+    
+    subgraph "Training & Quality Gate"
+    CI --> T[1. Train & Evaluate]
+    T --> U[2. Upload to Staging]
+    U --> B[3. Publish Build Info]
+    B --> X[4. Xray Security Scan]
+    X -- "If approved" --> P[5. Promote to Production]
+    end
+    
+    P -- "Deployment trigger" --> INF[Inference Service]
+    INF --> S[6. Serve Predictions]
+
+    classDef client   fill:#dbeafe,stroke:#93c5fd,color:#1e3a5f
+    classDef gateway  fill:#ede9fe,stroke:#a78bfa,color:#3b1f6e
+    classDef service  fill:#dcfce7,stroke:#86efac,color:#14532d
+
+    class DS client
+    class CI gateway
+    class T,U,B,X,P,INF,S service
 ```
 
 ---

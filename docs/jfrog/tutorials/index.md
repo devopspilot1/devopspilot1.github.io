@@ -38,14 +38,19 @@ This series takes you from zero to confident with **JFrog Artifactory on SaaS**.
 
 ## Repository Types at a Glance
 
-```
-┌──────────────────────────────────────────────────────┐
-│                  Virtual Repository                   │
-│  (single URL for developers — aggregates both below) │
-├───────────────────────┬──────────────────────────────┤
-│   Local Repository    │    Remote Repository          │
-│  (your own artifacts) │  (proxy of external registry)│
-└───────────────────────┴──────────────────────────────┘
+```mermaid
+graph TD
+    Virtual[Virtual Repository] --> Local[Local Repository]
+    Virtual --> Remote[Remote Repository]
+    
+    Local --- LDesc[Store your own artifacts]
+    Remote --- RDesc[Proxy of external registry]
+
+    classDef gateway  fill:#ede9fe,stroke:#a78bfa,color:#3b1f6e
+    classDef service  fill:#dcfce7,stroke:#86efac,color:#14532d
+
+    class Virtual gateway
+    class Local,Remote service
 ```
 
 | Type | Purpose | Example |

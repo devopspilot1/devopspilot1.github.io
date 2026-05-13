@@ -33,22 +33,24 @@ Curation stops all of these **before they land in Artifactory**.
 
 ## How JFrog Curation Works
 
-```
-Developer/CI requests package from pypi-virtual
-                    │
-                    ▼
-         JFrog Curation evaluates it
-         against active Curation policies
-                    │
-            ┌───────┴────────┐
-            │                │
-       Policy passed    Policy violated
-            │                │
-            ▼                ▼
-     Package cached      Package BLOCKED
-     in pypi-remote      ─ Request rejected
-     ─ Served to dev     ─ Audit log entry
-     ─ Audit log entry   ─ Email/notification
+```mermaid
+graph TD
+    Req([Request package from pypi-virtual]) --> Eval{JFrog Curation evaluates policy}
+    
+    Eval -- "Policy passed" --> Cache[Package cached in pypi-remote]
+    Cache --> Serve[Served to developer]
+    
+    Eval -- "Policy violated" --> Block[Package BLOCKED]
+    Block --> Reject[Request rejected]
+    Block --> Alert[Email/notification sent]
+
+    classDef client   fill:#dbeafe,stroke:#93c5fd,color:#1e3a5f
+    classDef route    fill:#fef9c3,stroke:#fbbf24,color:#78350f
+    classDef service  fill:#dcfce7,stroke:#86efac,color:#14532d
+
+    class Req client
+    class Eval route
+    class Cache,Serve,Block,Reject,Alert service
 ```
 
 ---

@@ -60,13 +60,18 @@ Upon passing this certification, you will be able to:
 | **Signing** | GPG-signing a release bundle to guarantee integrity |
 
 **Distribution Flow:**
-```
-JFrog SaaS (Central) → Release Bundle signed
-                            │
-            ┌───────────────┼───────────────┐
-            ▼               ▼               ▼
-        Edge EU         Edge US          Edge APAC
-    (read-only)       (read-only)      (read-only)
+```mermaid
+graph TD
+    Central[JFrog SaaS Central] -- "Release Bundle signed" --> Dist[Distribution Service]
+    Dist --> EdgeEU[Edge EU - Read-only]
+    Dist --> EdgeUS[Edge US - Read-only]
+    Dist --> EdgeAPAC[Edge APAC - Read-only]
+
+    classDef gateway  fill:#ede9fe,stroke:#a78bfa,color:#3b1f6e
+    classDef service  fill:#dcfce7,stroke:#86efac,color:#14532d
+
+    class Central gateway
+    class Dist,EdgeEU,EdgeUS,EdgeAPAC service
 ```
 
 **Official Resources:**

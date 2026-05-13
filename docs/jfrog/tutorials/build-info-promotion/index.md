@@ -34,23 +34,23 @@ This creates a **full traceability chain**: from artifact back to source code an
 
 ## Build Promotion Flow
 
-```
-Source Code (Git)
-       │
-       ▼
-  CI Build runs
-  (Maven / Gradle / Docker)
-       │
-       ▼
-  Artifacts published to:
-  docker-dev-local (or maven-snapshots-local)
-       │
-  Build Info published to Artifactory
-       │
-       ▼
-  ✅ Tests pass  ──► Promote to: docker-staging-local
-                           │
-                    ✅ Staging OK ──► Promote to: docker-prod-local
+```mermaid
+graph TD
+    Git[Source Code - Git] --> CI[CI Build Runs]
+    
+    subgraph "Publish Stage"
+    CI --> Dev[1. Publish to docker-dev-local]
+    Dev --> Info[2. Publish Build Info]
+    end
+    
+    subgraph "Promotion Cycle"
+    Info -- "✅ Tests pass" --> Staging[3. Promote to docker-staging-local]
+    Staging -- "✅ Staging OK" --> Prod[4. Promote to docker-prod-local]
+    end
+    
+    style Dev fill:#f5f5f5,stroke:#616161
+    style Staging fill:#e8eaf6,stroke:#3f51b5
+    style Prod fill:#e8f5e9,stroke:#2e7d32
 ```
 
 ---

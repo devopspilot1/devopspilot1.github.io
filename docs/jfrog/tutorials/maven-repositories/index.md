@@ -75,21 +75,21 @@ A Remote Repository proxies Maven Central and caches downloaded artifacts.
 
 ### What happens behind the scenes?
 
-```
-Developer requests: org.springframework.boot:spring-boot:3.2.0
-                         │
-            JFrog checks maven-central-remote cache
-                         │
-                ┌────────┴──────────┐
-                │ Cached?           │ Not cached?
-                │                  │
-                ▼                  ▼
-         Return cached       Fetch from
-            artifact        Maven Central
-                                  │
-                                  ▼
-                          Cache in Artifactory
-                          Return to developer
+```mermaid
+graph TD
+    Start([Developer requests package]) --> Check{JFrog checks cache}
+    Check -- "Match found (Cached)" --> Return[Return cached artifact]
+    Check -- "No match (Not cached)" --> Fetch[Fetch from Maven Central]
+    Fetch --> Cache[Cache in Artifactory]
+    Cache --> Return
+
+    classDef client   fill:#dbeafe,stroke:#93c5fd,color:#1e3a5f
+    classDef route    fill:#fef9c3,stroke:#fbbf24,color:#78350f
+    classDef service  fill:#dcfce7,stroke:#86efac,color:#14532d
+
+    class Start client
+    class Check route
+    class Return,Fetch,Cache service
 ```
 
 ---

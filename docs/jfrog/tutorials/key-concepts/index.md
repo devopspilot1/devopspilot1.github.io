@@ -18,18 +18,19 @@ Before you create your first repository in JFrog Artifactory, it's essential to 
 ```mermaid
 graph TD
     User([Developers / CI Pipeline]) --> Virtual[Virtual Repository]
-    
-    subgraph "JFrog Artifactory"
     Virtual --> Local[Local Repository]
     Virtual --> Remote[Remote Repository]
-    end
-    
     Remote --> External[External Registry]
-    
-    style Virtual fill:#e1f5fe,stroke:#01579b,stroke-width:2px
-    style Local fill:#fff,stroke:#333
-    style Remote fill:#fff,stroke:#333
-    style User fill:#f5f5f5,stroke:#616161
+
+    classDef client   fill:#dbeafe,stroke:#93c5fd,color:#1e3a5f
+    classDef gateway  fill:#ede9fe,stroke:#a78bfa,color:#3b1f6e
+    classDef service  fill:#dcfce7,stroke:#86efac,color:#14532d
+    classDef external fill:#f1f5f9,stroke:#94a3b8,color:#1e293b
+
+    class User client
+    class Virtual gateway
+    class Local,Remote service
+    class External external
 ```
 
 ---
@@ -116,9 +117,11 @@ graph TD
     V --> R2[2. libs-snapshot-local]
     V --> R3[3. maven-central-remote]
     
-    style R1 fill:#fff,stroke:#4caf50,stroke-width:2px
-    style R2 fill:#fff,stroke:#333
-    style R3 fill:#fff,stroke:#333
+    classDef gateway  fill:#ede9fe,stroke:#a78bfa,color:#3b1f6e
+    classDef route    fill:#fef9c3,stroke:#fbbf24,color:#78350f
+
+    class V gateway
+    class R1,R2,R3 route
 ```
 
 ### Use Cases
