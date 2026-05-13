@@ -15,25 +15,21 @@ Before you create your first repository in JFrog Artifactory, it's essential to 
 
 ## The Three Repository Types
 
-```
-Developers / CI Pipeline
-        │
-        ▼
-┌────────────────────────┐
-│   Virtual Repository   │  ← Single URL for all consumers
-└────────┬───────┬───────┘
-         │       │
-         ▼       ▼
-  ┌──────────┐  ┌────────────────┐
-  │  Local   │  │    Remote      │
-  │  Repo    │  │    Repo        │
-  │ (yours)  │  │ (proxy+cache)  │
-  └──────────┘  └───────┬────────┘
-                        │
-                        ▼
-               External Registry
-               (Maven Central,
-                DockerHub, etc.)
+```mermaid
+graph TD
+    User([Developers / CI Pipeline]) --> Virtual[Virtual Repository]
+    
+    subgraph "JFrog Artifactory"
+    Virtual --> Local[Local Repository]
+    Virtual --> Remote[Remote Repository]
+    end
+    
+    Remote --> External[External Registry]
+    
+    style Virtual fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    style Local fill:#fff,stroke:#333
+    style Remote fill:#fff,stroke:#333
+    style User fill:#f5f5f5,stroke:#616161
 ```
 
 ---
@@ -114,11 +110,15 @@ Developers always point their tools (`pom.xml`, `.npmrc`, `pip.conf`) at the **v
 ### How Resolution Order Works
 When a package is requested from a virtual repo, Artifactory searches the underlying repos **in the order you configure**:
 
-```
-Virtual Repo: libs-virtual
-  1. Check: libs-release-local    (your stable releases)
-  2. Check: libs-snapshot-local   (your dev snapshots)
-  3. Check: maven-central-remote  (proxy of Maven Central)
+```mermaid
+graph TD
+    V[Virtual Repo: libs-virtual] --> R1[1. libs-release-local]
+    V --> R2[2. libs-snapshot-local]
+    V --> R3[3. maven-central-remote]
+    
+    style R1 fill:#fff,stroke:#4caf50,stroke-width:2px
+    style R2 fill:#fff,stroke:#333
+    style R3 fill:#fff,stroke:#333
 ```
 
 ### Use Cases
