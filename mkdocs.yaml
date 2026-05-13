@@ -49,6 +49,7 @@ nav:
     - Package Management: linux-commands/linux-package-management/index.md
     - Logs & Text Processing: linux-commands/linux-log-text-processing/index.md
     - Networking Commands: linux-commands/linux-networking-commands/index.md
+    - Linux Routing Basics: linux-commands/linux-routing-basics/index.md
     - System & Disk Commands: linux-commands/linux-system-disk-commands/index.md
     - Process Management: linux-commands/linux-process-service-management/index.md
   - SSH:

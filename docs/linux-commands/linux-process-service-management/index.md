@@ -9,8 +9,25 @@ description: "Master linux process management and service commands for devops en
 
 ---
 
-This page explains how DevOps engineers monitor, control, and troubleshoot running processes
-and system services in Linux-based production environments.
+This page explains how DevOps engineers monitor, control, and troubleshoot running processes and system services in Linux-based production environments.
+
+---
+
+## Process & Service Architecture
+
+In modern Linux distributions (like Ubuntu 20.04+, CentOS 7+, and RHEL), **systemd** is the primary init system and service manager. It is responsible for starting services and managing processes from boot to shutdown.
+
+```mermaid
+graph TD
+    A[Kernel] --> B[systemd (PID 1)]
+    B --> C[Service Units]
+    B --> D[User Processes]
+    C --> E[sshd.service]
+    C --> F[httpd.service]
+    E --> G[Process ID: 1234]
+    F --> H[Process ID: 5678]
+    style B fill:#f9f,stroke:#333,stroke-width:2px
+```
 
 ---
 
@@ -24,7 +41,7 @@ In Linux, we have the `sshd` service, which is used to connect to Linux servers.
 
 `systemctl status service_name`
 
-```
+```text
 ● sshd.service - OpenSSH server daemon
    Loaded: loaded (/usr/lib/systemd/system/sshd.service; enabled; vendor preset: enabled)
    Active: active (running) since Thu 2023-04-20 12:34:07 GMT; 11h ago
@@ -45,7 +62,7 @@ In Linux, we have the `sshd` service, which is used to connect to Linux servers.
 
 `httpd` is the most popular web server.
 
-```
+```text
 [opc@new-k8s ~]$ systemctl status httpd
 ● httpd.service - The Apache HTTP Server
    Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled; vendor preset: disabled)
@@ -54,11 +71,11 @@ In Linux, we have the `sshd` service, which is used to connect to Linux servers.
            man:apachectl(8)
 ```
 
-```
+```bash
 [opc@new-k8s ~]$ sudo systemctl start httpd
 ```
 
-```
+```text
 [opc@new-k8s ~]$ sudo systemctl status httpd
 ● httpd.service - The Apache HTTP Server
    Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled; vendor preset: disabled)
@@ -85,11 +102,11 @@ Apr 21 00:02:49 new-k8s systemd[1]: Started The Apache HTTP Server.
 
 `systemctl stop service_name`
 
-```
+```bash
 [opc@new-k8s ~]$ sudo systemctl stop httpd
 ```
 
-```
+```text
 [opc@new-k8s ~]$ sudo systemctl status httpd
 ● httpd.service - The Apache HTTP Server
    Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled; vendor preset: disabled)
@@ -107,7 +124,7 @@ Apr 21 00:04:12 new-k8s systemd[1]: Stopped The Apache HTTP Server.
 
 `systemctl restart service_name`
 
-```
+```text
 [opc@new-k8s ~]$ sudo systemctl status httpd
 ● httpd.service - The Apache HTTP Server
    Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled; vendor preset: disabled)
@@ -130,11 +147,11 @@ Apr 21 00:05:06 new-k8s systemd[1]: Starting The Apache HTTP Server...
 Apr 21 00:05:06 new-k8s systemd[1]: Started The Apache HTTP Server.
 ```
 
-```
+```bash
 [opc@new-k8s ~]$ sudo systemctl restart httpd
 ```
 
-```
+```text
 [opc@new-k8s ~]$ sudo systemctl status httpd
 ● httpd.service - The Apache HTTP Server
    Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled; vendor preset: disabled)
@@ -164,7 +181,7 @@ If we restart our Linux system, services will be stopped and will not start auto
 
 `systemctl enable service_name`
 
-```
+```text
 [opc@new-k8s ~]$ sudo systemctl status httpd
 ● httpd.service - The Apache HTTP Server
    Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled; vendor preset: disabled)
@@ -187,16 +204,16 @@ If we restart our Linux system, services will be stopped and will not start auto
 
 Here its mentioned the service is disabled
 
-```
+```text
 Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled; vendor preset: disabled)
 ```
 
-```
+```bash
 [opc@new-k8s ~]$ sudo systemctl enable httpd
 Created symlink from /etc/systemd/system/multi-user.target.wants/httpd.service to /usr/lib/systemd/system/httpd.service.
 ```
 
-```
+```text
 [opc@new-k8s ~]$ sudo systemctl status httpd
 ● httpd.service - The Apache HTTP Server
    Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)
@@ -220,7 +237,7 @@ Apr 21 00:06:59 new-k8s systemd[1]: Started The Apache HTTP Server.
 
 Now the service is enabled
 
-```
+```text
 Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)
 ```
 
@@ -228,12 +245,12 @@ Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: d
 
 `systemctl disable service_name`
 
-```
+```bash
 [opc@new-k8s ~]$ sudo systemctl disable httpd
 Removed symlink /etc/systemd/system/multi-user.target.wants/httpd.service.
 ```
 
-```
+```text
 [opc@new-k8s ~]$ sudo systemctl status httpd
 ● httpd.service - The Apache HTTP Server
    Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled; vendor preset: disabled)
@@ -257,11 +274,13 @@ Apr 21 00:06:59 new-k8s systemd[1]: Started The Apache HTTP Server.
 
 Now the service is disabled
 
-```
+```text
 Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled; vendor preset: disabled)
 ```
 
-## service Command
+---
+
+## service Command (Legacy)
 
 `service` is a "high-level" command used for starting and stopping services in different Unix/Linux systems. Depending on the "lower-level" service manager, `service` redirects to different binaries.
 
@@ -273,7 +292,7 @@ For example, on CentOS 7 it redirects to `systemctl`, while on CentOS 6 it direc
 
 `service service_name status`
 
-```
+```text
 [opc@new-k8s ~]$ sudo service httpd status
 Redirecting to /bin/systemctl status httpd.service
 ● httpd.service - The Apache HTTP Server
@@ -300,12 +319,12 @@ Apr 21 00:06:59 new-k8s systemd[1]: Started The Apache HTTP Server.
 
 `service service_name stop`
 
-```
+```bash
 [opc@new-k8s ~]$ sudo service httpd stop
 Redirecting to /bin/systemctl stop httpd.service
 ```
 
-```
+```text
 [opc@new-k8s ~]$ sudo service httpd status
 Redirecting to /bin/systemctl status httpd.service
 ● httpd.service - The Apache HTTP Server
@@ -319,12 +338,12 @@ Redirecting to /bin/systemctl status httpd.service
 
 `service service_name start`
 
-```
+```bash
 [opc@new-k8s ~]$ sudo service httpd start
 Redirecting to /bin/systemctl start httpd.service
 ```
 
-```
+```text
 [opc@new-k8s ~]$ sudo service httpd status
 Redirecting to /bin/systemctl status httpd.service
 ● httpd.service - The Apache HTTP Server
@@ -349,12 +368,12 @@ Redirecting to /bin/systemctl status httpd.service
 
 `service service_name restart`
 
-```
+```bash
 [opc@new-k8s ~]$ sudo service httpd restart
 Redirecting to /bin/systemctl restart httpd.service
 ```
 
-```
+```text
 [opc@new-k8s ~]$ sudo service httpd status
 Redirecting to /bin/systemctl status httpd.service
 ● httpd.service - The Apache HTTP Server
@@ -378,31 +397,59 @@ Redirecting to /bin/systemctl status httpd.service
 
 **NOTE:** We cannot use the `service` command to enable and disable services.
 
+---
+
+## top Command
+
+The `top` command provides a dynamic, real-time view of the running system. it displays system summary information and a list of processes currently being managed by the Linux kernel.
+
+`top`
+
+**Interactive Keys inside top:**
+
+- **M:** Sort processes by Memory usage.
+- **P:** Sort processes by CPU usage (default).
+- **k:** Kill a process (will prompt for PID).
+- **q:** Quit the top interface.
+
+```text
+top - 12:34:56 up 11 days,  1:23,  1 user,  load average: 0.00, 0.01, 0.05
+Tasks: 123 total,   1 running, 122 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.3 us,  0.3 sy,  0.0 ni, 99.3 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :   7962.0 total,   5123.4 free,   1234.5 used,   1604.1 buff/cache
+MiB Swap:      0.0 total,      0.0 free,      0.0 used.   6450.2 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+  26927 root      20   0  123456  41234   9876 S   0.3   0.5   0:02.45 sshd
+   1234 opc       20   0   56789   4567   3456 R   0.1   0.1   0:00.12 top
+```
+
+---
+
 ## ps Command
 
-The `ps` command is used to list all running background processes.
+While `top` is real-time, `ps` (Process Status) provides a static snapshot of current processes.
 
-```
-ps -ef | grep -i sshd
-```
+### View All Processes
 
-Lets see only sshd process
+DevOps engineers commonly use the `-ef` flags to see every process on the system in full format.
 
-```
-[opc@new-k8s ~]$ ps -ef | grep -i sshd
-opc       6009 32710  0 00:26 pts/0    00:00:00 grep --color=auto -i sshd
+`ps -ef`
+
+### Filter Specific Processes
+
+Use `grep` to find a specific service like `sshd`:
+
+`ps -ef | grep sshd`
+
+```text
+[opc@new-k8s ~]$ ps -ef | grep sshd
 root     26927     1  0 Apr20 ?        00:00:02 /usr/sbin/sshd -D
 root     32685 26927  0 Apr20 ?        00:00:00 sshd: opc [priv]
-root     32700 26927  0 Apr20 ?        00:00:00 sshd: opc [priv]
 opc      32709 32685  0 Apr20 ?        00:00:00 sshd: opc@pts/0
-opc      32755 32700  0 Apr20 ?        00:00:00 sshd: opc@notty
 ```
 
-This is the running process info for sshd, it has process id 26927
-
-```
-root     26927     1  0 Apr20 ?        00:00:02 /usr/sbin/sshd -D
-```
+---
 
 ## 🧠 Quick Quiz — Process & Service Management
 
@@ -412,8 +459,21 @@ Which command is used to manage services on modern Linux systems?
 - [x] systemctl
 - [ ] chkconfig
 - [ ] init
-
 The `systemctl` command is used to control services on systemd-based Linux systems.
+
+Which command is used to ensure a service starts automatically after a system reboot?
+- [ ] systemctl start
+- [x] systemctl enable
+- [ ] systemctl restart
+- [ ] systemctl status
+To make a service persistent across reboots, you must use the `enable` command.
+
+Which interactive key inside the 'top' command is used to sort processes by memory consumption?
+- [ ] P
+- [ ] S
+- [x] M
+- [ ] k
+Pressing 'M' while top is running will sort the process list by Memory usage (RES).
 </quiz>
 
 ---
