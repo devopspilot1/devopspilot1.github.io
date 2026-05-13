@@ -9,7 +9,7 @@ description: "Master the Linux ip route command. Learn to view routing tables, a
 
 ---
 
-Routing is the process by which a Linux kernel determines where to send network packets. Whether a packet is destined for a local server or a remote website, the **Routing Table** acts as the system's internal map. In modern Linux, the <k>ip route</k> utility is the primary tool for inspecting and manipulating this map.
+Routing is the process by which a Linux kernel determines where to send network packets. Whether a packet is destined for a local server or a remote website, the **Routing Table** acts as the system's internal map. In modern Linux, the `ip route` utility is the primary tool for inspecting and manipulating this map.
 
 ```mermaid
 graph LR
@@ -50,8 +50,8 @@ If your server loses its gateway, you can manually restore it:
 sudo ip route add default via 10.0.0.1 dev eth0
 ```
 
-> [!TIP]
-> Always verify that the gateway IP (`via`) is reachable within your local subnet before adding it, or the route will remain inactive.
+!!! tip
+    Always verify that the gateway IP (`via`) is reachable within your local subnet before adding it, or the route will remain inactive.
 
 ---
 
@@ -87,10 +87,10 @@ sudo ip route del 192.168.100.0/24
 
 ### 5. Persistence and Runtime State
 
-Commands executed with <k>ip route</k> are applied directly to the kernel's **runtime memory**.
+Commands executed with `ip route` are applied directly to the kernel's **runtime memory**.
 
-> [!IMPORTANT]
-> These changes are **temporary**. If the system reboots, all manually added routes will be lost. To make them permanent, you must add them to your distribution's network configuration files (e.g., `/etc/netplan/*.yaml` on Ubuntu).
+!!! important
+    These changes are **temporary**. If the system reboots, all manually added routes will be lost. To make them permanent, you must add them to your distribution's network configuration files (e.g., `/etc/netplan/*.yaml` on Ubuntu).
 
 ---
 
