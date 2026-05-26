@@ -10,35 +10,35 @@ hide:
     /* Use the MkDocs Material theme primary color variable (defined in extra.css as #0f790e) */
     --primary-color: #0f790e;
     --secondary-color: #4ade80; /* Light Green to match Primary */
-    --accent-color: #10b981;
+    --accent-color: #0f790e;
     --text-dark: #1f2937;
     --text-light: #6b7280;
   }
   
   /* Hero Section */
   .hero {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: white;
-    padding: 4rem 2rem;
-    border-radius: 16px;
+    padding: 3rem 1.5rem;
     text-align: center;
-    margin-bottom: 3rem;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    margin-bottom: 2.5rem;
+    background: transparent;
   }
   .hero h1 {
-    font-size: 3rem !important;
-    font-weight: 800;
-    margin: 0 0 1rem 0;
-    color: white !important;
-    line-height: 1.2;
+    font-size: 3.2rem !important;
+    font-weight: 900;
+    margin: 0 0 1.2rem 0;
+    background: linear-gradient(135deg, #0f790e, #22c55e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
   }
   .hero p {
-    font-size: 1.25rem;
-    max-width: 700px;
+    font-size: 1.2rem;
+    max-width: 720px;
     margin: 0 auto 2.5rem auto;
-    opacity: 0.95;
+    opacity: 0.85;
     line-height: 1.6;
-    color: rgba(255,255,255,0.9);
+    color: var(--md-typeset-color, #374151);
   }
   .hero-buttons {
     display: flex;
@@ -47,32 +47,33 @@ hide:
     flex-wrap: wrap;
   }
   .btn {
-    padding: 0.8rem 2rem;
+    padding: 0.8rem 2.2rem;
     border-radius: 50px;
     font-weight: 700;
     text-decoration: none !important;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: inline-block;
   }
   .btn-primary {
-    background: white;
-    color: var(--primary-color) !important;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    background: #0f790e;
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(15, 121, 14, 0.3);
+    border: 2px solid #0f790e;
   }
   .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
-    color: var(--primary-color) !important;
+    box-shadow: 0 8px 20px rgba(15, 121, 14, 0.4);
+    background: #0d660c;
+    border-color: #0d660c;
   }
   .btn-secondary {
-    background: rgba(255,255,255,0.2);
-    color: white !important;
-    border: 2px solid rgba(255,255,255,0.4);
-    backdrop-filter: blur(5px);
+    background: rgba(15, 121, 14, 0.05);
+    color: #0f790e !important;
+    border: 2px solid rgba(15, 121, 14, 0.2);
   }
   .btn-secondary:hover {
-    background: rgba(255,255,255,0.3);
-    border-color: white;
+    background: rgba(15, 121, 14, 0.1);
+    border-color: #0f790e;
     transform: translateY(-3px);
   }
 
@@ -203,13 +204,13 @@ hide:
 
 <div class="hero">
   <!-- Launch Offer Top Micro-Badge -->
-  <div style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; background: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 50px; font-size: 0.8rem; font-weight: 800; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.05em; backdrop-filter: blur(10px);">
+  <div style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; background: rgba(15, 121, 14, 0.05); border: 1px solid rgba(15, 121, 14, 0.2); border-radius: 50px; font-size: 0.75rem; font-weight: 800; color: #0f790e; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.05em;">
     🚀 FREE LAUNCH SPECIAL UNTIL MAY 31ST! (NO CREDIT CARD REQUIRED)
   </div>
   <h1>Your Co-Pilot for DevOps Mastery</h1>
   <p>Stop watching endless videos. Practice live in real browser-based sandboxes with secure environments, real-world troubleshooting, and instant task validation.</p>
   <div class="hero-buttons">
-    <a href="https://www.devopspilot.com/lab/linux" target="_blank" class="btn btn-primary" style="background: #10b981; color: white !important; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4); border: 2px solid #10b981;">💻 Start Free Browser Labs</a>
+    <a href="https://www.devopspilot.com/lab/linux" target="_blank" class="btn btn-primary">💻 Start Free Browser Labs</a>
     <a href="linux-commands/basic-linux-commands/" class="btn btn-secondary">📖 Read Tutorials</a>
     <a href="quiz/" class="btn btn-secondary">📝 Practice Quizzes</a>
   </div>
@@ -226,7 +227,7 @@ hide:
     <div class="step-info">
       <h4 style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 6px;">
         Master Linux Fundamentals
-        <span style="padding: 2px 8px; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 4px; font-size: 0.7rem; font-weight: 700; color: #10b981; text-transform: uppercase; letter-spacing: 0.05em; display: inline-flex; align-items: center; gap: 4px;">💻 Live Labs Available</span>
+        <span style="padding: 2px 8px; background: rgba(15, 121, 14, 0.1); border: 1px solid rgba(15, 121, 14, 0.2); border-radius: 4px; font-size: 0.7rem; font-weight: 700; color: #0f790e; text-transform: uppercase; letter-spacing: 0.05em; display: inline-flex; align-items: center; gap: 4px;">💻 Live Labs Available</span>
       </h4>
       <p>The operating system of the cloud. Learn navigation, file permissions, users, and service management.</p>
       <a href="linux-commands/basic-linux-commands/" class="step-link">Start Linux Track →</a>
