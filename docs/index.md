@@ -17,7 +17,8 @@ hide:
   
   /* Hero Section */
   .hero {
-    padding: 3rem 1.5rem;
+    padding: 0.5rem 1.5rem 2.5rem 1.5rem;
+    margin-top: -1.5rem;
     text-align: center;
     margin-bottom: 2.5rem;
     background: transparent;
