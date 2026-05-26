@@ -202,11 +202,103 @@ hide:
 </style>
 
 <div class="hero">
+  <!-- Launch Offer Top Micro-Badge -->
+  <div style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; background: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 50px; font-size: 0.8rem; font-weight: 800; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.05em; backdrop-filter: blur(10px);">
+    🚀 FREE LAUNCH SPECIAL UNTIL MAY 31ST! (NO CREDIT CARD REQUIRED)
+  </div>
   <h1>Your Co-Pilot for DevOps Mastery</h1>
-  <p>Stop watching endless videos. Start learning by doing with our step-by-step guides, real-world examples, and interactive quizzes.</p>
+  <p>Stop watching endless videos. Practice live in real browser-based sandboxes with secure environments, real-world troubleshooting, and instant task validation.</p>
   <div class="hero-buttons">
-    <a href="linux-commands/basic-linux-commands/" class="btn btn-primary">🚀 Start Learning Linux</a>
+    <a href="https://www.devopspilot.com/lab/linux" target="_blank" class="btn btn-primary" style="background: #10b981; color: white !important; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4); border: 2px solid #10b981;">💻 Start Free Browser Labs</a>
+    <a href="linux-commands/basic-linux-commands/" class="btn btn-secondary">📖 Read Tutorials</a>
     <a href="quiz/" class="btn btn-secondary">📝 Practice Quizzes</a>
+  </div>
+</div>
+
+<h2 class="section-title">🗺️ Recommended Learning Path</h2>
+<p class="text-center" style="max-width: 700px; margin: 0 auto 3rem auto; color: var(--text-light); line-height: 1.6;">
+  Follow our expert-curated DevOps roadmaps to build solid engineering foundations. Look for the <span style="color: #10b981; font-weight: bold;">Live Labs</span> indicator to practice in real browser sandboxes!
+</p>
+
+<div class="path-container" style="max-width: 800px; margin: 0 auto 4rem auto;">
+  <div class="step-item">
+    <div class="step-num">1</div>
+    <div class="step-info">
+      <h4 style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 6px;">
+        Master Linux Fundamentals
+        <span style="padding: 2px 8px; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 4px; font-size: 0.7rem; font-weight: 700; color: #10b981; text-transform: uppercase; letter-spacing: 0.05em; display: inline-flex; align-items: center; gap: 4px;">💻 Live Labs Available</span>
+      </h4>
+      <p>The operating system of the cloud. Learn navigation, file permissions, users, and service management.</p>
+      <a href="linux-commands/basic-linux-commands/" class="step-link">Start Linux Track →</a>
+    </div>
+  </div>
+  <div class="step-item">
+    <div class="step-num">2</div>
+    <div class="step-info">
+      <h4 style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 6px;">
+        Version Control with Git
+        <span style="padding: 2px 8px; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 4px; font-size: 0.7rem; font-weight: 700; color: #10b981; text-transform: uppercase; letter-spacing: 0.05em; display: inline-flex; align-items: center; gap: 4px;">💻 Live Labs Available</span>
+      </h4>
+      <p>Essential for every modern engineer. Learn branching strategies, merging, and remote repository integration.</p>
+      <a href="git/" class="step-link">Learn Git →</a>
+    </div>
+  </div>
+  <div class="step-item">
+    <div class="step-num">3</div>
+    <div class="step-info">
+      <h4>Shell Scripting</h4>
+      <p>Automate repetitive administrative tasks and build powerful command-line tools.</p>
+      <a href="shellscript/" class="step-link">Start Scripting →</a>
+    </div>
+  </div>
+  <div class="step-item">
+    <div class="step-num">4</div>
+    <div class="step-info">
+      <h4 style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 6px;">
+        Docker & Containers
+        <span style="padding: 2px 8px; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 4px; font-size: 0.7rem; font-weight: 700; color: #10b981; text-transform: uppercase; letter-spacing: 0.05em; display: inline-flex; align-items: center; gap: 4px;">💻 Live Labs Available</span>
+      </h4>
+      <p>Package applications for consistency. Learn multi-stage builds, volumes, networking, and compose stacks.</p>
+      <a href="docker/" class="step-link">Explore Docker →</a>
+    </div>
+  </div>
+  <div class="step-item">
+    <div class="step-num">5</div>
+    <div class="step-info">
+      <h4 style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 6px;">
+        Kubernetes Orchestration
+        <span style="padding: 2px 8px; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 4px; font-size: 0.7rem; font-weight: 700; color: #10b981; text-transform: uppercase; letter-spacing: 0.05em; display: inline-flex; align-items: center; gap: 4px;">💻 Live Labs Available</span>
+      </h4>
+      <p>Manage containerized workloads at scale. Learn Pods, Deployments, Services, and Ingress routing.</p>
+      <a href="kubernetes/" class="step-link">Master Kubernetes →</a>
+    </div>
+  </div>
+  <div class="step-item">
+    <div class="step-num">6</div>
+    <div class="step-info">
+      <h4>AWS Cloud Mastery</h4>
+      <p>Validate your expertise with role-based quizzes from Cloud Engineer to Security Specialist.</p>
+      <a href="quiz/aws/" class="step-link">Start AWS Track →</a>
+    </div>
+  </div>
+</div>
+
+<h2 class="section-title">Why DevopsPilot Interactive Labs?</h2>
+<div class="grid-3" style="margin-bottom: 4rem;">
+  <div class="card">
+    <span class="card-icon">💻</span>
+    <h3>Live Browser Sandboxes</h3>
+    <p>Launch fully-isolated, live Linux environments directly in your browser. Practice commands, service management, and configurations in real time with secure tmux shells.</p>
+  </div>
+  <div class="card">
+    <span class="card-icon">🛠️</span>
+    <h3>Troubleshooting & Challenges</h3>
+    <p>Debug pre-broken servers, lockdown active firewall attacks, and tackle custom scenarios designed by production engineers under pressure.</p>
+  </div>
+  <div class="card">
+    <span class="card-icon">🎯</span>
+    <h3>Smart Validation</h3>
+    <p>Get instant, programmatic feedback on your tasks. Verify your configurations and resolve issues with automated scripts directly inside the interface.</p>
   </div>
 </div>
 
@@ -216,7 +308,7 @@ hide:
   These practical guides help you master complex deployments and pipelines with ease.
 </p>
 
-<div class="grid-3">
+<div class="grid-3" style="margin-bottom: 4rem;">
   <a href="cloud/gcp/projects/apigee-psc-cloudrun/" class="card" style="text-decoration: none;">
     <span class="card-icon">☁️</span>
     <h3>Apigee X with PSC</h3>
@@ -232,79 +324,6 @@ hide:
     <h3>FastAPI on Lambda</h3>
     <p>Deploy a high-performance FastAPI application to AWS Lambda using Docker containers.</p>
   </a>
-</div>
-
-<h2 class="section-title">Why DevopsPilot?</h2>
-
-<div class="grid-3">
-  <div class="card">
-    <span class="card-icon">🛠️</span>
-    <h3>Practical Approach</h3>
-    <p>We believe in "Learning by Doing". Every tutorial comes with commands you can run and real scenarios to solve, not just theory.</p>
-  </div>
-  <div class="card">
-    <span class="card-icon">🎯</span>
-    <h3>Interview Focused</h3>
-    <p>Curated content that targets the most common questions in DevOps interviews. We prepare you for the job, not just the certification.</p>
-  </div>
-  <div class="card">
-    <span class="card-icon">⚡</span>
-    <h3>Beginner Friendly</h3>
-    <p>Complex topics broken down into simple, bite-sized lessons. No jargon overload—just clear, actionable engineering advice.</p>
-  </div>
-</div>
-
-<h2 class="section-title">🗺️ Recommended Learning Path</h2>
-
-<div class="path-container">
-  <div class="step-item">
-    <div class="step-num">1</div>
-    <div class="step-info">
-      <h4>Master Linux Fundamentals</h4>
-      <p>The operating system of the cloud. Learn permissions, shell, and file systems.</p>
-      <a href="linux-commands/basic-linux-commands/" class="step-link">Start Linux Track →</a>
-    </div>
-  </div>
-  <div class="step-item">
-    <div class="step-num">2</div>
-    <div class="step-info">
-      <h4>Version Control with Git</h4>
-      <p>Essential for every engineer. Learn branching, merging, and collaboration.</p>
-      <a href="git/" class="step-link">Learn Git →</a>
-    </div>
-  </div>
-  <div class="step-item">
-    <div class="step-num">3</div>
-    <div class="step-info">
-      <h4>Shell Scripting</h4>
-      <p>Automate repetitive tasks and build powerful tools.</p>
-      <a href="shellscript/" class="step-link">Start Scripting →</a>
-    </div>
-  </div>
-  <div class="step-item">
-    <div class="step-num">4</div>
-    <div class="step-info">
-      <h4>Docker & Containers</h4>
-      <p>Package applications for consistency across environments.</p>
-      <a href="docker/" class="step-link">Explore Docker →</a>
-    </div>
-  </div>
-  <div class="step-item">
-    <div class="step-num">5</div>
-    <div class="step-info">
-      <h4>Kubernetes Orchestration</h4>
-      <p>Manage containerized applications at scale.</p>
-      <a href="kubernetes/" class="step-link">Master Kubernetes →</a>
-    </div>
-  </div>
-  <div class="step-item">
-    <div class="step-num">6</div>
-    <div class="step-info">
-      <h4>AWS Cloud Mastery</h4>
-      <p>Validate your expertise with role-based quizzes from Cloud Engineer to Security Specialist.</p>
-      <a href="quiz/aws/" class="step-link">Start AWS Track →</a>
-    </div>
-  </div>
 </div>
 
 <h2 class="section-title">📚 Explore Topics</h2>
