@@ -136,4 +136,8 @@ Check out our other shell guides:
 
 ---
 
+{% include-markdown ".partials/linux-labs-callout.md" %}
+
+---
+
 {% include-markdown ".partials/subscribe-guides.md" %}

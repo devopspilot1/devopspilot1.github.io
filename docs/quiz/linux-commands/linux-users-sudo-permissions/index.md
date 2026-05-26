@@ -223,4 +223,8 @@ Which command should be used to safely edit the sudoers file?
 
 ---
 
+{% include-markdown ".partials/linux-labs-callout.md" %}
+
+---
+
 {% include-markdown ".partials/subscribe.md" %}

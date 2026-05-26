@@ -224,4 +224,8 @@ Which command helps a DevOps engineer quickly verify disk space issues?
 
 ---
 
+{% include-markdown ".partials/linux-labs-callout.md" %}
+
+---
+
 {% include-markdown ".partials/subscribe.md" %}

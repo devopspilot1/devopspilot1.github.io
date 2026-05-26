@@ -280,6 +280,10 @@ Hidden files begin with a `.` and are only shown when using the `-a` option with
 
 ---
 
+{% include-markdown ".partials/linux-labs-callout.md" %}
+
+---
+
 ### 📝 Want More Practice?
 
 To strengthen your understanding and prepare for interviews, try the **full 20-question practice quiz** based on this chapter:

@@ -177,4 +177,8 @@ Happy Learning! 🚀
 
 ---
 
+{% include-markdown ".partials/linux-labs-callout.md" %}
+
+---
+
 {% include-markdown ".partials/subscribe.md" %}

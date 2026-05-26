@@ -223,4 +223,8 @@ Which command helps verify where you are in the filesystem?
 
 ---
 
+{% include-markdown ".partials/linux-labs-callout.md" %}
+
+---
+
 {% include-markdown ".partials/subscribe.md" %}

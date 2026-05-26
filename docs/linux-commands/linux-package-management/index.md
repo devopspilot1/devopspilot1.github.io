@@ -277,4 +277,8 @@ Test your knowledge with a full set of questions:
 
 ---
 
+{% include-markdown ".partials/linux-labs-callout.md" %}
+
+---
+
 {% include-markdown ".partials/subscribe-guides.md" %}

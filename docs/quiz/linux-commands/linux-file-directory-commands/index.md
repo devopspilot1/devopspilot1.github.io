@@ -223,4 +223,8 @@ Which command helps visualize directory contents recursively?
 
 ---
 
+{% include-markdown ".partials/linux-labs-callout.md" %}
+
+---
+
 {% include-markdown ".partials/subscribe.md" %}

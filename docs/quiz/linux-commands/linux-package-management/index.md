@@ -120,4 +120,8 @@ One of the biggest advantages of package managers is that they identify and inst
 
 ---
 
+{% include-markdown ".partials/linux-labs-callout.md" %}
+
+---
+
 {% include-markdown ".partials/subscribe.md" %}

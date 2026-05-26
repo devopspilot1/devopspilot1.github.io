@@ -198,4 +198,8 @@ To strengthen your understanding and prepare for interviews, try the **full 22-q
 
 ---
 
+{% include-markdown ".partials/linux-labs-callout.md" %}
+
+---
+
 {% include-markdown ".partials/subscribe-guides.md" %}
