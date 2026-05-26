@@ -217,7 +217,7 @@ hide:
 
 <h2 class="section-title">🗺️ Recommended Learning Path</h2>
 <p class="text-center" style="max-width: 700px; margin: 0 auto 3rem auto; color: var(--text-light); line-height: 1.6;">
-  Follow our expert-curated DevOps roadmaps to build solid engineering foundations. Look for the <span style="color: #10b981; font-weight: bold;">Live Labs</span> indicator to practice in real browser sandboxes!
+  Follow our expert-curated DevOps roadmaps to build solid engineering foundations. Kick off your journey with our interactive, browser-based Linux sandbox!
 </p>
 
 <div class="path-container" style="max-width: 800px; margin: 0 auto 4rem auto;">
@@ -235,10 +235,7 @@ hide:
   <div class="step-item">
     <div class="step-num">2</div>
     <div class="step-info">
-      <h4 style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 6px;">
-        Version Control with Git
-        <span style="padding: 2px 8px; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 4px; font-size: 0.7rem; font-weight: 700; color: #10b981; text-transform: uppercase; letter-spacing: 0.05em; display: inline-flex; align-items: center; gap: 4px;">💻 Live Labs Available</span>
-      </h4>
+      <h4>Version Control with Git</h4>
       <p>Essential for every modern engineer. Learn branching strategies, merging, and remote repository integration.</p>
       <a href="git/" class="step-link">Learn Git →</a>
     </div>
@@ -254,10 +251,7 @@ hide:
   <div class="step-item">
     <div class="step-num">4</div>
     <div class="step-info">
-      <h4 style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 6px;">
-        Docker & Containers
-        <span style="padding: 2px 8px; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 4px; font-size: 0.7rem; font-weight: 700; color: #10b981; text-transform: uppercase; letter-spacing: 0.05em; display: inline-flex; align-items: center; gap: 4px;">💻 Live Labs Available</span>
-      </h4>
+      <h4>Docker & Containers</h4>
       <p>Package applications for consistency. Learn multi-stage builds, volumes, networking, and compose stacks.</p>
       <a href="docker/" class="step-link">Explore Docker →</a>
     </div>
@@ -265,10 +259,7 @@ hide:
   <div class="step-item">
     <div class="step-num">5</div>
     <div class="step-info">
-      <h4 style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 6px;">
-        Kubernetes Orchestration
-        <span style="padding: 2px 8px; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 4px; font-size: 0.7rem; font-weight: 700; color: #10b981; text-transform: uppercase; letter-spacing: 0.05em; display: inline-flex; align-items: center; gap: 4px;">💻 Live Labs Available</span>
-      </h4>
+      <h4>Kubernetes Orchestration</h4>
       <p>Manage containerized workloads at scale. Learn Pods, Deployments, Services, and Ingress routing.</p>
       <a href="kubernetes/" class="step-link">Master Kubernetes →</a>
     </div>
