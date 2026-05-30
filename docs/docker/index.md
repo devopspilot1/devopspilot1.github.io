@@ -1,83 +1,138 @@
-# Docker
+---
+title: "Docker for DevOps Engineers"
+description: "Master Docker with interactive tutorials covering container basics, networking, volumes, Dockerfiles, and Compose."
+---
 
-Docker helps you package applications with all their dependencies and run them consistently across environments — from local development to production.
+# Docker for DevOps Engineers (Beginner to Advanced)
 
-This section is designed as a **practical Docker learning path**, starting from core concepts and moving toward real-world usage.
+Docker is essential for modern DevOps. 
+From local development to CI/CD pipelines and Kubernetes, **containerization is everywhere**.
+
+This guide is a **complete, structured Docker tutorials reference**, starting from basics and progressing to **advanced configurations**.
 
 ---
 
-## 🧱 Docker Fundamentals
+## 📌 Who Is This Guide For?
 
-Understand why Docker exists and how it solves dependency and environment issues.
+This guide is ideal if you are:
+- A **beginner** learning Docker for DevOps
+- A **DevOps engineer** working with containers
+- Preparing for **Docker / DevOps interviews**
+- Debugging **containerized applications**
 
-* **What is Docker**
-* **Physical Server → VM → Containers**
-* **Docker Images vs Containers**
-* **How Docker fits into CI/CD workflows**
+---
+## 🧭 Docker Learning Path
+
+Follow this order for best results 👇
 
 ---
 
-## ⚙️ Docker Installation & Setup
-
-Set up Docker correctly before building or running containers.
-
-* Install Docker on Linux
-* Verify Docker installation
-* Basic Docker CLI usage
+### 👉 [Container Basics](./docker-container-basics/index.md)
+Learn the core commands to run and manage containers.
 
 ---
 
-## 📦 Working with Docker Images
-
-Learn how images are created, tagged, stored, and shared.
-
-* Pull images from Docker Hub
-* Build custom images
-* Tag and manage images
-* Push images to public and private repositories
+### 👉 [Image Management](./docker-image-management/index.md)
+Understand how to pull, tag, inspect, and remove Docker images.
 
 ---
 
-## 🧩 Dockerfile Essentials
-
-Create reproducible and optimized Docker images.
-
-* Writing basic Dockerfiles
-* Installing packages using Dockerfile
-* Multi-stage Docker builds
-* Running Java applications in containers
+### 👉 [Volumes & Persistence](./docker-volumes-persistence/index.md)
+Learn how to persist data using Docker volumes and bind mounts.
 
 ---
 
-## 🚀 Running Containers
-
-Understand container lifecycle and runtime behavior.
-
-* Running containers
-* Port mapping
-* Logs and container inspection
-* Resource usage (CPU / Memory)
+### 👉 [Networking Basics](./docker-networking-basics/index.md)
+Understand Docker bridge networks and how containers communicate.
 
 ---
 
-## 🔄 Docker in Real Projects
-
-Apply Docker in real-world DevOps scenarios.
-
-* Containerizing web applications
-* Using Docker with Jenkins pipelines
-* Preparing images for Kubernetes
+### 👉 [Environment Variables](./docker-environment-variables/index.md)
+Configure applications dynamically using environment variables.
 
 ---
 
-## 🧭 What’s Next?
-
-After Docker, continue with:
-
-* **Kubernetes** for orchestration
-* **Helm** for packaging deployments
-* **CI/CD pipelines** using Jenkins
+### 👉 [Port Mapping](./docker-port-mapping/index.md)
+Expose container services to the outside world.
 
 ---
 
-{% include-markdown ".partials/subscribe.md" %}
+### 👉 [Dockerfile Writing Basics](./dockerfile-writing-basics/index.md)
+Learn how to build your own custom Docker images from source code.
+
+---
+
+### 👉 [Dockerfile Best Practices](./dockerfile-best-practices/index.md)
+Optimize your images for size, security, and cacheability.
+
+---
+
+### 👉 [Multi-Stage Builds](./docker-multi-stage-builds/index.md)
+Create tiny, secure production images by separating build and runtime environments.
+
+---
+
+### 👉 [Resource Limits](./docker-resource-limits/index.md)
+Constrain container CPU and memory usage to prevent resource exhaustion.
+
+---
+
+### 👉 [Logging & Inspection](./docker-logging-inspection/index.md)
+Access container logs, inspect metadata, and monitor Docker events.
+
+---
+
+### 👉 [Registry & Image Push](./docker-registry-image-push/index.md)
+Tag images, run a local registry, and push/pull images.
+
+---
+
+### 👉 [Docker Compose Fundamentals](./docker-compose-fundamentals/index.md)
+Define and manage multi-container applications using Docker Compose.
+
+---
+
+### 👉 [Docker Compose Advanced](./docker-compose-advanced/index.md)
+Learn advanced Compose features like named volumes, custom networks, and health checks.
+
+---
+
+## 🧠 Quick Quiz — Docker
+
+<quiz>
+Which command is used to run a Docker container in the background?
+- [ ] docker run -it
+- [x] docker run -d
+- [ ] docker run -b
+- [ ] docker start -d
+
+The `-d` or `--detach` flag runs the container in the background and prints the container ID.
+</quiz>
+
+<quiz>
+What is the purpose of a multi-stage build in Docker?
+- [ ] To run multiple containers simultaneously.
+- [ ] To build multiple images with one Dockerfile.
+- [x] To reduce the final image size by discarding build dependencies.
+- [ ] To run tests before building the image.
+
+Multi-stage builds allow you to use one image for building and another smaller image for the final runtime, discarding heavy build tools.
+</quiz>
+
+<quiz>
+How can you persist data generated by a container so it survives container deletion?
+- [ ] Using the `docker save` command.
+- [ ] Storing it in the container's writable layer.
+- [x] Using Docker volumes or bind mounts.
+- [ ] Running the container with the `--persist` flag.
+
+Docker volumes and bind mounts map directories on the host to directories inside the container, ensuring data persistence.
+</quiz>
+
+---
+
+{% include-markdown "../.partials/docker-labs-callout.md" %}
+
+---
+
+{% include-markdown "../.partials/subscribe-guides.md" %}

@@ -78,6 +78,6 @@
   </div>
 
   <div style="margin-top: 14px; text-align: center; font-size: 0.75rem; opacity: 0.85; font-weight: bold;">
-    ⚡ <span style="color: #10b981; text-transform: uppercase; letter-spacing: 0.05em;">Free Launch Offer:</span> Get all premium Linux labs for <span style="color: #10b981;">FREE</span> until May 31st! (No Credit Card Required)
+    ⚡ <span style="color: #10b981; text-transform: uppercase; letter-spacing: 0.05em;">Free Launch Offer:</span> Get all premium Linux labs for <span style="color: #10b981;">FREE</span> until June 30th! (No Credit Card Required)
   </div>
 </div>

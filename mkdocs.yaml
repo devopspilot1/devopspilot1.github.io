@@ -207,20 +207,20 @@ nav:
       - Migration Guide: github-actions/tutorials/migrating-from-jenkins-to-github-actions/index.md
   - Docker:
     - Overview: docker/index.md
-    - Tutorials:
-      - Overview: docker/tutorials/index.md
-      - What is Docker: docker/tutorials/what-is-docker/index.md
-      - How to install docker: docker/tutorials/install-docker/index.md
-      - Docker Images vs Docker Containers: docker/tutorials/images-vs-containers/index.md
-      - Create docker image for nginx and html file: docker/tutorials/create-image-nginx/index.md
-      - Pull nginx docker image from dockerhub, tag and push to your public repo in dockerhub account: docker/tutorials/push-public-repo/index.md
-      - Pull nginx docker image from dockerhub, tag and push to your private repository in dockerhub account: docker/tutorials/push-private-repo/index.md
-    - Dockerfile:
-      - Overview: docker/dockerfiles/index.md
-      - How to write Dockerfile for installing packages: docker/dockerfiles/install-packages/index.md
-      - How to write a dockerfile for installing openjdk15: docker/dockerfiles/install-openjdk/index.md
-      - How to create a multi stage Dockerfile: docker/dockerfiles/multi-stage-build/index.md
-      - How to write a dockerfile for running a java application (*.war) in Apache tomcat webserver: docker/dockerfiles/run-war-in-tomcat/index.md
+    - Container Basics: docker/docker-container-basics/index.md
+    - Image Management: docker/docker-image-management/index.md
+    - Volumes & Persistence: docker/docker-volumes-persistence/index.md
+    - Networking Basics: docker/docker-networking-basics/index.md
+    - Environment Variables: docker/docker-environment-variables/index.md
+    - Port Mapping: docker/docker-port-mapping/index.md
+    - Dockerfile Writing Basics: docker/dockerfile-writing-basics/index.md
+    - Dockerfile Best Practices: docker/dockerfile-best-practices/index.md
+    - Multi-Stage Builds: docker/docker-multi-stage-builds/index.md
+    - Resource Limits: docker/docker-resource-limits/index.md
+    - Logging & Inspection: docker/docker-logging-inspection/index.md
+    - Registry & Image Push: docker/docker-registry-image-push/index.md
+    - Docker Compose Fundamentals: docker/docker-compose-fundamentals/index.md
+    - Docker Compose Advanced: docker/docker-compose-advanced/index.md
   - Kubernetes:
     - Overview: kubernetes/index.md
     - Introduction:
