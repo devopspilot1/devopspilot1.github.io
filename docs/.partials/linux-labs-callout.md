@@ -114,14 +114,13 @@
 
   <div class="sleek-btn-group">
     <a href="https://www.devopspilot.com/lab/linux" target="_blank" class="sleek-btn sleek-btn-primary">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-      Start Guided Lab
+      ▶ Start Guided Lab
     </a>
     <a href="https://www.devopspilot.com/lab/linux?tab=troubleshooting" target="_blank" class="sleek-btn sleek-btn-secondary">
-      🛠️ Troubleshooting
+      🛠️ Troubleshooting Lab →
     </a>
     <a href="https://www.devopspilot.com/lab/linux?tab=challenge" target="_blank" class="sleek-btn sleek-btn-secondary">
-      🏆 Challenges
+      🏆 Challenge Lab →
     </a>
   </div>
 
