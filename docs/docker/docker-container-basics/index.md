@@ -15,7 +15,7 @@ Before Docker, deploying software was fragile. Code worked on a developer's lapt
 
 **Docker solves this** by packaging your application and all its dependencies into a single, portable unit called a **container**. Containers run identically on any machine that has Docker installed — laptop, CI server, or cloud VM.
 
-![Virtual Machines vs Docker Containers](/images/docker-vs-vm.png)
+![Virtual Machines vs Docker Containers](../../images/docker-vs-vm.png)
 
 | Term | What it means |
 |---|---|

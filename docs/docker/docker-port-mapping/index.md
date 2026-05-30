@@ -15,7 +15,7 @@ Containers are isolated by default. If a web server runs inside a container on p
 
 To make a container's service accessible, you must **map** (publish) a port from the Docker host to a port inside the container using the `-p` flag.
 
-![Docker Port Mapping Diagram](/images/docker-guided-port-mapping-diagram.png)
+![Docker Port Mapping Diagram](../../images/docker-guided-port-mapping-diagram.png)
 
 Run `docker run -d --name web -p 8080:80 nginx:alpine` to start an NGINX web server, mapping the host's port **8080** to the container's internal port **80**.
 
@@ -38,7 +38,7 @@ Once the container is running, open `http://localhost:8080` in your web browser.
 
 If you deploy many containers, managing static ports like `8080` manually can lead to collisions. Docker can automatically assign an available random high port on the host to your container using the uppercase `-P` flag.
 
-![Docker Dynamic Port Mapping Diagram](/images/docker-guided-dynamic-port-mapping-diagram.png)
+![Docker Dynamic Port Mapping Diagram](../../images/docker-guided-dynamic-port-mapping-diagram.png)
 
 Run `docker run -d --name web-dynamic -P nginx:alpine`.
 
