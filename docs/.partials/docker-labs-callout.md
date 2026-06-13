@@ -71,6 +71,16 @@
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(14, 165, 233, 0.35);
   }
+  .sleek-btn-secondary-docker {
+    background: white;
+    color: #334155 !important;
+    border: 1px solid #cbd5e1;
+  }
+  .sleek-btn-secondary-docker:hover {
+    background: #f0f9ff;
+    border-color: #94a3b8;
+    transform: translateY(-2px);
+  }
   .sleek-promo-docker {
     margin-top: 1.5rem;
     padding-top: 1rem;
@@ -99,12 +109,18 @@
   </div>
   
   <p>
-    Don't just read about Docker commands—execute them in real time! Launch a fully-configured, secure Docker sandbox directly in your browser with automated task validation ready for you.
+    Don't just read about Docker commands—execute them in real time! Launch a fully-configured, secure Docker sandbox directly in your browser. Practice commands, debug broken containers, and complete timed challenges with instant task validation.
   </p>
 
   <div class="sleek-btn-group-docker">
     <a href="https://www.devopspilot.com/lab/docker" target="_blank" class="sleek-btn-docker sleek-btn-primary-docker">
       ▶ Start Guided Lab
+    </a>
+    <a href="https://www.devopspilot.com/lab/docker?tab=troubleshooting" target="_blank" class="sleek-btn-docker sleek-btn-secondary-docker">
+      🛠️ Troubleshooting Lab →
+    </a>
+    <a href="https://www.devopspilot.com/lab/docker?tab=challenge" target="_blank" class="sleek-btn-docker sleek-btn-secondary-docker">
+      🏆 Challenge Lab →
     </a>
   </div>
 

@@ -17,7 +17,7 @@ A common mistake is installing build tools in the same image that runs the appli
 graph TD
     SRC["📄 Source Code
 + Build Tools
-(gcc, go, npm...)"]-->|single RUN|IMG["📀 Fat Image
+(pip, gcc, make...)"]-->|pip install|IMG["📀 Fat Image
 (build tools INCLUDED)"]
     IMG-->|docker run|CNT["📦 Container
 (carries unused build tools)"]
@@ -27,41 +27,56 @@ graph TD
     style CNT fill:#fee2e2,stroke:#ef4444,stroke-width:2px,color:#7f1d1d
 ```
 
+First, create a simple Python application using Flask.
+
+```bash
+cat > app.py << 'EOF'
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def hello():
+    return "Hello"
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8080)
+EOF
+```
+
 Write a single-stage Dockerfile.
 
 ```bash
 cat > Dockerfile.single << 'EOF'
-FROM golang:1.22-alpine
+FROM python:3.12
 WORKDIR /app
-RUN echo 'package main' > main.go && \
-    echo 'import "fmt"' >> main.go && \
-    echo 'func main() { fmt.Println("Hello") }' >> main.go
-RUN go build -o app main.go
-CMD ["./app"]
+COPY app.py .
+RUN pip install flask
+CMD ["python", "app.py"]
 EOF
 ```
 
-Build it by running `docker build -t go-single -f Dockerfile.single .`
+Build it by running `docker build -t python-single -f Dockerfile.single .`
 
 ```bash
-docker build -t go-single -f Dockerfile.single .
+docker build -t python-single -f Dockerfile.single .
 ```
 
 ```text
-[+] Building 3.5s (8/8) FINISHED                                docker:default
+[+] Building 15.2s (8/8) FINISHED                               docker:default
 ...
- => => naming to docker.io/library/go-single                              0.0s
+ => => naming to docker.io/library/python-single                          0.0s
 ```
 
-Check its size by running `docker images go-single`.
+Check its size by running `docker images python-single`.
 
 ```bash
-docker images go-single
+docker images python-single
 ```
 
 ```text
-REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
-go-single    latest    1a2b3c4d5e6f   15 seconds ago   256MB
+REPOSITORY       TAG       IMAGE ID       CREATED          SIZE
+python-single    latest    1a2b3c4d5e6f   15 seconds ago   1.02GB
 ```
 
 ---
@@ -73,10 +88,10 @@ A `multi-stage build` uses multiple `FROM` instructions in a single Dockerfile. 
 ```mermaid
 graph TD
     SRC["📄 Source Code"]-->|Stage 1: builder
- go build|BIN["⚙️ Binary
-(compiled)"]
+ pip install|BIN["⚙️ Dependencies
+(installed)"]
     BIN-->|COPY --from=builder|RT["📀 Runtime Image
-(alpine only)"]
+(slim only)"]
     RT-->|docker run|CNT["📦 Container
 (lean, no build tools)"]
 
@@ -91,55 +106,57 @@ Write the multi-stage Dockerfile.
 ```bash
 cat > Dockerfile << 'EOF'
 # --- Stage 1: Build ---
-FROM golang:1.22-alpine AS builder
-WORKDIR /app
-RUN echo 'package main' > main.go && \
-    echo 'import "fmt"' >> main.go && \
-    echo 'func main() { fmt.Println("Hello") }' >> main.go
-RUN go build -o app main.go
+FROM python:3.12 AS builder
+WORKDIR /build
+RUN pip install --no-cache-dir --target=/install flask
 
 # --- Stage 2: Runtime ---
-FROM alpine:3.22
+FROM python:3.12-slim
+ENV PYTHONPATH=/install
 WORKDIR /app
-COPY --from=builder /app/app .
-CMD ["./app"]
+COPY --from=builder /install /install
+COPY app.py .
+CMD ["python", "app.py"]
 EOF
 ```
 
 Build the multi-stage image.
 
 ```bash
-docker build -t go-multi .
+docker build -t python-multi .
 ```
 
 ```text
-[+] Building 4.2s (10/10) FINISHED                              docker:default
+[+] Building 6.2s (10/10) FINISHED                              docker:default
 ...
- => => naming to docker.io/library/go-multi                               0.0s
+ => => naming to docker.io/library/python-multi                           0.0s
 ```
 
-Run it to verify it works.
+Run it to verify it works in the background and test it.
 
 ```bash
-docker run --rm go-multi
+docker run -d -p 8080:8080 --name test-app python-multi
+sleep 2
+curl localhost:8080
+docker stop test-app && docker rm test-app
 ```
 
 ```text
 Hello
 ```
 
-Finally, run `docker images | grep -E "go-single|go-multi"` to compare both image sizes side by side. 
+Finally, run `docker images | grep -E "python-single|python-multi"` to compare both image sizes side by side. 
 
 ```bash
-docker images | grep -E "go-single|go-multi"
+docker images | grep -E "python-single|python-multi"
 ```
 
 ```text
-go-single         latest    1a2b3c4d5e6f   2 minutes ago    256MB
-go-multi          latest    f1g2h3i4j5k6   15 seconds ago   9.2MB
+python-single         latest    1a2b3c4d5e6f   2 minutes ago    1.02GB
+python-multi          latest    f1g2h3i4j5k6   15 seconds ago   165MB
 ```
 
-Observe that `go-multi` is dramatically smaller because the Go toolchain (`golang:1.22-alpine`) is not present in the final image — only the compiled binary was copied over.
+Observe that `python-multi` is dramatically smaller because the heavy Python build tools (`python:3.12`) are not present in the final image — only the installed dependencies and application code were copied over into the lightweight `python:3.12-slim` image.
 
 ---
 
@@ -150,33 +167,43 @@ Observe that `go-multi` is dramatically smaller because the Go toolchain (`golan
 Build only the `builder` stage.
 
 ```bash
-docker build --target builder -t go-builder-only .
+docker build --target builder -t python-builder-only .
 ```
 
 ```text
 [+] Building 0.2s (7/7) FINISHED                                docker:default
 ...
- => => naming to docker.io/library/go-builder-only                        0.0s
+ => => naming to docker.io/library/python-builder-only                    0.0s
 ```
 
-Verify the Go compiler is present in this intermediate stage.
+Verify the `pip` package manager is present in this intermediate stage.
 
 ```bash
-docker run --rm go-builder-only go version
+docker run --rm python-builder-only pip --version
 ```
 
 ```text
-go version go1.22.5 linux/amd64
+pip 24.0 from /usr/local/lib/python3.12/site-packages/pip (python 3.12)
+```
+
+Now, try running a build tool like `gcc` (often required for compiling python packages) on your intermediate builder image.
+
+```bash
+docker run --rm python-builder-only gcc --version
+```
+
+```text
+gcc (Debian 12.2.0-14) 12.2.0
 ```
 
 Now, try running the same command on your final production image.
 
 ```bash
-docker run --rm go-multi go version
+docker run --rm python-multi gcc --version
 ```
 
 ```text
-docker: Error response from daemon: failed to create task for container: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: exec: "go": executable file not found in $PATH: unknown.
+docker: Error response from daemon: failed to create task for container: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: exec: "gcc": executable file not found in $PATH: unknown.
 ```
 
 It will fail! This proves that the multi-stage build successfully stripped out the massive build tools before producing the final image.
@@ -190,7 +217,7 @@ What is the primary benefit of using a multi-stage build?
 - [x] It produces a much smaller and more secure final image by excluding build tools.
 - [ ] It automatically pushes the image to a registry.
 
-Multi-stage builds let you compile code in a heavy image and only copy the compiled binary into a lightweight runtime image.
+Multi-stage builds let you install dependencies or compile code in a heavy image and only copy the necessary artifacts into a lightweight runtime image.
 </quiz>
 
 <quiz>

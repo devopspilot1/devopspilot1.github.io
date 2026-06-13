@@ -206,7 +206,7 @@ hide:
 <div class="hero">
   <!-- Launch Offer Top Micro-Badge -->
   <a href="https://www.devopspilot.com" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; background: rgba(15, 121, 14, 0.05); border: 1px solid rgba(15, 121, 14, 0.2); border-radius: 50px; font-size: 0.72rem; font-weight: 800; color: #0f790e; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.04em; text-decoration: none !important; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.background='rgba(15, 121, 14, 0.1)'; this.style.borderColor='#0f790e'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(15, 121, 14, 0.05)'; this.style.borderColor='rgba(15, 121, 14, 0.2)'; this.style.transform='translateY(0)'">
-    🚀 FREE LAUNCH SPECIAL: Get all premium Linux labs for FREE until June 30th! (No Credit Card Required)
+    🚀 FREE LAUNCH SPECIAL: Get all premium Linux and Docker labs for FREE until June 30th! (No Credit Card Required)
   </a>
   <h1>Your Co-Pilot for DevOps Mastery</h1>
   <p>Stop watching endless videos. Practice live in real browser-based sandboxes with secure environments, real-world troubleshooting, and instant task validation.</p>
@@ -219,7 +219,7 @@ hide:
 
 <h2 class="section-title">🗺️ Recommended Learning Path</h2>
 <p class="text-center" style="max-width: 700px; margin: 0 auto 3rem auto; color: var(--text-light); line-height: 1.6;">
-  Follow our expert-curated DevOps roadmaps to build solid engineering foundations. Kick off your journey with our interactive, browser-based Linux sandbox!
+  Follow our expert-curated DevOps roadmaps to build solid engineering foundations. Kick off your journey with our interactive, browser-based Linux and Docker sandboxes!
 </p>
 
 <div class="path-container" style="max-width: 800px; margin: 0 auto 4rem auto;">
@@ -253,7 +253,10 @@ hide:
   <div class="step-item">
     <div class="step-num">4</div>
     <div class="step-info">
-      <h4>Docker & Containers</h4>
+      <h4 style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 6px;">
+        Docker & Containers
+        <span style="padding: 2px 8px; background: rgba(15, 121, 14, 0.1); border: 1px solid rgba(15, 121, 14, 0.2); border-radius: 4px; font-size: 0.7rem; font-weight: 700; color: #0f790e; text-transform: uppercase; letter-spacing: 0.05em; display: inline-flex; align-items: center; gap: 4px;">🐳 Live Labs Available</span>
+      </h4>
       <p>Package applications for consistency. Learn multi-stage builds, volumes, networking, and compose stacks.</p>
       <a href="docker/" class="step-link">Explore Docker →</a>
     </div>
@@ -281,7 +284,7 @@ hide:
   <div class="card">
     <span class="card-icon">💻</span>
     <h3>Live Browser Sandboxes</h3>
-    <p>Launch fully-isolated, live Linux environments directly in your browser. Practice commands, service management, and configurations in real time with secure tmux shells.</p>
+    <p>Launch fully-isolated, live Linux and Docker environments directly in your browser. Practice commands, deploy containers, and write configurations in real time with secure tmux shells.</p>
   </div>
   <div class="card">
     <span class="card-icon">🛠️</span>
