@@ -26,4 +26,8 @@ From core concepts to advanced container orchestration, test your skills now.
 
 ---
 
-{% include-markdown ".partials/subscribe-guides.md" %}
+{% include-markdown "../../.partials/docker-labs-callout.md" %}
+
+---
+
+{% include-markdown "../../.partials/subscribe-guides.md" %}
