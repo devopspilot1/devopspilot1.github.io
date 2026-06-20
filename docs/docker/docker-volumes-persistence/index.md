@@ -16,27 +16,23 @@ By default, any files written inside a container exist only in that container's 
 Start a container in the background that stays alive indefinitely by running `docker run -d --name temp-app alpine:3.22 sleep infinity`.
 
 ```bash
-docker run -d --name temp-app alpine:3.22 sleep infinity
-```
+[labuser@container ~]$ docker run -d --name temp-app alpine:3.22 sleep infinity
 
-```text
 7b6a5e4f3d2c1b0a9f8e7d6c5b4a3f2e1d0c9b8a7f6e5d4c3b2a1f0e9d8c7b6a
 ```
 
 Now, create a file inside this running container using the `exec` command.
 
 ```bash
-docker exec temp-app sh -c "echo 'critical data' > /data.txt"
+[labuser@container ~]$ docker exec temp-app sh -c "echo 'critical data' > /data.txt"
 ```
 
 Verify the file exists inside the container.
 
 ```bash
-docker exec temp-app ls -l /data.txt
-docker exec temp-app cat /data.txt
-```
+[labuser@container ~]$ docker exec temp-app ls -l /data.txt
+[labuser@container ~]$ docker exec temp-app cat /data.txt
 
-```text
 -rw-r--r--    1 root     root            14 Nov  1 12:00 /data.txt
 critical data
 ```
@@ -44,10 +40,8 @@ critical data
 Verify the container is running by using `docker ps`.
 
 ```bash
-docker ps
-```
+[labuser@container ~]$ docker ps
 
-```text
 CONTAINER ID   IMAGE         COMMAND            CREATED          STATUS          PORTS     NAMES
 7b6a5e4f3d2c   alpine:3.22   "sleep infinity"   15 seconds ago   Up 14 seconds             temp-app
 ```
@@ -55,40 +49,32 @@ CONTAINER ID   IMAGE         COMMAND            CREATED          STATUS         
 Remove the container to simulate an update or a crash.
 
 ```bash
-docker rm -f temp-app
-```
+[labuser@container ~]$ docker rm -f temp-app
 
-```text
 temp-app
 ```
 
 Run `docker ps -a` to verify the container has been completely removed.
 
 ```bash
-docker ps -a
-```
+[labuser@container ~]$ docker ps -a
 
-```text
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 ```
 
 Recreate the container with the exact same name.
 
 ```bash
-docker run -d --name temp-app alpine:3.22 sleep infinity
-```
+[labuser@container ~]$ docker run -d --name temp-app alpine:3.22 sleep infinity
 
-```text
 c5b4a3f2e1d0c9b8a7f6e5d4c3b2a1f0e9d8c7b6a5e4f3d2c1b0a9f8e7d6c5b4
 ```
 
 Try to read the file again.
 
 ```bash
-docker exec temp-app cat /data.txt
-```
+[labuser@container ~]$ docker exec temp-app cat /data.txt
 
-```text
 cat: can't open '/data.txt': No such file or directory
 ```
 
@@ -139,20 +125,16 @@ graph TD
 Run `docker volume create appdata` to create a named volume called `appdata`.
 
 ```bash
-docker volume create appdata
-```
+[labuser@container ~]$ docker volume create appdata
 
-```text
 appdata
 ```
 
 Run `docker volume ls` to list all volumes and confirm `appdata` appears.
 
 ```bash
-docker volume ls
-```
+[labuser@container ~]$ docker volume ls
 
-```text
 DRIVER    VOLUME NAME
 local     appdata
 ```
@@ -166,10 +148,8 @@ local     appdata
 Run `docker volume inspect appdata` to view the volume configuration. Note the `Mountpoint` field — this is where Docker stores the volume's data on the host.
 
 ```bash
-docker volume inspect appdata
-```
+[labuser@container ~]$ docker volume inspect appdata
 
-```json
 [
     {
         "CreatedAt": "2023-11-01T12:02:00Z",
@@ -190,27 +170,23 @@ docker volume inspect appdata
 Start a new container in the background and attach the `appdata` volume so that it appears as the `/data` folder inside the container. 
 
 ```bash
-docker run -d --name volume-app -v appdata:/data alpine:3.22 sleep infinity
-```
+[labuser@container ~]$ docker run -d --name volume-app -v appdata:/data alpine:3.22 sleep infinity
 
-```text
 e5d4c3b2a1f0e9d8c7b6a5e4f3d2c1b0a9f8e7d6c5b4a3f2e1d0c9b8a7f6e5d4
 ```
 
 Now, create a file inside this running container on the mounted volume.
 
 ```bash
-docker exec volume-app sh -c "echo 'persisted across restarts' > /data/record.txt"
+[labuser@container ~]$ docker exec volume-app sh -c "echo 'persisted across restarts' > /data/record.txt"
 ```
 
 Verify the file was written.
 
 ```bash
-docker exec volume-app ls -l /data/record.txt
-docker exec volume-app cat /data/record.txt
-```
+[labuser@container ~]$ docker exec volume-app ls -l /data/record.txt
+[labuser@container ~]$ docker exec volume-app cat /data/record.txt
 
-```text
 -rw-r--r--    1 root     root            26 Nov  1 12:05 /data/record.txt
 persisted across restarts
 ```
@@ -222,10 +198,8 @@ persisted across restarts
 Verify the running containers by using `docker ps`.
 
 ```bash
-docker ps
-```
+[labuser@container ~]$ docker ps
 
-```text
 CONTAINER ID   IMAGE         COMMAND            CREATED          STATUS          PORTS     NAMES
 e5d4c3b2a1f0   alpine:3.22   "sleep infinity"   2 minutes ago    Up 2 minutes              volume-app
 ```
@@ -233,41 +207,33 @@ e5d4c3b2a1f0   alpine:3.22   "sleep infinity"   2 minutes ago    Up 2 minutes   
 Remove the container that wrote the data.
 
 ```bash
-docker rm -f volume-app
-```
+[labuser@container ~]$ docker rm -f volume-app
 
-```text
 volume-app
 ```
 
 Run `docker ps -a` to verify the container has been completely removed.
 
 ```bash
-docker ps -a
-```
+[labuser@container ~]$ docker ps -a
 
-```text
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 ```
 
 Start a new container — with the exact same name and volume mount.
 
 ```bash
-docker run -d --name volume-app -v appdata:/data alpine:3.22 sleep infinity
-```
+[labuser@container ~]$ docker run -d --name volume-app -v appdata:/data alpine:3.22 sleep infinity
 
-```text
 f0e9d8c7b6a5e4f3d2c1b0a9f8e7d6c5b4a3f2e1d0c9b8a7f6e5d4c3b2a1f0e9
 ```
 
 Try to read the file again.
 
 ```bash
-docker exec volume-app ls -l /data/record.txt
-docker exec volume-app cat /data/record.txt
-```
+[labuser@container ~]$ docker exec volume-app ls -l /data/record.txt
+[labuser@container ~]$ docker exec volume-app cat /data/record.txt
 
-```text
 -rw-r--r--    1 root     root            26 Nov  1 12:05 /data/record.txt
 persisted across restarts
 ```
@@ -283,22 +249,20 @@ A `bind mount` maps a directory on the host filesystem directly into a container
 Create a directory on the host.
 
 ```bash
-mkdir -p /workspace/shared
+[labuser@container ~]$ mkdir -p shared
 ```
 
 Write a file on the host.
 
 ```bash
-echo 'data from host' > /workspace/shared/app.txt
+[labuser@container ~]$ echo 'data from host' > shared/app.txt
 ```
 
 Verify the file exists on the host.
 
 ```bash
-ls -l /workspace/shared/
-```
+[labuser@container ~]$ ls -l shared/
 
-```text
 total 4
 -rw-r--r-- 1 opc opc 15 Nov  1 12:10 app.txt
 ```
@@ -306,65 +270,57 @@ total 4
 Start a container in the background and mount the directory into it.
 
 ```bash
-docker run -d --name bind-app -v /workspace/shared:/app ubuntu:24.04 sleep infinity
-```
+[labuser@container ~]$ docker run -d --name bind-app -v $(pwd)/shared:/app ubuntu:24.04 sleep infinity
 
-```text
 1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z7a8b9c0d1e2f
 ```
 
 Open an interactive shell inside the running container.
 
 ```bash
-docker exec -it bind-app bash
-```
+[labuser@container ~]$ docker exec -it bind-app bash
 
-```text
 root@1a2b3c4d5e6f:/# 
 ```
 
 List the contents of the mounted folder and then read the file from the host.
 
 ```bash
-ls -l /app
-cat /app/app.txt
-```
+root@1a2b3c4d5e6f:/# ls -l /app
+root@1a2b3c4d5e6f:/# cat /app/app.txt
 
-```text
 total 4
 -rw-r--r-- 1 root root 15 Nov  1 12:10 app.txt
 data from host
 ```
 
-Because we used a bind mount (`-v /workspace/shared:/app`), the `/workspace/shared` folder from your host machine is now directly accessible inside the container as the `/app` folder. This is exactly why the container can instantly see the `app.txt` file you just created!
+Because we used a bind mount (`-v $(pwd)/shared:/app`), the `shared` folder from your current directory on the host machine is now directly accessible inside the container as the `/app` folder. This is exactly why the container can instantly see the `app.txt` file you just created!
 
 Now let's do the reverse! Write a file from inside the container.
 
 ```bash
-echo 'from container' > /app/container.txt
+root@1a2b3c4d5e6f:/# echo 'from container' > /app/container.txt
 ```
 
 Exit the container shell to return to your host terminal.
 
 ```bash
-exit
+root@1a2b3c4d5e6f:/# exit
 ```
 
 List the contents of the shared folder on your host machine and then read the new file.
 
 ```bash
-ls -l /workspace/shared/
-cat /workspace/shared/container.txt
-```
+[labuser@container ~]$ ls -l shared/
+[labuser@container ~]$ cat shared/container.txt
 
-```text
 total 8
 -rw-r--r-- 1 opc  opc  15 Nov  1 12:10 app.txt
 -rw-r--r-- 1 root root 15 Nov  1 12:15 container.txt
 from container
 ```
 
-This proves that bind mounts work in both directions (they are deeply synced). The file written inside the container at `/app/container.txt` instantly appears on your host machine at `/workspace/shared/container.txt`. This real-time syncing makes bind mounts perfect for live-editing source code during local development!
+This proves that bind mounts work in both directions (they are deeply synced). The file written inside the container at `/app/container.txt` instantly appears on your host machine at `shared/container.txt`. This real-time syncing makes bind mounts perfect for live-editing source code during local development!
 
 ---
 
@@ -375,10 +331,8 @@ This proves that bind mounts work in both directions (they are deeply synced). T
 Try to remove the volume.
 
 ```bash
-docker volume rm appdata
-```
+[labuser@container ~]$ docker volume rm appdata
 
-```text
 Error response from daemon: remove appdata: volume is in use - [f0e9d8c7b6a5e4f3d2c1b0a9f8e7d6c5b4a3f2e1d0c9b8a7f6e5d4c3b2a1f0e9]
 ```
 
@@ -387,30 +341,24 @@ You will get an error stating the volume is in use! Docker protects volumes from
 Remove the container that is using the volume.
 
 ```bash
-docker rm -f volume-app
-```
+[labuser@container ~]$ docker rm -f volume-app
 
-```text
 volume-app
 ```
 
 Now, successfully remove the volume.
 
 ```bash
-docker volume rm appdata
-```
+[labuser@container ~]$ docker volume rm appdata
 
-```text
 appdata
 ```
 
 Verify it is gone.
 
 ```bash
-docker volume ls
-```
+[labuser@container ~]$ docker volume ls
 
-```text
 DRIVER    VOLUME NAME
 ```
 

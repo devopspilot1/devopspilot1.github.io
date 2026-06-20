@@ -31,7 +31,7 @@ port 8080→80)"]
 Write your first Compose file.
 
 ```bash
-cat > docker-compose.yaml << 'EOF'
+[labuser@container ~]$ cat > docker-compose.yaml << 'EOF'
 services:
   web:
     image: nginx:alpine
@@ -45,10 +45,8 @@ EOF
 Verify the file was created.
 
 ```bash
-cat docker-compose.yaml
-```
+[labuser@container ~]$ cat docker-compose.yaml
 
-```text
 services:
   web:
     image: nginx:alpine
@@ -67,10 +65,8 @@ services:
 Start the stack.
 
 ```bash
-docker compose up -d
-```
+[labuser@container ~]$ docker compose up -d
 
-```text
 [+] Running 3/3
  ✔ Network workspace_default    Created                                   0.1s 
  ✔ Container workspace-cache-1  Started                                   0.2s 
@@ -82,7 +78,7 @@ Notice in the output that Docker automatically created a default network called 
 You can assign specific names using the `container_name` property. Update your Compose file:
 
 ```bash
-cat > docker-compose.yaml << 'EOF'
+[labuser@container ~]$ cat > docker-compose.yaml << 'EOF'
 services:
   web:
     image: nginx:alpine
@@ -98,10 +94,8 @@ EOF
 Apply the changes by running `docker compose up -d` again. Docker will detect the configuration change, recreate the containers with your custom names, and keep them on the shared network.
 
 ```bash
-docker compose up -d
-```
+[labuser@container ~]$ docker compose up -d
 
-```text
 [+] Running 2/2
  ✔ Container my-custom-cache  Started                                     0.3s 
  ✔ Container my-custom-web    Started                                     0.4s 
@@ -116,10 +110,8 @@ docker compose up -d
 Run `docker compose ps` to see the state of the `web` and `cache` services.
 
 ```bash
-docker compose ps
-```
+[labuser@container ~]$ docker compose ps
 
-```text
 NAME                IMAGE          COMMAND                  SERVICE   CREATED          STATUS          PORTS
 my-custom-cache     redis:alpine   "docker-entrypoint.s…"   cache     15 seconds ago   Up 14 seconds   6379/tcp
 my-custom-web       nginx:alpine   "/docker-entrypoint.…"   web       15 seconds ago   Up 14 seconds   0.0.0.0:8080->80/tcp, :::8080->80/tcp
@@ -134,10 +126,8 @@ my-custom-web       nginx:alpine   "/docker-entrypoint.…"   web       15 secon
 Run `docker compose logs` to view combined logs.
 
 ```bash
-docker compose logs
-```
+[labuser@container ~]$ docker compose logs
 
-```text
 cache  | 1:C 01 Nov 2023 13:10:01.000 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
 cache  | 1:C 01 Nov 2023 13:10:01.000 * Redis version=7.2.3, bits=64, commit=00000000, modified=0, pid=1, just started
 cache  | 1:M 01 Nov 2023 13:10:01.005 * Ready to accept connections tcp
@@ -149,10 +139,8 @@ web    | /docker-entrypoint.sh: Configuration complete; ready for start up
 Run `docker compose logs web` to view logs for the `web` service only.
 
 ```bash
-docker compose logs web
-```
+[labuser@container ~]$ docker compose logs web
 
-```text
 web    | /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
 web    | /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
 web    | /docker-entrypoint.sh: Configuration complete; ready for start up
@@ -167,10 +155,8 @@ web    | /docker-entrypoint.sh: Configuration complete; ready for start up
 Run `docker compose exec web ls /usr/share/nginx/html` to list the default Nginx web root.
 
 ```bash
-docker compose exec web ls /usr/share/nginx/html
-```
+[labuser@container ~]$ docker compose exec web ls /usr/share/nginx/html
 
-```text
 50x.html
 index.html
 ```
@@ -197,7 +183,7 @@ graph TD
 Update the Compose file to add an `api` service that depends on `cache`:
 
 ```bash
-cat > docker-compose.yaml << 'EOF'
+[labuser@container ~]$ cat > docker-compose.yaml << 'EOF'
 services:
   web:
     image: nginx:alpine
@@ -218,10 +204,8 @@ EOF
 Apply changes by running `docker compose up -d` — Compose will start `cache` first, then `api`, then `web`.
 
 ```bash
-docker compose up -d
-```
+[labuser@container ~]$ docker compose up -d
 
-```text
 [+] Running 3/3
  ✔ Container workspace-cache-1  Started                                   0.0s 
  ✔ Container workspace-api-1    Started                                   0.3s 
@@ -237,10 +221,8 @@ docker compose up -d
 Run `docker compose down`.
 
 ```bash
-docker compose down
-```
+[labuser@container ~]$ docker compose down
 
-```text
 [+] Running 4/4
  ✔ Container workspace-web-1    Removed                                   1.2s 
  ✔ Container workspace-api-1    Removed                                   0.3s 
@@ -251,10 +233,8 @@ docker compose down
 Verify all containers are gone.
 
 ```bash
-docker ps -a
-```
+[labuser@container ~]$ docker ps -a
 
-```text
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 ```
 

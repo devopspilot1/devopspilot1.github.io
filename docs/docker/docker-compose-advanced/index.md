@@ -34,7 +34,7 @@ graph TD
 Write a Compose file with a named volume.
 
 ```bash
-cat > docker-compose.yaml << 'EOF'
+[labuser@container ~]$ cat > docker-compose.yaml << 'EOF'
 services:
   db:
     image: postgres:18-alpine
@@ -51,10 +51,8 @@ EOF
 Start the database stack.
 
 ```bash
-docker compose up -d
-```
+[labuser@container ~]$ docker compose up -d
 
-```text
 [+] Running 2/2
  ✔ Volume "workspace_pgdata"  Created                             0.0s 
  ✔ Container workspace-db-1   Started                             0.3s 
@@ -63,10 +61,8 @@ docker compose up -d
 Verify the container is running.
 
 ```bash
-docker compose ps
-```
+[labuser@container ~]$ docker compose ps
 
-```text
 NAME               IMAGE                COMMAND                  SERVICE   CREATED          STATUS          PORTS
 workspace-db-1     postgres:18-alpine   "docker-entrypoint.s…"   db        15 seconds ago   Up 14 seconds   5432/tcp
 ```
@@ -74,16 +70,14 @@ workspace-db-1     postgres:18-alpine   "docker-entrypoint.s…"   db        15 
 Wait a few seconds for Postgres to fully start, then execute a command inside the container to create a table and insert a row:
 
 ```bash
-docker compose exec db psql -U postgres -c "
+[labuser@container ~]$ docker compose exec db psql -U postgres -c "
 CREATE TABLE users (
   id serial PRIMARY KEY,
   name VARCHAR(50)
 );
 INSERT INTO users (name) VALUES ('Alice');
 "
-```
 
-```text
 CREATE TABLE
 INSERT 0 1
 ```
@@ -91,10 +85,8 @@ INSERT 0 1
 Verify the data was inserted successfully by querying the database.
 
 ```bash
-docker compose exec db psql -U postgres -c "SELECT * FROM users;"
-```
+[labuser@container ~]$ docker compose exec db psql -U postgres -c "SELECT * FROM users;"
 
-```text
  id | name  
 ----+-------
   1 | Alice
@@ -104,10 +96,8 @@ docker compose exec db psql -U postgres -c "SELECT * FROM users;"
 Now, completely stop and remove the container.
 
 ```bash
-docker compose down
-```
+[labuser@container ~]$ docker compose down
 
-```text
 [+] Running 2/2
  ✔ Container workspace-db-1   Removed                             0.2s 
  ✔ Network workspace_default  Removed                             0.1s 
@@ -116,20 +106,16 @@ docker compose down
 Verify that no containers are running with `docker ps -a`.
 
 ```bash
-docker ps -a
-```
+[labuser@container ~]$ docker ps -a
 
-```text
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 ```
 
 Even though the container is gone, the named volume `pgdata` still exists on your host machine. Verify it's still there.
 
 ```bash
-docker volume ls
-```
+[labuser@container ~]$ docker volume ls
 
-```text
 DRIVER    VOLUME NAME
 local     workspace_pgdata
 ```
@@ -137,10 +123,8 @@ local     workspace_pgdata
 Bring the stack back up.
 
 ```bash
-docker compose up -d
-```
+[labuser@container ~]$ docker compose up -d
 
-```text
 [+] Running 2/2
  ✔ Network workspace_default  Created                             0.1s 
  ✔ Container workspace-db-1   Started                             0.3s 
@@ -149,10 +133,8 @@ docker compose up -d
 Wait a few seconds for it to start, then verify the data survived by querying the database.
 
 ```bash
-docker compose exec db psql -U postgres -c "SELECT * FROM users;"
-```
+[labuser@container ~]$ docker compose exec db psql -U postgres -c "SELECT * FROM users;"
 
-```text
  id | name  
 ----+-------
   1 | Alice
@@ -177,7 +159,7 @@ There are two steps to setting up custom networks in a Compose file:
 Update the Compose file to see this in action:
 
 ```bash
-cat > docker-compose.yaml << 'EOF'
+[labuser@container ~]$ cat > docker-compose.yaml << 'EOF'
 services:
   frontend:
     image: nginx:alpine
@@ -210,10 +192,8 @@ EOF
 Apply changes.
 
 ```bash
-docker compose up -d
-```
+[labuser@container ~]$ docker compose up -d
 
-```text
 [+] Running 4/4
  ✔ Network workspace_backend-net   Created                        0.1s 
  ✔ Network workspace_frontend-net  Created                        0.1s 
@@ -225,10 +205,8 @@ docker compose up -d
 Verify the networks.
 
 ```bash
-docker network ls
-```
+[labuser@container ~]$ docker network ls
 
-```text
 NETWORK ID     NAME                       DRIVER    SCOPE
 a1b2c3d4e5f6   bridge                     bridge    local
 b2c3d4e5f6g7   host                       host      local
@@ -240,10 +218,8 @@ e5f6g7h8i9j0   workspace_frontend-net     bridge    local
 Now let's prove the isolation works! Try to reach the database from the frontend.
 
 ```bash
-docker compose exec frontend ping -c 1 db
-```
+[labuser@container ~]$ docker compose exec frontend ping -c 1 db
 
-```text
 ping: bad address 'db'
 ```
 *(This fails with a "bad address" error because they are on different networks, so Docker DNS blocks the resolution!)*
@@ -251,10 +227,8 @@ ping: bad address 'db'
 Now try to reach the database from the API.
 
 ```bash
-docker compose exec api ping -c 1 db
-```
+[labuser@container ~]$ docker compose exec api ping -c 1 db
 
-```text
 PING db (172.20.0.2): 56 data bytes
 64 bytes from 172.20.0.2: seq=0 ttl=64 time=0.082 ms
 ```
@@ -275,7 +249,7 @@ Here is what the health check fields mean:
 Update the db service to include a health check:
 
 ```bash
-cat > docker-compose.yaml << 'EOF'
+[labuser@container ~]$ cat > docker-compose.yaml << 'EOF'
 services:
   frontend:
     image: nginx:alpine
@@ -316,10 +290,8 @@ EOF
 Apply by running `docker compose up -d`.
 
 ```bash
-docker compose up -d
-```
+[labuser@container ~]$ docker compose up -d
 
-```text
 [+] Running 3/3
  ✔ Container workspace-frontend-1  Running                        0.0s 
  ✔ Container workspace-db-1        Started                        0.4s 
@@ -329,10 +301,8 @@ docker compose up -d
 Check the health status.
 
 ```bash
-docker compose ps
-```
+[labuser@container ~]$ docker compose ps
 
-```text
 NAME                   IMAGE                COMMAND                  SERVICE    CREATED          STATUS                    PORTS
 workspace-api-1        alpine:3.22          "sleep infinity"         api        10 seconds ago   Up 9 seconds              
 workspace-db-1         postgres:18-alpine   "docker-entrypoint.s…"   db         10 seconds ago   Up 9 seconds (healthy)    5432/tcp
@@ -350,17 +320,15 @@ Hardcoding secrets like passwords directly in a Compose file is a security risk.
 Create a `db.env` file to store the database password.
 
 ```bash
-echo "POSTGRES_PASSWORD=supersecret" > db.env
+[labuser@container ~]$ echo "POSTGRES_PASSWORD=supersecret" > db.env
 ```
 
 Verify the file was created and contains the correct content.
 
 ```bash
-ls -l db.env
-cat db.env
-```
+[labuser@container ~]$ ls -l db.env
+[labuser@container ~]$ cat db.env
 
-```text
 -rw-r--r-- 1 user group 30 Nov 01 13:30 db.env
 POSTGRES_PASSWORD=supersecret
 ```
@@ -368,7 +336,7 @@ POSTGRES_PASSWORD=supersecret
 Update the Compose file to use this file instead of the `environment` block:
 
 ```bash
-cat > docker-compose.yaml << 'EOF'
+[labuser@container ~]$ cat > docker-compose.yaml << 'EOF'
 services:
   frontend:
     image: nginx:alpine
@@ -409,10 +377,8 @@ EOF
 Apply the changes.
 
 ```bash
-docker compose up -d
-```
+[labuser@container ~]$ docker compose up -d
 
-```text
 [+] Running 3/3
  ✔ Container workspace-frontend-1  Running                        0.0s 
  ✔ Container workspace-db-1        Recreated                      0.4s 
@@ -428,17 +394,15 @@ A Compose file supports `${VARIABLE}` substitution from a `.env` file in the sam
 Create a `.env` file.
 
 ```bash
-echo "POSTGRES_TAG=18-alpine" > .env
+[labuser@container ~]$ echo "POSTGRES_TAG=18-alpine" > .env
 ```
 
 Verify the file was created and contains the correct content.
 
 ```bash
-ls -la .env
-cat .env
-```
+[labuser@container ~]$ ls -la .env
+[labuser@container ~]$ cat .env
 
-```text
 -rw-r--r-- 1 user group 23 Nov 01 13:35 .env
 POSTGRES_TAG=18-alpine
 ```
@@ -448,7 +412,7 @@ In the updated Compose file below, we replace the hardcoded Postgres image tag w
 Update the Compose file to use interpolation.
 
 ```bash
-cat > docker-compose.yaml << 'EOF'
+[labuser@container ~]$ cat > docker-compose.yaml << 'EOF'
 services:
   frontend:
     image: nginx:alpine
@@ -489,11 +453,9 @@ EOF
 Start the stack and confirm the correct image is used.
 
 ```bash
-docker compose up -d
-docker compose ps
-```
+[labuser@container ~]$ docker compose up -d
+[labuser@container ~]$ docker compose ps
 
-```text
 NAME                   IMAGE                COMMAND                  SERVICE    CREATED          STATUS                    PORTS
 workspace-api-1        alpine:3.22          "sleep infinity"         api        2 minutes ago    Up 2 minutes              
 workspace-db-1         postgres:18-alpine   "docker-entrypoint.s…"   db         2 minutes ago    Up 2 minutes (healthy)    5432/tcp
@@ -509,10 +471,8 @@ workspace-frontend-1   nginx:alpine         "/docker-entrypoint.…"   frontend 
 Run `docker compose down -v`.
 
 ```bash
-docker compose down -v
-```
+[labuser@container ~]$ docker compose down -v
 
-```text
 [+] Running 5/5
  ✔ Container workspace-api-1       Removed                        0.3s 
  ✔ Container workspace-frontend-1  Removed                        0.3s 
@@ -525,10 +485,8 @@ docker compose down -v
 Verify the volume is gone by running `docker volume ls` — it should return nothing (or at least, the `workspace_pgdata` volume is gone).
 
 ```bash
-docker volume ls
-```
+[labuser@container ~]$ docker volume ls
 
-```text
 DRIVER    VOLUME NAME
 ```
 

@@ -30,7 +30,7 @@ The `FROM` instruction specifies the base image. Every Dockerfile must start wit
 Write a minimal Dockerfile.
 
 ```bash
-cat > Dockerfile << 'EOF'
+[labuser@container ~]$ cat > Dockerfile << 'EOF'
 FROM alpine:3.22
 CMD ["echo", "Hello from my first image"]
 EOF
@@ -39,10 +39,8 @@ EOF
 Verify by running `cat Dockerfile`.
 
 ```bash
-cat Dockerfile
-```
+[labuser@container ~]$ cat Dockerfile
 
-```text
 FROM alpine:3.22
 CMD ["echo", "Hello from my first image"]
 ```
@@ -56,10 +54,8 @@ CMD ["echo", "Hello from my first image"]
 Build your image by running `docker build -t myimage:v1 .`
 
 ```bash
-docker build -t myimage:v1 .
-```
+[labuser@container ~]$ docker build -t myimage:v1 .
 
-```text
 [+] Building 0.1s (5/5) FINISHED                                docker:default
  => [internal] load build definition from Dockerfile                      0.0s
  => => transferring dockerfile: 91B                                       0.0s
@@ -76,10 +72,8 @@ docker build -t myimage:v1 .
 Verify it appears in the local store by running `docker images myimage`.
 
 ```bash
-docker images myimage
-```
+[labuser@container ~]$ docker images myimage
 
-```text
 REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
 myimage      v1        7b6a5e4f3d2c   10 seconds ago   7.38MB
 ```
@@ -93,13 +87,13 @@ myimage      v1        7b6a5e4f3d2c   10 seconds ago   7.38MB
 Create an application file.
 
 ```bash
-echo "name=myapp" > config.txt
+[labuser@container ~]$ echo "name=myapp" > config.txt
 ```
 
 Update the Dockerfile.
 
 ```bash
-cat > Dockerfile << 'EOF'
+[labuser@container ~]$ cat > Dockerfile << 'EOF'
 FROM alpine:3.22
 WORKDIR /app
 COPY config.txt .
@@ -109,10 +103,8 @@ EOF
 Rebuild.
 
 ```bash
-docker build -t myimage:v2 .
-```
+[labuser@container ~]$ docker build -t myimage:v2 .
 
-```text
 [+] Building 0.2s (7/7) FINISHED                                docker:default
  => [internal] load build definition from Dockerfile                      0.0s
  => [internal] load metadata for docker.io/library/alpine:3.22            0.0s
@@ -131,10 +123,8 @@ docker build -t myimage:v2 .
 Verify the working directory and that the file was copied.
 
 ```bash
-docker run --rm myimage:v2 sh -c "pwd && ls -l"
-```
+[labuser@container ~]$ docker run --rm myimage:v2 sh -c "pwd && ls -l"
 
-```text
 /app
 total 4
 -rw-r--r--    1 root     root            11 Nov  1 12:20 config.txt
@@ -151,7 +141,7 @@ total 4
 Update the Dockerfile to add a default command.
 
 ```bash
-cat > Dockerfile << 'EOF'
+[labuser@container ~]$ cat > Dockerfile << 'EOF'
 FROM alpine:3.22
 WORKDIR /app
 COPY config.txt .
@@ -162,10 +152,8 @@ EOF
 Rebuild.
 
 ```bash
-docker build -t myimage:v3 .
-```
+[labuser@container ~]$ docker build -t myimage:v3 .
 
-```text
 [+] Building 0.1s (7/7) FINISHED                                docker:default
 ...
 ```
@@ -173,10 +161,8 @@ docker build -t myimage:v3 .
 Run the container.
 
 ```bash
-docker run --rm myimage:v3
-```
+[labuser@container ~]$ docker run --rm myimage:v3
 
-```text
 total 4
 -rw-r--r--    1 root     root            11 Nov  1 12:20 config.txt
 ```
@@ -194,7 +180,7 @@ Let's combine them: use `ENTRYPOINT` for the command (`ls`) and `CMD` for defaul
 Update the Dockerfile.
 
 ```bash
-cat > Dockerfile << 'EOF'
+[labuser@container ~]$ cat > Dockerfile << 'EOF'
 FROM alpine:3.22
 WORKDIR /app
 COPY config.txt .
@@ -206,10 +192,8 @@ EOF
 Rebuild.
 
 ```bash
-docker build -t myimage:v4 .
-```
+[labuser@container ~]$ docker build -t myimage:v4 .
 
-```text
 [+] Building 0.1s (7/7) FINISHED                                docker:default
 ...
 ```
@@ -217,10 +201,8 @@ docker build -t myimage:v4 .
 Run the container without a command to see the default behavior. Notice this runs `ls -l` because the CMD (`-l`) is appended to the ENTRYPOINT (`ls`).
 
 ```bash
-docker run myimage:v4
-```
+[labuser@container ~]$ docker run myimage:v4
 
-```text
 total 4
 -rw-r--r--    1 root     root            11 Nov  1 12:20 config.txt
 ```
@@ -228,10 +210,8 @@ total 4
 Now override the CMD by passing a different argument to `docker run`.
 
 ```bash
-docker run myimage:v4 /app/config.txt
-```
+[labuser@container ~]$ docker run myimage:v4 /app/config.txt
 
-```text
 /app/config.txt
 ```
 
@@ -240,10 +220,8 @@ Notice this runs `ls /app/config.txt` — the CMD `-l` was replaced by `/app/con
 Verify this by running `docker ps -a` and looking at the **COMMAND** column to see exactly what command was executed for each container.
 
 ```bash
-docker ps -a
-```
+[labuser@container ~]$ docker ps -a
 
-```text
 CONTAINER ID   IMAGE        COMMAND                  CREATED          STATUS                      PORTS     NAMES
 f0e9d8c7b6a5   myimage:v4   "ls /app/config.txt"     15 seconds ago   Exited (0) 14 seconds ago             optimistic_hopper
 1a2b3c4d5e6f   myimage:v4   "ls -l"                  35 seconds ago   Exited (0) 34 seconds ago             blissful_turing
@@ -258,10 +236,8 @@ f0e9d8c7b6a5   myimage:v4   "ls /app/config.txt"     15 seconds ago   Exited (0)
 First, verify that `curl` is not installed in the base image.
 
 ```bash
-docker run --rm alpine:3.22 curl --version
-```
+[labuser@container ~]$ docker run --rm alpine:3.22 curl --version
 
-```text
 docker: Error response from daemon: failed to create task for container: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: exec: "curl": executable file not found in $PATH: unknown.
 ```
 
@@ -270,7 +246,7 @@ Notice the error — the executable is not found. Let's fix this by adding `curl
 Update the Dockerfile to install `curl` at build time.
 
 ```bash
-cat > Dockerfile << 'EOF'
+[labuser@container ~]$ cat > Dockerfile << 'EOF'
 FROM alpine:3.22
 WORKDIR /app
 RUN apk add --no-cache curl
@@ -282,10 +258,8 @@ EOF
 Rebuild.
 
 ```bash
-docker build -t myimage:v5 .
-```
+[labuser@container ~]$ docker build -t myimage:v5 .
 
-```text
 [+] Building 1.5s (8/8) FINISHED                                docker:default
  => [internal] load build definition from Dockerfile                      0.0s
  => [internal] load metadata for docker.io/library/alpine:3.22            0.0s
@@ -305,10 +279,8 @@ docker build -t myimage:v5 .
 Run the container using the new image to verify `curl` works now.
 
 ```bash
-docker run --rm myimage:v5 curl --version
-```
+[labuser@container ~]$ docker run --rm myimage:v5 curl --version
 
-```text
 curl 8.5.0 (x86_64-alpine-linux-musl) libcurl/8.5.0 OpenSSL/3.1.4 zlib/1.3.1 brotli/1.1.0 c-ares/1.24.0 libidn2/2.3.4 nghttp2/1.58.0
 Release-Date: 2023-12-06
 Protocols: dict file ftp ftps gopher gophers http https imap imaps mqtt pop3 pop3s rtsp smb smbs smtp smtps telnet tftp
@@ -329,7 +301,7 @@ Let's update the image to run a Python web server on port `8000` and expose it.
 Update the Dockerfile.
 
 ```bash
-cat > Dockerfile << 'EOF'
+[labuser@container ~]$ cat > Dockerfile << 'EOF'
 FROM python:3.13-alpine
 WORKDIR /app
 RUN echo "<h1>Welcome to DevopsPilot!</h1>" > index.html
@@ -341,10 +313,8 @@ EOF
 Rebuild.
 
 ```bash
-docker build -t myimage:v6 .
-```
+[labuser@container ~]$ docker build -t myimage:v6 .
 
-```text
 [+] Building 2.5s (7/7) FINISHED                                docker:default
 ...
 ```
@@ -352,20 +322,16 @@ docker build -t myimage:v6 .
 Run the container in the background (`-d`) using `-P` to publish the port randomly.
 
 ```bash
-docker run --rm -d -P --name web myimage:v6
-```
+[labuser@container ~]$ docker run --rm -d -P --name web myimage:v6
 
-```text
 z1y2x3w4v5u6t7s8r9q0p1o2n3m4l5k6j7i8h9g0f1e2d3c4b5a6z7y8x9w0v1u2
 ```
 
 Check which random port was assigned.
 
 ```bash
-docker port web
-```
+[labuser@container ~]$ docker port web
 
-```text
 8000/tcp -> 0.0.0.0:32769
 8000/tcp -> [::]:32769
 ```

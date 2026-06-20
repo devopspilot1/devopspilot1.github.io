@@ -78,6 +78,28 @@ To strengthen your understanding and prepare for interviews, try the **full 20-q
 ### 8. Markdown Formatting Rules
 - **List Rendering:** Always add an extra blank line after a bold heading (e.g., `**Common Options:**`) before starting a bulleted list. This ensures the list renders correctly as a collection of bullet points in MkDocs Material rather than a single line of text.
 
+### 9. Terminal Prompt & Code Block Convention
+All tutorial bash commands must follow these two strict rules without exception:
+
+**Rule A — Lab Prompt:** Every command run on the **host terminal** must be prefixed with the lab prompt:
+```
+[labuser@container ~]$
+```
+Example:
+```bash
+[labuser@container ~]$ docker run -d --name web nginx:alpine
+```
+- Commands run **inside** a container (after `docker exec -it ... bash`) use the container's own prompt, e.g. `root@<id>:/#`.
+- Heredoc content lines (everything between `<< 'EOF'` and `EOF`) must **not** be prefixed with the prompt — only the opening `cat > ... << 'EOF'` line gets it.
+
+**Rule B — Single Merged Block:** The command and its output must always appear in a **single `bash` code block** — never split into a separate `bash` + `text` pair. Place one blank line between the last command and the first line of output:
+```bash
+[labuser@container ~]$ docker ps
+
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS   NAMES
+```
+- If there is no output (e.g. a silent write command), use a `bash` block with just the prompt line and no output section.
+
 ---
 
 ## ✅ Final Validation Checklist
@@ -93,3 +115,4 @@ Before concluding any task, you MUST perform a comprehensive audit against these
 8. **Broken Link Audit:** Confirm that all internal Markdown links, especially those for quizzes (`../../quiz/...`) and partials (`{% include-markdown ... %}`), point to valid, existing file paths.
 9. **Semantic Purity:** Double-check that tools and commands are not misplaced (e.g., networking tools belong in the networking directory, not in file management).
 10. **Command Highlighting:** Use standard Markdown backticks (`` `command` ``) for primary CLI tools and command names within the explanatory text. Do NOT use `<k>` tags in this repository, as they are reserved for the DevOpsPilot Labs backend only.
+11. **Terminal Prompt & Block Format:** Verify that every host-side command is prefixed with `[labuser@container ~]$` and that the command + its output appear in a single merged `bash` block (never a separate `text` block). Heredoc content lines must not carry the prompt prefix.

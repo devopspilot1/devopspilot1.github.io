@@ -32,10 +32,8 @@ graph TD
 Pull a base image and inspect it.
 
 ```bash
-docker pull alpine:3.22
-```
+[labuser@container ~]$ docker pull alpine:3.22
 
-```text
 3.22: Pulling from library/alpine
 Digest: sha256:c5b1261d6d3e43071626931fc004f70149baeba2c8ec672bd4f27761f8e1ad6b
 Status: Image is up to date for alpine:3.22
@@ -45,16 +43,14 @@ docker.io/library/alpine:3.22
 Tag it as if you were preparing to push it to Docker Hub.
 
 ```bash
-docker tag alpine:3.22 myusername/myapp:1.0
+[labuser@container ~]$ docker tag alpine:3.22 myusername/myapp:1.0
 ```
 
 Verify the tag.
 
 ```bash
-docker images myusername/myapp
-```
+[labuser@container ~]$ docker images myusername/myapp
 
-```text
 REPOSITORY         TAG       IMAGE ID       CREATED       SIZE
 myusername/myapp   1.0       05455a08881e   3 days ago    7.38MB
 ```
@@ -80,20 +76,16 @@ In production, you would push your images to one of these registries so your ser
 Start a local registry on port `5000`.
 
 ```bash
-docker run -d --name localreg -p 5000:5000 registry:3
-```
+[labuser@container ~]$ docker run -d --name localreg -p 5000:5000 registry:3
 
-```text
 a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5z6a7b8c9d0e1f2
 ```
 
 Verify it is running.
 
 ```bash
-docker ps
-```
+[labuser@container ~]$ docker ps
 
-```text
 CONTAINER ID   IMAGE        COMMAND                  CREATED         STATUS         PORTS                                       NAMES
 a1b2c3d4e5f6   registry:3   "/entrypoint.sh /etc…"   2 seconds ago   Up 1 second    0.0.0.0:5000->5000/tcp, :::5000->5000/tcp   localreg
 ```
@@ -109,16 +101,14 @@ To push an image to it, you simply prefix the image name with `localhost:5000/` 
 Run `docker tag alpine:3.22 localhost:5000/myapp:1.0` to tag for the local registry.
 
 ```bash
-docker tag alpine:3.22 localhost:5000/myapp:1.0
+[labuser@container ~]$ docker tag alpine:3.22 localhost:5000/myapp:1.0
 ```
 
 Run `docker push localhost:5000/myapp:1.0` to push it.
 
 ```bash
-docker push localhost:5000/myapp:1.0
-```
+[labuser@container ~]$ docker push localhost:5000/myapp:1.0
 
-```text
 The push refers to repository [localhost:5000/myapp]
 d1e2f3g4h5i6: Pushed 
 1.0: digest: sha256:7b6a5e4f3d2c1b0a9f8e7d6c5b4a3f2e1d0c9b8a7f6e5d4c3b2a1f0e9d8c7b6 size: 528
@@ -129,20 +119,16 @@ The `registry:3` image has no visual web UI — it is a pure REST API server. Bu
 List all repositories in your local registry.
 
 ```bash
-curl http://localhost:5000/v2/_catalog
-```
+[labuser@container ~]$ curl http://localhost:5000/v2/_catalog
 
-```json
 {"repositories":["myapp"]}
 ```
 
 You will see a JSON response confirming your image is stored. Now list all available tags for your image.
 
 ```bash
-curl http://localhost:5000/v2/myapp/tags/list
-```
+[labuser@container ~]$ curl http://localhost:5000/v2/myapp/tags/list
 
-```json
 {"name":"myapp","tags":["1.0"]}
 ```
 
@@ -155,10 +141,8 @@ This is exactly how Docker itself queries a registry before pulling an image!
 Let's simulate a completely fresh machine for our app by wiping the local image tags. 
 
 ```bash
-docker rmi localhost:5000/myapp:1.0 myusername/myapp:1.0
-```
+[labuser@container ~]$ docker rmi localhost:5000/myapp:1.0 myusername/myapp:1.0
 
-```text
 Untagged: localhost:5000/myapp:1.0
 Untagged: localhost:5000/myapp@sha256:7b6a5e4f3d2c1b0a9f8e7d6c5b4a3f2e1d0c9b8a7f6e5d4c3b2a1f0e9d8c7b6
 Untagged: myusername/myapp:1.0
@@ -167,10 +151,8 @@ Untagged: myusername/myapp:1.0
 Verify the images are gone by running `docker images` — your `localhost:5000/myapp:1.0` image should be gone (but you will still see `alpine:3.22` and `registry:3`).
 
 ```bash
-docker images
-```
+[labuser@container ~]$ docker images
 
-```text
 REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
 alpine       3.22      05455a08881e   3 days ago    7.38MB
 registry     3         123456789abc   2 weeks ago   25.4MB
@@ -179,10 +161,8 @@ registry     3         123456789abc   2 weeks ago   25.4MB
 Now pull it back from your local registry.
 
 ```bash
-docker pull localhost:5000/myapp:1.0
-```
+[labuser@container ~]$ docker pull localhost:5000/myapp:1.0
 
-```text
 1.0: Pulling from myapp
 Digest: sha256:7b6a5e4f3d2c1b0a9f8e7d6c5b4a3f2e1d0c9b8a7f6e5d4c3b2a1f0e9d8c7b6
 Status: Downloaded newer image for localhost:5000/myapp:1.0
@@ -192,10 +172,8 @@ localhost:5000/myapp:1.0
 Verify it appears in your local image store.
 
 ```bash
-docker images
-```
+[labuser@container ~]$ docker images
 
-```text
 REPOSITORY             TAG       IMAGE ID       CREATED       SIZE
 localhost:5000/myapp   1.0       05455a08881e   3 days ago    7.38MB
 alpine                 3.22      05455a08881e   3 days ago    7.38MB
@@ -211,26 +189,22 @@ registry               3         123456789abc   2 weeks ago   25.4MB
 The `alpine:3.22` image is already available locally from the previous tasks. Save it to a tar archive.
 
 ```bash
-docker save alpine:3.22 -o alpine.tar
+[labuser@container ~]$ docker save alpine:3.22 -o alpine.tar
 ```
 
 Verify the file was created.
 
 ```bash
-ls -l alpine.tar
-```
+[labuser@container ~]$ ls -l alpine.tar
 
-```text
 -rw------- 1 user group 7524864 Nov 01 13:00 alpine.tar
 ```
 
 Now remove all local unused images.
 
 ```bash
-docker image prune -a -f
-```
+[labuser@container ~]$ docker image prune -a -f
 
-```text
 Deleted Images:
 untagged: alpine:3.22
 untagged: localhost:5000/myapp:1.0
@@ -244,10 +218,8 @@ Total reclaimed space: 7.38MB
 Verify the image is gone (you will only see `registry:3` since it's running).
 
 ```bash
-docker images
-```
+[labuser@container ~]$ docker images
 
-```text
 REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
 registry     3         123456789abc   2 weeks ago   25.4MB
 ```
@@ -255,10 +227,8 @@ registry     3         123456789abc   2 weeks ago   25.4MB
 Load it back from the tar file.
 
 ```bash
-docker load -i alpine.tar
-```
+[labuser@container ~]$ docker load -i alpine.tar
 
-```text
 c5b1261d6d3e: Loading layer [==================================================>]  7.525MB/7.525MB
 Loaded image: alpine:3.22
 ```
@@ -266,10 +236,8 @@ Loaded image: alpine:3.22
 Verify.
 
 ```bash
-docker images
-```
+[labuser@container ~]$ docker images
 
-```text
 REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
 alpine       3.22      05455a08881e   3 days ago    7.38MB
 registry     3         123456789abc   2 weeks ago   25.4MB

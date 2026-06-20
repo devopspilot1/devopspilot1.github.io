@@ -20,10 +20,8 @@ To make a container's service accessible, you must **map** (publish) a port from
 Run `docker run -d --name web -p 8080:80 nginx:alpine` to start an NGINX web server, mapping the host's port **8080** to the container's internal port **80**.
 
 ```bash
-docker run -d --name web -p 8080:80 nginx:alpine
-```
+[labuser@container ~]$ docker run -d --name web -p 8080:80 nginx:alpine
 
-```text
 Unable to find image 'nginx:alpine' locally
 alpine: Pulling from library/nginx
 ...
@@ -43,10 +41,8 @@ If you deploy many containers, managing static ports like `8080` manually can le
 Run `docker run -d --name web-dynamic -P nginx:alpine`.
 
 ```bash
-docker run -d --name web-dynamic -P nginx:alpine
-```
+[labuser@container ~]$ docker run -d --name web-dynamic -P nginx:alpine
 
-```text
 a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5z6a7b8c9d0e1f2
 ```
 
@@ -70,10 +66,8 @@ To find out which random port Docker assigned, you can use the `docker port` com
 Run `docker port web-dynamic`.
 
 ```bash
-docker port web-dynamic
-```
+[labuser@container ~]$ docker port web-dynamic
 
-```text
 80/tcp -> 0.0.0.0:32768
 80/tcp -> [::]:32768
 ```
@@ -83,10 +77,8 @@ Note the assigned host port (e.g., `0.0.0.0:32768`).
 Run `docker ps` to see which random host port Docker assigned to the container's internal port **80** (look under the `PORTS` column).
 
 ```bash
-docker ps
-```
+[labuser@container ~]$ docker ps
 
-```text
 CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS          PORTS                                     NAMES
 a1b2c3d4e5f6   nginx:alpine   "/docker-entrypoint.…"   2 minutes ago    Up 2 minutes    0.0.0.0:32768->80/tcp, :::32768->80/tcp   web-dynamic
 f1g2h3i4j5k6   nginx:alpine   "/docker-entrypoint.…"   15 minutes ago   Up 15 minutes   0.0.0.0:8080->80/tcp, :::8080->80/tcp     web

@@ -30,7 +30,7 @@ graph TD
 First, create a simple Python application using Flask.
 
 ```bash
-cat > app.py << 'EOF'
+[labuser@container ~]$ cat > app.py << 'EOF'
 from flask import Flask
 
 app = Flask(__name__)
@@ -47,7 +47,7 @@ EOF
 Write a single-stage Dockerfile.
 
 ```bash
-cat > Dockerfile.single << 'EOF'
+[labuser@container ~]$ cat > Dockerfile.single << 'EOF'
 FROM python:3.12
 WORKDIR /app
 COPY app.py .
@@ -59,10 +59,8 @@ EOF
 Build it by running `docker build -t python-single -f Dockerfile.single .`
 
 ```bash
-docker build -t python-single -f Dockerfile.single .
-```
+[labuser@container ~]$ docker build -t python-single -f Dockerfile.single .
 
-```text
 [+] Building 15.2s (8/8) FINISHED                               docker:default
 ...
  => => naming to docker.io/library/python-single                          0.0s
@@ -71,10 +69,8 @@ docker build -t python-single -f Dockerfile.single .
 Check its size by running `docker images python-single`.
 
 ```bash
-docker images python-single
-```
+[labuser@container ~]$ docker images python-single
 
-```text
 REPOSITORY       TAG       IMAGE ID       CREATED          SIZE
 python-single    latest    1a2b3c4d5e6f   15 seconds ago   1.02GB
 ```
@@ -104,7 +100,7 @@ graph TD
 Write the multi-stage Dockerfile.
 
 ```bash
-cat > Dockerfile << 'EOF'
+[labuser@container ~]$ cat > Dockerfile << 'EOF'
 # --- Stage 1: Build ---
 FROM python:3.12 AS builder
 WORKDIR /build
@@ -123,10 +119,8 @@ EOF
 Build the multi-stage image.
 
 ```bash
-docker build -t python-multi .
-```
+[labuser@container ~]$ docker build -t python-multi .
 
-```text
 [+] Building 6.2s (10/10) FINISHED                              docker:default
 ...
  => => naming to docker.io/library/python-multi                           0.0s
@@ -135,23 +129,19 @@ docker build -t python-multi .
 Run it to verify it works in the background and test it.
 
 ```bash
-docker run -d -p 8080:8080 --name test-app python-multi
-sleep 2
-curl localhost:8080
-docker stop test-app && docker rm test-app
-```
+[labuser@container ~]$ docker run -d -p 8080:8080 --name test-app python-multi
+[labuser@container ~]$ sleep 2
+[labuser@container ~]$ curl localhost:8080
+[labuser@container ~]$ docker stop test-app && docker rm test-app
 
-```text
 Hello
 ```
 
 Finally, run `docker images | grep -E "python-single|python-multi"` to compare both image sizes side by side. 
 
 ```bash
-docker images | grep -E "python-single|python-multi"
-```
+[labuser@container ~]$ docker images | grep -E "python-single|python-multi"
 
-```text
 python-single         latest    1a2b3c4d5e6f   2 minutes ago    1.02GB
 python-multi          latest    f1g2h3i4j5k6   15 seconds ago   165MB
 ```
@@ -167,10 +157,8 @@ Observe that `python-multi` is dramatically smaller because the heavy Python bui
 Build only the `builder` stage.
 
 ```bash
-docker build --target builder -t python-builder-only .
-```
+[labuser@container ~]$ docker build --target builder -t python-builder-only .
 
-```text
 [+] Building 0.2s (7/7) FINISHED                                docker:default
 ...
  => => naming to docker.io/library/python-builder-only                    0.0s
@@ -179,30 +167,24 @@ docker build --target builder -t python-builder-only .
 Verify the `pip` package manager is present in this intermediate stage.
 
 ```bash
-docker run --rm python-builder-only pip --version
-```
+[labuser@container ~]$ docker run --rm python-builder-only pip --version
 
-```text
 pip 24.0 from /usr/local/lib/python3.12/site-packages/pip (python 3.12)
 ```
 
 Now, try running a build tool like `gcc` (often required for compiling python packages) on your intermediate builder image.
 
 ```bash
-docker run --rm python-builder-only gcc --version
-```
+[labuser@container ~]$ docker run --rm python-builder-only gcc --version
 
-```text
 gcc (Debian 12.2.0-14) 12.2.0
 ```
 
 Now, try running the same command on your final production image.
 
 ```bash
-docker run --rm python-multi gcc --version
-```
+[labuser@container ~]$ docker run --rm python-multi gcc --version
 
-```text
 docker: Error response from daemon: failed to create task for container: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: exec: "gcc": executable file not found in $PATH: unknown.
 ```
 

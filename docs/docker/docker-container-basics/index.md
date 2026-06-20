@@ -45,10 +45,8 @@ When you type a Docker command, the `Docker CLI` sends it to the `Docker Daemon`
 Run `docker info` to display the system-wide Docker configuration and confirm the daemon is running.
 
 ```bash
-docker info
-```
+[labuser@container ~]$ docker info
 
-```text
 Client: Docker Engine - Community
  Version:    24.0.2
  Context:    default
@@ -68,10 +66,8 @@ Server:
 Run `docker version` to see the client and daemon versions.
 
 ```bash
-docker version
-```
+[labuser@container ~]$ docker version
 
-```text
 Client: Docker Engine - Community
  Version:           24.0.2
  API version:       1.43
@@ -119,10 +115,8 @@ Run `docker run hello-world` to start a container from the `hello-world` image. 
 Observe the output — Docker pulled the image, created a container, printed a message, and then the container exited automatically.
 
 ```bash
-docker run hello-world
-```
+[labuser@container ~]$ docker run hello-world
 
-```text
 Unable to find image 'hello-world:latest' locally
 latest: Pulling from library/hello-world
 719385e32844: Pull complete 
@@ -137,10 +131,8 @@ This message shows that your installation appears to be working correctly.
 Run `docker image ls` to view the newly pulled image in your local storage. You should see `hello-world` with the `latest` tag.
 
 ```bash
-docker image ls
-```
+[labuser@container ~]$ docker image ls
 
-```text
 REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
 hello-world   latest    d2c94e258dcb   10 months ago   13.3kB
 ```
@@ -148,10 +140,8 @@ hello-world   latest    d2c94e258dcb   10 months ago   13.3kB
 Next, run `docker ps -a` to view the container you just ran. The `-a` flag tells Docker to list **all** containers, including stopped ones. You will notice its status is `Exited`.
 
 ```bash
-docker ps -a
-```
+[labuser@container ~]$ docker ps -a
 
-```text
 CONTAINER ID   IMAGE         COMMAND    CREATED          STATUS                      PORTS     NAMES
 4a2f8b9e1c3d   hello-world   "/hello"   10 seconds ago   Exited (0) 9 seconds ago              nifty_curie
 ```
@@ -177,10 +167,8 @@ While random names are fun, they make it hard to manage containers in a real env
 Run `docker run --name my-hello-container hello-world` to create a new container with a specific name.
 
 ```bash
-docker run --name my-hello-container hello-world
-```
+[labuser@container ~]$ docker run --name my-hello-container hello-world
 
-```text
 Hello from Docker!
 This message shows that your installation appears to be working correctly.
 ```
@@ -188,10 +176,8 @@ This message shows that your installation appears to be working correctly.
 Next, run `docker ps -a` again. You will now see two `hello-world` containers — one with a random name, and your new one proudly named `my-hello-container`.
 
 ```bash
-docker ps -a
-```
+[labuser@container ~]$ docker ps -a
 
-```text
 CONTAINER ID   IMAGE         COMMAND    CREATED          STATUS                      PORTS     NAMES
 9d8c7b6a5e4f   hello-world   "/hello"   12 seconds ago   Exited (0) 11 seconds ago             my-hello-container
 4a2f8b9e1c3d   hello-world   "/hello"   2 minutes ago    Exited (0) 2 minutes ago              nifty_curie
@@ -212,20 +198,16 @@ For long-running services like web servers or databases, we want them to run qui
 First, run `docker ps` to confirm you currently have no active containers running. 
 
 ```bash
-docker ps
-```
+[labuser@container ~]$ docker ps
 
-```text
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 ```
 
 Next, run `docker run -d --name webserver nginx:1.30` to start an Nginx web server in the background. Docker will print a long container ID and immediately return your terminal prompt.
 
 ```bash
-docker run -d --name webserver nginx:1.30
-```
+[labuser@container ~]$ docker run -d --name webserver nginx:1.30
 
-```text
 Unable to find image 'nginx:1.30' locally
 1.30: Pulling from library/nginx
 ...
@@ -235,10 +217,8 @@ f2a715f4e5c3b9d0a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4
 Verify the server is running silently in the background by running `docker ps` again. You will see your `webserver` container in the active list.
 
 ```bash
-docker ps
-```
+[labuser@container ~]$ docker ps
 
-```text
 CONTAINER ID   IMAGE        COMMAND                  CREATED          STATUS          PORTS     NAMES
 f2a715f4e5c3   nginx:1.30   "/docker-entrypoint.…"   15 seconds ago   Up 14 seconds   80/tcp    webserver
 ```
@@ -264,20 +244,16 @@ graph TD
 Run `docker run -d ubuntu:24.04 sleep 10` to start it in the background.
 
 ```bash
-docker run -d ubuntu:24.04 sleep 10
-```
+[labuser@container ~]$ docker run -d ubuntu:24.04 sleep 10
 
-```text
 c3b9d0a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5z6a7b8c9
 ```
 
 Immediately run `docker ps` to verify the container is running. Look closely at the `COMMAND` column in the output — you will see `"sleep 10"` listed as its main process!
 
 ```bash
-docker ps
-```
+[labuser@container ~]$ docker ps
 
-```text
 CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS         PORTS     NAMES
 c3b9d0a1b2c3   ubuntu:24.04   "sleep 10"               2 seconds ago   Up 1 second              sleepy_turing
 f2a715f4e5c3   nginx:1.30     "/docker-entrypoint.…"   2 minutes ago   Up 2 minutes   80/tcp    webserver
@@ -288,10 +264,8 @@ Wait for about 10 seconds, then run `docker ps` again. You will notice the conta
 Finally, run `docker ps -a` to view both running and stopped containers. You will see your `ubuntu` container is now marked as `Exited`. This proves that when a container's main command finishes, the container stops automatically!
 
 ```bash
-docker ps -a
-```
+[labuser@container ~]$ docker ps -a
 
-```text
 CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS                      PORTS     NAMES
 c3b9d0a1b2c3   ubuntu:24.04   "sleep 10"               15 seconds ago   Exited (0) 4 seconds ago              sleepy_turing
 f2a715f4e5c3   nginx:1.30     "/docker-entrypoint.…"   3 minutes ago    Up 3 minutes                80/tcp    webserver
@@ -313,10 +287,8 @@ Sometimes you need to know exactly how a container is configured — what its in
 Run `docker inspect webserver` to view the full metadata of the running container. It will output a massive wall of JSON text.
 
 ```bash
-docker inspect webserver
-```
+[labuser@container ~]$ docker inspect webserver
 
-```json
 [
     {
         "Id": "f2a715f4e5c3b9d0a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4",
@@ -338,10 +310,8 @@ Scrolling through all that JSON is difficult. Instead, we can extract just the i
 Run `docker inspect --format '{{.State.Status}}' webserver` to filter the output and display only the container's current status.
 
 ```bash
-docker inspect --format '{{.State.Status}}' webserver
-```
+[labuser@container ~]$ docker inspect --format '{{.State.Status}}' webserver
 
-```text
 running
 ```
 
@@ -360,10 +330,8 @@ running
 First, run `docker exec webserver ls /usr/share/nginx/html` to list the files in the Nginx web root. 
 
 ```bash
-docker exec webserver ls /usr/share/nginx/html
-```
+[labuser@container ~]$ docker exec webserver ls /usr/share/nginx/html
 
-```text
 50x.html
 index.html
 ```
@@ -371,10 +339,8 @@ index.html
 Since the `ls` command showed us that an `index.html` file exists, let's view its contents.
 
 ```bash
-docker exec webserver cat /usr/share/nginx/html/index.html
-```
+[labuser@container ~]$ docker exec webserver cat /usr/share/nginx/html/index.html
 
-```text
 <!DOCTYPE html>
 <html>
 <head>
@@ -385,33 +351,29 @@ docker exec webserver cat /usr/share/nginx/html/index.html
 Now, let's overwrite that file with our own custom text. 
 
 ```bash
-docker exec webserver sh -c "echo 'Welcome to DevOpsPilot Labs' > /usr/share/nginx/html/index.html"
+[labuser@container ~]$ docker exec webserver sh -c "echo 'Welcome to DevOpsPilot Labs' > /usr/share/nginx/html/index.html"
 ```
 
 Now, let's "log in" to the container to verify the file was really changed. Run `docker exec -it webserver bash`. Look closely at your terminal — the text at the beginning of the line (your prompt) just changed! This proves you are now successfully "inside" the container.
 
 ```bash
-docker exec -it webserver bash
-```
+[labuser@container ~]$ docker exec -it webserver bash
 
-```text
 root@f2a715f4e5c3:/# 
 ```
 
 Run `ls -l /usr/share/nginx/html` and then `cat /usr/share/nginx/html/index.html`. You will see "Welcome to DevOpsPilot Labs" instead of the original HTML!
 
 ```bash
-cat /usr/share/nginx/html/index.html
-```
+root@f2a715f4e5c3:/# cat /usr/share/nginx/html/index.html
 
-```text
 Welcome to DevOpsPilot Labs
 ```
 
 Finally, type `exit` and hit Enter to leave the container and return to your normal terminal.
 
 ```bash
-exit
+root@f2a715f4e5c3:/# exit
 ```
 
 ---
@@ -428,10 +390,8 @@ When a container runs in the background, you can't see its output. `docker logs`
 Run `docker logs webserver` to view the container's entire log history. 
 
 ```bash
-docker logs webserver
-```
+[labuser@container ~]$ docker logs webserver
 
-```text
 /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
 /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
 /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
@@ -448,10 +408,8 @@ docker logs webserver
 To make it more manageable, run `docker logs --tail 5 webserver` to show only the last 5 lines of the log output.
 
 ```bash
-docker logs --tail 5 webserver
-```
+[labuser@container ~]$ docker logs --tail 5 webserver
 
-```text
 /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
 /docker-entrypoint.sh: Configuration complete; ready for start up
 2023/10/27 10:00:01 [notice] 1#1: using the "epoll" event method
@@ -493,20 +451,16 @@ stateDiagram-v2
 First, try to delete the container while it's still running by executing `docker rm webserver`. Docker will reject this action with an error, protecting the running container from accidental deletion. You must stop it first.
 
 ```bash
-docker rm webserver
-```
+[labuser@container ~]$ docker rm webserver
 
-```text
 Error response from daemon: You cannot remove a running container f2a715f4e5c3b9d0... Stop the container before attempting removal or force remove
 ```
 
 `docker stop` sends a gentle termination signal to the container, giving it time to shut down gracefully and save its state. Run `docker stop webserver` to stop the container.
 
 ```bash
-docker stop webserver
-```
+[labuser@container ~]$ docker stop webserver
 
-```text
 webserver
 ```
 
@@ -515,10 +469,8 @@ Verify it has stopped by running `docker ps`. You will notice the `webserver` co
 Finally, run `docker ps -a` to confirm the container still exists on your disk, but its status is now `Exited`.
 
 ```bash
-docker ps -a
-```
+[labuser@container ~]$ docker ps -a
 
-```text
 CONTAINER ID   IMAGE        COMMAND                  CREATED          STATUS                      PORTS     NAMES
 f2a715f4e5c3   nginx:1.30   "/docker-entrypoint.…"   15 minutes ago   Exited (0) 10 seconds ago             webserver
 ```
@@ -537,10 +489,8 @@ Stopped containers are no longer running, but they still occupy disk space on yo
 Run `docker rm webserver` to permanently delete the stopped container.
 
 ```bash
-docker rm webserver
-```
+[labuser@container ~]$ docker rm webserver
 
-```text
 webserver
 ```
 
@@ -555,10 +505,8 @@ Removing containers one by one with `docker rm` is tedious. Docker provides a bu
 Run `docker container prune -f` to remove all stopped containers. The `-f` flag forces the action without prompting for confirmation.
 
 ```bash
-docker container prune -f
-```
+[labuser@container ~]$ docker container prune -f
 
-```text
 Deleted Containers:
 9d8c7b6a5e4f
 4a2f8b9e1c3d
@@ -582,10 +530,8 @@ Even with `prune`, manually cleaning up containers is repetitive. The `--rm` fla
 Run `docker run --rm hello-world` to start a container, print a short message, and automatically clean it up.
 
 ```bash
-docker run --rm hello-world
-```
+[labuser@container ~]$ docker run --rm hello-world
 
-```text
 Hello from Docker!
 This message shows that your installation appears to be working correctly.
 ...

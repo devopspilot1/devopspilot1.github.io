@@ -34,7 +34,7 @@ layers also rebuild"]
 Write a problematic Dockerfile that splits `apt-get update` and `apt-get install` into separate `RUN` instructions:
 
 ```bash
-cat > Dockerfile.bad << 'EOF'
+[labuser@container ~]$ cat > Dockerfile.bad << 'EOF'
 FROM ubuntu:24.04
 RUN apt-get update
 RUN apt-get install -y curl
@@ -46,13 +46,13 @@ The `-f` flag tells Docker to use a specific file instead of looking for the def
 Build the problematic image.
 
 ```bash
-docker build -t bad-cache -f Dockerfile.bad .
+[labuser@container ~]$ docker build -t bad-cache -f Dockerfile.bad .
 ```
 
 Simulate a scenario where you also need to install `wget`. Update the install instruction:
 
 ```bash
-cat > Dockerfile.bad << 'EOF'
+[labuser@container ~]$ cat > Dockerfile.bad << 'EOF'
 FROM ubuntu:24.04
 RUN apt-get update
 RUN apt-get install -y curl wget
@@ -62,10 +62,8 @@ EOF
 Rebuild the image.
 
 ```bash
-docker build -t bad-cache -f Dockerfile.bad .
-```
+[labuser@container ~]$ docker build -t bad-cache -f Dockerfile.bad .
 
-```text
 [+] Building 0.2s (6/6) FINISHED                                docker:default
  => [internal] load build definition from Dockerfile.bad                  0.0s
  => [internal] load metadata for docker.io/library/ubuntu:24.04           0.0s
@@ -93,7 +91,7 @@ The correct pattern chains `apt-get update` and `apt-get install` in a single `R
 Write the corrected Dockerfile:
 
 ```bash
-cat > Dockerfile << 'EOF'
+[labuser@container ~]$ cat > Dockerfile << 'EOF'
 FROM ubuntu:24.04
 RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
@@ -106,13 +104,13 @@ EOF
 Build it.
 
 ```bash
-docker build -t optimized-app:v1 .
+[labuser@container ~]$ docker build -t optimized-app:v1 .
 ```
 
 Simulate adding `wget` to your requirements. Update the Dockerfile:
 
 ```bash
-cat > Dockerfile << 'EOF'
+[labuser@container ~]$ cat > Dockerfile << 'EOF'
 FROM ubuntu:24.04
 RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
@@ -126,10 +124,8 @@ EOF
 Rebuild the image.
 
 ```bash
-docker build -t optimized-app:v1 .
-```
+[labuser@container ~]$ docker build -t optimized-app:v1 .
 
-```text
 [+] Building 3.5s (5/5) FINISHED                                docker:default
 ...
  => [2/2] RUN apt-get update && apt-get install -y --no-install-...       3.2s
@@ -147,10 +143,8 @@ A `.dockerignore` file excludes files and directories from the build context. Th
 Assume we have dummy folders and files (`node_modules/`, `.git/`, and `.env`). View them.
 
 ```bash
-ls -la
-```
+[labuser@container ~]$ ls -la
 
-```text
 total 16
 drwxr-xr-x 5 user group 4096 Nov 01 12:00 .
 drwxr-xr-x 3 user group 4096 Nov 01 11:50 ..
@@ -163,10 +157,8 @@ drwxr-xr-x 4 user group 4096 Nov 01 12:00 node_modules
 Build the image without a `.dockerignore` file to observe the build context transfer.
 
 ```bash
-docker build -t optimized-app:v1 .
-```
+[labuser@container ~]$ docker build -t optimized-app:v1 .
 
-```text
 [+] Building 1.2s (5/5) FINISHED                                docker:default
  => [internal] load build context                                         0.8s
  => => transferring context: 15.2MB                                       0.7s
@@ -178,7 +170,7 @@ Notice the `transferring context` size. It might be over 15MB because it's sendi
 Create a `.dockerignore` file:
 
 ```bash
-cat > .dockerignore << 'EOF'
+[labuser@container ~]$ cat > .dockerignore << 'EOF'
 .env
 node_modules
 *.log
@@ -189,10 +181,8 @@ EOF
 Rebuild the image to see the difference.
 
 ```bash
-docker build -t optimized-app:v1 .
-```
+[labuser@container ~]$ docker build -t optimized-app:v1 .
 
-```text
 [+] Building 0.2s (6/6) FINISHED                                docker:default
  => [internal] load build context                                         0.0s
  => => transferring context: 4.1kB                                        0.0s
@@ -210,17 +200,15 @@ Containers run as `root` by default, which is a security risk. The `USER` instru
 First, verify that the default user is root.
 
 ```bash
-docker run --rm ubuntu:24.04 whoami
-```
+[labuser@container ~]$ docker run --rm ubuntu:24.04 whoami
 
-```text
 root
 ```
 
 Update the Dockerfile to add a non-root user:
 
 ```bash
-cat > Dockerfile << 'EOF'
+[labuser@container ~]$ cat > Dockerfile << 'EOF'
 FROM ubuntu:24.04
 RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
@@ -236,16 +224,14 @@ EOF
 Rebuild.
 
 ```bash
-docker build -t optimized-app:v2 .
+[labuser@container ~]$ docker build -t optimized-app:v2 .
 ```
 
 Verify the container now runs as `appuser`.
 
 ```bash
-docker run --rm optimized-app:v2 whoami
-```
+[labuser@container ~]$ docker run --rm optimized-app:v2 whoami
 
-```text
 appuser
 ```
 
@@ -258,10 +244,8 @@ Using `FROM ubuntu:24.04` is better than `FROM ubuntu:latest` because the `lates
 For fully reproducible builds, pin to a specific content digest using `@sha256:...`. Pull the current digest:
 
 ```bash
-docker pull ubuntu:24.04 && docker inspect ubuntu:24.04 --format '{{index .RepoDigests 0}}'
-```
+[labuser@container ~]$ docker pull ubuntu:24.04 && docker inspect ubuntu:24.04 --format '{{index .RepoDigests 0}}'
 
-```text
 ubuntu@sha256:72297848456d5d37d1262630108ab308d33c22fa2866055bf533b62db4811f5d
 ```
 
@@ -299,7 +283,7 @@ To actually save space, you must download, extract, and delete the file in a sin
 First, create a problematic Dockerfile that spreads these steps across multiple layers.
 
 ```bash
-cat > Dockerfile << 'EOF'
+[labuser@container ~]$ cat > Dockerfile << 'EOF'
 FROM ubuntu:24.04
 RUN apt-get update && apt-get install -y wget && rm -rf /var/lib/apt/lists/*
 RUN wget -q https://wordpress.org/latest.tar.gz
@@ -312,13 +296,13 @@ EOF
 Build the problematic image.
 
 ```bash
-docker build -t layered-archive .
+[labuser@container ~]$ docker build -t layered-archive .
 ```
 
 Now, fix it by combining everything into a single `RUN` command. This ensures the archive is deleted *before* the layer is saved.
 
 ```bash
-cat > Dockerfile << 'EOF'
+[labuser@container ~]$ cat > Dockerfile << 'EOF'
 FROM ubuntu:24.04
 RUN apt-get update && apt-get install -y wget && rm -rf /var/lib/apt/lists/*
 RUN wget -q https://wordpress.org/latest.tar.gz \
@@ -331,16 +315,14 @@ EOF
 Build the optimized image.
 
 ```bash
-docker build -t clean-archive .
+[labuser@container ~]$ docker build -t clean-archive .
 ```
 
 List the images to see the difference.
 
 ```bash
-docker images | grep -E "layered-archive|clean-archive"
-```
+[labuser@container ~]$ docker images | grep -E "layered-archive|clean-archive"
 
-```text
 layered-archive   latest    12a34b56c78d   1 minute ago    173MB
 clean-archive     latest    98d76c54b32a   15 seconds ago  115MB
 ```

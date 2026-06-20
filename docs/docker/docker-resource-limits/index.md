@@ -42,20 +42,16 @@ graph TD
 Start a container that consumes some CPU.
 
 ```bash
-docker run -d --name loadtest alpine:3.22 sh -c "while true; do :; done"
-```
+[labuser@container ~]$ docker run -d --name loadtest alpine:3.22 sh -c "while true; do :; done"
 
-```text
 c1d2e3f4g5h6i7j8k9l0m1n2o3p4q5r6s7t8u9v0w1x2y3z4a5b6c7d8e9f0g1h2
 ```
 
 Run `docker stats --no-stream loadtest` to take a single snapshot of its resource usage. Notice under the `CPU %` column that this single container is consuming an enormous amount of CPU (often pinning a whole core) because there are no limits in place!
 
 ```bash
-docker stats --no-stream loadtest
-```
+[labuser@container ~]$ docker stats --no-stream loadtest
 
-```text
 CONTAINER ID   NAME       CPU %     MEM USAGE / LIMIT     MEM %     NET I/O       BLOCK I/O   PIDS
 c1d2e3f4g5h6   loadtest   100.00%   1.141MiB / 7.765GiB   0.01%     1.03kB / 0B   0B / 0B     1
 ```
@@ -63,10 +59,8 @@ c1d2e3f4g5h6   loadtest   100.00%   1.141MiB / 7.765GiB   0.01%     1.03kB / 0B 
 Run `docker stop loadtest && docker rm loadtest` to clean up.
 
 ```bash
-docker stop loadtest && docker rm loadtest
-```
+[labuser@container ~]$ docker stop loadtest && docker rm loadtest
 
-```text
 loadtest
 loadtest
 ```
@@ -80,23 +74,19 @@ The `--cpus` flag limits the number of CPU cores a container may use. A value of
 Run a container with a CPU limit and a heavy load loop.
 
 ```bash
-docker run -d \
-  --name cpulimited \
-  --cpus=0.25 \
-  alpine sh -c "while true; do :; done"
-```
+[labuser@container ~]$ docker run -d \
+[labuser@container ~]$   --name cpulimited \
+[labuser@container ~]$   --cpus=0.25 \
+[labuser@container ~]$   alpine sh -c "while true; do :; done"
 
-```text
 b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5z6a7b8c9d0e1f2g3
 ```
 
 Now, check its CPU usage by running `docker stats --no-stream cpulimited`.
 
 ```bash
-docker stats --no-stream cpulimited
-```
+[labuser@container ~]$ docker stats --no-stream cpulimited
 
-```text
 CONTAINER ID   NAME         CPU %     MEM USAGE / LIMIT     MEM %     NET I/O       BLOCK I/O   PIDS
 b2c3d4e5f6g7   cpulimited   25.02%    1.23MiB / 7.765GiB    0.02%     906B / 0B     0B / 0B     1
 ```
@@ -114,43 +104,35 @@ The `--memory` flag caps the maximum RAM a container can use. If the container e
 Run a container with a 64MB memory limit.
 
 ```bash
-docker run -d --name memlimited --memory=64m nginx:alpine
-```
+[labuser@container ~]$ docker run -d --name memlimited --memory=64m nginx:alpine
 
-```text
 f1e2d3c4b5a6z7y8x9w0v1u2t3s4r5q6p7o8n9m0l1k2j3i4h5g6f7e8d9c0b1a2
 ```
 
 Verify the limit is applied. Note: `67108864` bytes = 64MB.
 
 ```bash
-docker inspect memlimited --format '{{.HostConfig.Memory}}'
-```
+[labuser@container ~]$ docker inspect memlimited --format '{{.HostConfig.Memory}}'
 
-```text
 67108864
 ```
 
 Let's prove the OOM killer works! Run a new 10MB limited container that intentionally consumes memory in an infinite loop:
 
 ```bash
-docker run -d \
-  --name oom_test \
-  --memory=10m \
-  alpine sh -c "x=a; while true; do x=\$x\$x; done"
-```
+[labuser@container ~]$ docker run -d \
+[labuser@container ~]$   --name oom_test \
+[labuser@container ~]$   --memory=10m \
+[labuser@container ~]$   alpine sh -c "x=a; while true; do x=\$x\$x; done"
 
-```text
 a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5z6a7b8c9d0e1f2
 ```
 
 Wait a few seconds, then run `docker ps -a` and look at the `STATUS` column for your container. You will see it has unexpectedly stopped (e.g., `Exited (137)`).
 
 ```bash
-docker ps -a
-```
+[labuser@container ~]$ docker ps -a
 
-```text
 CONTAINER ID   IMAGE           COMMAND                  CREATED          STATUS                       PORTS     NAMES
 a1b2c3d4e5f6   alpine          "sh -c 'x=a; while t…"   5 seconds ago    Exited (137) 3 seconds ago             oom_test
 f1e2d3c4b5a6   nginx:alpine    "/docker-entrypoint.…"   2 minutes ago    Up 2 minutes                 80/tcp    memlimited
@@ -160,10 +142,8 @@ b2c3d4e5f6g7   alpine          "sh -c 'while true; …"   5 minutes ago    Up 5 
 But *why* did it exit? Let's dig deeper. Inspect the container's state and look closely at the JSON output for the `"OOMKilled"` field. It will be set to `true`!
 
 ```bash
-docker inspect oom_test --format '{{json .State}}' | jq
-```
+[labuser@container ~]$ docker inspect oom_test --format '{{json .State}}' | jq
 
-```json
 {
   "Status": "exited",
   "Running": false,
@@ -188,10 +168,8 @@ docker inspect oom_test --format '{{json .State}}' | jq
 Run `docker top memlimited` to list the Nginx processes inside the memory-limited container.
 
 ```bash
-docker top memlimited
-```
+[labuser@container ~]$ docker top memlimited
 
-```text
 UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
 root                1234                1211                0                   12:28               ?                   00:00:00            nginx: master process nginx -g daemon off;
 101                 1277                1234                0                   12:28               ?                   00:00:00            nginx: worker process
@@ -207,10 +185,8 @@ root                1234                1211                0                   
 Run `docker system df` to see overall disk utilisation.
 
 ```bash
-docker system df
-```
+[labuser@container ~]$ docker system df
 
-```text
 TYPE         TOTAL     ACTIVE    SIZE      RECLAIMABLE
 Images       3         1         120MB     40MB (33%)
 Containers   3         2         0B        0B
@@ -221,10 +197,8 @@ Build Cache  0         0         0B        0B
 Run `docker stats --no-stream` to see all running containers and their current resource consumption.
 
 ```bash
-docker stats --no-stream
-```
+[labuser@container ~]$ docker stats --no-stream
 
-```text
 CONTAINER ID   NAME         CPU %     MEM USAGE / LIMIT     MEM %     NET I/O       BLOCK I/O   PIDS
 f1e2d3c4b5a6   memlimited   0.00%     2.34MiB / 64MiB       3.66%     1.2kB / 0B    0B / 0B     3
 b2c3d4e5f6g7   cpulimited   25.04%    1.23MiB / 7.765GiB    0.02%     1.5kB / 0B    0B / 0B     1

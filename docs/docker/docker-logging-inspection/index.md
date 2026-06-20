@@ -32,27 +32,23 @@ containers/<id>/)"]
 Start a container that generates log entries.
 
 ```bash
-docker run -d --name logdemo nginx:alpine
-```
+[labuser@container ~]$ docker run -d --name logdemo nginx:alpine
 
-```text
 c1d2e3f4g5h6i7j8k9l0m1n2o3p4q5r6s7t8u9v0w1x2y3z4a5b6c7d8e9f0g1h2
 ```
 
 Generate a few log entries.
 
 ```bash
-docker exec logdemo wget -q http://localhost -O /dev/null
-docker exec logdemo wget -q http://localhost -O /dev/null
+[labuser@container ~]$ docker exec logdemo wget -q http://localhost -O /dev/null
+[labuser@container ~]$ docker exec logdemo wget -q http://localhost -O /dev/null
 ```
 
 View the logs.
 
 ```bash
-docker logs logdemo
-```
+[labuser@container ~]$ docker logs logdemo
 
-```text
 /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
 /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
 /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
@@ -74,17 +70,15 @@ The `--follow` (or `-f`) flag keeps the log stream open, printing new entries as
 First, start a background loop that continuously generates log entries every second:
 
 ```bash
-docker exec -d logdemo sh -c \
-  "while true; do wget -q http://localhost -O /dev/null; sleep 1; done"
+[labuser@container ~]$ docker exec -d logdemo sh -c \
+[labuser@container ~]$   "while true; do wget -q http://localhost -O /dev/null; sleep 1; done"
 ```
 
 Now follow the live log stream.
 
 ```bash
-docker logs --follow --tail 5 logdemo
-```
+[labuser@container ~]$ docker logs --follow --tail 5 logdemo
 
-```text
 127.0.0.1 - - [01/Nov/2023:12:40:01 +0000] "GET / HTTP/1.1" 200 615 "-" "Wget" "-"
 127.0.0.1 - - [01/Nov/2023:12:40:03 +0000] "GET / HTTP/1.1" 200 615 "-" "Wget" "-"
 127.0.0.1 - - [01/Nov/2023:12:41:01 +0000] "GET / HTTP/1.1" 200 615 "-" "Wget" "-"
@@ -103,10 +97,8 @@ The `--since` and `--until` flags filter log output by time. `--timestamps` adds
 Run `docker logs --timestamps --since 1m logdemo` to view log entries from the last minute with timestamps.
 
 ```bash
-docker logs --timestamps --since 1m logdemo
-```
+[labuser@container ~]$ docker logs --timestamps --since 1m logdemo
 
-```text
 2023-11-01T12:41:01.123456789Z 127.0.0.1 - - [01/Nov/2023:12:41:01 +0000] "GET / HTTP/1.1" 200 615 "-" "Wget" "-"
 2023-11-01T12:41:02.123456789Z 127.0.0.1 - - [01/Nov/2023:12:41:02 +0000] "GET / HTTP/1.1" 200 615 "-" "Wget" "-"
 2023-11-01T12:41:03.123456789Z 127.0.0.1 - - [01/Nov/2023:12:41:03 +0000] "GET / HTTP/1.1" 200 615 "-" "Wget" "-"
@@ -121,10 +113,8 @@ docker logs --timestamps --since 1m logdemo
 Run `docker inspect logdemo` to view the full metadata.
 
 ```bash
-docker inspect logdemo
-```
+[labuser@container ~]$ docker inspect logdemo
 
-```json
 [
     {
         "Id": "c1d2e3f4g5h6i7j8k9l0m1n2o3p4q5r6s7t8u9v0w1x2y3z4a5b6c7d8e9f0g1h2",
@@ -144,20 +134,16 @@ docker inspect logdemo
 Extract specific fields using `--format`. Run `docker inspect logdemo --format '{{.State.Status}}'` to get the container status.
 
 ```bash
-docker inspect logdemo --format '{{.State.Status}}'
-```
+[labuser@container ~]$ docker inspect logdemo --format '{{.State.Status}}'
 
-```text
 running
 ```
 
 Run `docker inspect logdemo --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'` to get its IP address.
 
 ```bash
-docker inspect logdemo --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'
-```
+[labuser@container ~]$ docker inspect logdemo --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'
 
-```text
 172.17.0.2
 ```
 
@@ -170,10 +156,8 @@ docker inspect logdemo --format '{{range .NetworkSettings.Networks}}{{.IPAddress
 Run `docker events --since 5m --until 0s` to replay the last 5 minutes of events.
 
 ```bash
-docker events --since 5m --until 0s
-```
+[labuser@container ~]$ docker events --since 5m --until 0s
 
-```text
 2023-11-01T12:40:00.000000000Z container create c1d2e3f4g5h6 (image=nginx:alpine, name=logdemo)
 2023-11-01T12:40:00.123000000Z network connect a1b2c3d4e5f6 (container=c1d2e3f4g5h6, name=bridge, type=bridge)
 2023-11-01T12:40:00.456000000Z container start c1d2e3f4g5h6 (image=nginx:alpine, name=logdemo)

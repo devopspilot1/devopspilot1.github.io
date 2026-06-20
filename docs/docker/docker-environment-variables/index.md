@@ -31,10 +31,8 @@ LOG_LEVEL=debug"]
 Run `docker run --rm -e APP_ENV=production alpine:3.22 env | grep APP_ENV` to start a container, inject the `APP_ENV` variable, and immediately print it.
 
 ```bash
-docker run --rm -e APP_ENV=production alpine:3.22 env | grep APP_ENV
-```
+[labuser@container ~]$ docker run --rm -e APP_ENV=production alpine:3.22 env | grep APP_ENV
 
-```text
 APP_ENV=production
 ```
 
@@ -49,10 +47,8 @@ The `-e` flag can be repeated multiple times to pass several variables in a sing
 Run `docker run --rm -e APP_ENV=staging -e DB_HOST=postgres -e LOG_LEVEL=debug alpine:3.22 env | grep -E "APP_ENV|DB_HOST|LOG_LEVEL"` to inject three variables at once.
 
 ```bash
-docker run --rm -e APP_ENV=staging -e DB_HOST=postgres -e LOG_LEVEL=debug alpine:3.22 env | grep -E "APP_ENV|DB_HOST|LOG_LEVEL"
-```
+[labuser@container ~]$ docker run --rm -e APP_ENV=staging -e DB_HOST=postgres -e LOG_LEVEL=debug alpine:3.22 env | grep -E "APP_ENV|DB_HOST|LOG_LEVEL"
 
-```text
 APP_ENV=staging
 DB_HOST=postgres
 LOG_LEVEL=debug
@@ -69,16 +65,14 @@ Passing many variables with repeated `-e` flags becomes unwieldy. An `env file` 
 Create an env file.
 
 ```bash
-printf "APP_ENV=production\nDB_HOST=postgres\nDB_PORT=5432\nLOG_LEVEL=info\n" > /workspace/app.env
+[labuser@container ~]$ printf "APP_ENV=production\nDB_HOST=postgres\nDB_PORT=5432\nLOG_LEVEL=info\n" > app.env
 ```
 
-Verify its contents with `cat /workspace/app.env`.
+Verify its contents with `cat app.env`.
 
 ```bash
-cat /workspace/app.env
-```
+[labuser@container ~]$ cat app.env
 
-```text
 APP_ENV=production
 DB_HOST=postgres
 DB_PORT=5432
@@ -88,10 +82,8 @@ LOG_LEVEL=info
 Launch a container using the file.
 
 ```bash
-docker run --rm --env-file /workspace/app.env alpine:3.22 env | grep -E "APP_ENV|DB_HOST|DB_PORT|LOG_LEVEL"
-```
+[labuser@container ~]$ docker run --rm --env-file app.env alpine:3.22 env | grep -E "APP_ENV|DB_HOST|DB_PORT|LOG_LEVEL"
 
-```text
 APP_ENV=production
 DB_HOST=postgres
 DB_PORT=5432
@@ -107,20 +99,16 @@ LOG_LEVEL=info
 Start a background container.
 
 ```bash
-docker run -d --name myapp -e APP_VERSION=2.1 -e REGION=us-east alpine:3.22 sleep infinity
-```
+[labuser@container ~]$ docker run -d --name myapp -e APP_VERSION=2.1 -e REGION=us-east alpine:3.22 sleep infinity
 
-```text
 d3e4f5g6h7i8j9k0l1m2n3o4p5q6r7s8t9u0v1w2x3y4z5a6b7c8d9e0f1g2h3i4
 ```
 
 First, view the full JSON configuration of the container by running `docker inspect myapp`.
 
 ```bash
-docker inspect myapp
-```
+[labuser@container ~]$ docker inspect myapp
 
-```json
 [
     {
         "Id": "d3e4f5g6h7i8j9k0l1m2n3o4p5q6r7s8t9u0v1w2x3y4z5a6b7c8d9e0f1g2h3i4",
@@ -138,10 +126,8 @@ docker inspect myapp
 Notice how overwhelming the output is! To extract just the environment variables cleanly, we can use a Go template format. Inspect only its environment.
 
 ```bash
-docker inspect myapp --format '{{range .Config.Env}}{{println .}}{{end}}'
-```
+[labuser@container ~]$ docker inspect myapp --format '{{range .Config.Env}}{{println .}}{{end}}'
 
-```text
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 APP_VERSION=2.1
 REGION=us-east
@@ -158,20 +144,16 @@ This means images can ship sensible defaults while operators inject environment-
 First, view the default value of the `HOME` variable built into the Alpine image.
 
 ```bash
-docker run --rm alpine:3.22 env | grep HOME
-```
+[labuser@container ~]$ docker run --rm alpine:3.22 env | grep HOME
 
-```text
 HOME=/root
 ```
 
 Notice that it defaults to `/root`. Now, override it at runtime.
 
 ```bash
-docker run --rm -e HOME=/override alpine:3.22 env | grep HOME
-```
+[labuser@container ~]$ docker run --rm -e HOME=/override alpine:3.22 env | grep HOME
 
-```text
 HOME=/override
 ```
 

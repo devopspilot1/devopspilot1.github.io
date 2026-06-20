@@ -29,10 +29,8 @@ graph TD
 Run `docker images` to see what images are currently cached on this system. Notice the columns output by the command — they will show you the image name, tag, unique ID, and its size.
 
 ```bash
-docker images
-```
+[labuser@container ~]$ docker images
 
-```text
 REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
 hello-world   latest    d2c94e258dcb   10 months ago   13.3kB
 ubuntu        24.04     3b418d7b466a   2 weeks ago     77.8MB
@@ -48,10 +46,8 @@ nginx         1.30      f2a715f4e5c3   3 weeks ago     142MB
 Run `docker pull alpine:3.22` to download the `alpine` image tagged `3.22`.
 
 ```bash
-docker pull alpine:3.22
-```
+[labuser@container ~]$ docker pull alpine:3.22
 
-```text
 3.22: Pulling from library/alpine
 4abcf2066143: Pull complete 
 Digest: sha256:c5b1261d6d3e43071626931fc004f70149baeba2c8ec672bd4f27761f8e1ad6b
@@ -62,10 +58,8 @@ docker.io/library/alpine:3.22
 After the pull completes, verify it appears in your local store by running `docker images`.
 
 ```bash
-docker images
-```
+[labuser@container ~]$ docker images
 
-```text
 REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
 alpine        3.22      05455a08881e   3 days ago      7.38MB
 hello-world   latest    d2c94e258dcb   10 months ago   13.3kB
@@ -89,10 +83,8 @@ To see this in action, pull an image from AWS Elastic Container Registry (ECR) P
 Run `docker pull public.ecr.aws/hashicorp/terraform:1.15` to pull the Terraform image from AWS instead of Docker Hub.
 
 ```bash
-docker pull public.ecr.aws/hashicorp/terraform:1.15
-```
+[labuser@container ~]$ docker pull public.ecr.aws/hashicorp/terraform:1.15
 
-```text
 1.15: Pulling from hashicorp/terraform
 Digest: sha256:8a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5z6a7b8c9d0e1f
 Status: Downloaded newer image for public.ecr.aws/hashicorp/terraform:1.15
@@ -102,10 +94,8 @@ public.ecr.aws/hashicorp/terraform:1.15
 Verify it was downloaded successfully by running `docker images`.
 
 ```bash
-docker images
-```
+[labuser@container ~]$ docker images
 
-```text
 REPOSITORY                           TAG       IMAGE ID       CREATED         SIZE
 public.ecr.aws/hashicorp/terraform   1.15      9c8b7a6d5e4f   2 months ago    75MB
 alpine                               3.22      05455a08881e   3 days ago      7.38MB
@@ -120,10 +110,8 @@ alpine                               3.22      05455a08881e   3 days ago      7.
 Run `docker inspect alpine:3.22` to view the full metadata.
 
 ```bash
-docker inspect alpine:3.22
-```
+[labuser@container ~]$ docker inspect alpine:3.22
 
-```json
 [
     {
         "Id": "sha256:05455a08881ea9cf0e7fac51e00f3408e24483a90710ba0a5521b4a0f8df78dc",
@@ -141,10 +129,8 @@ docker inspect alpine:3.22
 To extract just the OS, run `docker inspect --format '{{.Os}}' alpine:3.22`.
 
 ```bash
-docker inspect --format '{{.Os}}' alpine:3.22
-```
+[labuser@container ~]$ docker inspect --format '{{.Os}}' alpine:3.22
 
-```text
 linux
 ```
 
@@ -172,10 +158,8 @@ graph BT
 Run `docker history alpine:3.22` to view the layer history of the Alpine image.
 
 ```bash
-docker history alpine:3.22
-```
+[labuser@container ~]$ docker history alpine:3.22
 
-```text
 IMAGE          CREATED       CREATED BY                                      SIZE      COMMENT
 05455a08881e   3 days ago    /bin/sh -c #(nop)  CMD ["/bin/sh"]              0B        
 <missing>      3 days ago    /bin/sh -c #(nop) ADD file:04c8f25b390b1e45b…   7.38MB    
@@ -184,11 +168,9 @@ IMAGE          CREATED       CREATED BY                                      SIZ
 Pull a more complex image and compare by running `docker pull nginx:alpine` followed by `docker history nginx:alpine`.
 
 ```bash
-docker pull nginx:alpine
-docker history nginx:alpine
-```
+[labuser@container ~]$ docker pull nginx:alpine
+[labuser@container ~]$ docker history nginx:alpine
 
-```text
 IMAGE          CREATED       CREATED BY                                      SIZE      COMMENT
 6b6a5e4f3d2c   5 days ago    /bin/sh -c #(nop)  CMD ["nginx" "-g" "daemon…   0B        
 <missing>      5 days ago    /bin/sh -c #(nop)  STOPSIGNAL SIGQUIT           0B        
@@ -225,7 +207,7 @@ graph TD
 Tag the `alpine:3.22` image as `myapp:v1.0` by running `docker tag alpine:3.22 myapp:v1.0`.
 
 ```bash
-docker tag alpine:3.22 myapp:v1.0
+[labuser@container ~]$ docker tag alpine:3.22 myapp:v1.0
 ```
 
 A tag is just a lightweight pointer. Tagging an image does not duplicate its data or take up extra disk space. Both tags simply point to the exact same underlying image, which is why they will share the identical `IMAGE ID`.
@@ -233,10 +215,8 @@ A tag is just a lightweight pointer. Tagging an image does not duplicate its dat
 Verify both tags exist and share the same `IMAGE ID` by running `docker images`.
 
 ```bash
-docker images
-```
+[labuser@container ~]$ docker images
 
-```text
 REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
 alpine        3.22      05455a08881e   3 days ago      7.38MB
 myapp         v1.0      05455a08881e   3 days ago      7.38MB
@@ -251,10 +231,8 @@ myapp         v1.0      05455a08881e   3 days ago      7.38MB
 Remove the `myapp:v1.0` tag by running `docker rmi myapp:v1.0`.
 
 ```bash
-docker rmi myapp:v1.0
-```
+[labuser@container ~]$ docker rmi myapp:v1.0
 
-```text
 Untagged: myapp:v1.0
 ```
 
@@ -273,10 +251,8 @@ Run `docker pull alpine:3.22` and note the digest shown in the output (the `sha2
 To view the digest of a locally cached image, run `docker images --digests alpine`.
 
 ```bash
-docker images --digests alpine
-```
+[labuser@container ~]$ docker images --digests alpine
 
-```text
 REPOSITORY   TAG       DIGEST                                                                    IMAGE ID       CREATED      SIZE
 alpine       3.22      sha256:c5b1261d6d3e43071626931fc004f70149baeba2c8ec672bd4f27761f8e1ad6b   05455a08881e   3 days ago   7.38MB
 ```
@@ -286,10 +262,8 @@ To pull an image using its exact digest, use the `@` symbol instead of a colon. 
 Run `docker pull alpine@sha256:48b0309ca019d89d40f670aa1bc06e426dc0931948452e8491e3d65087abc07d` to pull the exact image.
 
 ```bash
-docker pull alpine@sha256:48b0309ca019d89d40f670aa1bc06e426dc0931948452e8491e3d65087abc07d
-```
+[labuser@container ~]$ docker pull alpine@sha256:48b0309ca019d89d40f670aa1bc06e426dc0931948452e8491e3d65087abc07d
 
-```text
 docker.io/library/alpine@sha256:48b0309ca019d89d40f670aa1bc06e426dc0931948452e8491e3d65087abc07d: Pulling from library/alpine
 ...
 Digest: sha256:48b0309ca019d89d40f670aa1bc06e426dc0931948452e8491e3d65087abc07d
@@ -299,10 +273,8 @@ Status: Downloaded newer image for alpine@sha256:48b0309ca019d89d40f670aa1bc06e4
 Run `docker images` again to verify. You will notice the image is listed with its digest directly in the image name instead of a traditional tag.
 
 ```bash
-docker images
-```
+[labuser@container ~]$ docker images
 
-```text
 REPOSITORY   TAG       IMAGE ID       CREATED         SIZE
 alpine       <none>    3e23a4b6c8d0   10 months ago   7.34MB
 ```
@@ -318,10 +290,8 @@ A `dangling` image is an image that has lost its tag (showing as `<none>:<none>`
 First view current disk usage by running `docker system df`.
 
 ```bash
-docker system df
-```
+[labuser@container ~]$ docker system df
 
-```text
 TYPE         TOTAL     ACTIVE    SIZE      RECLAIMABLE
 Images       4         0         231MB     231MB (100%)
 Containers   0         0         0B        0B
@@ -332,10 +302,8 @@ Build Cache  0         0         0B        0B
 Run `docker image prune -af` to remove all unused images without prompting for confirmation.
 
 ```bash
-docker image prune -af
-```
+[labuser@container ~]$ docker image prune -af
 
-```text
 Deleted Images:
 untagged: alpine:3.22
 untagged: alpine@sha256:c5b1261d6d3e43071626931fc004f70149baeba2c8ec672bd4f27761f8e1ad6b
