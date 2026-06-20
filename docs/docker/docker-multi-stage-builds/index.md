@@ -60,7 +60,6 @@ Build it by running `docker build -t python-single -f Dockerfile.single .`
 
 ```bash
 [labuser@container ~]$ docker build -t python-single -f Dockerfile.single .
-
 [+] Building 15.2s (8/8) FINISHED                               docker:default
 ...
  => => naming to docker.io/library/python-single                          0.0s
@@ -70,7 +69,6 @@ Check its size by running `docker images python-single`.
 
 ```bash
 [labuser@container ~]$ docker images python-single
-
 REPOSITORY       TAG       IMAGE ID       CREATED          SIZE
 python-single    latest    1a2b3c4d5e6f   15 seconds ago   1.02GB
 ```
@@ -120,7 +118,6 @@ Build the multi-stage image.
 
 ```bash
 [labuser@container ~]$ docker build -t python-multi .
-
 [+] Building 6.2s (10/10) FINISHED                              docker:default
 ...
  => => naming to docker.io/library/python-multi                           0.0s
@@ -141,7 +138,6 @@ Finally, run `docker images | grep -E "python-single|python-multi"` to compare b
 
 ```bash
 [labuser@container ~]$ docker images | grep -E "python-single|python-multi"
-
 python-single         latest    1a2b3c4d5e6f   2 minutes ago    1.02GB
 python-multi          latest    f1g2h3i4j5k6   15 seconds ago   165MB
 ```
@@ -158,7 +154,6 @@ Build only the `builder` stage.
 
 ```bash
 [labuser@container ~]$ docker build --target builder -t python-builder-only .
-
 [+] Building 0.2s (7/7) FINISHED                                docker:default
 ...
  => => naming to docker.io/library/python-builder-only                    0.0s
@@ -168,7 +163,6 @@ Verify the `pip` package manager is present in this intermediate stage.
 
 ```bash
 [labuser@container ~]$ docker run --rm python-builder-only pip --version
-
 pip 24.0 from /usr/local/lib/python3.12/site-packages/pip (python 3.12)
 ```
 
@@ -176,7 +170,6 @@ Now, try running a build tool like `gcc` (often required for compiling python pa
 
 ```bash
 [labuser@container ~]$ docker run --rm python-builder-only gcc --version
-
 gcc (Debian 12.2.0-14) 12.2.0
 ```
 
@@ -184,7 +177,6 @@ Now, try running the same command on your final production image.
 
 ```bash
 [labuser@container ~]$ docker run --rm python-multi gcc --version
-
 docker: Error response from daemon: failed to create task for container: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: exec: "gcc": executable file not found in $PATH: unknown.
 ```
 

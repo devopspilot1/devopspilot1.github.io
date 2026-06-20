@@ -32,7 +32,6 @@ Run `docker run --rm -e APP_ENV=production alpine:3.22 env | grep APP_ENV` to st
 
 ```bash
 [labuser@container ~]$ docker run --rm -e APP_ENV=production alpine:3.22 env | grep APP_ENV
-
 APP_ENV=production
 ```
 
@@ -48,7 +47,6 @@ Run `docker run --rm -e APP_ENV=staging -e DB_HOST=postgres -e LOG_LEVEL=debug a
 
 ```bash
 [labuser@container ~]$ docker run --rm -e APP_ENV=staging -e DB_HOST=postgres -e LOG_LEVEL=debug alpine:3.22 env | grep -E "APP_ENV|DB_HOST|LOG_LEVEL"
-
 APP_ENV=staging
 DB_HOST=postgres
 LOG_LEVEL=debug
@@ -72,7 +70,6 @@ Verify its contents with `cat app.env`.
 
 ```bash
 [labuser@container ~]$ cat app.env
-
 APP_ENV=production
 DB_HOST=postgres
 DB_PORT=5432
@@ -83,7 +80,6 @@ Launch a container using the file.
 
 ```bash
 [labuser@container ~]$ docker run --rm --env-file app.env alpine:3.22 env | grep -E "APP_ENV|DB_HOST|DB_PORT|LOG_LEVEL"
-
 APP_ENV=production
 DB_HOST=postgres
 DB_PORT=5432
@@ -100,7 +96,6 @@ Start a background container.
 
 ```bash
 [labuser@container ~]$ docker run -d --name myapp -e APP_VERSION=2.1 -e REGION=us-east alpine:3.22 sleep infinity
-
 d3e4f5g6h7i8j9k0l1m2n3o4p5q6r7s8t9u0v1w2x3y4z5a6b7c8d9e0f1g2h3i4
 ```
 
@@ -108,7 +103,6 @@ First, view the full JSON configuration of the container by running `docker insp
 
 ```bash
 [labuser@container ~]$ docker inspect myapp
-
 [
     {
         "Id": "d3e4f5g6h7i8j9k0l1m2n3o4p5q6r7s8t9u0v1w2x3y4z5a6b7c8d9e0f1g2h3i4",
@@ -127,7 +121,6 @@ Notice how overwhelming the output is! To extract just the environment variables
 
 ```bash
 [labuser@container ~]$ docker inspect myapp --format '{{range .Config.Env}}{{println .}}{{end}}'
-
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 APP_VERSION=2.1
 REGION=us-east
@@ -145,7 +138,6 @@ First, view the default value of the `HOME` variable built into the Alpine image
 
 ```bash
 [labuser@container ~]$ docker run --rm alpine:3.22 env | grep HOME
-
 HOME=/root
 ```
 
@@ -153,7 +145,6 @@ Notice that it defaults to `/root`. Now, override it at runtime.
 
 ```bash
 [labuser@container ~]$ docker run --rm -e HOME=/override alpine:3.22 env | grep HOME
-
 HOME=/override
 ```
 

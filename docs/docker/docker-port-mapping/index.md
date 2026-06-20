@@ -21,7 +21,6 @@ Run `docker run -d --name web -p 8080:80 nginx:alpine` to start an NGINX web ser
 
 ```bash
 [labuser@container ~]$ docker run -d --name web -p 8080:80 nginx:alpine
-
 Unable to find image 'nginx:alpine' locally
 alpine: Pulling from library/nginx
 ...
@@ -42,7 +41,6 @@ Run `docker run -d --name web-dynamic -P nginx:alpine`.
 
 ```bash
 [labuser@container ~]$ docker run -d --name web-dynamic -P nginx:alpine
-
 a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5z6a7b8c9d0e1f2
 ```
 
@@ -67,7 +65,6 @@ Run `docker port web-dynamic`.
 
 ```bash
 [labuser@container ~]$ docker port web-dynamic
-
 80/tcp -> 0.0.0.0:32768
 80/tcp -> [::]:32768
 ```
@@ -78,7 +75,6 @@ Run `docker ps` to see which random host port Docker assigned to the container's
 
 ```bash
 [labuser@container ~]$ docker ps
-
 CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS          PORTS                                     NAMES
 a1b2c3d4e5f6   nginx:alpine   "/docker-entrypoint.…"   2 minutes ago    Up 2 minutes    0.0.0.0:32768->80/tcp, :::32768->80/tcp   web-dynamic
 f1g2h3i4j5k6   nginx:alpine   "/docker-entrypoint.…"   15 minutes ago   Up 15 minutes   0.0.0.0:8080->80/tcp, :::8080->80/tcp     web

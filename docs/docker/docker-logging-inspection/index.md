@@ -33,7 +33,6 @@ Start a container that generates log entries.
 
 ```bash
 [labuser@container ~]$ docker run -d --name logdemo nginx:alpine
-
 c1d2e3f4g5h6i7j8k9l0m1n2o3p4q5r6s7t8u9v0w1x2y3z4a5b6c7d8e9f0g1h2
 ```
 
@@ -48,7 +47,6 @@ View the logs.
 
 ```bash
 [labuser@container ~]$ docker logs logdemo
-
 /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
 /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
 /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
@@ -78,7 +76,6 @@ Now follow the live log stream.
 
 ```bash
 [labuser@container ~]$ docker logs --follow --tail 5 logdemo
-
 127.0.0.1 - - [01/Nov/2023:12:40:01 +0000] "GET / HTTP/1.1" 200 615 "-" "Wget" "-"
 127.0.0.1 - - [01/Nov/2023:12:40:03 +0000] "GET / HTTP/1.1" 200 615 "-" "Wget" "-"
 127.0.0.1 - - [01/Nov/2023:12:41:01 +0000] "GET / HTTP/1.1" 200 615 "-" "Wget" "-"
@@ -98,7 +95,6 @@ Run `docker logs --timestamps --since 1m logdemo` to view log entries from the l
 
 ```bash
 [labuser@container ~]$ docker logs --timestamps --since 1m logdemo
-
 2023-11-01T12:41:01.123456789Z 127.0.0.1 - - [01/Nov/2023:12:41:01 +0000] "GET / HTTP/1.1" 200 615 "-" "Wget" "-"
 2023-11-01T12:41:02.123456789Z 127.0.0.1 - - [01/Nov/2023:12:41:02 +0000] "GET / HTTP/1.1" 200 615 "-" "Wget" "-"
 2023-11-01T12:41:03.123456789Z 127.0.0.1 - - [01/Nov/2023:12:41:03 +0000] "GET / HTTP/1.1" 200 615 "-" "Wget" "-"
@@ -114,7 +110,6 @@ Run `docker inspect logdemo` to view the full metadata.
 
 ```bash
 [labuser@container ~]$ docker inspect logdemo
-
 [
     {
         "Id": "c1d2e3f4g5h6i7j8k9l0m1n2o3p4q5r6s7t8u9v0w1x2y3z4a5b6c7d8e9f0g1h2",
@@ -135,7 +130,6 @@ Extract specific fields using `--format`. Run `docker inspect logdemo --format '
 
 ```bash
 [labuser@container ~]$ docker inspect logdemo --format '{{.State.Status}}'
-
 running
 ```
 
@@ -143,7 +137,6 @@ Run `docker inspect logdemo --format '{{range .NetworkSettings.Networks}}{{.IPAd
 
 ```bash
 [labuser@container ~]$ docker inspect logdemo --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'
-
 172.17.0.2
 ```
 
@@ -157,7 +150,6 @@ Run `docker events --since 5m --until 0s` to replay the last 5 minutes of events
 
 ```bash
 [labuser@container ~]$ docker events --since 5m --until 0s
-
 2023-11-01T12:40:00.000000000Z container create c1d2e3f4g5h6 (image=nginx:alpine, name=logdemo)
 2023-11-01T12:40:00.123000000Z network connect a1b2c3d4e5f6 (container=c1d2e3f4g5h6, name=bridge, type=bridge)
 2023-11-01T12:40:00.456000000Z container start c1d2e3f4g5h6 (image=nginx:alpine, name=logdemo)

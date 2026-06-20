@@ -63,7 +63,6 @@ Rebuild the image.
 
 ```bash
 [labuser@container ~]$ docker build -t bad-cache -f Dockerfile.bad .
-
 [+] Building 0.2s (6/6) FINISHED                                docker:default
  => [internal] load build definition from Dockerfile.bad                  0.0s
  => [internal] load metadata for docker.io/library/ubuntu:24.04           0.0s
@@ -125,7 +124,6 @@ Rebuild the image.
 
 ```bash
 [labuser@container ~]$ docker build -t optimized-app:v1 .
-
 [+] Building 3.5s (5/5) FINISHED                                docker:default
 ...
  => [2/2] RUN apt-get update && apt-get install -y --no-install-...       3.2s
@@ -144,7 +142,6 @@ Assume we have dummy folders and files (`node_modules/`, `.git/`, and `.env`). V
 
 ```bash
 [labuser@container ~]$ ls -la
-
 total 16
 drwxr-xr-x 5 user group 4096 Nov 01 12:00 .
 drwxr-xr-x 3 user group 4096 Nov 01 11:50 ..
@@ -158,7 +155,6 @@ Build the image without a `.dockerignore` file to observe the build context tran
 
 ```bash
 [labuser@container ~]$ docker build -t optimized-app:v1 .
-
 [+] Building 1.2s (5/5) FINISHED                                docker:default
  => [internal] load build context                                         0.8s
  => => transferring context: 15.2MB                                       0.7s
@@ -182,7 +178,6 @@ Rebuild the image to see the difference.
 
 ```bash
 [labuser@container ~]$ docker build -t optimized-app:v1 .
-
 [+] Building 0.2s (6/6) FINISHED                                docker:default
  => [internal] load build context                                         0.0s
  => => transferring context: 4.1kB                                        0.0s
@@ -201,7 +196,6 @@ First, verify that the default user is root.
 
 ```bash
 [labuser@container ~]$ docker run --rm ubuntu:24.04 whoami
-
 root
 ```
 
@@ -231,7 +225,6 @@ Verify the container now runs as `appuser`.
 
 ```bash
 [labuser@container ~]$ docker run --rm optimized-app:v2 whoami
-
 appuser
 ```
 
@@ -245,7 +238,6 @@ For fully reproducible builds, pin to a specific content digest using `@sha256:.
 
 ```bash
 [labuser@container ~]$ docker pull ubuntu:24.04 && docker inspect ubuntu:24.04 --format '{{index .RepoDigests 0}}'
-
 ubuntu@sha256:72297848456d5d37d1262630108ab308d33c22fa2866055bf533b62db4811f5d
 ```
 
@@ -322,7 +314,6 @@ List the images to see the difference.
 
 ```bash
 [labuser@container ~]$ docker images | grep -E "layered-archive|clean-archive"
-
 layered-archive   latest    12a34b56c78d   1 minute ago    173MB
 clean-archive     latest    98d76c54b32a   15 seconds ago  115MB
 ```

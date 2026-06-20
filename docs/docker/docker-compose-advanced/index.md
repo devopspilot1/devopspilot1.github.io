@@ -52,7 +52,6 @@ Start the database stack.
 
 ```bash
 [labuser@container ~]$ docker compose up -d
-
 [+] Running 2/2
  ✔ Volume "workspace_pgdata"  Created                             0.0s 
  ✔ Container workspace-db-1   Started                             0.3s 
@@ -62,7 +61,6 @@ Verify the container is running.
 
 ```bash
 [labuser@container ~]$ docker compose ps
-
 NAME               IMAGE                COMMAND                  SERVICE   CREATED          STATUS          PORTS
 workspace-db-1     postgres:18-alpine   "docker-entrypoint.s…"   db        15 seconds ago   Up 14 seconds   5432/tcp
 ```
@@ -86,7 +84,6 @@ Verify the data was inserted successfully by querying the database.
 
 ```bash
 [labuser@container ~]$ docker compose exec db psql -U postgres -c "SELECT * FROM users;"
-
  id | name  
 ----+-------
   1 | Alice
@@ -97,7 +94,6 @@ Now, completely stop and remove the container.
 
 ```bash
 [labuser@container ~]$ docker compose down
-
 [+] Running 2/2
  ✔ Container workspace-db-1   Removed                             0.2s 
  ✔ Network workspace_default  Removed                             0.1s 
@@ -107,7 +103,6 @@ Verify that no containers are running with `docker ps -a`.
 
 ```bash
 [labuser@container ~]$ docker ps -a
-
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 ```
 
@@ -115,7 +110,6 @@ Even though the container is gone, the named volume `pgdata` still exists on you
 
 ```bash
 [labuser@container ~]$ docker volume ls
-
 DRIVER    VOLUME NAME
 local     workspace_pgdata
 ```
@@ -124,7 +118,6 @@ Bring the stack back up.
 
 ```bash
 [labuser@container ~]$ docker compose up -d
-
 [+] Running 2/2
  ✔ Network workspace_default  Created                             0.1s 
  ✔ Container workspace-db-1   Started                             0.3s 
@@ -134,7 +127,6 @@ Wait a few seconds for it to start, then verify the data survived by querying th
 
 ```bash
 [labuser@container ~]$ docker compose exec db psql -U postgres -c "SELECT * FROM users;"
-
  id | name  
 ----+-------
   1 | Alice
@@ -193,7 +185,6 @@ Apply changes.
 
 ```bash
 [labuser@container ~]$ docker compose up -d
-
 [+] Running 4/4
  ✔ Network workspace_backend-net   Created                        0.1s 
  ✔ Network workspace_frontend-net  Created                        0.1s 
@@ -206,7 +197,6 @@ Verify the networks.
 
 ```bash
 [labuser@container ~]$ docker network ls
-
 NETWORK ID     NAME                       DRIVER    SCOPE
 a1b2c3d4e5f6   bridge                     bridge    local
 b2c3d4e5f6g7   host                       host      local
@@ -219,7 +209,6 @@ Now let's prove the isolation works! Try to reach the database from the frontend
 
 ```bash
 [labuser@container ~]$ docker compose exec frontend ping -c 1 db
-
 ping: bad address 'db'
 ```
 *(This fails with a "bad address" error because they are on different networks, so Docker DNS blocks the resolution!)*
@@ -228,7 +217,6 @@ Now try to reach the database from the API.
 
 ```bash
 [labuser@container ~]$ docker compose exec api ping -c 1 db
-
 PING db (172.20.0.2): 56 data bytes
 64 bytes from 172.20.0.2: seq=0 ttl=64 time=0.082 ms
 ```
@@ -291,7 +279,6 @@ Apply by running `docker compose up -d`.
 
 ```bash
 [labuser@container ~]$ docker compose up -d
-
 [+] Running 3/3
  ✔ Container workspace-frontend-1  Running                        0.0s 
  ✔ Container workspace-db-1        Started                        0.4s 
@@ -302,7 +289,6 @@ Check the health status.
 
 ```bash
 [labuser@container ~]$ docker compose ps
-
 NAME                   IMAGE                COMMAND                  SERVICE    CREATED          STATUS                    PORTS
 workspace-api-1        alpine:3.22          "sleep infinity"         api        10 seconds ago   Up 9 seconds              
 workspace-db-1         postgres:18-alpine   "docker-entrypoint.s…"   db         10 seconds ago   Up 9 seconds (healthy)    5432/tcp
@@ -378,7 +364,6 @@ Apply the changes.
 
 ```bash
 [labuser@container ~]$ docker compose up -d
-
 [+] Running 3/3
  ✔ Container workspace-frontend-1  Running                        0.0s 
  ✔ Container workspace-db-1        Recreated                      0.4s 
@@ -472,7 +457,6 @@ Run `docker compose down -v`.
 
 ```bash
 [labuser@container ~]$ docker compose down -v
-
 [+] Running 5/5
  ✔ Container workspace-api-1       Removed                        0.3s 
  ✔ Container workspace-frontend-1  Removed                        0.3s 
@@ -486,7 +470,6 @@ Verify the volume is gone by running `docker volume ls` — it should return not
 
 ```bash
 [labuser@container ~]$ docker volume ls
-
 DRIVER    VOLUME NAME
 ```
 

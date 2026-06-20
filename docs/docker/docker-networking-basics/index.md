@@ -38,7 +38,6 @@ Run `docker network ls` to list all networks.
 
 ```bash
 [labuser@container ~]$ docker network ls
-
 NETWORK ID     NAME      DRIVER    SCOPE
 a1b2c3d4e5f6   bridge    bridge    local
 b2c3d4e5f6a1   host      host      local
@@ -49,7 +48,6 @@ Run `docker network inspect bridge` to view the bridge network configuration. Lo
 
 ```bash
 [labuser@container ~]$ docker network inspect bridge
-
 [
     {
         "Name": "bridge",
@@ -89,7 +87,6 @@ Verify both containers are running by running `docker ps`.
 
 ```bash
 [labuser@container ~]$ docker ps
-
 CONTAINER ID   IMAGE         COMMAND            CREATED          STATUS          PORTS     NAMES
 e2f3g4h5i6j7   alpine:3.22   "sleep infinity"   10 seconds ago   Up 9 seconds              app2
 d1e2f3g4h5i6   alpine:3.22   "sleep infinity"   15 seconds ago   Up 14 seconds             app1
@@ -99,7 +96,6 @@ Try to ping `app1` from `app2` by name by running `docker exec app2 ping -c 2 ap
 
 ```bash
 [labuser@container ~]$ docker exec app2 ping -c 2 app1
-
 ping: bad address 'app1'
 ```
 
@@ -129,7 +125,6 @@ First stop and remove the previous containers.
 
 ```bash
 [labuser@container ~]$ docker stop app1 app2 && docker rm app1 app2
-
 app1
 app2
 app1
@@ -140,7 +135,6 @@ Run `docker network create mynetwork` to create a custom bridge network.
 
 ```bash
 [labuser@container ~]$ docker network create mynetwork
-
 f1g2h3i4j5k6l7m8n9o0p1q2r3s4t5u6v7w8x9y0z1a2b3c4d5e6f7g8h9i0j1k2
 ```
 
@@ -148,7 +142,6 @@ Run `docker network ls` and verify `mynetwork` appears.
 
 ```bash
 [labuser@container ~]$ docker network ls
-
 NETWORK ID     NAME        DRIVER    SCOPE
 a1b2c3d4e5f6   bridge      bridge    local
 b2c3d4e5f6a1   host        host      local
@@ -174,7 +167,6 @@ Test DNS resolution by running `docker exec app2 ping -c 2 app1`.
 
 ```bash
 [labuser@container ~]$ docker exec app2 ping -c 2 app1
-
 PING app1 (172.18.0.2): 56 data bytes
 64 bytes from 172.18.0.2: seq=0 ttl=64 time=0.104 ms
 64 bytes from 172.18.0.2: seq=1 ttl=64 time=0.082 ms
@@ -194,7 +186,6 @@ Run `docker network inspect mynetwork` to view the network's configuration.
 
 ```bash
 [labuser@container ~]$ docker network inspect mynetwork
-
 [
     {
         "Name": "mynetwork",
@@ -259,7 +250,6 @@ Verify the disconnection by running `docker exec app2 ping -c 2 app1`. It should
 
 ```bash
 [labuser@container ~]$ docker exec app2 ping -c 2 app1
-
 ping: bad address 'app1'
 ```
 
@@ -273,7 +263,6 @@ Run `docker run -d --name host-app --network host alpine:3.22 sleep infinity`.
 
 ```bash
 [labuser@container ~]$ docker run -d --name host-app --network host alpine:3.22 sleep infinity
-
 h1i2j3k4l5m6n7o8p9q0r1s2t3u4v5w6x7y8z9a0b1c2d3e4f5g6h7i8j9k0l1m2
 ```
 
@@ -281,7 +270,6 @@ View the network interfaces by running `docker exec host-app ip addr`.
 
 ```bash
 [labuser@container ~]$ docker exec host-app ip addr
-
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo
@@ -307,7 +295,6 @@ First, verify that a normal container has internet access by pinging an external
 
 ```bash
 [labuser@container ~]$ docker exec app1 ping -c 2 8.8.8.8
-
 PING 8.8.8.8 (8.8.8.8): 56 data bytes
 64 bytes from 8.8.8.8: seq=0 ttl=114 time=10.123 ms
 64 bytes from 8.8.8.8: seq=1 ttl=114 time=11.234 ms
@@ -323,7 +310,6 @@ Run `docker run -d --name isolated-app --network none alpine:3.22 sleep infinity
 
 ```bash
 [labuser@container ~]$ docker run -d --name isolated-app --network none alpine:3.22 sleep infinity
-
 z9y8x7w6v5u4t3s2r1q0p9o8n7m6l5k4j3i2h1g0f9e8d7c6b5a4z3y2x1w0v9u8
 ```
 
@@ -331,7 +317,6 @@ Verify the isolation by attempting to ping the same external IP.
 
 ```bash
 [labuser@container ~]$ docker exec isolated-app ping -c 2 8.8.8.8
-
 ping: sendto: Network unreachable
 ```
 
@@ -345,7 +330,6 @@ Stop and remove all running containers and the custom network.
 
 ```bash
 [labuser@container ~]$ docker stop app1 app2 host-app isolated-app && docker rm app1 app2 host-app isolated-app
-
 app1
 app2
 host-app
@@ -360,7 +344,6 @@ Run `docker network rm mynetwork` to remove the custom network.
 
 ```bash
 [labuser@container ~]$ docker network rm mynetwork
-
 mynetwork
 ```
 
@@ -368,7 +351,6 @@ Verify by running `docker network ls` — only the default `bridge`, `host`, and
 
 ```bash
 [labuser@container ~]$ docker network ls
-
 NETWORK ID     NAME      DRIVER    SCOPE
 a1b2c3d4e5f6   bridge    bridge    local
 b2c3d4e5f6a1   host      host      local

@@ -46,7 +46,6 @@ Run `docker info` to display the system-wide Docker configuration and confirm th
 
 ```bash
 [labuser@container ~]$ docker info
-
 Client: Docker Engine - Community
  Version:    24.0.2
  Context:    default
@@ -67,7 +66,6 @@ Run `docker version` to see the client and daemon versions.
 
 ```bash
 [labuser@container ~]$ docker version
-
 Client: Docker Engine - Community
  Version:           24.0.2
  API version:       1.43
@@ -116,7 +114,6 @@ Observe the output — Docker pulled the image, created a container, printed a m
 
 ```bash
 [labuser@container ~]$ docker run hello-world
-
 Unable to find image 'hello-world:latest' locally
 latest: Pulling from library/hello-world
 719385e32844: Pull complete 
@@ -132,7 +129,6 @@ Run `docker image ls` to view the newly pulled image in your local storage. You 
 
 ```bash
 [labuser@container ~]$ docker image ls
-
 REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
 hello-world   latest    d2c94e258dcb   10 months ago   13.3kB
 ```
@@ -141,7 +137,6 @@ Next, run `docker ps -a` to view the container you just ran. The `-a` flag tells
 
 ```bash
 [labuser@container ~]$ docker ps -a
-
 CONTAINER ID   IMAGE         COMMAND    CREATED          STATUS                      PORTS     NAMES
 4a2f8b9e1c3d   hello-world   "/hello"   10 seconds ago   Exited (0) 9 seconds ago              nifty_curie
 ```
@@ -168,7 +163,6 @@ Run `docker run --name my-hello-container hello-world` to create a new container
 
 ```bash
 [labuser@container ~]$ docker run --name my-hello-container hello-world
-
 Hello from Docker!
 This message shows that your installation appears to be working correctly.
 ```
@@ -177,7 +171,6 @@ Next, run `docker ps -a` again. You will now see two `hello-world` containers �
 
 ```bash
 [labuser@container ~]$ docker ps -a
-
 CONTAINER ID   IMAGE         COMMAND    CREATED          STATUS                      PORTS     NAMES
 9d8c7b6a5e4f   hello-world   "/hello"   12 seconds ago   Exited (0) 11 seconds ago             my-hello-container
 4a2f8b9e1c3d   hello-world   "/hello"   2 minutes ago    Exited (0) 2 minutes ago              nifty_curie
@@ -199,7 +192,6 @@ First, run `docker ps` to confirm you currently have no active containers runnin
 
 ```bash
 [labuser@container ~]$ docker ps
-
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 ```
 
@@ -207,7 +199,6 @@ Next, run `docker run -d --name webserver nginx:1.30` to start an Nginx web serv
 
 ```bash
 [labuser@container ~]$ docker run -d --name webserver nginx:1.30
-
 Unable to find image 'nginx:1.30' locally
 1.30: Pulling from library/nginx
 ...
@@ -218,7 +209,6 @@ Verify the server is running silently in the background by running `docker ps` a
 
 ```bash
 [labuser@container ~]$ docker ps
-
 CONTAINER ID   IMAGE        COMMAND                  CREATED          STATUS          PORTS     NAMES
 f2a715f4e5c3   nginx:1.30   "/docker-entrypoint.…"   15 seconds ago   Up 14 seconds   80/tcp    webserver
 ```
@@ -245,7 +235,6 @@ Run `docker run -d ubuntu:24.04 sleep 10` to start it in the background.
 
 ```bash
 [labuser@container ~]$ docker run -d ubuntu:24.04 sleep 10
-
 c3b9d0a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5z6a7b8c9
 ```
 
@@ -253,7 +242,6 @@ Immediately run `docker ps` to verify the container is running. Look closely at 
 
 ```bash
 [labuser@container ~]$ docker ps
-
 CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS         PORTS     NAMES
 c3b9d0a1b2c3   ubuntu:24.04   "sleep 10"               2 seconds ago   Up 1 second              sleepy_turing
 f2a715f4e5c3   nginx:1.30     "/docker-entrypoint.…"   2 minutes ago   Up 2 minutes   80/tcp    webserver
@@ -265,7 +253,6 @@ Finally, run `docker ps -a` to view both running and stopped containers. You wil
 
 ```bash
 [labuser@container ~]$ docker ps -a
-
 CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS                      PORTS     NAMES
 c3b9d0a1b2c3   ubuntu:24.04   "sleep 10"               15 seconds ago   Exited (0) 4 seconds ago              sleepy_turing
 f2a715f4e5c3   nginx:1.30     "/docker-entrypoint.…"   3 minutes ago    Up 3 minutes                80/tcp    webserver
@@ -288,7 +275,6 @@ Run `docker inspect webserver` to view the full metadata of the running containe
 
 ```bash
 [labuser@container ~]$ docker inspect webserver
-
 [
     {
         "Id": "f2a715f4e5c3b9d0a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4",
@@ -311,7 +297,6 @@ Run `docker inspect --format '{{.State.Status}}' webserver` to filter the output
 
 ```bash
 [labuser@container ~]$ docker inspect --format '{{.State.Status}}' webserver
-
 running
 ```
 
@@ -331,7 +316,6 @@ First, run `docker exec webserver ls /usr/share/nginx/html` to list the files in
 
 ```bash
 [labuser@container ~]$ docker exec webserver ls /usr/share/nginx/html
-
 50x.html
 index.html
 ```
@@ -340,7 +324,6 @@ Since the `ls` command showed us that an `index.html` file exists, let's view it
 
 ```bash
 [labuser@container ~]$ docker exec webserver cat /usr/share/nginx/html/index.html
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -358,7 +341,6 @@ Now, let's "log in" to the container to verify the file was really changed. Run 
 
 ```bash
 [labuser@container ~]$ docker exec -it webserver bash
-
 root@f2a715f4e5c3:/# 
 ```
 
@@ -391,7 +373,6 @@ Run `docker logs webserver` to view the container's entire log history.
 
 ```bash
 [labuser@container ~]$ docker logs webserver
-
 /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
 /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
 /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
@@ -409,7 +390,6 @@ To make it more manageable, run `docker logs --tail 5 webserver` to show only th
 
 ```bash
 [labuser@container ~]$ docker logs --tail 5 webserver
-
 /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
 /docker-entrypoint.sh: Configuration complete; ready for start up
 2023/10/27 10:00:01 [notice] 1#1: using the "epoll" event method
@@ -452,7 +432,6 @@ First, try to delete the container while it's still running by executing `docker
 
 ```bash
 [labuser@container ~]$ docker rm webserver
-
 Error response from daemon: You cannot remove a running container f2a715f4e5c3b9d0... Stop the container before attempting removal or force remove
 ```
 
@@ -460,7 +439,6 @@ Error response from daemon: You cannot remove a running container f2a715f4e5c3b9
 
 ```bash
 [labuser@container ~]$ docker stop webserver
-
 webserver
 ```
 
@@ -470,7 +448,6 @@ Finally, run `docker ps -a` to confirm the container still exists on your disk, 
 
 ```bash
 [labuser@container ~]$ docker ps -a
-
 CONTAINER ID   IMAGE        COMMAND                  CREATED          STATUS                      PORTS     NAMES
 f2a715f4e5c3   nginx:1.30   "/docker-entrypoint.…"   15 minutes ago   Exited (0) 10 seconds ago             webserver
 ```
@@ -490,7 +467,6 @@ Run `docker rm webserver` to permanently delete the stopped container.
 
 ```bash
 [labuser@container ~]$ docker rm webserver
-
 webserver
 ```
 
@@ -506,7 +482,6 @@ Run `docker container prune -f` to remove all stopped containers. The `-f` flag 
 
 ```bash
 [labuser@container ~]$ docker container prune -f
-
 Deleted Containers:
 9d8c7b6a5e4f
 4a2f8b9e1c3d
@@ -531,7 +506,6 @@ Run `docker run --rm hello-world` to start a container, print a short message, a
 
 ```bash
 [labuser@container ~]$ docker run --rm hello-world
-
 Hello from Docker!
 This message shows that your installation appears to be working correctly.
 ...

@@ -17,7 +17,6 @@ Start a container in the background that stays alive indefinitely by running `do
 
 ```bash
 [labuser@container ~]$ docker run -d --name temp-app alpine:3.22 sleep infinity
-
 7b6a5e4f3d2c1b0a9f8e7d6c5b4a3f2e1d0c9b8a7f6e5d4c3b2a1f0e9d8c7b6a
 ```
 
@@ -41,7 +40,6 @@ Verify the container is running by using `docker ps`.
 
 ```bash
 [labuser@container ~]$ docker ps
-
 CONTAINER ID   IMAGE         COMMAND            CREATED          STATUS          PORTS     NAMES
 7b6a5e4f3d2c   alpine:3.22   "sleep infinity"   15 seconds ago   Up 14 seconds             temp-app
 ```
@@ -50,7 +48,6 @@ Remove the container to simulate an update or a crash.
 
 ```bash
 [labuser@container ~]$ docker rm -f temp-app
-
 temp-app
 ```
 
@@ -58,7 +55,6 @@ Run `docker ps -a` to verify the container has been completely removed.
 
 ```bash
 [labuser@container ~]$ docker ps -a
-
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 ```
 
@@ -66,7 +62,6 @@ Recreate the container with the exact same name.
 
 ```bash
 [labuser@container ~]$ docker run -d --name temp-app alpine:3.22 sleep infinity
-
 c5b4a3f2e1d0c9b8a7f6e5d4c3b2a1f0e9d8c7b6a5e4f3d2c1b0a9f8e7d6c5b4
 ```
 
@@ -74,7 +69,6 @@ Try to read the file again.
 
 ```bash
 [labuser@container ~]$ docker exec temp-app cat /data.txt
-
 cat: can't open '/data.txt': No such file or directory
 ```
 
@@ -126,7 +120,6 @@ Run `docker volume create appdata` to create a named volume called `appdata`.
 
 ```bash
 [labuser@container ~]$ docker volume create appdata
-
 appdata
 ```
 
@@ -134,7 +127,6 @@ Run `docker volume ls` to list all volumes and confirm `appdata` appears.
 
 ```bash
 [labuser@container ~]$ docker volume ls
-
 DRIVER    VOLUME NAME
 local     appdata
 ```
@@ -149,7 +141,6 @@ Run `docker volume inspect appdata` to view the volume configuration. Note the `
 
 ```bash
 [labuser@container ~]$ docker volume inspect appdata
-
 [
     {
         "CreatedAt": "2023-11-01T12:02:00Z",
@@ -171,7 +162,6 @@ Start a new container in the background and attach the `appdata` volume so that 
 
 ```bash
 [labuser@container ~]$ docker run -d --name volume-app -v appdata:/data alpine:3.22 sleep infinity
-
 e5d4c3b2a1f0e9d8c7b6a5e4f3d2c1b0a9f8e7d6c5b4a3f2e1d0c9b8a7f6e5d4
 ```
 
@@ -199,7 +189,6 @@ Verify the running containers by using `docker ps`.
 
 ```bash
 [labuser@container ~]$ docker ps
-
 CONTAINER ID   IMAGE         COMMAND            CREATED          STATUS          PORTS     NAMES
 e5d4c3b2a1f0   alpine:3.22   "sleep infinity"   2 minutes ago    Up 2 minutes              volume-app
 ```
@@ -208,7 +197,6 @@ Remove the container that wrote the data.
 
 ```bash
 [labuser@container ~]$ docker rm -f volume-app
-
 volume-app
 ```
 
@@ -216,7 +204,6 @@ Run `docker ps -a` to verify the container has been completely removed.
 
 ```bash
 [labuser@container ~]$ docker ps -a
-
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 ```
 
@@ -224,7 +211,6 @@ Start a new container — with the exact same name and volume mount.
 
 ```bash
 [labuser@container ~]$ docker run -d --name volume-app -v appdata:/data alpine:3.22 sleep infinity
-
 f0e9d8c7b6a5e4f3d2c1b0a9f8e7d6c5b4a3f2e1d0c9b8a7f6e5d4c3b2a1f0e9
 ```
 
@@ -262,7 +248,6 @@ Verify the file exists on the host.
 
 ```bash
 [labuser@container ~]$ ls -l shared/
-
 total 4
 -rw-r--r-- 1 opc opc 15 Nov  1 12:10 app.txt
 ```
@@ -271,7 +256,6 @@ Start a container in the background and mount the directory into it.
 
 ```bash
 [labuser@container ~]$ docker run -d --name bind-app -v $(pwd)/shared:/app ubuntu:24.04 sleep infinity
-
 1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z7a8b9c0d1e2f
 ```
 
@@ -279,7 +263,6 @@ Open an interactive shell inside the running container.
 
 ```bash
 [labuser@container ~]$ docker exec -it bind-app bash
-
 root@1a2b3c4d5e6f:/# 
 ```
 
@@ -332,7 +315,6 @@ Try to remove the volume.
 
 ```bash
 [labuser@container ~]$ docker volume rm appdata
-
 Error response from daemon: remove appdata: volume is in use - [f0e9d8c7b6a5e4f3d2c1b0a9f8e7d6c5b4a3f2e1d0c9b8a7f6e5d4c3b2a1f0e9]
 ```
 
@@ -342,7 +324,6 @@ Remove the container that is using the volume.
 
 ```bash
 [labuser@container ~]$ docker rm -f volume-app
-
 volume-app
 ```
 
@@ -350,7 +331,6 @@ Now, successfully remove the volume.
 
 ```bash
 [labuser@container ~]$ docker volume rm appdata
-
 appdata
 ```
 
@@ -358,7 +338,6 @@ Verify it is gone.
 
 ```bash
 [labuser@container ~]$ docker volume ls
-
 DRIVER    VOLUME NAME
 ```
 

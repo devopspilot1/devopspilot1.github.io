@@ -92,10 +92,9 @@ Example:
 - Commands run **inside** a container (after `docker exec -it ... bash`) use the container's own prompt, e.g. `root@<id>:/#`.
 - Heredoc content lines (everything between `<< 'EOF'` and `EOF`) must **not** be prefixed with the prompt — only the opening `cat > ... << 'EOF'` line gets it.
 
-**Rule B — Single Merged Block:** The command and its output must always appear in a **single `bash` code block** — never split into a separate `bash` + `text` pair. Place one blank line between the last command and the first line of output:
+**Rule B — Single Merged Block:** The command and its output must always appear in a **single `bash` code block** — never split into a separate `bash` + `text` pair. Output must immediately follow the command with **no blank line** between them, exactly as a real terminal behaves:
 ```bash
 [labuser@container ~]$ docker ps
-
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS   NAMES
 ```
 - If there is no output (e.g. a silent write command), use a `bash` block with just the prompt line and no output section.

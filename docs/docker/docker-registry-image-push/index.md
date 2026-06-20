@@ -33,7 +33,6 @@ Pull a base image and inspect it.
 
 ```bash
 [labuser@container ~]$ docker pull alpine:3.22
-
 3.22: Pulling from library/alpine
 Digest: sha256:c5b1261d6d3e43071626931fc004f70149baeba2c8ec672bd4f27761f8e1ad6b
 Status: Image is up to date for alpine:3.22
@@ -50,7 +49,6 @@ Verify the tag.
 
 ```bash
 [labuser@container ~]$ docker images myusername/myapp
-
 REPOSITORY         TAG       IMAGE ID       CREATED       SIZE
 myusername/myapp   1.0       05455a08881e   3 days ago    7.38MB
 ```
@@ -77,7 +75,6 @@ Start a local registry on port `5000`.
 
 ```bash
 [labuser@container ~]$ docker run -d --name localreg -p 5000:5000 registry:3
-
 a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5z6a7b8c9d0e1f2
 ```
 
@@ -85,7 +82,6 @@ Verify it is running.
 
 ```bash
 [labuser@container ~]$ docker ps
-
 CONTAINER ID   IMAGE        COMMAND                  CREATED         STATUS         PORTS                                       NAMES
 a1b2c3d4e5f6   registry:3   "/entrypoint.sh /etc…"   2 seconds ago   Up 1 second    0.0.0.0:5000->5000/tcp, :::5000->5000/tcp   localreg
 ```
@@ -108,7 +104,6 @@ Run `docker push localhost:5000/myapp:1.0` to push it.
 
 ```bash
 [labuser@container ~]$ docker push localhost:5000/myapp:1.0
-
 The push refers to repository [localhost:5000/myapp]
 d1e2f3g4h5i6: Pushed 
 1.0: digest: sha256:7b6a5e4f3d2c1b0a9f8e7d6c5b4a3f2e1d0c9b8a7f6e5d4c3b2a1f0e9d8c7b6 size: 528
@@ -120,7 +115,6 @@ List all repositories in your local registry.
 
 ```bash
 [labuser@container ~]$ curl http://localhost:5000/v2/_catalog
-
 {"repositories":["myapp"]}
 ```
 
@@ -128,7 +122,6 @@ You will see a JSON response confirming your image is stored. Now list all avail
 
 ```bash
 [labuser@container ~]$ curl http://localhost:5000/v2/myapp/tags/list
-
 {"name":"myapp","tags":["1.0"]}
 ```
 
@@ -142,7 +135,6 @@ Let's simulate a completely fresh machine for our app by wiping the local image 
 
 ```bash
 [labuser@container ~]$ docker rmi localhost:5000/myapp:1.0 myusername/myapp:1.0
-
 Untagged: localhost:5000/myapp:1.0
 Untagged: localhost:5000/myapp@sha256:7b6a5e4f3d2c1b0a9f8e7d6c5b4a3f2e1d0c9b8a7f6e5d4c3b2a1f0e9d8c7b6
 Untagged: myusername/myapp:1.0
@@ -152,7 +144,6 @@ Verify the images are gone by running `docker images` — your `localhost:5000/m
 
 ```bash
 [labuser@container ~]$ docker images
-
 REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
 alpine       3.22      05455a08881e   3 days ago    7.38MB
 registry     3         123456789abc   2 weeks ago   25.4MB
@@ -162,7 +153,6 @@ Now pull it back from your local registry.
 
 ```bash
 [labuser@container ~]$ docker pull localhost:5000/myapp:1.0
-
 1.0: Pulling from myapp
 Digest: sha256:7b6a5e4f3d2c1b0a9f8e7d6c5b4a3f2e1d0c9b8a7f6e5d4c3b2a1f0e9d8c7b6
 Status: Downloaded newer image for localhost:5000/myapp:1.0
@@ -173,7 +163,6 @@ Verify it appears in your local image store.
 
 ```bash
 [labuser@container ~]$ docker images
-
 REPOSITORY             TAG       IMAGE ID       CREATED       SIZE
 localhost:5000/myapp   1.0       05455a08881e   3 days ago    7.38MB
 alpine                 3.22      05455a08881e   3 days ago    7.38MB
@@ -196,7 +185,6 @@ Verify the file was created.
 
 ```bash
 [labuser@container ~]$ ls -l alpine.tar
-
 -rw------- 1 user group 7524864 Nov 01 13:00 alpine.tar
 ```
 
@@ -204,7 +192,6 @@ Now remove all local unused images.
 
 ```bash
 [labuser@container ~]$ docker image prune -a -f
-
 Deleted Images:
 untagged: alpine:3.22
 untagged: localhost:5000/myapp:1.0
@@ -219,7 +206,6 @@ Verify the image is gone (you will only see `registry:3` since it's running).
 
 ```bash
 [labuser@container ~]$ docker images
-
 REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
 registry     3         123456789abc   2 weeks ago   25.4MB
 ```
@@ -228,7 +214,6 @@ Load it back from the tar file.
 
 ```bash
 [labuser@container ~]$ docker load -i alpine.tar
-
 c5b1261d6d3e: Loading layer [==================================================>]  7.525MB/7.525MB
 Loaded image: alpine:3.22
 ```
@@ -237,7 +222,6 @@ Verify.
 
 ```bash
 [labuser@container ~]$ docker images
-
 REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
 alpine       3.22      05455a08881e   3 days ago    7.38MB
 registry     3         123456789abc   2 weeks ago   25.4MB

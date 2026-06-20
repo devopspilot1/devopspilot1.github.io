@@ -40,7 +40,6 @@ Verify by running `cat Dockerfile`.
 
 ```bash
 [labuser@container ~]$ cat Dockerfile
-
 FROM alpine:3.22
 CMD ["echo", "Hello from my first image"]
 ```
@@ -55,7 +54,6 @@ Build your image by running `docker build -t myimage:v1 .`
 
 ```bash
 [labuser@container ~]$ docker build -t myimage:v1 .
-
 [+] Building 0.1s (5/5) FINISHED                                docker:default
  => [internal] load build definition from Dockerfile                      0.0s
  => => transferring dockerfile: 91B                                       0.0s
@@ -73,7 +71,6 @@ Verify it appears in the local store by running `docker images myimage`.
 
 ```bash
 [labuser@container ~]$ docker images myimage
-
 REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
 myimage      v1        7b6a5e4f3d2c   10 seconds ago   7.38MB
 ```
@@ -104,7 +101,6 @@ Rebuild.
 
 ```bash
 [labuser@container ~]$ docker build -t myimage:v2 .
-
 [+] Building 0.2s (7/7) FINISHED                                docker:default
  => [internal] load build definition from Dockerfile                      0.0s
  => [internal] load metadata for docker.io/library/alpine:3.22            0.0s
@@ -124,7 +120,6 @@ Verify the working directory and that the file was copied.
 
 ```bash
 [labuser@container ~]$ docker run --rm myimage:v2 sh -c "pwd && ls -l"
-
 /app
 total 4
 -rw-r--r--    1 root     root            11 Nov  1 12:20 config.txt
@@ -153,7 +148,6 @@ Rebuild.
 
 ```bash
 [labuser@container ~]$ docker build -t myimage:v3 .
-
 [+] Building 0.1s (7/7) FINISHED                                docker:default
 ...
 ```
@@ -162,7 +156,6 @@ Run the container.
 
 ```bash
 [labuser@container ~]$ docker run --rm myimage:v3
-
 total 4
 -rw-r--r--    1 root     root            11 Nov  1 12:20 config.txt
 ```
@@ -193,7 +186,6 @@ Rebuild.
 
 ```bash
 [labuser@container ~]$ docker build -t myimage:v4 .
-
 [+] Building 0.1s (7/7) FINISHED                                docker:default
 ...
 ```
@@ -202,7 +194,6 @@ Run the container without a command to see the default behavior. Notice this run
 
 ```bash
 [labuser@container ~]$ docker run myimage:v4
-
 total 4
 -rw-r--r--    1 root     root            11 Nov  1 12:20 config.txt
 ```
@@ -211,7 +202,6 @@ Now override the CMD by passing a different argument to `docker run`.
 
 ```bash
 [labuser@container ~]$ docker run myimage:v4 /app/config.txt
-
 /app/config.txt
 ```
 
@@ -221,7 +211,6 @@ Verify this by running `docker ps -a` and looking at the **COMMAND** column to s
 
 ```bash
 [labuser@container ~]$ docker ps -a
-
 CONTAINER ID   IMAGE        COMMAND                  CREATED          STATUS                      PORTS     NAMES
 f0e9d8c7b6a5   myimage:v4   "ls /app/config.txt"     15 seconds ago   Exited (0) 14 seconds ago             optimistic_hopper
 1a2b3c4d5e6f   myimage:v4   "ls -l"                  35 seconds ago   Exited (0) 34 seconds ago             blissful_turing
@@ -237,7 +226,6 @@ First, verify that `curl` is not installed in the base image.
 
 ```bash
 [labuser@container ~]$ docker run --rm alpine:3.22 curl --version
-
 docker: Error response from daemon: failed to create task for container: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: exec: "curl": executable file not found in $PATH: unknown.
 ```
 
@@ -259,7 +247,6 @@ Rebuild.
 
 ```bash
 [labuser@container ~]$ docker build -t myimage:v5 .
-
 [+] Building 1.5s (8/8) FINISHED                                docker:default
  => [internal] load build definition from Dockerfile                      0.0s
  => [internal] load metadata for docker.io/library/alpine:3.22            0.0s
@@ -280,7 +267,6 @@ Run the container using the new image to verify `curl` works now.
 
 ```bash
 [labuser@container ~]$ docker run --rm myimage:v5 curl --version
-
 curl 8.5.0 (x86_64-alpine-linux-musl) libcurl/8.5.0 OpenSSL/3.1.4 zlib/1.3.1 brotli/1.1.0 c-ares/1.24.0 libidn2/2.3.4 nghttp2/1.58.0
 Release-Date: 2023-12-06
 Protocols: dict file ftp ftps gopher gophers http https imap imaps mqtt pop3 pop3s rtsp smb smbs smtp smtps telnet tftp
@@ -314,7 +300,6 @@ Rebuild.
 
 ```bash
 [labuser@container ~]$ docker build -t myimage:v6 .
-
 [+] Building 2.5s (7/7) FINISHED                                docker:default
 ...
 ```
@@ -323,7 +308,6 @@ Run the container in the background (`-d`) using `-P` to publish the port random
 
 ```bash
 [labuser@container ~]$ docker run --rm -d -P --name web myimage:v6
-
 z1y2x3w4v5u6t7s8r9q0p1o2n3m4l5k6j7i8h9g0f1e2d3c4b5a6z7y8x9w0v1u2
 ```
 
@@ -331,7 +315,6 @@ Check which random port was assigned.
 
 ```bash
 [labuser@container ~]$ docker port web
-
 8000/tcp -> 0.0.0.0:32769
 8000/tcp -> [::]:32769
 ```
