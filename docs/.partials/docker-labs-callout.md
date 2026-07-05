@@ -126,6 +126,6 @@
 
   <div class="sleek-promo-docker">
     <span class="sleek-badge-docker">FREE LAUNCH OFFER</span>
-    <span><strong>Get all premium Docker labs for FREE until June 30th!</strong> (No Credit Card Required)</span>
+    <span><strong>Get all premium Docker labs for FREE until July 31st!</strong> (No Credit Card Required)</span>
   </div>
 </div>

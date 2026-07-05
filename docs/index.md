@@ -206,7 +206,7 @@ hide:
 <div class="hero">
   <!-- Launch Offer Top Micro-Badge -->
   <a href="https://www.devopspilot.com" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; background: rgba(15, 121, 14, 0.05); border: 1px solid rgba(15, 121, 14, 0.2); border-radius: 50px; font-size: 0.72rem; font-weight: 800; color: #0f790e; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.04em; text-decoration: none !important; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.background='rgba(15, 121, 14, 0.1)'; this.style.borderColor='#0f790e'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(15, 121, 14, 0.05)'; this.style.borderColor='rgba(15, 121, 14, 0.2)'; this.style.transform='translateY(0)'">
-    🚀 FREE LAUNCH SPECIAL: Get all premium Linux and Docker labs for FREE until June 30th! (No Credit Card Required)
+    🚀 FREE LAUNCH SPECIAL: Get all premium Linux and Docker labs for FREE until July 31st! (No Credit Card Required)
   </a>
   <h1>Your Co-Pilot for DevOps Mastery</h1>
   <p>Stop watching endless videos. Practice live in real browser-based sandboxes with secure environments, real-world troubleshooting, and instant task validation.</p>

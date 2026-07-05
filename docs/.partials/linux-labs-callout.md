@@ -126,6 +126,6 @@
 
   <div class="sleek-promo">
     <span class="sleek-promo-badge">FREE LAUNCH OFFER</span>
-    <span><strong>Get all premium Linux labs for FREE until June 30th!</strong> (No Credit Card Required)</span>
+    <span><strong>Get all premium Linux labs for FREE until July 31st!</strong> (No Credit Card Required)</span>
   </div>
 </div>
