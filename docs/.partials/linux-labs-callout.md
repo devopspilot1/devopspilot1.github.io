@@ -124,8 +124,8 @@
     </a>
   </div>
 
-  <div class="sleek-promo">
-    <span class="sleek-promo-badge">FREE LAUNCH OFFER</span>
-    <span><strong>Get all premium Linux labs for FREE until July 31st!</strong> (No Credit Card Required)</span>
+  <div class="sleek-promo-docker">
+    <span class="sleek-badge-docker">EARLY ACCESS</span>
+    <span><strong>Get all Linux labs for FREE during Early Access!</strong> (No Credit Card Required)</span>
   </div>
 </div>
