@@ -43,17 +43,19 @@ graph TD
 ```
 
 ### 1. Cloud Platform Team (Infrastructure Owners)
-- Owns the cloud foundations across AWS, GCP, and Azure.
-- Manages Terraform infrastructure-as-code, multi-region Kubernetes clusters (EKS), VPCs, Route 53 DNS, Karpenter node provisioning, and cloud-level IAM/security.
+- Owns isolated cloud accounts and projects per environment: separate AWS Accounts and GCP Projects for `dev`, `qa`, and `prod` ensuring 100% blast-radius containment.
+- Maintains a **central project-level Terraform repository (`paypulse-infrastructure`)** containing decoupled sub-projects for core infrastructure (`foundations/networking`, `foundations/core-infrastructure`) and application microservices (`apps/payments-service`, `apps/settlements-service`, etc.), each parameterized with `dev.tfvars`, `qa.tfvars`, and `prod.tfvars`.
+- Manages foundational infrastructure: EKS clusters, VPCs, Route 53 DNS, Karpenter node provisioning, and cloud-level IAM/security boundaries.
 
 ### 2. DevOps Delivery Team (Software Delivery Platform Owners)
-- Builds and operates the **software delivery platform** on top of the cloud infrastructure.
+- Builds and operates the **software delivery platform** and **infrastructure CI/CD automation** on top of the cloud infrastructure.
+- Authors centralized Jenkins pipelines for Terraform automation (`terraform init`, `plan`, and `apply` via `vars/terraformPipeline.groovy`), eliminating unsafe local laptop executions and enforcing audit compliance.
 - Owns Jenkins controllers, dynamic Kubernetes agent pools, centralized Groovy Shared Libraries (`vars/*.groovy`), SonarQube quality gates, JFrog Artifactory HA, and Argo CD GitOps delivery pipelines.
-- **The Application Front Door:** Engages directly with application squads to understand architecture, capture build/test requirements, and allocate onboarding stories through Jira.
+- **The Application Front Door:** Engages directly with application squads and the cloud team to capture build/test/infra requirements and allocate onboarding stories through Jira.
 
 ### 3. Application Squads — 14 Squads / 46 Application Services (Business Logic Owners)
 - Owns application source code, Dockerfiles, and application deployment manifests (Helm/Kustomize).
-- Owns the business decision to promote and release code to production.
+- Collaborates with the Cloud Platform Team on application infrastructure sizing in `dev.tfvars`, `qa.tfvars`, and `prod.tfvars`.
 - Consumes the DevOps delivery platform via a standardized CI `Jenkinsfile` in their repository calling the Shared Library, while QA and production deployments are governed centrally via the DevOps team's `paypulse-cd-pipelines` repository.
 
 ---

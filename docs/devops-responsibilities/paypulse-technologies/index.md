@@ -1,9 +1,18 @@
 ---
-title: "PayPulse Technologies (Hybrid CI/CD & Multi-Region Kubernetes)"
-description: "A 30-day real-world enterprise operational case study: cross-functional team dynamics, self-service Shared Libraries, multi-day Jira stories, daily bug tracking, and production change windows."
+title: "DevOps Engineer Responsibilities: Real-World Enterprise Case Study (PayPulse Technologies)"
+description: "Comprehensive 30-day real-world enterprise DevOps case study: daily DevOps engineer responsibilities, Jenkins CI/CD shared libraries, multi-account AWS/GCP architecture, immutable artifact promotion, Terraform automation, and Jira sprint workflows."
+keywords:
+  - devops engineer responsibilities
+  - real world devops case study
+  - devops day to day tasks
+  - jenkins shared library
+  - immutable artifact promotion
+  - multi account aws devops
+  - terraform automation jenkins
+  - kubernetes eks production
 ---
 
-# PayPulse Technologies — 30-Day DevOps Operational Log
+# Real-World DevOps Engineer Responsibilities — PayPulse Technologies (30-Day Operational Case Study)
 
 [← Back to DevOps Day-to-Day Overview](../index.md)
 
@@ -24,10 +33,21 @@ description: "A 30-day real-world enterprise operational case study: cross-funct
 - **Application Stacks:**
   - **Backends:** Java (Spring Boot 3.x), Python (FastAPI / Django), Node.js (NestJS / Express), Apache Kafka (KRaft mode event streaming).
   - **Frontends & Mobile:** React.js, Next.js, Flutter (merchant & customer mobile apps for iOS/Android).
-- **Environments & Cluster Topology:**
-  - **`dev` (`eks-us-east-1-dev`):** Developer experimentation & initial candidate build. Application artifacts are built **only once** by CI into `paypulse-docker-dev-local`.
-  - **`qa` (`eks-us-east-1-qa`):** Squad regression & integration testbed. Promoted from dev via `promote-to-qa` without rebuilding (exact cryptographic SHA-256 preserved).
-  - **`prod` (`eks-us-east-1-prod` Primary, `eks-us-west-2-prod` DR):** Mission-critical multi-region production clusters. Promoted from QA via `promote-to-prod` following CAB approval without rebuilding (exact same released artifact deployed).
+- **Environments & Account / Project Isolation Topology:**
+  - To guarantee 100% blast-radius containment, independent IAM role boundaries, and zero risk of cross-environment interference, each environment runs in an isolated AWS Account or GCP Project:
+    - **`dev` Environment:**
+      - AWS Dev Account (`paypulse-aws-dev`, Account ID: `111122223333`)
+      - GCP Dev Project (`paypulse-dev-us-central1`)
+      - EKS cluster `eks-us-east-1-dev`. Application artifacts are built **only once** by CI into `paypulse-docker-dev-local`.
+    - **`qa` Environment:**
+      - AWS QA Account (`paypulse-aws-qa`, Account ID: `444455556666`)
+      - GCP QA Project (`paypulse-qa-us-central1`)
+      - EKS cluster `eks-us-east-1-qa`. Promoted from dev via `promoteArtifact` (`dev-to-qa`) without rebuilding (exact cryptographic SHA-256 preserved).
+    - **`prod` Environment:**
+      - AWS Prod Primary Account (`paypulse-aws-prod-primary`, Account ID: `777788889999`)
+      - AWS Prod DR Account (`paypulse-aws-prod-dr`, Account ID: `888899990000`)
+      - GCP Prod Project (`paypulse-prod-us-central1`)
+      - Multi-region clusters `eks-us-east-1-prod` and `eks-us-west-2-prod`. Promoted from QA via `promoteArtifact` (`qa-to-prod`) following CAB approval without rebuilding (exact same released artifact deployed).
 - **Onboarding Velocity:**
   - 15 applications integrated into standardized pipelines prior to August 1.
   - 31 applications in the onboarding backlog, targeted for completion by **November 1, 2026** (cadence: 3–4 applications per 2-week sprint).
@@ -36,7 +56,7 @@ description: "A 30-day real-world enterprise operational case study: cross-funct
 
 ## 2. Organization Boundary & Team Operating Model
 
-A critical factor in PayPulse's operational success is the strict separation between infrastructure ownership and application delivery:
+A critical factor in PayPulse's operational success is the strict separation between infrastructure ownership, platform delivery, and application squads:
 
 ```mermaid
 graph TD
@@ -46,13 +66,14 @@ graph TD
     classDef storage  fill:#fce7f3,stroke:#f9a8d4,color:#831843
 
     subgraph Org["PayPulse Technologies Operating Model"]
-        CP["☁️ Cloud Platform Team<br/>(AWS/GCP/Azure Accounts, Terraform, EKS 1.34/1.35, Networking, Karpenter)"]:::client
+        CP["☁️ Cloud Platform Team<br/>(AWS/GCP Accounts, App Terraform Repos, EKS 1.34/1.35, Networking, Karpenter)"]:::client
         DD["🚀 DevOps Delivery Team<br/>(Vignesh [Lead] + Alex, Priya, Sam — Jenkins, Shared Library, Argo CD)"]:::gateway
         AS["💻 Application Squads<br/>(14 Squads / 46 Applications — Java, Node.js, Python, React, Flutter)"]:::service
     end
 
-    CP -->|"Provides Infrastructure Foundations"| DD
-    DD -->|"Provides Self-Service Delivery Platform"| AS
+    CP -->|"Provides Cloud Accounts & Base Infra"| DD
+    DD -->|"Provides Self-Service Delivery & IaC Pipelines"| AS
+    DD -->|"Builds Jenkins Pipelines for Terraform Automation"| CP
     AS -->|"Deploys Code & Config via Pipelines"| CP
 ```
 
@@ -60,9 +81,11 @@ graph TD
 
 | Domain / Component | Cloud Platform Team | DevOps Delivery Team | Application Squads |
 | :--- | :--- | :--- | :--- |
-| **AWS / GCP / Azure Accounts & Networking** | **Owner** | Consumer | — |
-| **Terraform & Base Infrastructure** | **Owner** | Consumer | — |
-| **AWS EKS Clusters & Karpenter** | **Owner** | Consumer | — |
+| **AWS Accounts & GCP Projects (Dev / QA / Prod)** | **Owner** | Consumer (AssumeRole / OIDC) | — |
+| **Project-Level Terraform Repo (`paypulse-infrastructure`)** | **Owner & Maintainer** | Pipeline Automation Author | Consumer / Feature Sizing |
+| **Core Infrastructure & Networking Terraform Projects** | **Owner & Maintainer** | Pipeline Automation Author | — |
+| **Application Microservice Terraform Projects (`apps/*`)**| **Owner & Maintainer** | Pipeline Automation Author | Consumer / Sizing Inputs |
+| **Infrastructure CI/CD Pipelines (`terraform init/plan/apply`)** | Reviewer & User | **Owner & Builder** (`vars/terraformPipeline.groovy`) | Consumer |
 | **Jenkins Infrastructure & Dynamic Agents** | Supporting (VMs/Storage) | **Owner** | Consumer |
 | **Jenkins Shared Libraries & Standards** | — | **Owner** | Consumer |
 | **Application CI Pipeline (`Jenkinsfile`)**| — | Author & PR to `develop` | **Review, Merge & Owner** |
@@ -73,6 +96,77 @@ graph TD
 | **Argo CD (GitOps Controller)** | Platform Host (EKS) | **Delivery Integration**| Consumer |
 | **Application Deployment Manifests / Helm** | — | Standards & Review | **Owner** |
 | **Application Source Code & Release Decision**| — | Delivery Support | **Owner** |
+
+### Multi-Account Cloud Isolation & Project-Level Central Terraform Repository
+
+#### 1. Multi-Account / Multi-Project Isolation
+PayPulse separates environments into discrete AWS Accounts and GCP Projects:
+- **Blast-Radius Containment:** A catastrophic misconfiguration, rogue query, or resource exhaustion in `dev` or `qa` can never impact production workloads.
+- **Strict IAM Security Boundaries:** Developer IAM credentials, dynamic agent permissions, and sandbox roles in the Dev account have zero IAM trust or access to the Production account.
+- **Independent Quotas & Auditing:** Service limits (EIPs, Karpenter NodePool instances, VPC endpoints) and billing allocations are cleanly segregated by environment account container.
+
+#### 2. Project-Level Central Terraform Repository (`paypulse-infrastructure`)
+The Cloud Platform Team organizes cloud infrastructure inside a single, project-level central Terraform Git repository: **`paypulse-infrastructure`**.
+
+Inside this repository, infrastructure is cleanly decoupled into **modular, independent Terraform sub-projects** with isolated remote state files in S3. This eliminates monolithic blast radius while enabling shared module reuse across networking, core platform, and application microservices:
+
+```text
+paypulse-infrastructure/
+├── README.md
+├── modules/                                # Reusable enterprise Terraform modules
+│   ├── vpc/                                # Standard VPC, public/private subnets, NAT gateways
+│   ├── eks-cluster/                        # EKS control plane, Karpenter node pools, OIDC
+│   ├── aurora-postgresql/                  # Aurora Serverless v2 / provisioned cluster
+│   ├── dynamodb/                           # Global & standard DynamoDB tables
+│   ├── sqs-fifo/                           # FIFO queues with dead-letter queue (DLQ)
+│   └── iam-pod-identity/                   # EKS Pod Identity trust relationships
+│
+├── foundations/                            # Platform Foundation Projects (Cloud Team)
+│   ├── networking/                         # VPCs, transit gateways, Route 53, direct connect
+│   │   ├── main.tf, variables.tf, outputs.tf, backend.tf
+│   │   ├── dev.tfvars                      # Dev VPC (10.10.0.0/16 in Account 111122223333)
+│   │   ├── qa.tfvars                       # QA VPC (10.20.0.0/16 in Account 444455556666)
+│   │   └── prod.tfvars                     # Prod VPC (10.30.0.0/16 in Account 777788889999)
+│   │
+│   └── core-infrastructure/                # Multi-Region EKS clusters, Karpenter NodePools, KMS
+│       ├── main.tf, variables.tf, outputs.tf, backend.tf
+│       ├── dev.tfvars                      # eks-us-east-1-dev
+│       ├── qa.tfvars                       # eks-us-east-1-qa
+│       └── prod.tfvars                     # eks-us-east-1-prod & eks-us-west-2-prod
+│
+└── apps/                                   # Application Microservice Projects (Cloud Team + Squad Inputs)
+    ├── payments-service/                   # Payments Aurora PostgreSQL, DynamoDB, SQS FIFO, IAM
+    │   ├── main.tf, variables.tf, outputs.tf, backend.tf
+    │   ├── dev.tfvars                      # Dev Account (111122223333): Single-AZ Aurora, Spot nodes
+    │   ├── qa.tfvars                       # QA Account (444455556666): Multi-AZ Aurora, staging
+    │   └── prod.tfvars                     # Prod Account (777788889999): Multi-region, provisioned IOPS
+    │
+    ├── settlements-service/                # Settlements Aurora DB, ElastiCache Redis, S3
+    │   ├── main.tf, variables.tf, outputs.tf, backend.tf
+    │   ├── dev.tfvars, qa.tfvars, prod.tfvars
+    │
+    └── fraud-analytics/                    # DynamoDB Streams, GCP BigQuery / Cloud Storage
+        ├── main.tf, variables.tf, outputs.tf, backend.tf
+        ├── dev.tfvars, qa.tfvars, prod.tfvars
+```
+
+- **Independent Remote State:** Each sub-project has its own dedicated S3 state key:
+  - `foundations/networking/terraform.tfstate`
+  - `foundations/core-infrastructure/terraform.tfstate`
+  - `apps/payments-service/terraform.tfstate`
+- **Three Dedicated Environment Variable Files per Project:**
+  Inside every sub-project directory, three distinct `.tfvars` files control sizing, high-availability parameters, and cloud account targets:
+  - `dev.tfvars`: Targets AWS Dev Account (`111122223333`), single-AZ database, Spot compute instances for lower cost, short backup retention.
+  - `qa.tfvars`: Targets AWS QA Account (`444455556666`), multi-AZ staging configuration, synthetic test endpoints, 30-day backups.
+  - `prod.tfvars`: Targets AWS Prod Account (`777788889999`), multi-region read replicas, strict KMS encryption keys, deletion protection, provisioned IOPS, CloudWatch alert alarms.
+
+#### 3. Why Cloud & Application Teams Requested DevOps for Jenkins Terraform Automation
+Historically, cloud engineers executed `terraform apply` directly from local developer laptops using personal AWS CLI profiles. This caused severe operational anti-patterns:
+- **State Lock Contention:** Multiple engineers running plans simultaneously caused DynamoDB state lock deadlocks.
+- **Configuration Drift:** Uncommitted local changes and unreviewed flags were inadvertently applied to cloud environments.
+- **Compliance & Audit Gaps:** PCI-DSS and SOC 2 auditors could not verify who executed `apply`, what plan diff was approved, or whether security policies were enforced.
+
+To solve this, the **Cloud Platform Team and Application Squads formally requested the DevOps Delivery Team to build a standardized Jenkins pipeline for infrastructure creation**, automating `terraform init`, `terraform plan`, security checks (`tfsec`), and gated `terraform apply` across any project directory (`foundations/*` or `apps/*`) using `dev.tfvars`, `qa.tfvars`, and `prod.tfvars`.
 
 ### Team Structure & Operational Responsibilities
 
@@ -216,6 +310,7 @@ paypulse-shared-library/
 │   ├── ciPipeline.groovy           # Standardized CI pipeline orchestrator (Build Once)
 │   ├── cdPipeline.groovy           # Standardized CD deployment orchestrator (Dev/QA/Prod)
 │   ├── promoteArtifact.groovy      # Artifactory artifact promotion step (QA -> Prod)
+│   ├── terraformPipeline.groovy    # Standardized Terraform IaC orchestrator (init, plan, tfsec, apply)
 │   │
 │   ├── # --- Modular CI Steps ---
 │   ├── python.groovy               # Python venv/poetry, pytest, flake8, bandit, package
@@ -233,7 +328,7 @@ paypulse-shared-library/
 ```
 
 !!! note "Cloud Platform vs. DevOps Ownership Boundary"
-    Cloud infrastructure provisioning (Terraform) is owned and operated by the dedicated Cloud Platform Team. The DevOps Delivery Library strictly owns **application delivery steps** (`kubernetes_helm.groovy`, `s3_cloudfront.groovy`, `gcp_cloudrun.groovy`) and does not provision underlying AWS/GCP clusters or VPCs.
+    Base cloud infrastructure provisioning (VPCs, EKS clusters, networking) and application Terraform HCL configurations (`*-infra` repos) are authored and owned by the Cloud Platform Team. The DevOps Delivery Team provides the **CI/CD automation tooling**: authoring `vars/terraformPipeline.groovy` in the Shared Library, securing the Jenkins Terraform runners, and managing IAM cross-account role assumption so cloud engineers execute `terraform init`, `plan`, and `apply` safely through audited pipelines rather than local laptops.
 
 ---
 
@@ -627,6 +722,187 @@ def call(Map config = [:]) {
 }
 ```
 
+---
+
+### Component 4: Infrastructure-as-Code Automation (`terraformPipeline.groovy`)
+
+#### Cloud Team & Application Squad Collaboration Model
+In addition to application build and Kubernetes deployment pipelines, the Cloud Platform Team and Application Squads collaborate with DevOps on **cloud infrastructure provisioning**:
+- **Project-Level Terraform Repository (`paypulse-infrastructure`):** Maintained centrally by the Cloud Platform Team, containing modular sub-projects for core foundations (`foundations/networking`, `foundations/core-infrastructure`) and application microservices (`apps/payments-service`, `apps/settlements-service`, `apps/fraud-analytics`).
+- **Three Environment `.tfvars` Files per Project:**
+  - `dev.tfvars`: Deploys into AWS Dev Account (`paypulse-aws-dev`, `111122223333`) / GCP Dev Project.
+  - `qa.tfvars`: Deploys into AWS QA Account (`paypulse-aws-qa`, `444455556666`) / GCP QA Project.
+  - `prod.tfvars`: Deploys into AWS Prod Account (`paypulse-aws-prod`, `777788889999`) / GCP Prod Project.
+- **Centralized Automation Pipeline:** Cloud engineers and squads requested DevOps to build a standardized Jenkins pipeline to eliminate manual `terraform apply` executions from local laptops. DevOps authored `vars/terraformPipeline.groovy` in `paypulse-shared-library`.
+
+#### Central Infrastructure Repository Layout (`paypulse-infrastructure`)
+```text
+paypulse-infrastructure/
+├── modules/                                # Reusable modules: vpc, eks, aurora, dynamodb, sqs
+├── foundations/
+│   ├── networking/                         # VPCs, subnets, Transit Gateways, NAT, Route 53
+│   │   ├── main.tf, variables.tf, outputs.tf, backend.tf
+│   │   ├── dev.tfvars, qa.tfvars, prod.tfvars
+│   └── core-infrastructure/                # Multi-Region EKS clusters, Karpenter, KMS
+│       ├── main.tf, variables.tf, outputs.tf, backend.tf
+│       ├── dev.tfvars, qa.tfvars, prod.tfvars
+└── apps/
+    ├── payments-service/                   # Payments Aurora DB, DynamoDB, SQS FIFO, IAM
+    │   ├── main.tf, variables.tf, outputs.tf, backend.tf
+    │   ├── dev.tfvars, qa.tfvars, prod.tfvars
+    ├── settlements-service/                # Settlements Aurora DB, ElastiCache Redis, S3
+    │   ├── main.tf, variables.tf, outputs.tf, backend.tf
+    │   ├── dev.tfvars, qa.tfvars, prod.tfvars
+    └── fraud-analytics/                    # DynamoDB Streams, Cloud Storage
+        ├── main.tf, variables.tf, outputs.tf, backend.tf
+        ├── dev.tfvars, qa.tfvars, prod.tfvars
+```
+
+#### Example: Infrastructure Pipeline Job (`Jenkinsfile`)
+```groovy
+// Jenkinsfile triggering infrastructure automation for a target project
+@Library('paypulse-shared-library@v2.4.0') _
+
+properties([
+    parameters([
+        choice(
+            name: 'PROJECT_PATH',
+            choices: [
+                'apps/payments-service',
+                'apps/settlements-service',
+                'apps/fraud-analytics',
+                'foundations/networking',
+                'foundations/core-infrastructure'
+            ],
+            description: 'Target Terraform sub-project directory in paypulse-infrastructure'
+        ),
+        choice(
+            name: 'ENVIRONMENT',
+            choices: ['dev', 'qa', 'prod'],
+            description: 'Target cloud environment & isolated AWS account'
+        ),
+        choice(
+            name: 'ACTION',
+            choices: ['plan', 'apply'],
+            description: 'Terraform execution action'
+        ),
+        string(
+            name: 'CAB_CR_TICKET',
+            defaultValue: '',
+            description: 'Approved CAB Change Request ticket (Required for prod apply, e.g. CR-9482)'
+        )
+    ])
+])
+
+terraformPipeline(
+    projectPath: params.PROJECT_PATH,
+    environment: params.ENVIRONMENT,
+    action: params.ACTION,
+    cabTicket: params.CAB_CR_TICKET,
+    tfsecScan: true
+)
+```
+
+#### Shared Library Step: `vars/terraformPipeline.groovy`
+```groovy
+// vars/terraformPipeline.groovy in paypulse-shared-library
+def call(Map config = [:]) {
+    pipeline {
+        agent { label 'k8s-terraform-agent' }
+        stages {
+            stage('Validate Parameters & Cloud Account') {
+                steps {
+                    script {
+                        def accountMatrix = [
+                            dev:  [awsAccountId: '111122223333', region: 'us-east-1', roleName: 'JenkinsTerraformExecutionRole'],
+                            qa:   [awsAccountId: '444455556666', region: 'us-east-1', roleName: 'JenkinsTerraformExecutionRole'],
+                            prod: [awsAccountId: '777788889999', region: 'us-east-1', roleName: 'JenkinsTerraformExecutionRole']
+                        ]
+
+                        def target = accountMatrix[config.environment]
+                        if (!target) {
+                            error "Unknown environment: ${config.environment}. Expected 'dev', 'qa', or 'prod'."
+                        }
+
+                        if (config.environment == 'prod' && config.action == 'apply') {
+                            if (!config.cabTicket || !config.cabTicket.startsWith('CR-')) {
+                                error "INFRASTRUCTURE APPLY REJECTED: Valid CAB ticket (e.g. CR-9482) is required for Production apply."
+                            }
+                            echo "✅ CAB Ticket verified: ${config.cabTicket}"
+                        }
+
+                        env.TARGET_ACCOUNT_ID = target.awsAccountId
+                        env.TARGET_ROLE_ARN = "arn:aws:iam::${target.awsAccountId}:role/${target.roleName}"
+                        env.AWS_DEFAULT_REGION = target.region
+                        env.TFVARS_FILE = "${config.environment}.tfvars"
+                    }
+                }
+            }
+            stage('Assume Cloud Account IAM Role') {
+                steps {
+                    script {
+                        echo "Assuming cross-account IAM role ${env.TARGET_ROLE_ARN} in AWS Account ${env.TARGET_ACCOUNT_ID} (${config.environment.toUpperCase()})..."
+                        // Obtains temporary STS credentials for target AWS account via IAM AssumeRole
+                    }
+                }
+            }
+            stage('Terraform Init') {
+                steps {
+                    dir(config.projectPath) {
+                        sh """
+                            terraform init \
+                              -backend-config="bucket=paypulse-tfstate-${config.environment}" \
+                              -backend-config="key=${config.projectPath}/terraform.tfstate" \
+                              -backend-config="region=${env.AWS_DEFAULT_REGION}" \
+                              -backend-config="dynamodb_table=paypulse-tflocks-${config.environment}"
+                        """
+                    }
+                }
+            }
+            stage('Terraform Plan & Security Check') {
+                steps {
+                    dir(config.projectPath) {
+                        sh """
+                            terraform plan \
+                              -var-file="${env.TFVARS_FILE}" \
+                              -out=tfplan \
+                              -detailed-exitcode
+                        """
+                        if (config.tfsecScan) {
+                            sh "tfsec . --soft-fail"
+                        }
+                    }
+                }
+            }
+            stage('Interactive Approval Gate') {
+                when {
+                    expression { config.action == 'apply' && config.environment != 'dev' }
+                }
+                steps {
+                    input message: "Approve Terraform Apply for ${config.projectPath} in ${config.environment.toUpperCase()}?",
+                          ok: "Apply Changes"
+                }
+            }
+            stage('Terraform Apply') {
+                when {
+                    expression { config.action == 'apply' }
+                }
+                steps {
+                    dir(config.projectPath) {
+                        sh "terraform apply -input=false tfplan"
+                    }
+                }
+            }
+        }
+        post {
+            always {
+                pipeline_notifier(appName: config.projectPath.replace('/', '-'), channel: '#cloud-infra-alerts')
+            }
+        }
+    }
+}
+```
+
 ### AI Assistance Boundary (Claude)
 All four team members leverage Claude to draft Groovy Shared Library functions, generate Dockerfiles, write unit tests, and parse complex build logs. **Enterprise Guardrail:** AI-generated code must reside in a feature branch, pass Jenkins Shared Library unit tests (via JenkinsPipelineUnit), and pass human peer review before merge into `@v2.4.0` release branches.
 
@@ -859,8 +1135,8 @@ Every business day, each DevOps engineer balances four distinct streams of work:
 #### Day 17 — Monday, August 17, 2026 *(Sprint 25 Planning)*
 - **Vignesh:** 
   - Sprint 25 Planning (10:00 – 11:30 AM). Celebrate successful SSL cutover. Review sprint velocity and support allocation.
+  - Discovery meeting with Cloud Platform Lead (David) and Squad 4 (Payments Lead): Cloud Team and Application Squads formally request DevOps to automate cloud infrastructure creation across their central project-level Terraform repository (`paypulse-infrastructure`): eliminate local developer CLI `terraform apply` by engineering a centralized Jenkins Terraform pipeline (`terraform init`, `plan`, `apply`) supporting `foundations/` and `apps/` sub-projects with `dev.tfvars`, `qa.tfvars`, and `prod.tfvars` across separate AWS accounts (`paypulse-aws-dev`, `paypulse-aws-qa`, `paypulse-aws-prod`). Create Jira Epic `INFRA-9200` with user stories `INFRA-9201` and `INFRA-9202`.
   - Discovery meeting with Squad 1 (Core Banking Ledger Lead). Create Jira Epic `LED-5010` (Core Banking Ledger CI/CD) with stories `LED-5011` and `LED-5012`.
-  - Discovery meeting with Squad 9 (Fraud Analytics Lead). Create Jira Epic `FRD-2020` (GCP Cloud Run Analytics Pipeline) with story `FRD-2021`.
 - **Alex:** 
   - **[JIRA LED-5011: In Progress - Day 1 of 3 (Dynamic Testcontainers Pod Spec Spike)]** Architect custom Shared Library step for database integration testing using Testcontainers in dynamic Kubernetes agent pods. Spike initial pod template.
   - Triage Sprint 25 backlog stories and configure CI test harnesses.
@@ -868,8 +1144,8 @@ Every business day, each DevOps engineer balances four distinct streams of work:
   - **[JIRA LED-5012: In Progress - Day 1 of 2 (Banking Ledger Pipeline Architecture Design)]** Review Project #19 code structure with Squad 1. Define immutable promotion workflow: single parameterized CD pipeline (`Jenkinsfile.deploy` for `dev`, `qa`, and `prod`) and centralized promotion pipeline (`Jenkinsfile.promote` for `promote-to-qa` and `promote-to-prod`) copying released artifacts without rebuilding.
   - **[JIRA BUG-1411 / Blocker — Triaged → Root CA Injected into Python Base Image → Closed in 35 min]** Following weekend maintenance, multiple Python pipelines fail with `SSL: CERTIFICATE_VERIFY_FAILED` when pulling dependencies via pip. Developers blocked across 3 squads. Priya quickly isolates that the Python base container was missing the updated corporate Root CA cert. Pushes patched base image to Artifactory with Root CA in `/etc/ssl/certs/`, resolving the blocker for all squads.
 - **Sam:** 
-  - **[JIRA FRD-2021: In Progress - Day 1 of 3 (GCP Cloud Run Deploy Architecture Review)]** Monitor post-patching system telemetry in Datadog; verify CPU/memory baseline across Jenkins controller and Artifactory HA cluster.
-  - Begin reviewing GCP Cloud Run deployment parameters with Squad 9 engineers.
+  - **[JIRA INFRA-9201: In Progress - Day 1 of 3 (Shared Library terraformPipeline.groovy Scaffolding & Dynamic Backend)]** Cloud Team request: Begin architecting reusable `terraformPipeline.groovy`. Define parameterized stages for `PROJECT_PATH` (`foundations/*`, `apps/*`), `ENVIRONMENT` (`dev`/`qa`/`prod`), and `ACTION` (`plan`/`apply`), configuring dynamic remote S3 backend and DynamoDB lock table per environment.
+  - Monitor post-patching system telemetry in Datadog; verify CPU/memory baseline across Jenkins controller and Artifactory HA cluster.
 
 #### Day 18 — Tuesday, August 18, 2026
 - **Vignesh:** Daily standup. Sync with Cloud Team on multi-region Argo CD delivery architecture for Core Banking Ledger across `us-east-1` and `us-west-2`.
@@ -880,7 +1156,7 @@ Every business day, each DevOps engineer balances four distinct streams of work:
   - **[JIRA LED-5012: Closed - Merged (Encrypted Banking JAR Repo Provisioned)]** Setup dedicated Artifactory encrypted repository for Banking core JAR distributions. Complete promotion workflow and close ticket.
   - **[JIRA SEC-2104: In Progress - Day 1 of 2 (Gitleaks Pre-Commit Secret Scanning Spike)]** Begin integrating Gitleaks pre-commit secret scanning into Shared Library baseline.
 - **Sam:** 
-  - **[JIRA FRD-2021: In Progress - Day 2 of 3 (GCP Workload Identity Federation Testing)]** Test `gcp_cloudrun.groovy` with GCP Workload Identity federation for Project #21 (Fraud Analytics microservice).
+  - **[JIRA INFRA-9201: In Progress - Day 2 of 3 (Multi-Account AssumeRole & dev/qa/prod.tfvars Handling)]** Configure cross-account AWS IAM AssumeRole logic to switch dynamically into separate AWS accounts (Dev `111122223333`, QA `444455556666`, Prod `777788889999`). Wire `-chdir=${projectPath}` and `-var-file=${env}.tfvars` into `terraform plan` and integrate `tfsec` static analysis.
   - **[JIRA BUG-1412 / High — Triaged → Rootless Podman Socket Mounted → Closed in 25 min]** Squad 1 developer reports dynamic Testcontainers pod in Jenkins fails to start PostgreSQL with error `Cannot connect to Docker daemon`. Sam identifies that the Jenkins agent pod was missing rootless Docker-in-Docker socket mounting. Updates Kubernetes pod template spec to mount rootless Podman socket, resolving container-in-container testing.
 
 #### Day 19 — Wednesday, August 19, 2026
@@ -893,11 +1169,13 @@ Every business day, each DevOps engineer balances four distinct streams of work:
   - **[JIRA SEC-2104: Closed - Merged (Gitleaks Pre-Commit Gate Enforced in Shared Library)]** Enforce secret scanning using Gitleaks inside the Jenkins Shared Library pre-commit stage. Merge to main branch and close ticket.
   - Coordinate developer documentation updates for Squads 1 and 9.
 - **Sam:** 
-  - **[JIRA FRD-2021: Closed - Merged (Cloud Run Service Account Validated & Closed)]** Finalize GCP Cloud Run service account permissions with Cloud Team; validate automated canary deployment and close ticket.
+  - **[JIRA INFRA-9201: Closed - Merged (PR #106 Merged to paypulse-shared-library)]** Finalize interactive approval gate for `terraform apply`, open PR #106, pass peer review with Alex, merge to `vars/terraformPipeline.groovy`, and close ticket.
+  - **[JIRA INFRA-9202: In Progress - Day 1 of 2 (paypulse-infrastructure apps/payments-service Pipeline Onboarding)]** Configure Jenkins job calling `terraformPipeline(projectPath: 'apps/payments-service', ...)`. Execute dry-run `init` and `plan` with `dev.tfvars` and `qa.tfvars`.
 
 #### Day 20 — Thursday, August 20, 2026 *(Incident C: GitOps QA Drift)*
 - **Vignesh:** **[INC-0820-01 / SEV-2]** Argo CD flags `OutOfSync` status on QA Payments deployment; investigation reveals developer manually edited replica count via `kubectl edit`. Trigger post-mortem action items with Cloud Platform Team.
 - **Sam:** 
+  - **[JIRA INFRA-9202: Closed - Merged (apps/payments-service Infra Pipeline Live)]** Execute first automated `terraform apply` via Jenkins for Payments Aurora PostgreSQL read replica in QA account; verify plan matches execution and close ticket.
   - Trigger Argo CD automated reconciliation (self-healing mode); manifest restored to Git desired state.
   - **[JIRA INFRA-9150: In Progress - Day 1 of 2 (Restrict Developer Direct kubectl Access)]** Open Jira ticket `INFRA-9150` for Cloud Team to remove direct `kubectl edit` write permissions from developer roles.
 - **Priya:** 
@@ -1049,3 +1327,6 @@ Every business day, each DevOps engineer balances four distinct streams of work:
 3. **Digest-First Immutability & State-Machine Promotion (Build Once, Zero Rebuild):** The platform strictly enforces single-artifact immutability and state-machine transitions across `dev`, `qa`, and `prod`. The application container is compiled and built **only once** by CI into `paypulse-docker-dev-local`, where its cryptographic SHA-256 digest (`sha256:...`) is extracted and locked. Continuous delivery deploys the pinned digest via a single parameterized CD pipeline (`Jenkinsfile.deploy` with `ENVIRONMENT=dev|qa|prod`), while the promotion pipeline (`Jenkinsfile.promote` with `PROMOTION_PATH=dev-to-qa|qa-to-prod`) enforces valid unidirectional state transitions, verifies QA sign-off & CAB approval gates, and copies the exact artifact across Artifactory repositories with 100% digest parity assertion. Rebuilding an artifact between QA and Production is mathematically and operationally prohibited.
 4. **Proactive Change Windows Prevent Panics:** Executing the production SSL certificate cutover on **Saturday, August 15** (8 days ahead of the August 23 expiration) eliminated all last-minute crisis firefighting.
 5. **Zero Tool Silos Protects Team Well-Being:** Ensuring Alex, Priya, and Sam are all cross-functional prevented single-person bottlenecks when high-pressure incidents hit.
+6. **Automated Infrastructure Delivery with Multi-Account Isolation and tfvars Governance:** Moving Terraform execution out of developer laptops and into a centralized Jenkins pipeline (`terraformPipeline.groovy`) eliminated configuration drift, uncommitted local changes, and state lock contention. Organizing cloud infrastructure inside a project-level central repository (`paypulse-infrastructure`) with modular sub-projects (`foundations/networking`, `foundations/core-infrastructure`, `apps/*`), each parameterized with `dev.tfvars`, `qa.tfvars`, and `prod.tfvars` targeting isolated AWS accounts and GCP projects, guarantees complete blast-radius isolation, strict IAM role boundaries, and audit-compliant change approval gates before applying infrastructure changes.
+
+
