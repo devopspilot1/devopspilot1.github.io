@@ -38,6 +38,9 @@ extra:
 
 nav:
   - Home: index.md
+  - DevOps Day-to-Day:
+      - Overview: devops-responsibilities/index.md
+      - "PayPulse Technologies (Hybrid & EKS)": devops-responsibilities/paypulse-technologies/index.md
   - Linux Commands:
     - Overview: linux-commands/index.md
     - Basic Linux Commands: linux-commands/basic-linux-commands/index.md
