@@ -628,6 +628,7 @@ nav:
 
 markdown_extensions:
   - admonition
+  - pymdownx.details
   - codehilite:
       guess_lang: false
   - pymdownx.inlinehilite

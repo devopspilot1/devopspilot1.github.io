@@ -33,7 +33,7 @@ graph TD
 
     subgraph Org["PayPulse Engineering Organization"]
         CP["☁️ Cloud Platform Team<br/>(AWS/GCP/Azure Accounts, Terraform, EKS Clusters, VPC, Karpenter)"]:::client
-        DD["🚀 DevOps Delivery Team<br/>(Vignesh + Alex, Priya, Sam — CI/CD, Shared Libraries, Argo CD)"]:::gateway
+        DD["🚀 DevOps Delivery Team<br/>(Marcus + Alex, Priya, Sam — CI/CD, Shared Libraries, Argo CD)"]:::gateway
         AS["💻 Application Squads<br/>(14 Squads / 46 Applications — Java, Node.js, Python, React, Flutter)"]:::service
     end
 
@@ -42,20 +42,18 @@ graph TD
     AS -->|"Deploys Code & Config via Pipelines"| CP
 ```
 
-### 1. Cloud Platform Team (Infrastructure Owners)
-- Owns isolated cloud accounts and projects per environment: separate AWS Accounts and GCP Projects for `dev`, `qa`, and `prod` ensuring 100% blast-radius containment.
-- Maintains a **central project-level Terraform repository (`paypulse-infrastructure`)** containing decoupled sub-projects for core infrastructure (`foundations/networking`, `foundations/core-infrastructure`) and application microservices (`apps/payments-service`, `apps/settlements-service`, etc.), each parameterized with `dev.tfvars`, `qa.tfvars`, and `prod.tfvars`.
-- Manages foundational infrastructure: EKS clusters, VPCs, Route 53 DNS, Karpenter node provisioning, and cloud-level IAM/security boundaries.
+### 1. Cloud Platform Team (Infrastructure Foundation)
+*(Underlying Infrastructure Context)*: Owns foundational AWS/GCP accounts, base VPC networking, and bare Kubernetes cluster infrastructure. The DevOps Delivery Team builds and operates the automated delivery platform on top.
 
 ### 2. DevOps Delivery Team (Software Delivery Platform Owners)
 - Builds and operates the **software delivery platform** and **infrastructure CI/CD automation** on top of the cloud infrastructure.
 - Authors centralized Jenkins pipelines for Terraform automation (`terraform init`, `plan`, and `apply` via `vars/terraformPipeline.groovy`), eliminating unsafe local laptop executions and enforcing audit compliance.
 - Owns Jenkins controllers, dynamic Kubernetes agent pools, centralized Groovy Shared Libraries (`vars/*.groovy`), SonarQube quality gates, JFrog Artifactory HA, and Argo CD GitOps delivery pipelines.
-- **The Application Front Door:** Engages directly with application squads and the cloud team to capture build/test/infra requirements and allocate onboarding stories through Jira.
+- **The Application Front Door:** Engages directly with application project squads to capture build/test/infra requirements and onboard microservices into standardized pipelines through Jira.
 
-### 3. Application Squads — 14 Squads / 46 Application Services (Business Logic Owners)
+### 3. Application Project Squads — 14–15 Projects / 20–50+ Microservices each (Business Logic Owners)
+- Operating under PayPulse Technologies are **14–15 distinct projects (squads / domains)**, with each project containing multiple applications and **20 to 50+ microservices**.
 - Owns application source code, Dockerfiles, and application deployment manifests (Helm/Kustomize).
-- Collaborates with the Cloud Platform Team on application infrastructure sizing in `dev.tfvars`, `qa.tfvars`, and `prod.tfvars`.
 - Consumes the DevOps delivery platform via a standardized CI `Jenkinsfile` in their repository calling the Shared Library, while QA and production deployments are governed centrally via the DevOps team's `paypulse-cd-pipelines` repository.
 
 ---
@@ -85,7 +83,7 @@ graph TD
 ```
 
 !!! note "Team Topology Across Organizations"
-    The structure above illustrates the **Front-Door & Cross-Functional Delivery Pod** model implemented in the **PayPulse Technologies** case study (featuring Vignesh as Lead, and Alex, Priya, and Sam as cross-functional engineers). 
+    The structure above illustrates the **Front-Door & Cross-Functional Delivery Pod** model implemented in the **PayPulse Technologies** case study (featuring Marcus as Lead, and Alex, Priya, and Sam as cross-functional engineers). 
     
     In real-world enterprises, DevOps structures vary according to scale, regulatory constraints, and cloud maturity—ranging from centralized Platform Engineering teams to embedded squad SREs or Cloud Centers of Excellence (CCoE), as explored across the different company profiles in this series.
 
@@ -102,8 +100,8 @@ In high-performing teams, **no single engineer exclusively owns any tool**. Engi
 
 Work is assigned through the Jira backlog based on sprint capacity, priority, and cross-training objectives—never tool ownership.
 
-#### 2. Hands-On Engineering Leadership (Vignesh)
-Vignesh operates as both the organizational front door and an active hands-on principal engineer:
+#### 2. Hands-On Engineering Leadership (Marcus)
+Marcus operates as both the organizational front door and an active hands-on principal engineer:
 - **Hands-On Shared Library Engineering:** Directly designs and codes new enterprise Shared Library frameworks (`vars/*.groovy`), creating the golden paths for new language runtimes and deployment targets.
 - **Critical Troubleshooting & Deep Debugging:** Takes personal ownership of complex, cross-cutting incidents that span multiple systems (e.g., database lock contention during blue/green migrations, cluster-wide TLS handshake failures, or Kubernetes scheduler deadlocks).
 - **Confluence Documentation Guardian:** Ensures that no fix is considered "done" until the root cause, immediate mitigation, and preventative safeguards are documented in Confluence.
