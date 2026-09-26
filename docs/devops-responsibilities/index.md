@@ -46,8 +46,8 @@ graph TD
 *(Underlying Infrastructure Context)*: Owns foundational AWS/GCP accounts, base VPC networking, and bare Kubernetes cluster infrastructure. The DevOps Delivery Team builds and operates the automated delivery platform on top.
 
 ### 2. DevOps Delivery Team (Software Delivery Platform Owners)
-- Builds and operates the **software delivery platform** and **infrastructure CI/CD automation** on top of the cloud infrastructure.
-- Authors centralized Jenkins pipelines for Terraform automation (`terraform init`, `plan`, and `apply` via `vars/terraformPipeline.groovy`), eliminating unsafe local laptop executions and enforcing audit compliance.
+- Builds and operates the **software delivery platform** and **CI/CD automation** on top of the cloud infrastructure.
+- Authors centralized Groovy Shared Library pipelines (`paypulse-shared-library`), multi-registry replication automation (AWS ECR & GCP Artifact Registry with Binary Authorization), and CD delivery frameworks, eliminating unsafe local manual deployments and enforcing audit compliance.
 - Owns Jenkins controllers, dynamic Kubernetes agent pools, centralized Groovy Shared Libraries (`vars/*.groovy`), SonarQube quality gates, JFrog Artifactory HA, and Argo CD GitOps delivery pipelines.
 - **The Application Front Door:** Engages directly with application project squads to capture build/test/infra requirements and onboard microservices into standardized pipelines through Jira.
 
