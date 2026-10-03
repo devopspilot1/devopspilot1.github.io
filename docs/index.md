@@ -7,14 +7,57 @@ hide:
 
 <style>
   :root {
-    /* Use the MkDocs Material theme primary color variable (defined in extra.css as #0f790e) */
-    --primary-color: #0f790e;
-    --secondary-color: #4ade80; /* Light Green to match Primary */
-    --accent-color: #0f790e;
-    --text-dark: #1f2937;
-    --text-light: #6b7280;
+    --hp-primary: #0f790e;
+    --hp-primary-hover: #0d660c;
+    --hp-accent: #22c55e;
+    
+    /* Default (Light Mode) Tokens */
+    --hp-bg-card: #ffffff;
+    --hp-bg-container: #f8fafc;
+    --hp-bg-newsletter: #f0fdf4;
+    --hp-border-card: #e2e8f0;
+    --hp-border-container: #cbd5e1;
+    --hp-border-newsletter: #bbf7d0;
+    --hp-text-title: #0f172a;
+    --hp-text-body: #334155;
+    --hp-text-subtle: #64748b;
+    --hp-badge-bg: rgba(15, 121, 14, 0.08);
+    --hp-badge-border: rgba(15, 121, 14, 0.25);
+    --hp-badge-text: #0f790e;
+    --hp-btn-sec-bg: rgba(15, 121, 14, 0.05);
+    --hp-btn-sec-border: rgba(15, 121, 14, 0.2);
+    --hp-btn-sec-text: #0f790e;
+    --hp-link-color: #0f790e;
+    --hp-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    --hp-shadow-hover: 0 12px 25px rgba(0, 0, 0, 0.1);
   }
-  
+
+  [data-md-color-scheme="slate"] {
+    /* Dark Mode (Slate) Tokens */
+    --hp-primary: #16a34a;
+    --hp-primary-hover: #15803d;
+    --hp-accent: #4ade80;
+    
+    --hp-bg-card: #161e2e;
+    --hp-bg-container: #111827;
+    --hp-bg-newsletter: rgba(15, 121, 14, 0.15);
+    --hp-border-card: rgba(255, 255, 255, 0.1);
+    --hp-border-container: rgba(255, 255, 255, 0.08);
+    --hp-border-newsletter: rgba(34, 197, 94, 0.3);
+    --hp-text-title: #f8fafc;
+    --hp-text-body: #cbd5e1;
+    --hp-text-subtle: #94a3b8;
+    --hp-badge-bg: rgba(34, 197, 94, 0.12);
+    --hp-badge-border: rgba(34, 197, 94, 0.35);
+    --hp-badge-text: #4ade80;
+    --hp-btn-sec-bg: rgba(34, 197, 94, 0.12);
+    --hp-btn-sec-border: rgba(34, 197, 94, 0.35);
+    --hp-btn-sec-text: #4ade80;
+    --hp-link-color: #4ade80;
+    --hp-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    --hp-shadow-hover: 0 12px 30px rgba(0, 0, 0, 0.4);
+  }
+
   /* Hero Section */
   .hero {
     padding: 0.5rem 1.5rem 2.5rem 1.5rem;
@@ -27,7 +70,7 @@ hide:
     font-size: 3.2rem !important;
     font-weight: 900;
     margin: 0 0 1.2rem 0;
-    background: linear-gradient(135deg, #0f790e, #22c55e);
+    background: linear-gradient(135deg, var(--hp-primary), var(--hp-accent));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     line-height: 1.15;
@@ -37,9 +80,9 @@ hide:
     font-size: 1.2rem;
     max-width: 720px;
     margin: 0 auto 2.5rem auto;
-    opacity: 0.85;
+    opacity: 0.9;
     line-height: 1.6;
-    color: var(--md-typeset-color, #374151);
+    color: var(--hp-text-body);
   }
   .hero-buttons {
     display: flex;
@@ -56,26 +99,64 @@ hide:
     display: inline-block;
   }
   .btn-primary {
-    background: #0f790e;
+    background: var(--hp-primary);
     color: white !important;
     box-shadow: 0 4px 15px rgba(15, 121, 14, 0.3);
-    border: 2px solid #0f790e;
+    border: 2px solid var(--hp-primary);
   }
   .btn-primary:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(15, 121, 14, 0.4);
-    background: #0d660c;
-    border-color: #0d660c;
+    background: var(--hp-primary-hover);
+    border-color: var(--hp-primary-hover);
   }
   .btn-secondary {
-    background: rgba(15, 121, 14, 0.05);
-    color: #0f790e !important;
-    border: 2px solid rgba(15, 121, 14, 0.2);
+    background: var(--hp-btn-sec-bg);
+    color: var(--hp-btn-sec-text) !important;
+    border: 2px solid var(--hp-btn-sec-border);
   }
   .btn-secondary:hover {
-    background: rgba(15, 121, 14, 0.1);
-    border-color: #0f790e;
+    background: var(--hp-badge-bg);
+    border-color: var(--hp-link-color);
     transform: translateY(-3px);
+  }
+
+  /* Early Access & Micro Badges */
+  .early-access-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    background: var(--hp-badge-bg);
+    border: 1px solid var(--hp-badge-border);
+    border-radius: 50px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: var(--hp-badge-text);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    text-decoration: none !important;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  .early-access-badge:hover {
+    transform: translateY(-2px);
+    border-color: var(--hp-accent);
+  }
+  .live-labs-badge {
+    padding: 2px 8px;
+    background: var(--hp-badge-bg);
+    border: 1px solid var(--hp-badge-border);
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--hp-badge-text);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
   }
 
   /* Grid Layouts */
@@ -94,19 +175,20 @@ hide:
   
   /* Feature Cards */
   .card {
-    background: white;
+    background: var(--hp-bg-card);
     border-radius: 12px;
     padding: 2rem;
-    border: 1px solid #eaeaea;
+    border: 1px solid var(--hp-border-card);
     transition: all 0.3s ease;
     height: 100%;
     display: flex;
     flex-direction: column;
+    box-shadow: var(--hp-shadow);
   }
   .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
-    border-color: var(--primary-color);
+    box-shadow: var(--hp-shadow-hover);
+    border-color: var(--hp-accent);
   }
   .card-icon {
     font-size: 2.5rem;
@@ -117,20 +199,21 @@ hide:
     margin-top: 0;
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--text-dark);
+    color: var(--hp-text-title);
   }
   .card p {
-    color: var(--text-light);
+    color: var(--hp-text-body);
     line-height: 1.6;
     margin-bottom: 0;
   }
 
   /* Learning Path */
   .path-container {
-    background: #f8fafc;
+    background: var(--hp-bg-container);
     border-radius: 16px;
     padding: 2rem;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--hp-border-container);
+    box-shadow: var(--hp-shadow);
   }
   .step-item {
     display: flex;
@@ -139,7 +222,7 @@ hide:
   }
   .step-item:last-child { margin-bottom: 0; }
   .step-num {
-    background: var(--primary-color);
+    background: var(--hp-primary);
     color: white;
     width: 40px;
     height: 40px;
@@ -153,15 +236,15 @@ hide:
   }
   .step-info h4 {
     margin: 0 0 0.5rem 0;
-    color: var(--text-dark);
+    color: var(--hp-text-title);
     font-size: 1.2rem;
   }
   .step-info p {
     margin: 0 0 0.5rem 0;
-    color: var(--text-light);
+    color: var(--hp-text-body);
   }
   .step-link {
-    color: var(--primary-color);
+    color: var(--hp-link-color);
     font-weight: 600;
     text-decoration: none;
     font-size: 0.95rem;
@@ -174,38 +257,50 @@ hide:
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: white;
+    background: var(--hp-bg-card);
     padding: 2rem;
     border-radius: 12px;
-    border: 1px solid #eaeaea;
+    border: 1px solid var(--hp-border-card);
     text-decoration: none !important;
     transition: all 0.3s ease;
-    color: var(--text-dark) !important;
+    color: var(--hp-text-title) !important;
+    box-shadow: var(--hp-shadow);
   }
   .topic-card:hover {
-    border-color: var(--primary-color);
+    border-color: var(--hp-accent);
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    box-shadow: var(--hp-shadow-hover);
   }
   .topic-icon { font-size: 3rem; margin-bottom: 0.5rem; }
-  .topic-name { font-weight: 700; font-size: 1.1rem; }
+  .topic-name { font-weight: 700; font-size: 1.1rem; color: var(--hp-text-title); }
 
   /* Utilities */
   .text-center { text-align: center; }
-  .section-title { font-size: 2rem; font-weight: 800; text-align: center; margin: 4rem 0 2rem 0; color: var(--text-dark); }
+  .section-title { font-size: 2rem; font-weight: 800; text-align: center; margin: 4rem 0 1.5rem 0; color: var(--hp-text-title); }
   .newsletter {
     margin-top: 4rem;
-    padding: 2rem;
-    background: #f0fdf4; /* Light green */
+    padding: 2.5rem 2rem;
+    background: var(--hp-bg-newsletter);
     border-radius: 12px;
     text-align: center;
-    border: 1px solid #bbf7d0;
+    border: 1px solid var(--hp-border-newsletter);
+  }
+  .newsletter h3 {
+    color: var(--hp-text-title);
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+  .newsletter p {
+    color: var(--hp-text-body);
+    margin-bottom: 1.5rem;
   }
 </style>
 
 <div class="hero">
   <!-- Early Access Top Micro-Badge -->
-  <a href="https://www.devopspilot.com" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; background: rgba(15, 121, 14, 0.05); border: 1px solid rgba(15, 121, 14, 0.2); border-radius: 50px; font-size: 0.72rem; font-weight: 800; color: #0f790e; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.04em; text-decoration: none !important; transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.background='rgba(15, 121, 14, 0.1)'; this.style.borderColor='#0f790e'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(15, 121, 14, 0.05)'; this.style.borderColor='rgba(15, 121, 14, 0.2)'; this.style.transform='translateY(0)'">
+  <a href="https://www.devopspilot.com" target="_blank" class="early-access-badge">
     🚀 EARLY ACCESS: Get all Linux and Docker labs for FREE — No Credit Card Required!
   </a>
   <h1>Your Co-Pilot for DevOps Mastery</h1>
@@ -218,7 +313,7 @@ hide:
 </div>
 
 <h2 class="section-title">🗺️ Recommended Learning Path</h2>
-<p class="text-center" style="max-width: 700px; margin: 0 auto 3rem auto; color: var(--text-light); line-height: 1.6;">
+<p class="text-center" style="max-width: 700px; margin: 0 auto 3rem auto; color: var(--hp-text-subtle); line-height: 1.6;">
   Follow our expert-curated DevOps roadmaps to build solid engineering foundations. Kick off your journey with our interactive, browser-based Linux and Docker sandboxes!
 </p>
 
@@ -228,7 +323,7 @@ hide:
     <div class="step-info">
       <h4 style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 6px;">
         Master Linux Fundamentals
-        <span style="padding: 2px 8px; background: rgba(15, 121, 14, 0.1); border: 1px solid rgba(15, 121, 14, 0.2); border-radius: 4px; font-size: 0.7rem; font-weight: 700; color: #0f790e; text-transform: uppercase; letter-spacing: 0.05em; display: inline-flex; align-items: center; gap: 4px;">💻 Live Labs Available</span>
+        <span class="live-labs-badge">💻 Live Labs Available</span>
       </h4>
       <p>The operating system of the cloud. Learn navigation, file permissions, users, and service management.</p>
       <a href="linux-commands/basic-linux-commands/" class="step-link">Start Linux Track →</a>
@@ -255,7 +350,7 @@ hide:
     <div class="step-info">
       <h4 style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 6px;">
         Docker & Containers
-        <span style="padding: 2px 8px; background: rgba(15, 121, 14, 0.1); border: 1px solid rgba(15, 121, 14, 0.2); border-radius: 4px; font-size: 0.7rem; font-weight: 700; color: #0f790e; text-transform: uppercase; letter-spacing: 0.05em; display: inline-flex; align-items: center; gap: 4px;">🐳 Live Labs Available</span>
+        <span class="live-labs-badge">🐳 Live Labs Available</span>
       </h4>
       <p>Package applications for consistency. Learn multi-stage builds, volumes, networking, and compose stacks.</p>
       <a href="docker/" class="step-link">Explore Docker →</a>
@@ -299,7 +394,7 @@ hide:
 </div>
 
 <h2 class="section-title">Featured DevOps & Cloud Guides</h2>
-<p class="text-center" style="max-width: 700px; margin: 0 auto 3rem auto; color: var(--text-light); line-height: 1.6;">
+<p class="text-center" style="max-width: 700px; margin: 0 auto 3rem auto; color: var(--hp-text-subtle); line-height: 1.6;">
   Explore our in-depth, step-by-step tutorials designed for real-world DevOps and Cloud use cases. 
   These practical guides help you master complex deployments and pipelines with ease.
 </p>
@@ -363,6 +458,7 @@ hide:
   <h3>🚀 Join the DevOps Revolution</h3>
   <p>DevOpsPilot is constantly adding new content. Stay tuned for updates!</p>
   <div style="margin-top: 1rem;">
-    <iframe src="https://devopspilot.substack.com/embed" width="480" height="320" style="border:1px solid #EEE; background:white;" frameborder="0" scrolling="no"></iframe>
+    <iframe src="https://devopspilot.substack.com/embed" width="480" height="320" style="border:1px solid rgba(255,255,255,0.1); background:white; border-radius: 8px;" frameborder="0" scrolling="no"></iframe>
   </div>
 </div>
+
