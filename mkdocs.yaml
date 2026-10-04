@@ -36,6 +36,10 @@ extra_css:
 extra_javascript:
   - javascripts/interview-questions.js
   - https://unpkg.com/mermaid@11/dist/mermaid.min.js
+  # mermaid-init.js must load AFTER the Mermaid CDN bundle.
+  # It calls mermaid.initialize({ theme: 'default' }) to prevent Mermaid v11
+  # from auto-detecting the OS dark mode and switching to its dark theme.
+  - javascripts/mermaid-init.js
 extra:
   analytics:
     provider: google
@@ -646,6 +650,9 @@ markdown_extensions:
       custom_fences:
         - name: mermaid
           class: mermaid
+          # Use fence_code_format to emit raw <pre class="mermaid"> blocks so the
+          # Mermaid CDN script auto-detects and renders them with its default light theme
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.tasklist:

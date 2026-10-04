@@ -8,7 +8,7 @@ hide:
 <style>
   :root {
     --hp-primary: #0f790e;
-    --hp-primary-hover: #0d660c;
+    --hp-primary-hover: #0c630c;
     --hp-accent: #22c55e;
     
     /* Default (Light Mode) Tokens */
@@ -33,30 +33,31 @@ hide:
   }
 
   [data-md-color-scheme="slate"] {
-    /* Dark Mode (Slate) Tokens */
-    --hp-primary: #16a34a;
-    --hp-primary-hover: #15803d;
-    --hp-accent: #4ade80;
+    /* Dark Mode (Slate) Tokens - Unified DevOpsPilot Brand Green (#0f790e) */
+    --hp-primary: #0f790e;
+    --hp-primary-hover: #0c630c;
+    --hp-accent: #22c55e;
     
     --hp-bg-card: #161e2e;
     --hp-bg-container: #111827;
     --hp-bg-newsletter: rgba(15, 121, 14, 0.15);
     --hp-border-card: rgba(255, 255, 255, 0.1);
     --hp-border-container: rgba(255, 255, 255, 0.08);
-    --hp-border-newsletter: rgba(34, 197, 94, 0.3);
+    --hp-border-newsletter: rgba(15, 121, 14, 0.35);
     --hp-text-title: #f8fafc;
     --hp-text-body: #cbd5e1;
     --hp-text-subtle: #94a3b8;
-    --hp-badge-bg: rgba(34, 197, 94, 0.12);
-    --hp-badge-border: rgba(34, 197, 94, 0.35);
-    --hp-badge-text: #4ade80;
-    --hp-btn-sec-bg: rgba(34, 197, 94, 0.12);
-    --hp-btn-sec-border: rgba(34, 197, 94, 0.35);
-    --hp-btn-sec-text: #4ade80;
-    --hp-link-color: #4ade80;
+    --hp-badge-bg: rgba(15, 121, 14, 0.15);
+    --hp-badge-border: rgba(15, 121, 14, 0.35);
+    --hp-badge-text: #22c55e;
+    --hp-btn-sec-bg: rgba(15, 121, 14, 0.12);
+    --hp-btn-sec-border: rgba(15, 121, 14, 0.35);
+    --hp-btn-sec-text: #22c55e;
+    --hp-link-color: #22c55e;
     --hp-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
     --hp-shadow-hover: 0 12px 30px rgba(0, 0, 0, 0.4);
   }
+
 
   /* Hero Section */
   .hero {
@@ -98,17 +99,18 @@ hide:
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: inline-block;
   }
-  .btn-primary {
-    background: var(--hp-primary);
-    color: white !important;
+  .btn-primary, .md-typeset a.btn-primary, .md-typeset a.btn-primary:visited {
+    background: var(--hp-primary) !important;
+    color: #ffffff !important;
     box-shadow: 0 4px 15px rgba(15, 121, 14, 0.3);
-    border: 2px solid var(--hp-primary);
+    border: 2px solid var(--hp-primary) !important;
   }
-  .btn-primary:hover {
+  .btn-primary:hover, .md-typeset a.btn-primary:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(15, 121, 14, 0.4);
-    background: var(--hp-primary-hover);
-    border-color: var(--hp-primary-hover);
+    background: var(--hp-primary-hover) !important;
+    border-color: var(--hp-primary-hover) !important;
+    color: #ffffff !important;
   }
   .btn-secondary {
     background: var(--hp-btn-sec-bg);
@@ -122,7 +124,9 @@ hide:
   }
 
   /* Early Access & Micro Badges */
-  .early-access-badge {
+  .early-access-badge,
+  .md-typeset a.early-access-badge,
+  .md-typeset a.early-access-badge:visited {
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -132,7 +136,7 @@ hide:
     border-radius: 50px;
     font-size: 0.72rem;
     font-weight: 800;
-    color: var(--hp-badge-text);
+    color: var(--hp-badge-text) !important;
     margin-bottom: 1.5rem;
     text-transform: uppercase;
     letter-spacing: 0.04em;
@@ -243,13 +247,16 @@ hide:
     margin: 0 0 0.5rem 0;
     color: var(--hp-text-body);
   }
-  .step-link {
-    color: var(--hp-link-color);
-    font-weight: 600;
+  .step-link, .md-typeset .step-link {
+    color: var(--hp-link-color) !important;
+    font-weight: 700;
     text-decoration: none;
     font-size: 0.95rem;
   }
-  .step-link:hover { text-decoration: underline; }
+  .step-link:hover, .md-typeset .step-link:hover {
+    text-decoration: underline !important;
+    color: var(--hp-accent) !important;
+  }
 
   /* Topic Cards */
   .topic-card {
@@ -271,7 +278,8 @@ hide:
     transform: translateY(-5px);
     box-shadow: var(--hp-shadow-hover);
   }
-  .topic-icon { font-size: 3rem; margin-bottom: 0.5rem; }
+  .topic-icon { display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; margin-bottom: 0.75rem; transition: transform 0.3s ease; }
+  .topic-card:hover .topic-icon { transform: scale(1.15); }
   .topic-name { font-weight: 700; font-size: 1.1rem; color: var(--hp-text-title); }
 
   /* Utilities */
@@ -279,22 +287,37 @@ hide:
   .section-title { font-size: 2rem; font-weight: 800; text-align: center; margin: 4rem 0 1.5rem 0; color: var(--hp-text-title); }
   .newsletter {
     margin-top: 4rem;
-    padding: 2.5rem 2rem;
+    padding: 3rem 2rem;
     background: var(--hp-bg-newsletter);
-    border-radius: 12px;
+    border-radius: 16px;
     text-align: center;
     border: 1px solid var(--hp-border-newsletter);
+    box-shadow: var(--hp-shadow);
   }
   .newsletter h3 {
     color: var(--hp-text-title);
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     font-weight: 800;
     margin-top: 0;
     margin-bottom: 0.5rem;
   }
   .newsletter p {
     color: var(--hp-text-body);
-    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+    max-width: 600px;
+    margin: 0 auto 1.5rem auto;
+  }
+  .newsletter-frame-wrapper {
+    display: inline-block;
+    padding: 8px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    max-width: 100%;
+  }
+  [data-md-color-scheme="slate"] .newsletter-frame-wrapper {
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.15);
   }
 </style>
 
@@ -359,7 +382,10 @@ hide:
   <div class="step-item">
     <div class="step-num">5</div>
     <div class="step-info">
-      <h4>Kubernetes Orchestration</h4>
+      <h4 style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 6px;">
+        Kubernetes Orchestration
+        <span class="live-labs-badge">☸️ Live Labs Available</span>
+      </h4>
       <p>Manage containerized workloads at scale. Learn Pods, Deployments, Services, and Ingress routing.</p>
       <a href="kubernetes/" class="step-link">Master Kubernetes →</a>
     </div>
@@ -421,35 +447,51 @@ hide:
 
 <div class="topic-grid">
   <a href="linux-commands/basic-linux-commands/" class="topic-card">
-    <span class="topic-icon">🐧</span>
+    <div class="topic-icon">
+      <img src="assets/icons/linux.svg" alt="Linux Logo" width="44" height="44" style="object-fit: contain;" />
+    </div>
     <span class="topic-name">Linux</span>
   </a>
   <a href="git/" class="topic-card">
-    <span class="topic-icon">🐙</span>
+    <div class="topic-icon">
+      <img src="assets/icons/git.svg" alt="Git Logo" width="44" height="44" style="object-fit: contain;" />
+    </div>
     <span class="topic-name">Git</span>
   </a>
   <a href="docker/" class="topic-card">
-    <span class="topic-icon">🐳</span>
+    <div class="topic-icon">
+      <img src="assets/icons/docker.svg" alt="Docker Logo" width="44" height="44" style="object-fit: contain;" />
+    </div>
     <span class="topic-name">Docker</span>
   </a>
   <a href="kubernetes/" class="topic-card">
-    <span class="topic-icon">☸️</span>
+    <div class="topic-icon">
+      <img src="assets/icons/kubernetes.svg" alt="Kubernetes Logo" width="44" height="44" style="object-fit: contain;" />
+    </div>
     <span class="topic-name">Kubernetes</span>
   </a>
   <a href="jenkins/" class="topic-card">
-    <span class="topic-icon">⚙️</span>
+    <div class="topic-icon">
+      <img src="assets/icons/jenkins.svg" alt="Jenkins Logo" width="44" height="44" style="object-fit: contain;" />
+    </div>
     <span class="topic-name">Jenkins</span>
   </a>
   <a href="cloud/" class="topic-card">
-    <span class="topic-icon">☁️</span>
+    <div class="topic-icon">
+      <img src="assets/icons/cloud.svg" alt="Cloud Logo" width="44" height="44" style="object-fit: contain;" />
+    </div>
     <span class="topic-name">Cloud</span>
   </a>
   <a href="terraform/" class="topic-card">
-    <span class="topic-icon">🏗️</span>
+    <div class="topic-icon">
+      <img src="assets/icons/terraform.svg" alt="Terraform Logo" width="44" height="44" style="object-fit: contain;" />
+    </div>
     <span class="topic-name">Terraform</span>
   </a>
   <a href="quiz/" class="topic-card">
-    <span class="topic-icon">📝</span>
+    <div class="topic-icon">
+      <img src="assets/icons/quiz.svg" alt="Quizzes Logo" width="44" height="44" style="object-fit: contain;" />
+    </div>
     <span class="topic-name">Quizzes</span>
   </a>
 </div>
@@ -457,8 +499,10 @@ hide:
 <div class="newsletter">
   <h3>🚀 Join the DevOps Revolution</h3>
   <p>DevOpsPilot is constantly adding new content. Stay tuned for updates!</p>
-  <div style="margin-top: 1rem;">
-    <iframe src="https://devopspilot.substack.com/embed" width="480" height="320" style="border:1px solid rgba(255,255,255,0.1); background:white; border-radius: 8px;" frameborder="0" scrolling="no"></iframe>
+  <div style="margin-top: 1.5rem;">
+    <div class="newsletter-frame-wrapper">
+      <iframe src="https://devopspilot.substack.com/embed" width="480" height="320" style="border:none; background:white; border-radius: 8px;" frameborder="0" scrolling="no"></iframe>
+    </div>
   </div>
 </div>
 

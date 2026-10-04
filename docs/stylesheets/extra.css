@@ -8,10 +8,34 @@
   --md-primary-bg-color:        #ffffff;
   --md-primary-bg-color--light: #f8fafc;
 
-  /* Accent & link green */
+  /* Accent & link green (DevopsPilot Brand Green) */
   --md-accent-fg-color:         #0f790e;
   --md-accent-fg-color--transparent: rgba(15, 121, 14, 0.1);
   --md-accent-bg-color:         #ffffff;
+  --md-typeset-a-color:         #0f790e;
+}
+
+/* ── Custom Text Selection (DevopsPilot Brand Green) ─────────────────────── */
+::selection, *::selection {
+  background-color: #0f790e !important;
+  color: #ffffff !important;
+}
+
+::-moz-selection, *::-moz-selection {
+  background-color: #0f790e !important;
+  color: #ffffff !important;
+}
+
+[data-md-color-scheme="slate"] ::selection,
+[data-md-color-scheme="slate"] *::selection {
+  background-color: #16a34a !important;
+  color: #ffffff !important;
+}
+
+[data-md-color-scheme="slate"] ::-moz-selection,
+[data-md-color-scheme="slate"] *::-moz-selection {
+  background-color: #16a34a !important;
+  color: #ffffff !important;
 }
 
 /* Dark theme overrides (scheme: slate) */
@@ -31,6 +55,11 @@
   --md-primary-fg-color:             #0b0f17;
   --md-primary-fg-color--light:      #161e2e;
   --md-primary-fg-color--dark:       #020617;
+  
+  --md-typeset-a-color:              #22c55e;
+  --md-accent-fg-color:              #22c55e;
+  --md-accent-fg-color--transparent: rgba(34, 197, 94, 0.15);
+  --md-accent-bg-color:              #0b0f17;
 }
 
 /* Light theme overrides (scheme: default) */
@@ -39,13 +68,196 @@
   --md-primary-fg-color--light:      #161e2e;
   --md-primary-fg-color--dark:       #020617;
   --md-primary-bg-color:             #ffffff;
+  --md-typeset-a-color:              #0f790e;
 }
+
+/* Global Link Styling Override — Eliminate generic blue links (excluding button & badge components) */
+.md-typeset a:not(.btn):not(.btn-primary):not(.sleek-btn):not(.sleek-btn-primary):not(.sleek-btn-secondary):not(.sleek-btn-docker):not(.sleek-btn-primary-docker):not(.sleek-btn-secondary-docker):not(.sleek-btn-platform):not(.topic-card):not(.early-access-badge) {
+  color: #0f790e !important;
+  transition: color 0.2s ease;
+}
+
+.md-typeset a:not(.btn):not(.btn-primary):not(.sleek-btn):not(.sleek-btn-primary):not(.sleek-btn-secondary):not(.sleek-btn-docker):not(.sleek-btn-primary-docker):not(.sleek-btn-secondary-docker):not(.sleek-btn-platform):not(.topic-card):not(.early-access-badge):hover {
+  color: #0c630c !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset a:not(.btn):not(.btn-primary):not(.sleek-btn):not(.sleek-btn-primary):not(.sleek-btn-secondary):not(.sleek-btn-docker):not(.sleek-btn-primary-docker):not(.sleek-btn-secondary-docker):not(.sleek-btn-platform):not(.topic-card):not(.early-access-badge) {
+  color: #22c55e !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset a:not(.btn):not(.btn-primary):not(.sleek-btn):not(.sleek-btn-primary):not(.sleek-btn-secondary):not(.sleek-btn-docker):not(.sleek-btn-primary-docker):not(.sleek-btn-secondary-docker):not(.sleek-btn-platform):not(.topic-card):not(.early-access-badge):hover {
+  color: #4ade80 !important;
+}
+
+/* Button Component Overrides (enforce crisp white text contrast on primary buttons across all states & themes) */
+.btn-primary,
+.sleek-btn-primary,
+.sleek-btn-primary-docker,
+.sleek-btn-platform,
+.md-typeset a.btn-primary,
+.md-typeset a.sleek-btn-primary,
+.md-typeset a.sleek-btn-primary-docker,
+.md-typeset a.sleek-btn-platform,
+.md-typeset a.btn-primary:link,
+.md-typeset a.sleek-btn-primary:link,
+.md-typeset a.sleek-btn-primary-docker:link,
+.md-typeset a.sleek-btn-platform:link,
+.md-typeset a.btn-primary:visited,
+.md-typeset a.sleek-btn-primary:visited,
+.md-typeset a.sleek-btn-primary-docker:visited,
+.md-typeset a.sleek-btn-platform:visited,
+.md-typeset a.btn-primary:hover,
+.md-typeset a.sleek-btn-primary:hover,
+.md-typeset a.sleek-btn-primary-docker:hover,
+.md-typeset a.sleek-btn-platform:hover,
+.md-typeset a.btn-primary:active,
+.md-typeset a.btn-primary:focus,
+.md-typeset a.sleek-btn-primary:active,
+.md-typeset a.sleek-btn-primary-docker:active,
+.md-typeset a.sleek-btn-platform:active,
+[data-md-color-scheme="slate"] .md-typeset a.btn-primary,
+[data-md-color-scheme="slate"] .md-typeset a.sleek-btn-primary,
+[data-md-color-scheme="slate"] .md-typeset a.sleek-btn-primary-docker,
+[data-md-color-scheme="slate"] .md-typeset a.sleek-btn-platform,
+[data-md-color-scheme="slate"] .md-typeset a.btn-primary:link,
+[data-md-color-scheme="slate"] .md-typeset a.sleek-btn-primary:link,
+[data-md-color-scheme="slate"] .md-typeset a.sleek-btn-primary-docker:link,
+[data-md-color-scheme="slate"] .md-typeset a.sleek-btn-platform:link,
+[data-md-color-scheme="slate"] .md-typeset a.btn-primary:visited,
+[data-md-color-scheme="slate"] .md-typeset a.sleek-btn-primary:visited,
+[data-md-color-scheme="slate"] .md-typeset a.sleek-btn-primary-docker:visited,
+[data-md-color-scheme="slate"] .md-typeset a.sleek-btn-platform:visited,
+[data-md-color-scheme="slate"] .md-typeset a.btn-primary:hover,
+[data-md-color-scheme="slate"] .md-typeset a.sleek-btn-primary:hover,
+[data-md-color-scheme="slate"] .md-typeset a.sleek-btn-primary-docker:hover,
+[data-md-color-scheme="slate"] .md-typeset a.sleek-btn-platform:hover {
+  color: #ffffff !important;
+}
+
+.btn-primary,
+.md-typeset a.btn-primary {
+  background-color: #0f790e !important;
+  border-color: #0f790e !important;
+}
+
+.btn-primary:hover,
+.md-typeset a.btn-primary:hover {
+  color: #ffffff !important;
+  background-color: #0c630c !important;
+  border-color: #0c630c !important;
+}
+
+/* Early Access Badge Override — Enforce brand green text in both light and dark modes */
+.early-access-badge,
+.md-typeset a.early-access-badge,
+.md-typeset a.early-access-badge:link,
+.md-typeset a.early-access-badge:visited {
+  color: #0f790e !important;
+}
+
+[data-md-color-scheme="slate"] .early-access-badge,
+[data-md-color-scheme="slate"] .md-typeset a.early-access-badge,
+[data-md-color-scheme="slate"] .md-typeset a.early-access-badge:link,
+[data-md-color-scheme="slate"] .md-typeset a.early-access-badge:visited {
+  color: #22c55e !important;
+}
+
 
 /* Fix logo sizing and alignment in header */
 .md-header__button.md-logo img,
 .md-header__button.md-logo svg {
   height: 1.8rem;
   width: auto;
+}
+
+/* ── Navigation Header & Tabs Polish ─────────────────────────────────────── */
+.md-header {
+  background-color: var(--md-primary-fg-color) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.md-tabs {
+  background-color: var(--md-primary-fg-color) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.md-tabs__link {
+  opacity: 0.85;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.md-tabs__link:hover {
+  opacity: 1;
+}
+
+.md-tabs__link--active {
+  opacity: 1 !important;
+  font-weight: 700;
+  color: #22c55e !important; /* DevOpsPilot Green Active Tab Accent */
+}
+
+/* ── Sidebar Navigation & TOC Active Item Styling (Brand Green Accent) ───── */
+.md-nav__link--active,
+.md-nav__item--active > .md-nav__link {
+  color: #0f790e !important;
+  font-weight: 700 !important;
+}
+
+[data-md-color-scheme="slate"] .md-nav__link--active,
+[data-md-color-scheme="slate"] .md-nav__item--active > .md-nav__link {
+  color: #22c55e !important;
+  font-weight: 700 !important;
+}
+
+.md-nav__link:hover {
+  color: #0f790e !important;
+}
+
+[data-md-color-scheme="slate"] .md-nav__link:hover {
+  color: #4ade80 !important;
+}
+
+/* ── Admonition & Info Callout Box Overrides (Brand Green Accent) ────────── */
+.md-typeset .admonition.info,
+.md-typeset .admonition.note,
+.md-typeset details.info,
+.md-typeset details.note {
+  border-color: #0f790e !important;
+}
+
+.md-typeset .admonition.info > .admonition-title,
+.md-typeset .admonition.note > .admonition-title,
+.md-typeset details.info > summary,
+.md-typeset details.note > summary {
+  background-color: rgba(15, 121, 14, 0.08) !important;
+}
+
+.md-typeset .admonition.info > .admonition-title::before,
+.md-typeset .admonition.note > .admonition-title::before,
+.md-typeset details.info > summary::before,
+.md-typeset details.note > summary::before {
+  background-color: #0f790e !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.info,
+[data-md-color-scheme="slate"] .md-typeset .admonition.note,
+[data-md-color-scheme="slate"] .md-typeset details.info,
+[data-md-color-scheme="slate"] .md-typeset details.note {
+  border-color: #22c55e !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.info > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset .admonition.note > .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset details.info > summary,
+[data-md-color-scheme="slate"] .md-typeset details.note > summary {
+  background-color: rgba(15, 121, 14, 0.2) !important;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .admonition.info > .admonition-title::before,
+[data-md-color-scheme="slate"] .md-typeset .admonition.note > .admonition-title::before,
+[data-md-color-scheme="slate"] .md-typeset details.info > summary::before,
+[data-md-color-scheme="slate"] .md-typeset details.note > summary::before {
+  background-color: #22c55e !important;
 }
 
 
@@ -88,4 +300,95 @@
 .highlight pre {
   white-space: pre !important;
   overflow-x: auto;
+}
+
+/* ── Mermaid diagrams: no custom styling, use Mermaid's default theme ────── */
+/* Diagrams intentionally render with Mermaid's built-in light theme in both  */
+/* light and dark mode for consistent, predictable legibility.                */
+
+
+/* ── Sleek Callout Widgets (Dark Mode Adaptation) ────────────────────────── */
+[data-md-color-scheme="slate"] .sleek-callout,
+[data-md-color-scheme="slate"] .sleek-callout-platform,
+[data-md-color-scheme="slate"] .sleek-callout-docker {
+  background: #161e2e !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.4) !important;
+}
+
+[data-md-color-scheme="slate"] .sleek-callout h3,
+[data-md-color-scheme="slate"] .sleek-callout-platform h3,
+[data-md-color-scheme="slate"] .sleek-callout-docker h3 {
+  color: #f8fafc !important;
+}
+
+[data-md-color-scheme="slate"] .sleek-callout p,
+[data-md-color-scheme="slate"] .sleek-callout-platform p,
+[data-md-color-scheme="slate"] .sleek-callout-docker p {
+  color: #cbd5e1 !important;
+}
+
+[data-md-color-scheme="slate"] .sleek-btn-secondary,
+[data-md-color-scheme="slate"] .sleek-btn-secondary-docker {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #f8fafc !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+[data-md-color-scheme="slate"] .sleek-btn-secondary:hover,
+[data-md-color-scheme="slate"] .sleek-btn-secondary-docker:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: #22c55e !important;
+}
+
+[data-md-color-scheme="slate"] .sleek-promo,
+[data-md-color-scheme="slate"] .sleek-promo-docker {
+  border-top-color: rgba(255, 255, 255, 0.1) !important;
+  color: #94a3b8 !important;
+}
+
+[data-md-color-scheme="slate"] .sleek-promo span,
+[data-md-color-scheme="slate"] .sleek-promo-docker span {
+  color: #cbd5e1 !important;
+}
+
+[data-md-color-scheme="slate"] .sleek-icon-box {
+  background: rgba(16, 185, 129, 0.15) !important;
+}
+
+[data-md-color-scheme="slate"] .sleek-icon-docker {
+  background: rgba(14, 165, 233, 0.15) !important;
+}
+
+[data-md-color-scheme="slate"] .sleek-icon-platform {
+  background: rgba(15, 121, 14, 0.15) !important;
+}
+/* ── Mermaid edge label fix: MkDocs Material dark mode injects dark          */
+/* backgrounds into foreignObject divs, making connector pills appear black.  */
+/* Force transparent bg so the inline styles in the diagram source work.      */
+.md-typeset .mermaid .edgeLabel foreignObject > div,
+.md-typeset .mermaid .edgeLabel span,
+.md-typeset .mermaid .edgeLabel p,
+[data-md-color-scheme="slate"] .md-typeset .mermaid .edgeLabel foreignObject > div,
+[data-md-color-scheme="slate"] .md-typeset .mermaid .edgeLabel span,
+[data-md-color-scheme="slate"] .md-typeset .mermaid .edgeLabel p {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: #0f172a !important;
+}
+/* ── Mermaid edge label SVG rect fix ────────────────────────────────────── */
+/* The black connector pill is an SVG <rect> with fill set to the dark theme  */
+/* background color. Force it to white so text is readable in dark mode.     */
+.md-typeset .mermaid .edgeLabel rect,
+.md-typeset .mermaid .edgeLabel .label rect,
+.md-typeset .mermaid g.edgeLabel rect,
+[data-md-color-scheme="slate"] .md-typeset .mermaid .edgeLabel rect,
+[data-md-color-scheme="slate"] .md-typeset .mermaid g.edgeLabel rect {
+  fill: #ffffff !important;
+  stroke: #cbd5e1 !important;
+}
+/* Also fix the text color inside the SVG foreignObject */
+.md-typeset .mermaid .edgeLabel div,
+[data-md-color-scheme="slate"] .md-typeset .mermaid .edgeLabel div {
+  color: #0f172a !important;
 }

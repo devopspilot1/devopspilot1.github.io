@@ -26,10 +26,10 @@ In modern tech organizations (300+ employees, 10+ engineering teams), responsibi
 
 ```mermaid
 graph TD
-    classDef client   fill:#dbeafe,stroke:#93c5fd,color:#1e3a5f
-    classDef gateway  fill:#ede9fe,stroke:#a78bfa,color:#3b1f6e
-    classDef service  fill:#dcfce7,stroke:#86efac,color:#14532d
-    classDef storage  fill:#fce7f3,stroke:#f9a8d4,color:#831843
+    classDef client   fill:#1e40af,stroke:#60a5fa,stroke-width:2px,color:#bfdbfe
+    classDef gateway  fill:#5b21b6,stroke:#a78bfa,stroke-width:2px,color:#ddd6fe
+    classDef service  fill:#065f46,stroke:#34d399,stroke-width:2px,color:#a7f3d0
+    classDef storage  fill:#9f1239,stroke:#fb7185,stroke-width:2px,color:#fecdd3
 
     subgraph Org["PayPulse Engineering Organization"]
         CP["☁️ Cloud Platform Team<br/>(AWS/GCP/Azure Accounts, Terraform, EKS Clusters, VPC, Karpenter)"]:::client
@@ -37,9 +37,9 @@ graph TD
         AS["💻 Application Squads<br/>(14 Squads / 46 Applications — Java, Node.js, Python, React, Flutter)"]:::service
     end
 
-    CP -->|"Provides Infrastructure Foundations"| DD
-    DD -->|"Provides Self-Service CI/CD Platform"| AS
-    AS -->|"Deploys Code & Config via Pipelines"| CP
+    CP -->|Provides Infrastructure Foundations| DD
+    DD -->|Provides Self-Service CI/CD Platform| AS
+    AS -->|Deploys Code & Config via Pipelines| CP
 ```
 
 ### 1. Cloud Platform Team (Infrastructure Foundation)
@@ -59,28 +59,6 @@ graph TD
 ---
 
 ## 👥 Inside the DevOps Delivery Team
-
-```
-                      ┌───────────────────────────────────────────────┐
-                      │          DevOps Team Lead / Architect         │
-                      │ • Front Door to Application Development Squads│
-                      │ • Technical Discovery & Sprint Planning       │
-                      │ • Hands-On Architecture & Shared Libraries    │
-                      │ • Critical Incident Command & Deep Debugging  │
-                      │ • Enterprise CAB Governance & Knowledge Base  │
-                      └───────────────────────┬───────────────────────┘
-                                              │
-                                              ▼
-                      ┌───────────────────────────────────────────────┐
-                      │    Cross-Functional DevOps Engineers (Pod)    │
-                      │ • Full-Stack CI/CD Pipeline Automation        │
-                      │ • Kubernetes, Dynamic Agents & Docker Builds  │
-                      │ • Quality Gates (SonarQube) & Artifact Repos  │
-                      │ • GitOps Delivery & Helm Deployments (Argo CD)│
-                      │ • Platform Maintenance, TLS Renewals & Patching│
-                      │ • Daily Tier-2/Tier-3 Developer Support       │
-                      └───────────────────────────────────────────────┘
-```
 
 !!! note "Team Topology Across Organizations"
     The structure above illustrates the **Front-Door & Cross-Functional Delivery Pod** model implemented in the **PayPulse Technologies** case study (featuring Marcus as Lead, and Alex, Priya, and Sam as cross-functional engineers). 
@@ -116,16 +94,6 @@ Reliability at scale requires that operational knowledge is never trapped in an 
 | **SOP-03: Application CI Onboarding & Centralized CD Delivery** | Developer and DevOps onboarding for squads | Creating the application CI `Jenkinsfile`, passing parameters to `paypulse-shared-library`, raising PRs to the application `develop` branch for squad review, and configuring centralized deployment (`Jenkinsfile.deploy`) and promotion (`Jenkinsfile.promote`) pipelines in `paypulse-cd-pipelines`. |
 | **SOP-04: JFrog Repository & Project Provisioning** | Multi-tier artifact repository architecture for squads | Provisioning **Local Repositories** (private builds & Docker images), **Remote Repositories** (caching proxies for Maven Central, npmjs, PyPI, Docker Hub with security caching), and **Virtual Repositories** (aggregated single-URL endpoints for developers). |
 | **Incident Knowledge Base (RCAs)** | Blameless post-mortem repository for all operational outages | Standardized post-incident review (PIR) template: Chronological incident timeline, root-cause analysis (5 Whys), short-term remediation, and tracked Jira preventative action items. |
-
----
-
-## 📚 Enterprise Case Studies in this Series
-
-| Company Case Study | Organization Profile | Architecture & Technology Stack | Focus Area |
-| :--- | :--- | :--- | :--- |
-| **[PayPulse Technologies](paypulse-technologies/index.md)** | 300+ employees, 14 squads, 46 applications & services | **Hybrid Multi-Cloud + EKS:** On-Prem Jenkins, SonarQube LTA, JFrog HA, AWS Multi-Region EKS (1.34/1.35), Argo CD, GitHub Enterprise | Self-service Shared Library model, 30-day roster with multi-day Jira stories, daily bug tracking, certificate renewals, and 4 major incidents. |
-| **NexusRetail Global** *(Upcoming)* | 600+ employees, 22 squads, 80+ services | **Jenkins to GitHub Actions Migration:** Deprecating self-hosted Jenkins controllers; migrating 80+ pipelines to GitHub Actions Enterprise runners and AWS ECS/EKS. | CI/CD migration planning, security secret mapping, developer transition, self-hosted runner auto-scaling, and build cost optimization. |
-| **AuraHealth Cloud** *(Upcoming)* | 200+ employees, 8 squads, 24 microservices | **GitLab CI/CD + Cloud-Native Tooling:** GitLab Ultimate, JFrog Cloud, SonarQube Cloud, Google Cloud Platform (GKE & Cloud Run), OpenTelemetry observability. | Cloud-native GitOps, automated canary rollouts, supply-chain SLSA Level 3 compliance, and eBPF observability. |
 
 ---
 
