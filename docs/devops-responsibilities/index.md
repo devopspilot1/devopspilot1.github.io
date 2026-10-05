@@ -26,10 +26,10 @@ In modern tech organizations (300+ employees, 10+ engineering teams), responsibi
 
 ```mermaid
 graph TD
-    classDef client   fill:#1e40af,stroke:#60a5fa,stroke-width:2px,color:#bfdbfe
-    classDef gateway  fill:#5b21b6,stroke:#a78bfa,stroke-width:2px,color:#ddd6fe
-    classDef service  fill:#065f46,stroke:#34d399,stroke-width:2px,color:#a7f3d0
-    classDef storage  fill:#9f1239,stroke:#fb7185,stroke-width:2px,color:#fecdd3
+    classDef client   fill:#dbeafe,stroke:#93c5fd,color:#1e3a5f
+    classDef gateway  fill:#ede9fe,stroke:#a78bfa,color:#3b1f6e
+    classDef service  fill:#dcfce7,stroke:#86efac,color:#14532d
+    classDef storage  fill:#fce7f3,stroke:#f9a8d4,color:#831843
 
     subgraph Org["PayPulse Engineering Organization"]
         CP["☁️ Cloud Platform Team<br/>(AWS/GCP/Azure Accounts, Terraform, EKS Clusters, VPC, Karpenter)"]:::client

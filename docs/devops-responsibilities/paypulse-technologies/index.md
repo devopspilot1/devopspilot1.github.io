@@ -452,9 +452,9 @@ PayPulse decouples delivery into **Application Squad Repositories (CI)**, a **Ce
 
 ```mermaid
 graph LR
-    classDef dev stroke:#ef4444,stroke-width:2px
-    classDef qa stroke:#eab308,stroke-width:2px
-    classDef artifactory stroke:#a855f7,stroke-width:2px
+    classDef dev fill:#fee2e2,stroke:#fca5a5,color:#991b1b
+    classDef qa fill:#fef3c7,stroke:#fde047,color:#854d0e
+    classDef artifactory fill:#ede9fe,stroke:#a78bfa,color:#3b1f6e
 
     subgraph CI["1. CI (Build Once)"]
         B["🔨 Build & Test"]:::dev --> DEV["📦 dev-local<br/>(Immutable: v1.4.0-b104)"]:::artifactory
@@ -467,14 +467,14 @@ graph LR
     DEV --> P_QA
 ```
 
-<div style="text-align: center; font-weight: 600; font-size: 0.85rem; margin: -10px 0 10px 0; color: var(--md-default-fg-color--light);">
+<div style="text-align: center; font-weight: 600; font-size: 0.85rem; margin: -10px 0 10px 0; color: #475569;">
     ⬇️ <em>Artifact Verification Gate (qa.verified=true & Approved CAB Change Request)</em>
 </div>
 
 ```mermaid
 graph LR
-    classDef prod stroke:#10b981,stroke-width:2px
-    classDef artifactory stroke:#a855f7,stroke-width:2px
+    classDef prod fill:#dcfce7,stroke:#86efac,color:#14532d
+    classDef artifactory fill:#ede9fe,stroke:#a78bfa,color:#3b1f6e
 
     subgraph PROD["3. Production Release (Zero-Rebuild Promotion & Deployment)"]
         direction LR

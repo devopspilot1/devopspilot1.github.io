@@ -363,32 +363,3 @@
 [data-md-color-scheme="slate"] .sleek-icon-platform {
   background: rgba(15, 121, 14, 0.15) !important;
 }
-/* ── Mermaid edge label fix: MkDocs Material dark mode injects dark          */
-/* backgrounds into foreignObject divs, making connector pills appear black.  */
-/* Force transparent bg so the inline styles in the diagram source work.      */
-.md-typeset .mermaid .edgeLabel foreignObject > div,
-.md-typeset .mermaid .edgeLabel span,
-.md-typeset .mermaid .edgeLabel p,
-[data-md-color-scheme="slate"] .md-typeset .mermaid .edgeLabel foreignObject > div,
-[data-md-color-scheme="slate"] .md-typeset .mermaid .edgeLabel span,
-[data-md-color-scheme="slate"] .md-typeset .mermaid .edgeLabel p {
-  background: transparent !important;
-  background-color: transparent !important;
-  color: #0f172a !important;
-}
-/* ── Mermaid edge label SVG rect fix ────────────────────────────────────── */
-/* The black connector pill is an SVG <rect> with fill set to the dark theme  */
-/* background color. Force it to white so text is readable in dark mode.     */
-.md-typeset .mermaid .edgeLabel rect,
-.md-typeset .mermaid .edgeLabel .label rect,
-.md-typeset .mermaid g.edgeLabel rect,
-[data-md-color-scheme="slate"] .md-typeset .mermaid .edgeLabel rect,
-[data-md-color-scheme="slate"] .md-typeset .mermaid g.edgeLabel rect {
-  fill: #ffffff !important;
-  stroke: #cbd5e1 !important;
-}
-/* Also fix the text color inside the SVG foreignObject */
-.md-typeset .mermaid .edgeLabel div,
-[data-md-color-scheme="slate"] .md-typeset .mermaid .edgeLabel div {
-  color: #0f172a !important;
-}
