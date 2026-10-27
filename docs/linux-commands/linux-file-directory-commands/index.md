@@ -824,15 +824,6 @@ Prefer learning by following along? Watch the step-by-step video tutorial demons
   <iframe src="https://www.youtube.com/embed/ChxIAXON4TE" title="Linux File & Directory Commands - Guided Lab | DevopsPilot" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 
-<div class="video-actions">
-  <a href="https://youtu.be/ChxIAXON4TE" target="_blank" rel="noopener noreferrer" class="btn-youtube">
-    ▶ Watch on YouTube
-  </a>
-  <a href="https://www.devopspilot.com/lab/linux" target="_blank" rel="noopener noreferrer" class="btn-lab">
-    🚀 Practice in Interactive Lab →
-  </a>
-</div>
-
 ---
 
 ## 🧠 Quick Quiz – File Management

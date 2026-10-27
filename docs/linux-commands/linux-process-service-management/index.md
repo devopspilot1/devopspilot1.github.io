@@ -19,14 +19,27 @@ In modern Linux distributions (like Ubuntu 20.04+, CentOS 7+, and RHEL), **syste
 
 ```mermaid
 graph TD
-    A[Kernel] --> B[systemd (PID 1)]
-    B --> C[Service Units]
-    B --> D[User Processes]
-    C --> E[sshd.service]
-    C --> F[httpd.service]
-    E --> G[Process ID: 1234]
-    F --> H[Process ID: 5678]
-    style B fill:#f9f,stroke:#333,stroke-width:2px
+    A["Kernel"] --> B["systemd (PID 1)"]
+    B --> C["Service Units"]
+    B --> D["User Processes"]
+    C --> E["sshd.service"]
+    C --> F["httpd.service"]
+    E --> G["Process ID: 1234"]
+    F --> H["Process ID: 5678"]
+
+    classDef client   fill:#dbeafe,stroke:#93c5fd,color:#1e3a5f
+    classDef gateway  fill:#ede9fe,stroke:#a78bfa,color:#3b1f6e
+    classDef route    fill:#fef9c3,stroke:#fbbf24,color:#78350f
+    classDef service  fill:#dcfce7,stroke:#86efac,color:#14532d
+    classDef pods     fill:#ffedd5,stroke:#fdba74,color:#7c2d12
+    classDef storage  fill:#fce7f3,stroke:#f9a8d4,color:#831843
+    classDef external fill:#f1f5f9,stroke:#94a3b8,color:#1e293b
+
+    class A external
+    class B gateway
+    class C,D route
+    class E,F service
+    class G,H pods
 ```
 
 ---
@@ -457,15 +470,6 @@ Prefer learning by following along? Watch the step-by-step video tutorial demons
 
 <div class="video-container">
   <iframe src="https://www.youtube.com/embed/zVISitAcrbU" title="Linux Process & Service Management - Guided Lab | DevopsPilot" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</div>
-
-<div class="video-actions">
-  <a href="https://youtu.be/zVISitAcrbU" target="_blank" rel="noopener noreferrer" class="btn-youtube">
-    ▶ Watch on YouTube
-  </a>
-  <a href="https://www.devopspilot.com/lab/linux" target="_blank" rel="noopener noreferrer" class="btn-lab">
-    🚀 Practice in Interactive Lab →
-  </a>
 </div>
 
 ---

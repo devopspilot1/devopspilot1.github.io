@@ -364,7 +364,7 @@
   background: rgba(15, 121, 14, 0.15) !important;
 }
 
-/* ── Responsive Video Player & Video Academy Actions ─────────────────────── */
+/* ── Responsive Video Player ─────────────────────────────────────────────── */
 .video-container {
   position: relative;
   width: 100%;
@@ -372,7 +372,7 @@
   height: 0;
   overflow: hidden;
   border-radius: 12px;
-  margin: 1.5rem 0 0.75rem 0;
+  margin: 1.5rem 0 2rem 0;
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
   background-color: #0b0f17;
   border: 1px solid #e2e8f0;
@@ -390,50 +390,5 @@
   width: 100%;
   height: 100%;
   border: 0;
-}
-
-.video-actions {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 0.75rem;
-  margin-bottom: 2rem;
-  font-size: 0.9rem;
-}
-
-.video-actions a {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-weight: 600;
-  padding: 8px 16px;
-  border-radius: 8px;
-  text-decoration: none !important;
-  transition: all 0.2s ease;
-}
-
-.video-actions .btn-youtube {
-  background: #dc2626 !important;
-  color: #ffffff !important;
-  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.25);
-}
-
-.video-actions .btn-youtube:hover {
-  background: #b91c1c !important;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.35);
-}
-
-.video-actions .btn-lab {
-  background: #10b981 !important;
-  color: #ffffff !important;
-  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.25);
-}
-
-.video-actions .btn-lab:hover {
-  background: #059669 !important;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.35);
 }
 
