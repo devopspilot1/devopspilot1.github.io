@@ -202,6 +202,25 @@ userdel -r test
 
 ---
 
+## 🎥 Video Tutorial — Linux Users & Sudo Permissions (Guided Lab)
+
+Prefer learning by following along? Watch the step-by-step video tutorial demonstrating each command and verification in the real interactive lab environment:
+
+<div class="video-container">
+  <iframe src="https://www.youtube.com/embed/20rDCEag14o" title="Linux Users & Sudo Permissions - Guided Lab | DevopsPilot" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+<div class="video-actions">
+  <a href="https://youtu.be/20rDCEag14o" target="_blank" rel="noopener noreferrer" class="btn-youtube">
+    ▶ Watch on YouTube
+  </a>
+  <a href="https://www.devopspilot.com/lab/linux" target="_blank" rel="noopener noreferrer" class="btn-lab">
+    🚀 Practice in Interactive Lab →
+  </a>
+</div>
+
+---
+
 ## 🧠 Quick Quiz — Users & Sudo Permissions
 
 <quiz>

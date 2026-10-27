@@ -347,6 +347,25 @@ ls: cannot access '/fake-dir': No such file or directory
 
 ---
 
+## 🎥 Video Tutorial — Linux Shell Basics: Variables, Redirection & Pipes (Guided Lab)
+
+Prefer learning by following along? Watch the step-by-step video tutorial demonstrating each command and verification in the real interactive lab environment:
+
+<div class="video-container">
+  <iframe src="https://www.youtube.com/embed/TCAgbGom2AM" title="Linux Shell Basics: Variables, Redirection & Pipes - Guided Lab | DevopsPilot" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+<div class="video-actions">
+  <a href="https://youtu.be/TCAgbGom2AM" target="_blank" rel="noopener noreferrer" class="btn-youtube">
+    ▶ Watch on YouTube
+  </a>
+  <a href="https://www.devopspilot.com/lab/linux" target="_blank" rel="noopener noreferrer" class="btn-lab">
+    🚀 Practice in Interactive Lab →
+  </a>
+</div>
+
+---
+
 ## 🧠 Quick Quiz — Shell Basics & Environment
 
 <quiz>
@@ -365,7 +384,7 @@ The PATH variable contains directories where executable commands are searched.
 
 To strengthen your understanding and prepare for interviews, try the **full 20-question practice quiz** based on this chapter:
 
-👉 **[Start Shell Basics & Environment Quiz (20 Questions)](../../quiz/linux-commands/linux-shell-env-alias/index.md)**
+👉 **[Start Shell Basics & Environment Quiz (20 Questions)](../../quiz/linux-commands/linux-shell-basics-env/index.md)**
 
 ---
 

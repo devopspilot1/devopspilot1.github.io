@@ -16,11 +16,34 @@ This Linux commands guide is ideal if you are:
 - Debugging **production servers**
 
 ---
+
+## 🎥 Linux Commands Guided Lab Video Tutorials
+
+Prefer learning by watching and following along in real-time? Every Linux Guided Lab includes a full-length, synchronized video tutorial showing step-by-step terminal execution, command explanation, and live task validation:
+
+| # | Guided Lab Video | Duration | YouTube | Interactive Lab |
+|:---:|---|:---:|:---:|:---:|
+| 1 | **Basic Linux Commands** | 7m 25s | [▶ Watch](https://youtu.be/QgemYKwwcyw) | [Start Tutorial](./basic-linux-commands/index.md) |
+| 2 | **Linux File & Directory Commands** | 11m 56s | [▶ Watch](https://youtu.be/ChxIAXON4TE) | [Start Tutorial](./linux-file-directory-commands/index.md) |
+| 3 | **Linux Users & Sudo Permissions** | 14m 51s | [▶ Watch](https://youtu.be/20rDCEag14o) | [Start Tutorial](./linux-users-sudo-permissions/index.md) |
+| 4 | **Managing Linux File Permissions** | 8m 30s | [▶ Watch](https://youtu.be/Vi8v2nqr0yI) | [Start Tutorial](./linux-file-permissions/index.md) |
+| 5 | **Shell Basics: Variables, Redirection & Pipes** | 11m 01s | [▶ Watch](https://youtu.be/TCAgbGom2AM) | [Start Tutorial](./linux-shell-basics-env/index.md) |
+| 6 | **Shell Productivity: Aliases & Shortcuts** | 6m 49s | [▶ Watch](https://youtu.be/R5srlRZ-LIQ) | [Start Tutorial](./linux-shell-shortcuts-alias/index.md) |
+| 7 | **Linux Package Management Guide** | 10m 37s | [▶ Watch](https://youtu.be/5sG8hF-v728) | [Start Tutorial](./linux-package-management/index.md) |
+| 8 | **Linux Log & Text Processing Commands** | 13m 02s | [▶ Watch](https://youtu.be/9cypiysYU-k) | [Start Tutorial](./linux-log-text-processing/index.md) |
+| 9 | **Linux Networking Commands** | 7m 12s | [▶ Watch](https://youtu.be/j8sZ5-W_yow) | [Start Tutorial](./linux-networking-commands/index.md) |
+| 10 | **Linux Routing Basics (ip route)** | 3m 00s | [▶ Watch](https://youtu.be/Pi1Khf0R5H4) | [Start Tutorial](./linux-routing-basics/index.md) |
+| 11 | **Linux System & Disk Commands** | 3m 00s | [▶ Watch](https://youtu.be/lRgNnZp4mGg) | [Start Tutorial](./linux-system-disk-commands/index.md) |
+| 12 | **Linux Process & Service Management** | 3m 24s | [▶ Watch](https://youtu.be/zVISitAcrbU) | [Start Tutorial](./linux-process-service-management/index.md) |
+
+---
+
 ## 🧭 Linux Commands Learning Path
 
 Follow this order for best results 👇
 
 ---
+
 
 ### 👉 [Basic Linux Commands](./basic-linux-commands/index.md)
 Start here if you are new to Linux.
