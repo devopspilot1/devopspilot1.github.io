@@ -38,6 +38,25 @@ Prefer learning by watching and following along in real-time? Every Linux Guided
 
 ---
 
+## 🛠️ Linux Commands Troubleshooting Lab Video Tutorials
+
+Prefer solving real-world production incidents? Each troubleshooting lab drops you into a realistic broken Linux environment to diagnose failure symptoms, identify root causes, and restore normal operations. Watch the full step-by-step walkthroughs or practice hands-on in your browser:
+
+| # | Troubleshooting Lab Video | Duration | YouTube | Interactive Lab |
+|:---:|---|:---:|:---:|:---:|
+| 1 | **SSH Connection Refused** | 1m 47s | [▶ Watch](https://youtu.be/UlFcDXTK2n8) | [Practice Lab](https://www.devopspilot.com/lab/linux?focus=ssh-connection-refused&tab=troubleshooting) |
+| 2 | **No Space Left on Device** | 2m 03s | [▶ Watch](https://youtu.be/qDJOw5iHwJM) | [Practice Lab](https://www.devopspilot.com/lab/linux?focus=disk-space-full&tab=troubleshooting) |
+| 3 | **Script Execution Denied** | 1m 48s | [▶ Watch](https://youtu.be/r9Fj00KZzsU) | [Practice Lab](https://www.devopspilot.com/lab/linux?focus=permission-denied&tab=troubleshooting) |
+| 4 | **DNS Resolution Failure** | 1m 58s | [▶ Watch](https://youtu.be/enzqK050y1Y) | [Practice Lab](https://www.devopspilot.com/lab/linux?focus=dns-resolution-failure&tab=troubleshooting) |
+| 5 | **Runaway CPU Process** | 1m 49s | [▶ Watch](https://youtu.be/92YflNpnPow) | [Practice Lab](https://www.devopspilot.com/lab/linux?focus=high-cpu-usage&tab=troubleshooting) |
+| 6 | **Systemd Crash Loop** | 2m 42s | [▶ Watch](https://youtu.be/GNr8nBnMAbE) | [Practice Lab](https://www.devopspilot.com/lab/linux?focus=service-crash-loop&tab=troubleshooting) |
+| 7 | **Hidden Disk Space Exhaustion** | 3m 16s | [▶ Watch](https://youtu.be/_BwnAEg6Q-A) | [Practice Lab](https://www.devopspilot.com/lab/linux?focus=inode-exhaustion&tab=troubleshooting) |
+| 8 | **Broken External Connectivity** | 2m 58s | [▶ Watch](https://youtu.be/9dl8P5Lhiog) | [Practice Lab](https://www.devopspilot.com/lab/linux?focus=network-route-drop&tab=troubleshooting) |
+| 9 | **Log Aggregator Outage** | 2m 56s | [▶ Watch](https://youtu.be/LwS19UZH6zg) | [Practice Lab](https://www.devopspilot.com/lab/linux?focus=log-aggregator-outage&tab=troubleshooting) |
+| 10 | **Process Table Investigation** | 3m 03s | [▶ Watch](https://youtu.be/99jATvbyql4) | [Practice Lab](https://www.devopspilot.com/lab/linux?focus=process-table-investigation&tab=troubleshooting) |
+
+---
+
 ## 🧭 Linux Commands Learning Path
 
 Follow this order for best results 👇
@@ -159,6 +178,24 @@ Topics covered:
 - `kill`, `nice`
 - `systemctl`, `service`
 - Process and service troubleshooting
+
+---
+
+### 🛠️ Production Incident Troubleshooting Labs
+Once you've mastered standard commands, test your real-world incident response skills with our 10 hands-on **Troubleshooting Labs** on the interactive platform:
+
+1. **[SSH Connection Refused](https://www.devopspilot.com/lab/linux?focus=ssh-connection-refused&tab=troubleshooting)** — Resolve port misconfigurations and firewall lockouts.
+2. **[No Space Left on Device](https://www.devopspilot.com/lab/linux?focus=disk-space-full&tab=troubleshooting)** — Clear phantom disk usage and unlinked open files.
+3. **[Script Execution Denied](https://www.devopspilot.com/lab/linux?focus=permission-denied&tab=troubleshooting)** — Fix execution bit masks, shebang syntax, and ownership.
+4. **[DNS Resolution Failure](https://www.devopspilot.com/lab/linux?focus=dns-resolution-failure&tab=troubleshooting)** — Repair `/etc/resolv.conf`, nameservers, and upstream routing.
+5. **[Runaway CPU Process](https://www.devopspilot.com/lab/linux?focus=high-cpu-usage&tab=troubleshooting)** — Identify rogue looping scripts and restore CPU headroom.
+6. **[Systemd Crash Loop](https://www.devopspilot.com/lab/linux?focus=service-crash-loop&tab=troubleshooting)** — Debug crash-looping systemd unit files and restart limits.
+7. **[Hidden Disk Space Exhaustion](https://www.devopspilot.com/lab/linux?focus=inode-exhaustion&tab=troubleshooting)** — Diagnose zero-byte inode exhaustion preventing file creation.
+8. **[Broken External Connectivity](https://www.devopspilot.com/lab/linux?focus=network-route-drop&tab=troubleshooting)** — Restore missing default gateway routes and interfaces.
+9. **[Log Aggregator Outage](https://www.devopspilot.com/lab/linux?focus=log-aggregator-outage&tab=troubleshooting)** — Recover from kernel file descriptor limits (`EMFILE` / `ENFILE`).
+10. **[Process Table Investigation](https://www.devopspilot.com/lab/linux?focus=process-table-investigation&tab=troubleshooting)** — Diagnose zombie process floods and terminate un-reaped parent processes.
+
+👉 **[Launch Interactive Troubleshooting Labs](https://www.devopspilot.com/lab/linux?tab=troubleshooting)**
 
 ---
 
