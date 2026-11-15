@@ -95,26 +95,33 @@ graph TD
     style CNT fill:#dcfce7,stroke:#22c55e,stroke-width:2px,color:#14532d
 ```
 
-Write the multi-stage Dockerfile.
+Write the multi-stage Dockerfile:
 
 ```bash
 [labuser@container ~]$ cat > Dockerfile << 'EOF'
 # --- Stage 1: Build ---
 FROM python:3.12 AS builder
-WORKDIR /build
-RUN pip install --no-cache-dir --target=/install flask
+WORKDIR /app
+RUN python -m venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
+RUN pip install flask
 
 # --- Stage 2: Runtime ---
 FROM python:3.12-slim
-ENV PYTHONPATH=/install
 WORKDIR /app
-COPY --from=builder /install /install
-COPY app.py .
+COPY --from=builder /opt/venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
+RUN echo 'import flask; print("Flask is ready!")' > app.py
 CMD ["python", "app.py"]
 EOF
 ```
 
-Build the multi-stage image.
+> **How does this fix the bloat?**
+> - **Stage 1 (Builder):** We start with the massive 1GB `python:3.12` image. We use it to create a virtual environment (`/opt/venv`) and install our dependencies (Flask) using all the heavy compilers and tools included in the image.
+> - **Stage 2 (Runtime):** We start completely fresh using `python:3.12-slim`, a lean (~120MB) base image sharing the same Debian runtime that *only* contains the Python interpreter and essential shared libraries without compilers.
+> - **The Magic:** The `COPY --from=builder` command securely copies the fully installed virtual environment *out* of the heavy builder stage and into our lean runtime stage. The builder stage (and its gigabytes of compilers/tools) is then thrown away!
+
+Build the multi-stage image:
 
 ```bash
 [labuser@container ~]$ docker build -t python-multi .
@@ -123,15 +130,11 @@ Build the multi-stage image.
  => => naming to docker.io/library/python-multi                           0.0s
 ```
 
-Run it to verify it works in the background and test it.
+Run it to verify it works:
 
 ```bash
-[labuser@container ~]$ docker run -d -p 8080:8080 --name test-app python-multi
-[labuser@container ~]$ sleep 2
-[labuser@container ~]$ curl localhost:8080
-[labuser@container ~]$ docker stop test-app && docker rm test-app
-
-Hello
+[labuser@container ~]$ docker run --rm python-multi
+Flask is ready!
 ```
 
 Finally, run `docker images | grep -E "python-single|python-multi"` to compare both image sizes side by side. 
@@ -142,7 +145,7 @@ python-single         latest    1a2b3c4d5e6f   2 minutes ago    1.02GB
 python-multi          latest    f1g2h3i4j5k6   15 seconds ago   165MB
 ```
 
-Observe that `python-multi` is dramatically smaller because the heavy Python build tools (`python:3.12`) are not present in the final image — only the installed dependencies and application code were copied over into the lightweight `python:3.12-slim` image.
+Observe that `python-multi` is dramatically smaller because the full Python development environment (`python:3.12`) is not present in the final image — only the application file and virtual environment were copied over into the lightweight `python:3.12-slim` image.
 
 ---
 

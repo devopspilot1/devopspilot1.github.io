@@ -138,30 +138,46 @@ Observe the build output. Because the `RUN` instruction changed, Docker invalida
 
 A `.dockerignore` file excludes files and directories from the build context. This prevents sensitive files (e.g., `.env`), large build artifacts (e.g., `node_modules/`), and source control metadata (e.g., `.git/`) from being sent to the daemon and potentially baked into the image.
 
-Assume we have dummy folders and files (`node_modules/`, `.git/`, and `.env`). View them.
+The environment has dummy folders and files (`node_modules/`, `.git/`, and `.env`). View them.
 
 ```bash
 [labuser@container ~]$ ls -la
 total 16
-drwxr-xr-x 5 user group 4096 Nov 01 12:00 .
-drwxr-xr-x 3 user group 4096 Nov 01 11:50 ..
-drwxr-xr-x 8 user group 4096 Nov 01 12:00 .git
--rw-r--r-- 1 user group   35 Nov 01 12:00 .env
--rw-r--r-- 1 user group  220 Nov 01 12:00 Dockerfile
-drwxr-xr-x 4 user group 4096 Nov 01 12:00 node_modules
+drwxr-xr-x 5 labuser labuser 4096 Nov 01 12:00 .
+drwxr-xr-x 3 labuser labuser 4096 Nov 01 11:50 ..
+drwxr-xr-x 8 labuser labuser 4096 Nov 01 12:00 .git
+-rw-r--r-- 1 labuser labuser   35 Nov 01 12:00 .env
+drwxr-xr-x 4 labuser labuser 4096 Nov 01 12:00 node_modules
 ```
 
-Build the image without a `.dockerignore` file to observe the build context transfer.
+Update your Dockerfile to copy the project files into the container:
 
 ```bash
-[labuser@container ~]$ docker build -t optimized-app:v1 .
-[+] Building 1.2s (5/5) FINISHED                                docker:default
- => [internal] load build context                                         0.8s
- => => transferring context: 15.2MB                                       0.7s
-...
+[labuser@container ~]$ cat > Dockerfile << 'EOF'
+FROM ubuntu:24.04
+WORKDIR /app
+COPY . .
+CMD ["bash"]
+EOF
 ```
 
-Notice the `transferring context` size. It might be over 15MB because it's sending the large dummy folders to the daemon. 
+Build the image without a `.dockerignore` file to observe the build context transfer:
+
+```bash
+[labuser@container ~]$ docker build -t context-app:v1 .
+[+] Building 1.2s (6/6) FINISHED                                docker:default
+ => [internal] load build definition from Dockerfile                      0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:24.04           0.0s
+ => [internal] load .dockerignore                                         0.0s
+ => [1/2] WORKDIR /app                                                    0.0s
+ => [internal] load build context                                         0.8s
+ => => transferring context: 10.5MB                                       0.7s
+ => [2/2] COPY . .                                                        0.2s
+ => exporting to image                                                    0.1s
+ => => naming to docker.io/library/context-app:v1                         0.0s
+```
+
+Observe the build output. Modern Docker uses **BuildKit**, which only transfers files requested by `COPY` or `ADD` instructions. Because the Dockerfile now includes `COPY . .`, notice that the `transferring context:` size is over 10MB as BuildKit transfers the heavy `node_modules/` directory across the daemon socket.
 
 Create a `.dockerignore` file:
 
@@ -174,17 +190,23 @@ node_modules
 EOF
 ```
 
-Rebuild the image to see the difference.
+Rebuild the image to see the difference:
 
 ```bash
-[labuser@container ~]$ docker build -t optimized-app:v1 .
+[labuser@container ~]$ docker build -t context-app:v1 .
 [+] Building 0.2s (6/6) FINISHED                                docker:default
+ => [internal] load build definition from Dockerfile                      0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:24.04           0.0s
+ => [internal] load .dockerignore                                         0.0s
+ => [1/2] WORKDIR /app                                                    0.0s
  => [internal] load build context                                         0.0s
  => => transferring context: 4.1kB                                        0.0s
-...
+ => [2/2] COPY . .                                                        0.1s
+ => exporting to image                                                    0.0s
+ => => naming to docker.io/library/context-app:v1                         0.0s
 ```
 
-Observe the output again. The context transfer is now nearly instant and very small (around 4kB), proving that the large folders and sensitive files were successfully ignored.
+Observe the build output again. Notice that `transferring context:` is now under 10kB! With `.dockerignore` active, BuildKit completely excludes heavy dependencies (`node_modules/`), source control history (`.git/`), and sensitive secrets (`.env`) from the build context.
 
 ---
 
@@ -291,7 +313,7 @@ Build the problematic image.
 [labuser@container ~]$ docker build -t layered-archive .
 ```
 
-Now, fix it by combining everything into a single `RUN` command. This ensures the archive is deleted *before* the layer is saved.
+Now, fix it by combining everything into a single `RUN` command. This ensures the 35MB archive is deleted *before* the layer is saved.
 
 ```bash
 [labuser@container ~]$ cat > Dockerfile << 'EOF'
@@ -314,11 +336,11 @@ List the images to see the difference.
 
 ```bash
 [labuser@container ~]$ docker images | grep -E "layered-archive|clean-archive"
-layered-archive   latest    12a34b56c78d   1 minute ago    173MB
-clean-archive     latest    98d76c54b32a   15 seconds ago  115MB
+layered-archive   latest    12a34b56c78d   1 minute ago    250MB
+clean-archive     latest    98d76c54b32a   15 seconds ago  215MB
 ```
 
-Observe the output. Even though both images end up with the exact same files in the final filesystem, `layered-archive` is significantly larger! The massive archive is permanently trapped in one of its intermediate layers.
+Observe the output. Even though both images end up with the exact same files in the final filesystem, `layered-archive` is 35MB larger (250MB vs 215MB)! The 35MB archive is permanently trapped in one of its intermediate layers.
 
 ## 🧠 Quick Quiz
 

@@ -26,14 +26,11 @@ graph TD
     style LIST fill:#f3f4f6,stroke:#9ca3af,stroke-width:2px,color:#1f2937
 ```
 
-Run `docker images` to see what images are currently cached on this system. Notice the columns output by the command — they will show you the image name, tag, unique ID, and its size.
+Run `docker images` to see what images are currently cached on this system. Because no images have been pulled yet, the image store is currently empty. In the next tasks, we will download images and observe them populated here.
 
 ```bash
 [labuser@container ~]$ docker images
-REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
-hello-world   latest    d2c94e258dcb   10 months ago   13.3kB
-ubuntu        24.04     3b418d7b466a   2 weeks ago     77.8MB
-nginx         1.30      f2a715f4e5c3   3 weeks ago     142MB
+REPOSITORY   TAG       IMAGE ID       CREATED   SIZE
 ```
 
 ---
@@ -234,31 +231,42 @@ Verify the `alpine:3.22` image still exists by running `docker images`. Only the
 
 ## Pull a Specific Image Digest
 
-Image tags are mutable — a publisher can update a tag to point to a new image. For reproducible builds, you can reference an image by its immutable content digest.
+Image tags are mutable — a publisher can update a tag like "latest" or "3.24" to point to a different image build or version at any time. For reproducible deployments and tamper-proof CI/CD pipelines, Docker allows referencing images by their immutable cryptographic content digest using the `@` symbol instead of a colon.
 
-Run `docker pull alpine:3.22` and note the digest shown in the output (the `sha256:...` line).
-
-To view the digest of a locally cached image, run `docker images --digests alpine`.
+To discover the remote digest of an image on Docker Hub before downloading it, you can inspect its registry manifest using `docker buildx imagetools inspect`. Run `docker buildx imagetools inspect alpine:3.24` and observe the top-level `Digest: sha256:...` line.
 
 ```bash
-[labuser@container ~]$ docker images --digests alpine
-REPOSITORY   TAG       DIGEST                                                                    IMAGE ID       CREATED      SIZE
-alpine       3.22      sha256:c5b1261d6d3e43071626931fc004f70149baeba2c8ec672bd4f27761f8e1ad6b   05455a08881e   3 days ago   7.38MB
+[labuser@container ~]$ docker buildx imagetools inspect alpine:3.24
+Name:      docker.io/library/alpine:3.24
+MediaType: application/vnd.oci.image.index.v1+json
+Digest:    sha256:48b0309ca019d89d40f670aa1bc06e426dc0931948452e8491e3d65087abc07d
 ```
 
-To pull an image using its exact digest, use the `@` symbol instead of a colon. The format is `docker pull alpine@sha256:<YOUR_DIGEST>`.
-
-Run `docker pull alpine@sha256:48b0309ca019d89d40f670aa1bc06e426dc0931948452e8491e3d65087abc07d` to pull the exact image.
+Instead of manually copying the long 64-character hash, extract and store the multi-platform index digest into a shell variable:
 
 ```bash
-[labuser@container ~]$ docker pull alpine@sha256:48b0309ca019d89d40f670aa1bc06e426dc0931948452e8491e3d65087abc07d
+[labuser@container ~]$ DIGEST=$(docker buildx imagetools inspect alpine:3.24 | grep '^Digest:' | awk '{print $2}')
+```
+
+Print the stored variable to verify the extracted SHA-256 digest:
+
+```bash
+[labuser@container ~]$ echo $DIGEST
+sha256:48b0309ca019d89d40f670aa1bc06e426dc0931948452e8491e3d65087abc07d
+```
+
+To pull an image using its exact digest instead of a tag, use the format `docker pull IMAGE@$DIGEST`.
+
+Run `docker pull alpine@$DIGEST` to pull the Alpine 3.24 image by its exact content digest. Docker automatically resolves and downloads the matching platform layers for your host architecture:
+
+```bash
+[labuser@container ~]$ docker pull alpine@$DIGEST
 docker.io/library/alpine@sha256:48b0309ca019d89d40f670aa1bc06e426dc0931948452e8491e3d65087abc07d: Pulling from library/alpine
-...
 Digest: sha256:48b0309ca019d89d40f670aa1bc06e426dc0931948452e8491e3d65087abc07d
 Status: Downloaded newer image for alpine@sha256:48b0309ca019d89d40f670aa1bc06e426dc0931948452e8491e3d65087abc07d
 ```
 
-Run `docker images` again to verify. You will notice the image is listed with its digest directly in the image name instead of a traditional tag.
+Run `docker images` again to verify. You will notice the image is listed with its digest directly in the image name instead of a traditional tag:
 
 ```bash
 [labuser@container ~]$ docker images
