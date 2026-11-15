@@ -159,6 +159,16 @@ Run `docker events --since 5m --until 0s` to replay the last 5 minutes of events
 
 Observe the events generated when you started `logdemo`.
 
+## 🎥 Video Tutorial — Docker Logging and Inspection (Guided Lab)
+
+Prefer learning by following along? Watch the step-by-step video tutorial demonstrating each command and verification in the real interactive lab environment:
+
+<div class="video-container">
+  <iframe src="https://www.youtube.com/embed/_v16h_vky0w" title="Docker Logging and Inspection - Guided Lab | DevopsPilot" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+---
+
 ## 🧠 Quick Quiz
 
 <quiz>

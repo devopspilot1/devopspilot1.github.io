@@ -185,6 +185,16 @@ docker: Error response from daemon: failed to create task for container: failed 
 
 It will fail! This proves that the multi-stage build successfully stripped out the massive build tools before producing the final image.
 
+## 🎥 Video Tutorial — Docker Multi-Stage Builds (Guided Lab)
+
+Prefer learning by following along? Watch the step-by-step video tutorial demonstrating each command and verification in the real interactive lab environment:
+
+<div class="video-container">
+  <iframe src="https://www.youtube.com/embed/142xT9RzjyE" title="Docker Multi-Stage Builds - Guided Lab | DevopsPilot" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+---
+
 ## 🧠 Quick Quiz
 
 <quiz>

@@ -82,6 +82,16 @@ f1g2h3i4j5k6   nginx:alpine   "/docker-entrypoint.…"   15 minutes ago   Up 15 
 
 Open `http://localhost:32768` (or the specific port assigned on your system) in your browser to confirm the dynamically mapped container is serving traffic!
 
+## 🎥 Video Tutorial — Docker Port Mapping (Guided Lab)
+
+Prefer learning by following along? Watch the step-by-step video tutorial demonstrating each command and verification in the real interactive lab environment:
+
+<div class="video-container">
+  <iframe src="https://www.youtube.com/embed/COVXDNischk" title="Docker Port Mapping - Guided Lab | DevopsPilot" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+---
+
 ## 🧠 Quick Quiz
 
 <quiz>

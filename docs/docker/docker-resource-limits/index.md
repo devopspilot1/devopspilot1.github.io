@@ -193,6 +193,16 @@ f1e2d3c4b5a6   memlimited   0.00%     2.34MiB / 64MiB       3.66%     1.2kB / 0B
 b2c3d4e5f6g7   cpulimited   25.04%    1.23MiB / 7.765GiB    0.02%     1.5kB / 0B    0B / 0B     1
 ```
 
+## 🎥 Video Tutorial — Docker Resource Limits (Guided Lab)
+
+Prefer learning by following along? Watch the step-by-step video tutorial demonstrating each command and verification in the real interactive lab environment:
+
+<div class="video-container">
+  <iframe src="https://www.youtube.com/embed/Tcdoh69YjrA" title="Docker Resource Limits - Guided Lab | DevopsPilot" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+---
+
 ## 🧠 Quick Quiz
 
 <quiz>

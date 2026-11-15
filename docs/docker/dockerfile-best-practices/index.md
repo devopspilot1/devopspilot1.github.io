@@ -342,6 +342,16 @@ clean-archive     latest    98d76c54b32a   15 seconds ago  215MB
 
 Observe the output. Even though both images end up with the exact same files in the final filesystem, `layered-archive` is 35MB larger (250MB vs 215MB)! The 35MB archive is permanently trapped in one of its intermediate layers.
 
+## 🎥 Video Tutorial — Dockerfile Best Practices (Guided Lab)
+
+Prefer learning by following along? Watch the step-by-step video tutorial demonstrating each command and verification in the real interactive lab environment:
+
+<div class="video-container">
+  <iframe src="https://www.youtube.com/embed/G8HPJ9MV7BU" title="Dockerfile Best Practices - Guided Lab | DevopsPilot" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+---
+
 ## 🧠 Quick Quiz
 
 <quiz>

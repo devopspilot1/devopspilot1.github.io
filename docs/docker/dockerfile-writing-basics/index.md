@@ -321,6 +321,16 @@ Check which random port was assigned.
 
 Open `http://localhost:32769` (or the specific port assigned on your system) in your browser to see the welcome page served by your container!
 
+## 🎥 Video Tutorial — Writing Your First Dockerfile (Guided Lab)
+
+Prefer learning by following along? Watch the step-by-step video tutorial demonstrating each command and verification in the real interactive lab environment:
+
+<div class="video-container">
+  <iframe src="https://www.youtube.com/embed/QmKcJU7S3os" title="Writing Your First Dockerfile - Guided Lab | DevopsPilot" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+---
+
 ## 🧠 Quick Quiz
 
 <quiz>

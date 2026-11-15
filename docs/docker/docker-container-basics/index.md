@@ -513,6 +513,16 @@ This message shows that your installation appears to be working correctly.
 
 Verify there is no leftover container by running `docker ps -a`. You will notice the `hello-world` container you just ran was instantly deleted upon exit!
 
+## 🎥 Video Tutorial — Docker Container Basics (Guided Lab)
+
+Prefer learning by following along? Watch the step-by-step video tutorial demonstrating each command and verification in the real interactive lab environment:
+
+<div class="video-container">
+  <iframe src="https://www.youtube.com/embed/jCgC6gt50KY" title="Docker Container Basics - Guided Lab | DevopsPilot" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+---
+
 ## 🧠 Quick Quiz
 
 <quiz>

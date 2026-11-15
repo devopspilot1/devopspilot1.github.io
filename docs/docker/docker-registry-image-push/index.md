@@ -227,6 +227,16 @@ localhost:5000/myapp   1.0       05455a08881e   3 days ago    7.38MB
 registry               3         123456789abc   2 weeks ago   25.4MB
 ```
 
+## 🎥 Video Tutorial — Docker Registry and Image Push (Guided Lab)
+
+Prefer learning by following along? Watch the step-by-step video tutorial demonstrating each command and verification in the real interactive lab environment:
+
+<div class="video-container">
+  <iframe src="https://www.youtube.com/embed/vJTLK-2J3Kg" title="Docker Registry and Image Push - Guided Lab | DevopsPilot" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+---
+
 ## 🧠 Quick Quiz
 
 <quiz>

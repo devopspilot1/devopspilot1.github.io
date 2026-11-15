@@ -21,6 +21,30 @@ This guide is ideal if you are:
 - Debugging **containerized applications**
 
 ---
+
+## 🎥 Docker Guided Lab Video Tutorials
+
+Prefer learning by watching and following along in real-time? Every Docker Guided Lab includes a full-length, synchronized video tutorial showing step-by-step terminal execution, command explanation, and live task validation:
+
+| # | Guided Lab Video | Duration | YouTube | Interactive Lab |
+|:---:|---|:---:|:---:|:---:|
+| 1 | **Docker Container Basics** | 14m 04s | [▶ Watch](https://youtu.be/jCgC6gt50KY) | [Start Tutorial](./docker-container-basics/index.md) |
+| 2 | **Docker Image Management** | 11m 14s | [▶ Watch](https://youtu.be/8y7t0mhc1Q8) | [Start Tutorial](./docker-image-management/index.md) |
+| 3 | **Docker Volumes and Persistence** | 10m 23s | [▶ Watch](https://youtu.be/9hnfaK7NADA) | [Start Tutorial](./docker-volumes-persistence/index.md) |
+| 4 | **Docker Networking Basics** | 10m 30s | [▶ Watch](https://youtu.be/p5Do_5Pvvy8) | [Start Tutorial](./docker-networking-basics/index.md) |
+| 5 | **Docker Environment Variables** | 4m 36s | [▶ Watch](https://youtu.be/qseYhFLsuY8) | [Start Tutorial](./docker-environment-variables/index.md) |
+| 6 | **Docker Port Mapping** | 2m 44s | [▶ Watch](https://youtu.be/COVXDNischk) | [Start Tutorial](./docker-port-mapping/index.md) |
+| 7 | **Writing Your First Dockerfile** | 9m 29s | [▶ Watch](https://youtu.be/QmKcJU7S3os) | [Start Tutorial](./dockerfile-writing-basics/index.md) |
+| 8 | **Dockerfile Best Practices** | 9m 17s | [▶ Watch](https://youtu.be/G8HPJ9MV7BU) | [Start Tutorial](./dockerfile-best-practices/index.md) |
+| 9 | **Docker Multi-Stage Builds** | 4m 25s | [▶ Watch](https://youtu.be/142xT9RzjyE) | [Start Tutorial](./docker-multi-stage-builds/index.md) |
+| 10 | **Docker Resource Limits** | 5m 14s | [▶ Watch](https://youtu.be/Tcdoh69YjrA) | [Start Tutorial](./docker-resource-limits/index.md) |
+| 11 | **Docker Logging and Inspection** | 4m 48s | [▶ Watch](https://youtu.be/_v16h_vky0w) | [Start Tutorial](./docker-logging-inspection/index.md) |
+| 12 | **Docker Registry and Image Push** | 7m 16s | [▶ Watch](https://youtu.be/vJTLK-2J3Kg) | [Start Tutorial](./docker-registry-image-push/index.md) |
+| 13 | **Docker Compose Fundamentals** | 5m 15s | [▶ Watch](https://youtu.be/kpcyUB-T9R4) | [Start Tutorial](./docker-compose-fundamentals/index.md) |
+| 14 | **Docker Compose Advanced** | 9m 48s | [▶ Watch](https://youtu.be/HZLCkBUznPg) | [Start Tutorial](./docker-compose-advanced/index.md) |
+
+---
+
 ## 🧭 Docker Learning Path
 
 Follow this order for best results 👇

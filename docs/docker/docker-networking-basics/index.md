@@ -357,6 +357,16 @@ b2c3d4e5f6a1   host      host      local
 c3d4e5f6a1b2   none      null      local
 ```
 
+## 🎥 Video Tutorial — Docker Networking Basics (Guided Lab)
+
+Prefer learning by following along? Watch the step-by-step video tutorial demonstrating each command and verification in the real interactive lab environment:
+
+<div class="video-container">
+  <iframe src="https://www.youtube.com/embed/p5Do_5Pvvy8" title="Docker Networking Basics - Guided Lab | DevopsPilot" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+---
+
 ## 🧠 Quick Quiz
 
 <quiz>
