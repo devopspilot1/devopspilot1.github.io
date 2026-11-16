@@ -29,9 +29,15 @@ GCP provides a vast array of services, but here are some of the core categories:
 *   **Cloud Pub/Sub:** Ingestion and delivery of events for streaming analytics and data integration pipelines.
 
 ### 5. Artificial Intelligence & Machine Learning
-*   **Vertex AI:** Build, deploy, and scale ML models faster, with pre-trained and custom tooling.
+*   **Gemini Enterprise Agent Platform (formerly Vertex AI):** Build, train, deploy, and operate ML and generative AI solutions.
 *   **Vision AI:** Derive insights from your images in the cloud or at the edge.
 *   **Natural Language AI:** Derive insights from unstructured text using Google machine learning.
+
+## Machine Learning and MLOps Learning Path
+
+Prepare for the **Google Cloud Professional Machine Learning Engineer** certification with our [guided PMLE course](mlops/index.md). It follows the official exam guide dated June 1, 2026 and includes a domain-by-domain objective map, practical labs, validation steps, and exam-style knowledge checks.
+
+Start with the [Google Skills Professional Machine Learning Engineer learning path](https://www.skills.google/paths/17) for Google's official courses and hands-on activities. Use the [official exam guide](https://services.google.com/fh/files/misc/professional_machine_learning_engineer_exam_guide_english_new.pdf) as the authority for exam objectives and weights.
 
 ## Benefits of Using GCP
 
