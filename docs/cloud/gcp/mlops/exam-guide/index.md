@@ -110,7 +110,7 @@ Weights are approximate and should be treated as the relative emphasis published
 - Scale the serving backend based on throughput, including Agent Platform Inference and containerized serving.
 - Tune models for production training and serving requirements.
 
-**Course mapping:** [Domain 4 guide](../04-serving-and-serving/index.md).
+**Course mapping:** [Domain 4 guide](../04-serving-and-scaling/index.md).
 
 ### 5. Automating and orchestrating ML pipelines (~18%)
 
