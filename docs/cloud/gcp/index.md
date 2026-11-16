@@ -33,6 +33,10 @@ GCP provides a vast array of services, but here are some of the core categories:
 *   **Vision AI:** Derive insights from your images in the cloud or at the edge.
 *   **Natural Language AI:** Derive insights from unstructured text using Google machine learning.
 
+## GCP Certifications
+
+Explore Google Cloud certifications by foundational, associate, and professional levels in the new [GCP Certifications section](certifications/index.md). It includes the current certification catalog, official preparation resources, and DevOpsPilot study guides.
+
 ## Machine Learning and MLOps Learning Path
 
 Prepare for the **Google Cloud Professional Machine Learning Engineer** certification with our [guided PMLE course](mlops/index.md). It follows the official exam guide dated June 1, 2026 and includes a domain-by-domain objective map, practical labs, validation steps, and exam-style knowledge checks.
