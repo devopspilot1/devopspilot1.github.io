@@ -35,9 +35,11 @@ jobs:
         run: mkdocs build --verbose
 
       - name: Copy CNAME
+        if: github.event_name != 'pull_request'
         run: cp docs/CNAME site/CNAME
 
       - name: Deploy to GitHub Pages
+        if: github.event_name != 'pull_request'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
