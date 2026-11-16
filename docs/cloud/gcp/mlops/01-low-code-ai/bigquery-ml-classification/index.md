@@ -43,18 +43,23 @@ This is a supervised **multiclass classification** problem:
 
 ```mermaid
 graph TD
-    A["Public Iris Dataset"] --> B["BigQuery SQL"]
-    B --> C["BigQuery ML CREATE MODEL"]
-    C --> D["ML.EVALUATE"]
-    C --> E["ML.PREDICT"]
-    D --> F["Review Metrics"]
-    E --> G["Predicted Species"]
-    classDef data fill:#e1f5fe,stroke:#0288d1,color:#01579b
-    classDef process fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    classDef output fill:#fff3e0,stroke:#ef6c00,color:#e65100
-    class A data
-    class B,C process
-    class D,E,F,G output
+    A["Public Iris Dataset"] --> B["BigQuery"]
+    B --> C["BigQuery ML Model"]
+    C --> D["Evaluation Metrics"]
+    C --> E["Predicted Species"]
+
+    classDef client   fill:#dbeafe,stroke:#93c5fd,color:#1e3a5f
+    classDef gateway  fill:#ede9fe,stroke:#a78bfa,color:#3b1f6e
+    classDef route    fill:#fef9c3,stroke:#fbbf24,color:#78350f
+    classDef service  fill:#dcfce7,stroke:#86efac,color:#14532d
+    classDef pods     fill:#ffedd5,stroke:#fdba74,color:#7c2d12
+    classDef storage  fill:#fce7f3,stroke:#f9a8d4,color:#831843
+    classDef external fill:#f1f5f9,stroke:#94a3b8,color:#1e293b
+
+    class A external
+    class B service
+    class C storage
+    class D,E service
 ```
 
 ## 3. Start the Google Skills lab
