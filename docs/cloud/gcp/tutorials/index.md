@@ -7,6 +7,11 @@ description: Overview of GCP Tutorials
 
 Welcome to the GCP Tutorials section.
 
+## Machine Learning and MLOps
+
+- [Google Cloud Professional Machine Learning Engineer (PMLE) learning path](../mlops/index.md) — domain-by-domain syllabus mapping, guided labs, validation steps, and exam practice.
+- [Official Google Skills PMLE learning path](https://www.skills.google/paths/17) — Google's 17 learning activities.
+
 ## Guides
 
 * [Artifact Registry Tutorials](artifact-registry/index.md)
