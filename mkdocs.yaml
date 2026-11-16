@@ -327,6 +327,17 @@ nav:
           - GKE Standard Autoscaling: cloud/gcp/tutorials/gke/gke-standard-autoscaling/index.md
           - GKE Workload Identity: cloud/gcp/tutorials/gke/gke-workload-identity-gcp-service-account/index.md
           - GKE Gateway API with Path-Based Routing: cloud/gcp/tutorials/gke/gke-gateway-api-path-routing/index.md
+      - Professional ML Engineer (PMLE):
+        - Course Overview: cloud/gcp/mlops/index.md
+        - Exam Guide and Objective Map: cloud/gcp/mlops/exam-guide/index.md
+        - 1. Architecting Low-Code AI Solutions:
+          - Domain Overview: cloud/gcp/mlops/01-low-code-ai/index.md
+          - BigQuery ML Classification Lab: cloud/gcp/mlops/01-low-code-ai/bigquery-ml-classification/index.md
+        - 2. Managing Data and Models: cloud/gcp/mlops/02-data-and-models/index.md
+        - 3. Scaling ML Models: cloud/gcp/mlops/03-scaling-ml-models/index.md
+        - 4. Serving and Scaling Models: cloud/gcp/mlops/04-serving-and-scaling/index.md
+        - 5. ML Pipelines and Automation: cloud/gcp/mlops/05-ml-pipelines/index.md
+        - 6. Monitoring AI Solutions: cloud/gcp/mlops/06-monitoring-ai/index.md
       - Projects:
         - Overview: cloud/gcp/projects/index.md
         - Deploy Python App to Cloud Run: cloud/gcp/projects/deploy-python-cloud-run/index.md
